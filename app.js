@@ -447,17 +447,16 @@ function resetPagePosition() {
 }
 
 function renderSummary() {
-  const allSessions = getAllSessions(state.data.topics);
-  const completeCount = allSessions.filter((day) => state.completions[day.id]).length;
-  const percent = percentage(completeCount, allSessions.length);
+  const topicProgress = getTopicProgress(state.data.topics);
+  const percent = topicProgress.percent;
 
   nodes.generatedLabel.textContent = `${state.user.name} - ${getSyncStatusLabel()} - data refreshed ${formatDateTime(state.data.generatedAt)}`;
   nodes.overallPercent.textContent = `${percent}%`;
-  nodes.overallSubtitle.textContent = `${completeCount} of ${allSessions.length} days complete`;
+  nodes.overallSubtitle.textContent = `${topicProgress.completed} of ${topicProgress.total} courses complete`;
   nodes.overallBar.style.width = `${percent}%`;
   nodes.totalTopics.textContent = state.data.topics.length;
-  nodes.completedDays.textContent = completeCount;
-  nodes.remainingDays.textContent = allSessions.length - completeCount;
+  nodes.completedDays.textContent = topicProgress.completed;
+  nodes.remainingDays.textContent = topicProgress.remaining;
 }
 
 function renderSignedOutState(error = "") {
@@ -1382,6 +1381,16 @@ function progressStats(sessions) {
   const total = sessions.length;
   const done = sessions.filter((day) => state.completions[day.id]).length;
   return { total, done, percent: percentage(done, total) };
+}
+
+function getTopicProgress(topics) {
+  const total = topics.length;
+  const completed = topics.filter((topic) =>
+    topic.subtopics.some((subtopic) =>
+      subtopic.sessions.some((session) => state.completions[session.id])
+    )
+  ).length;
+  return { total, completed, remaining: total - completed, percent: percentage(completed, total) };
 }
 
 function getPlannerBuckets() {
