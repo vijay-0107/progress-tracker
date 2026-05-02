@@ -2219,7 +2219,7 @@ function renderPlanPage() {
       </article>
       <article class="planner-column">
         <div class="section-heading-row compact-heading"><div><p class="eyebrow">Upcoming</p><h2>${planner.upcoming.length}</h2></div></div>
-        <div class="planner-list slim-list">${planner.upcoming.slice(0, 8).map((record, index) => renderPlannerItem(record, index + 1)).join("") || `<p class="muted-line">Nothing due in the next week.</p>`}</div>
+        <div class="planner-list slim-list">${planner.upcoming.slice(0, 8).map((record, index) => renderPlannerItem(record, index + 1)).join("") || `<p class="muted-line">Continue the queue you've already started.</p>`}</div>
       </article>
     </section>
   `;
@@ -2227,7 +2227,6 @@ function renderPlanPage() {
 
 function renderPlannerItem(record, index) {
   const review = getDayReview(record.day.id);
-  const dueText = record.planDate ? formatDate(record.planDate) : normalizeDate(record.day.date) ? formatDate(record.day.date) : "No date";
   const classes = ["planner-item"];
   if (state.completions[record.day.id]) {
     classes.push("done");
@@ -2243,7 +2242,6 @@ function renderPlannerItem(record, index) {
         <strong>${escapeHtml(record.day.title)}</strong>
         <small>${escapeHtml(record.topic.title)} / ${escapeHtml(record.subtopic.title)}</small>
       </span>
-      <span class="planner-meta">${escapeHtml(dueText)}</span>
     </button>
   `;
 }
