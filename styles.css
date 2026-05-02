@@ -97,7 +97,7 @@ h3 {
   top: 0;
   z-index: 20;
   display: grid;
-  grid-template-columns: auto minmax(240px, 1fr) auto auto;
+  grid-template-columns: minmax(260px, 1fr) auto minmax(0, max-content);
   align-items: center;
   gap: 16px;
   padding: 14px clamp(16px, 4vw, 48px);
@@ -133,6 +133,10 @@ h3 {
   min-width: 0;
 }
 
+.brand > span:last-child {
+  min-width: 0;
+}
+
 .brand strong {
   display: block;
   line-height: 1.1;
@@ -141,6 +145,9 @@ h3 {
 .brand small {
   display: block;
   margin-top: 2px;
+  max-width: min(520px, 36vw);
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--muted);
   font-size: 0.78rem;
   white-space: nowrap;
@@ -159,6 +166,7 @@ h3 {
 }
 
 .desktop-nav {
+  min-width: 0;
   justify-content: center;
   padding: 4px;
   border: 1px solid var(--line);
@@ -172,6 +180,7 @@ h3 {
   padding: 9px 12px;
   color: var(--muted);
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .desktop-nav a.active,
@@ -182,7 +191,19 @@ h3 {
 }
 
 .header-actions {
+  min-width: 0;
   justify-content: flex-end;
+}
+
+.header-actions .ghost-button,
+.header-actions .solid-button {
+  white-space: nowrap;
+}
+
+.account-button {
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon-button,
@@ -1076,6 +1097,7 @@ body.signed-out .summary-strip {
 }
 
 .planner-item,
+.missed-day-item,
 .weak-topic,
 .track-split {
   border: 1px solid var(--line);
@@ -1089,7 +1111,7 @@ body.signed-out .summary-strip {
   width: 100%;
   min-height: 76px;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) max-content;
   align-items: center;
   gap: 12px;
   padding: 10px;
@@ -1102,6 +1124,16 @@ body.signed-out .summary-strip {
 
 .planner-item.bookmarked {
   border-color: rgba(215, 122, 50, 0.42);
+}
+
+.missed-day-item {
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-left: 5px solid var(--rose);
 }
 
 .rank-pill {
@@ -1133,6 +1165,10 @@ body.signed-out .summary-strip {
   color: var(--muted);
   font-size: 0.82rem;
   font-weight: 800;
+}
+
+.planner-meta {
+  white-space: nowrap;
 }
 
 .analytics-grid {
@@ -1241,11 +1277,45 @@ body.signed-out .summary-strip {
   font-weight: 800;
 }
 
+.calendar-legend,
 .calendar-weekdays,
 .calendar-grid,
 .heatmap-grid {
   display: grid;
   gap: 8px;
+}
+
+.calendar-legend {
+  grid-template-columns: repeat(3, max-content);
+  align-items: center;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.calendar-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-dot.complete {
+  background: var(--brand);
+}
+
+.legend-dot.missed {
+  background: var(--rose);
+}
+
+.legend-dot.future {
+  background: var(--gold);
 }
 
 .calendar-weekdays,
@@ -1280,7 +1350,23 @@ body.signed-out .summary-strip {
   border-color: rgba(31, 111, 104, 0.48);
 }
 
-.calendar-cell.has-open::after {
+.calendar-cell.complete {
+  border-color: rgba(31, 111, 104, 0.48);
+  background: linear-gradient(180deg, rgba(31, 111, 104, 0.18), rgba(255, 255, 255, 0.94));
+}
+
+.calendar-cell.missed,
+.calendar-cell.today-open {
+  border-color: rgba(184, 78, 100, 0.44);
+  background: linear-gradient(180deg, rgba(184, 78, 100, 0.16), rgba(255, 255, 255, 0.94));
+}
+
+.calendar-cell.future {
+  border-color: rgba(183, 139, 30, 0.34);
+  background: linear-gradient(180deg, rgba(183, 139, 30, 0.12), rgba(255, 255, 255, 0.95));
+}
+
+.calendar-cell:not(.empty)::after {
   content: "";
   position: absolute;
   right: 8px;
@@ -1288,7 +1374,16 @@ body.signed-out .summary-strip {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--orange);
+  background: var(--gold);
+}
+
+.calendar-cell.complete::after {
+  background: var(--brand);
+}
+
+.calendar-cell.missed::after,
+.calendar-cell.today-open::after {
+  background: var(--rose);
 }
 
 .calendar-cell span,
@@ -1511,6 +1606,25 @@ body.signed-out .summary-strip {
 .toast.show {
   transform: translateY(0);
   opacity: 1;
+}
+
+@media (max-width: 1320px) {
+  .app-header {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .brand small {
+    max-width: 48vw;
+  }
 }
 
 @media (max-width: 1100px) {

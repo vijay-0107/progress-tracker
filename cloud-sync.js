@@ -3,6 +3,8 @@ import { firebaseConfig } from "./firebase-config.js";
 const FIREBASE_VERSION = "10.12.5";
 const COLLECTION_NAME = "studyProgressProfiles";
 const REQUIRED_CONFIG_FIELDS = ["apiKey", "authDomain", "projectId", "appId"];
+const DEFAULT_WEEKDAY_TARGET = 1;
+const DEFAULT_WEEKEND_TARGET = 4;
 
 let firebaseModules = null;
 let app = null;
@@ -143,7 +145,10 @@ function createInitialCloudProfile(firebaseUser) {
     profile: {
       name: formatEmailName(firebaseUser.email),
       email: firebaseUser.email,
-      dailyTarget: 3,
+      dailyTarget: DEFAULT_WEEKDAY_TARGET,
+      weekdayTarget: DEFAULT_WEEKDAY_TARGET,
+      weekendTarget: DEFAULT_WEEKEND_TARGET,
+      planStartDate: getLocalDateIso(new Date()),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     },
@@ -161,7 +166,10 @@ function normalizeCloudProfile(firebaseUser, data = {}) {
       cloudUid: firebaseUser.uid,
       name: profile.name || formatEmailName(firebaseUser.email),
       email: profile.email || firebaseUser.email,
-      dailyTarget: profile.dailyTarget || 3,
+      dailyTarget: profile.weekdayTarget || profile.dailyTarget || DEFAULT_WEEKDAY_TARGET,
+      weekdayTarget: profile.weekdayTarget || DEFAULT_WEEKDAY_TARGET,
+      weekendTarget: profile.weekendTarget || DEFAULT_WEEKEND_TARGET,
+      planStartDate: profile.planStartDate || getLocalDateIso(new Date()),
       createdAt: profile.createdAt || new Date().toISOString(),
       updatedAt: profile.updatedAt || new Date().toISOString(),
     },
@@ -192,4 +200,11 @@ function formatEmailName(email) {
     .split("@")[0]
     .replace(/[._-]+/g, " ")
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function getLocalDateIso(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }

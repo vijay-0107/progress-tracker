@@ -13,6 +13,9 @@ const LEGACY_COMPLETION_KEY = "progress-tracker-completion-v1";
 const LEGACY_NOTES_KEY = "progress-tracker-notes-v1";
 const USERS_KEY = "progress-tracker-users-v1";
 const ACTIVE_USER_KEY = "progress-tracker-active-user-v1";
+const DEFAULT_WEEKDAY_TARGET = 1;
+const DEFAULT_WEEKEND_TARGET = 4;
+const CALENDAR_WINDOW_DAYS = 42;
 
 const SCHEDULES = [
   {
@@ -170,6 +173,7 @@ async function mergeLocalProfileIntoCloud(firebaseUser, cloudData) {
 
 function applyCloudData(cloudData) {
   state.user = cloudData.profile;
+  const profileChanged = ensurePlanningDefaults();
   state.users[state.user.id] = state.user;
   saveUsers();
   localStorage.setItem(ACTIVE_USER_KEY, state.user.id);
@@ -179,6 +183,9 @@ function applyCloudData(cloudData) {
   persistLocalProgressOnly();
   state.cloud = getCloudState();
   updateAuthUi();
+  if (profileChanged && state.user?.cloudUid) {
+    queueCloudSave();
+  }
 }
 
 function queueCloudSave() {
@@ -208,7 +215,10 @@ function getCloudPayload() {
       cloudUid: state.user.cloudUid,
       name: state.user.name,
       email: state.user.email,
-      dailyTarget: getDailyTarget(),
+      dailyTarget: getWeekdayTarget(),
+      weekdayTarget: getWeekdayTarget(),
+      weekendTarget: getWeekendTarget(),
+      planStartDate: getPlanStartDate(),
       createdAt: state.user.createdAt,
       updatedAt: new Date().toISOString(),
     },
@@ -525,6 +535,7 @@ function renderCloudSetupNotice() {
 function renderHomePage() {
   const allStats = progressStats(getAllSessions(state.data.topics));
   const planner = getPlannerBuckets();
+  const todayTarget = getTargetForDate(new Date());
   nodes.app.innerHTML = `
     <section class="home-hero">
       <div class="hero-copy">
@@ -545,8 +556,8 @@ function renderHomePage() {
       </div>
     </section>
     <section class="mission-strip" aria-label="Planning summary">
-      ${renderMissionMetric("Overdue", planner.overdue.length, "Scheduled before today")}
-      ${renderMissionMetric("Today", planner.today.length, "Due today")}
+      ${renderMissionMetric("Streak", getCompletionStreak(), "Days with any course completed")}
+      ${renderMissionMetric("Today", `${planner.today.length}/${todayTarget}`, "Hours in current queue")}
       ${renderMissionMetric("Upcoming", planner.upcoming.length, "Next 7 days")}
       ${renderMissionMetric("Review", getReviewQueue().length, "Bookmarked or low confidence")}
     </section>
@@ -569,11 +580,11 @@ function renderMissionMetric(label, value, detail) {
 
 function renderPersonalDashboard() {
   const todays = getTodayRecords();
-  const next = getNextIncompleteRecord();
-  const target = getDailyTarget();
+  const target = getTargetForDate(new Date());
   const doneToday = getCompletedTodayCount();
   const streak = getCompletionStreak();
-  const planItems = getRecommendedRecords(4);
+  const planItems = todays;
+  const dayType = isWeekendDate(new Date()) ? "Weekend" : "Weekday";
 
   return `
     <section class="insight-grid" aria-label="Personal progress guidance">
@@ -583,7 +594,7 @@ function renderPersonalDashboard() {
           <span>${escapeHtml(getInitials(state.user.name))}</span>
           <div>
             <h2>${escapeHtml(state.user.name)}</h2>
-            <p>${doneToday} of ${target} target completions today</p>
+            <p>${doneToday} of ${target} planned ${formatHourLabel(target)} completed today</p>
           </div>
         </div>
         <div class="button-row">
@@ -594,7 +605,7 @@ function renderPersonalDashboard() {
       <article class="insight-card today-card">
         <p class="eyebrow">Today</p>
         <h2>Priority queue</h2>
-        <p class="muted-line">${todays.length ? `${todays.length} scheduled item${todays.length === 1 ? "" : "s"} today` : "No dated item today"}</p>
+        <p class="muted-line">${dayType} workload: ${target} ${formatHourLabel(target)}. Extra completions pull later work forward.</p>
         <div class="today-list">
           ${planItems.length ? planItems.map(renderTodayItem).join("") : `<p class="muted-line">Everything is complete. Nice and tidy.</p>`}
         </div>
@@ -632,7 +643,7 @@ function renderAccountPage() {
       <div>
         <p class="eyebrow">Profile</p>
         <h1>${escapeHtml(state.user.name)}</h1>
-        <p>This profile has its own completion state, notes, daily target, and export file.</p>
+        <p>This profile has its own completion state, notes, rolling plan start date, weekday/weekend workload, and export file.</p>
       </div>
       ${renderProgressDial(stats)}
     </section>
@@ -644,9 +655,14 @@ function renderAccountPage() {
           <input name="displayName" type="text" value="${escapeAttr(state.user.name)}" required>
         </label>
         <label>
-          <span>Daily completion target</span>
-          <input name="dailyTarget" type="number" min="1" max="20" value="${getDailyTarget()}" required>
+          <span>Weekday hours</span>
+          <input name="weekdayTarget" type="number" min="1" max="12" value="${getWeekdayTarget()}" required>
         </label>
+        <label>
+          <span>Weekend hours</span>
+          <input name="weekendTarget" type="number" min="1" max="12" value="${getWeekendTarget()}" required>
+        </label>
+        <p class="muted-line">Plan starts ${escapeHtml(formatDate(getPlanStartDate()))}. Your streak builds with any course completion per day and resets after 2 consecutive days without completions.</p>
         <button class="solid-button" type="submit">Save profile</button>
       </form>
       <article class="account-panel stat-panel">
@@ -1210,7 +1226,10 @@ function exportProgress() {
     profile: {
       id: state.user.id,
       name: state.user.name,
-      dailyTarget: getDailyTarget(),
+      dailyTarget: getWeekdayTarget(),
+      weekdayTarget: getWeekdayTarget(),
+      weekendTarget: getWeekendTarget(),
+      planStartDate: getPlanStartDate(),
       cloudUid: state.user.cloudUid || null,
       sync: getSyncStatusLabel(),
     },
@@ -1366,24 +1385,17 @@ function progressStats(sessions) {
 }
 
 function getPlannerBuckets() {
-  const today = getLocalDateIso(new Date());
-  const nextWeek = getLocalDateIso(addDays(new Date(), 7));
-  const incompleteRecords = getDayRecords().filter((record) => !state.completions[record.day.id]);
-  const overdue = incompleteRecords.filter((record) => normalizeDate(record.day.date) && normalizeDate(record.day.date) < today);
-  const todays = incompleteRecords.filter((record) => normalizeDate(record.day.date) === today);
-  const upcoming = incompleteRecords.filter((record) => {
-    const date = normalizeDate(record.day.date);
-    return date > today && date <= nextWeek;
-  });
-  return { overdue, today: todays, upcoming };
+  const todayIso = getLocalDateIso(new Date());
+  const missed = getCalendarCells().filter((cell) => cell.date < todayIso && cell.status === "missed");
+  return {
+    missed,
+    today: getTodayRecords(),
+    upcoming: getUpcomingPlanRecords(7),
+  };
 }
 
 function getRecommendedRecords(limit = 5) {
-  return getDayRecords()
-    .filter((record) => !state.completions[record.day.id])
-    .map((record) => ({ ...record, score: getPriorityScore(record) }))
-    .sort((first, second) => second.score - first.score || normalizeDate(first.day.date).localeCompare(normalizeDate(second.day.date)))
-    .slice(0, limit);
+  return getTodayRecords().slice(0, limit);
 }
 
 function getPriorityScore(record) {
@@ -1439,20 +1451,30 @@ function getCompletionTrend(days = 14) {
 function getCalendarCells() {
   const today = new Date();
   const start = addDays(today, -((today.getDay() + 6) % 7));
-  const recordsByDate = getDayRecords().reduce((accumulator, record) => {
-    const date = normalizeDate(record.day.date);
-    if (date) {
-      accumulator[date] = accumulator[date] || [];
-      accumulator[date].push(record);
-    }
-    return accumulator;
-  }, {});
+  const todayIso = getLocalDateIso(today);
+  const planStartDate = getPlanStartDate();
 
-  return Array.from({ length: 42 }, (_, index) => {
+  return Array.from({ length: CALENDAR_WINDOW_DAYS }, (_, index) => {
     const date = getLocalDateIso(addDays(start, index));
+    const target = date >= planStartDate ? getTargetForDate(date) : 0;
+    const completed = getCompletionCountForDate(date);
+    const records = date >= todayIso ? getPlanRecordsForDate(date) : getCompletedRecordsForDate(date);
+    let status = "empty";
+    if (target && date > todayIso) {
+      status = "future";
+    } else if (target && completed >= target) {
+      status = "complete";
+    } else if (target && date === todayIso) {
+      status = "today-open";
+    } else if (target && date < todayIso) {
+      status = "missed";
+    }
     return {
       date,
-      records: recordsByDate[date] || [],
+      completed,
+      records,
+      status,
+      target,
     };
   });
 }
@@ -1556,17 +1578,117 @@ function getDayRecords(topics = state.data?.topics || []) {
   return topics.flatMap((topic) => topic.subtopics.flatMap((subtopic) => subtopic.sessions.map((day) => ({ topic, subtopic, day }))));
 }
 
+function getIncompleteDayRecords(topics = state.data?.topics || []) {
+  return getDayRecords(topics).filter((record) => !state.completions[record.day.id]);
+}
+
 function getTodayRecords() {
-  const today = getLocalDateIso(new Date());
-  return getDayRecords().filter((record) => normalizeDate(record.day.date) === today);
+  return getPlanRecordsForDate(new Date());
 }
 
 function getNextIncompleteRecord(topics = state.data?.topics || []) {
-  return getDayRecords(topics).find((record) => !state.completions[record.day.id]) || null;
+  return getIncompleteDayRecords(topics)[0] || null;
 }
 
-function getDailyTarget() {
-  return Math.min(Math.max(Number.parseInt(state.user?.dailyTarget || 3, 10), 1), 20);
+function getPlanRecordsForDate(dateValue) {
+  const date = normalizeDateValue(dateValue);
+  if (!date || date < getPlanStartDate()) {
+    return [];
+  }
+  const startIndex = getPlanStartIndexForDate(date);
+  const target = getTargetForDate(date);
+  return getIncompleteDayRecords()
+    .slice(startIndex, startIndex + target)
+    .map((record, index) => decoratePlanRecord(record, date, index));
+}
+
+function getUpcomingPlanRecords(days = 7) {
+  const today = new Date();
+  return Array.from({ length: days }, (_, index) => getLocalDateIso(addDays(today, index + 1)))
+    .flatMap((date) => getPlanRecordsForDate(date));
+}
+
+function getPlanStartIndexForDate(date) {
+  const todayIso = getLocalDateIso(new Date());
+  if (date <= todayIso) {
+    return 0;
+  }
+
+  let index = Math.max(getTargetForDate(todayIso) - getCompletedTodayCount(), 0);
+  let cursor = addDays(parseLocalDate(todayIso), 1);
+  while (getLocalDateIso(cursor) < date) {
+    index += getTargetForDate(cursor);
+    cursor = addDays(cursor, 1);
+  }
+  return index;
+}
+
+function decoratePlanRecord(record, planDate, planIndex) {
+  return {
+    ...record,
+    planDate,
+    planIndex,
+    planTarget: getTargetForDate(planDate),
+  };
+}
+
+function getCompletedRecordsForDate(date) {
+  return getDayRecords().filter((record) => getCompletionDate(state.completions[record.day.id]) === date);
+}
+
+function getCompletionCountForDate(date) {
+  return getCompletedRecordsForDate(date).length;
+}
+
+function getDailyTarget(dateValue = new Date()) {
+  return getTargetForDate(dateValue);
+}
+
+function getTargetForDate(dateValue) {
+  return isWeekendDate(dateValue) ? getWeekendTarget() : getWeekdayTarget();
+}
+
+function getWeekdayTarget() {
+  return clampTarget(state.user?.weekdayTarget ?? DEFAULT_WEEKDAY_TARGET);
+}
+
+function getWeekendTarget() {
+  return clampTarget(state.user?.weekendTarget ?? DEFAULT_WEEKEND_TARGET);
+}
+
+function clampTarget(value) {
+  return Math.min(Math.max(Number.parseInt(value, 10) || DEFAULT_WEEKDAY_TARGET, 1), 12);
+}
+
+function getPlanStartDate() {
+  return normalizeDateValue(state.user?.planStartDate) || getLocalDateIso(new Date());
+}
+
+function ensurePlanningDefaults() {
+  return ensurePlanningDefaultsForProfile(state.user);
+}
+
+function ensurePlanningDefaultsForProfile(profile) {
+  if (!profile) {
+    return false;
+  }
+  let changed = false;
+  if (!normalizeDateValue(profile.planStartDate)) {
+    profile.planStartDate = getLocalDateIso(new Date());
+    changed = true;
+  }
+  if (!Number.isFinite(Number.parseInt(profile.weekdayTarget, 10))) {
+    profile.weekdayTarget = DEFAULT_WEEKDAY_TARGET;
+    changed = true;
+  }
+  if (!Number.isFinite(Number.parseInt(profile.weekendTarget, 10))) {
+    profile.weekendTarget = DEFAULT_WEEKEND_TARGET;
+    changed = true;
+  }
+  profile.weekdayTarget = clampTarget(profile.weekdayTarget);
+  profile.weekendTarget = clampTarget(profile.weekendTarget);
+  profile.dailyTarget = profile.weekdayTarget;
+  return changed;
 }
 
 function getCompletedTodayCount() {
@@ -1581,15 +1703,43 @@ function getCompletionStreak() {
   }
 
   let cursor = new Date();
-  if (!dates.has(getLocalDateIso(cursor))) {
+  const todayIso = getLocalDateIso(cursor);
+  
+  // If today has no completion, check yesterday
+  if (!dates.has(todayIso)) {
     cursor = addDays(cursor, -1);
+    const yesterdayIso = getLocalDateIso(cursor);
+    // If yesterday also has no completion, streak is 0 (2-day skip resets)
+    if (!dates.has(yesterdayIso)) {
+      return 0;
+    }
+    // Yesterday has completion, so start streak from there
   }
 
   let streak = 0;
-  while (dates.has(getLocalDateIso(cursor))) {
-    streak += 1;
+  let consecutiveMissed = 0;
+  
+  // Walk backwards from cursor
+  while (true) {
+    const currentDateIso = getLocalDateIso(cursor);
+    if (dates.has(currentDateIso)) {
+      streak += 1;
+      consecutiveMissed = 0; // Reset missed counter on completion
+    } else {
+      consecutiveMissed += 1;
+      if (consecutiveMissed >= 2) {
+        // 2 consecutive days without completion breaks the streak
+        break;
+      }
+    }
     cursor = addDays(cursor, -1);
+    
+    // Safety check: don't go before plan start date
+    if (getLocalDateIso(cursor) < getPlanStartDate()) {
+      break;
+    }
   }
+  
   return streak;
 }
 
@@ -1606,6 +1756,30 @@ function getCompletionDate(value) {
 
 function normalizeDate(value) {
   return String(value || "").slice(0, 10);
+}
+
+function normalizeDateValue(value) {
+  if (!value) {
+    return "";
+  }
+  if (value instanceof Date) {
+    return getLocalDateIso(value);
+  }
+  return normalizeDate(value);
+}
+
+function parseLocalDate(value) {
+  const normalized = normalizeDateValue(value);
+  return new Date(`${normalized}T00:00:00`);
+}
+
+function isWeekendDate(value) {
+  const day = parseLocalDate(value).getDay();
+  return day === 0 || day === 6;
+}
+
+function formatHourLabel(value) {
+  return Number(value) === 1 ? "hour" : "hours";
 }
 
 function getLocalDateIso(date) {
@@ -1837,7 +2011,8 @@ async function handleAuthSubmit(form) {
 
 function handleProfileSubmit(form) {
   const name = form.elements.displayName.value.trim();
-  const dailyTarget = Number.parseInt(form.elements.dailyTarget.value, 10);
+  const weekdayTarget = Number.parseInt(form.elements.weekdayTarget.value, 10);
+  const weekendTarget = Number.parseInt(form.elements.weekendTarget.value, 10);
 
   if (!name) {
     showToast("Display name is required");
@@ -1845,7 +2020,10 @@ function handleProfileSubmit(form) {
   }
 
   state.user.name = name;
-  state.user.dailyTarget = Number.isFinite(dailyTarget) ? Math.min(Math.max(dailyTarget, 1), 20) : getDailyTarget();
+  state.user.weekdayTarget = Number.isFinite(weekdayTarget) ? clampTarget(weekdayTarget) : getWeekdayTarget();
+  state.user.weekendTarget = Number.isFinite(weekendTarget) ? clampTarget(weekendTarget) : getWeekendTarget();
+  state.user.dailyTarget = state.user.weekdayTarget;
+  state.user.planStartDate = getPlanStartDate();
   state.user.updatedAt = new Date().toISOString();
   state.users[state.user.id] = state.user;
   saveUsers();
@@ -1934,12 +2112,16 @@ function signInProfile(identity, pin) {
       id,
       name: formatProfileName(identity),
       pinHash,
-      dailyTarget: 3,
+      dailyTarget: DEFAULT_WEEKDAY_TARGET,
+      weekdayTarget: DEFAULT_WEEKDAY_TARGET,
+      weekendTarget: DEFAULT_WEEKEND_TARGET,
+      planStartDate: getLocalDateIso(new Date()),
       createdAt: now,
       updatedAt: now,
     };
   }
 
+  ensurePlanningDefaultsForProfile(user);
   user.lastLoginAt = now;
   state.users[id] = user;
   saveUsers();
@@ -2016,7 +2198,9 @@ function saveUsers() {
 
 function renderPlanPage() {
   const planner = getPlannerBuckets();
-  const recommended = getRecommendedRecords(Math.max(getDailyTarget(), 5));
+  const todayTarget = getTargetForDate(new Date());
+  const recommended = getRecommendedRecords(todayTarget);
+  const dayType = isWeekendDate(new Date()) ? "weekend" : "weekday";
 
   nodes.app.innerHTML = `
     ${renderBreadcrumb([{ label: "Home", href: "#/home" }, { label: "Plan" }])}
@@ -2024,18 +2208,14 @@ function renderPlanPage() {
       <div>
         <p class="eyebrow">Smart planner</p>
         <h1>What to do next</h1>
-        <p>Built from schedule dates, completion status, bookmarks, and your daily target.</p>
+        <p>Today is a ${dayType} plan: ${todayTarget} ${formatHourLabel(todayTarget)}. Completing extra work pulls later lessons forward without changing the learning order.</p>
       </div>
       ${renderProgressDial(progressStats(getAllSessions(state.data.topics)))}
     </section>
     <section class="planner-layout">
       <article class="planner-column priority-column">
-        <div class="section-heading-row compact-heading"><div><p class="eyebrow">Priority queue</p><h2>${recommended.length} items</h2></div></div>
+        <div class="section-heading-row compact-heading"><div><p class="eyebrow">Priority queue</p><h2>${recommended.length} ${formatHourLabel(recommended.length)}</h2></div></div>
         <div class="planner-list">${recommended.length ? recommended.map((record, index) => renderPlannerItem(record, index + 1)).join("") : renderEmpty("No priority items", "You are fully caught up.")}</div>
-      </article>
-      <article class="planner-column">
-        <div class="section-heading-row compact-heading"><div><p class="eyebrow">Overdue</p><h2>${planner.overdue.length}</h2></div></div>
-        <div class="planner-list slim-list">${planner.overdue.slice(0, 8).map((record, index) => renderPlannerItem(record, index + 1)).join("") || `<p class="muted-line">No overdue work.</p>`}</div>
       </article>
       <article class="planner-column">
         <div class="section-heading-row compact-heading"><div><p class="eyebrow">Upcoming</p><h2>${planner.upcoming.length}</h2></div></div>
@@ -2047,7 +2227,7 @@ function renderPlanPage() {
 
 function renderPlannerItem(record, index) {
   const review = getDayReview(record.day.id);
-  const dueText = normalizeDate(record.day.date) ? formatDate(record.day.date) : "No date";
+  const dueText = record.planDate ? formatDate(record.planDate) : normalizeDate(record.day.date) ? formatDate(record.day.date) : "No date";
   const classes = ["planner-item"];
   if (state.completions[record.day.id]) {
     classes.push("done");
@@ -2067,6 +2247,8 @@ function renderPlannerItem(record, index) {
     </button>
   `;
 }
+
+
 
 function renderAnalyticsPage() {
   const allSessions = getAllSessions(state.data.topics);
@@ -2095,7 +2277,7 @@ function renderAnalyticsPage() {
       <article class="analytics-panel forecast-panel">
         <div class="panel-title"><p class="eyebrow">Forecast</p><h2>${forecast.daysRemaining} days</h2></div>
         <p>${escapeHtml(forecast.message)}</p>
-        <div class="forecast-row"><span>Daily target</span><strong>${getDailyTarget()}</strong></div>
+        <div class="forecast-row"><span>Today's target</span><strong>${getDailyTarget()}</strong></div>
         <div class="forecast-row"><span>Open sessions</span><strong>${allSessions.length - stats.done}</strong></div>
         <div class="forecast-row"><span>Review queue</span><strong>${getReviewQueue().length}</strong></div>
       </article>
@@ -2152,6 +2334,7 @@ function renderCalendarPage() {
   const cells = getCalendarCells();
   const heatmap = getCompletionTrend(35);
   const todayRecords = getTodayRecords();
+  const todayTarget = getTargetForDate(new Date());
 
   nodes.app.innerHTML = `
     ${renderBreadcrumb([{ label: "Home", href: "#/home" }, { label: "Calendar" }])}
@@ -2159,16 +2342,21 @@ function renderCalendarPage() {
       <div>
         <p class="eyebrow">Calendar</p>
         <h1>Schedule pressure map</h1>
-        <p>See what is due, what is complete, and whether your study rhythm is consistent.</p>
+        <p>Green days met the target. Red days missed it. Future days preview the rolling lesson order from your current progress.</p>
       </div>
       <div class="calendar-today-card">
         <strong>${todayRecords.length}</strong>
-        <span>items today</span>
+        <span>of ${todayTarget} ${formatHourLabel(todayTarget)}</span>
       </div>
     </section>
     <section class="calendar-layout">
       <article class="calendar-panel full-calendar">
-        <div class="section-heading-row compact-heading"><div><p class="eyebrow">Next 6 weeks</p><h2>Daily load</h2></div></div>
+        <div class="section-heading-row compact-heading"><div><p class="eyebrow">Next 6 weeks</p><h2>Progress calendar</h2></div></div>
+        <div class="calendar-legend" aria-label="Calendar legend">
+          <span><i class="legend-dot complete"></i>Complete</span>
+          <span><i class="legend-dot missed"></i>Incomplete</span>
+          <span><i class="legend-dot future"></i>Planned</span>
+        </div>
         <div class="calendar-weekdays">${["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => `<span>${day}</span>`).join("")}</div>
         <div class="calendar-grid">${cells.map(renderCalendarCell).join("")}</div>
       </article>
@@ -2181,17 +2369,19 @@ function renderCalendarPage() {
 }
 
 function renderCalendarCell(cell) {
-  const completed = cell.records.filter((record) => state.completions[record.day.id]).length;
-  const open = cell.records.length - completed;
   const isToday = cell.date === getLocalDateIso(new Date());
   const firstOpen = cell.records.find((record) => !state.completions[record.day.id]) || cell.records[0];
-  const load = Math.min(cell.records.length, 5);
+  const load = Math.min(cell.target || cell.records.length, 5);
+  const classes = ["calendar-cell", cell.status];
+  if (isToday) {
+    classes.push("today");
+  }
 
   return `
-    <button class="calendar-cell${isToday ? " today" : ""}${open ? " has-open" : ""}" type="button" ${firstOpen ? `data-action="open-day" data-day-id="${escapeAttr(firstOpen.day.id)}"` : "disabled"} style="--load:${load}">
+    <button class="${classes.join(" ")}" type="button" ${firstOpen ? `data-action="open-day" data-day-id="${escapeAttr(firstOpen.day.id)}"` : "disabled"} style="--load:${load}">
       <span>${escapeHtml(String(new Date(`${cell.date}T00:00:00`).getDate()))}</span>
-      <strong>${cell.records.length}</strong>
-      <small>${completed}/${cell.records.length || 0}</small>
+      <strong>${cell.target ? `${cell.completed}/${cell.target}` : "-"}</strong>
+      <small>${cell.target ? formatHourLabel(cell.target) : "No plan"}</small>
     </button>
   `;
 }
