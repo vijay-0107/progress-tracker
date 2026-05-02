@@ -1,6 +1,7 @@
 import {
   getCloudState,
   initCloudSync,
+  loadCloudScheduleData,
   loadCloudProfile,
   saveCloudProfile,
   signInOrCreateCloudAccount,
@@ -46,6 +47,8 @@ const state = {
   focusFilter: "all",
   activeDayId: null,
   cloud: getCloudState(),
+  dataSource: "local",
+  catalogError: "",
 };
 
 let cloudSaveTimer = null;
@@ -87,11 +90,7 @@ async function init() {
   }
 
   try {
-    const response = await fetch("schedule-data.json", { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(`Could not load schedule-data.json (${response.status})`);
-    }
-    state.data = await response.json();
+    state.data = await loadScheduleData();
     if (!location.hash) {
       location.hash = "#/home";
     }
@@ -106,6 +105,26 @@ async function init() {
       </section>
     `;
   }
+}
+
+async function loadScheduleData() {
+  if (state.cloud.configured && !state.cloud.error) {
+    try {
+      const cloudData = await loadCloudScheduleData();
+      state.dataSource = "cloud";
+      state.catalogError = "";
+      return cloudData;
+    } catch (error) {
+      state.catalogError = error.message || "Firestore catalog could not be loaded.";
+    }
+  }
+
+  const response = await fetch("schedule-data.json", { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`Could not load schedule-data.json (${response.status})`);
+  }
+  state.dataSource = "local";
+  return response.json();
 }
 
 async function initializeCloudSync() {
@@ -219,6 +238,9 @@ function getCloudPayload() {
       weekdayTarget: getWeekdayTarget(),
       weekendTarget: getWeekendTarget(),
       planStartDate: getPlanStartDate(),
+      lastPlanRebasedAt: state.user.lastPlanRebasedAt || "",
+      lastPlanRebaseReason: state.user.lastPlanRebaseReason || "",
+      lastStreakResetAt: state.user.lastStreakResetAt || "",
       createdAt: state.user.createdAt,
       updatedAt: new Date().toISOString(),
     },
@@ -450,7 +472,7 @@ function renderSummary() {
   const topicProgress = getTopicProgress(state.data.topics);
   const percent = topicProgress.percent;
 
-  nodes.generatedLabel.textContent = `${state.user.name} - ${getSyncStatusLabel()} - data refreshed ${formatDateTime(state.data.generatedAt)}`;
+  nodes.generatedLabel.textContent = `${state.user.name} - ${getSyncStatusLabel()} - ${getDataSourceLabel()} refreshed ${formatDateTime(state.data.generatedAt)}`;
   nodes.overallPercent.textContent = `${percent}%`;
   nodes.overallSubtitle.textContent = `${topicProgress.completed} of ${topicProgress.total} courses complete`;
   nodes.overallBar.style.width = `${percent}%`;
@@ -557,7 +579,7 @@ function renderHomePage() {
     <section class="mission-strip" aria-label="Planning summary">
       ${renderMissionMetric("Streak", getCompletionStreak(), "Days with any course completed")}
       ${renderMissionMetric("Today", `${planner.today.length}/${todayTarget}`, "Hours in current queue")}
-      ${renderMissionMetric("Upcoming", planner.upcoming.length, "Next 7 days")}
+      ${renderMissionMetric("Backlog", planner.backlog.length, "Pending before today")}
       ${renderMissionMetric("Review", getReviewQueue().length, "Bookmarked or low confidence")}
     </section>
     ${renderPersonalDashboard()}
@@ -1045,6 +1067,11 @@ function handlePageAction(action) {
     return;
   }
 
+  if (type === "reset-plan-dates") {
+    resetPlanDates();
+    return;
+  }
+
   if (type === "sign-out") {
     signOut();
     return;
@@ -1394,13 +1421,41 @@ function getTopicProgress(topics) {
 }
 
 function getPlannerBuckets() {
-  const todayIso = getLocalDateIso(new Date());
-  const missed = getCalendarCells().filter((cell) => cell.date < todayIso && cell.status === "missed");
   return {
-    missed,
+    backlog: getBacklogRecords(),
     today: getTodayRecords(),
     upcoming: getUpcomingPlanRecords(7),
   };
+}
+
+function getBacklogRecords() {
+  const expectedBeforeToday = getExpectedCompletionCountBeforeDate(new Date());
+  const completedCount = getCompletedSessionCount();
+  const backlogCount = Math.max(expectedBeforeToday - completedCount, 0);
+  return getIncompleteDayRecords()
+    .slice(0, backlogCount)
+    .map((record, index) => decoratePlanRecord(record, "pending", index));
+}
+
+function getExpectedCompletionCountBeforeDate(dateValue) {
+  const cutoffDate = normalizeDateValue(dateValue);
+  const planStartDate = getPlanStartDate();
+  if (!cutoffDate || !planStartDate || cutoffDate <= planStartDate) {
+    return 0;
+  }
+
+  let expected = 0;
+  let cursor = parseLocalDate(planStartDate);
+  const totalSessions = getDayRecords().length;
+  while (getLocalDateIso(cursor) < cutoffDate && expected < totalSessions) {
+    expected += getTargetForDate(cursor);
+    cursor = addDays(cursor, 1);
+  }
+  return Math.min(expected, totalSessions);
+}
+
+function getCompletedSessionCount() {
+  return getDayRecords().filter((record) => state.completions[record.day.id]).length;
 }
 
 function getRecommendedRecords(limit = 5) {
@@ -1706,7 +1761,7 @@ function getCompletedTodayCount() {
 }
 
 function getCompletionStreak() {
-  const dates = new Set(Object.values(state.completions).map(getCompletionDate).filter(Boolean));
+  const dates = getCompletionDates();
   if (!dates.size) {
     return 0;
   }
@@ -1750,6 +1805,10 @@ function getCompletionStreak() {
   }
   
   return streak;
+}
+
+function getCompletionDates() {
+  return new Set(Object.values(state.completions).map(getCompletionDate).filter(Boolean));
 }
 
 function getNotesCount() {
@@ -1842,7 +1901,12 @@ function setDayCompletion(dayId, value, persist = true) {
     return;
   }
   if (value) {
+    const shouldRebasePlan = shouldRebasePlanOnStreakRestart(dayId);
     state.completions[dayId] = state.completions[dayId] || { completedAt: new Date().toISOString() };
+    if (shouldRebasePlan) {
+      rebasePlanDates("streak-reset", false);
+      showToast("Streak restarted; plan dates reset to today");
+    }
   } else {
     delete state.completions[dayId];
   }
@@ -2082,6 +2146,10 @@ function getSyncStatusLabel() {
   return "Local storage mode";
 }
 
+function getDataSourceLabel() {
+  return state.dataSource === "cloud" ? "cloud catalog" : "local catalog";
+}
+
 function getFirebaseAuthMessage(error) {
   if (error?.code === "auth/email-already-in-use") {
     return "That email is already registered. Use the same password to sign in.";
@@ -2205,6 +2273,50 @@ function saveUsers() {
   localStorage.setItem(USERS_KEY, JSON.stringify(state.users));
 }
 
+function resetPlanDates() {
+  if (!state.user) {
+    showToast("Sign in to reset dates");
+    return;
+  }
+  rebasePlanDates("manual", true);
+  render();
+  showToast("Plan dates reset to today");
+}
+
+function rebasePlanDates(reason, queueSave) {
+  const now = new Date().toISOString();
+  state.user.planStartDate = getLocalDateIso(new Date());
+  state.user.lastPlanRebasedAt = now;
+  state.user.lastPlanRebaseReason = reason;
+  if (reason === "streak-reset") {
+    state.user.lastStreakResetAt = now;
+  }
+  state.user.updatedAt = now;
+  state.users[state.user.id] = state.user;
+  saveUsers();
+  if (queueSave) {
+    queueCloudSave();
+  }
+}
+
+function shouldRebasePlanOnStreakRestart(dayId) {
+  if (!state.user || state.completions[dayId]) {
+    return false;
+  }
+  const completionDates = getCompletionDates();
+  if (!completionDates.size) {
+    return false;
+  }
+  const today = getLocalDateIso(new Date());
+  const yesterday = getLocalDateIso(addDays(new Date(), -1));
+  if (completionDates.has(today) || completionDates.has(yesterday)) {
+    return false;
+  }
+  const sortedCompletionDates = [...completionDates].sort();
+  const latestCompletionDate = sortedCompletionDates[sortedCompletionDates.length - 1];
+  return Boolean(latestCompletionDate && latestCompletionDate < yesterday && getPlanStartDate() !== today);
+}
+
 function renderPlanPage() {
   const planner = getPlannerBuckets();
   const todayTarget = getTargetForDate(new Date());
@@ -2224,17 +2336,24 @@ function renderPlanPage() {
     <section class="planner-layout">
       <article class="planner-column priority-column">
         <div class="section-heading-row compact-heading"><div><p class="eyebrow">Priority queue</p><h2>${recommended.length} ${formatHourLabel(recommended.length)}</h2></div></div>
-        <div class="planner-list">${recommended.length ? recommended.map((record, index) => renderPlannerItem(record, index + 1)).join("") : renderEmpty("No priority items", "You are fully caught up.")}</div>
+        <div class="planner-list">${recommended.length ? recommended.map((record, index) => renderPlannerItem(record, index + 1, "Today")).join("") : renderEmpty("No priority items", "You are fully caught up.")}</div>
+      </article>
+      <article class="planner-column backlog-column">
+        <div class="section-heading-row compact-heading backlog-heading">
+          <div><p class="eyebrow">Backlog</p><h2>${planner.backlog.length} pending</h2></div>
+          <button class="ghost-button" type="button" data-action="reset-plan-dates" ${planner.backlog.length ? "" : "disabled"}>Reset dates</button>
+        </div>
+        <div class="planner-list slim-list">${planner.backlog.slice(0, 8).map((record, index) => renderPlannerItem(record, index + 1, "Pending")).join("") || `<p class="muted-line">No pending backlog.</p>`}</div>
       </article>
       <article class="planner-column">
         <div class="section-heading-row compact-heading"><div><p class="eyebrow">Upcoming</p><h2>${planner.upcoming.length}</h2></div></div>
-        <div class="planner-list slim-list">${planner.upcoming.slice(0, 8).map((record, index) => renderPlannerItem(record, index + 1)).join("") || `<p class="muted-line">Continue the queue you've already started.</p>`}</div>
+        <div class="planner-list slim-list">${planner.upcoming.slice(0, 8).map((record, index) => renderPlannerItem(record, index + 1, formatDate(record.planDate))).join("") || `<p class="muted-line">Continue the queue you've already started.</p>`}</div>
       </article>
     </section>
   `;
 }
 
-function renderPlannerItem(record, index) {
+function renderPlannerItem(record, index, dueText = "") {
   const review = getDayReview(record.day.id);
   const classes = ["planner-item"];
   if (state.completions[record.day.id]) {
@@ -2251,6 +2370,7 @@ function renderPlannerItem(record, index) {
         <strong>${escapeHtml(record.day.title)}</strong>
         <small>${escapeHtml(record.topic.title)} / ${escapeHtml(record.subtopic.title)}</small>
       </span>
+      ${dueText ? `<span class="planner-meta">${escapeHtml(dueText)}</span>` : ""}
     </button>
   `;
 }

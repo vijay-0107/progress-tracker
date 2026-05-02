@@ -18,7 +18,7 @@ http://127.0.0.1:5177/
 
 ## Enable Real Anywhere Sync
 
-The app is already wired for Firebase Auth and Firestore. Keep the committed `firebase-config.js` blank. The GitHub Pages workflow generates the deployed config from repository secrets so Firebase identifiers are not stored in source control.
+The app is wired for Firebase Auth, Firestore profile sync, and Firestore-backed course catalog loading. Keep the committed `firebase-config.js` blank. The GitHub Pages workflow generates the deployed config from repository secrets so Firebase identifiers are not stored in source control.
 
 Detailed setup checklist: [`FIREBASE_SETUP.md`](FIREBASE_SETUP.md)
 
@@ -33,6 +33,7 @@ Detailed setup checklist: [`FIREBASE_SETUP.md`](FIREBASE_SETUP.md)
 9. In Firebase Authentication `Settings` > `Authorized domains`, add `vijay-0107.github.io`.
 10. Restrict the Firebase Web API key in Google Cloud Console to HTTP referrers for `https://vijay-0107.github.io/*` and local development URLs you use.
 11. Publish the Firestore rules from `firebase.rules`.
+12. Upload the course catalog from `schedule-data.json` into Firestore.
 
 Firestore rules:
 
@@ -41,6 +42,16 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    match /studyProgressCatalog/{catalogId} {
+      allow read: if true;
+      allow write: if false;
+
+      match /{document=**} {
+        allow read: if true;
+        allow write: if false;
+      }
+    }
+
     match /studyProgressProfiles/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
@@ -48,15 +59,22 @@ service cloud.firestore {
 }
 ```
 
-After this, the sign-in page changes to cloud mode. Sign in with email/password from any device and the same completions, notes, review flags, and preferences will sync.
+Upload the catalog with local admin credentials kept outside the repo:
+
+```powershell
+python -m pip install firebase-admin
+python upload_schedule_to_firestore.py --service-account C:\path\to\service-account.json --project-id progress-tracker-6ff13
+```
+
+After this, the sign-in page changes to cloud mode. Sign in with email/password from any device and the same catalog, completions, notes, review flags, and preferences will sync. If the catalog is not uploaded yet, the app falls back to the local `schedule-data.json` file.
 
 ## Host With GitHub Pages
 
 1. Create a GitHub repository.
 2. Push these files to the repo root.
 3. In GitHub, open `Settings` > `Pages`.
-4. Choose `Deploy from a branch`.
-5. Select branch `main` and folder `/root`.
+4. Set `Build and deployment` > `Source` to `GitHub Actions`.
+5. Add the Firebase web app values as repository secrets before deploying.
 6. Your app link will look like:
 
 ```text

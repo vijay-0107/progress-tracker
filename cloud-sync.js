@@ -2,6 +2,8 @@ import { firebaseConfig } from "./firebase-config.js";
 
 const FIREBASE_VERSION = "10.12.5";
 const COLLECTION_NAME = "studyProgressProfiles";
+const CATALOG_COLLECTION_NAME = "studyProgressCatalog";
+const CATALOG_ID = "current";
 const REQUIRED_CONFIG_FIELDS = ["apiKey", "authDomain", "projectId", "appId"];
 const DEFAULT_WEEKDAY_TARGET = 1;
 const DEFAULT_WEEKEND_TARGET = 4;
@@ -80,6 +82,23 @@ export async function loadCloudProfile(firebaseUser) {
   return normalizeCloudProfile(firebaseUser, snapshot.data());
 }
 
+export async function loadCloudScheduleData() {
+  assertCloudReady();
+  const catalogReference = firebaseModules.doc(db, CATALOG_COLLECTION_NAME, CATALOG_ID);
+  const [catalogSnapshot, topics, subtopics, sessions] = await Promise.all([
+    firebaseModules.getDoc(catalogReference),
+    getCatalogCollection("topics"),
+    getCatalogCollection("subtopics"),
+    getCatalogCollection("sessions"),
+  ]);
+
+  if (!catalogSnapshot.exists() || !topics.length || !sessions.length) {
+    throw new Error("Firestore catalog is not uploaded yet.");
+  }
+
+  return buildScheduleData(catalogSnapshot.data(), topics, subtopics, sessions);
+}
+
 export function watchCloudProfile(firebaseUser, onChange) {
   assertCloudReady();
   stopCloudWatch();
@@ -113,6 +132,47 @@ function getProfileReference(uid) {
   return firebaseModules.doc(db, COLLECTION_NAME, uid);
 }
 
+async function getCatalogCollection(collectionName) {
+  const reference = firebaseModules.collection(db, CATALOG_COLLECTION_NAME, CATALOG_ID, collectionName);
+  const snapshot = await firebaseModules.getDocs(firebaseModules.query(reference, firebaseModules.orderBy("order")));
+  return snapshot.docs.map((documentSnapshot) => ({ ...documentSnapshot.data(), id: documentSnapshot.id }));
+}
+
+function buildScheduleData(catalog, topics, subtopics, sessions) {
+  const sessionsBySubtopic = groupBy(sessions, "subtopicId");
+  const subtopicsByTopic = groupBy(subtopics, "topicId");
+  return {
+    generatedAt: catalog.generatedAt || new Date().toISOString(),
+    sources: catalog.sources || [],
+    totalTopics: catalog.totalTopics || topics.length,
+    totalSessions: catalog.totalSessions || sessions.length,
+    topics: topics.map((topic) => ({
+      ...stripCatalogFields(topic),
+      subtopics: (subtopicsByTopic[topic.id] || []).map((subtopic) => ({
+        ...stripCatalogFields(subtopic),
+        sessions: (sessionsBySubtopic[subtopic.id] || []).map(stripCatalogFields),
+      })),
+    })),
+  };
+}
+
+function groupBy(items, key) {
+  return items.reduce((groups, item) => {
+    const groupKey = item[key];
+    if (!groupKey) {
+      return groups;
+    }
+    groups[groupKey] = groups[groupKey] || [];
+    groups[groupKey].push(item);
+    return groups;
+  }, {});
+}
+
+function stripCatalogFields(item) {
+  const { order, topicId, subtopicId, ...data } = item;
+  return data;
+}
+
 function getMissingConfigFields() {
   return REQUIRED_CONFIG_FIELDS.filter((field) => !String(firebaseConfig[field] || "").trim());
 }
@@ -132,8 +192,12 @@ async function loadFirebaseModules() {
     createUserWithEmailAndPassword: authModule.createUserWithEmailAndPassword,
     signOut: authModule.signOut,
     getFirestore: firestoreModule.getFirestore,
+    collection: firestoreModule.collection,
     doc: firestoreModule.doc,
     getDoc: firestoreModule.getDoc,
+    getDocs: firestoreModule.getDocs,
+    orderBy: firestoreModule.orderBy,
+    query: firestoreModule.query,
     setDoc: firestoreModule.setDoc,
     onSnapshot: firestoreModule.onSnapshot,
     serverTimestamp: firestoreModule.serverTimestamp,
@@ -170,6 +234,9 @@ function normalizeCloudProfile(firebaseUser, data = {}) {
       weekdayTarget: profile.weekdayTarget || DEFAULT_WEEKDAY_TARGET,
       weekendTarget: profile.weekendTarget || DEFAULT_WEEKEND_TARGET,
       planStartDate: profile.planStartDate || getLocalDateIso(new Date()),
+      lastPlanRebasedAt: profile.lastPlanRebasedAt || "",
+      lastPlanRebaseReason: profile.lastPlanRebaseReason || "",
+      lastStreakResetAt: profile.lastStreakResetAt || "",
       createdAt: profile.createdAt || new Date().toISOString(),
       updatedAt: profile.updatedAt || new Date().toISOString(),
     },
