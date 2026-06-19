@@ -69,6 +69,8 @@ const nodes = {
   drawerExport: document.getElementById("drawerExport"),
   jumpNext: document.getElementById("jumpNext"),
   drawerJumpNext: document.getElementById("drawerJumpNext"),
+  signOutButton: document.getElementById("signOutButton"),
+  drawerSignOut: document.getElementById("drawerSignOut"),
   openNav: document.getElementById("openNav"),
   closeNav: document.getElementById("closeNav"),
   mobileDrawer: document.getElementById("mobileDrawer"),
@@ -396,6 +398,8 @@ function bindEvents() {
   nodes.drawerAccount.addEventListener("click", openAccountView);
   nodes.jumpNext.addEventListener("click", jumpToNextIncomplete);
   nodes.drawerJumpNext.addEventListener("click", jumpToNextIncomplete);
+  nodes.signOutButton.addEventListener("click", signOut);
+  nodes.drawerSignOut.addEventListener("click", signOut);
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
@@ -2163,6 +2167,9 @@ function updateAuthUi() {
   nodes.drawerAccount.textContent = signedIn ? `Profile: ${state.user.name}` : "Sign in";
   [nodes.jumpNext, nodes.drawerJumpNext, nodes.exportProgress, nodes.drawerExport].forEach((button) => {
     button.disabled = !signedIn;
+  });
+  [nodes.signOutButton, nodes.drawerSignOut].forEach((button) => {
+    button.classList.toggle("is-hidden", !signedIn);
   });
 }
 

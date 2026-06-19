@@ -19,6 +19,10 @@
   box-sizing: border-box;
 }
 
+.is-hidden {
+  display: none !important;
+}
+
 html {
   scroll-behavior: auto;
   overflow-anchor: none;
@@ -252,6 +256,15 @@ h3 {
 
 .danger-button {
   background: var(--rose);
+}
+
+.sign-out-button {
+  color: var(--rose);
+  border-color: rgba(184, 78, 100, 0.4);
+}
+
+.sign-out-button:hover {
+  background: rgba(184, 78, 100, 0.08);
 }
 
 .google-button {
