@@ -5,6 +5,7 @@ import {
   loadCloudProfile,
   saveCloudProfile,
   signInOrCreateCloudAccount,
+  signInWithGoogle,
   signOutCloudAccount,
   stopCloudWatch,
   watchCloudProfile,
@@ -512,7 +513,7 @@ function renderAuthPanel(error = "") {
       <form class="auth-card" data-auth-form>
         <p class="eyebrow">${isCloudMode ? "Cloud sync" : "Personal tracker"}</p>
         <h1>${isCloudMode ? "Sign in anywhere" : "Sign in"}</h1>
-        <p>${isCloudMode ? "Use email/password login. Your completion, notes, review queue, and preferences sync through Firestore." : "Use a local profile so completion, notes, streaks, and exports stay separate for each user on this browser."}</p>
+        <p>${isCloudMode ? "Use email/password or Google login. Your completion, notes, review queue, and preferences sync through Firestore." : "Use a local profile so completion, notes, streaks, and exports stay separate for each user on this browser."}</p>
         ${error ? `<div class="form-error">${escapeHtml(error)}</div>` : ""}
         <label>
           <span>${isCloudMode ? "Email" : "Name or email"}</span>
@@ -523,6 +524,18 @@ function renderAuthPanel(error = "") {
           <input name="profilePin" type="password" autocomplete="current-password" minlength="${isCloudMode ? "6" : "4"}" placeholder="${isCloudMode ? "6+ characters" : "4+ digits"}" required>
         </label>
         <button class="solid-button" type="submit">${isCloudMode ? "Continue with cloud sync" : "Continue"}</button>
+        ${isCloudMode ? `
+          <div class="auth-divider"><span>or</span></div>
+          <button class="google-button" type="button" data-action="google-signin">
+            <svg class="google-icon" viewBox="0 0 18 18" aria-hidden="true" focusable="false">
+              <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/>
+              <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"/>
+              <path fill="#FBBC05" d="M3.97 10.72A5.41 5.41 0 0 1 3.68 9c0-.6.1-1.18.29-1.72V4.95H.96A9 9 0 0 0 0 9c0 1.45.35 2.82.96 4.05l3.01-2.33z"/>
+              <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59C13.46.89 11.43 0 9 0A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"/>
+            </svg>
+            <span>Continue with Google</span>
+          </button>
+        ` : ""}
         ${state.cloud.error ? `<div class="form-error">Cloud sync is configured but failed to start: ${escapeHtml(state.cloud.error)}</div>` : ""}
         ${!isCloudMode ? renderCloudSetupNotice() : ""}
         ${profileList ? `<div class="profile-list"><strong>Existing local profiles</strong><div>${profileList}</div></div>` : ""}
@@ -1027,6 +1040,11 @@ function handlePageAction(action) {
       input.value = action.dataset.profileName || "";
       pin?.focus();
     }
+    return;
+  }
+
+  if (type === "google-signin") {
+    handleGoogleSignIn();
     return;
   }
 
@@ -2082,6 +2100,24 @@ async function handleAuthSubmit(form) {
   navigateTo("#/home");
 }
 
+async function handleGoogleSignIn() {
+  if (!state.cloud.configured || state.cloud.error) {
+    showToast("Cloud sync is not configured for Google sign-in");
+    return;
+  }
+  try {
+    const firebaseUser = await signInWithGoogle();
+    await loadCloudUser(firebaseUser, true);
+    showToast(`Signed in as ${state.user.name}`);
+    navigateTo("#/home");
+  } catch (error) {
+    if (error?.code === "auth/popup-closed-by-user" || error?.code === "auth/cancelled-popup-request") {
+      return;
+    }
+    renderSignedOutState(getFirebaseAuthMessage(error));
+  }
+}
+
 function handleProfileSubmit(form) {
   const name = form.elements.displayName.value.trim();
   const weekdayTarget = Number.parseInt(form.elements.weekdayTarget.value, 10);
@@ -2162,6 +2198,18 @@ function getFirebaseAuthMessage(error) {
   }
   if (error?.code === "auth/invalid-email") {
     return "Enter a valid email address for cloud sync.";
+  }
+  if (error?.code === "auth/account-exists-with-different-credential") {
+    return "This email is already registered with a different sign-in method. Use that method instead.";
+  }
+  if (error?.code === "auth/popup-blocked") {
+    return "The Google sign-in popup was blocked. Allow popups for this site and retry.";
+  }
+  if (error?.code === "auth/unauthorized-domain") {
+    return "This domain is not authorized in Firebase Auth. Add it under Authentication > Settings > Authorized domains.";
+  }
+  if (error?.code === "auth/operation-not-allowed") {
+    return "Google sign-in is not enabled in Firebase. Enable the Google provider in Authentication.";
   }
   return error?.message || "Cloud sign-in failed.";
 }

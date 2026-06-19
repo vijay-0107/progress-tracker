@@ -62,6 +62,13 @@ export async function signInOrCreateCloudAccount(email, password) {
   }
 }
 
+export async function signInWithGoogle() {
+  assertCloudReady();
+  const provider = new firebaseModules.GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: "select_account" });
+  return (await firebaseModules.signInWithPopup(auth, provider)).user;
+}
+
 export async function signOutCloudAccount() {
   if (!auth) {
     return;
@@ -190,6 +197,8 @@ async function loadFirebaseModules() {
     onAuthStateChanged: authModule.onAuthStateChanged,
     signInWithEmailAndPassword: authModule.signInWithEmailAndPassword,
     createUserWithEmailAndPassword: authModule.createUserWithEmailAndPassword,
+    GoogleAuthProvider: authModule.GoogleAuthProvider,
+    signInWithPopup: authModule.signInWithPopup,
     signOut: authModule.signOut,
     getFirestore: firestoreModule.getFirestore,
     collection: firestoreModule.collection,
@@ -207,7 +216,7 @@ async function loadFirebaseModules() {
 function createInitialCloudProfile(firebaseUser) {
   return normalizeCloudProfile(firebaseUser, {
     profile: {
-      name: formatEmailName(firebaseUser.email),
+      name: getCloudUserName(firebaseUser),
       email: firebaseUser.email,
       dailyTarget: DEFAULT_WEEKDAY_TARGET,
       weekdayTarget: DEFAULT_WEEKDAY_TARGET,
@@ -228,7 +237,7 @@ function normalizeCloudProfile(firebaseUser, data = {}) {
     profile: {
       id: `cloud-${firebaseUser.uid}`,
       cloudUid: firebaseUser.uid,
-      name: profile.name || formatEmailName(firebaseUser.email),
+      name: profile.name || getCloudUserName(firebaseUser),
       email: profile.email || firebaseUser.email,
       dailyTarget: profile.weekdayTarget || profile.dailyTarget || DEFAULT_WEEKDAY_TARGET,
       weekdayTarget: profile.weekdayTarget || DEFAULT_WEEKDAY_TARGET,
@@ -260,6 +269,14 @@ function assertCloudReady() {
   if (!cloudState.configured || !firebaseModules || !auth || !db) {
     throw new Error("Firebase is not configured yet.");
   }
+}
+
+function getCloudUserName(firebaseUser) {
+  const displayName = String(firebaseUser?.displayName || "").trim();
+  if (displayName) {
+    return displayName;
+  }
+  return formatEmailName(firebaseUser?.email);
 }
 
 function formatEmailName(email) {

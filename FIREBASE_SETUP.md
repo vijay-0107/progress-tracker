@@ -10,18 +10,21 @@ The app contains Firebase Auth, Firestore profile sync, and Firestore catalog lo
 4. Google Analytics is optional for this app.
 5. Finish project creation.
 
-## 2. Enable Email/Password Login
+## 2. Enable Email/Password And Google Login
 
 1. In Firebase, open **Build** > **Authentication**.
 2. Click **Get started** if prompted.
 3. Open **Sign-in method**.
 4. Enable **Email/Password**.
-5. Open **Settings** > **Authorized domains**.
-6. Add this domain:
+5. Click **Add new provider**, choose **Google**, enable it, pick a support email, and save.
+6. Open **Settings** > **Authorized domains**.
+7. Add this domain:
 
 ```text
 vijay-0107.github.io
 ```
+
+For local testing, `localhost` and `127.0.0.1` are authorized by default. The Google sign-in popup only works on these authorized domains.
 
 ## 3. Create Firestore
 
@@ -150,4 +153,4 @@ After repository secrets are added, Firestore rules are published, the catalog i
 https://vijay-0107.github.io/progress-tracker/
 ```
 
-The sign-in screen should change from **Local storage mode** to **Firestore ready**. Sign in with an email and a password of at least 6 characters. The same account will sync catalog data, progress, notes, review flags, and profile preferences across devices.
+The sign-in screen should change from **Local storage mode** to **Firestore ready**. Sign in with an email and a password of at least 6 characters, or click **Continue with Google** to use a Gmail account. The same account will sync catalog data, progress, notes, review flags, and profile preferences across devices.
