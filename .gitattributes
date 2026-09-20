@@ -1,0 +1,13 @@
+# Keep source/provenance checksums stable across Windows and Linux.
+src/** text eol=lf
+scripts/** text eol=lf
+tests/** text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+index.html text eol=lf
+firebase.rules text eol=lf
+public/books/*.pdf binary
+# Preserve the upstream license text verbatim, including its whitespace.
+public/books/d2l-license.txt -text -whitespace

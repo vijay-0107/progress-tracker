@@ -7,3 +7,14 @@ __pycache__/
 service-account*.json
 firebase-service-account*.json
 *-firebase-adminsdk-*.json
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+*-debug.log
+public/firebase-config.local.js
+firebase-export/
+.firebase/
+.qa-preview/
+.e2e-preview/

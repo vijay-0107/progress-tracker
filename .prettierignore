@@ -1,0 +1,10 @@
+src/content/tracks/
+src/content/hosted-books.json
+src/content/verified-embeds.json
+public/
+node_modules/
+dist/
+.qa-preview/
+.e2e-preview/
+test-results/
+playwright-report/

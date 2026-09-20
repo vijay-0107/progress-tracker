@@ -1,0 +1,3303 @@
+{
+  "schemaVersion": 1,
+  "trackId": "sde",
+  "title": "SDE: Transactional Applications, Reliable Delivery, and Production Ownership",
+  "sourceCheckedOn": "2026-09-20",
+  "resources": [
+    {
+      "id": "sde-book-django",
+      "kind": "book",
+      "title": "Django 5.2 documentation: tutorial and reference manual",
+      "url": "https://docs.djangoproject.com/en/5.2/",
+      "provider": "Django Software Foundation and contributors",
+      "access": "free",
+      "license": "BSD-3-Clause for the Django repository documentation",
+      "licenseUrl": "https://raw.githubusercontent.com/django/django/stable/5.2.x/LICENSE",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "A full technical manual, transparently used as a book rather than a commercial textbook. Preserve copyright, conditions and disclaimer. No endorsement or trademark permission is implied. Permission here covers repository documentation, not unrelated website assets. No official PDF artifact was selected. Use a currently supported 5.2 patch and compatible Python/DRF versions; do not copy old lecture version pins."
+    },
+    {
+      "id": "sde-book-tdd",
+      "kind": "book",
+      "title": "Test-Driven Development with Python, Third Edition",
+      "url": "https://www.obeythetestinggoat.com/pages/book.html",
+      "provider": "Harry J. W. Percival; O'Reilly",
+      "access": "free",
+      "license": "CC BY-NC-SA 3.0 United States",
+      "licenseUrl": "https://raw.githubusercontent.com/hjwp/Book-TDD-Web-Dev-Python/main/LICENSE.md",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The author's current TOC and repository copyright identify the third edition, first released 2025-10-15. The book-specific repository license specifies the US 3.0 variant; the website footer separately refers to an unported license. Keep official chapter links until a noncommercial hosting and third-party asset review is complete. Authorized noncommercial redistribution would require attribution, notices and share-alike for adaptations. No paid ebook or cover was acquired. Translate Selenium examples to Playwright where this curriculum explicitly requests it."
+    },
+    {
+      "id": "sde-book-postgresql",
+      "kind": "book",
+      "title": "PostgreSQL 18 Manual",
+      "url": "https://www.postgresql.org/docs/18/index.html",
+      "provider": "PostgreSQL Global Development Group",
+      "access": "free",
+      "license": "PostgreSQL License",
+      "licenseUrl": "https://www.postgresql.org/about/licence/",
+      "redistribution": "permitted",
+      "downloadUrl": "https://www.postgresql.org/files/documentation/pdf/18/postgresql-18-A4.pdf",
+      "verifiedOn": "2026-09-20",
+      "notes": "The official license explicitly covers software and documentation. Retain the copyright, permission paragraph and both disclaimer paragraphs in all copies. The official PDF URL returned HTTP 200 and application/pdf to HEAD; no PDF body was downloaded or inspected. The implementation must preserve notices and validate the artifact before hosting it."
+    },
+    {
+      "id": "sde-book-cosmic",
+      "kind": "book",
+      "title": "Architecture Patterns with Python",
+      "url": "https://www.cosmicpython.com/book/preface",
+      "provider": "Harry Percival and Bob Gregory; O'Reilly",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": "https://www.cosmicpython.com/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The author site authorizes free online reading and says CC-By-NC-ND without a version; the repository license.txt instead says CC-By-ND without a version. This ambiguity is not resolved here: do not mirror, convert or host the book. Verified TOC chapters are used as reading links. The book's Flask/SQLAlchemy examples illustrate architecture; retain Django as the implementation stack and consult Appendix D rather than adding a second framework."
+    },
+    {
+      "id": "sde-book-asvs",
+      "kind": "book",
+      "title": "OWASP Application Security Verification Standard 5.0.0",
+      "url": "https://github.com/OWASP/ASVS/releases/download/v5.0.0_release/OWASP_Application_Security_Verification_Standard_5.0.0_en.pdf",
+      "provider": "OWASP Foundation and ASVS contributors",
+      "access": "free",
+      "license": "CC BY-SA 4.0 International",
+      "licenseUrl": "https://raw.githubusercontent.com/OWASP/ASVS/v5.0.0_release/5.0/en/0x01-Frontispiece.md",
+      "redistribution": "permitted",
+      "downloadUrl": "https://github.com/OWASP/ASVS/releases/download/v5.0.0_release/OWASP_Application_Security_Verification_Standard_5.0.0_en.pdf",
+      "verifiedOn": "2026-09-20",
+      "notes": "A book-length technical standard, not a certification award. Official release dated 2025-05-30. Preserve attribution, copyright and license, identify changes, and apply share-alike to adaptations; do not imply OWASP endorsement. The official release API identified this asset and HEAD returned HTTP 200/application/octet-stream without reading its body. Implementation must verify PDF content and notices before hosting. Raw chapter paths are recorded in sources for accessible reading."
+    },
+    {
+      "id": "sde-book-swe",
+      "kind": "book",
+      "title": "Software Engineering at Google",
+      "url": "https://abseil.io/resources/swe-book/html/toc.html",
+      "provider": "Titus Winters, Tom Manshreck and Hyrum Wright; Google/O'Reilly",
+      "access": "free",
+      "license": "CC BY-NC-ND 4.0 International",
+      "licenseUrl": "https://abseil.io/resources/swe-book",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published March 2020; official free HTML and TOC verified. Conservative platform policy is to link until noncommercial eligibility and intact-copy handling are confirmed. Authorized redistribution must retain attribution/license and cannot distribute adaptations. No official PDF was selected. Google-scale examples are not mandatory architecture for a small application."
+    },
+    {
+      "id": "sde-book-sre",
+      "kind": "book",
+      "title": "Site Reliability Engineering: How Google Runs Production Systems",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "provider": "Betsy Beyer, Chris Jones, Jennifer Petoff and Niall Richard Murphy; Google/O'Reilly",
+      "access": "free",
+      "license": "CC BY-NC-ND 4.0 International",
+      "licenseUrl": "https://sre.google/sre-book/preface/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "2016 book; official online footer states CC BY-NC-ND 4.0 and a 2017 site copyright. These are not 2026 publication dates. Noncommercial, unmodified-copy and attribution requirements require deployment review before mirroring. Read selected principles; do not reproduce Google's infrastructure scale or infer production readiness from a lab."
+    },
+    {
+      "id": "sde-book-ir",
+      "kind": "book",
+      "title": "Introduction to Information Retrieval",
+      "url": "https://nlp.stanford.edu/IR-book/information-retrieval-book.html",
+      "provider": "Christopher D. Manning, Prabhakar Raghavan and Hinrich Schutze; Cambridge University Press",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Authorized Stanford companion site provides online editions of the 2008 book; chapter pages retain Cambridge University Press copyright. No general redistribution grant was verified. Link to the official HTML only; free PDF availability is not permission to mirror it. Chapters 6 and 8 teach scoring/evaluation, not modern neural-model training."
+    },
+    {
+      "id": "sde-video-html",
+      "kind": "video",
+      "title": "CS50W Week 0: HTML and CSS",
+      "url": "https://cs50.harvard.edu/web/weeks/0/",
+      "provider": "Harvard CS50; Brian Yu",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0 International course materials",
+      "licenseUrl": "https://cs50.harvard.edu/web/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official page links the lecture video zFZrkCIc2Oc. Link or use the authorized player only; no video downloads. The foundational recording is older than the observation date."
+    },
+    {
+      "id": "sde-video-django",
+      "kind": "video",
+      "title": "CS50W Week 3: Django",
+      "url": "https://cs50.harvard.edu/web/weeks/3/",
+      "provider": "Harvard CS50; Brian Yu",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0 International course materials",
+      "licenseUrl": "https://cs50.harvard.edu/web/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official page links video w8q0C-C1js4 and notes. The CDN identifies the 2020 spring recording. Use Django 5.2 documentation for current APIs, security and settings; do not install the lecture's historical dependency versions."
+    },
+    {
+      "id": "sde-video-models",
+      "kind": "video",
+      "title": "CS50W Week 4: SQL, Models, and Migrations",
+      "url": "https://cs50.harvard.edu/web/weeks/4/",
+      "provider": "Harvard CS50; Brian Yu",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0 International course materials",
+      "licenseUrl": "https://cs50.harvard.edu/web/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified official lecture title and linked video YzP164YANAU. This adds application modelling to Foundation SQL; it does not replace the PostgreSQL concurrency readings."
+    },
+    {
+      "id": "sde-video-javascript",
+      "kind": "video",
+      "title": "CS50W Week 5: JavaScript",
+      "url": "https://cs50.harvard.edu/web/weeks/5/",
+      "provider": "Harvard CS50; Brian Yu",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0 International course materials",
+      "licenseUrl": "https://cs50.harvard.edu/web/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified official video x5trGVMKTdY. Used for a small browser/API enhancement, not a requirement to learn every frontend framework."
+    },
+    {
+      "id": "sde-video-ui",
+      "kind": "video",
+      "title": "CS50W Week 6: User Interfaces",
+      "url": "https://cs50.harvard.edu/web/weeks/6/",
+      "provider": "Harvard CS50; Brian Yu",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0 International course materials",
+      "licenseUrl": "https://cs50.harvard.edu/web/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified official video jrBhi8wbzPw. Interface concepts are supplemented by current W3C accessibility guidance; a React migration is not required."
+    },
+    {
+      "id": "sde-video-ci",
+      "kind": "video",
+      "title": "CS50W Week 7: Testing, CI/CD",
+      "url": "https://cs50.harvard.edu/web/weeks/7/",
+      "provider": "Harvard CS50; Brian Yu",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0 International course materials",
+      "licenseUrl": "https://cs50.harvard.edu/web/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified official video WbRDkJ4lPdY. Reused for related lessons; watch the whole lecture once, then revisit relevant examples. Current GitHub/Docker documentation overrides historical service configuration. No certificate or project submission is required."
+    },
+    {
+      "id": "sde-video-scale",
+      "kind": "video",
+      "title": "CS50W Week 8: Scalability and Security",
+      "url": "https://cs50.harvard.edu/web/weeks/8/",
+      "provider": "Harvard CS50; Brian Yu",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0 International course materials",
+      "licenseUrl": "https://cs50.harvard.edu/web/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified official video 6PWTxRGh_dk. An architectural introduction; observability, recovery, modern security controls and implementation specifics come from the named books and current documentation."
+    },
+    {
+      "id": "sde-video-cmu",
+      "kind": "video",
+      "title": "CMU 15-445/645 Database Systems, Fall 2024: lecture recordings",
+      "url": "https://15445.courses.cs.cmu.edu/fall2024/schedule.html",
+      "provider": "Carnegie Mellon University Database Group; Andy Pavlo",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official schedule verifies Lecture 15 Query Planning & Optimization (X8EHO8VLeG0), 16 Concurrency Control Theory (4y656idl8ZU), 19 Multi-Version Concurrency Control (niLwbfE3V9Q), 21 Database Recovery (yVpzHdAP0TY), and 22 Introduction to Distributed Databases (o7bjRUcDMx0). Use the lesson's precise title, not invented timestamps. Paid textbook readings and course assignments are not required or reproduced."
+    },
+    {
+      "id": "sde-video-threat",
+      "kind": "video",
+      "title": "MIT 6.858 Lecture 1: Introduction, Threat Models",
+      "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-1-introduction-threat-models/",
+      "provider": "MIT OpenCourseWare; Nickolai Zeldovich",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0 International OCW materials, subject to stated exceptions",
+      "licenseUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/video_galleries/video-lectures/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Fall 2014 course; the official resource embeds GqmQg-cszw4. Durable threat-modelling concepts only. Current ASVS/Django references govern application controls; no legacy exploit tooling or attacks on public systems are assigned."
+    },
+    {
+      "id": "sde-video-web-security",
+      "kind": "video",
+      "title": "MIT 6.858 Lecture 9: Securing Web Applications",
+      "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-9-securing-web-applications/",
+      "provider": "MIT OpenCourseWare; Nickolai Zeldovich",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0 International OCW materials, subject to stated exceptions",
+      "licenseUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/video_galleries/video-lectures/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official page embeds WlmKwIe9z1Q. Use principles and locally owned synthetic examples; use current framework defaults rather than the 2014 stack."
+    },
+    {
+      "id": "sde-video-language",
+      "kind": "video",
+      "title": "CS50 AI Week 6: Language",
+      "url": "https://cs50.harvard.edu/ai/weeks/6/",
+      "provider": "Harvard CS50; Brian Yu",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official page lists bag-of-words, word representation, word2vec, attention and transformers, and links video QAZc9xsQNjQ. Used as an introductory lecture for retrieval representations; practical reranking/evaluation is covered by the IR book and Sentence Transformers guide. No model training is required."
+    },
+    {
+      "id": "sde-doc-drf-serialization",
+      "kind": "documentation",
+      "title": "Django REST framework Tutorial 1: Serialization",
+      "url": "https://www.django-rest-framework.org/tutorial/1-serialization/",
+      "provider": "Django REST framework",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified serializer, validation and model-serializer sections. Read the official example but build the original commerce exercise rather than resubmitting the tutorial."
+    },
+    {
+      "id": "sde-doc-drf-permissions",
+      "kind": "documentation",
+      "title": "Django REST framework: Permissions",
+      "url": "https://www.django-rest-framework.org/api-guide/permissions/",
+      "provider": "Django REST framework",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Read Object level permissions, Limitations of object level permissions and custom policies. List filtering and create-time checks require deliberate handling; authentication alone is not ownership enforcement."
+    },
+    {
+      "id": "sde-doc-openapi",
+      "kind": "documentation",
+      "title": "OpenAPI Specification 3.1.1",
+      "url": "https://spec.openapis.org/oas/v3.1.1.html",
+      "provider": "OpenAPI Initiative",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Pinned contract version for learning, not a claim that 3.1.1 is the newest standard. Use Paths, Operation, Parameter, Request Body, Responses and Schema definitions as needed."
+    },
+    {
+      "id": "sde-doc-django-transactions",
+      "kind": "documentation",
+      "title": "Django 5.2: Database transactions",
+      "url": "https://docs.djangoproject.com/en/5.2/topics/db/transactions/",
+      "provider": "Django Software Foundation",
+      "access": "free",
+      "license": "BSD-3-Clause for repository documentation",
+      "licenseUrl": "https://raw.githubusercontent.com/django/django/stable/5.2.x/LICENSE",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified atomic, savepoints, exception handling and Performing actions after commit. Retain BSD notices when redistributing covered documentation. An on_commit callback is not a durable message outbox."
+    },
+    {
+      "id": "sde-doc-django-querysets",
+      "kind": "documentation",
+      "title": "Django 5.2: QuerySet API reference",
+      "url": "https://docs.djangoproject.com/en/5.2/ref/models/querysets/",
+      "provider": "Django Software Foundation",
+      "access": "free",
+      "license": "BSD-3-Clause for repository documentation",
+      "licenseUrl": "https://raw.githubusercontent.com/django/django/stable/5.2.x/LICENSE",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Read select_for_update, query evaluation, select_related and prefetch_related where assigned. Database backend differences matter; SQLite is not accepted as evidence for the PostgreSQL row-locking labs."
+    },
+    {
+      "id": "sde-doc-django-tests",
+      "kind": "documentation",
+      "title": "Django 5.2: Testing tools",
+      "url": "https://docs.djangoproject.com/en/5.2/topics/testing/tools/",
+      "provider": "Django Software Foundation",
+      "access": "free",
+      "license": "BSD-3-Clause for repository documentation",
+      "licenseUrl": "https://raw.githubusercontent.com/django/django/stable/5.2.x/LICENSE",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified test client, TestCase, TransactionTestCase and LiveServerTestCase sections. Keep notices for copied documentation. Tests that need commits or row-lock behaviour should not rely only on TestCase's transaction wrapper."
+    },
+    {
+      "id": "sde-doc-django-deploy",
+      "kind": "documentation",
+      "title": "Django 5.2: Deployment checklist",
+      "url": "https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/",
+      "provider": "Django Software Foundation",
+      "access": "free",
+      "license": "BSD-3-Clause for repository documentation",
+      "licenseUrl": "https://raw.githubusercontent.com/django/django/stable/5.2.x/LICENSE",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified check --deploy, production server, SECRET_KEY, DEBUG, ALLOWED_HOSTS, HTTPS and logging/error-reporting guidance. Passing a checklist in a lab is not production certification."
+    },
+    {
+      "id": "sde-doc-django-performance",
+      "kind": "documentation",
+      "title": "Django 5.2: Database access optimization",
+      "url": "https://docs.djangoproject.com/en/5.2/topics/db/optimization/",
+      "provider": "Django Software Foundation",
+      "access": "free",
+      "license": "BSD-3-Clause for repository documentation",
+      "licenseUrl": "https://raw.githubusercontent.com/django/django/stable/5.2.x/LICENSE",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Read Profile first and Understand QuerySets. Preserve BSD notices for copies. Record actual query plans and counts rather than promising a speed-up."
+    },
+    {
+      "id": "sde-doc-actions",
+      "kind": "documentation",
+      "title": "GitHub Actions: Building and testing Python",
+      "url": "https://docs.github.com/en/actions/tutorials/build-and-test-code/python",
+      "provider": "GitHub",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Documentation is free. Hosted execution requires an account and may consume a metered allowance; a local equivalent of all checks is required. No accounts or workflows were changed during curation."
+    },
+    {
+      "id": "sde-doc-actions-security",
+      "kind": "documentation",
+      "title": "GitHub Actions: Secure use reference",
+      "url": "https://docs.github.com/en/actions/reference/security/secure-use",
+      "provider": "GitHub",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified least-privilege workflow permissions, secret handling and untrusted-input boundaries. Follow current action-pinning guidance when implementing; do not grant write credentials to untrusted pull-request code."
+    },
+    {
+      "id": "sde-doc-docker",
+      "kind": "documentation",
+      "title": "Docker: Build and share a containerized application",
+      "url": "https://docs.docker.com/get-started/tutorials/run-an-app/",
+      "provider": "Docker",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Current redirect from the official workshop. Apply build/run/network/volume concepts to Django, not a second example stack. Docker Desktop entitlement depends on use; a compatible local Linux container engine is an alternative. Do not publish images or credentials as part of curation."
+    },
+    {
+      "id": "sde-doc-bicep",
+      "kind": "documentation",
+      "title": "Microsoft Learn: What is Bicep?",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Page metadata dated 2026-01-08. Used to introduce declarative Azure infrastructure. Local compile/design review is sufficient for the no-cost route; provisioning needs an explicit budget and account approval."
+    },
+    {
+      "id": "sde-doc-azure-python",
+      "kind": "documentation",
+      "title": "Deploy a Python web app to Azure App Service",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-python",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Page metadata dated 2026-07-27; Django tab verified. The guide requires an active Azure subscription and currently specifies Python 3.14 or higher. Reading is free, provisioning is not guaranteed free. Match runtime compatibility before optional cloud work; the local-container route avoids this dependency."
+    },
+    {
+      "id": "sde-doc-otel",
+      "kind": "documentation",
+      "title": "OpenTelemetry Python: Getting Started by Example",
+      "url": "https://opentelemetry.io/docs/languages/python/getting-started/",
+      "provider": "OpenTelemetry",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified console-export instrumentation example and explicit mention of Django support through the instrumentation registry. Translate the Flask illustration into the existing Django app; a paid telemetry backend is unnecessary."
+    },
+    {
+      "id": "sde-doc-playwright",
+      "kind": "documentation",
+      "title": "Playwright for Python: Installation and introduction",
+      "url": "https://playwright.dev/python/docs/intro",
+      "provider": "Microsoft Playwright",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified official pytest plugin and context-isolation guidance. Future learner tests must use isolated test-browser contexts and local synthetic applications, never an existing signed-in browser profile. Playwright was not used during research."
+    },
+    {
+      "id": "sde-doc-accessible-forms",
+      "kind": "documentation",
+      "title": "W3C WAI: Forms Tutorial",
+      "url": "https://www.w3.org/WAI/tutorials/forms/",
+      "provider": "W3C Web Accessibility Initiative",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified controls, labels, grouping, validation, notifications and progressive-enhancement topics. Use manual keyboard/screen-reader checks in addition to automated checks; no conformance certification is implied."
+    },
+    {
+      "id": "sde-doc-rerank",
+      "kind": "documentation",
+      "title": "Sentence Transformers: Retrieve & Re-Rank",
+      "url": "https://sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html",
+      "provider": "Sentence Transformers maintainers",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified lexical/dense retrieval followed by CrossEncoder reranking. Library, model weights and datasets have separate terms. Learner must record a model-card license and pinned revision before downloading a chosen model; this handoff downloads no weights and promises no relevance gain."
+    },
+    {
+      "id": "sde-doc-platform",
+      "kind": "documentation",
+      "title": "DORA: Platform engineering",
+      "url": "https://dora.dev/capabilities/platform-engineering/",
+      "provider": "Google Cloud DORA",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Source metadata updated 2026-01-12. Read product mindset, minimum viable platform, extensibility and clear feedback. Used for optional developer-platform work, not workforce forecasting or a universal Kubernetes requirement."
+    },
+    {
+      "id": "sde-doc-api-guidelines",
+      "kind": "documentation",
+      "title": "Microsoft Azure REST API Guidelines",
+      "url": "https://github.com/microsoft/api-guidelines/blob/vNext/azure/Guidelines.md",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified contracts, compatibility, retry/idempotency and optimistic-concurrency guidance. Azure's prescribed conventions are examples, not all universal HTTP requirements; document the application's chosen semantics."
+    }
+  ],
+  "modules": [
+    {
+      "id": "sde-m01-application",
+      "title": "1. From Python programs to a maintainable Django application",
+      "stage": "intermediate",
+      "description": "Start only after Common Foundation. Required shared concepts include Python contracts/collections/environments, SQL, Git, tests, HTTP and privacy. These are prerequisites, not lessons repeated here. Use Python, Django 5.2, PostgreSQL 18 and server-rendered templates; add DRF for JSON endpoints. Keep tests and secure defaults from the first slice.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sde-l01-request-lifecycle",
+          "title": "Trace a request through a Django application",
+          "objectives": [
+            "Trace URL resolution, view execution, template rendering and response generation.",
+            "Separate configuration and application code and explain development-server limits."
+          ],
+          "topics": [
+            {
+              "title": "Application structure",
+              "details": [
+                "Project versus app; settings, URL configuration and request/response objects.",
+                "WSGI/ASGI entry points at a conceptual level; a development server is not a production deployment."
+              ]
+            },
+            {
+              "title": "Boundaries",
+              "details": [
+                "View responsibilities versus pure business functions.",
+                "Environment-specific configuration, explicit errors and secret-free startup instructions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "python.modules-environments",
+            "python.functions-contracts",
+            "web.http-apis",
+            "sde.django-request-lifecycle"
+          ],
+          "video": {
+            "resourceId": "sde-video-django",
+            "locator": "Week 3: Django; watch the official lecture, then trace its URL/view/template examples."
+          },
+          "reading": {
+            "resourceId": "sde-book-django",
+            "locator": "Writing your first Django app, part 1: Creating a project; Creating the Polls app; Write your first view. https://docs.djangoproject.com/en/5.2/intro/tutorial01/"
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-deploy"
+          ],
+          "assignment": {
+            "id": "sde-a01-request-lifecycle",
+            "title": "Build an original synthetic shop service skeleton",
+            "kind": "coding",
+            "instructions": [
+              "Create health and catalogue-summary routes using a new fictional shop name, not the tutorial poll domain.",
+              "Move summary calculation into a pure function and document one complete request trace.",
+              "Read configuration from an explicit local setup and add one passing and one invalid-route test."
+            ],
+            "deliverables": [
+              "Runnable application skeleton with pinned direct dependencies",
+              "Request-flow diagram and startup instructions",
+              "Automated route and pure-function tests"
+            ],
+            "acceptanceCriteria": [
+              "A clean local environment can start the application using documented commands.",
+              "Health returns the documented status/body; an unknown route returns 404.",
+              "No credentials or machine-specific absolute paths are committed.",
+              "The explanation identifies where routing, domain work and rendering occur."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What work should not be done in a view?",
+            "What changes when replacing the development server?",
+            "Which configuration belongs outside source control?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l02-models-migrations",
+          "title": "Model application state and evolve its schema",
+          "objectives": [
+            "Translate domain rules into relationships and database constraints.",
+            "Create and safely apply schema/data migrations against PostgreSQL."
+          ],
+          "topics": [
+            {
+              "title": "Operational model",
+              "details": [
+                "Product, stock, order and order-line ownership; foreign keys and uniqueness.",
+                "Money represented with Decimal or integer minor units; explicit currency and immutable order-price snapshots."
+              ]
+            },
+            {
+              "title": "Evolution",
+              "details": [
+                "Model state versus applied migrations; schema versus data migrations.",
+                "Backward-compatible changes, defaults, nullable transitions and rollback limitations."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "data.relational-models",
+            "data.sql-querying",
+            "math.numeracy-floating-point",
+            "sde.orm-migrations"
+          ],
+          "video": {
+            "resourceId": "sde-video-models",
+            "locator": "Week 4: SQL, Models, and Migrations."
+          },
+          "reading": {
+            "resourceId": "sde-book-django",
+            "locator": "Writing your first Django app, part 2: Database setup; Creating models; Activating models; Playing with the API. https://docs.djangoproject.com/en/5.2/intro/tutorial02/"
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-querysets"
+          ],
+          "assignment": {
+            "id": "sde-a02-models-migrations",
+            "title": "Create a constrained shop schema",
+            "kind": "lab",
+            "instructions": [
+              "Design and migrate a schema for 100 synthetic products and a small set of orders.",
+              "Add database constraints for unique product codes, nonnegative stock and positive line quantities.",
+              "Introduce a new shipping-rule field in a second migration and describe a compatible release order."
+            ],
+            "deliverables": [
+              "ER diagram and invariant list",
+              "Two migrations and deterministic fixtures",
+              "Constraint and migration tests"
+            ],
+            "acceptanceCriteria": [
+              "Invalid rows fail through the database as well as through form validation.",
+              "A fresh database and an upgraded database produce equivalent expected schemas and fixtures.",
+              "Changing a catalogue price does not silently change an existing order's price snapshot.",
+              "The release note describes what is reversible and what needs data recovery."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why can an application check fail to protect an invariant?",
+            "Why store an order's price snapshot?",
+            "When is reversing a migration unsafe?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l03-forms-templates",
+          "title": "Build server-rendered forms with accessible feedback",
+          "objectives": [
+            "Implement a POST/redirect/GET form flow with server-side validation.",
+            "Provide semantic controls, labels and comprehensible success/error states."
+          ],
+          "topics": [
+            {
+              "title": "Browser/server contract",
+              "details": [
+                "Templates, escaping, URL names, form binding and validation.",
+                "CSRF protection, POST/redirect/GET and server-calculated values."
+              ]
+            },
+            {
+              "title": "Usable interfaces",
+              "details": [
+                "Labels, field grouping, error summaries and keyboard navigation.",
+                "Minimal CSS layouts, empty states and avoiding unnecessary personal data."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "web.http-apis",
+            "security.privacy-secrets",
+            "sde.server-rendered-forms",
+            "sde.accessible-interfaces"
+          ],
+          "video": {
+            "resourceId": "sde-video-html",
+            "locator": "Week 0: HTML and CSS; apply the semantic form/layout concepts to the existing Django app."
+          },
+          "reading": {
+            "resourceId": "sde-book-tdd",
+            "locator": "Chapter 8: Prettification: Layout and Styling, and What to Test About It; Chapter 15: A Simple Form."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-django",
+            "sde-doc-accessible-forms",
+            "sde-video-django"
+          ],
+          "assignment": {
+            "id": "sde-a03-forms-templates",
+            "title": "Create a catalogue and cart-editing slice",
+            "kind": "coding",
+            "instructions": [
+              "Render a catalogue and an add/update-cart form using templates, not a frontend framework.",
+              "Reject zero, negative, noninteger and out-of-range quantities on the server.",
+              "Add labelled fields, persistent validation errors and keyboard-only navigation instructions."
+            ],
+            "deliverables": [
+              "Templates, forms and CSS",
+              "Valid/invalid form tests",
+              "Keyboard walkthrough and screenshots containing only synthetic data"
+            ],
+            "acceptanceCriteria": [
+              "Each control has an accessible name and all actions can be reached by keyboard.",
+              "Refreshing after a successful POST does not repeat the form submission.",
+              "Invalid input preserves the user's safe values and exposes a specific error.",
+              "Client-submitted totals never determine the server price."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What does POST/redirect/GET solve and not solve?",
+            "Why is client-side validation insufficient?",
+            "What distinguishes a visible label from a placeholder?"
+          ],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sde-m02-transactional-apis",
+      "title": "2. Contracts, permissions and transaction-safe APIs",
+      "stage": "intermediate",
+      "description": "Extend the working application with explicit JSON contracts and transaction correctness. Foundation SQL/HTTP are assumed; the new work is validation, ownership, real concurrent database sessions and replay-safe side effects.",
+      "prerequisites": [
+        "sde-m01-application"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sde-l04-api-contracts",
+          "title": "Design and implement a small versioned JSON contract",
+          "objectives": [
+            "Describe request, response, validation and error shapes before implementation.",
+            "Implement a DRF endpoint with predictable pagination and compatibility tests."
+          ],
+          "topics": [
+            {
+              "title": "Contract design",
+              "details": [
+                "Resources versus commands; methods, status codes, pagination and stable ordering.",
+                "OpenAPI 3.1.1 schemas, required/optional fields and additive versus breaking changes."
+              ]
+            },
+            {
+              "title": "Implementation boundaries",
+              "details": [
+                "DRF serializers, read-only fields and consistent error responses.",
+                "Explicit supported filters and bounded page sizes; unknown input policy."
+              ]
+            }
+          ],
+          "estimatedMinutes": 330,
+          "canonicalConceptTags": [
+            "web.http-apis",
+            "python.functions-contracts",
+            "sde.api-contracts",
+            "sde.input-validation"
+          ],
+          "video": {
+            "resourceId": "sde-video-javascript",
+            "locator": "Week 5: JavaScript; the browser/API interaction examples motivate the server contract. DRF specifics are in the supplementary tutorial."
+          },
+          "reading": {
+            "resourceId": "sde-book-tdd",
+            "locator": "Appendix E: Building a REST API: JSON, Ajax, and Mocking with JavaScript."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-drf-serialization",
+            "sde-doc-openapi",
+            "sde-doc-api-guidelines"
+          ],
+          "assignment": {
+            "id": "sde-a04-api-contracts",
+            "title": "Specify catalogue and order-draft endpoints",
+            "kind": "coding",
+            "instructions": [
+              "Write an original OpenAPI contract for product listing, product detail and order-draft creation.",
+              "Implement the endpoints with bounded pagination and server-owned price fields.",
+              "Write request/response tests and add one backward-compatible optional response field."
+            ],
+            "deliverables": [
+              "OpenAPI document and endpoint examples",
+              "DRF implementation",
+              "Positive, validation, pagination and compatibility tests"
+            ],
+            "acceptanceCriteria": [
+              "The contract documents every implemented response status and required field.",
+              "Repeated paginated reads have deterministic ordering on unchanged fixtures.",
+              "Malformed quantities, excessive page sizes and unknown product IDs have documented outcomes.",
+              "A client using the original response fields still passes after the additive change."
+            ],
+            "externalUrl": "https://www.django-rest-framework.org/tutorial/1-serialization/",
+            "questions": []
+          },
+          "reviewPrompts": [
+            "When is a new response field still a breaking change?",
+            "Why must pagination specify ordering?",
+            "Which fields must never be writable by the client?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l05-auth-ownership",
+          "title": "Enforce customer, staff and object ownership boundaries",
+          "objectives": [
+            "Distinguish authentication, role checks and object-level authorization.",
+            "Apply ownership rules to detail, list and mutation paths consistently."
+          ],
+          "topics": [
+            {
+              "title": "Identity and sessions",
+              "details": [
+                "Framework-provided users, password handling, sessions, login/logout and CSRF.",
+                "Secure cookie settings; authorization failures without leaking sensitive records."
+              ]
+            },
+            {
+              "title": "Access enforcement",
+              "details": [
+                "Customer-owned orders and explicitly scoped staff capabilities.",
+                "Queryset filtering, create-time ownership assignment, object checks and direct-ID access."
+              ]
+            }
+          ],
+          "estimatedMinutes": 330,
+          "canonicalConceptTags": [
+            "security.privacy-secrets",
+            "sde.authentication",
+            "sde.object-authorization"
+          ],
+          "video": {
+            "resourceId": "sde-video-models",
+            "locator": "Week 4: SQL, Models, and Migrations; revisit its Django user/application-data examples. Current authorization semantics are in the manual and DRF permissions guide."
+          },
+          "reading": {
+            "resourceId": "sde-book-django",
+            "locator": "Using the Django authentication system: User objects; Permissions and Authorization; Authentication in web requests. https://docs.djangoproject.com/en/5.2/topics/auth/default/"
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-drf-permissions",
+            "sde-book-asvs"
+          ],
+          "assignment": {
+            "id": "sde-a05-auth-ownership",
+            "title": "Build and test an ownership matrix",
+            "kind": "lab",
+            "instructions": [
+              "Create two customers, one staff user and synthetic orders belonging to each customer.",
+              "Define permissions for listing, viewing and changing an order before implementing them.",
+              "Test anonymous, owner, other-customer and staff requests for each operation."
+            ],
+            "deliverables": [
+              "Permission matrix",
+              "Framework-based authentication and ownership enforcement",
+              "At least twelve role/operation test cases"
+            ],
+            "acceptanceCriteria": [
+              "Other-customer orders are absent from lists and inaccessible by direct identifiers.",
+              "Submitted owner IDs cannot transfer ownership.",
+              "Staff power is explicitly granted rather than inferred from knowing an identifier.",
+              "Passwords are handled by Django, not by custom hashing or plaintext storage."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sde-q05-permission",
+                "prompt": "A user is logged in and an order identifier exists. What additional fact must be checked before returning that order?",
+                "kind": "short-answer",
+                "choices": [],
+                "answer": "Whether this user has permission to access this specific order, such as ownership or an explicitly granted staff capability.",
+                "explanation": "Authentication establishes who is calling; it does not establish access to every object."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why are list and detail permissions separate concerns?",
+            "Where should ownership be assigned during creation?",
+            "What is unsafe about relying on a hidden UI button?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l06-concurrent-checkout",
+          "title": "Prevent overselling with real PostgreSQL transactions",
+          "objectives": [
+            "Explain a lost-update or check-then-act race using an interleaving.",
+            "Implement and verify a stock reservation invariant under concurrent sessions."
+          ],
+          "topics": [
+            {
+              "title": "Transaction semantics",
+              "details": [
+                "Read Committed, row locks, atomic updates, constraints and rollback.",
+                "Consistent lock ordering, deadlock handling and bounded retry of a whole transaction."
+              ]
+            },
+            {
+              "title": "Django integration",
+              "details": [
+                "transaction.atomic and select_for_update; avoid network calls while holding stock locks.",
+                "TransactionTestCase or an external concurrent-session harness; SQLite is not a substitute."
+              ]
+            }
+          ],
+          "estimatedMinutes": 420,
+          "canonicalConceptTags": [
+            "data.relational-models",
+            "problem.decomposition-complexity",
+            "sde.transactions-locking",
+            "sde.concurrency-invariants"
+          ],
+          "video": {
+            "resourceId": "sde-video-cmu",
+            "locator": "Lecture #16: Concurrency Control Theory, 30 October 2024; optional follow-up Lecture #19: Multi-Version Concurrency Control."
+          },
+          "reading": {
+            "resourceId": "sde-book-postgresql",
+            "locator": "13.2 Transaction Isolation, especially Read Committed; 13.3 Explicit Locking, especially Row-Level Locks and Deadlocks."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-transactions",
+            "sde-doc-django-querysets",
+            "sde-doc-django-tests"
+          ],
+          "assignment": {
+            "id": "sde-a06-concurrent-checkout",
+            "title": "Race two purchasers for scarce stock",
+            "kind": "lab",
+            "instructions": [
+              "Start with seven units and two independent requests for five units each.",
+              "Write down a failing naive interleaving, then implement a transaction-safe reservation.",
+              "Use separate PostgreSQL connections and a synchronization barrier; repeat the scenario twenty times and inject a failure before commit."
+            ],
+            "deliverables": [
+              "Interleaving diagram and invariant explanation",
+              "Reservation implementation",
+              "Concurrent-session test harness and raw run output"
+            ],
+            "acceptanceCriteria": [
+              "At most one five-unit reservation succeeds from seven available units.",
+              "Stock never becomes negative and successful reservations reconcile to stock movement.",
+              "The injected pre-commit failure leaves neither an order nor consumed stock.",
+              "Tests demonstrate separate connections and actual overlapping execution, not two sequential calls."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sde-q06-stock",
+                "prompt": "Seven units exist. Two concurrent orders each require five units and partial fulfillment is disallowed. What is the maximum number of successful orders?",
+                "kind": "numeric",
+                "choices": [],
+                "answer": 1,
+                "explanation": "Two successful orders would require ten units; the invariant permits only one complete reservation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why is checking stock before the transaction insufficient?",
+            "What must be retried after a serialization/deadlock failure?",
+            "Why can a Django TestCase hide missing transaction boundaries?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l07-idempotent-effects",
+          "title": "Make simulated payment callbacks replay-safe",
+          "objectives": [
+            "Define idempotency scope, key lifetime and conflicting-replay behaviour.",
+            "Apply a business transition once despite repeated or concurrent delivery."
+          ],
+          "topics": [
+            {
+              "title": "Replay semantics",
+              "details": [
+                "Request/event IDs, payload fingerprints, unique constraints and recorded results.",
+                "Same-key/same-payload replay versus same-key/different-payload conflict."
+              ]
+            },
+            {
+              "title": "Effects and recovery",
+              "details": [
+                "Atomic recording of the event and its local state change.",
+                "Simulated external effects; deduplication is not a guarantee of exactly-once network delivery."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "web.http-apis",
+            "sde.idempotency",
+            "sde.transactional-state-transitions"
+          ],
+          "video": {
+            "resourceId": "sde-video-cmu",
+            "locator": "Lecture #22: Introduction to Distributed Databases, 20 November 2024; use its distributed-failure context, then implement application-level idempotency from the readings."
+          },
+          "reading": {
+            "resourceId": "sde-book-cosmic",
+            "locator": "Chapter 6: Unit of Work Pattern; Chapter 10: Commands and Command Handler."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-api-guidelines",
+            "sde-doc-django-transactions"
+          ],
+          "assignment": {
+            "id": "sde-a07-idempotent-effects",
+            "title": "Process one simulated payment event many times",
+            "kind": "coding",
+            "instructions": [
+              "Implement a local callback simulator with event ID, order ID and an integer minor-unit amount.",
+              "Store deduplication information and the order-state change in one database transaction.",
+              "Exercise twenty repeated calls, two concurrent calls and a changed payload reusing the same ID."
+            ],
+            "deliverables": [
+              "Callback contract and state diagram",
+              "Deduplication implementation",
+              "Replay/conflict/concurrency tests"
+            ],
+            "acceptanceCriteria": [
+              "Repeated identical delivery causes one successful payment-state transition.",
+              "Conflicting payload reuse is rejected with the documented error and no new effect.",
+              "A crash before commit permits a safe retry; a replay after commit returns a consistent outcome.",
+              "The project handles no real card data, bank credentials or financial transfers."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What scope makes an idempotency key meaningful?",
+            "Why is a cache-only deduplication record risky?",
+            "Which guarantee remains impossible across an uncontrolled external service?"
+          ],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sde-m03-architecture-failure",
+      "title": "3. Domain architecture and distributed failure",
+      "stage": "advanced",
+      "description": "Keep a modular monolith unless a real requirement justifies distribution. Introduce explicit business services, workflows, durable background work and bounded failure handling without making Kubernetes, Kafka or microservices compulsory.",
+      "prerequisites": [
+        "sde-m02-transactional-apis"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sde-l08-domain-services",
+          "title": "Separate business policy from transport and storage",
+          "objectives": [
+            "Express one use case as a service with explicit inputs and outputs.",
+            "Explain the benefit and cost of an abstraction using a concrete change scenario."
+          ],
+          "topics": [
+            {
+              "title": "Domain boundaries",
+              "details": [
+                "Entities, value objects, invariants and service-layer use cases.",
+                "Dependency direction, pure policy functions and explicit persistence boundaries."
+              ]
+            },
+            {
+              "title": "Pragmatic architecture",
+              "details": [
+                "Repository/unit-of-work concepts versus Django's existing abstractions.",
+                "An architecture decision record and avoiding layers that do not solve a demonstrated problem."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "python.functions-contracts",
+            "sde.domain-services",
+            "sde.architecture-decisions"
+          ],
+          "video": {
+            "resourceId": "sde-video-django",
+            "locator": "Week 3: Django; revisit the request/view boundaries, then compare them with the service-layer reading."
+          },
+          "reading": {
+            "resourceId": "sde-book-cosmic",
+            "locator": "Chapter 1: Domain Modeling; Chapter 4: Our First Use Case: Flask API and Service Layer; Appendix D: Repository and Unit of Work Patterns with Django."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-swe"
+          ],
+          "assignment": {
+            "id": "sde-a08-domain-services",
+            "title": "Extract an explainable checkout service",
+            "kind": "design",
+            "instructions": [
+              "Move checkout policy out of views without changing the public API.",
+              "Make one policy replaceable in a test, such as shipping eligibility, while retaining real database integration tests.",
+              "Write a short decision record comparing direct ORM use with a repository abstraction."
+            ],
+            "deliverables": [
+              "Before/after dependency diagram",
+              "Refactored service and regression tests",
+              "Decision record with one rejected alternative"
+            ],
+            "acceptanceCriteria": [
+              "Existing contract and reservation tests still pass unchanged.",
+              "Policy tests can execute without HTTP routing.",
+              "The design names a concrete benefit and cost of each introduced abstraction.",
+              "No second web framework or distributed deployment is added merely to match the book."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What is a use case rather than a CRUD method?",
+            "When is the Django ORM enough?",
+            "What evidence would justify extracting a service?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l09-return-workflows",
+          "title": "Represent returns and exchanges as guarded state transitions",
+          "objectives": [
+            "Specify permitted transitions and quantity/accounting invariants.",
+            "Reject illegal, stale and unauthorized transitions explicitly."
+          ],
+          "topics": [
+            {
+              "title": "Workflow policy",
+              "details": [
+                "Requested, approved, received and resolved states; rejection and cancellation policy.",
+                "Partial returns, cumulative eligible quantities, version checks and append-only audit events."
+              ]
+            },
+            {
+              "title": "Atomic changes",
+              "details": [
+                "Exchange-stock reservation and simulated-credit deduplication.",
+                "A standalone application with imported fixtures rather than an implicit dependency on the storefront."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "problem.decomposition-complexity",
+            "sde.state-machines",
+            "sde.business-invariants"
+          ],
+          "video": {
+            "resourceId": "sde-video-models",
+            "locator": "Week 4: SQL, Models, and Migrations; apply relationship modelling to the workflow described in the book and assignment."
+          },
+          "reading": {
+            "resourceId": "sde-book-cosmic",
+            "locator": "Chapter 7: Aggregates and Consistency Boundaries; Chapter 10: Commands and Command Handler."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-transactions",
+            "sde-doc-drf-permissions"
+          ],
+          "assignment": {
+            "id": "sde-a09-return-workflows",
+            "title": "Build a standalone partial-return state machine",
+            "kind": "coding",
+            "instructions": [
+              "Define a small return policy for synthetic fulfilled orders and list all permitted transitions.",
+              "Implement three fulfilled units with multiple partial-return attempts and separate customer/staff commands.",
+              "Atomically reserve replacement stock only when an exchange transition succeeds."
+            ],
+            "deliverables": [
+              "State diagram and policy table",
+              "Independent fixtures and workflow service",
+              "Transition, permission and rollback tests"
+            ],
+            "acceptanceCriteria": [
+              "Cumulative accepted return quantities never exceed eligible fulfilled quantities.",
+              "Every undefined transition fails explicitly without changing state.",
+              "A failed exchange leaves stock and simulated credits unchanged.",
+              "The workflow can run from its own fixtures without the storefront database."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why is a status field alone not a state machine?",
+            "Where should cumulative return eligibility be enforced?",
+            "What makes an audit event different from the current state?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l10-durable-work",
+          "title": "Use an outbox and retryable worker for durable work",
+          "objectives": [
+            "Close the commit-then-publish gap with a durable work record.",
+            "Handle crashes and repeated delivery with bounded retries and compensating actions."
+          ],
+          "topics": [
+            {
+              "title": "Durability and delivery",
+              "details": [
+                "Outbox row and business change in one transaction; polling worker and claim/lease policy.",
+                "At-least-once processing, idempotent handlers, retry scheduling and manual-recovery state."
+              ]
+            },
+            {
+              "title": "Orchestration",
+              "details": [
+                "Inventory/order/simulated-payment steps with explicit progress records.",
+                "Compensation versus database rollback; reconciliation when an external outcome is unknown."
+              ]
+            }
+          ],
+          "estimatedMinutes": 480,
+          "canonicalConceptTags": [
+            "engineering.reproducibility",
+            "sde.outbox-workers",
+            "sde.failure-recovery",
+            "sde.compensating-actions"
+          ],
+          "video": {
+            "resourceId": "sde-video-cmu",
+            "locator": "Lecture #22: Introduction to Distributed Databases; focus on the problem of coordinating state across failures, not on building a distributed database."
+          },
+          "reading": {
+            "resourceId": "sde-book-cosmic",
+            "locator": "Chapter 8: Events and the Message Bus; Chapter 11: Event-Driven Architecture: Using Events to Integrate Microservices."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-transactions",
+            "sde-book-postgresql"
+          ],
+          "assignment": {
+            "id": "sde-a10-durable-work",
+            "title": "Create a crash-recoverable local order worker",
+            "kind": "lab",
+            "instructions": [
+              "Write a durable order-work record in the same transaction as the order.",
+              "Run a separate local worker process with bounded retries and persisted progress; a PostgreSQL-backed queue is sufficient.",
+              "Inject crashes before commit, after commit/before dispatch and after a simulated effect/before acknowledgement.",
+              "Document a compensation and reconciliation policy without claiming global exactly-once execution."
+            ],
+            "deliverables": [
+              "Sequence diagram and failure matrix",
+              "Outbox, worker and simulator code",
+              "Recovery tests and a manual-recovery command"
+            ],
+            "acceptanceCriteria": [
+              "Every committed order requiring work has a durable work record.",
+              "Each injected crash can be followed by a restart that reaches a consistent terminal or explicitly recoverable state.",
+              "Retries do not duplicate stock consumption or simulated payment effects.",
+              "Permanently failing work stops automatic retries at a configured bound and is visible for investigation."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why is on_commit alone not durable delivery?",
+            "Which side effects can be compensated rather than rolled back?",
+            "How do you handle a timeout with an unknown external result?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l11-bounded-failure",
+          "title": "Budget timeouts, retries, caching and overload",
+          "objectives": [
+            "Allocate a request deadline across dependencies and retries.",
+            "Define cache consistency and overload behaviour without corrupting business state."
+          ],
+          "topics": [
+            {
+              "title": "Bounded resource use",
+              "details": [
+                "Connection timeouts, total deadlines, retry budgets, exponential backoff and jitter.",
+                "Bounded queues, concurrency limits and deliberate failure responses rather than unbounded waiting."
+              ]
+            },
+            {
+              "title": "Consistency trade-offs",
+              "details": [
+                "Cache keys, invalidation, stale reads and tenant/user boundaries.",
+                "Never authorize from an unsafe shared cache or promise stock availability from stale catalogue data."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "web.http-apis",
+            "sde.timeouts-backpressure",
+            "sde.cache-consistency"
+          ],
+          "video": {
+            "resourceId": "sde-video-scale",
+            "locator": "Week 8: Scalability and Security; caching/load-distribution ideas, extended by the SRE overload chapters."
+          },
+          "reading": {
+            "resourceId": "sde-book-sre",
+            "locator": "Chapter 21: Handling Overload; Chapter 22: Addressing Cascading Failures."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-asvs",
+            "sde-doc-api-guidelines"
+          ],
+          "assignment": {
+            "id": "sde-a11-bounded-failure",
+            "title": "Bound a slow dependency and a product cache",
+            "kind": "lab",
+            "instructions": [
+              "Create a local fake shipping-rate dependency with configurable delay and failure.",
+              "Choose a total request budget, retry bound and queue/concurrency limit; state them before measuring.",
+              "Cache a safe catalogue representation and prove that checkout still reads authoritative stock/prices."
+            ],
+            "deliverables": [
+              "Timeout/retry budget worksheet",
+              "Local failure simulator and cache policy",
+              "Deadline, overload and stale-data tests"
+            ],
+            "acceptanceCriteria": [
+              "The test asserts a documented deadline tolerance, not merely that a request eventually returns.",
+              "A permanently failing dependency triggers no more than the configured retry count.",
+              "Cache entries cannot leak one customer's or tenant's data to another.",
+              "Stale catalogue data cannot authorize an overselling checkout."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why can retries make an outage worse?",
+            "What must a cache key include?",
+            "Which data can safely be stale and which cannot?"
+          ],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sde-m04-security",
+      "title": "4. Secure application and tenant boundaries",
+      "stage": "advanced",
+      "description": "Deepen secure defaults already used in earlier modules. Threat-model the synthetic service, enforce tenant/object boundaries and secure the software supply chain. All tests target learner-owned local applications.",
+      "prerequisites": [
+        "sde-m02-transactional-apis",
+        "sde-m03-architecture-failure"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sde-l12-tenant-threat-model",
+          "title": "Threat-model a tenant-isolated marketplace",
+          "objectives": [
+            "Identify assets, trust boundaries, attacker capabilities and abuse cases.",
+            "Design seller/customer/staff permissions that constrain every data path."
+          ],
+          "topics": [
+            {
+              "title": "Threat modelling",
+              "details": [
+                "Data-flow diagram, trust boundaries, threats and mitigations tied to assets.",
+                "Separate preventive controls, detection and residual risk."
+              ]
+            },
+            {
+              "title": "Tenant isolation",
+              "details": [
+                "Tenant context from trusted identity, not an arbitrary request field.",
+                "Scoped reads, writes, background jobs, exports, search filters and cache keys."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "security.privacy-secrets",
+            "sde.threat-modelling",
+            "sde.tenant-isolation"
+          ],
+          "video": {
+            "resourceId": "sde-video-threat",
+            "locator": "Lecture 1: Introduction, Threat Models."
+          },
+          "reading": {
+            "resourceId": "sde-book-asvs",
+            "locator": "V8 Authorization: V8.1 documentation, V8.2 general design, V8.3 operation-level checks and V8.4 multi-tenant considerations."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-drf-permissions"
+          ],
+          "assignment": {
+            "id": "sde-a12-tenant-threat-model",
+            "title": "Prove boundaries for two fictional sellers",
+            "kind": "design",
+            "instructions": [
+              "Draw the trust boundaries for two sellers, two customers and staff.",
+              "Define at least eight cross-boundary misuse cases covering detail/list/create/update/export/worker/search/cache paths.",
+              "Implement a representative seller-scoped read and write and test the trusted tenant context."
+            ],
+            "deliverables": [
+              "Threat model and role/tenant matrix",
+              "Scoped data-access implementation",
+              "Eight misuse cases with test or explicitly tracked mitigation evidence"
+            ],
+            "acceptanceCriteria": [
+              "Changing a submitted tenant identifier cannot grant access.",
+              "Detail, list and creation paths enforce the same ownership policy.",
+              "Background work contains and validates the intended tenant context.",
+              "Residual risks and incomplete controls are stated rather than labelled secure by assertion."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Where does trusted tenant context originate?",
+            "Which non-HTTP paths can leak tenant data?",
+            "What is the difference between a threat and a vulnerability?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l13-web-controls",
+          "title": "Apply web controls at the correct interpreter and boundary",
+          "objectives": [
+            "Select context-appropriate injection, request-forgery and browser controls.",
+            "Verify framework protections rather than assuming their presence."
+          ],
+          "topics": [
+            {
+              "title": "Untrusted data",
+              "details": [
+                "Parameterized database queries, contextual output encoding and avoiding unsafe template overrides.",
+                "Server-side validation, outbound-request restrictions and safe handling of optional file inputs."
+              ]
+            },
+            {
+              "title": "Browser/session boundary",
+              "details": [
+                "CSRF protection for cookie-authenticated writes; cookie flags and HTTPS.",
+                "Security headers, no debug pages in deployed settings and explicit error responses."
+              ]
+            }
+          ],
+          "estimatedMinutes": 330,
+          "canonicalConceptTags": [
+            "security.privacy-secrets",
+            "sde.web-security-controls"
+          ],
+          "video": {
+            "resourceId": "sde-video-web-security",
+            "locator": "Lecture 9: Securing Web Applications; use principles, then the current Django/ASVS controls."
+          },
+          "reading": {
+            "resourceId": "sde-book-asvs",
+            "locator": "V1 Encoding and Sanitization, especially V1.2 Injection Prevention; V3 Web Frontend Security."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-deploy",
+            "sde-doc-accessible-forms"
+          ],
+          "assignment": {
+            "id": "sde-a13-web-controls",
+            "title": "Create a local control-verification checklist",
+            "kind": "lab",
+            "instructions": [
+              "Use harmless marker strings in synthetic product names to verify text rendering instead of execution.",
+              "Test cookie-authenticated writes with and without the framework's CSRF protection path.",
+              "Review production settings and restrict any optional server-side URL fetch to a documented local allowlist."
+            ],
+            "deliverables": [
+              "Control-to-threat checklist",
+              "Defensive rendering/request tests",
+              "Production-settings review with remaining exceptions"
+            ],
+            "acceptanceCriteria": [
+              "Untrusted product text is displayed as text in the relevant HTML context.",
+              "A missing/invalid CSRF token cannot perform a protected cookie-authenticated mutation.",
+              "Debug details and secrets are absent from deployed error responses.",
+              "Tests target only the owned local application and no real user data."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why is input validation not a replacement for output encoding?",
+            "When is CSRF relevant?",
+            "Why does an ORM not make every possible raw query safe?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l14-supply-chain-secrets",
+          "title": "Track dependencies, secrets and security-relevant changes",
+          "objectives": [
+            "Create a dependency inventory and a risk-based remediation process.",
+            "Design least-privilege build/runtime credentials and privacy-aware audit records."
+          ],
+          "topics": [
+            {
+              "title": "Supply chain",
+              "details": [
+                "Direct/transitive dependencies, lock files, provenance, licenses and dependency-confusion risk.",
+                "Reviewing updates, vulnerability triage, scoped scan exceptions and reproducible build inputs."
+              ]
+            },
+            {
+              "title": "Secrets and audit",
+              "details": [
+                "Environment secret injection, rotation, restricted CI tokens and no credentials in images/logs.",
+                "Security-relevant event fields, redaction, retention and tamper-aware audit access."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "engineering.reproducibility",
+            "security.privacy-secrets",
+            "sde.supply-chain",
+            "sde.audit-and-secrets"
+          ],
+          "video": {
+            "resourceId": "sde-video-threat",
+            "locator": "Lecture 1: Introduction, Threat Models; extend its trusted-component reasoning to dependencies and build credentials."
+          },
+          "reading": {
+            "resourceId": "sde-book-asvs",
+            "locator": "V13 Configuration, especially secret management; V15 Secure Coding and Architecture, especially V15.1-V15.2 dependency inventory and remediation."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-swe",
+            "sde-doc-actions-security"
+          ],
+          "assignment": {
+            "id": "sde-a14-supply-chain-secrets",
+            "title": "Produce a dependency and secret-handling dossier",
+            "kind": "lab",
+            "instructions": [
+              "Inventory the application's direct and transitive packages, versions, origins and known license information.",
+              "Define a triage workflow with deadlines by risk; do not claim every scanner result is exploitable.",
+              "Use a fake canary secret to test that logs, build artifacts and repository history do not expose runtime credentials."
+            ],
+            "deliverables": [
+              "Dependency inventory or SBOM plus triage policy",
+              "Secret-flow diagram and rotation procedure",
+              "Redaction tests using fake values"
+            ],
+            "acceptanceCriteria": [
+              "All resolved dependencies are represented or an explicit inventory gap is recorded.",
+              "No genuine secret is used in a test or submitted artifact.",
+              "Runtime credentials are not embedded in source or container image layers.",
+              "Any ignored finding has an owner, rationale and review date rather than a blanket suppression."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "How does a lock file differ from a vulnerability review?",
+            "What can a dependency scanner not prove?",
+            "Why is deleting a leaked secret insufficient without rotation?"
+          ],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sde-m05-verification",
+      "title": "5. Application-level testing, debugging and evidence",
+      "stage": "advanced",
+      "description": "Foundation testing is assumed and tests already accompany each lesson. This module adds realistic integration, concurrency, browser and performance evidence rather than teaching assert statements again.",
+      "prerequisites": [
+        "sde-m03-architecture-failure",
+        "sde-m04-security"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sde-l15-layered-tests",
+          "title": "Choose test boundaries and trustworthy doubles",
+          "objectives": [
+            "Assign risks to unit, integration, contract or end-to-end tests.",
+            "Use fakes only where their fidelity is checked against real behaviour."
+          ],
+          "topics": [
+            {
+              "title": "Test design",
+              "details": [
+                "Observable behaviour, isolation, deterministic fixtures and regression tests.",
+                "Real PostgreSQL integration tests versus mocked persistence; contract tests for external boundaries."
+              ]
+            },
+            {
+              "title": "Maintainability",
+              "details": [
+                "Clear failures, useful names, limited shared setup and avoiding implementation-coupled assertions.",
+                "A small reliable browser suite rather than duplicating every unit case through the UI."
+              ]
+            }
+          ],
+          "estimatedMinutes": 330,
+          "canonicalConceptTags": [
+            "engineering.testing-debugging",
+            "sde.test-strategy",
+            "sde.contract-tests"
+          ],
+          "video": {
+            "resourceId": "sde-video-ci",
+            "locator": "Week 7: Testing, CI/CD."
+          },
+          "reading": {
+            "resourceId": "sde-book-swe",
+            "locator": "Chapter 11: Testing Overview, Designing a Test Suite; Chapter 13: Test Doubles, Prefer Realism Over Isolation and The Fidelity of Fakes."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-tests",
+            "sde-book-tdd"
+          ],
+          "assignment": {
+            "id": "sde-a15-layered-tests",
+            "title": "Build a risk-to-test matrix",
+            "kind": "lab",
+            "instructions": [
+              "List ten important application risks and assign each to a justified test level.",
+              "Create deterministic fixtures for success, invalid input, ownership denial and dependency failure.",
+              "Make the payment simulator and its fake obey the same small behavioural contract."
+            ],
+            "deliverables": [
+              "Risk-to-test matrix",
+              "Layered test suite and fixture builder",
+              "Shared contract tests for fake and real local simulator"
+            ],
+            "acceptanceCriteria": [
+              "Transaction invariants have real PostgreSQL tests.",
+              "The fake and local simulator pass the same documented contract cases.",
+              "An intentionally introduced ownership or total-calculation defect is detected.",
+              "Repeated clean runs produce the same outcomes without depending on test order."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Which failure would a mocked database conceal?",
+            "When is interaction-based testing justified?",
+            "Why is a coverage percentage not a risk model?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l16-failure-properties",
+          "title": "Verify invariants with generated sequences and crash points",
+          "objectives": [
+            "Compare state transitions against a deliberately simple reference model.",
+            "Make concurrency/failure tests reproducible and diagnostically useful."
+          ],
+          "topics": [
+            {
+              "title": "Stateful verification",
+              "details": [
+                "Generate bounded command sequences with reproducible seeds and retain failing cases.",
+                "Check stock/quantity conservation, legal transitions and deduplicated effects after every step."
+              ]
+            },
+            {
+              "title": "Failure harnesses",
+              "details": [
+                "Controlled crash points, separate connections and explicit synchronization.",
+                "Regression fixtures from minimized counterexamples; avoid timing sleeps as correctness proofs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 420,
+          "canonicalConceptTags": [
+            "problem.decomposition-complexity",
+            "engineering.testing-debugging",
+            "sde.stateful-property-tests",
+            "sde.failure-injection"
+          ],
+          "video": {
+            "resourceId": "sde-video-cmu",
+            "locator": "Lecture #16: Concurrency Control Theory; revisit transaction interleavings before implementing the failure harness."
+          },
+          "reading": {
+            "resourceId": "sde-book-swe",
+            "locator": "Chapter 14: Larger Testing, Common Gaps in Unit Tests; Disaster Recovery and Chaos Engineering."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-tests",
+            "sde-book-postgresql"
+          ],
+          "assignment": {
+            "id": "sde-a16-failure-properties",
+            "title": "Challenge a workflow with bounded generated histories",
+            "kind": "lab",
+            "instructions": [
+              "Write a simple reference model for reservation/release/return commands.",
+              "Generate 100 bounded histories using recorded seeds and compare observable state after each command.",
+              "Add targeted concurrent duplicate and crash/restart scenarios that random tests might miss."
+            ],
+            "deliverables": [
+              "Reference model and seeded generator",
+              "Invariant assertions and failure-point controls",
+              "A retained regression case for at least one deliberately seeded defect"
+            ],
+            "acceptanceCriteria": [
+              "All tested histories preserve specified invariants or produce a reproducible counterexample.",
+              "The intentionally seeded defect is detected before the fix and no longer appears after it.",
+              "Concurrent tests use real separate database sessions.",
+              "Passing 100 histories is reported as bounded evidence, not proof of all possible executions."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why keep a simple reference model?",
+            "What must be recorded to replay a failure?",
+            "Which concurrency cases cannot be established by random sequential histories?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l17-browser-accessibility",
+          "title": "Test complete browser journeys without brittle sleeps",
+          "objectives": [
+            "Automate a small customer journey using isolated browser contexts.",
+            "Combine semantic locators with manual accessibility inspection."
+          ],
+          "topics": [
+            {
+              "title": "Browser testing",
+              "details": [
+                "Playwright for Python, fresh browser contexts, role/label locators and state-based waits.",
+                "Fixture setup through controlled interfaces and failure artifacts without private information."
+              ]
+            },
+            {
+              "title": "Accessibility checks",
+              "details": [
+                "Keyboard-only completion, focus after errors, labels and readable status messages.",
+                "Limits of automation and documenting manual screen-reader observations."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "engineering.testing-debugging",
+            "sde.browser-testing",
+            "sde.accessible-interfaces"
+          ],
+          "video": {
+            "resourceId": "sde-video-ui",
+            "locator": "Week 6: User Interfaces; relate browser state and feedback to the journeys under test."
+          },
+          "reading": {
+            "resourceId": "sde-book-tdd",
+            "locator": "Chapter 6: Improving Functional Tests: Ensuring Isolation and Removing Voodoo Sleeps; Chapter 26: The Token Social Bit, the Page Pattern, and an Exercise for the Reader. Read the concepts, not the third-party exercise as an assignment."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-playwright",
+            "sde-doc-accessible-forms"
+          ],
+          "assignment": {
+            "id": "sde-a17-browser-accessibility",
+            "title": "Verify checkout and a denied-order journey",
+            "kind": "lab",
+            "instructions": [
+              "Automate a synthetic customer login/cart/checkout journey and a cross-customer denied-access journey.",
+              "Use a newly created isolated browser context per test; do not attach to a personal signed-in profile.",
+              "Run a keyboard-only form walkthrough and record focus/error behaviour."
+            ],
+            "deliverables": [
+              "Two end-to-end tests with deterministic setup",
+              "Failure screenshots/traces from synthetic runs",
+              "Manual accessibility checklist"
+            ],
+            "acceptanceCriteria": [
+              "Tests pass five consecutive isolated runs without fixed arbitrary sleeps.",
+              "The denied journey does not reveal another customer's order contents.",
+              "Every form control has an accessible name and error feedback is reachable by keyboard.",
+              "Any unmet accessibility criterion is recorded, not replaced with an unsupported WCAG conformance claim."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why prefer role/label locators?",
+            "Why does browser isolation matter for permissions tests?",
+            "What accessibility properties still need human review?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l18-debug-query-performance",
+          "title": "Diagnose a regression using evidence and query plans",
+          "objectives": [
+            "Narrow a slow or failing request to a reproducible cause.",
+            "Measure query count/plan changes while preserving correctness."
+          ],
+          "topics": [
+            {
+              "title": "Debugging workflow",
+              "details": [
+                "Hypothesis, minimal reproduction, request correlation and cause versus symptom.",
+                "Query counts, lazy QuerySets, N+1 access, selected fields and targeted indexes."
+              ]
+            },
+            {
+              "title": "Measurement",
+              "details": [
+                "EXPLAIN versus EXPLAIN ANALYZE, representative fixtures and measurement overhead.",
+                "Before/after output equivalence, read/write costs and hardware-labelled results."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "engineering.testing-debugging",
+            "data.sql-querying",
+            "sde.query-performance",
+            "sde.diagnostic-reasoning"
+          ],
+          "video": {
+            "resourceId": "sde-video-cmu",
+            "locator": "Lecture #15: Query Planning & Optimization, 28 October 2024."
+          },
+          "reading": {
+            "resourceId": "sde-book-postgresql",
+            "locator": "14.1 Using EXPLAIN: EXPLAIN Basics; EXPLAIN ANALYZE; Caveats."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-performance",
+            "sde-doc-django-querysets",
+            "sde-book-tdd"
+          ],
+          "assignment": {
+            "id": "sde-a18-debug-query-performance",
+            "title": "Find and fix one catalogue-query regression",
+            "kind": "lab",
+            "instructions": [
+              "Create representative synthetic catalogue/order fixtures and an intentionally inefficient list view.",
+              "Record query count, plan and latency before making one targeted change.",
+              "Compare result identities and totals before/after and explain write/storage trade-offs of any index."
+            ],
+            "deliverables": [
+              "Minimal reproduction and diagnostic log",
+              "Before/after plans, counts and timings",
+              "Regression test and trade-off note"
+            ],
+            "acceptanceCriteria": [
+              "The report includes dataset size, database/runtime versions, machine and command.",
+              "Results remain semantically identical after the change.",
+              "The test catches the intentionally introduced N+1 or query-count regression.",
+              "Actual measured results are recorded, including no improvement if that is what occurred."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why can a tiny fixture hide an inefficient query?",
+            "What additional work does EXPLAIN ANALYZE perform?",
+            "When can an index make a workload worse?"
+          ],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sde-m06-delivery",
+      "title": "6. Reproducible CI, containers and safe deployment",
+      "stage": "professional",
+      "description": "Build a deployable artifact and a recoverable release process. Cloud execution is optional and budget-gated; the core route uses local containers and validates configuration/IaC without provisioning paid resources.",
+      "prerequisites": [
+        "sde-m05-verification"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sde-l19-ci-gates",
+          "title": "Define an automated release-quality pipeline",
+          "objectives": [
+            "Run application checks against a reproducible database-backed environment.",
+            "Keep untrusted changes away from privileged release credentials."
+          ],
+          "topics": [
+            {
+              "title": "Pipeline stages",
+              "details": [
+                "Formatting/linting, type checks where configured, migrations, unit/integration tests and artifact creation.",
+                "Pinned inputs, service containers, independent jobs and useful failure logs."
+              ]
+            },
+            {
+              "title": "Trust boundaries",
+              "details": [
+                "Least-privilege tokens, vetted action versions and secrets only for authorized release paths.",
+                "Local parity and explicit hosted-runner quota assumptions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 330,
+          "canonicalConceptTags": [
+            "engineering.git",
+            "engineering.reproducibility",
+            "sde.ci-quality-gates"
+          ],
+          "video": {
+            "resourceId": "sde-video-ci",
+            "locator": "Week 7: Testing, CI/CD."
+          },
+          "reading": {
+            "resourceId": "sde-book-tdd",
+            "locator": "Chapter 25: CI: Continuous Integration."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-actions",
+            "sde-doc-actions-security",
+            "sde-doc-django-tests"
+          ],
+          "assignment": {
+            "id": "sde-a19-ci-gates",
+            "title": "Make a failing change unreleaseable",
+            "kind": "lab",
+            "instructions": [
+              "Create a pipeline definition and equivalent local commands for checks, PostgreSQL tests and packaging.",
+              "Introduce a controlled failing invariant test and verify that artifact promotion is blocked.",
+              "Review workflow permissions and isolate any optional deployment credentials from pull-request checks."
+            ],
+            "deliverables": [
+              "Pipeline definition and local runner instructions",
+              "Passing/failing execution evidence",
+              "Permission and hosted-cost assumptions"
+            ],
+            "acceptanceCriteria": [
+              "The failed correctness check prevents promotion.",
+              "The pipeline starts from a fresh database and applies migrations.",
+              "No untrusted pull-request job receives write/deployment secrets.",
+              "If hosted execution is not used, the report clearly labels local execution and unexecuted hosted configuration."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What is CI checking that a developer laptop may hide?",
+            "Why distinguish build success from release eligibility?",
+            "What can an untrusted workflow do with a token?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l20-container-runtime",
+          "title": "Package the application with explicit runtime configuration",
+          "objectives": [
+            "Build a container image that excludes development secrets and unnecessary files.",
+            "Explain runtime networking, persistent state and graceful shutdown."
+          ],
+          "topics": [
+            {
+              "title": "Image and process",
+              "details": [
+                "Build context, dependency layers, non-root execution and a production application server.",
+                "Signals, startup checks and dependency health versus application health."
+              ]
+            },
+            {
+              "title": "Runtime state",
+              "details": [
+                "Environment configuration, named volumes, service networking and ephemeral application containers.",
+                "One-off migrations and resource limits; no embedded database credentials in images."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "computing.files-processes",
+            "engineering.reproducibility",
+            "sde.containers",
+            "sde.runtime-configuration"
+          ],
+          "video": {
+            "resourceId": "sde-video-ci",
+            "locator": "Week 7: Testing, CI/CD; container-related delivery examples, supplemented by the current Docker guide."
+          },
+          "reading": {
+            "resourceId": "sde-book-tdd",
+            "locator": "Chapter 9: Containerization aka Docker; Chapter 10: Making Our App Production-Ready."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-docker",
+            "sde-doc-django-deploy"
+          ],
+          "assignment": {
+            "id": "sde-a20-container-runtime",
+            "title": "Run the same artifact in a clean local environment",
+            "kind": "lab",
+            "instructions": [
+              "Package the Django app and run it with a separate PostgreSQL service.",
+              "Inject runtime configuration and keep persistent database data outside the app container.",
+              "Exercise restart, graceful stop and a missing-configuration failure."
+            ],
+            "deliverables": [
+              "Container build/runtime definitions",
+              "Environment variable template containing no secrets",
+              "Startup/restart/shutdown evidence"
+            ],
+            "acceptanceCriteria": [
+              "A clean build and documented startup produce the expected healthy response.",
+              "Restarting only the app container preserves committed database data.",
+              "Missing critical configuration fails explicitly rather than silently choosing unsafe defaults.",
+              "The image does not include local credentials, test exports or the entire development workspace."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "How does an image differ from a running container?",
+            "Where must persistent state live?",
+            "What does a graceful shutdown need to finish or abandon?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l21-safe-release-iac",
+          "title": "Plan a safe release with declarative infrastructure",
+          "objectives": [
+            "Describe infrastructure, identity and configuration as reviewable declarations.",
+            "Rehearse a release and recovery path that accounts for schema compatibility."
+          ],
+          "topics": [
+            {
+              "title": "Cloud model",
+              "details": [
+                "Managed application compute, PostgreSQL, network boundaries, IAM and secret injection.",
+                "Bicep parameters/modules, local compilation and a cost/teardown plan before provisioning."
+              ]
+            },
+            {
+              "title": "Release safety",
+              "details": [
+                "Expand/contract migrations, health checks, smoke tests and progressive exposure.",
+                "Application rollback versus database recovery; immutable artifact identity and documented promotion."
+              ]
+            }
+          ],
+          "estimatedMinutes": 420,
+          "canonicalConceptTags": [
+            "engineering.reproducibility",
+            "sde.infrastructure-as-code",
+            "sde.safe-deployment"
+          ],
+          "video": {
+            "resourceId": "sde-video-ci",
+            "locator": "Week 7: Testing, CI/CD; deployment concepts. Current provider-specific steps are in Microsoft Learn, not the historical lecture."
+          },
+          "reading": {
+            "resourceId": "sde-book-tdd",
+            "locator": "Chapter 12: Infrastructure As Code: Automated Deployments With Ansible; Chapter 18: Deploying Our New Code. Learn declarative/repeatable deployment principles; this assignment uses Bicep rather than adding Ansible to the stack."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-bicep",
+            "sde-doc-azure-python",
+            "sde-doc-django-deploy",
+            "sde-book-sre"
+          ],
+          "assignment": {
+            "id": "sde-a21-safe-release-iac",
+            "title": "Rehearse a versioned application release",
+            "kind": "design",
+            "instructions": [
+              "Create a Bicep design for a minimal Azure deployment and compile/review it locally without provisioning.",
+              "Rehearse v1-to-v2 rollout and rollback using the local container environment and a backward-compatible schema change.",
+              "Document the optional cloud subscription, runtime compatibility, spending limit and cleanup approval needed before a real deployment."
+            ],
+            "deliverables": [
+              "Infrastructure diagram, Bicep source and compile result",
+              "Release/rollback runbook and smoke tests",
+              "Local rehearsal evidence and optional-cloud budget checklist"
+            ],
+            "acceptanceCriteria": [
+              "The IaC contains no secrets or unrestricted assumptions about inbound access.",
+              "The local rollout and rollback preserve the agreed database/application compatibility.",
+              "Failure of a smoke test halts promotion.",
+              "Cloud configuration is labelled unprovisioned unless an actual authorized run is later performed; no free-hosting guarantee is made."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why might rolling back code not roll back data?",
+            "What is the difference between an IaC compile and a successful deployment?",
+            "Which resources can continue billing after an app stops?"
+          ],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sde-m07-operations",
+      "title": "7. Observe, recover and measure the running service",
+      "stage": "professional",
+      "description": "Operate a bounded synthetic workload with defined reliability and cost objectives. These exercises produce measured local evidence, not invented production uptime or employer/client metrics.",
+      "prerequisites": [
+        "sde-m06-delivery"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sde-l22-observability",
+          "title": "Define service objectives and correlate telemetry",
+          "objectives": [
+            "Define an SLI with a numerator, denominator, window and exclusions.",
+            "Trace a synthetic order across request, database work and background processing without logging private payloads."
+          ],
+          "topics": [
+            {
+              "title": "Operational signals",
+              "details": [
+                "Latency, traffic, errors and saturation; histograms versus averages.",
+                "SLIs, SLOs, error budgets and alerts tied to user-visible failure."
+              ]
+            },
+            {
+              "title": "Instrumentation",
+              "details": [
+                "Structured logs, request/work IDs, trace propagation and bounded label cardinality.",
+                "Console/local telemetry export, redaction and explicit retention."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "math.descriptive-statistics",
+            "security.privacy-secrets",
+            "sde.observability",
+            "sde.sli-slo"
+          ],
+          "video": {
+            "resourceId": "sde-video-scale",
+            "locator": "Week 8: Scalability and Security; relate service load to the SRE monitoring readings. Instrumentation details are in OpenTelemetry documentation."
+          },
+          "reading": {
+            "resourceId": "sde-book-sre",
+            "locator": "Chapter 4: Service Level Objectives; Chapter 6: Monitoring Distributed Systems."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-otel"
+          ],
+          "assignment": {
+            "id": "sde-a22-observability",
+            "title": "Follow an order and detect a synthetic outage",
+            "kind": "lab",
+            "instructions": [
+              "Define success and latency SLIs for one customer journey, explicitly excluding or including invalid requests.",
+              "Add structured request/work identifiers and a local trace or equivalent correlated telemetry.",
+              "Inject a bounded failure and evaluate an alert against the declared window."
+            ],
+            "deliverables": [
+              "SLI/SLO definitions",
+              "Instrumentation and sanitized example trace/logs",
+              "Alert test and short operational dashboard or report"
+            ],
+            "acceptanceCriteria": [
+              "Another reader can recompute the SLI from the recorded events.",
+              "A request and its background work can be correlated without storing sensitive payloads.",
+              "The synthetic failure triggers the intended alert and recovery is visible.",
+              "A short local run is not described as achievement of a monthly production SLO."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why is average latency insufficient?",
+            "What can an unbounded metric label do to cost?",
+            "How does an SLO differ from a contractual SLA?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l23-incident-restore",
+          "title": "Recover from a failure and verify a restored database",
+          "objectives": [
+            "Execute an incident runbook with explicit roles, timeline and recovery checks.",
+            "Restore a backup into an isolated environment and verify application invariants."
+          ],
+          "topics": [
+            {
+              "title": "Incident practice",
+              "details": [
+                "Detection, mitigation, diagnosis, communication and recovery confirmation.",
+                "Blameless review, contributing causes and assigned follow-up actions."
+              ]
+            },
+            {
+              "title": "Recovery evidence",
+              "details": [
+                "Logical backup/restore, fixture reconciliation, roles/configuration outside the database.",
+                "RPO/RTO as objectives; record actual recovery time and data boundary without claiming continuous production recovery."
+              ]
+            }
+          ],
+          "estimatedMinutes": 420,
+          "canonicalConceptTags": [
+            "communication.technical-explanation",
+            "engineering.reproducibility",
+            "sde.incident-response",
+            "sde.backup-restore"
+          ],
+          "video": {
+            "resourceId": "sde-video-cmu",
+            "locator": "Lecture #21: Database Recovery, 18 November 2024; distinguish database crash recovery from the backup/restore exercise."
+          },
+          "reading": {
+            "resourceId": "sde-book-postgresql",
+            "locator": "25.1 SQL Dump, especially 25.1.1 Restoring the Dump and 25.1.2 Using pg_dumpall."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-sre"
+          ],
+          "assignment": {
+            "id": "sde-a23-incident-restore",
+            "title": "Run a safe synthetic recovery drill",
+            "kind": "lab",
+            "instructions": [
+              "Back up only a dedicated synthetic project database and record the backup point.",
+              "Restore into a different disposable database; never overwrite the source or an unrelated database.",
+              "Reconcile row counts and business totals, run application checks and write a short incident review."
+            ],
+            "deliverables": [
+              "Backup/restore runbook and scoped commands",
+              "Restored-data reconciliation report",
+              "Timestamped drill timeline and two follow-up actions"
+            ],
+            "acceptanceCriteria": [
+              "Source and restore targets are explicitly different and identified before commands run.",
+              "Golden order totals, stock and idempotency records match the backup snapshot.",
+              "Observed recovery duration and recoverable-data boundary are recorded.",
+              "Secrets and sensitive data are absent from submitted backup artifacts; public submission may retain only commands and synthetic evidence."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why is a successful backup command insufficient?",
+            "What configuration might a database dump omit?",
+            "How do RPO and RTO describe different concerns?"
+          ],
+          "optional": false
+        },
+        {
+          "id": "sde-l24-load-cost",
+          "title": "Measure capacity, saturation and cost trade-offs",
+          "objectives": [
+            "Design a bounded representative load experiment with correctness checks.",
+            "Explain a capacity/cost decision using measured throughput and latency distributions."
+          ],
+          "topics": [
+            {
+              "title": "Experiment design",
+              "details": [
+                "Warm-up, workload mix, concurrency, duration and stable synthetic data.",
+                "Percentiles, errors, CPU/memory, connection saturation and measurement limits."
+              ]
+            },
+            {
+              "title": "Decision making",
+              "details": [
+                "Bottleneck identification before scaling; connection-pool and worker limits.",
+                "Cost per useful request, operational complexity and explicitly assumed cloud prices rather than fabricated bills."
+              ]
+            }
+          ],
+          "estimatedMinutes": 420,
+          "canonicalConceptTags": [
+            "math.descriptive-statistics",
+            "product.requirements-tradeoffs",
+            "sde.load-testing",
+            "sde.performance-cost"
+          ],
+          "video": {
+            "resourceId": "sde-video-scale",
+            "locator": "Week 8: Scalability and Security."
+          },
+          "reading": {
+            "resourceId": "sde-book-sre",
+            "locator": "Chapter 3: Embracing Risk; Chapter 21: Handling Overload."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-django-performance",
+            "sde-book-swe"
+          ],
+          "assignment": {
+            "id": "sde-a24-load-cost",
+            "title": "Compare two bounded local capacity settings",
+            "kind": "lab",
+            "instructions": [
+              "Define a three-minute-or-shorter local workload with a safe request/concurrency cap and a mix of reads and reservations.",
+              "Compare two worker/pool settings while recording latency, errors, resource use and business invariants.",
+              "Write a decision note including the case where added concurrency worsens results."
+            ],
+            "deliverables": [
+              "Load configuration and environment description",
+              "Raw observations and percentile/error summary",
+              "Capacity/cost trade-off note"
+            ],
+            "acceptanceCriteria": [
+              "Only the owned local application is load-tested and the cap is documented.",
+              "No overselling or duplicate effects occur under the tested workload.",
+              "Results include machine, runtime, dataset, duration and concurrency; missing metrics are disclosed.",
+              "Cloud costs, if discussed, are labelled estimates with assumptions, not observed expenditure or guaranteed savings."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why can more workers increase latency?",
+            "How would you detect connection-pool saturation?",
+            "Why is a benchmark without workload and hardware context misleading?"
+          ],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sde-m08-specialization-portfolio",
+      "title": "8. Optional depth and portfolio evidence",
+      "stage": "professional",
+      "description": "Choose optional full-stack, platform or search-service depth instead of treating all branches as mandatory. Lessons 27-28 specifically support the B search project. Lesson 29 is the common evidence/review gate for whichever independent project is chosen. Optional lessons must not block completion of the core backend route.",
+      "prerequisites": [
+        "sde-m07-operations"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sde-l25-fullstack",
+          "title": "Optional full-stack: progressively enhance a reliable form",
+          "objectives": [
+            "Add browser interactivity without moving business authority to the client.",
+            "Handle loading, failure, stale response and keyboard/focus states."
+          ],
+          "topics": [
+            {
+              "title": "Browser state",
+              "details": [
+                "JavaScript events, fetch, cancellation and out-of-order response handling.",
+                "Client/server validation boundaries and preserving a server-rendered fallback."
+              ]
+            },
+            {
+              "title": "User experience",
+              "details": [
+                "Visible loading/error/success states and safe duplicate-submission handling.",
+                "Keyboard focus, live status messages and browser tests; no framework migration required."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "web.http-apis",
+            "sde.progressive-enhancement",
+            "sde.accessible-interfaces"
+          ],
+          "video": {
+            "resourceId": "sde-video-javascript",
+            "locator": "Week 5: JavaScript; pair API/event examples with the existing server-rendered form."
+          },
+          "reading": {
+            "resourceId": "sde-book-tdd",
+            "locator": "Chapter 17: A Gentle Excursion Into JavaScript; Appendix E: Building a REST API: JSON, Ajax, and Mocking with JavaScript."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-accessible-forms",
+            "sde-doc-playwright",
+            "sde-video-ui"
+          ],
+          "assignment": {
+            "id": "sde-a25-fullstack",
+            "title": "Enhance cart quantity updates without losing correctness",
+            "kind": "coding",
+            "instructions": [
+              "Add a small JavaScript enhancement to update a cart using the existing API.",
+              "Simulate delayed/reordered responses and a network failure.",
+              "Keep a functional non-JavaScript path and server-owned price/stock rules."
+            ],
+            "deliverables": [
+              "Progressive enhancement and fallback",
+              "Browser tests for stale/error states",
+              "Keyboard/focus review"
+            ],
+            "acceptanceCriteria": [
+              "A delayed old response cannot overwrite a newer confirmed cart state.",
+              "Disabling JavaScript still permits the core form workflow.",
+              "Displayed totals come from the server contract.",
+              "Failures are visible and retry does not create duplicate business effects."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Which state is authoritative?",
+            "How can a successful but stale response be harmful?",
+            "What does progressive enhancement preserve?"
+          ],
+          "optional": true
+        },
+        {
+          "id": "sde-l26-platform",
+          "title": "Optional platform: build one self-service developer path",
+          "objectives": [
+            "Define a developer workflow as a small internal product.",
+            "Package safe defaults with understandable errors and an escape path."
+          ],
+          "topics": [
+            {
+              "title": "Platform product",
+              "details": [
+                "One user journey, user feedback, adoption and task-success measurement.",
+                "Reusable project template or CLI, not a universal platform or mandatory Kubernetes cluster."
+              ]
+            },
+            {
+              "title": "Operational guardrails",
+              "details": [
+                "Environment validation, deterministic configuration and supported extension points.",
+                "Idempotent setup, safe cleanup, ownership, versioning and failure diagnostics."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "product.requirements-tradeoffs",
+            "computing.shell",
+            "sde.developer-platform",
+            "sde.self-service-automation"
+          ],
+          "video": {
+            "resourceId": "sde-video-ci",
+            "locator": "Week 7: Testing, CI/CD; use delivery automation as the technical base for the self-service workflow."
+          },
+          "reading": {
+            "resourceId": "sde-book-sre",
+            "locator": "Chapter 5: Eliminating Toil; Chapter 18: Software Engineering in SRE."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-platform",
+            "sde-doc-docker"
+          ],
+          "assignment": {
+            "id": "sde-a26-platform",
+            "title": "Provide a safe local development-environment command",
+            "kind": "coding",
+            "instructions": [
+              "Choose one workflow: initialize, check or start an isolated project environment.",
+              "Implement a CLI/template that validates configuration, starts only project-owned resources and explains failures.",
+              "Ask one peer to follow the instructions or perform a documented fresh-environment walkthrough without inventing peer feedback."
+            ],
+            "deliverables": [
+              "Workflow description and CLI/template",
+              "Idempotency and failure tests",
+              "Real walkthrough observations and one improvement"
+            ],
+            "acceptanceCriteria": [
+              "Running setup twice does not create duplicate resources or overwrite unrelated files.",
+              "Cleanup is restricted to explicitly identified project resources.",
+              "A missing prerequisite produces an actionable diagnostic.",
+              "Any usability feedback is attributed to an actual review or labelled self-evaluation."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What makes a platform an internal product?",
+            "Which task-success metric is useful?",
+            "Why are safe failure messages part of the interface?"
+          ],
+          "optional": true
+        },
+        {
+          "id": "sde-l27-lexical-search",
+          "title": "Search-service depth: build a lexical baseline and judgement set",
+          "objectives": [
+            "Implement reproducible lexical retrieval with filters and stable ranking.",
+            "Create relevance judgements that are independent of a preferred retrieval method."
+          ],
+          "topics": [
+            {
+              "title": "Retrieval",
+              "details": [
+                "Tokenization, normalized terms, inverted-index concepts and vector-space/term-weighting intuition.",
+                "PostgreSQL full-text queries, ranking, stable ties and indexed filters."
+              ]
+            },
+            {
+              "title": "Evaluation data",
+              "details": [
+                "Synthetic catalogue provenance, query intent, graded relevance and development/held-out split.",
+                "Filter correctness is a hard requirement, separate from ranking quality."
+              ]
+            }
+          ],
+          "estimatedMinutes": 420,
+          "canonicalConceptTags": [
+            "data.quality-provenance",
+            "data.sql-querying",
+            "sde.lexical-retrieval",
+            "sde.relevance-judgements"
+          ],
+          "video": {
+            "resourceId": "sde-video-language",
+            "locator": "Week 6: Language; verified topics Bag-of-Words Model and Word Representation. PostgreSQL search mechanics are supplied by the manual."
+          },
+          "reading": {
+            "resourceId": "sde-book-ir",
+            "locator": "Chapter 6: Scoring, term weighting and the vector space model; Sections 6.1 Parametric and zone indexes and 6.2 Term frequency and weighting."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-postgresql",
+            "sde-doc-rerank"
+          ],
+          "assignment": {
+            "id": "sde-a27-lexical-search",
+            "title": "Build an independently runnable product-search baseline",
+            "kind": "lab",
+            "instructions": [
+              "Generate a standalone catalogue of 500 fictional products; do not require the commerce-project database.",
+              "Write at least twenty query intents and relevance labels before comparing ranking variants; reserve half for held-out evaluation.",
+              "Implement lexical search with availability/category/tenant filters and stable pagination."
+            ],
+            "deliverables": [
+              "Synthetic catalogue and data dictionary",
+              "Versioned judgement set with development/held-out split",
+              "Lexical API and filter/ranking tests"
+            ],
+            "acceptanceCriteria": [
+              "Repeated runs on unchanged fixtures return stable results.",
+              "No result violates the declared permission/category/availability filters.",
+              "Judgements are versioned separately from ranking code.",
+              "The baseline runs independently with a documented setup and no external paid search service."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "How do relevance and filter correctness differ?",
+            "Why create labels before choosing a winning method?",
+            "What are the limits of term overlap?"
+          ],
+          "optional": true
+        },
+        {
+          "id": "sde-l28-rerank-evaluation",
+          "title": "Search-service depth: compare dense retrieval and reranking honestly",
+          "objectives": [
+            "Integrate a bounded pretrained retrieval/reranking component with explicit provenance.",
+            "Measure ranking quality, latency and cache correctness on held-out queries."
+          ],
+          "topics": [
+            {
+              "title": "Application integration",
+              "details": [
+                "Bi-encoder candidates versus cross-encoder reranking; bounded candidate count and fallbacks.",
+                "Model-card licenses, pinned revisions, input limits and offline/local inference where practical."
+              ]
+            },
+            {
+              "title": "Evidence",
+              "details": [
+                "Recall at a fixed cutoff, reciprocal-rank or graded-ranking measures and testable metric implementations.",
+                "Cold/warm latency, model/index version in cache keys and no tuning on held-out queries."
+              ]
+            }
+          ],
+          "estimatedMinutes": 480,
+          "canonicalConceptTags": [
+            "math.descriptive-statistics",
+            "ai.assistance-verification",
+            "sde.search-evaluation",
+            "sde.model-api-integration"
+          ],
+          "video": {
+            "resourceId": "sde-video-language",
+            "locator": "Week 6: Language; verified topics Word Representation, word2vec and Attention. The lesson does not claim the lecture teaches the exact Sentence Transformers API."
+          },
+          "reading": {
+            "resourceId": "sde-book-ir",
+            "locator": "Chapter 8: Evaluation in information retrieval; Sections 8.1, 8.4 Evaluation of ranked retrieval results, 8.5 Assessing relevance and 8.6 System quality and user utility."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-rerank"
+          ],
+          "assignment": {
+            "id": "sde-a28-rerank-evaluation",
+            "title": "Compare lexical, dense and reranked search without fabricated gains",
+            "kind": "lab",
+            "instructions": [
+              "Select a small pretrained component only after recording its model-card license and revision; use synthetic catalogue text.",
+              "Evaluate lexical, dense and reranked variants on the frozen held-out queries without adjusting parameters on those results.",
+              "Record actual quality and cold/warm latency, and test cache invalidation when a model/index/filter context changes.",
+              "If hardware or model licensing blocks execution, retain the completed lexical benchmark and mark the neural comparison incomplete rather than fabricating scores."
+            ],
+            "deliverables": [
+              "Model/dependency provenance record",
+              "Evaluation code with hand-checkable metric cases",
+              "Variant comparison report and cache/failure tests"
+            ],
+            "acceptanceCriteria": [
+              "A perfect synthetic ranking and an all-irrelevant ranking produce the defined expected metric values.",
+              "Held-out queries are not used to select parameters.",
+              "All variants retain permission/filter correctness and bounded candidate/input limits.",
+              "Every reported score/latency comes from retained execution evidence; a poorer neural result is reported honestly."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why does a reranker usually see only a candidate subset?",
+            "What belongs in a search-result cache key?",
+            "Why is relevance improvement not evidence of conversion or revenue improvement?"
+          ],
+          "optional": true
+        },
+        {
+          "id": "sde-l29-evidence-review",
+          "title": "Defend a reproducible project and review AI-assisted changes",
+          "objectives": [
+            "Assemble a runnable evidence package with honest scope and limitations.",
+            "Review a proposed change against contracts, security and independent tests."
+          ],
+          "topics": [
+            {
+              "title": "Engineering communication",
+              "details": [
+                "Architecture decision records, setup/operations documentation and concise demonstrations.",
+                "Measured results versus targets, local evidence versus production claims, and remaining risks."
+              ]
+            },
+            {
+              "title": "Human verification",
+              "details": [
+                "Small reviewable changes, independent regression tests and dependency/license checks.",
+                "AI-generated suggestions are untrusted proposals; do not submit private code/data or accept unexplained changes."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "communication.technical-explanation",
+            "ai.assistance-verification",
+            "sde.code-review",
+            "sde.portfolio-evidence"
+          ],
+          "video": {
+            "resourceId": "sde-video-scale",
+            "locator": "Week 8: Scalability and Security; revisit operational/security trade-offs when defending the chosen project."
+          },
+          "reading": {
+            "resourceId": "sde-book-swe",
+            "locator": "Chapter 9: Code Review, Code Review Best Practices; Chapter 10: Documentation, Know Your Audience and Design Docs."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-tdd",
+            "sde-doc-django-deploy"
+          ],
+          "assignment": {
+            "id": "sde-a29-evidence-review",
+            "title": "Submit one independently reproducible project review",
+            "kind": "project",
+            "instructions": [
+              "Choose one mapped project and assemble its design, vertical slice, tests and measured demo artifacts.",
+              "Review a small proposed change from a peer, yourself or an optional AI tool; write independent acceptance tests before accepting it.",
+              "Run the setup from a fresh disposable environment and explain one normal workflow and one failure/recovery case."
+            ],
+            "deliverables": [
+              "Source, dependency versions, setup/test/runbook documentation and synthetic provenance",
+              "Architecture/ER/state diagrams and decision records",
+              "Short demo, raw measurement evidence and reviewed change log"
+            ],
+            "acceptanceCriteria": [
+              "A fresh-environment run follows the documented steps without private employer assets or credentials.",
+              "Claims distinguish user-reported historical work, newly recreated evidence and planned features.",
+              "The reviewed change passes independent contract, correctness and relevant security tests.",
+              "No project, lesson, benchmark, job outcome or production readiness is marked complete without corresponding evidence."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Which claim in the README has the weakest evidence?",
+            "Can you explain the proposed change without the tool that generated it?",
+            "What would still be required before handling real customers or payments?"
+          ],
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "projectMappings": [
+    {
+      "projectTitle": "Transaction-Safe E-Commerce Website",
+      "resumeVariant": "A-rebuild",
+      "recommendedAfter": [
+        "sde-m02-transactional-apis",
+        "sde-m05-verification",
+        "sde-m06-delivery",
+        "sde-m07-operations"
+      ],
+      "milestones": [
+        {
+          "title": "Design and fixtures - modules 1-2",
+          "deliverables": [
+            "Scope for one store, about 100 products, one currency and fixed shipping rules",
+            "ER/order-state diagrams, ownership matrix and synthetic fixtures",
+            "Design note excluding real card processing, tax engines, recommendations and microservices"
+          ],
+          "acceptanceCriteria": [
+            "Server pricing, reservation, callback deduplication and ownership invariants are written before implementation.",
+            "The repository plan contains no lost historical code claims or private assets.",
+            "Historical completion remains user-reported; this reconstruction starts incomplete."
+          ]
+        },
+        {
+          "title": "Working vertical slice - modules 1-3",
+          "deliverables": [
+            "Browse/search/cart/checkout/order-history flow using Django templates",
+            "Framework customer/staff authentication",
+            "PostgreSQL reservation and local payment simulator"
+          ],
+          "acceptanceCriteria": [
+            "One synthetic order can complete through the full slice.",
+            "Changing a submitted price cannot change server totals.",
+            "The flow runs with local services and no payment-provider account."
+          ]
+        },
+        {
+          "title": "Correctness and failure tests - modules 2, 4-5",
+          "deliverables": [
+            "Concurrent-purchase harness, ownership matrix tests and replay tests",
+            "Rollback/failure-injection cases",
+            "Browser/accessibility checks"
+          ],
+          "acceptanceCriteria": [
+            "Racing purchases cannot oversell stock.",
+            "Duplicate callbacks produce one payment-state transition.",
+            "Customers cannot view another customer's orders.",
+            "Failed checkout rolls back all intended local state changes."
+          ]
+        },
+        {
+          "title": "Documented demo and measurements - modules 6-8",
+          "deliverables": [
+            "Reproducible setup, CI/local checks and deployment notes",
+            "Customer/staff demo plus a deliberate failed-checkout case",
+            "Hardware-labelled concurrency/latency report and limitation list"
+          ],
+          "acceptanceCriteria": [
+            "A clean environment can reproduce tests and the synthetic demo.",
+            "Reported measurements are generated by retained commands and raw results.",
+            "No prototype is labelled production-ready or as handling real payments."
+          ]
+        }
+      ]
+    },
+    {
+      "projectTitle": "Returns and Exchange Portal",
+      "resumeVariant": "A-rebuild",
+      "recommendedAfter": [
+        "sde-m03-architecture-failure",
+        "sde-m04-security",
+        "sde-m05-verification",
+        "sde-m07-operations"
+      ],
+      "milestones": [
+        {
+          "title": "Design and fixtures - modules 1-3",
+          "deliverables": [
+            "Independent application/database plan and 500 synthetic fulfilled orders",
+            "Partial-return policy, state diagram and role matrix",
+            "Audit, exchange-stock and simulated-credit invariants"
+          ],
+          "acceptanceCriteria": [
+            "The portal requires no storefront database or live integration.",
+            "Eligible quantities and all permitted transitions are unambiguous.",
+            "Real refunds, courier services, fraud prediction and legal-policy compliance are outside scope."
+          ]
+        },
+        {
+          "title": "Working vertical slice - modules 2-3",
+          "deliverables": [
+            "Customer-owned order view and partial-return request",
+            "Staff approval/receipt/resolution commands",
+            "Transactional exchange reservation and simulated credit"
+          ],
+          "acceptanceCriteria": [
+            "One return and one exchange complete using only independent fixtures.",
+            "The UI and API expose explicit rejected-transition errors.",
+            "Every state change retains an auditable synthetic event."
+          ]
+        },
+        {
+          "title": "Correctness and failure tests - modules 3-5",
+          "deliverables": [
+            "Eligibility, permission and state-machine tests",
+            "Concurrent partial-return and duplicate-credit cases",
+            "Failed-exchange rollback evidence"
+          ],
+          "acceptanceCriteria": [
+            "Returned quantities cannot exceed eligible fulfilled quantities.",
+            "Cross-customer access is denied.",
+            "Repeated processing does not duplicate credits.",
+            "Illegal transitions fail and failed exchanges consume no replacement stock."
+          ]
+        },
+        {
+          "title": "Documented demo and measurements - modules 6-8",
+          "deliverables": [
+            "Independent setup/readme, workflow/ER diagrams and policy fixtures",
+            "Normal and failed-exchange demo",
+            "Failure-injection/recovery report"
+          ],
+          "acceptanceCriteria": [
+            "A fresh environment can run this project without the e-commerce project.",
+            "All measured outcomes are labelled with actual workload and environment.",
+            "Historical college completion is distinguished from newly produced reconstruction evidence."
+          ]
+        }
+      ]
+    },
+    {
+      "projectTitle": "Failure-Tolerant Commerce Order Orchestrator",
+      "resumeVariant": "B-build",
+      "recommendedAfter": [
+        "sde-m03-architecture-failure",
+        "sde-m05-verification",
+        "sde-m06-delivery",
+        "sde-m07-operations"
+      ],
+      "milestones": [
+        {
+          "title": "Design and fixtures - modules 2-3",
+          "deliverables": [
+            "Inventory/order/simulated-payment state and sequence diagrams",
+            "Durable-work/outbox schema and idempotency contract",
+            "Failure matrix covering every commit/dispatch/acknowledgement boundary"
+          ],
+          "acceptanceCriteria": [
+            "The specification distinguishes local atomicity, retries and compensation.",
+            "No global exactly-once guarantee is claimed.",
+            "The B project remains planned until new runnable evidence exists."
+          ]
+        },
+        {
+          "title": "Working vertical slice - modules 3 and 6",
+          "deliverables": [
+            "API, persistent work records and separately restartable local worker",
+            "Idempotent simulated inventory/payment steps",
+            "Bounded retry and manual-recovery workflow"
+          ],
+          "acceptanceCriteria": [
+            "An accepted synthetic order is recoverable from durable state.",
+            "An order reaches either a valid terminal state or an explicitly visible recovery state.",
+            "A message broker is optional; a database-backed implementation is sufficient."
+          ]
+        },
+        {
+          "title": "Correctness and failure tests - modules 4-5",
+          "deliverables": [
+            "Crash/restart tests for every documented boundary",
+            "Duplicate/out-of-order processing and compensation tests",
+            "Concurrent workers and poison-work tests"
+          ],
+          "acceptanceCriteria": [
+            "Committed work is not lost between database commit and dispatch.",
+            "Retries do not duplicate simulated effects.",
+            "Compensations preserve the declared inventory/payment invariants.",
+            "Unrecoverable work is surfaced with a bounded retry history."
+          ]
+        },
+        {
+          "title": "Documented demo and measurements - modules 6-8",
+          "deliverables": [
+            "Reproducible multi-process startup and runbooks",
+            "Worker-crash/recovery demo with correlated telemetry",
+            "Measured retry/recovery/latency report"
+          ],
+          "acceptanceCriteria": [
+            "The demonstration intentionally interrupts a worker and shows recovery from persistent state.",
+            "Actual measurements include machine, workload and command details.",
+            "No planned result is promoted to a resume outcome without evidence."
+          ]
+        }
+      ]
+    },
+    {
+      "projectTitle": "Tenant-Isolated Multi-Seller Marketplace",
+      "resumeVariant": "B-build",
+      "recommendedAfter": [
+        "sde-m02-transactional-apis",
+        "sde-m04-security",
+        "sde-m05-verification",
+        "sde-m07-operations"
+      ],
+      "milestones": [
+        {
+          "title": "Design and fixtures - modules 1-4",
+          "deliverables": [
+            "Bounded synthetic scope for two sellers, customers and staff",
+            "Tenant/role matrix, data-flow threat model and catalogue/fulfillment schema",
+            "Explicit isolation rules for API, workers, exports, search and cache"
+          ],
+          "acceptanceCriteria": [
+            "Tenant identity derives from trusted authentication/authorization context.",
+            "The project has its own setup and fixtures rather than counting the single-store project twice.",
+            "Real settlement, tax compliance and third-party seller verification are out of scope."
+          ]
+        },
+        {
+          "title": "Working vertical slice - modules 2-4",
+          "deliverables": [
+            "Seller catalogue controls, customer ordering and staff fulfillment view",
+            "Scoped service/query layer and transaction-safe stock updates",
+            "Per-tenant audit trail"
+          ],
+          "acceptanceCriteria": [
+            "Each role completes only its allowed synthetic workflow.",
+            "Submitting another tenant ID does not cross the boundary.",
+            "Reads, writes and background work use the same declared isolation model."
+          ]
+        },
+        {
+          "title": "Correctness and failure tests - modules 4-5",
+          "deliverables": [
+            "Cross-tenant direct-ID/list/create/update/export tests",
+            "Concurrent reservation and fulfillment tests",
+            "Cache/search permission regression tests"
+          ],
+          "acceptanceCriteria": [
+            "No tested cross-tenant path returns or mutates unauthorized records.",
+            "Concurrency tests preserve stock and order ownership.",
+            "Permission denial is enforced server-side even when UI controls are bypassed."
+          ]
+        },
+        {
+          "title": "Documented demo and measurements - modules 6-8",
+          "deliverables": [
+            "Fresh-environment deployment, test and recovery instructions",
+            "Two-seller/customer/staff demo with a denied-access case",
+            "Threat-model residual risks and measured workload report"
+          ],
+          "acceptanceCriteria": [
+            "The demo makes tenant boundaries and a deliberate denial visible.",
+            "Security claims are bounded to implemented controls and executed tests.",
+            "No fabricated tenant scale, customer adoption or production certification appears."
+          ]
+        }
+      ]
+    },
+    {
+      "projectTitle": "Product Search and Relevance Evaluation Service",
+      "resumeVariant": "B-build",
+      "recommendedAfter": [
+        "sde-m04-security",
+        "sde-m05-verification",
+        "sde-m07-operations",
+        "sde-m08-specialization-portfolio"
+      ],
+      "milestones": [
+        {
+          "title": "Design and fixtures - module 8 lessons 27-28",
+          "deliverables": [
+            "Independent synthetic catalogue and query-intent/judgement dataset",
+            "Development/held-out split, hard filter rules and metric definitions",
+            "Model/dependency/data license and revision register"
+          ],
+          "acceptanceCriteria": [
+            "Relevance labels are versioned before selecting ranking variants.",
+            "The service does not depend on either A project's database.",
+            "No private customer queries or paid dataset are required."
+          ]
+        },
+        {
+          "title": "Working vertical slice - modules 2, 7-8",
+          "deliverables": [
+            "Lexical baseline API with filters and stable pagination",
+            "Bounded dense retrieval and reranking adapters",
+            "Versioned cache and safe fallback behaviour"
+          ],
+          "acceptanceCriteria": [
+            "All implemented variants preserve authorization and hard filters.",
+            "Models are used only after checking the selected model-card terms.",
+            "Blocked neural integration is explicitly incomplete, not represented by invented scores."
+          ]
+        },
+        {
+          "title": "Correctness and failure tests - modules 5 and 8",
+          "deliverables": [
+            "Hand-checkable metric tests and frozen held-out evaluation",
+            "Cache invalidation, timeout and missing-model tests",
+            "Ranking reproducibility and filter/permission tests"
+          ],
+          "acceptanceCriteria": [
+            "Model/index/filter context changes cannot return an unauthorized stale cache entry.",
+            "Quality parameters are not tuned on held-out queries.",
+            "Failure of a neural component produces the documented bounded fallback or explicit error.",
+            "Perfect and all-irrelevant ranking fixtures match the metric definitions."
+          ]
+        },
+        {
+          "title": "Documented demo and measurements - modules 7-8",
+          "deliverables": [
+            "Reproducible retrieval/evaluation commands and index/model versions",
+            "Side-by-side query demo including a difficult case",
+            "Actual lexical/dense/reranked quality and cold/warm latency report"
+          ],
+          "acceptanceCriteria": [
+            "Every comparison uses the same frozen test set and documented filtering policy.",
+            "Hardware, candidate limits, model revisions and raw results are retained.",
+            "The report may conclude that lexical search is preferable; it makes no unsupported conversion/revenue claim."
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "sde-source-cs50",
+      "title": "CS50W official lecture pages and license",
+      "url": "https://cs50.harvard.edu/web/",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "2020 spring recording assets; current canonical course pages observed 2026-09-20",
+      "resourceIds": [
+        "sde-video-html",
+        "sde-video-django",
+        "sde-video-models",
+        "sde-video-javascript",
+        "sde-video-ui",
+        "sde-video-ci",
+        "sde-video-scale"
+      ],
+      "evidence": [
+        "Official Week 0, 3, 4, 5, 6, 7 and 8 pages were fetched; headings and linked player/video identifiers match resource titles.",
+        "Course pages are free to read/watch; feedback/certification may require accounts but is not assigned.",
+        "License page explicitly states CC BY-NC-SA 4.0; handoff policy remains video link/embed-only."
+      ]
+    },
+    {
+      "id": "sde-source-django",
+      "title": "Django 5.2 tutorial, transactions, testing and deployment",
+      "url": "https://docs.djangoproject.com/en/5.2/",
+      "verifiedOn": "2026-09-20",
+      "resourceIds": [
+        "sde-book-django",
+        "sde-doc-django-transactions",
+        "sde-doc-django-querysets",
+        "sde-doc-django-tests",
+        "sde-doc-django-deploy",
+        "sde-doc-django-performance"
+      ],
+      "evidence": [
+        "Tutorial parts 1-4 headings were fetched from actual pages; part 2 includes database setup/models/migrations, part 3 views/templates and part 4 forms/generic views.",
+        "Authentication page verifies user objects, permissions and authentication in web requests.",
+        "Transactions page verifies atomic, savepoints, after-commit actions and testing caveats; testing tools page identifies TestCase and TransactionTestCase.",
+        "Deployment checklist and database access optimization headings were verified.",
+        "Root repository BSD license was read; covered documentation redistribution must preserve its conditions."
+      ]
+    },
+    {
+      "id": "sde-source-tdd",
+      "title": "TDD with Python third-edition TOC and book-specific license",
+      "url": "https://www.obeythetestinggoat.com/pages/book.html",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "Third edition 2025-10-15, from repository copyright.html",
+      "resourceIds": [
+        "sde-book-tdd"
+      ],
+      "evidence": [
+        "Actual TOC verifies chapters 6, 8, 9, 10, 12, 15, 17, 18, 25, 26 and Appendix E used as locators.",
+        "https://raw.githubusercontent.com/hjwp/Book-TDD-Web-Dev-Python/main/LICENSE.md explicitly licenses the book and associated files under CC BY-NC-SA 3.0 United States.",
+        "The website footer's unported license is not silently substituted for the book-specific US license."
+      ]
+    },
+    {
+      "id": "sde-source-cosmic",
+      "title": "Architecture Patterns with Python TOC and unresolved license version",
+      "url": "https://www.cosmicpython.com/book/preface",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "First release 2020-03-05, from repository copyright.html",
+      "resourceIds": [
+        "sde-book-cosmic"
+      ],
+      "evidence": [
+        "The actual preface navigation verifies Domain Modeling, Service Layer, Unit of Work, Aggregates, Events, Commands, External Events and Appendix D.",
+        "https://www.cosmicpython.com/ says free online reading with CC-By-NC-ND but no version.",
+        "https://raw.githubusercontent.com/cosmicpython/book/master/license.txt says CC-By-ND without a version; therefore no mirroring permission is asserted."
+      ]
+    },
+    {
+      "id": "sde-source-postgresql",
+      "title": "PostgreSQL 18 manual sections and explicit documentation permission",
+      "url": "https://www.postgresql.org/docs/18/index.html",
+      "verifiedOn": "2026-09-20",
+      "resourceIds": [
+        "sde-book-postgresql"
+      ],
+      "evidence": [
+        "Verified 13.2 Transaction Isolation and 13.3 Explicit Locking, including row-level locks and deadlocks.",
+        "Verified 14.1 Using EXPLAIN; 25.1 SQL Dump/Restoring the Dump; and 12.3 Controlling Text Search, including Ranking Search Results.",
+        "https://www.postgresql.org/about/licence/ explicitly grants copying/modifying/distributing software and documentation while retaining notices.",
+        "Official PDF locator verified with HEAD only; no PDF downloaded."
+      ]
+    },
+    {
+      "id": "sde-source-cmu",
+      "title": "CMU Database Systems Fall 2024 official schedule",
+      "url": "https://15445.courses.cs.cmu.edu/fall2024/schedule.html",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "Fall 2024; schedule displays last update 2024-12-09",
+      "resourceIds": [
+        "sde-video-cmu"
+      ],
+      "evidence": [
+        "Rows explicitly identify Lecture 15 on October 28, 16 on October 30, 19 on November 11, 21 on November 18 and 22 on November 20.",
+        "The corresponding official video links were read from those rows; no lecture timestamps or unverified chapter references from its paid textbook were imported."
+      ]
+    },
+    {
+      "id": "sde-source-asvs",
+      "title": "OWASP ASVS 5.0.0 release, chapters and license",
+      "url": "https://api.github.com/repos/OWASP/ASVS/releases/tags/v5.0.0_release",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "2025-05-30",
+      "resourceIds": [
+        "sde-book-asvs"
+      ],
+      "evidence": [
+        "The official release API names the English PDF asset; its download endpoint responded to HEAD without body retrieval.",
+        "Frontispiece: https://raw.githubusercontent.com/OWASP/ASVS/v5.0.0_release/5.0/en/0x01-Frontispiece.md explicitly states CC BY-SA 4.0.",
+        "V1: https://raw.githubusercontent.com/OWASP/ASVS/v5.0.0_release/5.0/en/0x10-V1-Encoding-and-Sanitization.md",
+        "V8: https://raw.githubusercontent.com/OWASP/ASVS/v5.0.0_release/5.0/en/0x17-V8-Authorization.md",
+        "V13: https://raw.githubusercontent.com/OWASP/ASVS/v5.0.0_release/5.0/en/0x22-V13-Configuration.md",
+        "V15: https://raw.githubusercontent.com/OWASP/ASVS/v5.0.0_release/5.0/en/0x24-V15-Secure-Coding-and-Architecture.md"
+      ]
+    },
+    {
+      "id": "sde-source-mit",
+      "title": "MIT 6.858 official security lecture pages",
+      "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/video_galleries/video-lectures/",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "Fall 2014 course",
+      "resourceIds": [
+        "sde-video-threat",
+        "sde-video-web-security"
+      ],
+      "evidence": [
+        "Lecture gallery and individual resource pages verify Introduction, Threat Models and Securing Web Applications with embedded videos.",
+        "Legacy implementation details are not promoted as current secure configuration; current ASVS and Django material is assigned alongside them."
+      ]
+    },
+    {
+      "id": "sde-source-swe",
+      "title": "Software Engineering at Google official TOC and permission page",
+      "url": "https://abseil.io/resources/swe-book",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "March 2020",
+      "resourceIds": [
+        "sde-book-swe"
+      ],
+      "evidence": [
+        "Official publisher-author site explicitly grants CC BY-NC-ND 4.0 for its HTML edition.",
+        "TOC verifies Chapter 9 Code Review, Chapter 10 Documentation, Chapter 11 Testing Overview, Chapter 13 Test Doubles and Chapter 14 Larger Testing with named sections.",
+        "Link-only selection is deliberate until deployment eligibility and intact-copy handling are reviewed."
+      ]
+    },
+    {
+      "id": "sde-source-sre",
+      "title": "Google SRE book official TOC and license footer",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "2016 book; 2017 online footer",
+      "resourceIds": [
+        "sde-book-sre"
+      ],
+      "evidence": [
+        "TOC verifies Embracing Risk, Service Level Objectives, Eliminating Toil, Monitoring Distributed Systems, Software Engineering in SRE, Handling Overload and Addressing Cascading Failures.",
+        "Preface page footer explicitly states Licensed under CC BY-NC-ND 4.0.",
+        "No 2026 survey or production-performance result is inferred from these readings."
+      ]
+    },
+    {
+      "id": "sde-source-current-tooling",
+      "title": "Current official API, testing, delivery and telemetry references",
+      "url": "https://www.django-rest-framework.org/tutorial/1-serialization/",
+      "verifiedOn": "2026-09-20",
+      "resourceIds": [
+        "sde-doc-drf-serialization",
+        "sde-doc-drf-permissions",
+        "sde-doc-openapi",
+        "sde-doc-actions",
+        "sde-doc-actions-security",
+        "sde-doc-docker",
+        "sde-doc-bicep",
+        "sde-doc-azure-python",
+        "sde-doc-otel",
+        "sde-doc-playwright",
+        "sde-doc-accessible-forms",
+        "sde-doc-api-guidelines"
+      ],
+      "evidence": [
+        "Each resource URL was fetched independently; titles and the relevant sections were inspected.",
+        "Microsoft Bicep metadata is dated 2026-01-08; Azure Python quickstart metadata is dated 2026-07-27 and explicitly requires an active subscription.",
+        "GitHub Python and secure-use pages and Docker workshop redirected to the canonical URLs stored in resources.",
+        "OpenAPI 3.1.1 is a deliberately pinned learning version, not a newest-version claim.",
+        "Public documentation verification does not mean paid cloud services, hosted runners or software entitlement are universally free."
+      ]
+    },
+    {
+      "id": "sde-source-search",
+      "title": "Verified information-retrieval reading and representation lecture",
+      "url": "https://nlp.stanford.edu/IR-book/information-retrieval-book.html",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "IR book 2008; current online resources observed 2026-09-20",
+      "resourceIds": [
+        "sde-book-ir",
+        "sde-video-language",
+        "sde-doc-rerank"
+      ],
+      "evidence": [
+        "Chapter 6 HTML explicitly identifies sections 6.1-6.4: https://nlp.stanford.edu/IR-book/html/htmledition/scoring-term-weighting-and-the-vector-space-model-1.html",
+        "Chapter 8 HTML explicitly identifies evaluation sections 8.1-8.7: https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-in-information-retrieval-1.html",
+        "CS50 AI Week 6 page explicitly lists bag-of-words, word representations, word2vec and attention and links its video.",
+        "Sentence Transformers guide verifies lexical/dense first-stage retrieval followed by cross-encoder reranking; no guaranteed relevance improvement is adopted.",
+        "The Stanford free PDF is not selected for redistribution because a hosting permission was not verified."
+      ]
+    },
+    {
+      "id": "sde-source-platform",
+      "title": "DORA platform engineering implementation guidance",
+      "url": "https://dora.dev/capabilities/platform-engineering/",
+      "verifiedOn": "2026-09-20",
+      "sourceDate": "Source metadata updated 2026-01-12",
+      "resourceIds": [
+        "sde-doc-platform"
+      ],
+      "evidence": [
+        "Verified sections cover product mindset, minimum viable platform, extensibility, clear feedback and task-success measurement.",
+        "Used only for the optional platform lesson; shared workforce forecasts and SFIA are intentionally outside this handoff."
+      ]
+    }
+  ],
+  "limitations": [
+    "This is additional SDE learning after Common Foundation, not a substitute for it and not a union of Data/Quant/AI advanced curricula. Module prerequisites reference only modules in this file. Shared canonicalConceptTags identify prior concepts; an overlapping tag is not proof that an advanced lesson has already been completed.",
+    "All 29 lessons, all assignments and all five reconstruction/build evidence packages start incomplete. No progress, completion date, measured outcome, recovered repository, employment guarantee or production-readiness claim is initialized.",
+    "Estimated minutes include selective reading/video review and the bounded lesson assignment, not full independent implementation of all five portfolio projects. Reused lectures need not be watched in full every time. Actual effort varies with prior proficiency and debugging.",
+    "Lessons sde-l25-fullstack and sde-l26-platform are optional branches. Lessons sde-l27-lexical-search and sde-l28-rerank-evaluation are specialist work for the B search project. Do not make all four optional-depth lessons a universal backend completion gate.",
+    "Primary stack is Python, Django 5.2, PostgreSQL 18, DRF for JSON APIs, server-rendered templates, Django tests and optional Playwright browser tests. Cosmos/TDD examples sometimes use Flask, SQLAlchemy, Selenium or Ansible; translate principles rather than adding every tool. Kubernetes and microservices are not prerequisites.",
+    "Select and pin mutually compatible supported Python, Django, DRF, database-driver and optional model-library versions at implementation time. The current optional Azure guide specifies Python 3.14 or higher; older lecture environments are not authoritative installation recipes.",
+    "CS50 recordings and MIT security lectures are older but useful for durable concepts. Current official manuals and ASVS accompany them. Video page/title/locator availability was verified through public HTTP, not through full playback, regional accessibility or signed-in account testing. Videos are link/embed-only; none were downloaded.",
+    "No PDFs were downloaded. PostgreSQL and OWASP PDF URLs were checked with HEAD only; their actual bytes, integrity, accessibility and retained notices must be checked by implementation before hosting.",
+    "PostgreSQL documentation and OWASP ASVS are positively licensed hosting candidates with the recorded notice/share-alike conditions. Django repository documentation is BSD-licensed, but this does not grant rights to unrelated site assets or logos.",
+    "TDD with Python has a verified book-specific CC BY-NC-SA 3.0 US license; SWE at Google and the SRE book have CC BY-NC-ND 4.0. They remain link-only here until noncommercial deployment and redistribution conditions are confirmed. Do not create or distribute adapted NC-ND book chapters.",
+    "Cosmic Python licensing is unversioned and inconsistent between its author landing page and repository license file. Its authorized free reading is useful, but hosting permission is not asserted. The Stanford IR book also remains link-only; free PDF availability is not redistribution permission.",
+    "Some web extractors returned only page navigation or individual chapter fragments. Relevant HTML headings/TOCs were checked by read-only public HTTP and, where necessary, official raw repository sources. MIT 6.824 and 6.033 candidate URLs were not reliably retrievable and were not included; verified CMU recordings were used instead.",
+    "Hosted GitHub runs, Azure provisioning, container software entitlement and model hardware requirements may involve accounts, quotas, cost or licensing restrictions. Core exercises have local alternatives. No repository, account, cloud resource or signed-in browser tab was changed by this curation.",
+    "Neural retrieval uses optional pretrained components as application dependencies, not a model-training curriculum. The exact chosen model's license/revision and dataset rights must be checked before later download. Hardware/licensing blocks leave that milestone incomplete, never replaced with invented scores.",
+    "The A projects are independent reconstruction exercises for user-reported college work whose original files were lost. The B projects remain future builds. Use only synthetic/publicly lawful data; no employer/client code, reports, credentials, identities or private assets."
+  ]
+}

@@ -1,0 +1,3735 @@
+{
+  "schemaVersion": 1,
+  "trackId": "data",
+  "title": "Data Engineering, Analytics Engineering and BI: From Domain Models to Reliable Operations",
+  "sourceCheckedOn": "2026-09-20",
+  "resources": [
+    {
+      "id": "data-book-dbdesign",
+      "kind": "book",
+      "title": "Database Design - 2nd Edition",
+      "url": "https://opentextbc.ca/dbdesign01/",
+      "provider": "Adrienne Watt and Nelson Eng / BCcampus",
+      "access": "free",
+      "license": "CC BY 4.0, except separately credited material",
+      "licenseUrl": "https://opentextbc.ca/dbdesign01/",
+      "redistribution": "permitted",
+      "downloadUrl": "https://opentextbc.ca/dbdesign01/open/download?type=pdf",
+      "verifiedOn": "2026-09-20",
+      "notes": "The owner page explicitly permits copying and redistribution and exposes the Digital PDF export link. Publication metadata: 2014-10-24. Attribute the title, Adrienne Watt and Nelson Eng, BCcampus, original URL and CC BY 4.0; retain copyright and third-party notices, including the separately licensed cover; identify modifications and impose no additional restrictions. Retain the book's required B.C. Open Collection notice. Prefer an unchanged copy. No PDF was downloaded or inspected; the implementation must check the final file, notices and content type before hosting."
+    },
+    {
+      "id": "data-book-dbconcepts",
+      "kind": "book",
+      "title": "Database System Concepts, Seventh Edition",
+      "url": "https://www.db-book.com/",
+      "provider": "Abraham Silberschatz, Henry F. Korth and S. Sudarshan / McGraw-Hill",
+      "access": "paid-optional",
+      "license": "Copyright; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The authors identify the March 2019 edition and ISBN 9780078022159. Chapter numbers and titles were checked against their chapter-by-chapter slide index at https://www.db-book.com/slides-dir/index.html. Use a purchased or library copy. Free author slides and current official documentation supplement the readings; permission for particular classroom uses of slides does not license redistribution of the book. No book PDF or slides were downloaded."
+    },
+    {
+      "id": "data-book-dax",
+      "kind": "book",
+      "title": "The Definitive Guide to DAX, 2nd Edition",
+      "url": "https://www.sqlbi.com/books/the-definitive-guide-to-dax-2nd-edition/",
+      "provider": "Marco Russo and Alberto Ferrari / Microsoft Press",
+      "access": "paid-optional",
+      "license": "Copyright; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The authors' Book content list verifies chapters 4, 5, 8, 15 and 17-20. This curriculum deliberately identifies the second edition; it does not claim its UI examples are current. Purchase or borrow legally. The availability of sample chapters is not permission to redistribute the book or samples."
+    },
+    {
+      "id": "data-book-dataviz",
+      "kind": "book",
+      "title": "Fundamentals of Data Visualization",
+      "url": "https://clauswilke.com/dataviz/",
+      "provider": "Claus O. Wilke",
+      "access": "free",
+      "license": "CC BY-NC-ND 4.0 for the author manuscript",
+      "licenseUrl": "https://clauswilke.com/dataviz/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The author hosts the full pre-copyedited manuscript, a chapter/section TOC and an explicit CC BY-NC-ND 4.0 notice. Unmodified, attributed noncommercial sharing is conditionally allowed, but commercial status and a suitable official PDF have not been established for the learning platform. Therefore this handoff approves linking only, not an automatic download or adaptation of chapters/figures."
+    },
+    {
+      "id": "data-book-sre",
+      "kind": "book",
+      "title": "Site Reliability Engineering: How Google Runs Production Systems",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "provider": "Google / O'Reilly Media",
+      "access": "free",
+      "license": "CC BY-NC-ND 4.0 for the hosted book",
+      "licenseUrl": "https://sre.google/sre-book/table-of-contents/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Google's TOC and page footer verify chapter titles and the CC BY-NC-ND 4.0 notice. Chapters 4, 6, 8, 17, 25 and 26 were opened as HTML. This is established engineering guidance, not a 2026 publication. Keep link-only unless noncommercial, unmodified redistribution and attribution requirements are separately satisfied; no official PDF was selected or downloaded."
+    },
+    {
+      "id": "data-video-cmu",
+      "kind": "video",
+      "title": "CMU 15-445/645 Database Systems, Fall 2025 - Recorded Lecture Schedule",
+      "url": "https://15445.courses.cs.cmu.edu/fall2025/schedule.html",
+      "provider": "Carnegie Mellon University Database Group",
+      "access": "free",
+      "license": "Link-only; recording redistribution not established",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "GET of the official schedule verified lecture numbers, titles, dates and linked recordings, including 01, 15, 17, 18 and 22. Use those exact schedule entries, not guessed playlist positions. Player playback, regional access and embedding were not tested. The curriculum does not require the course's C++ DBMS implementation projects."
+    },
+    {
+      "id": "data-video-fabric-intro",
+      "kind": "video",
+      "title": "Microsoft Fabric Learn Together Ep01: Get started with end-to-end analytics and lakehouses in Microsoft Fabric",
+      "url": "https://learn.microsoft.com/en-us/shows/learn-live/learn-together-microsoft-fabric-wave-1-ep201-get-started-with-end-to-end-analytics-and-lakehouses-in-microsoft-fabric",
+      "provider": "Microsoft Learn Live",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official episode description and chapter list checked; page updated 2024-02-15. Verified chapters include Explore end-to-end analytics, Data teams and Microsoft Fabric, and Get started with lakehouses. Treat UI demonstrations as historical and use current Fabric documentation for implementation. No playback or embed claim."
+    },
+    {
+      "id": "data-video-dlt",
+      "kind": "video",
+      "title": "From APIs to Warehouses: AI-Assisted Data Ingestion with dlt",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/cohorts/2026/workshops/dlt.md",
+      "provider": "DataTalks.Club / Aashish Nair, dltHub",
+      "access": "free",
+      "license": "Link-only; video rights not inferred from repository licensing",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The official 2026 workshop source verifies the title, instructor, API/file ingestion, normalization and validation scope, and recording https://www.youtube.com/watch?v=5eMytPBgmVs. The assignment uses local synthetic API responses and does not require Snowflake, an LLM, MCP or a cloud account. Recording is author-listed; playback was not tested."
+    },
+    {
+      "id": "data-video-spark",
+      "kind": "video",
+      "title": "Data Engineering Zoomcamp - Batch Processing",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/06-batch/README.md",
+      "provider": "DataTalks.Club / Alexey Grigorev",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official unit files verify Spark DataFrames (ti3aC1m3rE8), Anatomy of a Spark Cluster (68CipcZt7ZA), GroupBy in Spark (9qrDsY_2COo), and Joins in Spark (lu7TrqAWuH4). These are YouTube recording IDs from video_url metadata, not invented timestamps. Course notes can simplify or age; current Spark docs override terminology and configuration details. No playback was attempted."
+    },
+    {
+      "id": "data-video-orchestration",
+      "kind": "video",
+      "title": "Data Engineering Zoomcamp - Workflow Orchestration",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/02-workflow-orchestration/README.md",
+      "provider": "DataTalks.Club / Kestra instructors",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The official unit Local DB: Learn Scheduling and Backfills links https://www.youtube.com/watch?v=1pu_C_oOAMA. The lesson transfers scheduling/backfill concepts to a local runner or Fabric pipeline rather than requiring another cloud. Course page and lecture locator verified; playback not tested."
+    },
+    {
+      "id": "data-video-analytics",
+      "kind": "video",
+      "title": "Data Engineering Zoomcamp - Analytics Engineering",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/README.md",
+      "provider": "DataTalks.Club",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official lesson files verify Analytics Engineering Basics (uF76d5EmdtU), Documentation (UqoWyMjcqrA) and dbt Tests (bvZ-rJm7uMU). The tests unit explicitly covers singular tests, freshness, generic tests and contracts. Fabric learners may implement equivalent SQL/Python checks rather than adding dbt immediately. No playback claim."
+    },
+    {
+      "id": "data-video-dax",
+      "kind": "video",
+      "title": "Introducing DAX Video Course",
+      "url": "https://www.sqlbi.com/p/introducing-dax-video-course/",
+      "provider": "SQLBI / Marco Russo and Alberto Ferrari",
+      "access": "free-account",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The authorized course syllabus was read from the page HTML. Verified lecture names include What is an Evaluation Context?, Example of a Filter Context, Row Context, What is CALCULATE?, and What is Time Intelligence?. The page describes 32 lectures and three hours overall; lesson estimates include selected lectures, reading and lab, not the whole course each time. Registration/player access was not exercised."
+    },
+    {
+      "id": "data-video-report-design",
+      "kind": "video",
+      "title": "DAX and Visuals in Power BI: Tips, Tricks and Best Practices",
+      "url": "https://learn.microsoft.com/en-us/shows/fabric-tech-talk-fridays/dax-and-visuals-in-power-bi-tips-tricks-and-best-practices",
+      "provider": "Microsoft Fabric Tech Talk Fridays",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official episode metadata names Swetha Mannepalli, Patrick LeBlanc and Zoe Douglas and verifies visual design and DAX performance scope. Page updated 2025-04-21. No granular chapter markers were supplied, so the locator is the whole episode; playback was not tested."
+    },
+    {
+      "id": "data-video-streaming",
+      "kind": "video",
+      "title": "PyFlink: Stream Processing Workshop",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/07-streaming/01-introduction.md",
+      "provider": "DataTalks.Club",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official introduction links https://www.youtube.com/watch?v=YDUgFeHQzJU; module index identifies Offsets - earliest vs latest, Aggregation with tumbling windows, Late events and upserts, and Understanding window types. These are workshop unit locators, not claims of separately recorded videos. Fabric-compatible assignments may use Spark Structured Streaming. Actual watermark/late-data behavior must be verified for the selected engine, output mode and version, not inferred from an upsert example."
+    },
+    {
+      "id": "data-video-governance",
+      "kind": "video",
+      "title": "Secure and Govern: Mastering Microsoft Fabric for the Enterprise",
+      "url": "https://learn.microsoft.com/en-us/shows/fabric-tech-talk-fridays/secure-and-govern-mastering-microsoft-fabric-for-the-enterprise",
+      "provider": "Microsoft / Patrick LeBlanc and Kasper de Jonge",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official episode description verifies lineage, access controls, audit trails, Purview and policy enforcement. Page updated 2025-04-28. Reused with different assessment focuses; viewing the same episode twice is not required. Playback and administrative product access were not tested."
+    },
+    {
+      "id": "data-video-cdc",
+      "kind": "video",
+      "title": "Track and Record Data Changes with Change Data Capture (CDC) in Azure SQL",
+      "url": "https://learn.microsoft.com/en-us/shows/data-exposed/track-and-record-data-changes-with-change-data-capture-cdc-in-azure-sql",
+      "provider": "Microsoft Data Exposed / Mara-Florina Steiu",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official 2021 episode chapter list verifies What is Change Data Capture, Why use CDC, Performance Considerations for CDC and the Azure SQL demonstration. The lesson uses it for concepts, not current SKU/enablement claims. PostgreSQL/Debezium implementation is taught with current connector documentation; playback not tested."
+    },
+    {
+      "id": "data-video-devops",
+      "kind": "video",
+      "title": "Bringing DevOps to SQL in Fabric, using git and deployment pipelines for faster, safer releases",
+      "url": "https://learn.microsoft.com/en-us/shows/data-exposed/bringing-devops-to-sql-in-fabric-using-git-and-deployment-pipelines-for-faster-safer-releases-data-exposed-mvp-edition",
+      "provider": "Microsoft Data Exposed / Anna Hoffman and Hamish Watson",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official episode and Demo chapter verified; page updated 2025-01-29. Historical preview references are not current product-state claims. Use the current Fabric CI/CD workflow documentation for supported item types and deployment behavior. Playback not tested."
+    },
+    {
+      "id": "data-video-cost",
+      "kind": "video",
+      "title": "Strategic capacity monitoring and cost analysis for SQL database in Fabric",
+      "url": "https://learn.microsoft.com/en-us/shows/data-exposed/strategic-capacity-monitoring-and-cost-analysis-for-sql-database-in-fabric-data-exposed",
+      "provider": "Microsoft Data Exposed / Anna Hoffman and Amar Digamber Patil",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official chapter list verifies Capacity Metrics, Demo, Cost Analysis and Getting Started. Page updated 2025-01-31. The demonstration concerns SQL database in Fabric, not a universal billing model for every Fabric workload. Consult current capacity documentation; no playback or pricing guarantee."
+    },
+    {
+      "id": "data-video-pipelines",
+      "kind": "video",
+      "title": "Learn Together Microsoft Fabric Ep204: Use Data Factory pipelines in Microsoft Fabric",
+      "url": "https://learn.microsoft.com/en-us/shows/learn-live/learn-together-microsoft-fabric-wave-2-ep104-use-data-factory-pipelines-in-microsoft-fabric",
+      "provider": "Microsoft Learn Live",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official episode title is Ep204 despite ep104 in the URL. Verified chapter names include Understand pipelines, Demo - Copy activity, and Demo - Use pipeline templates. Page updated 2024-07-08. Current UI and tenant permissions can differ; playback not tested."
+    },
+    {
+      "id": "data-video-terraform",
+      "kind": "video",
+      "title": "Data Engineering Zoomcamp - Terraform Overview",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/01-docker-terraform/12-terraform-overview.md",
+      "provider": "DataTalks.Club",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official unit verifies recording https://www.youtube.com/watch?v=18jIzE41fJ4 and configuration/state/plan concepts. Its cloud examples use GCP; the assignment is local-first with optional Azure mapping, not a requirement to learn three clouds. Current provider licensing and supported resources must be checked separately. No playback claim."
+    },
+    {
+      "id": "data-video-rag",
+      "kind": "video",
+      "title": "Data Engineering Zoomcamp - Bonus: Retrieval Augmented Generation (RAG)",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/02-workflow-orchestration/16-retrieval-augmented-generation.md",
+      "provider": "DataTalks.Club / Kestra",
+      "access": "free",
+      "license": "Link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official unit verifies recording https://www.youtube.com/watch?v=XuPDQ1UcNyI and the ingestion/chunking/retrieval workflow. The notes overstate that RAG eliminates hallucinations; this curriculum explicitly rejects that claim and assesses provenance, access and update correctness instead. No model API, paid service or video download is required; playback not tested."
+    },
+    {
+      "id": "data-doc-pg-plans",
+      "kind": "documentation",
+      "title": "PostgreSQL: Using EXPLAIN",
+      "url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "provider": "PostgreSQL Global Development Group",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Read the explanation of plan nodes, statistics, actual measurements and buffers. EXPLAIN ANALYZE executes its query; use owned fixtures, especially for data-modifying statements. PostgreSQL-specific index behavior must not be assumed for Fabric or Spark."
+    },
+    {
+      "id": "data-doc-pg-locks",
+      "kind": "documentation",
+      "title": "PostgreSQL: Explicit Locking",
+      "url": "https://www.postgresql.org/docs/current/explicit-locking.html",
+      "provider": "PostgreSQL Global Development Group",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official row/table lock semantics, lock duration and deadlock guidance were opened. Labs use a dedicated local database, bounded transactions and explicit timeouts."
+    },
+    {
+      "id": "data-doc-pg-rls",
+      "kind": "documentation",
+      "title": "PostgreSQL: Row Security Policies",
+      "url": "https://www.postgresql.org/docs/current/ddl-rowsecurity.html",
+      "provider": "PostgreSQL Global Development Group",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified default-deny behavior, USING/WITH CHECK, and owner/superuser/BYPASSRLS exceptions. Test with non-owner roles; an application filter is not a database isolation boundary."
+    },
+    {
+      "id": "data-doc-delta",
+      "kind": "documentation",
+      "title": "Delta Lake: Table deletes, updates, and merges",
+      "url": "https://docs.delta.io/delta-update/",
+      "provider": "Delta Lake",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Canonical destination of the opened latest/delta-update.html page. MERGE semantics are implementation/version dependent. A MERGE statement alone does not define event precedence, duplicate handling or a cross-table transaction."
+    },
+    {
+      "id": "data-doc-iceberg",
+      "kind": "documentation",
+      "title": "Iceberg Table Spec",
+      "url": "https://iceberg.apache.org/spec/",
+      "provider": "Apache Iceberg",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Opened specification covers immutable files, metadata snapshots, optimistic concurrency and evolution. On the check date it distinguishes adopted versions 1-3 from version 4 under development. Reading the comparison does not require installing Iceberg or claiming every Fabric engine supports it."
+    },
+    {
+      "id": "data-doc-spark-tuning",
+      "kind": "documentation",
+      "title": "Apache Spark: Performance Tuning",
+      "url": "https://spark.apache.org/docs/latest/sql-performance-tuning.html",
+      "provider": "Apache Spark",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified partitions, statistics, caching, join selection, AQE and skew guidance. Pin the learner's runtime and use its matching documentation; latest documentation may exceed a managed Fabric runtime's capabilities."
+    },
+    {
+      "id": "data-doc-spark-streaming",
+      "kind": "documentation",
+      "title": "Apache Spark Structured Streaming Programming Guide: API using Datasets and DataFrames",
+      "url": "https://spark.apache.org/docs/latest/streaming/apis-on-dataframes-and-datasets.html",
+      "provider": "Apache Spark",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official current API guide opened. File and Kafka sources differ from testing-only socket/rate sources; source replay, checkpoints, output mode and sink behavior jointly determine recovery guarantees. Match implementation to the pinned runtime."
+    },
+    {
+      "id": "data-doc-dimensions",
+      "kind": "documentation",
+      "title": "Modeling Dimension Tables in Warehouse",
+      "url": "https://learn.microsoft.com/en-us/fabric/data-warehouse/dimensional-modeling-dimension-tables",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified surrogate/business keys, history/audit attributes and SCD guidance. The page notes that Fabric Warehouse foreign keys cannot be enforced, so the ETL must test integrity. Last-update metadata: 2026-07-06."
+    },
+    {
+      "id": "data-doc-star-schema",
+      "kind": "documentation",
+      "title": "Understand star schema and the importance for Power BI",
+      "url": "https://learn.microsoft.com/en-us/power-bi/guidance/star-schema",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified consistent fact grain, dimensions, explicit measures, filter propagation and SCD Type 2. Stated document date is 2024-12-30, not a 2026 publication."
+    },
+    {
+      "id": "data-doc-power-query",
+      "kind": "documentation",
+      "title": "Understanding Query Evaluation and Query Folding in Power Query",
+      "url": "https://learn.microsoft.com/en-us/power-query/query-folding-basics",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified canonical destination, M evaluation, connector-dependent folding and privacy-level considerations. Page updated 2026-08-20. Do not infer SQL pushdown for a CSV source."
+    },
+    {
+      "id": "data-doc-contracts",
+      "kind": "documentation",
+      "title": "Model contracts",
+      "url": "https://docs.getdbt.com/docs/mesh/govern/model-contracts",
+      "provider": "dbt Labs",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Updated 2026-09-10. Distinguishes model shape contracts from content tests, lists support limitations and breaking changes. The assignment implements the concepts without assuming all declared constraints are enforced by a warehouse."
+    },
+    {
+      "id": "data-doc-debezium",
+      "kind": "documentation",
+      "title": "Debezium connector for PostgreSQL",
+      "url": "https://debezium.io/documentation/reference/stable/connectors/postgresql.html",
+      "provider": "Debezium",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified snapshots, change capture, replication/log positions and recovery behavior, including possible duplicate events under faults. The stable page source pointed to branch 3.6 when checked. Pin and record connector, PostgreSQL and broker versions before a lab."
+    },
+    {
+      "id": "data-doc-fabric-architecture",
+      "kind": "documentation",
+      "title": "Implement Medallion Lakehouse Architecture in Fabric",
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-medallion-lakehouse-architecture",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Opened current guidance on raw/curated layers, OneLake and Delta. Layer names alone do not confer ACID, data quality or security; those require actual engine behavior and controls. Last-update metadata: 2026-08-26."
+    },
+    {
+      "id": "data-doc-fabric-cicd",
+      "kind": "documentation",
+      "title": "CI/CD workflow options in Fabric",
+      "url": "https://learn.microsoft.com/en-us/fabric/cicd/manage-deployment",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified Git integration, item APIs, deployment-pipeline alternatives, per-environment configuration and permissions. Last-update metadata: 2026-07-22. Deploying definitions is not automatically migrating data, secrets or every dependency."
+    },
+    {
+      "id": "data-doc-fabric-security",
+      "kind": "documentation",
+      "title": "Security in Microsoft Fabric",
+      "url": "https://learn.microsoft.com/en-us/fabric/security/security-overview",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified Entra authentication, access, lineage, audit and inbound/outbound network controls. Last-update metadata: 2026-08-14. The course teaches shared responsibility; vendor compliance features do not certify a learner's application or remove customer access/privacy obligations."
+    },
+    {
+      "id": "data-doc-fabric-capacity",
+      "kind": "documentation",
+      "title": "What is the Microsoft Fabric Capacity Metrics app?",
+      "url": "https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified compute/storage/timepoint views, permissions and latency. Last-update metadata: 2026-09-03. The app itself does not provide alerts/notifications; learners must use a separate supported alerting path. Local CPU measurements are not Fabric CU consumption."
+    },
+    {
+      "id": "data-doc-fabric-trial",
+      "kind": "documentation",
+      "title": "Fabric trial capacity",
+      "url": "https://learn.microsoft.com/en-us/fabric/fundamentals/fabric-trial",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Link-only in this handoff",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The checked page describes a 60-day trial and feature restrictions, including unavailable Private Link, Trusted Workspace Access and some AI experiences. Eligibility and tenant settings vary. Export owned work before expiry; a trial is not permanent free hosting. No trial was started."
+    }
+  ],
+  "modules": [
+    {
+      "id": "data-m01",
+      "title": "1. Domain Models, Relational Correctness and Query Behavior",
+      "stage": "foundation",
+      "description": "Data-domain foundations after Common Foundation. Assume basic Python, SQL joins, Git, shell use and tests; apply them rather than repeating those courses. Begin with fictional mall requirements and learn to defend data meaning, transactions and query choices.",
+      "prerequisites": [],
+      "paperTags": [],
+      "completed": false,
+      "lessons": [
+        {
+          "id": "data-l01",
+          "completed": false,
+          "title": "Translate business questions into data products and boundaries",
+          "objectives": [
+            "Separate operational decisions from analytical questions.",
+            "Define grain, owners, freshness and acceptable failure behavior for a small data product.",
+            "Justify an initial relational or analytical implementation without selecting tools by popularity."
+          ],
+          "topics": [
+            {
+              "title": "Business meaning",
+              "details": [
+                "Operational lease/payment workflows versus historical sales analysis",
+                "Stakeholders, metric definitions, data grain and source ownership",
+                "Decision latency versus refresh frequency"
+              ]
+            },
+            {
+              "title": "System boundaries",
+              "details": [
+                "OLTP, warehouse and lakehouse responsibilities",
+                "Data engineering, analytics engineering, BI and platform interfaces",
+                "A small architecture decision record with explicit exclusions"
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "requirements-analysis",
+            "data-modeling",
+            "sql",
+            "system-design",
+            "data-products"
+          ],
+          "video": {
+            "resourceId": "data-video-fabric-intro",
+            "locator": "Chapters: Explore end-to-end analytics with Microsoft Fabric; Data teams and Microsoft Fabric. Use the official chapter list, not the whole platform feature catalogue as a syllabus."
+          },
+          "reading": {
+            "resourceId": "data-book-dbdesign",
+            "locator": "Chapter 13 Database Development Process; Chapter 5 Data Modelling."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-fabric-architecture"
+          ],
+          "assignment": {
+            "id": "data-a01",
+            "title": "Fictional mall data-product charter",
+            "kind": "design",
+            "completed": false,
+            "instructions": [
+              "Define a fictional 20-unit mall and three consumers: operations clerk, finance analyst and regional manager.",
+              "Specify four metrics and six operational or analytical questions, including a disagreement about the meaning of occupancy.",
+              "Write a two-page architecture decision record comparing a relational database with a lakehouse and explicitly defer live payments, tax compliance and customer tracking."
+            ],
+            "deliverables": [
+              "Metric dictionary with grain, numerator/denominator where applicable, owner and freshness target",
+              "Context/data-flow diagram",
+              "Decision record and eight testable requirements"
+            ],
+            "acceptanceCriteria": [
+              "All four metrics have unambiguous time and entity scope.",
+              "At least two operational invariants and two analytical reconciliation checks are specified.",
+              "The diagram identifies every source and consumer, without private client details.",
+              "The chosen design addresses latency, correctness, cost and one rejected alternative."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q01",
+                "prompt": "Why can a daily occupancy dashboard not prevent two clerks from allocating the same unit concurrently?",
+                "kind": "short-answer",
+                "answer": "It observes data after the fact; prevention requires a concurrency-safe rule in the operational write path.",
+                "explanation": "Analytical freshness and transaction isolation solve different problems."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What is the unit of observation for each metric?",
+            "Which requirement would make you change the architecture?"
+          ]
+        },
+        {
+          "id": "data-l02",
+          "completed": false,
+          "title": "Design keys, relationships and enforceable mall constraints",
+          "objectives": [
+            "Build a normalized operational schema with explicit keys and cardinalities.",
+            "Separate database-enforced constraints from application checks.",
+            "Demonstrate why duplicated business facts create update anomalies."
+          ],
+          "topics": [
+            {
+              "title": "Relational design",
+              "details": [
+                "Units, tenants, leases, invoices, receipts and payment allocation",
+                "Functional dependencies and practical normalization",
+                "Natural keys, surrogate keys and monetary decimal types"
+              ]
+            },
+            {
+              "title": "Integrity",
+              "details": [
+                "Primary, foreign, unique and check constraints",
+                "Nullability, invalid date intervals and orphan records",
+                "Cross-row rules that need more than a simple CHECK"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "sql",
+            "relational-model",
+            "data-modeling",
+            "normalization",
+            "data-types",
+            "testing"
+          ],
+          "video": {
+            "resourceId": "data-video-cmu",
+            "locator": "Lecture 01: Relational Model & Algebra, 25 August 2025; focus on relations, keys and relational reasoning."
+          },
+          "reading": {
+            "resourceId": "data-book-dbdesign",
+            "locator": "Chapter 8 The Entity Relationship Data Model; Chapter 9 Integrity Rules and Constraints; Chapter 12 Normalization."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-pg-locks"
+          ],
+          "assignment": {
+            "id": "data-a02",
+            "title": "Executable six-table operational schema",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Create migrations for six core entities and a payment-allocation junction table where required.",
+              "Generate 20 units, 12 tenants and three months of entirely fictional invoices/receipts.",
+              "Write ten invalid insert/update cases covering duplicate receipt IDs, missing parents, invalid amounts and date intervals; document overlap prevention as the next lesson's cross-row concern."
+            ],
+            "deliverables": [
+              "DDL migrations and ER diagram",
+              "Seed generator and small hand-written fixtures",
+              "Constraint test suite"
+            ],
+            "acceptanceCriteria": [
+              "A fresh database can be built twice from an empty state with the same seeded result.",
+              "All ten invalid cases fail explicitly for the intended constraint.",
+              "Invoice and receipt amounts use exact numeric representation, not binary floating point.",
+              "A written dependency example explains one avoided update anomaly."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q02",
+                "prompt": "Does a foreign key guarantee that the referenced parent has the business status required by a lease?",
+                "kind": "short-answer",
+                "answer": "No. It guarantees referential existence, not an arbitrary business-status predicate.",
+                "explanation": "Referential integrity and domain workflow rules must be designed and tested separately."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which constraints belong in the database?",
+            "Why is a receipt identifier different from a payment allocation identifier?"
+          ]
+        },
+        {
+          "id": "data-l03",
+          "completed": false,
+          "title": "Make lease allocation and payment posting concurrency-safe",
+          "objectives": [
+            "Reproduce and explain a check-then-write race.",
+            "Enforce a cross-row business invariant under concurrent transactions.",
+            "Make retries of a receipt-posting request safe."
+          ],
+          "topics": [
+            {
+              "title": "Transactions in a data domain",
+              "details": [
+                "Atomic invoice/payment updates and rollback",
+                "Read committed versus stronger isolation",
+                "Lost updates, write skew and explicit locking"
+              ]
+            },
+            {
+              "title": "Safe write protocols",
+              "details": [
+                "Locking a stable unit row before checking lease overlap",
+                "Unique idempotency keys and duplicate requests",
+                "Bounded lock timeouts, deadlocks and retry boundaries"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "sql",
+            "transactions",
+            "concurrency",
+            "idempotency",
+            "testing"
+          ],
+          "video": {
+            "resourceId": "data-video-cmu",
+            "locator": "Lecture 17: Concurrency Control Theory, 3 November 2025; selected follow-up from Lecture 18: Two-Phase Locking Concurrency Control, 5 November 2025."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 17 Transactions; Chapter 18 Concurrency Control. Focus reading on isolation and locking, using the authors' chapter index to find the matching material."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-pg-locks"
+          ],
+          "assignment": {
+            "id": "data-a03",
+            "title": "Race two clerks without double-allocation",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Use two controlled database sessions and a synchronization barrier to reproduce an overlapping-lease race in a disposable fixture database.",
+              "Implement one documented safe protocol, such as locking the unit row before validating the interval, and bound transaction retries.",
+              "Post the same fictional receipt twice and inject a failure between receipt insertion and allocation."
+            ],
+            "deliverables": [
+              "Before/after transaction schedules",
+              "Concurrency and duplicate-request tests",
+              "Failure/rollback transcript with a short design explanation"
+            ],
+            "acceptanceCriteria": [
+              "Across 20 synchronized races, at most one overlapping lease commits for a unit.",
+              "Duplicate receipt requests do not increase allocated payment totals.",
+              "The injected mid-transaction failure leaves neither a half-posted receipt nor a changed balance.",
+              "Locks and retries have explicit bounds; error cases do not hang indefinitely."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q03",
+                "prompt": "Why must the overlap check and lease insertion share the same protected transaction?",
+                "kind": "short-answer",
+                "answer": "Otherwise another transaction can change the relevant state between the check and insertion.",
+                "explanation": "Protection must cover the entire invariant-preserving decision, not just the final write."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which row exists even when a unit has no lease?",
+            "What can be retried safely after an ambiguous client timeout?"
+          ]
+        },
+        {
+          "id": "data-l04",
+          "completed": false,
+          "title": "Read query plans and choose indexes from evidence",
+          "objectives": [
+            "Interpret scans, join strategies, estimates, actual rows and buffers.",
+            "Diagnose a poor estimate or avoidable scan.",
+            "Compare indexing choices without assuming every index improves every query."
+          ],
+          "topics": [
+            {
+              "title": "Plan literacy",
+              "details": [
+                "Logical query versus physical execution plan",
+                "Cardinality estimates, statistics, nested-loop/hash/merge joins",
+                "Sorts, spills, buffers and execution versus planning time"
+              ]
+            },
+            {
+              "title": "Workload-aware indexing",
+              "details": [
+                "Composite index order and selective predicates",
+                "Write/storage overhead and low-selectivity scans",
+                "Engine-specific differences between indexes and lakehouse pruning"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "sql",
+            "query-planning",
+            "indexing",
+            "performance-measurement",
+            "benchmarking"
+          ],
+          "video": {
+            "resourceId": "data-video-cmu",
+            "locator": "Lecture 15: Query Planning & Optimization I, 27 October 2025; use Lecture 08: Indexes & Filters I as targeted review if needed."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 14 Indexing; Chapter 16 Query Optimization."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-pg-plans"
+          ],
+          "assignment": {
+            "id": "data-a04",
+            "title": "Five-query mall workload investigation",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Generate a fixed-seed 100,000-row invoice/payment workload with deliberately uneven tenant activity.",
+              "Capture plans for five queries covering a selective lookup, range filter, join, aggregate and sort; try two justified index strategies.",
+              "Run each comparison five times under documented conditions and retain correctness checks, even when an index does not help."
+            ],
+            "deliverables": [
+              "Queries and before/after EXPLAIN ANALYZE output",
+              "Timing/buffer/storage comparison table",
+              "Index recommendation with one rejected option"
+            ],
+            "acceptanceCriteria": [
+              "All optimized queries return the same ordered result or canonicalized multiset as the reference.",
+              "At least three plan nodes are explained using observed evidence.",
+              "Results record engine version, row count, cache conditions and repetitions.",
+              "No arbitrary speedup is required or claimed; retained indexes are justified against write and storage costs."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q04",
+                "prompt": "Is a sequential scan always evidence of a missing index?",
+                "kind": "short-answer",
+                "answer": "No. It may be cheaper for a small table or a query that returns much of the table.",
+                "explanation": "The optimizer chooses among costs; the access path must be evaluated in its workload context."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where do estimated and actual cardinalities diverge?",
+            "Does EXPLAIN ANALYZE execute a data-modifying statement?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-m02",
+      "title": "2. Reproducible Ingestion, Storage and Lakehouse Tables",
+      "stage": "intermediate",
+      "description": "Create reliable boundaries between source systems, immutable landing data and curated tables. Use local Python, PostgreSQL and Spark/Delta first; map the same contracts to Fabric notebooks, OneLake and pipelines.",
+      "prerequisites": [
+        "data-m01"
+      ],
+      "paperTags": [],
+      "completed": false,
+      "lessons": [
+        {
+          "id": "data-l05",
+          "completed": false,
+          "title": "Ingest files and paginated APIs with manifests and provenance",
+          "objectives": [
+            "Build a restartable extractor around a bounded source contract.",
+            "Retain source identity and validation outcomes.",
+            "Distinguish extraction completion from downstream publication."
+          ],
+          "topics": [
+            {
+              "title": "Source contracts",
+              "details": [
+                "File naming, checksums, event IDs and schema versions",
+                "API pagination, rate limits, retries and finite timeouts",
+                "Source time, extraction time and ingestion time"
+              ]
+            },
+            {
+              "title": "Landing and provenance",
+              "details": [
+                "Immutable raw objects and manifests",
+                "Quarantine with machine-readable reasons",
+                "Explicit run states and resumable extraction"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "python",
+            "http",
+            "data-types",
+            "error-handling",
+            "data-ingestion",
+            "data-lineage"
+          ],
+          "video": {
+            "resourceId": "data-video-dlt",
+            "locator": "Workshop: From APIs to Warehouses; concentrate on extracting APIs/files, normalization and validation. AI-assisted authoring is optional, not an acceptance requirement."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 25 Data Processing Pipelines: Origin of the Pipeline Design Pattern and Challenges with the Periodic Pipeline Pattern."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-fabric-architecture"
+          ],
+          "assignment": {
+            "id": "data-a05",
+            "title": "Manifested ingestion of a fictional supplier feed",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Create six synthetic files and a local paginated-response fixture totaling 1,000 records; no live supplier access is needed.",
+              "Implement extraction with checksums, schema version, source/run IDs and explicit success/failure states.",
+              "Inject one transient response error, one malformed row and one truncated file, then resume the run."
+            ],
+            "deliverables": [
+              "Extractor and fixture server or response adapter",
+              "Raw landing manifest and quarantine records",
+              "Recovery tests and provenance dictionary"
+            ],
+            "acceptanceCriteria": [
+              "Every accepted and rejected record can be traced to a source object and run.",
+              "Retries are bounded and a permanent failure is visible rather than silently ignored.",
+              "An interrupted extraction can resume without duplicating accepted source objects.",
+              "The malformed row and truncated file produce different, inspectable rejection reasons."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q05",
+                "prompt": "Why should a successful HTTP response not immediately mark the data product as published?",
+                "kind": "short-answer",
+                "answer": "Extraction success does not establish complete pagination, valid content, committed transformations or a validated consumer-facing result.",
+                "explanation": "A data product needs end-to-end completion criteria rather than transport-only success."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which identifier survives a retry?",
+            "How would you detect a source silently replacing a file?"
+          ]
+        },
+        {
+          "id": "data-l06",
+          "completed": false,
+          "title": "Choose schemas, file formats and storage layouts deliberately",
+          "objectives": [
+            "Round-trip money, timestamps and nulls without accidental changes.",
+            "Explain row versus columnar storage trade-offs.",
+            "Measure the effects of file count and partition layout."
+          ],
+          "topics": [
+            {
+              "title": "Representation",
+              "details": [
+                "CSV/JSON versus Parquet, compression and embedded schemas",
+                "Decimals, timestamps, time zones and explicit null handling",
+                "Nested source records and stable flattened contracts"
+              ]
+            },
+            {
+              "title": "Physical layout",
+              "details": [
+                "Projection and predicate pruning",
+                "Partition keys, small files and over-partitioning",
+                "Portable files versus engine/catalog metadata"
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "data-types",
+            "time-zones",
+            "serialization",
+            "data-storage",
+            "partitioning",
+            "python"
+          ],
+          "video": {
+            "resourceId": "data-video-spark",
+            "locator": "Unit 05: Spark DataFrames; sections Reading parquet and Actions vs transformations."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 13 Data Storage Structures; targeted review of Chapter 8 Complex Data Types for representation choices."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-spark-tuning"
+          ],
+          "assignment": {
+            "id": "data-a06",
+            "title": "A lossless format and layout comparison",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Generate 10,000 sales rows including nulls, explicit UTC timestamps, non-ASCII product labels and decimal money.",
+              "Write CSV, JSON and Parquet representations with documented schemas; produce both many-small-file and bounded-file layouts.",
+              "Compare file sizes and a filtered projection while checking values against an exact reference."
+            ],
+            "deliverables": [
+              "Round-trip tests and schema definitions",
+              "Format/layout measurement table",
+              "Storage-layout recommendation"
+            ],
+            "acceptanceCriteria": [
+              "All three representations recover equivalent logical values under the declared parsing rules.",
+              "Money and timestamp edge cases have explicit tests.",
+              "File count, bytes, schema and measurement conditions are recorded.",
+              "The recommendation distinguishes file-format benefits from transactional guarantees."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q06",
+                "prompt": "Does storing records in Parquet make a folder an ACID table?",
+                "kind": "short-answer",
+                "answer": "No. Parquet is a file format; table-level transactional behavior needs a protocol and implementation that manage commits and metadata.",
+                "explanation": "Efficient encoding and atomic table updates are different layers."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which partition key creates too many tiny partitions?",
+            "What information is lost if local timestamps are stored without a time-zone policy?"
+          ]
+        },
+        {
+          "id": "data-l07",
+          "completed": false,
+          "title": "Understand warehouse, lakehouse and open-table responsibilities",
+          "objectives": [
+            "Separate object storage, table protocol, catalog and query engine.",
+            "Inspect table history and schema changes.",
+            "Compare Delta and Iceberg concepts without assuming interchangeable feature support."
+          ],
+          "topics": [
+            {
+              "title": "Architecture layers",
+              "details": [
+                "Warehouse serving versus lakehouse storage/compute patterns",
+                "OneLake Files/Tables, Delta transaction logs and catalogs",
+                "Snapshots, concurrent writers and retained history"
+              ]
+            },
+            {
+              "title": "Compatibility and maintenance",
+              "details": [
+                "Schema evolution versus breaking consumer changes",
+                "Compaction and retention versus time travel/recovery needs",
+                "Reader/writer version compatibility and open-format limits"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "data-architecture",
+            "transactions",
+            "schema-evolution",
+            "lakehouse",
+            "open-table-formats"
+          ],
+          "video": {
+            "resourceId": "data-video-fabric-intro",
+            "locator": "Chapters: Get started with lakehouses in Microsoft Fabric; Exercise - Create and ingest a Microsoft Fabric Lakehouse."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 20 Database System Architectures; Chapter 21 Parallel and Distributed Storage. Read for architecture/storage principles, not as a Fabric or Delta API manual."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-fabric-architecture",
+            "data-doc-delta",
+            "data-doc-iceberg",
+            "data-doc-fabric-trial"
+          ],
+          "assignment": {
+            "id": "data-a07",
+            "title": "Three commits and an interoperability decision",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Using local Delta or an explicitly authorized personal Fabric workspace, create a small product table and record three successive commits.",
+              "Demonstrate a permitted additive schema change and a guarded breaking change; retain a before/after snapshot comparison.",
+              "Draw storage/protocol/catalog/engine boundaries and write a compatibility matrix for the features actually used."
+            ],
+            "deliverables": [
+              "Version-pinned table experiment",
+              "History/schema evidence",
+              "Architecture diagram and compatibility matrix"
+            ],
+            "acceptanceCriteria": [
+              "Observed table history links each change to its intended logical result.",
+              "A breaking change is blocked or isolated behind an explicit versioned consumer contract.",
+              "The matrix distinguishes documented support, tested support and untested assumptions.",
+              "No retention cleanup destroys the experiment's recovery evidence; no claim of universal Delta/Iceberg interchangeability is made."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q07",
+                "prompt": "Why might two engines reading the same open table format still be incompatible with a newly enabled feature?",
+                "kind": "short-answer",
+                "answer": "Their reader/writer protocol versions and implemented features may differ.",
+                "explanation": "An open specification does not imply simultaneous support in every engine."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What commits the table state?",
+            "Which recovery promise is affected by shortening retention?"
+          ]
+        },
+        {
+          "id": "data-l08",
+          "completed": false,
+          "title": "Implement idempotent incremental loads and corrected-batch replay",
+          "objectives": [
+            "Define precedence for duplicated and revised events.",
+            "Advance load state only after safe durable progress.",
+            "Show that a bounded backfill agrees with a clean rebuild."
+          ],
+          "topics": [
+            {
+              "title": "Incremental state",
+              "details": [
+                "High-water marks, lookback windows and source revisions",
+                "Deterministic deduplication before MERGE",
+                "Data commits versus manifest/checkpoint commits"
+              ]
+            },
+            {
+              "title": "Orchestration",
+              "details": [
+                "Dependency DAGs, parameters, retries, timeouts and backfills",
+                "Run IDs versus business idempotency keys",
+                "Publication gates and recovery after partial execution"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "orchestration",
+            "idempotency",
+            "transactions",
+            "incremental-processing",
+            "replay",
+            "testing"
+          ],
+          "video": {
+            "resourceId": "data-video-orchestration",
+            "locator": "Unit 08: Local DB: Learn Scheduling and Backfills; transfer the bounded-backfill pattern to the chosen local runner or Fabric pipeline."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 25 Data Processing Pipelines: Challenges with the Periodic Pipeline Pattern; Drawbacks of Periodic Pipelines in Distributed Environments."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-delta",
+            "data-video-pipelines"
+          ],
+          "assignment": {
+            "id": "data-a08",
+            "title": "Correct a sales batch without double counting",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Generate seven daily batches with event IDs and revision numbers, plus a duplicate file and one corrected revision.",
+              "Implement deterministic precedence, idempotent sink writes and a manifest/state update protocol.",
+              "Inject failures before the sink commit and after the sink commit but before state acknowledgement; replay a three-day interval."
+            ],
+            "deliverables": [
+              "Incremental loader and parameterized run definition",
+              "Failure-injection tests",
+              "Clean-rebuild versus replay reconciliation"
+            ],
+            "acceptanceCriteria": [
+              "A second load of identical inputs leaves logical results unchanged.",
+              "The highest accepted revision wins consistently, including after reordering inputs.",
+              "Both failure boundaries recover without double counting or silently skipping records.",
+              "The corrected replay exactly matches a clean rebuild's keys, row values and control totals."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q08",
+                "prompt": "Is MERGE by itself enough to make a load idempotent?",
+                "kind": "short-answer",
+                "answer": "No. Stable keys, deterministic source deduplication, revision precedence and a safe state/commit protocol are also needed.",
+                "explanation": "A write primitive does not define the business meaning of a retry."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When is it safe to advance the high-water mark?",
+            "What happens if state acknowledgement fails after the data commit succeeds?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-m03",
+      "title": "3. Spark Execution, Transformation and Measured Optimization",
+      "stage": "intermediate",
+      "description": "Turn notebook familiarity into an explainable Spark execution model. Use a pinned local runtime or the matching Fabric/Azure Databricks runtime, with resource-bounded fixtures rather than invented large-scale benchmarks.",
+      "prerequisites": [
+        "data-m02"
+      ],
+      "paperTags": [],
+      "completed": false,
+      "lessons": [
+        {
+          "id": "data-l09",
+          "completed": false,
+          "title": "Trace DataFrame transformations through plans, stages and tasks",
+          "objectives": [
+            "Explain lazy evaluation and action-triggered execution.",
+            "Identify driver/executor responsibilities and shuffle boundaries.",
+            "Produce equivalent SQL and DataFrame transformations."
+          ],
+          "topics": [
+            {
+              "title": "Execution model",
+              "details": [
+                "Driver, executors, jobs, stages, tasks and partitions",
+                "Lazy transformations versus actions",
+                "Physical plans and the Spark UI; deployment-mode differences"
+              ]
+            },
+            {
+              "title": "Safe transformations",
+              "details": [
+                "Explicit schemas and native expressions",
+                "SQL/DataFrame equivalence and null semantics",
+                "Avoiding unbounded collect/toPandas calls on the driver"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "python",
+            "sql",
+            "distributed-processing",
+            "query-planning",
+            "memory-management"
+          ],
+          "video": {
+            "resourceId": "data-video-spark",
+            "locator": "Unit 05: Spark DataFrames; Unit 08: Anatomy of a Spark Cluster. Verify deployment terminology and UI details against the runtime used."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 22 Parallel and Distributed Query Processing."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-spark-tuning"
+          ],
+          "assignment": {
+            "id": "data-a09",
+            "title": "Explain a Spark sales transformation",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Transform at most 100,000 synthetic sale rows with filter, projection, grouping and a dimension join.",
+              "Implement SQL and DataFrame versions and annotate the resulting physical plans.",
+              "Repeat with two partition counts and capture which actions cause jobs and which operations cause exchanges."
+            ],
+            "deliverables": [
+              "Equivalent transformations and result comparison",
+              "Annotated plans and stage/task evidence",
+              "Driver-memory and runtime notes"
+            ],
+            "acceptanceCriteria": [
+              "Both implementations produce identical canonicalized results, including null edge cases.",
+              "At least one narrow transformation and one shuffle are correctly identified.",
+              "The explanation separates jobs, stages, tasks and partitions.",
+              "The pipeline does not collect the unbounded/full working dataset into driver memory."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q09",
+                "prompt": "Why might defining a DataFrame filter produce no Spark job immediately?",
+                "kind": "short-answer",
+                "answer": "It builds a lazy transformation plan; an action is normally needed to execute it.",
+                "explanation": "Plan construction is different from distributed computation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where is data redistributed?",
+            "Which evidence distinguishes planning from execution?"
+          ]
+        },
+        {
+          "id": "data-l10",
+          "completed": false,
+          "title": "Optimize joins, skew and aggregation without changing meaning",
+          "objectives": [
+            "Recognize a skewed partition and an unnecessary shuffle.",
+            "Compare broadcast and shuffle strategies using observed plans.",
+            "Apply AQE/statistics/layout tuning only when supported by evidence."
+          ],
+          "topics": [
+            {
+              "title": "Join and aggregation mechanics",
+              "details": [
+                "Large-small joins, sort-merge joins and pre-aggregation",
+                "Hot keys, uneven task duration and skew",
+                "Statistics, broadcast thresholds and adaptive query execution"
+              ]
+            },
+            {
+              "title": "Measurement discipline",
+              "details": [
+                "Baseline correctness and repeatable timing",
+                "Caching trade-offs and cold/warm execution",
+                "Shuffle volume, spill, task duration and file count"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "sql",
+            "distributed-processing",
+            "query-planning",
+            "benchmarking",
+            "performance-measurement"
+          ],
+          "video": {
+            "resourceId": "data-video-spark",
+            "locator": "Unit 09: GroupBy in Spark; Unit 10: Joins in Spark."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 15 Query Processing; Chapter 22 Parallel and Distributed Query Processing, concentrating on joins and aggregation."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-spark-tuning"
+          ],
+          "assignment": {
+            "id": "data-a10",
+            "title": "Diagnose a hot-store workload",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Generate a bounded sales dataset where one store owns half the rows, plus a genuinely small dimension table.",
+              "Compare the baseline with two justified changes, such as a broadcast join and a partition/pre-aggregation strategy.",
+              "Use five measured runs per candidate; report both correctness and observed physical behavior."
+            ],
+            "deliverables": [
+              "Skew generator and reference result",
+              "Plan/UI evidence and benchmark table",
+              "Tuning decision record"
+            ],
+            "acceptanceCriteria": [
+              "All candidates preserve the reference totals and row multiplicity.",
+              "The report identifies the hot partition or explains why the local workload does not expose one clearly.",
+              "Changes are connected to observed statistics or plan nodes, not magic configuration values.",
+              "No speedup is required if the data/hardware cannot demonstrate one; uncertainty is reported honestly."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q10",
+                "prompt": "Why can adding workers fail to fix a single extremely hot key?",
+                "kind": "short-answer",
+                "answer": "The work for that key may remain concentrated in one partition or task, limiting parallelism.",
+                "explanation": "Capacity and work distribution are separate constraints."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Is the broadcast side actually small enough?",
+            "What hidden change could invalidate a timing comparison?"
+          ]
+        },
+        {
+          "id": "data-l11",
+          "completed": false,
+          "title": "Package a Spark job for reproducible operation",
+          "objectives": [
+            "Separate reusable transformations from notebook orchestration.",
+            "Parameterize and log a batch job without leaking data or secrets.",
+            "Demonstrate recovery and equivalence across execution entry points."
+          ],
+          "topics": [
+            {
+              "title": "Operational job boundary",
+              "details": [
+                "Inputs/outputs, run IDs, date range and explicit schema",
+                "Dependency/runtime pinning and session configuration",
+                "Structured logs, row counts and exit status"
+              ]
+            },
+            {
+              "title": "Local-to-Fabric portability",
+              "details": [
+                "Notebook adapter versus importable transformation code",
+                "Environment-specific paths and credentials",
+                "Deterministic output comparison and failure visibility"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "python-packaging",
+            "configuration",
+            "logging",
+            "testing",
+            "distributed-processing",
+            "reproducibility"
+          ],
+          "video": {
+            "resourceId": "data-video-spark",
+            "locator": "Unit 08: Anatomy of a Spark Cluster; focus on application submission, driver/executor boundaries and environment differences."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 25 Data Processing Pipelines: Trouble Caused By Uneven Work Distribution; Chapter 8 Release Engineering: Philosophy and reproducible builds."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-spark-tuning",
+            "data-doc-fabric-cicd"
+          ],
+          "assignment": {
+            "id": "data-a11",
+            "title": "Convert a notebook into an operable batch application",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Extract the prior sales transformation into an importable module with thin CLI and notebook entry points.",
+              "Accept a bounded date interval and input/output locations through configuration; record runtime versions and structured run metadata.",
+              "Run one normal case, one invalid-schema case and one interrupted/retried case using only synthetic data."
+            ],
+            "deliverables": [
+              "Packaged transformation with CLI and notebook adapter",
+              "Pinned environment specification",
+              "Operational log examples and smoke tests"
+            ],
+            "acceptanceCriteria": [
+              "CLI and notebook paths produce the same logical output for the same fixtures.",
+              "Invalid inputs fail explicitly and do not publish a success marker.",
+              "Logs include run identity, counts and timing but no secrets or full sensitive rows.",
+              "A documented clean-environment command reproduces the result."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q11",
+                "prompt": "Why should reusable transformation code not hard-code a Fabric workspace path?",
+                "kind": "short-answer",
+                "answer": "The path is deployment configuration, and hard-coding it prevents safe environment promotion and local reproducibility.",
+                "explanation": "Portable logic and environment-specific adapters have different responsibilities."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which configuration changes output semantics?",
+            "Can a failed job look successful to its orchestrator?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-m04",
+      "title": "4. Dimensional Models, Semantic Metrics and BI Delivery",
+      "stage": "intermediate",
+      "description": "Build an auditable route from facts and historical dimensions to Power BI measures and decisions. Do not equate attractive visuals or a familiar DAX function with correct business semantics.",
+      "prerequisites": [
+        "data-m03"
+      ],
+      "paperTags": [],
+      "completed": false,
+      "lessons": [
+        {
+          "id": "data-l12",
+          "completed": false,
+          "title": "Define fact grain, dimensions and additive behavior",
+          "objectives": [
+            "Model sales movements and inventory snapshots at different grains.",
+            "Avoid double counting when combining facts.",
+            "Specify measures that are additive, semi-additive or non-additive."
+          ],
+          "topics": [
+            {
+              "title": "Dimensional design",
+              "details": [
+                "Fact grain, conformed store/product/date dimensions",
+                "Transaction facts versus periodic inventory snapshots",
+                "Surrogate keys and unknown members"
+              ]
+            },
+            {
+              "title": "Metric correctness",
+              "details": [
+                "Sales/returns sign conventions and control totals",
+                "Inventory balances across time",
+                "Ratios, distinct counts and many-to-many fanout"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "data-modeling",
+            "sql",
+            "aggregation",
+            "dimensional-modeling",
+            "metric-semantics"
+          ],
+          "video": {
+            "resourceId": "data-video-analytics",
+            "locator": "Unit 01: Analytics Engineering Basics; Dimensional Modeling and Fact tables vs Dimension tables sections."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 11 Data Analysis; use the current star-schema documentation for the concrete dimensional implementation."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-star-schema",
+            "data-doc-dimensions"
+          ],
+          "assignment": {
+            "id": "data-a12",
+            "title": "Separate sales movement from inventory position",
+            "kind": "design",
+            "completed": false,
+            "instructions": [
+              "Create fixtures for three shops, ten products and seven days containing sales, returns and daily stock counts.",
+              "Build separate sales-movement and inventory-snapshot facts with shared dimensions.",
+              "Write six analytical queries, including daily net sales, month-to-date net sales, latest stock and average inventory, and demonstrate a deliberately incorrect fact-to-fact join."
+            ],
+            "deliverables": [
+              "Star-schema diagram and grain declarations",
+              "Fact/dimension build queries",
+              "Golden metric results and fanout counterexample"
+            ],
+            "acceptanceCriteria": [
+              "Each fact row has a stated business grain and uniqueness test.",
+              "Six query results match hand-computed small fixtures.",
+              "Inventory balances are not blindly summed across dates.",
+              "The invalid join's double counting is demonstrated and replaced with a grain-safe design."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q12",
+                "prompt": "Why is a stock balance generally unsafe to sum across successive days?",
+                "kind": "short-answer",
+                "answer": "Each balance describes a position at a time, not a new movement; summing positions double counts the same stock.",
+                "explanation": "Snapshot facts are often semi-additive across the time dimension."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which dimensions can this fact safely aggregate over?",
+            "What happens when a dimension has two matches for one fact?"
+          ]
+        },
+        {
+          "id": "data-l13",
+          "completed": false,
+          "title": "Preserve historical dimensions and resolve late facts",
+          "objectives": [
+            "Distinguish overwrite history from versioned dimension history.",
+            "Assign facts to the correct effective dimension version.",
+            "Handle late dimension changes without silently rewriting unrelated history."
+          ],
+          "topics": [
+            {
+              "title": "Historical identity",
+              "details": [
+                "Business key versus dimension-version surrogate key",
+                "Type 1 versus Type 2 changes",
+                "Start-inclusive/end-exclusive validity intervals and current flags"
+              ]
+            },
+            {
+              "title": "Late and corrected information",
+              "details": [
+                "Late-arriving facts and inferred/unknown members",
+                "Out-of-order dimension changes and documented correction policy",
+                "Non-overlapping intervals and stable fact foreign keys"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "data-modeling",
+            "keys-and-constraints",
+            "temporal-data",
+            "dimensional-modeling",
+            "schema-evolution"
+          ],
+          "video": {
+            "resourceId": "data-video-analytics",
+            "locator": "Unit 01: Analytics Engineering Basics, dimensional-modeling portion; supplement its introductory treatment with the required Microsoft dimension-history documentation."
+          },
+          "reading": {
+            "resourceId": "data-book-dbdesign",
+            "locator": "Chapter 7 The Relational Data Model and Chapter 9 Integrity Rules and Constraints, revisiting keys specifically for versioned entities. This book is not a Fabric SCD implementation manual; the linked dimension-table guide supplies that specialization."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-dimensions",
+            "data-doc-delta"
+          ],
+          "assignment": {
+            "id": "data-a13",
+            "title": "A tenant changes category without rewriting yesterday",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Generate 20 ordered and out-of-order tenant/category changes plus 40 dated sales facts.",
+              "Implement one Type 1 attribute and one Type 2 attribute with explicit interval and correction policies.",
+              "Resolve fact keys, including a boundary timestamp, an unknown tenant and a late correction; preserve lineage of the correction."
+            ],
+            "deliverables": [
+              "Dimension versioning transformation",
+              "Timeline fixture and expected fact-key mapping",
+              "Historical integrity tests"
+            ],
+            "acceptanceCriteria": [
+              "Each business key has at most one current version and no overlapping valid intervals.",
+              "Boundary facts follow the declared start-inclusive/end-exclusive rule.",
+              "Late changes and repeated inputs produce deterministic results.",
+              "Historical reports remain unchanged unless the documented correction policy explicitly requires a restatement."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q13",
+                "prompt": "Why cannot the business key alone be the primary key of a Type 2 dimension?",
+                "kind": "short-answer",
+                "answer": "Multiple historical versions share the same business key, so a version identifier or equivalent composite key is needed.",
+                "explanation": "Entity identity and historical-version identity are not the same."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which timestamp chooses the dimension version?",
+            "How are users told that a historical metric was restated?"
+          ]
+        },
+        {
+          "id": "data-l14",
+          "completed": false,
+          "title": "Build testable Power BI measures and a deliberate refresh path",
+          "objectives": [
+            "Explain row/filter context and controlled context changes.",
+            "Implement correctly weighted and time-scoped metrics.",
+            "Distinguish data preparation, model computation and report filtering."
+          ],
+          "topics": [
+            {
+              "title": "Semantic calculations",
+              "details": [
+                "Explicit measures versus calculated columns",
+                "Filter context, relationships, CALCULATE and iterators",
+                "Date tables, time intelligence and zero-denominator behavior"
+              ]
+            },
+            {
+              "title": "Preparation and refresh",
+              "details": [
+                "Power Query M, connector-dependent query folding and privacy levels",
+                "Import, DirectQuery and Direct Lake as workload-specific options",
+                "Refresh timing, schema drift and metric reconciliation"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "aggregation",
+            "metric-semantics",
+            "data-modeling",
+            "dax",
+            "power-query",
+            "testing"
+          ],
+          "video": {
+            "resourceId": "data-video-dax",
+            "locator": "Lectures: What is an Evaluation Context?; Example of a Filter Context; Row Context; What is CALCULATE?; What is Time Intelligence?"
+          },
+          "reading": {
+            "resourceId": "data-book-dax",
+            "locator": "Chapter 4 Understanding evaluation contexts; Chapter 5 Understanding CALCULATE and CALCULATETABLE; selected material from Chapter 8 Time intelligence calculations."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-star-schema",
+            "data-doc-power-query"
+          ],
+          "assignment": {
+            "id": "data-a14",
+            "title": "A metric oracle for a Power BI semantic model",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Use synthetic data spanning two months with unequal sales values, returns and a zero-sales case.",
+              "Implement net sales, margin percentage, sales-to-date and latest inventory measures; define their behavior under store/date filters.",
+              "Create 12 expected filter-context results in SQL or a small oracle table, then compare Power BI outputs and document the chosen refresh mode and folding evidence."
+            ],
+            "deliverables": [
+              "Power BI semantic model or project files",
+              "Measure dictionary and 12-case oracle",
+              "Power Query/refresh decision note"
+            ],
+            "acceptanceCriteria": [
+              "All 12 contexts match the oracle, including totals and zero denominators.",
+              "Margin percentage is derived from aggregate amounts rather than an unweighted average of row percentages.",
+              "Date filtering and latest-inventory behavior are explicit.",
+              "Folding is evidenced for a supported connector or honestly recorded as unavailable; CSV imports are not presented as SQL pushdown."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q14",
+                "prompt": "Why can the average of row margin percentages disagree with the overall margin percentage?",
+                "kind": "short-answer",
+                "answer": "Rows can have different revenue weights; the overall percentage should use the appropriate aggregate numerator and denominator.",
+                "explanation": "Averages of ratios generally do not preserve business weighting."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which filters should CALCULATE change, and which should it preserve?",
+            "What is the report's freshness relative to its upstream tables?"
+          ]
+        },
+        {
+          "id": "data-l15",
+          "completed": false,
+          "title": "Deliver accessible reports that answer auditable questions",
+          "objectives": [
+            "Choose visual encodings appropriate to business questions.",
+            "Expose units, time scope, freshness and uncertainty clearly.",
+            "Measure report responsiveness without sacrificing semantic correctness."
+          ],
+          "topics": [
+            {
+              "title": "Decision-oriented reporting",
+              "details": [
+                "Comparisons, trends and proportions",
+                "Proportional axes, clear labels and accessible color choices",
+                "Drill paths, filter discoverability and small-multiple alternatives"
+              ]
+            },
+            {
+              "title": "Report quality",
+              "details": [
+                "KPI reconciliation, visual interactions and misleading totals",
+                "Performance Analyzer and reproducible interaction scenarios",
+                "Freshness indicators and honest limitations"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "data-visualization",
+            "accessibility",
+            "metric-semantics",
+            "performance-measurement",
+            "stakeholder-communication"
+          ],
+          "video": {
+            "resourceId": "data-video-report-design",
+            "locator": "Whole episode: DAX and Visuals in Power BI: Tips, Tricks and Best Practices. The publisher provides topic scope but no finer chapter locator."
+          },
+          "reading": {
+            "resourceId": "data-book-dataviz",
+            "locator": "Chapter 2 Visualizing data: Mapping data onto aesthetics; Chapter 13 Visualizing time series and other functions of an independent variable; Chapter 17 The principle of proportional ink."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-star-schema",
+            "data-doc-power-query"
+          ],
+          "assignment": {
+            "id": "data-a15",
+            "title": "Two-page synthetic mall operations report",
+            "kind": "project",
+            "completed": false,
+            "instructions": [
+              "Build two report pages with no more than six visuals using the previous model and entirely fictional branding.",
+              "Write six stakeholder questions and show exactly which visual/filter state answers each.",
+              "Record one interaction-performance baseline and remove or improve one unnecessary visual/query; never use a private employer screenshot as a template."
+            ],
+            "deliverables": [
+              "Sanitized report and sample screenshots",
+              "Question-to-visual acceptance checklist",
+              "Accessibility and performance review"
+            ],
+            "acceptanceCriteria": [
+              "All six questions have correct answers reconciled to the semantic-model oracle.",
+              "Currency, units, reporting interval and last successful refresh are visible.",
+              "Meaning is not conveyed by color alone, and labels remain usable at normal viewing size.",
+              "The performance comparison records workload and actual measurements, without fabricated business impact."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q15",
+                "prompt": "Why should a bar chart's baseline normally preserve proportional length?",
+                "kind": "short-answer",
+                "answer": "Viewers interpret bar length as magnitude; truncating the baseline can exaggerate differences.",
+                "explanation": "The visual encoding must remain faithful to the quantity being communicated."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can a user tell stale data from a genuine zero?",
+            "Which visual choice might overstate a small change?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-m05",
+      "title": "5. Data Quality, Contracts and Traceable Dependencies",
+      "stage": "advanced",
+      "description": "Extend foundation-level testing into data-specific correctness: content, shape, freshness, reconciliation, lineage and consumer compatibility. Implement with SQL/Python first; dbt is an optional structured implementation, not another mandatory stack.",
+      "prerequisites": [
+        "data-m04"
+      ],
+      "paperTags": [],
+      "completed": false,
+      "lessons": [
+        {
+          "id": "data-l16",
+          "completed": false,
+          "title": "Test transformations and reconcile business controls",
+          "objectives": [
+            "Separate transformation bugs from unexpected source data.",
+            "Build tests for grain, integrity, content and control totals.",
+            "Prove that the test suite detects seeded faults."
+          ],
+          "topics": [
+            {
+              "title": "Testing layers",
+              "details": [
+                "Unit fixtures, integration tests and end-to-end reconciliation",
+                "Uniqueness, nulls, references, ranges and exact decimal totals",
+                "Property/invariant tests and independent small oracles"
+              ]
+            },
+            {
+              "title": "Quality operations",
+              "details": [
+                "Quarantine versus hard failure",
+                "Freshness/completeness versus job success",
+                "Mutation-style seeded defects and actionable failure reports"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "testing",
+            "sql",
+            "data-quality",
+            "reconciliation",
+            "property-based-testing"
+          ],
+          "video": {
+            "resourceId": "data-video-analytics",
+            "locator": "Unit 09: dbt Tests; singular tests, generic tests, source freshness and unit-test discussion."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 17 Testing for Reliability: Types of Software Testing; Chapter 26 Data Integrity: What You Read Is What You Wrote, early-detection and validation discussion."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-contracts",
+            "data-doc-dimensions"
+          ],
+          "assignment": {
+            "id": "data-a16",
+            "title": "A data-quality suite that catches seven different faults",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Add a reusable quality runner to the sales/inventory pipeline using pytest and SQL, or dbt if already selected.",
+              "Seed seven faults: duplicate key, orphan fact, missing required value, incorrect sign, missing batch, stale data and a join-induced total inflation.",
+              "Classify each result as publish-blocking, quarantinable or advisory, with an owner and diagnostic evidence."
+            ],
+            "deliverables": [
+              "Quality checks and seeded fixtures",
+              "Machine-readable quality report",
+              "Source-to-curated financial/inventory reconciliation"
+            ],
+            "acceptanceCriteria": [
+              "All seven seeded faults are detected by the intended checks.",
+              "Clean data passes and produces the expected control totals.",
+              "The runner returns a failing status when a publish-blocking check fails.",
+              "Failure reports identify check, dataset, run and affected keys without exposing entire sensitive payloads."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q16",
+                "prompt": "Can a schema-valid table still have materially incorrect revenue?",
+                "kind": "short-answer",
+                "answer": "Yes. Types and column names do not prove transformation logic, completeness, sign conventions or join cardinality are correct.",
+                "explanation": "Shape checks must be complemented by content and business reconciliation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which seeded fault could escape a row-count-only test?",
+            "What should happen when the pipeline succeeds but a source batch is missing?"
+          ]
+        },
+        {
+          "id": "data-l17",
+          "completed": false,
+          "title": "Version data contracts and control breaking changes",
+          "objectives": [
+            "Define a consumer-facing schema and semantic contract.",
+            "Distinguish shape enforcement from content/freshness guarantees.",
+            "Implement a compatibility gate and migration path."
+          ],
+          "topics": [
+            {
+              "title": "Contract contents",
+              "details": [
+                "Column names/types, keys, grain, owner and supported usage",
+                "Shape contracts versus quality SLOs",
+                "Platform-dependent constraint enforcement"
+              ]
+            },
+            {
+              "title": "Evolution",
+              "details": [
+                "Additive and breaking changes",
+                "Versioned models, deprecation windows and consumer tests",
+                "Schema comparison and dependency impact before publication"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "schema-evolution",
+            "api-contracts",
+            "data-contracts",
+            "testing",
+            "change-management"
+          ],
+          "video": {
+            "resourceId": "data-video-analytics",
+            "locator": "Unit 09: dbt Tests; contract discussion and the linked official Model contracts documentation."
+          },
+          "reading": {
+            "resourceId": "data-book-dbdesign",
+            "locator": "Chapter 13 Database Development Process, emphasizing requirements, implementation and maintenance; use the linked contracts documentation for modern enforcement/versioning details."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-contracts",
+            "data-doc-fabric-cicd"
+          ],
+          "assignment": {
+            "id": "data-a17",
+            "title": "A compatibility gate for a sales data product",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Define a versioned YAML/JSON contract for one sales mart, including grain and ownership separately from structural fields.",
+              "Test adding an optional column, removing a required column, changing money precision and changing the meaning of a metric without renaming it.",
+              "Implement a gate plus a v1-to-v2 migration/deprecation note and one consumer regression test."
+            ],
+            "deliverables": [
+              "Two contract versions and compatibility checker",
+              "Four change scenarios and expected decisions",
+              "Consumer migration note"
+            ],
+            "acceptanceCriteria": [
+              "The removed field and incompatible type change block publication to the existing consumer.",
+              "The additive change follows a stated compatibility policy rather than an implicit default.",
+              "A semantic change is escalated even when the schema still matches.",
+              "The report distinguishes declared, tested and database-enforced constraints."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q17",
+                "prompt": "Does renaming a column preserve a contract merely because its data type is unchanged?",
+                "kind": "short-answer",
+                "answer": "No. Consumers can depend on the column name, so the rename is usually a breaking structural change.",
+                "explanation": "A contract describes the externally consumed shape, not just type compatibility."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Who must approve a metric meaning change?",
+            "Which contract promises cannot be enforced by schema validation alone?"
+          ]
+        },
+        {
+          "id": "data-l18",
+          "completed": false,
+          "title": "Publish lineage, ownership and a usable data catalogue",
+          "objectives": [
+            "Trace a reported number to source objects and transformations.",
+            "Compute downstream impact from a declared dependency graph.",
+            "Expose ownership and business definitions in discoverable metadata."
+          ],
+          "topics": [
+            {
+              "title": "Metadata and lineage",
+              "details": [
+                "Dataset, column, run and code-version identifiers",
+                "Static dependency declarations versus observed execution lineage",
+                "Source manifests through marts to semantic measures"
+              ]
+            },
+            {
+              "title": "Catalogue usability",
+              "details": [
+                "Owners, glossary, sensitivity tags and intended consumers",
+                "Documentation as part of a change",
+                "Impact analysis, cycles and stale metadata"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "graphs",
+            "documentation",
+            "data-lineage",
+            "data-governance",
+            "dependency-management"
+          ],
+          "video": {
+            "resourceId": "data-video-analytics",
+            "locator": "Unit 08: Documentation; source/model/column descriptions and generated project documentation."
+          },
+          "reading": {
+            "resourceId": "data-book-dbdesign",
+            "locator": "Chapter 14 Database Users; Chapter 13 Database Development Process, applying user responsibilities and documentation to a data catalogue."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-fabric-security",
+            "data-doc-contracts"
+          ],
+          "assignment": {
+            "id": "data-a18",
+            "title": "Trace net sales back to a source file",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Describe a dependency graph with at least eight nodes spanning sources, transformations, marts and report measures.",
+              "Implement a small impact query that lists all consumers affected by changing one source column.",
+              "Publish a local catalogue view or generated HTML/JSON with owners, definitions, source/run identifiers and sensitivity labels."
+            ],
+            "deliverables": [
+              "Metadata graph and impact query",
+              "Catalogue artifact",
+              "One end-to-end number-to-source trace"
+            ],
+            "acceptanceCriteria": [
+              "The chosen report value is traceable to its contributing source objects and code/run version.",
+              "Two hand-checked change scenarios return exactly the expected downstream nodes.",
+              "A dependency cycle or missing referenced node fails validation explicitly.",
+              "The catalogue distinguishes declared lineage from runtime-observed lineage."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q18",
+                "prompt": "Why can a static dependency diagram be incomplete evidence of an actual run?",
+                "kind": "short-answer",
+                "answer": "Runtime conditions, dynamic queries or different code versions may access different inputs than the declared graph predicts.",
+                "explanation": "Design lineage and observed lineage are complementary evidence, not interchangeable guarantees."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Who owns a failure in a shared dimension?",
+            "Can the catalogue explain why a metric changed between runs?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-m06",
+      "title": "6. CDC, Event Time and Recovery Under Failure",
+      "stage": "advanced",
+      "description": "Add streaming only after batch correctness is established. Study source logs, offsets, event-time policies and replay using bounded local fixtures; a checkpoint or an exactly-once label is not a substitute for an end-to-end failure test.",
+      "prerequisites": [
+        "data-m05"
+      ],
+      "paperTags": [],
+      "completed": false,
+      "lessons": [
+        {
+          "id": "data-l19",
+          "completed": false,
+          "title": "Capture source changes across a consistent snapshot boundary",
+          "objectives": [
+            "Explain the transition from snapshot to log-based changes.",
+            "Interpret create/update/delete envelopes and source positions.",
+            "Identify operational risks from stalled CDC and log retention."
+          ],
+          "topics": [
+            {
+              "title": "Change capture",
+              "details": [
+                "Polling versus log-based CDC",
+                "Consistent snapshots, replication positions and change envelopes",
+                "Delete/tombstone distinctions and schema-change handling"
+              ]
+            },
+            {
+              "title": "Operational effects",
+              "details": [
+                "Connector permissions and source load",
+                "Replication lag and retained logs",
+                "Resnapshot and gap-detection policies"
+              ]
+            }
+          ],
+          "estimatedMinutes": 330,
+          "canonicalConceptTags": [
+            "transactions",
+            "cdc",
+            "replication",
+            "schema-evolution",
+            "data-ingestion"
+          ],
+          "video": {
+            "resourceId": "data-video-cdc",
+            "locator": "Chapters: What is Change Data Capture (CDC); Why use CDC; Performance Considerations for CDC; Demo: How CDC works on Azure SQL Database. Translate concepts, not Azure-specific setup commands, to the PostgreSQL lab."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 19 Recovery System for log concepts; Chapter 21 Parallel and Distributed Storage for replication context."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-debezium",
+            "data-doc-pg-locks"
+          ],
+          "assignment": {
+            "id": "data-a19",
+            "title": "A 100-change PostgreSQL CDC experiment",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "In a dedicated local environment, configure version-pinned PostgreSQL, Debezium and a supported broker using documented settings.",
+              "Seed 50 rows, capture a snapshot and apply 100 scripted insert/update/delete changes while recording source positions.",
+              "Pause only the learner-owned connector, inspect lag/log-retention behavior, resume and compare the reconstructed target with the source. If hardware prevents a live connector, complete envelope analysis but leave the live-CDC acceptance gate incomplete."
+            ],
+            "deliverables": [
+              "Version/configuration manifest without secrets",
+              "Snapshot/change-envelope examples",
+              "Source-target reconciliation and pause/resume evidence"
+            ],
+            "acceptanceCriteria": [
+              "Snapshot plus changes reconstruct the expected final table, including deletes.",
+              "The report distinguishes source-log positions from broker offsets.",
+              "Lag and retention risks are observed or explicitly bounded from documentation.",
+              "A fixture-only simulation is labelled as such and is not represented as a completed live CDC deployment."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q19",
+                "prompt": "Why is an indefinitely stopped CDC connector potentially harmful to its source database?",
+                "kind": "short-answer",
+                "answer": "Depending on the replication setup, logs may be retained while the connector lags, consuming source storage; alternatively required history may expire and create a gap.",
+                "explanation": "Retention and replication-slot behavior are operational requirements, not just ingestion details."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What proves there is no gap between the snapshot and streaming?",
+            "How will a deleted source row disappear from the target?"
+          ]
+        },
+        {
+          "id": "data-l20",
+          "completed": false,
+          "title": "Design offset handling and sinks for replayable delivery",
+          "objectives": [
+            "Explain at-most-once, at-least-once and scoped exactly-once claims.",
+            "Recover from crashes around sink commits and offset acknowledgement.",
+            "Use event identity and ordering rules independently of transport offsets."
+          ],
+          "topics": [
+            {
+              "title": "Delivery boundaries",
+              "details": [
+                "Partitions, keys, consumer positions and acknowledgement",
+                "Failure before/after a sink commit",
+                "Transactional or idempotent sink protocols"
+              ]
+            },
+            {
+              "title": "Business ordering",
+              "details": [
+                "Event ID, source revision and per-key order",
+                "Deduplication state and retention",
+                "Poison messages, quarantine and explicit replay procedures"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "idempotency",
+            "transactions",
+            "stream-processing",
+            "replay",
+            "distributed-systems"
+          ],
+          "video": {
+            "resourceId": "data-video-streaming",
+            "locator": "PyFlink workshop units: Produce messages to Kafka; Consume messages with Python; Save events to PostgreSQL; Offsets - earliest vs latest. They are segments of the linked workshop, not separately verified recordings."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 23 Parallel and Distributed Transaction Processing; use connector/streaming documentation to map the principles to source and sink guarantees."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-debezium",
+            "data-doc-spark-streaming",
+            "data-doc-delta"
+          ],
+          "assignment": {
+            "id": "data-a20",
+            "title": "Crash-safe inventory movement consumer",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Create 200 inventory movement events with 20 duplicate deliveries and five out-of-order revisions.",
+              "Build an idempotent consumer and a durable sink with an explicit event-precedence rule.",
+              "Inject crashes before writing, after committing the sink and before acknowledgement, and after acknowledgement; restart only the learner-owned consumer."
+            ],
+            "deliverables": [
+              "Consumer/sink protocol description",
+              "Four failure-boundary tests",
+              "Replayed event log and final inventory reconciliation"
+            ],
+            "acceptanceCriteria": [
+              "Every supported crash point converges to the same reference inventory without double application.",
+              "Transport offsets are not incorrectly used as global business-event IDs.",
+              "Malformed events are surfaced with a defined retry/quarantine policy.",
+              "The guarantee statement identifies source, sink, transaction boundary and remaining limitations."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q20",
+                "prompt": "What can happen when the sink commits but acknowledgement is lost?",
+                "kind": "short-answer",
+                "answer": "The event can be delivered again, so the sink must safely recognize or absorb the duplicate.",
+                "explanation": "An ambiguous acknowledgement is a normal distributed failure boundary."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which state must survive a process restart?",
+            "When can deduplication records be safely expired?"
+          ]
+        },
+        {
+          "id": "data-l21",
+          "completed": false,
+          "title": "Reconcile event-time windows, late events and auditable corrections",
+          "objectives": [
+            "Distinguish event, ingestion and processing time.",
+            "Define a bounded-lateness policy and test its actual implementation.",
+            "Reconcile published aggregates with an independent event-time reference."
+          ],
+          "topics": [
+            {
+              "title": "Time semantics",
+              "details": [
+                "Tumbling/sliding/session windows and state",
+                "Watermarks, late arrivals and output modes",
+                "Time-zone normalization and availability-time rules"
+              ]
+            },
+            {
+              "title": "Corrections",
+              "details": [
+                "Accepted late events versus events beyond policy",
+                "Upserts, correction ledgers and periodic reconciliation",
+                "Engine-specific watermark progression and checkpoint behavior"
+              ]
+            }
+          ],
+          "estimatedMinutes": 330,
+          "canonicalConceptTags": [
+            "time-zones",
+            "temporal-data",
+            "stream-processing",
+            "watermarks",
+            "reconciliation"
+          ],
+          "video": {
+            "resourceId": "data-video-streaming",
+            "locator": "PyFlink workshop units: Aggregation with tumbling windows; Late events and upserts; Understanding window types. Confirm behavior with the selected engine's documentation rather than assuming every late event updates an already closed window."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 10 Big Data for stream-processing context; Chapter 22 Parallel and Distributed Query Processing for stateful aggregation principles."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-spark-streaming"
+          ],
+          "assignment": {
+            "id": "data-a21",
+            "title": "A delayed-sales reconciliation timeline",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Generate 300 timestamped sales, returns and stock adjustments with controlled arrival order and a documented lateness boundary.",
+              "Implement ten-minute windows in Spark Structured Streaming or the workshop's Flink stack, with separate event/arrival timestamps and an independent batch oracle.",
+              "Advance the watermark with later data and any required subsequent micro-batch, then submit boundary and beyond-policy events; record corrections or quarantine rather than silently losing them."
+            ],
+            "deliverables": [
+              "Timeline generator and policy specification",
+              "Streaming job and batch oracle",
+              "Window/rejection/correction reconciliation report"
+            ],
+            "acceptanceCriteria": [
+              "On-time and accepted-late results match the oracle under the declared policy.",
+              "A boundary case and a beyond-policy event are explicitly demonstrated.",
+              "Every event is accounted for as accepted, corrected, duplicated or rejected with a reason.",
+              "Runtime version, watermark progression, output mode and sink behavior are recorded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q21",
+                "prompt": "Does a watermark mean that no earlier event can ever arrive?",
+                "kind": "short-answer",
+                "answer": "No. It is a processing policy/estimate used to bound state and lateness handling, not proof that all older real-world events have arrived.",
+                "explanation": "Late-data policy must include what happens outside the accepted bound."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which timestamp determines business attribution?",
+            "Can you explain every difference between online results and the full-history oracle?"
+          ]
+        },
+        {
+          "id": "data-l22",
+          "completed": false,
+          "title": "Prove recovery with backups, checkpoints and clean rebuilds",
+          "objectives": [
+            "Distinguish replication, backups, snapshots and replay.",
+            "Restore into an isolated environment and verify logical integrity.",
+            "Measure recovery time and recovery-point loss against an explicit target."
+          ],
+          "topics": [
+            {
+              "title": "Recovery design",
+              "details": [
+                "RPO/RTO, source retention and reproducible rebuild inputs",
+                "Checkpoint compatibility versus arbitrary checkpoint deletion",
+                "Backup generations, restore validation and corrupted-data propagation"
+              ]
+            },
+            {
+              "title": "Exercises and evidence",
+              "details": [
+                "Clean-room restore and business controls",
+                "Failure injection, recovery runbooks and ownership",
+                "Recovery versus privacy/deletion obligations"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "backup-and-recovery",
+            "replay",
+            "testing",
+            "data-integrity",
+            "incident-response"
+          ],
+          "video": {
+            "resourceId": "data-video-cmu",
+            "locator": "Lecture 22: Database Recovery, 19 November 2025."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 26 Data Integrity: What You Read Is What You Wrote; backup/recovery layers and early detection. Revisit Chapter 17 Testing for Reliability for failure exercises."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-debezium",
+            "data-doc-spark-streaming",
+            "data-doc-delta"
+          ],
+          "assignment": {
+            "id": "data-a22",
+            "title": "A recovery drill with evidence rather than a backup checkbox",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Back up only a dedicated synthetic PostgreSQL database and preserve versioned raw inputs/manifests for the lakehouse fixture.",
+              "Restore into a new empty learner-owned database and rebuild curated tables in a separate output location.",
+              "Simulate one corrupted curated batch and one lost worker/checkpoint scenario supported by the selected engine; document the safe recovery path and actual elapsed time."
+            ],
+            "deliverables": [
+              "Recovery runbook with exact scoped targets",
+              "Restore/rebuild verification suite",
+              "Measured RPO/RTO report and remaining risks"
+            ],
+            "acceptanceCriteria": [
+              "Restored operational balances and curated control totals match the expected recovery point.",
+              "Recovery is tested, not inferred from backup-command success.",
+              "No existing/shared database or unrelated directory is overwritten or removed.",
+              "The report states which changes are lost, which are replayed, and how deletion requests remain effective after restore."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q22",
+                "prompt": "Why is replication not a sufficient backup strategy for accidental deletion?",
+                "kind": "short-answer",
+                "answer": "The deletion may be replicated quickly to every replica, leaving no earlier recoverable state.",
+                "explanation": "Availability replicas and independently recoverable history address different failure modes."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which versioned inputs are necessary for a rebuild?",
+            "What evidence proves a restored database is useful, not merely readable?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-m07",
+      "title": "7. Governance, Tenant Boundaries and AI-Ready Data",
+      "stage": "professional",
+      "description": "Treat access, purpose, provenance and lifecycle as data-product requirements. Use synthetic people and tenants only. Cover AI data interfaces without repeating model training or building a full AI application.",
+      "prerequisites": [
+        "data-m06"
+      ],
+      "paperTags": [],
+      "completed": false,
+      "lessons": [
+        {
+          "id": "data-l23",
+          "completed": false,
+          "title": "Enforce least privilege and tenant isolation across access paths",
+          "objectives": [
+            "Create a role/access matrix and test denied operations.",
+            "Distinguish database, storage and semantic-model security.",
+            "Explain identity, secrets and network boundaries in a Fabric-compatible design."
+          ],
+          "topics": [
+            {
+              "title": "Identity and authorization",
+              "details": [
+                "Human versus workload identities and least privilege",
+                "Row/column policies, owner bypass and privileged roles",
+                "Trusted tenant identity versus user-controlled filters"
+              ]
+            },
+            {
+              "title": "Platform boundary",
+              "details": [
+                "Workspace/item/storage/semantic-model permissions",
+                "Managed identities, secret references and audit events",
+                "Encryption, private connectivity and shared responsibility"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "access-control",
+            "authentication",
+            "authorization",
+            "secrets-management",
+            "data-governance",
+            "multi-tenancy"
+          ],
+          "video": {
+            "resourceId": "data-video-governance",
+            "locator": "Whole episode, focusing on access controls and end-to-end security. No finer publisher chapter list was available."
+          },
+          "reading": {
+            "resourceId": "data-book-dbdesign",
+            "locator": "Chapter 14 Database Users; pair role responsibilities with the required PostgreSQL and Fabric security documentation."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-pg-rls",
+            "data-doc-fabric-security",
+            "data-doc-fabric-trial"
+          ],
+          "assignment": {
+            "id": "data-a23",
+            "title": "Three tenants, four roles, no cross-tenant leakage",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Create three fictional tenants and four non-owner role types in an isolated PostgreSQL fixture database.",
+              "Implement grants and tenant policies using a trusted identity-to-tenant mapping; test direct SQL, not just report filters.",
+              "Draw the equivalent Fabric workspace/storage/semantic-model boundary and identify which cloud controls require a paid capacity or administrator."
+            ],
+            "deliverables": [
+              "Access matrix and policy SQL",
+              "Positive/negative permission tests",
+              "Fabric boundary diagram and unresolved platform-specific tests"
+            ],
+            "acceptanceCriteria": [
+              "At least 12 permission cases cover reads, writes, another tenant's keys and denied columns.",
+              "Tests run as non-owner/non-BYPASSRLS principals and document the privileged exceptions.",
+              "An untrusted tenant parameter cannot expand the caller's access.",
+              "Local evidence is not presented as proof that equivalent Fabric RLS/storage policies were deployed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q23",
+                "prompt": "Why can a row-security test run as the table owner give misleading confidence?",
+                "kind": "short-answer",
+                "answer": "Owners commonly bypass normal row-security enforcement unless specifically constrained; the test may not represent a real restricted user.",
+                "explanation": "Authorization must be exercised with the identities and privileges that consumers actually have."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Could a consumer bypass the report and read storage directly?",
+            "Where does tenant identity become trustworthy?"
+          ]
+        },
+        {
+          "id": "data-l24",
+          "completed": false,
+          "title": "Design retention, deletion, privacy and audit evidence together",
+          "objectives": [
+            "Map synthetic personal fields through raw, curated, BI and backup copies.",
+            "Enforce a documented lifecycle without pretending a soft delete is physical erasure.",
+            "Preserve auditability while minimizing sensitive retained content."
+          ],
+          "topics": [
+            {
+              "title": "Lifecycle and purpose",
+              "details": [
+                "Data minimization, classification, approved purpose and residency",
+                "Retention schedules, correction/deletion requests and legal-review interfaces",
+                "Pseudonymization versus anonymization"
+              ]
+            },
+            {
+              "title": "Deletion and recovery",
+              "details": [
+                "Active query exclusion, caches, snapshots and backup expiry",
+                "Deletion ledgers reapplied after restore",
+                "Audit metadata without retaining unnecessary personal payloads"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "privacy",
+            "data-governance",
+            "data-retention",
+            "audit-logging",
+            "backup-and-recovery"
+          ],
+          "video": {
+            "resourceId": "data-video-governance",
+            "locator": "Revisit the episode's lineage, audit-trail and policy-enforcement discussion; a second full viewing is unnecessary."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 26 Data Integrity: What You Read Is What You Wrote; soft deletion, backup/recovery and privacy trade-offs."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-fabric-security",
+            "data-doc-pg-rls"
+          ],
+          "assignment": {
+            "id": "data-a24",
+            "title": "A deletion request that survives a restore",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Create 20 entirely fictional people and a register of their appearances in raw data, a mart, a report extract and one local backup.",
+              "Implement a deletion ledger, active-serving exclusion and an explicit schedule for physical retention expiry; use a controllable test clock.",
+              "Restore the pre-deletion backup into an isolated location and reapply the ledger before allowing serving access."
+            ],
+            "deliverables": [
+              "Data inventory and retention/purpose matrix",
+              "Deletion/restore harness with audit events",
+              "Evidence distinguishing excluded, deleted and pending-expiry copies"
+            ],
+            "acceptanceCriteria": [
+              "The deleted identity does not reappear in active outputs after restore.",
+              "Every registered copy has an explicit owner and lifecycle outcome.",
+              "Pending backup/snapshot retention is reported honestly instead of claiming immediate erasure.",
+              "The write-up identifies where jurisdiction-specific policy/legal advice is required; it does not claim compliance certification."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q24",
+                "prompt": "Why is replacing a name with a stable identifier not automatically anonymization?",
+                "kind": "short-answer",
+                "answer": "The identifier or other attributes may still link records back to a person.",
+                "explanation": "Pseudonymized information can remain personal data and requires appropriate protection."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which retained copies can recreate deleted data?",
+            "Can audit evidence be useful without storing the original sensitive content?"
+          ]
+        },
+        {
+          "id": "data-l25",
+          "completed": false,
+          "title": "Prepare point-in-time datasets and permission-aware retrieval inputs",
+          "objectives": [
+            "Prevent future information from leaking into a historical feature snapshot.",
+            "Version and document data supplied to AI consumers.",
+            "Propagate document access, revisions and deletions into retrieval eligibility."
+          ],
+          "topics": [
+            {
+              "title": "Tabular AI interface",
+              "details": [
+                "Event time versus availability time",
+                "Point-in-time joins, reproducible snapshots and dataset versions",
+                "Feature/label boundaries, freshness and evaluation-data provenance"
+              ]
+            },
+            {
+              "title": "Unstructured AI interface",
+              "details": [
+                "Document IDs, revisions, chunks and source citations",
+                "Access-control propagation and deletion synchronization",
+                "Retrieval eligibility/quality versus model training and answer correctness"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "temporal-data",
+            "point-in-time-data",
+            "data-lineage",
+            "access-control",
+            "rag",
+            "reproducibility"
+          ],
+          "video": {
+            "resourceId": "data-video-rag",
+            "locator": "Bonus: Retrieval Augmented Generation (RAG), concentrating on source ingestion, chunking and refreshing retrieval context. RAG does not eliminate hallucinations; no model-training/API lab is required here."
+          },
+          "reading": {
+            "resourceId": "data-book-dbconcepts",
+            "locator": "Chapter 31 Information Retrieval for retrieval foundations; targeted review of Chapter 8 Complex Data Types for document representation. The authors' index verifies these chapters; use a legal copy or their authorized online material."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-fabric-security",
+            "data-doc-contracts"
+          ],
+          "assignment": {
+            "id": "data-a25",
+            "title": "A governed data handoff to an AI team",
+            "kind": "coding",
+            "completed": false,
+            "instructions": [
+              "Generate a 100-row historical feature fixture with delayed availability and corrections; materialize snapshots using only information available at each cutoff.",
+              "Create ten original synthetic policy documents across two tenants with three revisions and one revoked document; build a chunk/provenance/ACL manifest.",
+              "Export a versioned data package and a simple eligibility filter for retrieval; no embeddings, LLM calls or model training are necessary."
+            ],
+            "deliverables": [
+              "Point-in-time snapshot builder and tests",
+              "Document/chunk/permission manifest",
+              "Data card with lineage, allowed uses and unresolved AI evaluation questions"
+            ],
+            "acceptanceCriteria": [
+              "No snapshot uses a row whose availability time is after its cutoff.",
+              "Late corrections do not silently alter previously versioned exports.",
+              "Revoked and cross-tenant chunks are excluded before retrieval eligibility is returned.",
+              "Every exported table/chunk has a stable source/version identity; the handoff makes no claim of model accuracy or hallucination elimination."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q25",
+                "prompt": "Which timestamp controls whether a delayed fact can be used in a historical prediction snapshot?",
+                "kind": "short-answer",
+                "answer": "Its availability time relative to the prediction cutoff, while event time still describes when the underlying event occurred.",
+                "explanation": "Using event time alone can leak information that was not yet observable."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How will a downstream AI system learn that a document was revoked?",
+            "Can a historical dataset be reproduced after later corrections?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-m08",
+      "title": "8. DataOps, Service Objectives, Cost and Professional Delivery",
+      "stage": "professional",
+      "description": "Promote and operate a bounded data product with evidence. Apply shared software-engineering foundations to data migrations, artifacts, permissions, replay and semantic correctness; keep cloud expenditure and unsupported production claims out of the default path.",
+      "prerequisites": [
+        "data-m07"
+      ],
+      "paperTags": [],
+      "completed": false,
+      "lessons": [
+        {
+          "id": "data-l26",
+          "completed": false,
+          "title": "Release data artifacts with isolated environments and IaC",
+          "objectives": [
+            "Promote tested data code and definitions without hard-coded environment secrets.",
+            "Plan schema/data changes and rollback independently.",
+            "Explain what IaC state and deployment tools do not automatically migrate."
+          ],
+          "topics": [
+            {
+              "title": "Data-specific CI/CD",
+              "details": [
+                "Schema/contract checks, fixture tests and artifact versions",
+                "Dev/test/prod configuration and dependency binding",
+                "Expand/contract migrations, rollback and data-repair plans"
+              ]
+            },
+            {
+              "title": "Infrastructure and identity",
+              "details": [
+                "Declarative configuration, providers, state and drift",
+                "Least-privilege release identity and secret references",
+                "Fabric Git/item/deployment pipelines and supported-resource limits"
+              ]
+            }
+          ],
+          "estimatedMinutes": 330,
+          "canonicalConceptTags": [
+            "git",
+            "ci-cd",
+            "infrastructure-as-code",
+            "configuration",
+            "schema-migrations",
+            "secrets-management"
+          ],
+          "video": {
+            "resourceId": "data-video-devops",
+            "locator": "Demo chapter: git integration and deployment pipelines for SQL in Fabric. Follow with the supplementary Terraform Overview for state/plan concepts."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 8 Release Engineering: Philosophy; Continuous Build and Deployment."
+          },
+          "supplementaryResourceIds": [
+            "data-video-terraform",
+            "data-doc-fabric-cicd",
+            "data-doc-fabric-security"
+          ],
+          "assignment": {
+            "id": "data-a26",
+            "title": "Promote a data product without copying production state",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Create separate local dev/test configuration and a CI definition that runs the contract, quality and replay tests before producing a versioned artifact.",
+              "Prepare a small Terraform configuration using an explicitly local provider for plan/state practice, plus a documented Azure/Fabric mapping; do not provision paid resources by default.",
+              "Exercise an additive schema release and a failed release rollback, identifying which data changes require a forward repair instead of simply reverting code."
+            ],
+            "deliverables": [
+              "CI definition and local execution evidence",
+              "Environment configuration/IaC plan without secrets",
+              "Release, rollback and data-repair runbook"
+            ],
+            "acceptanceCriteria": [
+              "A deliberately broken contract prevents artifact promotion.",
+              "The same artifact is configured, not manually edited, for each environment.",
+              "A failed release can be rolled back or repaired without claiming that code rollback undoes all data mutations.",
+              "No secret, shared workspace identifier or paid cloud apply is required in the default lab."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q26",
+                "prompt": "Why can reverting a Git commit fail to undo a destructive data migration?",
+                "kind": "short-answer",
+                "answer": "Git restores code/definitions, not data that has already been transformed or removed; recovery needs a tested restore or forward-repair path.",
+                "explanation": "Code versioning and data-state recovery are separate mechanisms."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which deployment dependencies bind automatically and which do not?",
+            "What information in IaC state must be protected?"
+          ]
+        },
+        {
+          "id": "data-l27",
+          "completed": false,
+          "title": "Monitor data-service objectives and rehearse an incident",
+          "objectives": [
+            "Define freshness, completeness and correctness indicators for consumers.",
+            "Create actionable alerts distinct from raw platform charts.",
+            "Diagnose a stale-but-green pipeline and document recovery."
+          ],
+          "topics": [
+            {
+              "title": "Data observability",
+              "details": [
+                "SLI, SLO and SLA distinctions",
+                "Freshness lag, expected batches, quality failures and serving status",
+                "Run correlation, lineage, checkpoints and consumer impact"
+              ]
+            },
+            {
+              "title": "Response",
+              "details": [
+                "Symptoms versus causes and alert ownership",
+                "Runbooks, escalation and blameless incident learning",
+                "Monitoring latency and alert-channel limitations"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "logging",
+            "observability",
+            "slo",
+            "incident-response",
+            "data-quality"
+          ],
+          "video": {
+            "resourceId": "data-video-cost",
+            "locator": "Capacity Metrics and its demonstration. Use it to distinguish infrastructure telemetry from the consumer-facing data SLOs defined in the reading and lab."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 4 Service Level Objectives: Service Level Terminology; Chapter 6 Monitoring Distributed Systems: Why Monitor? and Symptoms Versus Causes."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-fabric-capacity",
+            "data-video-pipelines"
+          ],
+          "assignment": {
+            "id": "data-a27",
+            "title": "Detect a green job serving yesterday's numbers",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Generate 30 days of synthetic run/source-arrival history and define two consumer-focused SLOs with clear numerators, denominators and windows.",
+              "Build a monitor that detects a missing source batch even when the transformation exits successfully; route alerts to a local capture/log instead of contacting real users.",
+              "Run a timed incident exercise covering detection, impact analysis, replay and a short post-incident review."
+            ],
+            "deliverables": [
+              "SLI/SLO definitions and dashboard/report",
+              "Alert rules with test cases",
+              "Incident timeline and recovery note"
+            ],
+            "acceptanceCriteria": [
+              "The stale-but-green scenario alerts while the clean baseline does not.",
+              "SLO attainment is calculated from the defined population rather than guessed from successful job counts.",
+              "Alerts name an owner, affected product, evidence and actionable runbook.",
+              "Fabric Capacity Metrics is not incorrectly treated as a built-in notification system."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q27",
+                "prompt": "Why is successful pipeline execution an incomplete freshness indicator?",
+                "kind": "short-answer",
+                "answer": "The pipeline may process old or incomplete inputs successfully, leaving consumers with stale data.",
+                "explanation": "A useful data SLI measures the consumer-visible result and source coverage."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which alert should interrupt a person?",
+            "What would let another engineer identify the affected reports quickly?"
+          ]
+        },
+        {
+          "id": "data-l28",
+          "completed": false,
+          "title": "Budget performance, storage and cloud capacity from measurements",
+          "objectives": [
+            "Benchmark a workload with correctness controls.",
+            "Separate local resource measurements from actual cloud billing.",
+            "Choose a cost/performance trade-off with stated assumptions."
+          ],
+          "topics": [
+            {
+              "title": "Workload economics",
+              "details": [
+                "Compute, storage, egress, concurrency and refresh frequency",
+                "Full versus incremental processing and repeated scans",
+                "File maintenance, caching and retained-history cost"
+              ]
+            },
+            {
+              "title": "Capacity decisions",
+              "details": [
+                "Fabric CUs, throttling and workload attribution",
+                "Local benchmark limitations and current pricing inputs",
+                "Budgets, run limits, teardown/export planning and scenario analysis"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "benchmarking",
+            "performance-measurement",
+            "finops",
+            "capacity-planning",
+            "data-storage"
+          ],
+          "video": {
+            "resourceId": "data-video-cost",
+            "locator": "Cost Analysis and its demonstration; the episode specifically concerns SQL database in Fabric."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 25 Data Processing Pipelines: Trouble Caused By Uneven Work Distribution and Drawbacks of Periodic Pipelines in Distributed Environments."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-spark-tuning",
+            "data-doc-fabric-capacity",
+            "data-doc-fabric-trial"
+          ],
+          "assignment": {
+            "id": "data-a28",
+            "title": "A cost-aware full versus incremental workload decision",
+            "kind": "lab",
+            "completed": false,
+            "instructions": [
+              "Use a fixed-seed dataset of at most 100,000 events and compare full reload, incremental load and one layout/partition improvement.",
+              "Measure five runs per option, recording elapsed time, bytes/files and available engine statistics while verifying identical logical outputs.",
+              "Produce a three-scenario cost worksheet with dated pricing assumptions if actual pricing is used; otherwise label all rates as hypothetical. Include a stop/export plan for any optional Fabric trial."
+            ],
+            "deliverables": [
+              "Reproducible benchmark command and raw measurements",
+              "Correctness comparison",
+              "Capacity/cost decision worksheet"
+            ],
+            "acceptanceCriteria": [
+              "Every candidate passes the same correctness oracle.",
+              "Cold/warm conditions, runtime, hardware and workload are recorded.",
+              "Measured usage, estimates and hypothetical prices are clearly separated; laptop CPU is never converted into claimed Fabric CU usage.",
+              "The recommendation addresses at least one latency/cost trade-off and does not invent savings or a guaranteed speedup."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q28",
+                "prompt": "Why can a faster pipeline still cost more?",
+                "kind": "short-answer",
+                "answer": "It may use more parallel resources, retain more data or incur additional service/egress charges despite lower elapsed time.",
+                "explanation": "Latency and total resource expenditure are related but not identical objectives."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What work is repeated unnecessarily?",
+            "Which measurement would change your capacity recommendation?"
+          ]
+        },
+        {
+          "id": "data-l29",
+          "completed": false,
+          "title": "Recreate a synthetic Fabric reporting workflow and defend its operation",
+          "objectives": [
+            "Integrate table-specific transformations, orchestration, marts and reports.",
+            "Demonstrate recovery, permissions and semantic correctness in one bounded system.",
+            "Present evidence and limitations without using employer assets or claiming unmeasured production outcomes."
+          ],
+          "topics": [
+            {
+              "title": "End-to-end delivery",
+              "details": [
+                "Owned synthetic sources, staging and dimension/fact transformations",
+                "Dependency-aware pipeline, publication gates and Power BI outputs",
+                "Configuration, lineage and run identities across boundaries"
+              ]
+            },
+            {
+              "title": "Professional review",
+              "details": [
+                "Architecture alternatives, cost and recovery trade-offs",
+                "Demo of a normal run and a deliberately failing run",
+                "Evidence pack, reproducible setup and explicit implementation limits"
+              ]
+            }
+          ],
+          "estimatedMinutes": 420,
+          "canonicalConceptTags": [
+            "system-design",
+            "orchestration",
+            "dimensional-modeling",
+            "ci-cd",
+            "data-governance",
+            "reproducibility"
+          ],
+          "video": {
+            "resourceId": "data-video-pipelines",
+            "locator": "Chapters: Understand pipelines; Demo - Copy activity; Demo - Use pipeline templates. Revisit only the portions needed for the chosen implementation."
+          },
+          "reading": {
+            "resourceId": "data-book-sre",
+            "locator": "Chapter 25 Data Processing Pipelines, revisited as an architecture review; Chapter 8 Release Engineering and Chapter 26 Data Integrity for the release/recovery checklist."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-fabric-architecture",
+            "data-doc-fabric-cicd",
+            "data-doc-fabric-security",
+            "data-doc-fabric-capacity",
+            "data-doc-fabric-trial"
+          ],
+          "assignment": {
+            "id": "data-a29",
+            "title": "Synthetic Fabric reporting recreation evidence pack",
+            "kind": "project",
+            "completed": false,
+            "instructions": [
+              "Generate original fictional store, product, sales, returns and stock-count sources; implement separate table-specific transformations and a parameterized dependency pipeline.",
+              "Publish validated dimensions/facts and a Power BI model/report, using a personal authorized Fabric environment or a clearly labelled local Spark/Delta equivalent.",
+              "Demonstrate duplicate input, invalid schema and failed-task recovery; collect actual performance/cost evidence and explain one rejected architecture. Reuse no employer/client notebooks, data, screenshots, names or confidential architecture."
+            ],
+            "deliverables": [
+              "Reproducible code/configuration and synthetic generator",
+              "Architecture/lineage diagrams, tests and operations runbook",
+              "Sanitized normal/failure demo and measured-results report"
+            ],
+            "acceptanceCriteria": [
+              "A fresh setup can run the complete vertical slice from synthetic source to reconciled report.",
+              "Duplicate/retry/replay tests preserve the defined metrics and surface invalid inputs.",
+              "Permissions, deployment, SLO and cost assumptions are documented with tested versus untested boundaries.",
+              "A local recreation is not described as a live Fabric deployment, and no employer or client asset appears in the evidence pack."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "data-q29",
+                "prompt": "What evidence supports calling this a professional-work recreation rather than recovered employer work?",
+                "kind": "short-answer",
+                "answer": "An independently designed, reproducible implementation with original synthetic fixtures, sanitized artifacts and an explicit statement that no private employer assets were used.",
+                "explanation": "A recreation can demonstrate skills without implying ownership, access or results from confidential systems."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can another engineer recover the failed run from the runbook alone?",
+            "Which claims are demonstrated, and which still require a real production review?"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [
+    {
+      "id": "data-project-a-mall-database",
+      "projectTitle": "Shopping-Mall Operations Database",
+      "resumeVariant": "A-rebuild",
+      "recommendedAfter": [
+        "data-m01",
+        "data-m05",
+        "data-m07"
+      ],
+      "completed": false,
+      "notes": "The brief records historical college completion as user-reported; the reconstruction and all learning progress start incomplete. Design and first slice can begin after module 1; complete security/recovery evidence with the later relevant lessons. Bound to one fictional mall, 20 units, three months and one currency.",
+      "milestones": [
+        {
+          "id": "data-project-a-mall-database-m1",
+          "title": "Specify the operational model and golden fixtures",
+          "completed": false,
+          "deliverables": [
+            "Scope, ER diagram and migrations",
+            "Synthetic units/tenants/leases/invoices/receipts",
+            "Hand-calculated occupancy and arrears cases"
+          ],
+          "acceptanceCriteria": [
+            "Keys/cardinalities and lease/payment invariants are explicit.",
+            "Fixtures include overlap, duplicate receipt and partial allocation cases.",
+            "Tax compliance, real payment processing and ERP scope are excluded."
+          ]
+        },
+        {
+          "id": "data-project-a-mall-database-m2",
+          "title": "Deliver a transaction-safe vertical slice",
+          "completed": false,
+          "deliverables": [
+            "Lease creation, invoice generation and payment allocation",
+            "Occupancy/arrears views",
+            "Read/write role definitions"
+          ],
+          "acceptanceCriteria": [
+            "Two concurrent allocations cannot commit overlapping leases for a unit.",
+            "Repeated receipt IDs cannot double-credit payment.",
+            "Golden invoice balances and views reconcile exactly."
+          ]
+        },
+        {
+          "id": "data-project-a-mall-database-m3",
+          "title": "Exercise controls and restore recovery",
+          "completed": false,
+          "deliverables": [
+            "Concurrency, rollback and permission tests",
+            "Audit trail",
+            "Backup and isolated restore runbook"
+          ],
+          "acceptanceCriteria": [
+            "Read-only roles cannot modify operational tables.",
+            "Failure during posting leaves no partial balance change.",
+            "A tested restore reproduces expected records and control totals."
+          ]
+        },
+        {
+          "id": "data-project-a-mall-database-m4",
+          "title": "Publish the reproducible operations demonstration",
+          "completed": false,
+          "deliverables": [
+            "Setup/test instructions and sanitized demo",
+            "Query-plan and recovery measurements",
+            "Trade-offs and prototype limitations"
+          ],
+          "acceptanceCriteria": [
+            "A clean setup reproduces the demo without private data or services.",
+            "Measurements identify workload, engine and hardware.",
+            "No unreviewed production, accounting or security certification claim is made."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-project-a-mall-lakehouse",
+      "projectTitle": "Mall Sales and Inventory Lakehouse",
+      "resumeVariant": "A-rebuild",
+      "recommendedAfter": [
+        "data-m02",
+        "data-m03",
+        "data-m04",
+        "data-m05"
+      ],
+      "completed": false,
+      "notes": "Independent reconstruction, not a second name for the operational database. Its generator must run without the first project. Bound to about 20 shops, 500 products and no more than 100,000 synthetic events; local Spark/Delta is the default and Fabric is optional.",
+      "milestones": [
+        {
+          "id": "data-project-a-mall-lakehouse-m1",
+          "title": "Design event contracts and layered fixtures",
+          "completed": false,
+          "deliverables": [
+            "Sales/returns/stock-count contracts and manifests",
+            "Independent synthetic generator",
+            "Grain and lineage diagram"
+          ],
+          "acceptanceCriteria": [
+            "Source/revision/event identities and sign conventions are defined.",
+            "Fixtures contain duplicates, malformed rows, corrections and late files.",
+            "No dependence on live POS, customer tracking or the operational database is required."
+          ]
+        },
+        {
+          "id": "data-project-a-mall-lakehouse-m2",
+          "title": "Build raw-to-star-schema ingestion",
+          "completed": false,
+          "deliverables": [
+            "Immutable landing, quarantine and curated transformations",
+            "Store/product/date dimensions and sales/inventory facts",
+            "Control-total report"
+          ],
+          "acceptanceCriteria": [
+            "Rejected rows retain source and reason.",
+            "Duplicate events/files do not inflate curated results.",
+            "Business controls match the hand-written fixtures."
+          ]
+        },
+        {
+          "id": "data-project-a-mall-lakehouse-m3",
+          "title": "Prove corrected-file replay and bounded backfills",
+          "completed": false,
+          "deliverables": [
+            "Revision-precedence policy and replay command",
+            "Failure-injection tests",
+            "Clean-rebuild comparison"
+          ],
+          "acceptanceCriteria": [
+            "Loading an identical file twice leaves logical output unchanged.",
+            "Corrected batches match a clean rebuild.",
+            "Interrupted sink/state updates recover without skipped or doubled business events."
+          ]
+        },
+        {
+          "id": "data-project-a-mall-lakehouse-m4",
+          "title": "Demonstrate reporting and measured processing trade-offs",
+          "completed": false,
+          "deliverables": [
+            "Synthetic BI report and semantic tests",
+            "Full-versus-incremental benchmark",
+            "Reproducible setup and sanitized failure demo"
+          ],
+          "acceptanceCriteria": [
+            "Report metrics reconcile to curated facts.",
+            "Benchmark conditions and actual results are recorded.",
+            "Cloud use, costs and unsupported production assumptions are explicit."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-project-b-cdc",
+      "projectTitle": "Multi-Tenant Mall CDC Lakehouse",
+      "resumeVariant": "B-build",
+      "recommendedAfter": [
+        "data-m06",
+        "data-m07",
+        "data-m08"
+      ],
+      "completed": false,
+      "notes": "Planned advanced build. Start with three synthetic tenants and a bounded local source/broker/consumer stack. Do not claim multi-tenant production readiness merely from application filters or successful happy-path ingestion.",
+      "milestones": [
+        {
+          "id": "data-project-b-cdc-m1",
+          "title": "Specify tenant, change and history contracts",
+          "completed": false,
+          "deliverables": [
+            "Tenant/identity boundary diagram",
+            "CDC envelope and SCD policies",
+            "Three-tenant fixtures and compatibility matrix"
+          ],
+          "acceptanceCriteria": [
+            "Snapshot/change boundaries and per-key ordering are defined.",
+            "Tenant identity cannot be freely chosen by an untrusted consumer.",
+            "Schema evolution and delete behavior have explicit expected results."
+          ]
+        },
+        {
+          "id": "data-project-b-cdc-m2",
+          "title": "Deliver a snapshot-to-lakehouse vertical slice",
+          "completed": false,
+          "deliverables": [
+            "Live local CDC capture",
+            "Tenant-aware raw/curated tables and historical dimensions",
+            "Source-target reconciliation"
+          ],
+          "acceptanceCriteria": [
+            "Insert, update and delete events produce the expected target state.",
+            "The initial snapshot does not leave a gap or silently duplicate business state.",
+            "Each output is traceable to tenant, source position and pipeline version."
+          ]
+        },
+        {
+          "id": "data-project-b-cdc-m3",
+          "title": "Challenge isolation and replay under faults",
+          "completed": false,
+          "deliverables": [
+            "Cross-tenant denial tests",
+            "Duplicate/late/out-of-order/failure test matrix",
+            "Schema-change and resnapshot procedures"
+          ],
+          "acceptanceCriteria": [
+            "Non-owner consumers cannot read or write another tenant's data through tested access paths.",
+            "Crash/retry tests converge to the same reference result.",
+            "Breaking schema changes fail visibly or follow a versioned migration."
+          ]
+        },
+        {
+          "id": "data-project-b-cdc-m4",
+          "title": "Operate, measure and document the prototype",
+          "completed": false,
+          "deliverables": [
+            "Lag/freshness/quality monitor and runbooks",
+            "Rebuild and deployment automation",
+            "Sanitized demo and actual resource/cost report"
+          ],
+          "acceptanceCriteria": [
+            "A clean rebuild and a restored run pass the same controls.",
+            "Alert ownership and source-log retention limits are recorded.",
+            "No fabricated throughput, savings, completion date or production certification is included."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-project-b-inventory",
+      "projectTitle": "Event-Time Inventory Reconciliation Platform",
+      "resumeVariant": "B-build",
+      "recommendedAfter": [
+        "data-m04",
+        "data-m06",
+        "data-m08"
+      ],
+      "completed": false,
+      "notes": "Planned independent event-time system, not a renamed CDC lakehouse. Begin with a bounded event generator and reference inventory calculation; a real POS or paid streaming service is unnecessary.",
+      "milestones": [
+        {
+          "id": "data-project-b-inventory-m1",
+          "title": "Specify event-time and availability rules",
+          "completed": false,
+          "deliverables": [
+            "Event/revision schema and stock-conservation rules",
+            "Window/lateness/correction policy",
+            "Hand-written timeline oracle"
+          ],
+          "acceptanceCriteria": [
+            "Event time, availability time and processing time are separate.",
+            "Ties, duplicates, returns and corrections have deterministic policies.",
+            "The fixture identifies what each historical view was allowed to know."
+          ]
+        },
+        {
+          "id": "data-project-b-inventory-m2",
+          "title": "Build streaming and reference reconciliation",
+          "completed": false,
+          "deliverables": [
+            "Bounded synthetic producer and stateful processor",
+            "Independent batch reference",
+            "Provisional and reconciled inventory outputs"
+          ],
+          "acceptanceCriteria": [
+            "On-time data agrees with the oracle.",
+            "Each input contributes at most once under the event/revision policy.",
+            "Published values identify whether they are provisional or finalized."
+          ]
+        },
+        {
+          "id": "data-project-b-inventory-m3",
+          "title": "Exercise late arrivals and auditable restatement",
+          "completed": false,
+          "deliverables": [
+            "Boundary/beyond-watermark tests",
+            "Correction ledger",
+            "Replay and checkpoint-recovery evidence"
+          ],
+          "acceptanceCriteria": [
+            "Late data is accepted, corrected or rejected according to documented rules, never silently lost.",
+            "Replayed results match the corresponding policy-aware reference.",
+            "A correction can be traced from its source through the changed inventory result."
+          ]
+        },
+        {
+          "id": "data-project-b-inventory-m4",
+          "title": "Deliver operational evidence and trade-offs",
+          "completed": false,
+          "deliverables": [
+            "Freshness/lag/quality dashboard",
+            "Failure demo and runbook",
+            "Measured state-size/latency/resource report"
+          ],
+          "acceptanceCriteria": [
+            "Monitoring reveals a deliberate stale or missing-input case.",
+            "The report explains the state-retention versus lateness trade-off.",
+            "Results are workload-labelled measurements, not unverified real-time or production guarantees."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-project-b-contracts",
+      "projectTitle": "Data Contract and Recovery Test Platform",
+      "resumeVariant": "B-build",
+      "recommendedAfter": [
+        "data-m05",
+        "data-m06",
+        "data-m08"
+      ],
+      "completed": false,
+      "notes": "Planned metadata-driven platform over at least two independent synthetic datasets, such as mall sales and supplier deliveries. Keep scope to executable contracts, dependency impact and reproducible recovery rather than building a general-purpose commercial orchestrator.",
+      "milestones": [
+        {
+          "id": "data-project-b-contracts-m1",
+          "title": "Define the contract and evidence model",
+          "completed": false,
+          "deliverables": [
+            "Versioned contract schema",
+            "Dependency/run/evidence identifiers",
+            "Two independent synthetic dataset families"
+          ],
+          "acceptanceCriteria": [
+            "Shape, content, freshness and ownership are distinguishable.",
+            "Contract versions and breaking-change policy are explicit.",
+            "Every referenced dependency resolves and cycles are rejected."
+          ]
+        },
+        {
+          "id": "data-project-b-contracts-m2",
+          "title": "Implement a runnable validation and impact slice",
+          "completed": false,
+          "deliverables": [
+            "Contract runner and machine-readable results",
+            "Consumer-impact query",
+            "Local report or small interface"
+          ],
+          "acceptanceCriteria": [
+            "Both dataset families use the same contract engine without dataset-specific hidden exceptions.",
+            "Failures return actionable diagnostics and failing status.",
+            "Impact results match hand-checked dependency cases."
+          ]
+        },
+        {
+          "id": "data-project-b-contracts-m3",
+          "title": "Automate failure injection and rebuild verification",
+          "completed": false,
+          "deliverables": [
+            "Fault catalogue covering data, schema and execution failures",
+            "Replay/restore harness",
+            "Clean-versus-recovered comparison reports"
+          ],
+          "acceptanceCriteria": [
+            "Seeded faults are detected before publication where the contract requires it.",
+            "Recovered outputs match a clean reference build.",
+            "Unsupported recovery cases remain explicit failures rather than success-shaped fallbacks."
+          ]
+        },
+        {
+          "id": "data-project-b-contracts-m4",
+          "title": "Package the platform for reproducible operation",
+          "completed": false,
+          "deliverables": [
+            "Versioned release and isolated configuration",
+            "Runbook, limitations and demo",
+            "Measured validation overhead and recovery results"
+          ],
+          "acceptanceCriteria": [
+            "A new environment can reproduce the two dataset demonstrations.",
+            "The platform retains provenance for each decision and recovery attempt.",
+            "All performance and coverage claims correspond to recorded experiments."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-project-synthetic-fabric",
+      "projectTitle": "Synthetic Fabric Reporting Workflow Recreation",
+      "resumeVariant": "professional-synthetic-recreation",
+      "recommendedAfter": [
+        "data-m04",
+        "data-m05",
+        "data-m07",
+        "data-m08"
+      ],
+      "completed": false,
+      "notes": "An independently designed recreation of the general kinds of work described by the user: table-specific notebooks, staging-to-dimension/fact transformations, pipelines and reporting automation. It is not recovered employer/client work and must contain no employer code, private reports, client names, real screenshots, credentials or confidential architecture.",
+      "milestones": [
+        {
+          "id": "data-project-synthetic-fabric-m1",
+          "title": "Define an original reporting scenario and safe fixtures",
+          "completed": false,
+          "deliverables": [
+            "Fictional business requirements and metric dictionary",
+            "Original five-source data generator",
+            "Scope/data-flow and asset-provenance register"
+          ],
+          "acceptanceCriteria": [
+            "Every asset is original synthetic data or has documented public-use permission.",
+            "The design is not copied from confidential employer architecture.",
+            "The scenario defines metrics, freshness, consumers and exclusions."
+          ]
+        },
+        {
+          "id": "data-project-synthetic-fabric-m2",
+          "title": "Build the table-to-report vertical slice",
+          "completed": false,
+          "deliverables": [
+            "Table-specific transformations",
+            "Orchestrated dimensions/facts and publication gates",
+            "Power BI semantic model/report"
+          ],
+          "acceptanceCriteria": [
+            "A clean run reconciles source controls to report measures.",
+            "Notebook logic is reusable and environment configuration is externalized.",
+            "Actual Fabric execution or a local equivalent is labelled accurately."
+          ]
+        },
+        {
+          "id": "data-project-synthetic-fabric-m3",
+          "title": "Exercise quality, permissions and recovery",
+          "completed": false,
+          "deliverables": [
+            "Duplicate/schema-drift/late-file/failure tests",
+            "Access matrix and tested denial cases",
+            "Replay/deployment/restore runbooks"
+          ],
+          "acceptanceCriteria": [
+            "Failures do not publish misleading successful outputs.",
+            "Retries and corrected-file replay preserve the declared semantics.",
+            "Only tested permission and recovery guarantees are claimed."
+          ]
+        },
+        {
+          "id": "data-project-synthetic-fabric-m4",
+          "title": "Deliver sanitized evidence and operational measurements",
+          "completed": false,
+          "deliverables": [
+            "Normal/failing-run demo",
+            "Reproducible setup, lineage and architecture decisions",
+            "Actual performance/cost evidence and limitations"
+          ],
+          "acceptanceCriteria": [
+            "A second person can follow the setup and diagnose the demonstrated failure.",
+            "No private employer/client identifiers or assets are present.",
+            "Results, cloud prerequisites and unsupported production features are stated without invented outcomes."
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "data-source-open-database-book",
+      "title": "Database Design - 2nd Edition: owner TOC, metadata, license and export links",
+      "url": "https://opentextbc.ca/dbdesign01/",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-book-dbdesign"
+      ],
+      "verification": "Opened rendered and raw HTML. Verified all cited chapter titles, 2014 publication metadata, explicit CC BY 4.0 redistribution permission, author attribution, B.C. Open Collection notice, separate cover credit and Digital PDF link. The PDF payload was not downloaded."
+    },
+    {
+      "id": "data-source-dbconcepts-toc",
+      "title": "Database System Concepts, Seventh Edition: author-maintained chapter index",
+      "url": "https://www.db-book.com/slides-dir/index.html",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-book-dbconcepts"
+      ],
+      "verification": "Opened author home page and chapter-by-chapter index. Verified chapter numbers/titles used in lessons, including 8-11, 13-23 and 31. Read the restricted slide-use notice; did not infer a book redistribution license or download PDFs."
+    },
+    {
+      "id": "data-source-dax-book",
+      "title": "The Definitive Guide to DAX, 2nd Edition: authors' Book content",
+      "url": "https://www.sqlbi.com/books/the-definitive-guide-to-dax-2nd-edition/",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-book-dax"
+      ],
+      "verification": "Opened the authors' HTML book page and complete 20-chapter list. The reading's evaluation-context, CALCULATE and time-intelligence chapter numbers are verified. No copyrighted chapter text or sample PDF was copied."
+    },
+    {
+      "id": "data-source-sre-book",
+      "title": "Google SRE book: chapter catalogue and selected HTML chapters",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-book-sre"
+      ],
+      "verification": "Read TOC links and footer through public HTTP. Opened service-level-objectives, monitoring-distributed-systems, release-engineering, testing-reliability, data-processing-pipelines and data-integrity HTML chapters. Verified numbers 4, 6, 8, 17, 25 and 26 and the CC BY-NC-ND 4.0 notice."
+    },
+    {
+      "id": "data-source-dataviz-book",
+      "title": "Fundamentals of Data Visualization: author manuscript and TOC",
+      "url": "https://clauswilke.com/dataviz/",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-book-dataviz"
+      ],
+      "verification": "Opened owner manuscript landing page and raw HTML TOC, verifying chapter titles/numbers 2, 13 and 17 and the CC BY-NC-ND 4.0 notice. The page explicitly distinguishes this manuscript from the publisher's final copyedited edition."
+    },
+    {
+      "id": "data-source-license-terms",
+      "title": "Creative Commons attribution and restricted-sharing conditions",
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-book-dbdesign",
+        "data-book-dataviz",
+        "data-book-sre"
+      ],
+      "verification": "Opened CC BY 4.0 and https://creativecommons.org/licenses/by-nc-nd/4.0/. Owner-page evidence connects each work to its license; generic license pages alone are not treated as proof. Only the CC BY database book is flagged for redistribution."
+    },
+    {
+      "id": "data-source-cmu-recordings",
+      "title": "CMU Fall 2025 database lecture schedule",
+      "url": "https://15445.courses.cs.cmu.edu/fall2025/schedule.html",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-video-cmu"
+      ],
+      "verification": "Parsed the public HTML schedule to verify exact lecture titles, dates and Watch links. Examples: lecture 01 points to 7NPIENPr-zk, lecture 15 to b53huOGcsZ8, lecture 17 to tMFAgvDViAI, lecture 18 to drStlhNbfHI and lecture 22 to X2jc4qalNy0. No recordings were played or downloaded."
+    },
+    {
+      "id": "data-source-zoomcamp",
+      "title": "Data Engineering Zoomcamp: official course units and video metadata",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-video-dlt",
+        "data-video-spark",
+        "data-video-orchestration",
+        "data-video-analytics",
+        "data-video-streaming",
+        "data-video-terraform",
+        "data-video-rag"
+      ],
+      "verification": "Opened the official repository and the raw unit files corresponding to every named locator. Examples: 06-batch/05-spark-dataframes.md, 08-anatomy-of-a-spark-cluster.md, 09-groupby-in-spark.md, 10-joins-in-spark.md; 04-analytics-engineering/01-analytics-engineering-basics.md, 08-documentation.md, 09-dbt-tests.md; 02-workflow-orchestration/08-scheduling-and-backfills.md and 16-retrieval-augmented-generation.md; 07-streaming/01-introduction.md and module index; 01-docker-terraform/12-terraform-overview.md; cohorts/2026/workshops/dlt.md. Verified video_url metadata and topic scope, not playback. Current root advertises a future 2027 cohort; that is not treated as the publication date of existing recordings."
+    },
+    {
+      "id": "data-source-sqlbi-course",
+      "title": "Introducing DAX Video Course: authorized course curriculum",
+      "url": "https://www.sqlbi.com/p/introducing-dax-video-course/",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-video-dax"
+      ],
+      "verification": "Read public HTML curriculum names, including evaluation/filter/row context, CALCULATE and time intelligence. The simplified page primarily returned reviews, so the syllabus was checked in its actual HTML. No login, enrollment or playback was attempted."
+    },
+    {
+      "id": "data-source-ms-lakehouse",
+      "title": "Microsoft Fabric Learn Together Ep01: official episode and chapters",
+      "url": "https://learn.microsoft.com/en-us/shows/learn-live/learn-together-microsoft-fabric-wave-1-ep201-get-started-with-end-to-end-analytics-and-lakehouses-in-microsoft-fabric",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-video-fabric-intro"
+      ],
+      "verification": "Opened episode metadata, named presenters, objectives and chapter list. This is 2024 material supplemented by current implementation documentation, not a newly published 2026 lecture."
+    },
+    {
+      "id": "data-source-ms-recordings",
+      "title": "Microsoft Learn official Data Exposed, Fabric Tech Talk and Learn Live episodes",
+      "url": "https://learn.microsoft.com/en-us/shows/learn-live/learn-together-microsoft-fabric-wave-2-ep104-use-data-factory-pipelines-in-microsoft-fabric",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-video-pipelines",
+        "data-video-report-design",
+        "data-video-governance",
+        "data-video-cdc",
+        "data-video-devops",
+        "data-video-cost"
+      ],
+      "verification": "Opened each exact episode URL stored in these resource records, not only search snippets. Read descriptions and chapter names where supplied. Metadata dates distinguish the 2021 CDC episode, 2024 pipeline episode and 2025 governance/reporting/DevOps/cost episodes. Metadata verifies recording relevance and locators, not current playability or embed permission."
+    },
+    {
+      "id": "data-source-postgresql",
+      "title": "PostgreSQL official plan, lock and row-security guidance",
+      "url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-doc-pg-plans",
+        "data-doc-pg-locks",
+        "data-doc-pg-rls"
+      ],
+      "verification": "Opened all three resource URLs and read relevant semantics, including EXPLAIN ANALYZE execution, transaction-scoped locks and owner/BYPASSRLS exceptions."
+    },
+    {
+      "id": "data-source-spark-tables",
+      "title": "Apache Spark, Delta Lake and Iceberg official technical documentation",
+      "url": "https://spark.apache.org/docs/latest/sql-performance-tuning.html",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-doc-spark-tuning",
+        "data-doc-spark-streaming",
+        "data-doc-delta",
+        "data-doc-iceberg"
+      ],
+      "verification": "Opened each exact resource URL or its documented redirect. Verified statistics/AQE, streaming source fault-tolerance distinctions, MERGE semantics and Iceberg metadata/version concepts. These are rolling documents; pin runtime compatibility during implementation."
+    },
+    {
+      "id": "data-source-contract-cdc",
+      "title": "dbt model contracts and Debezium PostgreSQL connector documentation",
+      "url": "https://docs.getdbt.com/docs/mesh/govern/model-contracts",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-doc-contracts",
+        "data-doc-debezium"
+      ],
+      "verification": "Opened both resource pages. Checked dbt's shape-versus-content distinction and platform constraints. Checked Debezium snapshot/change behavior and the stable source's explicit possible-duplicate recovery semantics."
+    },
+    {
+      "id": "data-source-fabric-guidance",
+      "title": "Microsoft Fabric and Power BI current implementation guidance",
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-medallion-lakehouse-architecture",
+      "checkedOn": "2026-09-20",
+      "supportsResourceIds": [
+        "data-doc-fabric-architecture",
+        "data-doc-dimensions",
+        "data-doc-star-schema",
+        "data-doc-power-query",
+        "data-doc-fabric-cicd",
+        "data-doc-fabric-security",
+        "data-doc-fabric-capacity",
+        "data-doc-fabric-trial"
+      ],
+      "verification": "Opened each exact resource URL and followed canonical redirects. Checked dimensional/history keys and unenforced Fabric foreign keys; connector-dependent folding; CI/CD choices; security boundaries; capacity-monitoring permissions/latency/no-alert limitation; and trial duration/restrictions. Observation date is not a publication date."
+    }
+  ],
+  "limitations": [
+    "This artifact is a curriculum and assessment handoff, not an implementation, completed course record or claim that the learner already has any unmentioned skill. Every module, lesson, assignment, project and milestone is explicitly completed:false.",
+    "Common Foundation / Start Here is an application-level prerequisite. No undefined cross-track module IDs are inserted. Canonical concept tags identify shared Python, SQL, testing, Git, Linux-adjacent operation, math/aggregation, security and software-engineering interfaces; tags do not automatically award completion or make a specialist application identical to a foundation lesson.",
+    "Estimates include selected lectures/readings, original lab work and review for someone who has completed Common Foundation. Tool installation, troubleshooting, a full reading of every cited textbook chapter and the six complete portfolio projects can require additional time. Prior experience does not auto-complete the work.",
+    "Verification was public, read-only HTTP/web_fetch and course/TOC metadata inspection. No shared Playwright browser, sign-in, enrollment, account/profile change or repository modification was used. Author-listed recordings were not played; no HEAD-only response is presented as proof of playability, availability in India or embedding permission.",
+    "No PDF, video or book payload was downloaded. The Database Design Digital PDF URL was discovered on the authorized owner page. The implementation must validate the actual file and retain its attribution, license, B.C. Open Collection notice and separately credited material before serving it.",
+    "Database Design is the only book flagged redistribution:permitted. Wilke's manuscript and Google's SRE book have explicit CC BY-NC-ND 4.0 notices, but remain link-only because commercial status, modification policy and a suitable official downloadable artifact were not established. Database System Concepts and The Definitive Guide to DAX remain copyrighted link-only books.",
+    "Some specified book readings require a legal purchased/library copy. Free author materials and official documentation are supplied for practical learning without a purchase, but they are not misrepresented as the full paid books. Publisher pages for some initially considered O'Reilly titles were inaccessible; those titles were not included.",
+    "The referenced books and some videos predate 2026. Their durable concepts are supplemented with current documentation. Do not reuse historical cloud pricing, product-preview status, exact menus, runtime versions, quotas or support claims without checking the chosen environment.",
+    "Zoomcamp material uses several non-Microsoft tools. The curriculum selects concepts and permits an equivalent local/Fabric implementation; it does not require mastering GCP, BigQuery, Kestra, dbt, Flink, Kafka and every vendor named in the source. Module 6 should use one compatible streaming stack, not all of them.",
+    "Some source notes make overbroad statements about RAG eliminating hallucinations or late events always updating aggregates. This curriculum does not adopt those claims. Learners must test actual engine/output-mode semantics and distinguish retrieval-data quality from AI answer correctness.",
+    "Fabric trial access is conditional and time-limited; current checked documentation describes a 60-day trial with feature restrictions. Private Link, Trusted Workspace Access and some AI experiences are not available in that trial. Do not start subscriptions, incur cloud charges, alter a shared tenant or reuse workplace capacity as an implicit part of a lesson.",
+    "A local simulation or Spark/Delta equivalent does not prove live Fabric deployment, managed identity, network isolation, cloud capacity consumption or live CDC operation. Label substitutions explicitly and leave the corresponding real-platform evidence gate incomplete until exercised in an authorized environment.",
+    "Original assignments use synthetic fixtures and original questions. No copyrighted chapter passages, exam questions, problem solutions, employer assets, credentials or private biometric/customer data are included. The official LeetCode SQL study-plan request returned HTTP 403, so it was not inserted as a falsely verified practice dependency.",
+    "Historical A-project completion in the brief is user-reported and does not initialize reconstruction progress. B projects remain planned. Report only actual implementation dates and measured results after the learner produces evidence.",
+    "Security/privacy labs are bounded engineering exercises, not regulatory advice or certification. Applicability of Indian or other jurisdictional retention, consent and deletion obligations must be established with appropriate organizational/legal guidance before real use.",
+    "The research does not claim the supplied lab designs have already been executed against the user's software versions. The artifact is structurally validated; the implementation/learner must execute labs, assess evidence and maintain resource links over time."
+  ]
+}

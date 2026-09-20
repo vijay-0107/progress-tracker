@@ -1,0 +1,8 @@
+[
+  {
+    "sourceUrl": "https://missing.csail.mit.edu/2020/course-shell/",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/Z56Jmr9Z34Q",
+    "verifiedOn": "2026-09-20",
+    "evidence": "The official course page embeds https://www.youtube.com/embed/Z56Jmr9Z34Q. This application uses the same verified video ID on YouTube's privacy-enhanced host, only after an explicit learner action."
+  }
+]
