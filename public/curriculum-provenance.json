@@ -1,0 +1,63 @@
+{
+  "version": "2026.09.20.1",
+  "description": "Approved research handoffs retain their curriculum, sources, rights and assessments. Private history, internal handoff paths and transport-only metadata are omitted. Checksums identify original and packaged files, not proof of source availability or mastery.",
+  "complete": true,
+  "tracks": [
+    {
+      "trackId": "foundation",
+      "sourceCheckedOn": "2026-09-20",
+      "modules": 8,
+      "lessons": 22,
+      "originalSha256": "142bcac68fdcbe51b00fde6cb6b91010e99f8e0a4fc4b9e0d98700903e015e26",
+      "packagedSha256": "d61a903c0c14ab854ad62d17ec06fffb490ab5393b83df6f849780f9abffc594"
+    },
+    {
+      "trackId": "data",
+      "sourceCheckedOn": "2026-09-20",
+      "modules": 8,
+      "lessons": 29,
+      "originalSha256": "92f6c1fa57b4eecc3b9fa34b012bf4f7194860d600ca461432d6b7e9936f6011",
+      "packagedSha256": "3abafd5b421927daac273ac9e876dae0870a83e58c826b496b3a7ddacca7242c"
+    },
+    {
+      "trackId": "sde",
+      "sourceCheckedOn": "2026-09-20",
+      "modules": 8,
+      "lessons": 29,
+      "originalSha256": "d1b03e280b77d4ca296dc5e2e39ea2bf7719e979711580ed1fef18dd5fc5237b",
+      "packagedSha256": "473cbd8faf1cd96c0d1bba9ed7f8b0ef18a58e1129b403753b90ce72dc9ab039"
+    },
+    {
+      "trackId": "quant",
+      "sourceCheckedOn": "2026-09-20",
+      "modules": 8,
+      "lessons": 32,
+      "originalSha256": "3bbac0c9caf3a51735a7dc0bdd4bcacd45bd6aad78c10d95690b1004ef3197e7",
+      "packagedSha256": "71ed9e3845c3942dae6f10357fcbf9317a05f0e3b654e39a84fc0fa26b57712c"
+    },
+    {
+      "trackId": "ai",
+      "sourceCheckedOn": "2026-09-20",
+      "modules": 8,
+      "lessons": 28,
+      "originalSha256": "351a96255526d362b5e5e7a27988dec6a70503d2c5c008397fca7c38791597f1",
+      "packagedSha256": "781f3231967ca41eff177f45406c205666e529eaba52cebaffab31a35c9517a5"
+    },
+    {
+      "trackId": "gate",
+      "sourceCheckedOn": "2026-09-20",
+      "modules": 15,
+      "lessons": 53,
+      "originalSha256": "0de5b8ae9c451622cd9f9199526ae27dea64b80d1a92450e3094b62d52cb22f5",
+      "packagedSha256": "3211cbffe42dfc96ade84662e37817fa99b5a3a371b318a2d758c7a95c9ea854"
+    },
+    {
+      "trackId": "cat",
+      "sourceCheckedOn": "2026-09-20",
+      "modules": 11,
+      "lessons": 38,
+      "originalSha256": "cb3e2c2f09b10c4dc4730e94da3ee9c3c250cc3527df45973c929b18a51c025b",
+      "packagedSha256": "761fa1010f5026b16fee54b5175091a5f8206afa71d778ebd2707e9d3f5f4643"
+    }
+  ]
+}

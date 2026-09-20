@@ -1,0 +1,3703 @@
+{
+  "schemaVersion": 1,
+  "trackId": "cat",
+  "title": "CAT: Foundations to Timed Examination Practice",
+  "sourceCheckedOn": "2026-09-20",
+  "examMetadata": {
+    "targetEdition": "CAT 2026",
+    "officialWebsite": "https://iimcat.ac.in/",
+    "organizingCentre": {
+      "value": "CAT 2026 Centre, Indian Institute of Management Indore",
+      "sourceIds": [
+        "cat-source-contact",
+        "cat-source-iim-indore"
+      ]
+    },
+    "testDate": {
+      "value": "2026-11-29",
+      "sessions": "Forenoon, afternoon and evening; a candidate is assigned one session.",
+      "sourceIds": [
+        "cat-source-home",
+        "cat-source-faq"
+      ]
+    },
+    "registrationDeadline": {
+      "displayedDeadline": "2026-09-22T17:00:00+05:30",
+      "sourceIds": [
+        "cat-source-home"
+      ],
+      "caution": "The official home data displays September 22. Registration FAQ Q10 still displays September 15. The home index also links a September 15 media release, whose PDF body was not fetched. Treat the home display as the newer notice, but recheck the official portal before any application decision. This curriculum does not submit an application."
+    },
+    "format": {
+      "mode": "Computer-based test at an assigned examination centre, not a remotely taken internet examination.",
+      "sectionOrder": [
+        "Verbal Ability and Reading Comprehension",
+        "Data Interpretation and Logical Reasoning",
+        "Quantitative Ability"
+      ],
+      "questionTypes": [
+        "MCQ",
+        "Non-MCQ requiring a typed answer"
+      ],
+      "onscreenCalculator": true,
+      "personalCalculatorAllowed": false,
+      "sourceIds": [
+        "cat-source-faq"
+      ],
+      "sourceLocator": "Exam Q1-Q3, Q8-Q13"
+    },
+    "timing": {
+      "standardTotalMinutes": 120,
+      "standardTotalEvidence": "Official CAT 2026 press release, July 26, 2026, PDF page 1, Duration of the Test.",
+      "pwbdAdditionalMinutes": 40,
+      "pwbdAllocationEvidence": "PwBD Q5 states 20 additional minutes per hour, totalling 40 minutes. Q12 says the additional time is distributed equally among the three sections.",
+      "practiceSectionMinutes": 40,
+      "ordinarySectionMinutes": 40,
+      "switchingBetweenSectionsWhileAnsweringAllowed": false,
+      "practiceSectionStatus": "Verified official CAT 2026 ordinary sectional timing.",
+      "verificationGap": "Resolved for ordinary total duration, sectional allocation and prohibition on switching sections while answering. Button-level navigation, early advancement and review-flag behaviour were not independently verified from a released 2026 mock.",
+      "accommodationPolicy": "Do not impose the standard training timer on a learner entitled to accommodations. Use their current official instructions; do not infer eligibility or accommodations from this curriculum.",
+      "sourceIds": [
+        "cat-source-faq",
+        "cat-source-press-index"
+      ]
+    },
+    "marking": {
+      "correctMCQ": 3,
+      "incorrectMCQ": -1,
+      "correctNonMCQ": 3,
+      "incorrectNonMCQ": 0,
+      "unattempted": 0,
+      "rawScoreFormula": "3 times all correct answers, minus the number of incorrect MCQs.",
+      "sourceIds": [
+        "cat-source-faq"
+      ],
+      "sourceLocator": "Exam Q10-Q12 and Q15"
+    },
+    "questionCounts": {
+      "total": null,
+      "bySection": null,
+      "mcqNonMcqSplit": null,
+      "reason": "No fixed 2026 question count or split was verified in the official material read. Exam Q12 says the number of non-MCQs varies and cannot be disclosed. Do not hard-code a recent year's count as a 2026 official fact."
+    },
+    "syllabusStatus": {
+      "officialExhaustiveSyllabus": false,
+      "officialEvidence": "Exam FAQ Q14 explicitly says CAT does not have a defined syllabus for preparation.",
+      "curriculumStatus": "The topics below are inferred preparation coverage: a deliberately broad educational selection informed by legitimate CAT preparation resources and foundational books. They are not an official exhaustive CAT 2026 syllabus, a question-frequency forecast, or a promise that every listed question type will appear.",
+      "sourceIds": [
+        "cat-source-faq",
+        "cat-source-2iim-free",
+        "cat-source-rodha"
+      ]
+    },
+    "officialMock": {
+      "announcedReleaseDate": "2026-11-12",
+      "statusAtResearch": "Announced in the official FAQ; no live 2026 mock link was present in the checked home index.",
+      "purpose": "Use the released official mock to verify interface behaviour and instructions. Do not assume its questions, count, difficulty or distribution predict the examination.",
+      "sourceIds": [
+        "cat-source-faq",
+        "cat-source-home"
+      ],
+      "sourceLocator": "Exam Q4 and Q14"
+    },
+    "admissionAndScoreCaution": "Course completion, practice thresholds and mock scores do not guarantee percentile, rank, a shortlist or admission. Do not publish invented cutoffs. Raw marks, percentage accuracy, scaled CAT scores and percentiles are different quantities. Institute-specific selection may include additional criteria and evaluation components.",
+    "admissionSourceIds": [
+      "cat-source-about"
+    ]
+  },
+  "learningDesign": {
+    "audience": "A learner starting with school-level arithmetic and ordinary English reading, progressing toward independent CAT-style problem solving and timed decisions.",
+    "coverageBoundaries": [
+      "Vocabulary, grammar and formal logic are supporting skills, not claims that standalone vocabulary, grammar or syllogism questions must appear in CAT 2026.",
+      "Modern mathematics is bounded to counting, elementary probability, sets and sequences. Calculus, advanced probability and abstract number-theory theorems are not required by this curriculum.",
+      "The open books teach mathematics, writing and study skills. They are not marketed here as CAT coaching books.",
+      "The included questions are original instructional self-checks, not a calibrated CAT mock bank."
+    ],
+    "timeBudget": {
+      "coreHours": 137,
+      "additionalPracticeAndSpacedReviewHours": "45-80",
+      "beginnerBuffer": "Allow additional time for unfamiliar mathematics, English reading or interrupted study. Estimates include the assigned lecture, selected reading and assignment, but not unlimited external question-bank practice.",
+      "deadlineContext": "September 20 to November 29 is approximately ten weeks. A 19-24 hour weekly plan can accommodate the core route and substantial review, but a genuine beginner may need a longer learning horizon. Do not represent the deadline plan as a mastery guarantee."
+    },
+    "suggestedCalendar": [
+      {
+        "period": "September 20-26",
+        "focus": "Orientation, calculation toolkit, RC main ideas, percentages and ratios."
+      },
+      {
+        "period": "September 27-October 3",
+        "focus": "RC inference, tone and arguments; interest, work and motion."
+      },
+      {
+        "period": "October 4-10",
+        "focus": "Tables, charts and caselets; paragraph ordering and summaries."
+      },
+      {
+        "period": "October 11-17",
+        "focus": "Equations, inequalities, functions and sequences; maintain daily reading."
+      },
+      {
+        "period": "October 18-24",
+        "focus": "Number properties, remainders, arrangements and grouping."
+      },
+      {
+        "period": "October 25-31",
+        "focus": "Venn diagrams, tournaments, DILR selection, triangles and circles."
+      },
+      {
+        "period": "November 1-7",
+        "focus": "Coordinates, mensuration, counting, probability and sectional practice."
+      },
+      {
+        "period": "November 8-14",
+        "focus": "First full mock and review. Check the announced official mock release from November 12."
+      },
+      {
+        "period": "November 15-21",
+        "focus": "Second full mock, forensic review and targeted repairs."
+      },
+      {
+        "period": "November 22-28",
+        "focus": "Final rehearsal early in the week, light retrieval, official-instruction checks and tapering."
+      }
+    ],
+    "weeklyRoutine": [
+      "Read an authorized or open text for 25-35 minutes on five days. Record the main claim, paragraph roles, one warranted inference and one tempting unsupported inference.",
+      "Complete three deliberate QA sessions and three DILR sessions weekly; review errors before increasing speed.",
+      "Reserve one session for retrieval and delayed re-solving rather than new material.",
+      "From the intermediate stage, take a short mixed sectional exercise weekly. Label learner-assembled exercises as practice simulations, not standardized mocks.",
+      "The three planned fresh full-mock attempts can use the three free mocks advertised by Cracku, subject to availability. Additional fresh mocks are optional; do not silently assume an unlimited free series."
+    ],
+    "progressWorkflow": {
+      "states": [
+        "not-started",
+        "learning",
+        "submitted",
+        "review-due",
+        "mastered-for-now"
+      ],
+      "completionRule": "Watching a video is not lesson completion. Retain the assignment deliverables, assess the rubric and schedule retrieval.",
+      "masteryRule": "Use at least 8/10 on the lesson rubric and a successful delayed re-solve before marking mastered-for-now. This is a learning-platform criterion, not a CAT cutoff.",
+      "reviewIntervalsDays": [
+        1,
+        7,
+        21
+      ],
+      "errorLogFields": [
+        "lesson or set identifier",
+        "first attempt date",
+        "time spent",
+        "answer and confidence before checking",
+        "correctness",
+        "error category",
+        "missed clue or concept",
+        "shorter valid method",
+        "next review date",
+        "delayed re-solve result"
+      ],
+      "errorCategories": [
+        "concept",
+        "representation",
+        "reading",
+        "calculation",
+        "selection",
+        "time management",
+        "answer entry",
+        "unsupported inference"
+      ],
+      "mockMetrics": [
+        "Raw score using the documented marking profile",
+        "Attempted and correct counts by section and question type",
+        "Accuracy with its denominator",
+        "Time lost on abandoned questions or sets",
+        "Unattempted questions solvable during a blind review",
+        "High-confidence errors",
+        "Two specific changes to test in the next attempt"
+      ],
+      "percentileHandling": "Store a provider-reported percentile with provider, cohort and test identifiers. Never manufacture a CAT percentile from this platform's raw score or compare unlike mock cohorts as if they were the same examination."
+    },
+    "originalAssessmentPolicy": "All 38 embedded self-checks and their passages are newly authored for this curriculum. External exam questions, coaching questions, passages and solutions are not reproduced. Thirty numerical or constraint answers were checked using exact arithmetic or enumeration; eight verbal or interpretation answers were reviewed against their supplied text."
+  },
+  "resources": [
+    {
+      "id": "cat-book-math",
+      "kind": "book",
+      "title": "Contemporary Mathematics",
+      "url": "https://openstax.org/books/contemporary-mathematics/pages/preface",
+      "provider": "OpenStax; Donna Kirk",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://assets.openstax.org/oscms-prodcms/media/documents/contemporary-mathematics_-_WEB.pdf#page=4",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "officialPdfUrl": "https://assets.openstax.org/oscms-prodcms/media/documents/contemporary-mathematics_-_WEB.pdf",
+      "officialPdfUrlUse": "External publisher-hosted reading/download link only; not an approved app-mirroring source.",
+      "pdfSha256": "300726c9820a8d0822c56e33582a44dffa47111147d64e9cb936b316c448ab38",
+      "verifiedOn": "2026-09-20",
+      "notes": "Generic mathematics textbook; original publication year 2023. Current publisher PDF inspected in memory: copyright 2026 Rice University, digital ISBN 978-1-951693-68-8, last modified April 21, 2026. PDF page 4 permits noncommercial sharing of licensed textbook content with attribution/ShareAlike conditions, but expressly excludes covers and named trademarks. Permission covering verbatim complete-PDF packaging was not substantiated. Link-only for this exact PDF; retain the publisher-hosted reading link. This conservative implementation decision supersedes earlier conditional mirroring approval."
+    },
+    {
+      "id": "cat-book-algebra",
+      "kind": "book",
+      "title": "Algebra and Trigonometry 2e",
+      "url": "https://openstax.org/books/algebra-and-trigonometry-2e/pages/preface",
+      "provider": "OpenStax; Jay Abramson",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://assets.openstax.org/oscms-prodcms/media/documents/algebra-and-trigonometry-2e_-_WEB.pdf#page=4",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "officialPdfUrl": "https://assets.openstax.org/oscms-prodcms/media/documents/algebra-and-trigonometry-2e_-_WEB.pdf",
+      "officialPdfUrlUse": "External publisher-hosted reading/download link only; not an approved app-mirroring source.",
+      "pdfSha256": "7108d242ef7f7ee286c1d0faf4f8477570e843c1b1cdd5e3b05e8c31797da9f0",
+      "verifiedOn": "2026-09-20",
+      "notes": "Generic algebra textbook, second edition; original publication year 2021. Current publisher PDF inspected in memory: copyright 2026 Rice University, digital ISBN 978-1-951693-40-4, last modified April 21, 2026. PDF page 4 licenses textbook content under noncommercial attribution/ShareAlike conditions but expressly excludes covers and named trademarks. Complete-PDF packaging permission was not substantiated, so this exact PDF remains link-only. Assigned selections do not require the entire trigonometry text."
+    },
+    {
+      "id": "cat-book-writing",
+      "kind": "book",
+      "title": "Writing Guide with Handbook",
+      "url": "https://openstax.org/books/writing-guide/pages/preface",
+      "provider": "OpenStax; Michelle Bachelor Robinson, Maria Jerskey, featuring Toby Fulwiler",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://assets.openstax.org/oscms-prodcms/media/documents/WritingGuide-WEB.pdf#page=4",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "officialPdfUrl": "https://assets.openstax.org/oscms-prodcms/media/documents/WritingGuide-WEB.pdf",
+      "officialPdfUrlUse": "External publisher-hosted reading/download link only; not an approved app-mirroring source.",
+      "pdfSha256": "86ef566965110032b651122c8e466a607157613302a5a283bd1f221727e590ab",
+      "verifiedOn": "2026-09-20",
+      "notes": "Generic writing and critical-reading textbook; original publication year 2021. Current publisher PDF inspected in memory: copyright 2026 Rice University, digital ISBN 978-1-951693-47-3, last modified April 21, 2026. PDF page 4 licenses textbook content under noncommercial attribution/ShareAlike conditions but expressly excludes covers and named trademarks. Complete-PDF packaging permission was not substantiated, so this exact PDF remains link-only. CAT-specific techniques come from the coaching lectures, not this generic textbook."
+    },
+    {
+      "id": "cat-book-study",
+      "kind": "book",
+      "title": "College Success",
+      "url": "https://openstax.org/books/college-success/pages/preface",
+      "provider": "OpenStax; Amy Baldwin",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://assets.openstax.org/oscms-prodcms/media/documents/college-success_-_WEB.pdf#page=4",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "officialPdfUrl": "https://assets.openstax.org/oscms-prodcms/media/documents/college-success_-_WEB.pdf",
+      "officialPdfUrlUse": "External publisher-hosted reading/download link only; not an approved app-mirroring source.",
+      "pdfSha256": "a22309438c12691cf91217fcd8afe65c0c2a1cf775f83d88c5d9759e1f0456d0",
+      "verifiedOn": "2026-09-20",
+      "notes": "Generic study-skills textbook; original publication year 2020. Current publisher PDF inspected in memory: copyright 2026 Rice University, digital ISBN 978-1-951693-17-6, last modified April 21, 2026. PDF page 4 licenses textbook content under noncommercial attribution/ShareAlike conditions but expressly excludes covers and named trademarks. Complete-PDF packaging permission was not substantiated, so this exact PDF remains link-only. College accommodation examples are not CAT accommodation rules."
+    },
+    {
+      "id": "cat-video-mock-strategy",
+      "kind": "video",
+      "title": "LIVE: CAT 2026 Mock Strategy — When to Start, How Many & How to Analyse",
+      "url": "https://www.youtube.com/watch?v=8bTh1KD7jGM",
+      "provider": "2IIM CAT Preparation",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Public watch-page metadata reported playable status OK, publication June 13, 2026, and approximately 64 minutes. CAT-specific coaching, not official exam instructions. Reuse for the orientation and mock laboratory with different tasks; later lessons need not rewatch the entire recording. No video or transcript redistribution permission was established."
+    },
+    {
+      "id": "cat-video-rc-decoder",
+      "kind": "video",
+      "title": "RC Decoder Series",
+      "url": "https://www.youtube.com/playlist?list=PL2WkReU3YCPyj81kLeITMh9ZBU6LT7cL_",
+      "provider": "2IIM CAT Preparation",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official 2IIM playlist linked from its own site. Verified lecture T6Pyfnmro70, 'How to Read & Breakdown RC Passages', published May 26, 2020, approximately 86 minutes, playable OK. The older edition label describes the recording, not 2026 exam rules. Link to the creator; do not copy the third-party articles discussed in the lecture."
+    },
+    {
+      "id": "cat-video-critical-reasoning",
+      "kind": "video",
+      "title": "CAT 2026 Critical Reasoning | Complete VARC Playlist",
+      "url": "https://www.youtube.com/playlist?list=PLG4bwc5fquzhf8vwqQWW2y_5K3B81ilZn",
+      "provider": "Rodha; Brijesh Sir",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified public lectures: v9WjsdaO7vE, introductory critical reasoning, February 27, 2026; GFMXohhRw4o, para summary, June 20, 2026; Qrvjy4bd0jI, inference, August 11, 2026. All three watch pages reported playable OK. Treat promotional score claims in titles or descriptions as marketing, not curriculum guarantees."
+    },
+    {
+      "id": "cat-video-parajumbles",
+      "kind": "video",
+      "title": "Para Jumbles Concepts || Verbal Logic || Verbal Preparation || CAT 2019",
+      "url": "https://www.youtube.com/watch?v=vO8U6a8kFnU",
+      "provider": "Rodha",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified public recording published March 15, 2018, approximately 12 minutes, playable OK. Used for paragraph-coherence concepts; its title is not evidence about the CAT 2026 verbal question mix."
+    },
+    {
+      "id": "cat-video-genres",
+      "kind": "video",
+      "title": "Essential Terms to Tackle Difficult Genre RCs",
+      "url": "https://www.youtube.com/playlist?list=PLG4bwc5fquzg683XGcsF4xYD8oo8PZslM",
+      "provider": "Rodha; Nikita Gupta",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Playlist entries cover science/technology, art/culture, economics, sociology and philosophy. Assigned lecture wI11h-PK_iY, 'Essential Terms to Navigate Science & Technology RCs', was published August 27, 2026, approximately 72 minutes, playable OK. Vocabulary is used to support contextual comprehension, not as an official vocabulary syllabus."
+    },
+    {
+      "id": "cat-video-arithmetic",
+      "kind": "video",
+      "title": "Swapanil Sir's Arithmetic Live YT Classes | CAT 2026 Complete Series",
+      "url": "https://www.youtube.com/playlist?list=PLG4bwc5fquzizcnsJnTGxG8qOn5YBRbqc",
+      "provider": "Rodha",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified assigned lectures: 34BTSKaPhdc, Percentage, Profit and Loss 1; FeMrae4wFuM, Ratio-1; ODC3bi8qY2w, Simple Interest-Compound Interest; _nbG6PL7F9Y, Time & Work; fpu4_mRKv_g, TSD 1. Watch pages reported playable OK and February-April 2026 publication dates. Playlist also contains averages and replacement lessons."
+    },
+    {
+      "id": "cat-video-numbers",
+      "kind": "video",
+      "title": "Number System | Quantitative Aptitude Preparation | CAT Exam Preparation 2027",
+      "url": "https://www.youtube.com/playlist?list=PLG4bwc5fquzgmP5BLHrRDwBueer0udDjc",
+      "provider": "Rodha; Ravi Prakash",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The checked playlist currently uses a 2027 title, but assigned recordings _g89_8Bb57g, co30DI-DAlU and 1PYOIpFFwC4 were published in February-March 2019 and reported playable OK. These are established concept lectures with annually changed titles, not future recordings or official 2027/2026 exam evidence."
+    },
+    {
+      "id": "cat-video-algebra",
+      "kind": "video",
+      "title": "Algebra | Quantitative Aptitude | CAT Exam Preparation 2027",
+      "url": "https://www.youtube.com/playlist?list=PLG4bwc5fquzgkOZZOd21O_jm_YwRJQ8t3",
+      "provider": "Rodha; Ravi Prakash",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified lectures include Simple Equations 1, Quadratic Equation 1, Inequalities 1, Functions 1, Functions-7: Domain of Logarithmic Functions, and Arithmetic Progression 1. Assigned watch pages reported playable OK; recordings were published in 2019 or 2021. Current titles mix 2026 and 2027; use them for mathematics, not edition-specific exam rules."
+    },
+    {
+      "id": "cat-video-geometry",
+      "kind": "video",
+      "title": "Geometry | Quantitative Aptitude | CAT Exam Preparation 2026",
+      "url": "https://www.youtube.com/playlist?list=PLG4bwc5fquziUvO3dlzG0MW9vqi3epud4",
+      "provider": "Rodha; Ravi Prakash",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified assigned lectures: 25P2O9r3AfM, Triangles 1; EAz4sd6svzo, Circles 1; NXlFmkHm0N0, Geometry Practice 3: Coordinate Geometry & Medians; HhtLt2JZKu4, Mensuration 1. Published in 2019-2020 and playable OK. Some individual titles currently say 2027; this does not make their mathematical content a new examination pattern."
+    },
+    {
+      "id": "cat-video-counting",
+      "kind": "video",
+      "title": "Permutations and Combinations | Quantitative Aptitude | CAT Exam Preparation 2026",
+      "url": "https://www.youtube.com/playlist?list=PLG4bwc5fquzio-ijSv5E5ijVMXe64ardb",
+      "provider": "Rodha; Ravi Prakash",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified 8kvqSY1-W5Y, Fundamental Principle of Counting, and b6hmLsjbA7E, Probability 1: Basics, Coin Tosses and Odds; both published in 2019 and playable OK. Individual titles currently contain 2027. They remain concept resources, not official syllabus statements."
+    },
+    {
+      "id": "cat-video-dilr",
+      "kind": "video",
+      "title": "Complete LRDI for CAT 2026 | Logical Reasoning and Data Interpretation",
+      "url": "https://www.youtube.com/playlist?list=PLG4bwc5fquzhDp8eqRym2Ma1ut10YF0Ea",
+      "provider": "Rodha; Ravi Prakash",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified playable lectures and IDs: KhNeTrBYbYo, Introduction; Kn17_JoFmjU, Pie Chart 1; sQofq1SfL1M, Quant Based Puzzles Set 1; 4tI-h-GKWVk, Linear and Circular Arrangement I; hOUKSCHy5Zc, Chocolate Distribution Method 1; D3iR5cIr_VQ, Venn Diagram introduction; bC3Wlg6DIRg, Games and Tournaments 1. These recordings were published in 2019-2021. The table lesson uses the introductory lecture as orientation and the book plus original assignment for its detailed tabular work."
+    },
+    {
+      "id": "cat-video-set-selection",
+      "kind": "video",
+      "title": "SET SELECTION SKILL: CAT 2026 DILR",
+      "url": "https://www.youtube.com/playlist?list=PLG4bwc5fquzgaVAbAhg_ESrR0e-5kCC9i",
+      "provider": "Rodha; Abhishek Sir",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Assigned pN_1Vz0zY3M, 'CAT 2026 DILR: First 3 Mins Decide Your Score | Set Selection Live | 225-Day Plan', published April 12, 2026, approximately 44 minutes, playable OK. The title is a coaching slogan, not a proven rule that exactly three minutes determines a score. Learners test their own scanning budget."
+    },
+    {
+      "id": "cat-practice-2iim",
+      "kind": "practice",
+      "title": "2IIM Free CAT Question Bank",
+      "url": "https://iim-cat-questions-answers.2iim.com/",
+      "provider": "2IIM",
+      "access": "free",
+      "license": "Copyrighted; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The publisher explicitly states that solving questions and viewing explanations is free and explicitly prohibits reproduction on unaffiliated websites. Use the creator-authored topic-bank practice through external links; do not scrape, mirror or embed copied question text. The site also contains past-paper material, which is not reproduced or treated as official 2026 material here."
+    },
+    {
+      "id": "cat-practice-cracku",
+      "kind": "practice",
+      "title": "Cracku CAT Mock Test",
+      "url": "https://cracku.in/cat-mock-test",
+      "provider": "Cracku",
+      "access": "free-account",
+      "license": "Copyrighted; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The public page advertises three free CAT mocks and says signup is required. No account was created and logged-in availability was not tested. Additional DashCAT offerings are paid. Do not adopt promotional percentile estimates as official cutoffs or guarantees. Retain only the learner's own performance records, not copied questions or solutions."
+    },
+    {
+      "id": "cat-doc-official",
+      "kind": "documentation",
+      "title": "CAT 2026 Official Portal and FAQs",
+      "url": "https://iimcat.ac.in/",
+      "provider": "CAT 2026 Centre / Indian Institutes of Management",
+      "access": "free",
+      "license": "Official material; link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The portal serves its home, FAQ and contact content through public XML endpoints listed in sources. These were read directly without a shared browser. The official mock is announced for November 12, 2026. Linked PDF notices were identified but not downloaded."
+    }
+  ],
+  "modules": [
+    {
+      "id": "cat-module-start",
+      "title": "01. Orientation and Numerical Readiness",
+      "stage": "foundation",
+      "description": "Understand what is officially known, establish an honest baseline and repair calculation habits before accelerating.",
+      "prerequisites": [],
+      "paperTags": [
+        "VARC",
+        "DILR",
+        "QA",
+        "strategy"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-orientation",
+          "title": "Rules, baseline and a sustainable preparation system",
+          "objectives": [
+            "Separate official 2026 rules from preparation assumptions.",
+            "Create an evidence-based weekly plan and error log."
+          ],
+          "topics": [
+            {
+              "title": "Examination literacy",
+              "details": [
+                "Fixed section order, MCQ versus typed-answer marking and calculator rules.",
+                "Unspecified question counts, verified ordinary sectional timing and the announced official mock."
+              ]
+            },
+            {
+              "title": "Learning system",
+              "details": [
+                "Baseline performance is diagnostic, not a percentile forecast.",
+                "Schedule study, deliberate practice, delayed retrieval and recovery time separately."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "study-planning",
+            "assessment-baseline",
+            "exam-literacy"
+          ],
+          "video": {
+            "resourceId": "cat-video-mock-strategy",
+            "locator": "Full lecture: CAT 2026 Mock Strategy — When to Start, How Many & How to Analyse; video 8bTh1KD7jGM."
+          },
+          "reading": {
+            "resourceId": "cat-book-study",
+            "locator": "6.2 Studying; 6.3 Test Taking, especially Preparation vs. Actual Test."
+          },
+          "supplementaryResourceIds": [
+            "cat-doc-official",
+            "cat-practice-cracku"
+          ],
+          "assignment": {
+            "id": "cat-assignment-01",
+            "title": "Build a rules ledger and baseline dashboard",
+            "kind": "lab",
+            "instructions": [
+              "Create a two-column ledger of verified official rules and unresolved assumptions; include sources and check dates.",
+              "Attempt original questions cat-q-03, cat-q-07 and cat-q-12 as a 20-minute orientation sample. Record confidence and time; flag them as previously seen when encountered later.",
+              "Allocate a realistic seven-day study schedule and create the error-log fields specified in learningDesign. Do not label this tiny sample a mock or infer a percentile."
+            ],
+            "deliverables": [
+              "Rules ledger with at least eight entries.",
+              "Baseline record, weekly calendar and blank error-log template."
+            ],
+            "acceptanceCriteria": [
+              "4 points: correctly distinguish verified ordinary timing from unspecified counts and unverified detailed mock-interface behavior.",
+              "3 points: retain time and confidence for all three sample questions.",
+              "3 points: allocate review and recovery time without marking unseen lessons complete."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-01",
+                "prompt": "Using the documented marking scheme, a practice attempt has 7 correct and 3 incorrect MCQs, 2 correct and 1 incorrect non-MCQs, and 2 unanswered questions. What is its raw score?",
+                "kind": "numeric",
+                "answer": 24,
+                "explanation": "Nine correct answers earn 27 marks. Only the three incorrect MCQs incur penalties, giving 27 minus 3 = 24."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which examination facts remain unresolved in this handoff?",
+            "What evidence would justify changing next week's study allocation?"
+          ]
+        },
+        {
+          "id": "cat-lesson-calculation",
+          "title": "Fractions, signs, units and estimation",
+          "objectives": [
+            "Compare quantities without unnecessary decimal expansion.",
+            "Check every numerical result for units, magnitude and sign."
+          ],
+          "topics": [
+            {
+              "title": "Numerical representations",
+              "details": [
+                "Integers, rational and irrational numbers; factors, multiples and order of operations.",
+                "Fraction-decimal-percentage conversions, cancellation and comparison by common bases."
+              ]
+            },
+            {
+              "title": "Calculation control",
+              "details": [
+                "Estimation before exact arithmetic; sensible rounding and bounding.",
+                "Convert minutes to hours and metric units explicitly; distinguish a rate from an amount."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "arithmetic",
+            "fractions",
+            "dimensional-analysis",
+            "estimation"
+          ],
+          "video": {
+            "resourceId": "cat-video-numbers",
+            "locator": "Numbers 1: Real Rational Irrational Odd Even; video _g89_8Bb57g, originally published February 7, 2019."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "3.3 Order of Operations; 3.4 Rational Numbers; 9.1 The Metric System."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-02",
+            "title": "Create a checked calculation sheet",
+            "kind": "problem-set",
+            "instructions": [
+              "For 1/8, 3/8, 5/12, 7/18, 2/3 and 7/20, give exact percentage forms where possible, decimal approximations and ascending order.",
+              "Convert 18 km/h to m/s, 750 mL to litres, and 2 hours 24 minutes to hours; explain each conversion factor.",
+              "Estimate before calculating 19.8 times 5.1 and 998 divided by 24. Compare the estimate with the exact calculation."
+            ],
+            "deliverables": [
+              "One conversion/comparison table.",
+              "A correction log explaining at least two likely traps."
+            ],
+            "acceptanceCriteria": [
+              "4 points: six fractions correctly represented and ordered.",
+              "3 points: all three unit conversions include units and valid factors.",
+              "3 points: estimates are justified and discrepancies are explained."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-02",
+                "prompt": "Which is largest: 5/12, 7/18 or 3/8? Give an exact comparison.",
+                "kind": "short-answer",
+                "answer": "5/12",
+                "explanation": "Using denominator 72 gives 30/72, 28/72 and 27/72 respectively."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When is a common denominator preferable to decimals?",
+            "How can units expose a plausible-looking wrong answer?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-varc-foundations",
+      "title": "02. Reading Comprehension and Argument Foundations",
+      "stage": "foundation",
+      "description": "Read for structure, distinguish warranted conclusions from guesses and evaluate how an author builds a position.",
+      "prerequisites": [
+        "cat-module-start"
+      ],
+      "paperTags": [
+        "VARC"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-rc-mainidea",
+          "title": "Main idea, paragraph roles and passage maps",
+          "objectives": [
+            "Distinguish a passage's central claim from its examples.",
+            "Produce a compact map of a passage's reasoning."
+          ],
+          "topics": [
+            {
+              "title": "Reading for structure",
+              "details": [
+                "Topic versus claim; introduction, contrast, evidence, qualification and conclusion.",
+                "Track pronouns, repeated concepts and shifts signalled by however, therefore and although."
+              ]
+            },
+            {
+              "title": "Main-idea options",
+              "details": [
+                "Reject options that are too narrow, too broad or more absolute than the passage.",
+                "Use paragraph function rather than memorizing every factual detail."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "reading-comprehension",
+            "main-idea",
+            "text-structure"
+          ],
+          "video": {
+            "resourceId": "cat-video-rc-decoder",
+            "locator": "How to Read & Breakdown RC Passages; video T6Pyfnmro70. Watch the complete verified lecture; no unverified timestamps are specified."
+          },
+          "reading": {
+            "resourceId": "cat-book-writing",
+            "locator": "1.1 'Reading' to Understand and Respond; 1.5 Writing Process: Thinking Critically About a 'Text', Responding to Understand: Summary."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "cat-assignment-03",
+            "title": "Map an argument without copying its wording",
+            "kind": "lab",
+            "instructions": [
+              "Annotate the original library passage in the self-check: label observation, competing explanations and recommendation.",
+              "Write a 25-word main idea, then deliberately write one overbroad and one overly narrow alternative.",
+              "Apply the same mapping method to two paragraphs from the assigned book; retain your own notes rather than republishing the paragraphs."
+            ],
+            "deliverables": [
+              "Three passage maps.",
+              "One correct summary and two diagnosed distractors."
+            ],
+            "acceptanceCriteria": [
+              "4 points: correctly distinguish evidence from conclusion.",
+              "3 points: summary preserves the qualification about learning outcomes.",
+              "3 points: explain exactly why each distractor fails."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-03",
+                "prompt": "Original passage: After the town library extended its weekend hours, visits rose sharply. The director called the change an educational success. Yet visitor counts do not reveal what people learned. Some visitors came to use the internet; others attended a new children's programme introduced in the same month. Longer hours may help residents, but the library should assess reading and learning outcomes before attributing all benefits to the schedule. Which is the best main idea?",
+                "kind": "single-choice",
+                "choices": [
+                  "A. Longer opening hours always improve learning.",
+                  "B. Increased visits are encouraging but do not alone establish educational benefits from longer hours.",
+                  "C. Libraries should stop providing internet access.",
+                  "D. The children's programme caused every additional visit."
+                ],
+                "answer": "B",
+                "explanation": "The passage welcomes possible benefits while questioning the inference from visits to learning and the attribution to one change. The other choices add absolute or unsupported claims."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What distinguishes the topic from the author's claim?",
+            "Can you describe each paragraph's job without repeating its facts?"
+          ]
+        },
+        {
+          "id": "cat-lesson-rc-inference",
+          "title": "Inference, scope and textual evidence",
+          "objectives": [
+            "Justify an inference using explicit textual evidence.",
+            "Reject answers that require an unstated causal or universal assumption."
+          ],
+          "topics": [
+            {
+              "title": "Inference strength",
+              "details": [
+                "Distinguish directly stated information, supported inference and speculation.",
+                "Track some/all, may/must, often/always and necessary/sufficient language."
+              ]
+            },
+            {
+              "title": "Option testing",
+              "details": [
+                "Check whether an option changes population, time period or degree of certainty.",
+                "Prefer a modest supported inference over an attractive outside fact."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "inference",
+            "evidence-evaluation",
+            "quantifiers"
+          ],
+          "video": {
+            "resourceId": "cat-video-critical-reasoning",
+            "locator": "CAT VARC Inference: How To Read What The Passage Really Means; video Qrvjy4bd0jI, August 11, 2026."
+          },
+          "reading": {
+            "resourceId": "cat-book-writing",
+            "locator": "1.5 Writing Process: Thinking Critically About a 'Text', especially Responding to Analyze and Responding to Evaluate."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "cat-assignment-04",
+            "title": "Construct an evidence ladder",
+            "kind": "problem-set",
+            "instructions": [
+              "From the original pilot-study passage below, write two literal statements, two defensible inferences and two unsupported claims.",
+              "Underline the words that constrain each claim's scope.",
+              "Rewrite the unsupported claims so that they become defensible, recording what you weakened."
+            ],
+            "deliverables": [
+              "Six classified claims with evidence references.",
+              "Two revised claims and a scope-change explanation."
+            ],
+            "acceptanceCriteria": [
+              "4 points: all six classifications are defensible.",
+              "4 points: evidence supports the precise strength of each claim.",
+              "2 points: revisions remove rather than conceal unsupported assumptions."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-04",
+                "prompt": "Original passage: In two districts, households that joined a voluntary composting pilot reported sending less waste to landfill. The project did not measure their waste before enrolment, and participation was not randomly assigned. The organizers describe the result as promising and propose a controlled follow-up. Which conclusion is supported?",
+                "kind": "single-choice",
+                "choices": [
+                  "A. The pilot certainly caused every household to reduce waste.",
+                  "B. All households would obtain the same result.",
+                  "C. The reports are encouraging, but the design does not isolate the pilot's causal effect.",
+                  "D. Composting cannot reduce landfill waste."
+                ],
+                "answer": "C",
+                "explanation": "The missing baseline and nonrandom participation leave alternative explanations. The passage supports cautious interest, not either certainty of effectiveness or certainty of failure."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What extra assumption does the strongest-sounding option require?",
+            "How does changing 'some' to 'all' alter an inference?"
+          ]
+        },
+        {
+          "id": "cat-lesson-rc-tone",
+          "title": "Tone, purpose and rhetorical function",
+          "objectives": [
+            "Identify a qualified attitude using textual evidence.",
+            "Explain why an example, concession or analogy appears in a passage."
+          ],
+          "topics": [
+            {
+              "title": "Authorial stance",
+              "details": [
+                "Differentiate neutral explanation, qualified approval, skepticism, criticism and irony.",
+                "Separate the author's attitude from opinions attributed to other people."
+              ]
+            },
+            {
+              "title": "Rhetorical purpose",
+              "details": [
+                "Recognize concession, rebuttal, illustration and qualification.",
+                "Choose tone labels from evidence, not from emotional reactions to the subject."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "rhetorical-analysis",
+            "tone",
+            "author-purpose"
+          ],
+          "video": {
+            "resourceId": "cat-video-rc-decoder",
+            "locator": "Revisit How to Read & Breakdown RC Passages, T6Pyfnmro70; this time annotate stance changes and the function of examples."
+          },
+          "reading": {
+            "resourceId": "cat-book-writing",
+            "locator": "9.3 Glance at Genre: Rhetorical Strategies, especially Rhetorical Analysis: Key Terms and Rhetorical Devices and Language Use."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "cat-assignment-05",
+            "title": "Build a tone-and-function evidence grid",
+            "kind": "lab",
+            "instructions": [
+              "Annotate the original archive passage below for praise, reservation and recommendation.",
+              "Rewrite its final sentence once as unqualified praise and once as hostile criticism. Explain how each rewrite changes the original stance.",
+              "Record four rhetorical functions noticed in the lecture, with your own descriptions rather than copied passage text."
+            ],
+            "deliverables": [
+              "Evidence grid with at least six entries.",
+              "Two deliberate tone-changing rewrites."
+            ],
+            "acceptanceCriteria": [
+              "4 points: tone is supported by specific wording.",
+              "3 points: distinguish author stance from topic.",
+              "3 points: both rewrites demonstrably change certainty or attitude."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-05",
+                "prompt": "Original passage: The archive's digitization is a welcome achievement: researchers can now inspect records without travelling. Still, a searchable scan is not the same as a complete historical account, and missing collections remain missing online. The project deserves support, provided its convenience does not make us forget its limits. What best describes the tone?",
+                "kind": "single-choice",
+                "choices": [
+                  "A. Unqualified celebration",
+                  "B. Qualified approval",
+                  "C. Bitter hostility",
+                  "D. Indifference"
+                ],
+                "answer": "B",
+                "explanation": "The author explicitly welcomes and supports the project while stating limitations. That combination is qualified approval."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which phrase prevents an unqualified tone label?",
+            "What is the difference between a concession and the main conclusion?"
+          ]
+        },
+        {
+          "id": "cat-lesson-rc-arguments",
+          "title": "Premises, assumptions and strengthen-weaken reasoning",
+          "objectives": [
+            "Map a conclusion to its supporting premises.",
+            "Identify a causal confounder or missing assumption without importing irrelevant facts."
+          ],
+          "topics": [
+            {
+              "title": "Argument anatomy",
+              "details": [
+                "Premise, conclusion, intermediate conclusion and implicit assumption.",
+                "Distinguish evidence, explanation, recommendation and opinion."
+              ]
+            },
+            {
+              "title": "Evaluation",
+              "details": [
+                "Correlation versus causation, sampling bias and alternative explanations.",
+                "Negation-test intuition for necessary assumptions; relevance tests for strengthen/weaken information."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "critical-thinking",
+            "argument-structure",
+            "causal-reasoning"
+          ],
+          "video": {
+            "resourceId": "cat-video-critical-reasoning",
+            "locator": "Master Critical Reasoning for CAT 2026; video v9WjsdaO7vE, February 27, 2026."
+          },
+          "reading": {
+            "resourceId": "cat-book-writing",
+            "locator": "10.3 Glance at Genre: Thesis, Reasoning, and Evidence; 11.3 Glance at Genre: Reasoning Strategies and Signal Words, Cause and Effect."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "cat-assignment-06",
+            "title": "Audit a policy argument",
+            "kind": "problem-set",
+            "instructions": [
+              "Map the bicycle-parking argument below into premise, conclusion and a necessary causal assumption.",
+              "Write one original strengthening fact, one weakening fact and one irrelevant fact.",
+              "Explain whether each addition affects the evidence, the causal link or neither."
+            ],
+            "deliverables": [
+              "Argument map.",
+              "Three additions with relevance explanations."
+            ],
+            "acceptanceCriteria": [
+              "4 points: conclusion and causal assumption correctly identified.",
+              "4 points: additions have the claimed logical effect.",
+              "2 points: avoid claiming that a weakening fact necessarily proves the opposite conclusion."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-06",
+                "prompt": "A town doubled secure bicycle parking in April. Cycling trips then increased. An official concludes that the extra parking caused the increase. Which additional fact most directly weakens that causal attribution?",
+                "kind": "single-choice",
+                "choices": [
+                  "A. The new stands are painted blue.",
+                  "B. Bus fares rose sharply in April and many former bus users switched to bicycles.",
+                  "C. Some residents already owned bicycles.",
+                  "D. The town has several roads."
+                ],
+                "answer": "B",
+                "explanation": "The fare increase offers a specific competing explanation for the observed change. It weakens attributing the increase solely to parking, without proving parking had no effect."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What must be true for the conclusion to follow?",
+            "Does your proposed counterexample attack the actual argument or a stronger invented version?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-arithmetic",
+      "title": "03. Arithmetic Models",
+      "stage": "foundation",
+      "description": "Translate commercial, mixture and rate situations into equations and reason about the correct base quantity.",
+      "prerequisites": [
+        "cat-module-start"
+      ],
+      "paperTags": [
+        "QA",
+        "DILR-support"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-percent-profit",
+          "title": "Percentages, successive change, profit and discount",
+          "objectives": [
+            "Choose the correct base for each percentage.",
+            "Calculate successive changes multiplicatively."
+          ],
+          "topics": [
+            {
+              "title": "Percentage structure",
+              "details": [
+                "Percentage versus percentage-point change; reverse percentages.",
+                "Successive multipliers and why equal increases and decreases do not cancel."
+              ]
+            },
+            {
+              "title": "Commercial models",
+              "details": [
+                "Cost price, selling price, marked price, markup and discount.",
+                "Distinguish profit as a percentage of cost from margin as a percentage of selling price."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "percentages",
+            "ratios",
+            "financial-arithmetic"
+          ],
+          "video": {
+            "resourceId": "cat-video-arithmetic",
+            "locator": "Percentage, Profit and Loss 1; video 34BTSKaPhdc."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "6.1 Understanding Percent; 6.2 Discounts, Markups, and Sales Tax."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-07",
+            "title": "Audit a pricing grid",
+            "kind": "problem-set",
+            "instructions": [
+              "For costs 600, 800 and 1200, apply a 25% markup followed by discounts of 10%, 12% and 20%; calculate all nine selling prices and profit percentages.",
+              "Find the discount that produces break-even after a 25% markup.",
+              "Explain the difference between a 20% profit on cost and a 20% margin on selling price."
+            ],
+            "deliverables": [
+              "Nine-row calculation grid.",
+              "Break-even derivation and base-quantity explanation."
+            ],
+            "acceptanceCriteria": [
+              "5 points: at least eight of nine grid rows correct.",
+              "3 points: break-even derived using multipliers.",
+              "2 points: profit and margin denominators explicitly distinguished."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-07",
+                "prompt": "An item costs 800. Its marked price is 25% above cost, and the seller gives a 12% discount on the marked price. What is the profit percentage on cost?",
+                "kind": "numeric",
+                "answer": 10,
+                "explanation": "Marked price is 1000; selling price is 880. Profit is 80 on a cost of 800, so the profit percentage is 10."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What is the denominator in each percentage?",
+            "Why does a 25% markup allow only a 20% break-even discount?"
+          ]
+        },
+        {
+          "id": "cat-lesson-ratios-mixtures",
+          "title": "Ratios, weighted averages, mixtures and replacement",
+          "objectives": [
+            "Model proportional quantities using a common multiplier.",
+            "Use weighted totals rather than unweighted averages."
+          ],
+          "topics": [
+            {
+              "title": "Ratios and averages",
+              "details": [
+                "Part-to-part versus part-to-whole ratios; combining ratios.",
+                "Weighted mean, aggregate totals and changes caused by adding or removing members."
+              ]
+            },
+            {
+              "title": "Mixtures",
+              "details": [
+                "Conservation of total volume and active ingredient.",
+                "Alligation as a consequence of weighted averages; repeated replacement under thorough mixing."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "ratios",
+            "weighted-average",
+            "mixture-models"
+          ],
+          "video": {
+            "resourceId": "cat-video-arithmetic",
+            "locator": "Ratio-1; video FeMrae4wFuM. The same verified playlist also lists Averages 1 and Replacement as optional follow-up lectures."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "5.4 Ratios and Proportions; 8.3 Mean, Median and Mode. Use these foundations to derive weighted mixture equations in the assignment."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-08",
+            "title": "Conservation-based mixture worksheet",
+            "kind": "problem-set",
+            "instructions": [
+              "Starting with 10 litres of 30% solution, calculate how much 60% solution is needed for target concentrations 35%, 40% and 45%.",
+              "For a 20-litre tank initially containing pure juice, remove and replace 5 litres with water twice, mixing completely each time; track juice remaining after each operation.",
+              "For groups of 12 and 18 learners with mean scores 60 and 80, compute the combined mean and diagnose an unweighted-average error."
+            ],
+            "deliverables": [
+              "Conservation equations and solutions for five scenarios.",
+              "One diagram or table showing replacement stages."
+            ],
+            "acceptanceCriteria": [
+              "4 points: mixture equations preserve ingredient amount.",
+              "4 points: replacement and weighted mean use correct weights.",
+              "2 points: all concentrations lie within defensible bounds."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-08",
+                "prompt": "How many litres of a 60% solution must be added to 10 litres of a 30% solution to obtain a 40% solution? Assume volumes add.",
+                "kind": "numeric",
+                "answer": 5,
+                "explanation": "Ingredient balance gives 3 + 0.6x = 0.4(10 + x). Thus 0.2x = 1 and x = 5 litres."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What quantity is conserved?",
+            "When would taking the arithmetic mean of two percentages be wrong?"
+          ]
+        },
+        {
+          "id": "cat-lesson-interest",
+          "title": "Simple interest, compound growth and reverse calculations",
+          "objectives": [
+            "Distinguish interest calculated on principal from interest calculated on a growing balance.",
+            "Solve forward and reverse growth problems with consistent periods."
+          ],
+          "topics": [
+            {
+              "title": "Interest models",
+              "details": [
+                "Principal, interest and amount; simple versus compound interest.",
+                "Rate-period consistency and annual versus subannual compounding."
+              ]
+            },
+            {
+              "title": "Growth reasoning",
+              "details": [
+                "Successive percentage growth and depreciation.",
+                "Recover an initial value from the final amount; compare absolute and relative increases."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "exponential-growth",
+            "financial-arithmetic",
+            "percentages"
+          ],
+          "video": {
+            "resourceId": "cat-video-arithmetic",
+            "locator": "Simple Interest - Compound Interest; video ODC3bi8qY2w."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "6.3 Simple Interest; 6.4 Compound Interest."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-09",
+            "title": "Compare growth models",
+            "kind": "problem-set",
+            "instructions": [
+              "For principal 10000, compute simple and annually compounded amounts at 5% and 8% for one, two and three years.",
+              "Find the starting amount that becomes 12100 after two years of 10% annual compounding.",
+              "Explain why dividing an annual nominal rate into monthly periods requires specifying the compounding convention."
+            ],
+            "deliverables": [
+              "Twelve-cell comparison table.",
+              "Reverse-growth derivation and convention note."
+            ],
+            "acceptanceCriteria": [
+              "5 points: at least eleven table entries correct.",
+              "3 points: reverse calculation uses a growth factor, not subtraction of percentages.",
+              "2 points: rate and period assumptions stated."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-09",
+                "prompt": "For a principal of 10000 at 8% per year over two years, how much greater is compound interest with annual compounding than simple interest?",
+                "kind": "numeric",
+                "answer": 64,
+                "explanation": "Compound interest is 10000 times (1.08 squared minus 1), or 1664. Simple interest is 1600. The difference is 64."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What changes after the first compounding period?",
+            "How can a reverse calculation be checked by a forward substitution?"
+          ]
+        },
+        {
+          "id": "cat-lesson-work",
+          "title": "Work, efficiency, pipes and changing participation",
+          "objectives": [
+            "Represent a worker or pipe by a rate.",
+            "Track completed and remaining work when rates change."
+          ],
+          "topics": [
+            {
+              "title": "Rate representation",
+              "details": [
+                "Normalize a job to one unit or a convenient common multiple.",
+                "Combine productive and draining rates with correct signs."
+              ]
+            },
+            {
+              "title": "Multi-stage work",
+              "details": [
+                "Workers joining or leaving; efficiency ratios and alternating schedules.",
+                "Separate elapsed time from worker-days and state constant-rate assumptions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "rate-models",
+            "linear-equations",
+            "work-rate"
+          ],
+          "video": {
+            "resourceId": "cat-video-arithmetic",
+            "locator": "Time & Work; video _nbG6PL7F9Y."
+          },
+          "reading": {
+            "resourceId": "cat-book-algebra",
+            "locator": "2.3 Models and Applications, Setting up a Linear Equation to Solve a Real-World Application; 1.6 Rational Expressions for rate arithmetic. The work-rate interpretation is supplied by the CAT lecture."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-10",
+            "title": "Build a work-progress ledger",
+            "kind": "problem-set",
+            "instructions": [
+              "Use A's solo time of 12 days and B's solo time of 18 days. Calculate completion when they work together throughout.",
+              "Repeat with B leaving after two days and after five days, recording completed work before the change.",
+              "Model a tank filled in six hours and drained in nine hours when both pipes are open."
+            ],
+            "deliverables": [
+              "Four rate models.",
+              "Stage-by-stage progress tables for the changing-worker cases."
+            ],
+            "acceptanceCriteria": [
+              "4 points: rates and signs correct.",
+              "4 points: remaining work is recomputed at each change.",
+              "2 points: answers checked by total work rather than intuition alone."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-10",
+                "prompt": "A can complete a job in 12 days and B in 18 days, at constant rates. They work together for five days, then B leaves. How many additional days does A need?",
+                "kind": "short-answer",
+                "answer": "11/3 days",
+                "explanation": "Their combined rate is 5/36 jobs per day. Five days completes 25/36, leaving 11/36. At A's rate of 1/12, the additional time is (11/36) divided by (1/12), or 11/3 days."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why must times not be added when combining workers?",
+            "What changes if a pipe removes rather than adds material?"
+          ]
+        },
+        {
+          "id": "cat-lesson-motion",
+          "title": "Speed, relative motion, journeys and races",
+          "objectives": [
+            "Use total distance divided by total time for average speed.",
+            "Translate meetings, overtaking and travel stages into consistent equations."
+          ],
+          "topics": [
+            {
+              "title": "Journey models",
+              "details": [
+                "Distance-speed-time units and piecewise trips.",
+                "Equal-distance versus equal-time average speed; stops and delays."
+              ]
+            },
+            {
+              "title": "Relative motion",
+              "details": [
+                "Closing and separating speeds in opposite and same directions.",
+                "Train crossing, circular tracks, boats and streams as bounded extensions of rate models."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "relative-motion",
+            "weighted-average",
+            "dimensional-analysis"
+          ],
+          "video": {
+            "resourceId": "cat-video-arithmetic",
+            "locator": "TSD 1; video fpu4_mRKv_g."
+          },
+          "reading": {
+            "resourceId": "cat-book-algebra",
+            "locator": "2.3 Models and Applications, using formulas and real-world linear models."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-11",
+            "title": "Compare journey representations",
+            "kind": "problem-set",
+            "instructions": [
+              "For return trips of 60, 90 and 120 km each way, use 40 km/h outward and 60 km/h returning. Compute elapsed time and average speed.",
+              "Compare two travellers initially 150 km apart moving toward each other at 40 and 60 km/h.",
+              "Create a distance-time diagram for one return trip and explain why averaging the two speeds directly fails."
+            ],
+            "deliverables": [
+              "Three journey tables and one meeting calculation.",
+              "Annotated distance-time diagram."
+            ],
+            "acceptanceCriteria": [
+              "5 points: all times and speeds use consistent units.",
+              "3 points: relative speed correctly justified.",
+              "2 points: diagram distinguishes slope from total average speed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-11",
+                "prompt": "A traveller covers 120 km at 40 km/h and returns over the same distance at 60 km/h. Ignoring stops, what is the average speed for the complete journey in km/h?",
+                "kind": "numeric",
+                "answer": 48,
+                "explanation": "The journey takes 3 + 2 = 5 hours over 240 km. Average speed is 240/5 = 48 km/h, not the arithmetic mean of 40 and 60."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Are the averaging weights distances or times?",
+            "Which speed belongs in a meeting-time equation?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-data-interpretation",
+      "title": "04. Data Interpretation Foundations",
+      "stage": "foundation",
+      "description": "Read data faithfully, reconcile totals and transform narrative information into solvable representations.",
+      "prerequisites": [
+        "cat-module-arithmetic"
+      ],
+      "paperTags": [
+        "DILR"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-tables",
+          "title": "Tables, denominators and aggregate comparisons",
+          "objectives": [
+            "Read table units and totals before calculating.",
+            "Distinguish weighted aggregate change from the mean of subgroup changes."
+          ],
+          "topics": [
+            {
+              "title": "Data literacy",
+              "details": [
+                "Rows, columns, units, totals and missing entries.",
+                "Counts versus percentages; row shares versus column shares."
+              ]
+            },
+            {
+              "title": "Efficient comparison",
+              "details": [
+                "Compare fractions by cancellation or cross-products.",
+                "Use bounds and approximate arithmetic only when they preserve the answer distinction."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "data-literacy",
+            "tabular-data",
+            "weighted-average"
+          ],
+          "video": {
+            "resourceId": "cat-video-dilr",
+            "locator": "Introduction | Logic Reasoning and Data Interpretation; video KhNeTrBYbYo. This is orientation; detailed table techniques are developed in the book and assignment."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "8.1 Gathering and Organizing Data, Organizing Data and frequency distributions; 8.3 Mean, Median and Mode."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-12",
+            "title": "Audit a three-product performance table",
+            "kind": "lab",
+            "instructions": [
+              "Use products A, B and C with planned units 120, 180 and 200 and actual units 150, 162 and 238.",
+              "Calculate totals, individual percentage changes, actual contribution shares and aggregate percentage change.",
+              "Compare the aggregate change with the simple average of the three individual changes; explain any difference."
+            ],
+            "deliverables": [
+              "Completed table with units and denominators.",
+              "A 100-word audit explaining weighted aggregation."
+            ],
+            "acceptanceCriteria": [
+              "4 points: all totals reconcile.",
+              "4 points: percentage bases are labelled correctly.",
+              "2 points: explain why subgroup percentage changes cannot normally be averaged unweighted."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-12",
+                "prompt": "Planned production for A, B and C is 120, 180 and 200 units. Actual production is 150, 162 and 238. What is the percentage increase in total production over the plan?",
+                "kind": "numeric",
+                "answer": 10,
+                "explanation": "Planned total is 500 and actual total is 550. The increase is 50/500, or 10%."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which total is the denominator?",
+            "Can all subgroup rates rise while an overall comparison behaves differently because weights change?"
+          ]
+        },
+        {
+          "id": "cat-lesson-charts",
+          "title": "Bar, line, pie and combined charts",
+          "objectives": [
+            "Translate between a chart and its underlying table.",
+            "Detect misleading scales and invalid cross-chart comparisons."
+          ],
+          "topics": [
+            {
+              "title": "Chart encodings",
+              "details": [
+                "Bar length, line position and pie angle represent different quantities.",
+                "Read legends, axis origins, category definitions and units before inference."
+              ]
+            },
+            {
+              "title": "Combined interpretation",
+              "details": [
+                "Recover amounts from shares and totals.",
+                "Distinguish growth in absolute quantities from changes in percentage share; avoid treating correlation as causation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "data-visualization",
+            "percentages",
+            "graph-literacy"
+          ],
+          "video": {
+            "resourceId": "cat-video-dilr",
+            "locator": "Pie Chart 1; video Kn17_JoFmjU."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "8.2 Visualizing Data, qualitative-data bar and pie representations and discussion of misleading graphs."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "cat-assignment-13",
+            "title": "Represent the same data without distortion",
+            "kind": "design",
+            "instructions": [
+              "Use department spending of 120, 80, 100 and 100 units. Create a table, bar chart and pie chart with exact shares and angles.",
+              "For monthly totals 200, 250, 240 and 300, create a line chart and calculate each month-to-month percentage change.",
+              "Deliberately create one misleading axis choice and explain why it distorts the impression without changing the data."
+            ],
+            "deliverables": [
+              "Three faithful representations and one time-series chart.",
+              "One misleading example with a correction."
+            ],
+            "acceptanceCriteria": [
+              "4 points: pie angles sum to 360 and shares to 100%.",
+              "4 points: units, axes and changes are correct.",
+              "2 points: critique identifies a specific visual distortion."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-13",
+                "prompt": "A pie chart represents total spending of 400 units. One department spends 120 units. What is its sector angle in degrees?",
+                "kind": "numeric",
+                "answer": 108,
+                "explanation": "The department has 120/400 = 30% of the total. Its sector is 0.30 times 360 = 108 degrees."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What does a change in share fail to tell you without the total?",
+            "When is a line chart inappropriate for unordered categories?"
+          ]
+        },
+        {
+          "id": "cat-lesson-caselets",
+          "title": "Caselets, missing data and constraint tables",
+          "objectives": [
+            "Convert a prose caselet into variables and equations.",
+            "Distinguish a unique solution from an underdetermined situation."
+          ],
+          "topics": [
+            {
+              "title": "Representation",
+              "details": [
+                "Define variables with units and construct a minimal table.",
+                "Translate totals, differences, ratios and conditions into equations."
+              ]
+            },
+            {
+              "title": "Constraint management",
+              "details": [
+                "Use integer, positivity and capacity bounds.",
+                "Check whether a requested quantity is determined even when every individual value is not."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "mathematical-modeling",
+            "constraint-reasoning",
+            "linear-systems"
+          ],
+          "video": {
+            "resourceId": "cat-video-dilr",
+            "locator": "Quant Based Puzzles - Set -1; video sQofq1SfL1M."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "5.2 Linear Equations in One Variable with Applications; 5.9 Systems of Linear Equations in Two Variables."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-14",
+            "title": "Recover and stress-test a missing table",
+            "kind": "problem-set",
+            "instructions": [
+              "Use shops P, Q and R with total sales of 96 units, Q selling eight more than P and R selling twice P. Recover the table.",
+              "Repeat with totals 104 and 120 while keeping the relationships unchanged.",
+              "Remove the twice-P condition from the original case and exhibit two different valid tables to demonstrate underdetermination."
+            ],
+            "deliverables": [
+              "Three recovered tables.",
+              "Two counterexample tables for the weakened caselet."
+            ],
+            "acceptanceCriteria": [
+              "4 points: all original relationships satisfied.",
+              "4 points: distinguish unique from underdetermined cases using actual examples.",
+              "2 points: clear variable definitions and units."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-14",
+                "prompt": "Shops P, Q and R sell 96 items altogether. Q sells eight more than P, and R sells twice as many as P. How many items does P sell?",
+                "kind": "numeric",
+                "answer": 22,
+                "explanation": "Let P sell x. Then x + (x + 8) + 2x = 96, so 4x = 88 and x = 22. Q and R sell 30 and 44."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What fact supplied each equation?",
+            "Can you prove that a solution is unique rather than merely finding one?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-verbal-practice",
+      "title": "05. Verbal Coherence and Mixed VARC",
+      "stage": "intermediate",
+      "description": "Apply reading structure to arrangements, summaries and increasingly time-bounded passages.",
+      "prerequisites": [
+        "cat-module-varc-foundations"
+      ],
+      "paperTags": [
+        "VARC"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-paragraph-order",
+          "title": "Parajumbles, odd sentences and sentence insertion",
+          "objectives": [
+            "Construct and justify a coherent sentence order.",
+            "Test insertion and elimination using both local links and the paragraph's central purpose."
+          ],
+          "topics": [
+            {
+              "title": "Ordering constraints",
+              "details": [
+                "Opening sentences, antecedents, mandatory pairs, chronology and general-to-specific development.",
+                "Avoid deciding an entire order from one attractive word match."
+              ]
+            },
+            {
+              "title": "Insertion and elimination",
+              "details": [
+                "Check references before and after an insertion point.",
+                "An odd sentence may share vocabulary while serving a different argument or topic."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "text-coherence",
+            "logical-ordering",
+            "reference-resolution"
+          ],
+          "video": {
+            "resourceId": "cat-video-parajumbles",
+            "locator": "Full lecture Para Jumbles Concepts; video vO8U6a8kFnU."
+          },
+          "reading": {
+            "resourceId": "cat-book-writing",
+            "locator": "11.3 Glance at Genre: Reasoning Strategies and Signal Words; 6.7 Evaluation: Conventions, Clarity, and Coherence."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-15",
+            "title": "Prove a paragraph order",
+            "kind": "problem-set",
+            "instructions": [
+              "Solve the original ordering question below and write the evidence for every adjacent pair.",
+              "Write a new four-sentence process paragraph, shuffle it, and provide a dependency graph that recovers the order.",
+              "Add one topical but irrelevant sentence and one sentence that has only one sensible insertion point; explain both decisions."
+            ],
+            "deliverables": [
+              "Two ordered paragraphs with dependency evidence.",
+              "An odd-sentence diagnosis and insertion explanation."
+            ],
+            "acceptanceCriteria": [
+              "4 points: original order and odd sentence correct.",
+              "4 points: the new paragraph has defensible reference/sequence constraints.",
+              "2 points: explain both sides of the insertion point."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-15",
+                "prompt": "Order the four sentences forming a process paragraph and identify the unrelated fifth sentence. A: The filtered water was then placed in transparent containers. B: The class first collected muddy water from a pond. C: Next, it passed the collected water through layers of cloth and sand. D: Finally, students compared the contents of those containers after an hour. E: The library acquired new history books that week.",
+                "kind": "short-answer",
+                "answer": "B, C, A, D; E is unrelated.",
+                "explanation": "B introduces collection; C acts on the collected water; A refers to the filtered result; D refers to the containers introduced in A. E does not contribute to the process."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which adjacency is mandatory, and why?",
+            "Does an inserted sentence connect coherently in both directions?"
+          ]
+        },
+        {
+          "id": "cat-lesson-summary",
+          "title": "Paragraph summaries and option elimination",
+          "objectives": [
+            "Compress an argument without adding a claim.",
+            "Reject summaries that omit the central contrast or alter causal strength."
+          ],
+          "topics": [
+            {
+              "title": "Faithful compression",
+              "details": [
+                "Preserve the main claim, logical relationship and essential qualification.",
+                "Discard illustrations only when the central argument survives."
+              ]
+            },
+            {
+              "title": "Distractor diagnosis",
+              "details": [
+                "Partial summaries, reversals, unsupported recommendations and exaggerated certainty.",
+                "Compare scope and emphasis rather than selecting the option with the most repeated words."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "summarization",
+            "argument-structure",
+            "scope-control"
+          ],
+          "video": {
+            "resourceId": "cat-video-critical-reasoning",
+            "locator": "CAT Para Summary Questions: Learn The Method To Improve VARC Scores; video GFMXohhRw4o."
+          },
+          "reading": {
+            "resourceId": "cat-book-writing",
+            "locator": "1.5 Writing Process: Thinking Critically About a 'Text', Responding to Understand: Summary and Responding to Clarify: Paraphrase."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-16",
+            "title": "Compress without distortion",
+            "kind": "lab",
+            "instructions": [
+              "Summarize the original transit paragraph below in 40 words and then 20 words.",
+              "Construct three tempting but wrong summaries: one partial, one causal overclaim and one unsupported recommendation.",
+              "Compare your versions against a checklist of topic, main relationship and qualification."
+            ],
+            "deliverables": [
+              "Two faithful summaries.",
+              "Three diagnosed distractors and a preservation checklist."
+            ],
+            "acceptanceCriteria": [
+              "4 points: both summaries preserve the central distinction.",
+              "4 points: each distractor contains the stated error.",
+              "2 points: word limits met without copying the passage sentence by sentence."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-16",
+                "prompt": "Original passage: A bus route can become more useful without carrying more passengers over the whole day. Moving a departure closer to the beginning of a factory shift may reduce workers' waiting time even if daily ridership remains unchanged. Evaluating the revised timetable only by passenger totals would therefore miss an important part of its value. Which is the best summary?",
+                "kind": "single-choice",
+                "choices": [
+                  "A. Timetable value includes passenger convenience, which total ridership alone may miss.",
+                  "B. Bus routes are useful only when daily ridership rises.",
+                  "C. Factories should operate their own buses.",
+                  "D. Every timetable change reduces waiting time."
+                ],
+                "answer": "A",
+                "explanation": "The argument distinguishes service usefulness from daily passenger volume and illustrates the distinction with waiting time. The other options contradict or extend beyond the passage."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which qualification cannot be removed?",
+            "Does a summary preserve the author's relationship between ideas, not just the nouns?"
+          ]
+        },
+        {
+          "id": "cat-lesson-varc-mixed",
+          "title": "Unfamiliar genres and timed mixed VARC",
+          "objectives": [
+            "Use context to read unfamiliar disciplinary language.",
+            "Apply a repeatable passage-selection and review process under an adjustable practice timer."
+          ],
+          "topics": [
+            {
+              "title": "Genre transfer",
+              "details": [
+                "Science: hypotheses, evidence and uncertainty; humanities: interpretation and perspective.",
+                "Economics and social science: mechanisms, comparisons and limits of generalization."
+              ]
+            },
+            {
+              "title": "Timed application",
+              "details": [
+                "Select passages by readability and question evidence, not topic prejudice.",
+                "Track time, confidence and answer changes; separate comprehension problems from option-selection problems."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "reading-comprehension",
+            "contextual-vocabulary",
+            "timed-practice"
+          ],
+          "video": {
+            "resourceId": "cat-video-genres",
+            "locator": "Essential Terms to Navigate Science & Technology RCs; video wI11h-PK_iY, August 27, 2026."
+          },
+          "reading": {
+            "resourceId": "cat-book-writing",
+            "locator": "8.1 Information and Critical Thinking; 16.3 Glance at Genre: Print or Textual Analysis."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-17",
+            "title": "Run a small mixed VARC laboratory",
+            "kind": "lab",
+            "instructions": [
+              "Select two unseen creator-authored RC exercises and four verbal exercises from the external question bank. Record URLs and question identifiers, not copied content.",
+              "Attempt them in a 40-minute training window, with permission to leave questions unanswered. This exercise is not a standardized CAT section.",
+              "Before reading explanations, write an evidence-based reason for every answer; then classify comprehension versus elimination errors and re-solve after seven days."
+            ],
+            "deliverables": [
+              "Attempt log with time and confidence.",
+              "Evidence notes and delayed-review record."
+            ],
+            "acceptanceCriteria": [
+              "4 points: every attempted answer has a textual justification.",
+              "3 points: errors classified accurately.",
+              "3 points: retain a delayed re-solve and one measurable strategy change; score alone is not the completion criterion."
+            ],
+            "externalUrl": "https://iim-cat-questions-answers.2iim.com/",
+            "questions": [
+              {
+                "id": "cat-q-17",
+                "prompt": "Original passage: Calling urban trees 'air conditioners' is useful shorthand, but the comparison has limits. Trees can cool nearby spaces through shade and evaporation; their effect depends on water, species and placement. Unlike a mechanical unit, a tree does not deliver a fixed cooling output on demand. Why does the author discuss mechanical units?",
+                "kind": "single-choice",
+                "choices": [
+                  "A. To claim trees provide no cooling.",
+                  "B. To explain the limits of the opening analogy.",
+                  "C. To recommend removing urban trees.",
+                  "D. To prove all species cool equally."
+                ],
+                "answer": "B",
+                "explanation": "The passage first uses an analogy and then qualifies it. Mechanical units provide the contrast that clarifies why the analogy should not be taken literally."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Did unfamiliar vocabulary prevent understanding, or did you only assume it would?",
+            "Which wrong answer had the highest confidence, and what evidence should have changed it?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-algebra",
+      "title": "06. Algebra and Functional Reasoning",
+      "stage": "intermediate",
+      "description": "Move from verbal models to symbolic manipulation, domain-aware reasoning and structured patterns.",
+      "prerequisites": [
+        "cat-module-arithmetic"
+      ],
+      "paperTags": [
+        "QA",
+        "DILR-support"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-equations",
+          "title": "Linear systems, identities and quadratic equations",
+          "objectives": [
+            "Choose between substitution, elimination and factoring.",
+            "Check roots against the original equation and the situation's domain."
+          ],
+          "topics": [
+            {
+              "title": "Equation construction",
+              "details": [
+                "Translate ages, totals, prices and ratios into linear equations.",
+                "Recognize consistent, inconsistent and dependent systems."
+              ]
+            },
+            {
+              "title": "Quadratic structure",
+              "details": [
+                "Factorization, identities, discriminant and root-sum/root-product relationships.",
+                "Reject extraneous or contextually impossible roots; use substitution to verify."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "linear-equations",
+            "quadratics",
+            "algebraic-modeling"
+          ],
+          "video": {
+            "resourceId": "cat-video-algebra",
+            "locator": "Simple Equations 1: Linear Equation Solutions, W6MKuAnB0h4; Quadratic Equation 1: Fundamentals and Inequalities, rk64bqehuto."
+          },
+          "reading": {
+            "resourceId": "cat-book-algebra",
+            "locator": "2.2 Linear Equations in One Variable; 2.5 Quadratic Equations; 11.1 Systems of Linear Equations: Two Variables."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-18",
+            "title": "Solve and verify an equation portfolio",
+            "kind": "problem-set",
+            "instructions": [
+              "Solve x+y=11 with xy=24; 2x+3y=19 with x-y=2; and x squared minus 9x plus 20 equals zero.",
+              "Construct one dependent and one inconsistent pair of linear equations and explain the difference.",
+              "Write a short price or age story for one solvable system and check whether both algebraic variables are meaningful."
+            ],
+            "deliverables": [
+              "Five worked systems/equations.",
+              "One original model with domain checks."
+            ],
+            "acceptanceCriteria": [
+              "5 points: valid methods and correct solutions.",
+              "3 points: all solutions substituted back.",
+              "2 points: dependent/inconsistent distinction and domain reasoning clear."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-18",
+                "prompt": "Two positive numbers have sum 11 and product 24. What is the larger number?",
+                "kind": "numeric",
+                "answer": 8,
+                "explanation": "Each number is a root of t squared minus 11t plus 24 = 0, which factors as (t-3)(t-8). The larger is 8."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When is elimination shorter than substitution?",
+            "Why does finding a root not finish a contextual problem?"
+          ]
+        },
+        {
+          "id": "cat-lesson-inequalities",
+          "title": "Inequalities, absolute value and bounds",
+          "objectives": [
+            "Solve inequalities with correct sign and endpoint handling.",
+            "Translate absolute value into distance or cases."
+          ],
+          "topics": [
+            {
+              "title": "Order and signs",
+              "details": [
+                "Reverse the inequality when multiplying or dividing by a negative.",
+                "Use sign intervals for products and rational expressions; exclude undefined points."
+              ]
+            },
+            {
+              "title": "Absolute value and bounds",
+              "details": [
+                "Distance interpretation, interval solutions and piecewise definitions.",
+                "Use elementary square nonnegativity or AM-GM only under valid assumptions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "inequalities",
+            "absolute-value",
+            "case-analysis"
+          ],
+          "video": {
+            "resourceId": "cat-video-algebra",
+            "locator": "Inequalities 1: Rules and Applications; video zIrr1lkvyBY."
+          },
+          "reading": {
+            "resourceId": "cat-book-algebra",
+            "locator": "2.7 Linear Inequalities and Absolute Value Inequalities; 3.6 Absolute Value Functions."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-19",
+            "title": "Produce a boundary-aware solution atlas",
+            "kind": "problem-set",
+            "instructions": [
+              "Solve |2x-3|<5, |x+1|>=3, -3x+4>10, and (x-1)/(x+2)>0.",
+              "Draw solution sets on number lines and test one value inside each interval and one outside.",
+              "Explain why x=-2 must be excluded in the rational inequality even if a careless manipulation seems to include it."
+            ],
+            "deliverables": [
+              "Four worked solutions and number lines.",
+              "A sign/domain checklist."
+            ],
+            "acceptanceCriteria": [
+              "5 points: solution intervals and endpoint inclusion correct.",
+              "3 points: substitutions confirm interval behaviour.",
+              "2 points: excluded-domain point explicitly handled."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-19",
+                "prompt": "Solve |2x-3|<5 over the real numbers.",
+                "kind": "short-answer",
+                "answer": "-1 < x < 4",
+                "explanation": "The inequality is equivalent to -5 < 2x-3 < 5. Adding 3 and dividing by 2 gives -1 < x < 4."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which operation can reverse an inequality?",
+            "What is the distinction between an excluded point and an open endpoint?"
+          ]
+        },
+        {
+          "id": "cat-lesson-functions-logs",
+          "title": "Functions, graphs, exponents and logarithms",
+          "objectives": [
+            "Determine domains before manipulating functions.",
+            "Solve elementary exponential and logarithmic equations while checking admissible values."
+          ],
+          "topics": [
+            {
+              "title": "Functions",
+              "details": [
+                "Inputs, outputs, domain/range, composition and inverse relationships.",
+                "Read intercepts and transformations; interpret simple piecewise and absolute-value graphs."
+              ]
+            },
+            {
+              "title": "Exponents and logarithms",
+              "details": [
+                "Exponent laws, positive logarithm arguments and valid bases.",
+                "Product/quotient/power log laws; avoid treating log of a sum as a sum of logs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "functions",
+            "logarithms",
+            "domain-analysis"
+          ],
+          "video": {
+            "resourceId": "cat-video-algebra",
+            "locator": "Functions 1: Domain Range Types Of Functions, 6FEnbG2Ux5o; Functions-7: Domain of Logarithmic Functions, nHOh5GHiw30."
+          },
+          "reading": {
+            "resourceId": "cat-book-algebra",
+            "locator": "3.1 Functions and Function Notation; 3.2 Domain and Range; 6.5 Logarithmic Properties; 6.6 Exponential and Logarithmic Equations."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-20",
+            "title": "Keep a domain ledger",
+            "kind": "problem-set",
+            "instructions": [
+              "State domains for 1/(x-2), square root of (x+3), and log base 2 of (x-1).",
+              "For f(x)=2x+1 and g(x)=x squared, compute f(g(x)) and g(f(x)); give a numerical input where they differ.",
+              "Solve the self-check logarithmic equation and explain why one algebraic root is rejected."
+            ],
+            "deliverables": [
+              "Domain ledger and composition calculations.",
+              "A fully checked logarithmic solution."
+            ],
+            "acceptanceCriteria": [
+              "4 points: all domain restrictions correct.",
+              "3 points: composition order preserved.",
+              "3 points: invalid root rejected using the original log arguments."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-20",
+                "prompt": "Solve log base 2 of (x-1) plus log base 2 of (x-3) = 3 over the real numbers.",
+                "kind": "numeric",
+                "answer": 5,
+                "explanation": "The domain is x>3. Combining logs gives (x-1)(x-3)=8, so x squared minus 4x minus 5 = 0. Roots are 5 and -1; only 5 satisfies the domain."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What restrictions must be written before combining logarithms?",
+            "Why are composition and ordinary multiplication different operations?"
+          ]
+        },
+        {
+          "id": "cat-lesson-series",
+          "title": "Sequences, AP, GP and finite sums",
+          "objectives": [
+            "Infer an arithmetic or geometric model from given terms.",
+            "Compute finite sums and distinguish a supported rule from an arbitrary pattern guess."
+          ],
+          "topics": [
+            {
+              "title": "Sequence models",
+              "details": [
+                "Term index, common difference, common ratio and nth-term expressions.",
+                "Solve for parameters using two known terms."
+              ]
+            },
+            {
+              "title": "Summation",
+              "details": [
+                "AP pairing and finite GP cancellation derivations.",
+                "Translate repeated growth and regularly changing quantities into a sequence; avoid unjustified extrapolation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "sequences",
+            "series",
+            "pattern-modeling"
+          ],
+          "video": {
+            "resourceId": "cat-video-algebra",
+            "locator": "Arithmetic Progression 1: AP Average Funda; video wSbjXsULtrI. Optional verified playlist entry: Geometric Progression-1: Basics, eZpQzLws2UE."
+          },
+          "reading": {
+            "resourceId": "cat-book-algebra",
+            "locator": "13.2 Arithmetic Sequences; 13.3 Geometric Sequences; 13.4 Series and Their Notations."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-21",
+            "title": "Derive before using a formula",
+            "kind": "problem-set",
+            "instructions": [
+              "Derive the AP sum formula by pairing terms and the finite GP sum formula by subtraction.",
+              "Solve the original AP self-check and calculate the first six terms and sum of the GP beginning 3, 6, 12.",
+              "Give two different rules agreeing on the first three terms of a short sequence to show why unspecified patterns need caution."
+            ],
+            "deliverables": [
+              "Two short derivations.",
+              "Worked AP/GP cases and a pattern-ambiguity example."
+            ],
+            "acceptanceCriteria": [
+              "4 points: derivations logically valid.",
+              "4 points: correct indexing and sums.",
+              "2 points: ambiguity demonstrated by actual rules, not just asserted."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-21",
+                "prompt": "In an arithmetic progression, the fifth term is 17 and the twelfth term is 45. What is the sum of the first twelve terms?",
+                "kind": "numeric",
+                "answer": 276,
+                "explanation": "Seven common differences total 28, so d=4. The first term is 17-16=1. The sum is 12 times (1+45)/2 = 276."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does your formula use n or n-1 differences?",
+            "Which assumption allows you to call a sequence an AP or GP?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-number-theory",
+      "title": "07. Number Properties",
+      "stage": "intermediate",
+      "description": "Use factorization, divisibility and remainder cycles to reduce large calculations to small structures.",
+      "prerequisites": [
+        "cat-module-arithmetic"
+      ],
+      "paperTags": [
+        "QA"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-divisibility",
+          "title": "Primes, divisors, HCF/LCM and factorial structure",
+          "objectives": [
+            "Use prime factorization to count and classify divisors.",
+            "Explain HCF, LCM and factorial-zero calculations structurally."
+          ],
+          "topics": [
+            {
+              "title": "Factorization",
+              "details": [
+                "Prime/composite distinction, divisibility and exponent representation.",
+                "Count total, odd, even and perfect-square divisors from exponent choices."
+              ]
+            },
+            {
+              "title": "Applications",
+              "details": [
+                "HCF/LCM using minimum/maximum prime exponents.",
+                "Trailing zeros and the limiting supply of factors 2 and 5; elementary integer bounds."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "prime-factorization",
+            "divisibility",
+            "integer-reasoning"
+          ],
+          "video": {
+            "resourceId": "cat-video-numbers",
+            "locator": "Factors 1; video co30DI-DAlU. Optional verified playlist entry: HCF LCM 1, JyN6EROdhrw."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "3.1 Prime and Composite Numbers; 3.8 Exponents. Divisor-count and factorial applications are developed in the CAT lecture and original work."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-22",
+            "title": "Construct a divisor atlas",
+            "kind": "problem-set",
+            "instructions": [
+              "Factor 72, 180 and 360; count total, odd and perfect-square positive divisors of each.",
+              "Find HCF and LCM of 84 and 126 by prime exponents and verify their product identity for this pair.",
+              "Count trailing zeros in 25 factorial by counting factors of 5 rather than multiplying."
+            ],
+            "deliverables": [
+              "Three-number divisor table.",
+              "HCF/LCM proof and factorial-zero explanation."
+            ],
+            "acceptanceCriteria": [
+              "5 points: exponent choices and counts correct.",
+              "3 points: HCF/LCM justified structurally.",
+              "2 points: factorial method accounts for multiples of 25."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-22",
+                "prompt": "How many positive divisors of 360 are perfect squares?",
+                "kind": "numeric",
+                "answer": 4,
+                "explanation": "360 = 2 cubed times 3 squared times 5. Square divisors use even exponents: 0 or 2 for 2, 0 or 2 for 3, and 0 for 5. There are 2 times 2 times 1 = 4: 1, 4, 9 and 36."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why do square divisors require even prime exponents?",
+            "What makes a prime factor the limiting factor in a trailing-zero problem?"
+          ]
+        },
+        {
+          "id": "cat-lesson-remainders",
+          "title": "Remainders, cyclicity and digit constraints",
+          "objectives": [
+            "Reduce a large power using a verified cycle.",
+            "Apply remainder rules without confusing a congruence with ordinary equality."
+          ],
+          "topics": [
+            {
+              "title": "Modular reasoning",
+              "details": [
+                "Quotient-remainder representation; addition and multiplication of remainders.",
+                "Normalize negative remainders; check conditions before cancellation."
+              ]
+            },
+            {
+              "title": "Cycles and digits",
+              "details": [
+                "Units-digit cycles and exponent indexing.",
+                "Digit-sum divisibility checks and simple constraints on integer representations."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "modular-arithmetic",
+            "cycles",
+            "integer-reasoning"
+          ],
+          "video": {
+            "resourceId": "cat-video-numbers",
+            "locator": "Remainders 1; video 1PYOIpFFwC4."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "3.7 Clock Arithmetic; 3.8 Exponents."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-23",
+            "title": "Build and verify a cycle notebook",
+            "kind": "problem-set",
+            "instructions": [
+              "List units digits of the first eight positive powers of 2, 3 and 7; identify and verify each cycle.",
+              "Use those cycles for exponents 25, 40 and 2026, explaining the remainder-zero indexing case.",
+              "Calculate the nonnegative remainder of -17 divided by 5 and check it using quotient-remainder form."
+            ],
+            "deliverables": [
+              "Three verified cycle tables.",
+              "Nine large-exponent answers and a negative-remainder check."
+            ],
+            "acceptanceCriteria": [
+              "4 points: periods verified rather than guessed.",
+              "4 points: exponent indexing correct, including multiples of the period.",
+              "2 points: quotient-remainder identity explicitly checked."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-23",
+                "prompt": "What is the units digit of 7 raised to the power 2026?",
+                "kind": "numeric",
+                "answer": 9,
+                "explanation": "The units digits cycle through 7, 9, 3, 1 with period four. Since 2026 leaves remainder two when divided by four, the units digit is the second cycle entry, 9."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What happens when the exponent is a multiple of the cycle length?",
+            "Why is modular cancellation not always valid?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-logical-reasoning",
+      "title": "08. Constraint-Based DILR",
+      "stage": "intermediate",
+      "description": "Represent arrangements, allocations and competitions systematically, then choose sets intelligently under time pressure.",
+      "prerequisites": [
+        "cat-module-data-interpretation",
+        "cat-module-algebra"
+      ],
+      "paperTags": [
+        "DILR"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-arrangements",
+          "title": "Linear and circular arrangements",
+          "objectives": [
+            "Translate positional language into explicit constraints.",
+            "Enumerate cases without omitting or double-counting possibilities."
+          ],
+          "topics": [
+            {
+              "title": "Arrangement models",
+              "details": [
+                "Linear positions, adjacency, ordering and fixed anchors.",
+                "Circular orientation, facing direction and rotational equivalence; distinguish left of from immediately left of."
+              ]
+            },
+            {
+              "title": "Case discipline",
+              "details": [
+                "Start with restrictive clues and propagate consequences.",
+                "Separate must-be-true, could-be-true and impossible conclusions; verify all original clues."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "constraint-satisfaction",
+            "case-analysis",
+            "spatial-reasoning"
+          ],
+          "video": {
+            "resourceId": "cat-video-dilr",
+            "locator": "Linear and Circular Arrangement-I; video 4tI-h-GKWVk."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "2.2 Compound Statements; 2.7 Logical Arguments. These supply the logical foundation, not a CAT seating-arrangement chapter."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-24",
+            "title": "Maintain a complete arrangement case tree",
+            "kind": "problem-set",
+            "instructions": [
+              "Solve the five-person arrangement below and show every deduction.",
+              "Remove the clue that D is left of C and enumerate the resulting valid orders.",
+              "Create a four-person circular arrangement with one fixed anchor; distinguish rotations from genuinely different orders."
+            ],
+            "deliverables": [
+              "Original solution and weakened-clue case tree.",
+              "Circular diagram with a symmetry explanation."
+            ],
+            "acceptanceCriteria": [
+              "4 points: every retained order satisfies every clue.",
+              "4 points: complete enumeration for the weakened case.",
+              "2 points: orientation and rotational assumptions stated."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-24",
+                "prompt": "A, B, C, D and E occupy positions 1 to 5 from left to right. A is in position 1 and E in position 5. C is immediately to the right of B. D is somewhere to the left of C. Who occupies position 3?",
+                "kind": "short-answer",
+                "answer": "B",
+                "explanation": "B-C can occupy 2-3 or 3-4. The first option would leave D in position 4, violating D being left of C. Thus the order is A-D-B-C-E."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which clue removes the most cases?",
+            "Did you prove a conclusion in every case or only in one convenient arrangement?"
+          ]
+        },
+        {
+          "id": "cat-lesson-grouping",
+          "title": "Grouping, distribution and capacity constraints",
+          "objectives": [
+            "Model membership, quantities and capacities separately.",
+            "Count feasible assignments while distinguishing labelled from unlabelled groups."
+          ],
+          "topics": [
+            {
+              "title": "Allocation models",
+              "details": [
+                "Binary membership tables, exactly/at least/at most conditions and capacity totals.",
+                "Together/apart constraints and conditional inclusion."
+              ]
+            },
+            {
+              "title": "Distribution reasoning",
+              "details": [
+                "Distinguishable versus identical objects; labelled recipients.",
+                "Use lower and upper bounds before branching; preserve total quantities."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "allocation",
+            "constraint-satisfaction",
+            "counting"
+          ],
+          "video": {
+            "resourceId": "cat-video-dilr",
+            "locator": "Chocolate Distribution Method-1; video hOUKSCHy5Zc."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "2.2 Compound Statements; 7.1 The Multiplication Rule for Counting."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-25",
+            "title": "Enumerate a labelled-team allocation",
+            "kind": "problem-set",
+            "instructions": [
+              "Enumerate the two-team problem below using a membership table.",
+              "Then add the condition that E must be in X and explain the effect on the solution count.",
+              "Separately distribute eight identical counters among labelled boxes P, Q and R with at least one in each; list feasible ordered triples by the value in P."
+            ],
+            "deliverables": [
+              "Complete team-assignment table.",
+              "Counter-distribution list grouped without duplicates."
+            ],
+            "acceptanceCriteria": [
+              "4 points: team constraints and capacities satisfied.",
+              "4 points: ordered counter triples total eight and contain positive entries.",
+              "2 points: labelled groups are not mistakenly merged as equivalent."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-25",
+                "prompt": "Six people A, B, C, D, E and F are divided between labelled teams X and Y, with three people per team. A and C must be in X; B and D must be in Y. How many valid assignments are possible?",
+                "kind": "numeric",
+                "answer": 2,
+                "explanation": "Each team has one open place. E can be in X and F in Y, or F can be in X and E in Y. These are distinct because the teams are labelled."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Are the objects and recipients distinguishable?",
+            "What can total capacity force before any detailed casework?"
+          ]
+        },
+        {
+          "id": "cat-lesson-venn",
+          "title": "Sets, Venn regions and inclusion-exclusion",
+          "objectives": [
+            "Distinguish an inclusive intersection from an exclusive region.",
+            "Reconcile a three-set diagram with the universe total."
+          ],
+          "topics": [
+            {
+              "title": "Set language",
+              "details": [
+                "Union, intersection, complement and exactly-one/exactly-two membership.",
+                "Pairwise intersection counts may include the triple intersection."
+              ]
+            },
+            {
+              "title": "Region reconstruction",
+              "details": [
+                "Fill the deepest overlap first and work outward.",
+                "Use nonnegative-region and universe bounds to detect inconsistent data."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sets",
+            "inclusion-exclusion",
+            "data-consistency"
+          ],
+          "video": {
+            "resourceId": "cat-video-dilr",
+            "locator": "Venn Diagram & Chocolate Distribution (Introduction)-1; video D3iR5cIr_VQ."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "1.3 Understanding Venn Diagrams; 1.4 Set Operations with Two Sets; 1.5 Set Operations with Three Sets."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-26",
+            "title": "Reconstruct an eight-region survey",
+            "kind": "problem-set",
+            "instructions": [
+              "Use the original three-activity survey below to fill all seven internal regions and the outside region.",
+              "Calculate exactly one, exactly two, at least two and none.",
+              "Change the reported triple intersection from five to eleven while keeping pairwise counts unchanged; identify whether any region becomes impossible."
+            ],
+            "deliverables": [
+              "Complete Venn diagram and region table.",
+              "Four aggregate counts and one consistency diagnosis."
+            ],
+            "acceptanceCriteria": [
+              "4 points: inclusive intersections converted correctly.",
+              "4 points: all original totals and the universe reconcile.",
+              "2 points: inconsistent modified data detected through a specific negative region."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-26",
+                "prompt": "Among 100 people, 45 do activity A, 38 do B and 30 do C. The counts for A and B, A and C, and B and C are 15, 12 and 10 respectively; each pairwise count includes people doing all three. Five do all three. How many do none?",
+                "kind": "numeric",
+                "answer": 19,
+                "explanation": "The union has 45+38+30-15-12-10+5 = 81 people. Therefore 100-81 = 19 do none."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does the word 'both' include the triple overlap here?",
+            "Which negative region would expose inconsistent source data?"
+          ]
+        },
+        {
+          "id": "cat-lesson-tournaments",
+          "title": "Games, tournaments, rankings and score tables",
+          "objectives": [
+            "Connect fixtures, results and score totals.",
+            "Use invariants to narrow possible tournament outcomes."
+          ],
+          "topics": [
+            {
+              "title": "Tournament structures",
+              "details": [
+                "Single round-robin match counts and knockout elimination counts.",
+                "Represent participants as vertices and games as edges; account for byes and repeated meetings explicitly."
+              ]
+            },
+            {
+              "title": "Score constraints",
+              "details": [
+                "Wins, draws, losses and scoring rules determine total points.",
+                "Differentiate ranking information from exact scores; reason from minimum and maximum possibilities."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "graph-modeling",
+            "invariants",
+            "constraint-reasoning"
+          ],
+          "video": {
+            "resourceId": "cat-video-dilr",
+            "locator": "Games and Tournaments 1; video bC3Wlg6DIRg."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "12.1 Graph Basics, Parts of a Graph; 7.3 Combinations for selecting participant pairs."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-27",
+            "title": "Construct and audit a tournament",
+            "kind": "design",
+            "instructions": [
+              "List all fixtures for five teams playing each other once.",
+              "Invent a consistent result sheet with exactly three draws and seven decisive games under the 3-1-0 scoring rule.",
+              "Compute each team's points and audit the aggregate using the per-game invariant; compare the number of games with a five-team single-elimination event with no third-place match."
+            ],
+            "deliverables": [
+              "Fixture list, result matrix and points table.",
+              "Two independent total-points checks."
+            ],
+            "acceptanceCriteria": [
+              "4 points: exactly ten unique round-robin fixtures.",
+              "4 points: all team and aggregate points reconcile.",
+              "2 points: explain why a five-team knockout requires four eliminations."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-27",
+                "prompt": "Five teams play a single round-robin tournament. A win earns three points, a draw one point per team, and a loss zero. The sum of all teams' points is 27. How many matches were drawn?",
+                "kind": "numeric",
+                "answer": 3,
+                "explanation": "There are ten matches. Ten decisive matches would distribute 30 points; each draw distributes two rather than three, reducing the total by one. A total of 27 therefore means three draws."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What stays invariant across possible result tables?",
+            "Does your fixture count include each pair once or twice?"
+          ]
+        },
+        {
+          "id": "cat-lesson-dilr-selection",
+          "title": "Mixed-set scanning, abandonment and timed DILR",
+          "objectives": [
+            "Choose sets using observable structure and personal solving evidence.",
+            "Abandon an unproductive path without losing the review trail."
+          ],
+          "topics": [
+            {
+              "title": "Set triage",
+              "details": [
+                "Compare representation clarity, clue density and likely branching.",
+                "Separate familiarity from actual solvability; test a flexible scan budget rather than a universal rule."
+              ]
+            },
+            {
+              "title": "Timed execution",
+              "details": [
+                "Use checkpoints for progress, not arbitrary panic thresholds.",
+                "Record setup time, deductions, partial progress and opportunity cost; review abandoned sets blind."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "decision-making",
+            "time-management",
+            "timed-practice"
+          ],
+          "video": {
+            "resourceId": "cat-video-set-selection",
+            "locator": "Set Selection Live | 225-Day Plan; video pN_1Vz0zY3M."
+          },
+          "reading": {
+            "resourceId": "cat-book-study",
+            "locator": "6.3 Test Taking, Preparation vs. Actual Test and Establishing Realistic Expectations for Test Situations."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-28",
+            "title": "Run and review a DILR selection experiment",
+            "kind": "lab",
+            "instructions": [
+              "Choose four unseen creator-authored sets of different structures from the linked bank; retain links and your predicted difficulty ranking.",
+              "Use a 40-minute training timer. Record scan time, chosen order, progress checkpoints and any abandonment.",
+              "Before viewing solutions, attempt the skipped sets without time pressure. Compare predicted difficulty with actual work required."
+            ],
+            "deliverables": [
+              "Prediction/attempt comparison table.",
+              "Blind-review solutions and two revised selection rules."
+            ],
+            "acceptanceCriteria": [
+              "4 points: a complete timing and decision log.",
+              "3 points: review includes skipped sets, not only mistakes.",
+              "3 points: revised rules cite observations rather than a desired percentile."
+            ],
+            "externalUrl": "https://iim-cat-questions-answers.2iim.com/",
+            "questions": [
+              {
+                "id": "cat-q-28",
+                "prompt": "In a simplified planning exercise, sets must be completed entirely or not attempted. A takes 12 minutes and yields 3 correct answers; B takes 6 minutes and yields 2; C takes 9 minutes and yields 3. With 15 minutes and three marks per correct answer, which selection maximizes marks?",
+                "kind": "short-answer",
+                "answer": "B and C, yielding 15 marks in 15 minutes.",
+                "explanation": "B+C yields five correct answers. A alone and C alone yield three; A cannot be combined with B or C within the budget. This is a simplified planning model, not a claim that real set outcomes are predictable."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Was the set hard, or was your initial representation poor?",
+            "What evidence should trigger abandonment and what should trigger persistence?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-geometry",
+      "title": "09. Geometry and Mensuration",
+      "stage": "intermediate",
+      "description": "Combine accurate diagrams, proportional reasoning, coordinates and dimensional checks.",
+      "prerequisites": [
+        "cat-module-algebra"
+      ],
+      "paperTags": [
+        "QA"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-triangles",
+          "title": "Triangles, similarity, areas and centres",
+          "objectives": [
+            "Choose a useful triangle representation.",
+            "Connect side ratios, areas and standard centre properties."
+          ],
+          "topics": [
+            {
+              "title": "Triangle foundations",
+              "details": [
+                "Angle sums, triangle inequality, congruence and similarity.",
+                "Pythagoras and standard right-triangle ratios; do not assume a drawing is to scale."
+              ]
+            },
+            {
+              "title": "Area and centres",
+              "details": [
+                "Base-height area, Heron's formula and area ratios.",
+                "Median, altitude, angle bisector, centroid, incenter and circumcenter; link inradius to area and semiperimeter."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "geometry",
+            "similarity",
+            "area"
+          ],
+          "video": {
+            "resourceId": "cat-video-geometry",
+            "locator": "Triangles 1: Centroid Orthocenter Incenter Circumcenter; video 25P2O9r3AfM."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "10.3 Triangles; 10.6 Area, Area of Triangles. The CAT lecture supplies the deeper centre relationships."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-29",
+            "title": "Build a triangle relationship sheet",
+            "kind": "problem-set",
+            "instructions": [
+              "For right triangles with legs 3 and 4, 6 and 8, and 9 and 12, calculate hypotenuse, perimeter and area.",
+              "Explain the side, perimeter and area scaling between them.",
+              "For the 6-8-10 triangle, find its inradius using area divided by semiperimeter and sketch the incircle."
+            ],
+            "deliverables": [
+              "Three-triangle comparison table.",
+              "A scaling explanation and labelled incircle diagram."
+            ],
+            "acceptanceCriteria": [
+              "4 points: side/perimeter/area calculations correct.",
+              "4 points: linear versus squared scaling distinguished.",
+              "2 points: inradius calculation and centre description consistent."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-29",
+                "prompt": "A right triangle has legs 6 and 8. What is its inradius?",
+                "kind": "numeric",
+                "answer": 2,
+                "explanation": "The hypotenuse is 10, area is 24 and semiperimeter is 12. Since area equals inradius times semiperimeter, the inradius is 24/12 = 2."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which facts are given and which are merely suggested by the diagram?",
+            "Why does doubling every side quadruple area?"
+          ]
+        },
+        {
+          "id": "cat-lesson-circles",
+          "title": "Circles, quadrilaterals and polygon relationships",
+          "objectives": [
+            "Use circle and polygon properties with stated conditions.",
+            "Combine a diagram with a short algebraic or proportional argument."
+          ],
+          "topics": [
+            {
+              "title": "Circle geometry",
+              "details": [
+                "Radius, diameter, chord, tangent, arc and sector.",
+                "Perpendicular from centre bisects a chord; tangent-radius perpendicularity and angle relationships."
+              ]
+            },
+            {
+              "title": "Polygons",
+              "details": [
+                "Interior-angle sums, diagonals and properties of common quadrilaterals.",
+                "Cyclic quadrilateral conditions, similarity and decomposing complex areas."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "circle-geometry",
+            "polygons",
+            "spatial-reasoning"
+          ],
+          "video": {
+            "resourceId": "cat-video-geometry",
+            "locator": "Circles 1: Properties of Circles; video EAz4sd6svzo."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "10.4 Polygons, Perimeter, and Circumference; 10.6 Area, quadrilateral and circle sections."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-30",
+            "title": "Solve from a radius-and-chord diagram",
+            "kind": "problem-set",
+            "instructions": [
+              "In a circle of radius five, find chord lengths at perpendicular distances zero, three and four from the centre.",
+              "For a regular hexagon, derive the sum of interior angles, each interior angle and the number of diagonals.",
+              "Draw a rectangle inside a circle and explain why its diagonal is a diameter."
+            ],
+            "deliverables": [
+              "Three labelled chord diagrams.",
+              "Polygon derivation and inscribed-rectangle argument."
+            ],
+            "acceptanceCriteria": [
+              "4 points: chord calculations use half-chords correctly.",
+              "4 points: polygon results justified, not only quoted.",
+              "2 points: rectangle argument explicitly uses the circle/diagonal relationship."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-30",
+                "prompt": "A chord lies three units from the centre of a circle of radius five. What is the chord's length?",
+                "kind": "numeric",
+                "answer": 8,
+                "explanation": "The perpendicular from the centre bisects the chord. A half-chord has length square root of (25-9), or four, so the full chord is eight."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What condition permits use of a circle theorem?",
+            "Are you calculating a half-chord, radius or full length?"
+          ]
+        },
+        {
+          "id": "cat-lesson-coordinates",
+          "title": "Coordinate geometry and algebraic diagrams",
+          "objectives": [
+            "Use coordinates to compute distance, midpoint and slope.",
+            "Choose a coordinate system that simplifies a geometric constraint."
+          ],
+          "topics": [
+            {
+              "title": "Coordinate tools",
+              "details": [
+                "Distance and midpoint from rectangular coordinates.",
+                "Slope, intercepts, parallel/perpendicular lines and equations of simple lines."
+              ]
+            },
+            {
+              "title": "Representation choice",
+              "details": [
+                "Place an origin or axis strategically without losing generality.",
+                "Translate a geometric relationship into algebra and check it back on the diagram."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "coordinate-geometry",
+            "linear-functions",
+            "representation"
+          ],
+          "video": {
+            "resourceId": "cat-video-geometry",
+            "locator": "Geometry Practice 3: Coordinate Geometry & Medians; video NXlFmkHm0N0. Read the introductory book sections before this application lecture."
+          },
+          "reading": {
+            "resourceId": "cat-book-algebra",
+            "locator": "2.1 The Rectangular Coordinate Systems and Graphs; 4.1 Linear Functions."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-31",
+            "title": "Translate a diagram into coordinates",
+            "kind": "problem-set",
+            "instructions": [
+              "For A=(1,2) and B=(5,5), find distance, midpoint, slope and the line equation.",
+              "Find a line through A perpendicular to AB and verify the slope condition.",
+              "Place a 6-by-8 rectangle on coordinate axes and recover its diagonal length using both coordinates and Pythagoras."
+            ],
+            "deliverables": [
+              "Annotated coordinate diagram and line equations.",
+              "Two-method rectangle check."
+            ],
+            "acceptanceCriteria": [
+              "5 points: distance, midpoint and equations correct.",
+              "3 points: coordinate and geometric methods agree.",
+              "2 points: vertical/horizontal special cases are acknowledged in the slope checklist."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-31",
+                "prompt": "What is the distance between the points (1,2) and (5,5)?",
+                "kind": "numeric",
+                "answer": 5,
+                "explanation": "The horizontal and vertical differences are four and three. The distance is the square root of 16+9, which is five."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which placement makes the algebra shortest?",
+            "When is a slope formula undefined rather than zero?"
+          ]
+        },
+        {
+          "id": "cat-lesson-mensuration",
+          "title": "Surface area, volume and composite solids",
+          "objectives": [
+            "Select area or volume according to the physical quantity.",
+            "Track dimensional scaling and unit conversion."
+          ],
+          "topics": [
+            {
+              "title": "Measurement",
+              "details": [
+                "Perimeter versus area versus volume; square and cubic units.",
+                "Prisms, cylinders, cones, pyramids and spheres; curved versus total surface area."
+              ]
+            },
+            {
+              "title": "Composite models",
+              "details": [
+                "Add or subtract component volumes without double-counting interfaces.",
+                "Similarity scaling, material conservation and filling/draining links to rates."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "mensuration",
+            "dimensional-analysis",
+            "volume"
+          ],
+          "video": {
+            "resourceId": "cat-video-geometry",
+            "locator": "Mensuration 1: Prisms, Pyramids & Spheres; video HhtLt2JZKu4."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "9.2 Measuring Area; 9.3 Measuring Volume; 10.7 Volume and Surface Area."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-32",
+            "title": "Audit a container design",
+            "kind": "design",
+            "instructions": [
+              "For a closed cylinder of radius three and height ten, calculate volume and total surface area.",
+              "Double its radius while halving its height; compare the new volume and surface area with the original.",
+              "Convert a rectangular tank of 50 cm by 40 cm by 30 cm into litres and find filling time at six litres per minute."
+            ],
+            "deliverables": [
+              "Container diagrams and measurement table.",
+              "Scaling and unit-conversion audit."
+            ],
+            "acceptanceCriteria": [
+              "4 points: formulas match the actual surfaces or solids.",
+              "4 points: squared/cubed units and litres conversion correct.",
+              "2 points: scaling explained rather than guessed from one dimension."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-32",
+                "prompt": "A cylinder has radius three and height ten. Its volume is k times pi cubic units. What is k?",
+                "kind": "numeric",
+                "answer": 90,
+                "explanation": "Cylinder volume is pi times radius squared times height, giving pi times 9 times 10 = 90 pi."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does this task measure boundary material or capacity?",
+            "How does changing all linear dimensions by a factor affect area and volume?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-modern-math",
+      "title": "10. Counting and Elementary Probability",
+      "stage": "intermediate",
+      "description": "Build small sample spaces and count carefully before applying probability formulas.",
+      "prerequisites": [
+        "cat-module-arithmetic",
+        "cat-module-logical-reasoning"
+      ],
+      "paperTags": [
+        "QA",
+        "DILR-support"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-counting",
+          "title": "Counting, arrangements and selections",
+          "objectives": [
+            "Choose addition, multiplication, permutation or combination reasoning appropriately.",
+            "Handle repetitions and adjacency without double-counting."
+          ],
+          "topics": [
+            {
+              "title": "Counting foundations",
+              "details": [
+                "Addition for disjoint alternatives and multiplication for sequential choices.",
+                "Ordered versus unordered selection; repeated objects and leading-zero restrictions."
+              ]
+            },
+            {
+              "title": "Structured cases",
+              "details": [
+                "Complement, gap and block methods.",
+                "Circular arrangements and symmetry only when equivalence is explicitly defined."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "combinatorics",
+            "case-analysis",
+            "counting"
+          ],
+          "video": {
+            "resourceId": "cat-video-counting",
+            "locator": "Permutations and Combinations 1: Fundamental Principle of Counting; video 8kvqSY1-W5Y."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "7.1 The Multiplication Rule for Counting; 7.2 Permutations; 7.3 Combinations."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-33",
+            "title": "Count twice, by different methods",
+            "kind": "problem-set",
+            "instructions": [
+              "Count arrangements of A,A,B,B,C both without restrictions and with the two As nonadjacent.",
+              "Solve the restricted case by a complement/block method and independently by a gap method.",
+              "Count three-digit numbers formed without repetition from 0,1,2,3,4; show why the first position needs special treatment."
+            ],
+            "deliverables": [
+              "Two independent solutions to the restricted arrangement.",
+              "A leading-zero case breakdown."
+            ],
+            "acceptanceCriteria": [
+              "4 points: repetitions handled correctly.",
+              "4 points: independent methods agree.",
+              "2 points: cases are disjoint and exhaustive."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-33",
+                "prompt": "How many distinct arrangements of A,A,B,B,C have the two As nonadjacent?",
+                "kind": "numeric",
+                "answer": 18,
+                "explanation": "There are 5!/(2!2!) = 30 total arrangements. Treating adjacent As as a block gives 4!/2! = 12 excluded arrangements. Thus 18 remain. Equivalently, arrange B,B,C in three ways and choose two of four gaps for the As, giving 3 times 6."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What is being treated as distinguishable?",
+            "Could the same outcome enter two of your cases?"
+          ]
+        },
+        {
+          "id": "cat-lesson-probability",
+          "title": "Sample spaces, complements and conditional probability",
+          "objectives": [
+            "Define an appropriate sample space before dividing counts.",
+            "Distinguish independence from sampling without replacement."
+          ],
+          "topics": [
+            {
+              "title": "Elementary probability",
+              "details": [
+                "Equally likely outcomes, complements and union/intersection.",
+                "Ordered and unordered sample spaces must use matching favourable counts."
+              ]
+            },
+            {
+              "title": "Conditional reasoning",
+              "details": [
+                "Update the available population after information or a draw.",
+                "Distinguish mutually exclusive events from independent events; interpret simple expected values cautiously."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "probability",
+            "conditional-probability",
+            "sample-spaces"
+          ],
+          "video": {
+            "resourceId": "cat-video-counting",
+            "locator": "Probability 1: Basics, Coin Tosses and Odds; video b6hmLsjbA7E."
+          },
+          "reading": {
+            "resourceId": "cat-book-math",
+            "locator": "7.5 Basic Concepts of Probability; 7.6 Probability with Permutations and Combinations; 7.9 Conditional Probability and the Multiplication Rule."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-34",
+            "title": "Compare replacement and no-replacement models",
+            "kind": "problem-set",
+            "instructions": [
+              "For a bag with four red and three blue counters, find probabilities of two reds, exactly one red and no reds in two draws without replacement.",
+              "Verify that these three probabilities sum to one.",
+              "Repeat with replacement and explain which denominators and independence statements change."
+            ],
+            "deliverables": [
+              "Two probability tables.",
+              "Tree diagram and total-probability check."
+            ],
+            "acceptanceCriteria": [
+              "4 points: sample-space assumptions explicit.",
+              "4 points: probabilities correct and total one.",
+              "2 points: replacement changes explained, not just recalculated."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-34",
+                "prompt": "Two counters are drawn uniformly without replacement from a bag containing four red and three blue counters. What is the probability of exactly one red?",
+                "kind": "short-answer",
+                "answer": "4/7",
+                "explanation": "There are 21 unordered pairs and 4 times 3 = 12 red-blue pairs. Therefore the probability is 12/21 = 4/7."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Are all outcomes in your chosen sample space equally likely?",
+            "What changes after the first draw?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-module-mock-lab",
+      "title": "11. Timed Integration, Mock Review and Final Preparation",
+      "stage": "advanced",
+      "description": "Convert conceptual ability into measured execution while maintaining source-aware rules and a disciplined review loop.",
+      "prerequisites": [
+        "cat-module-verbal-practice",
+        "cat-module-logical-reasoning",
+        "cat-module-algebra",
+        "cat-module-number-theory",
+        "cat-module-geometry",
+        "cat-module-modern-math"
+      ],
+      "paperTags": [
+        "VARC",
+        "DILR",
+        "QA",
+        "strategy"
+      ],
+      "lessons": [
+        {
+          "id": "cat-lesson-qa-mixed",
+          "title": "Timed mixed QA and question selection",
+          "objectives": [
+            "Identify a useful first-pass order without assuming every question deserves equal time.",
+            "Transfer concepts across mixed, unlabelled questions."
+          ],
+          "topics": [
+            {
+              "title": "Selection",
+              "details": [
+                "Classify a question by a workable approach rather than by topic name alone.",
+                "Distinguish quick certainty, promising work and unproductive algebra; leave a clear restart point."
+              ]
+            },
+            {
+              "title": "Execution checks",
+              "details": [
+                "Use units, bounds and substitution to catch errors before entry.",
+                "Typed answers have no wrong-answer penalty under the verified scheme, but still consume time; avoid treating them as costless work."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "mixed-practice",
+            "decision-making",
+            "metacognition"
+          ],
+          "video": {
+            "resourceId": "cat-video-mock-strategy",
+            "locator": "Revisit the verified mock-strategy lecture 8bTh1KD7jGM with a QA selection and analysis checklist."
+          },
+          "reading": {
+            "resourceId": "cat-book-study",
+            "locator": "6.3 Test Taking, Preparation vs. Actual Test and Leveraging Study Habits for Test Prep."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-35",
+            "title": "Run a twelve-question QA experiment",
+            "kind": "lab",
+            "instructions": [
+              "Select twelve unseen creator-authored external questions: three arithmetic, three algebra, two numbers, two geometry and two counting/probability. Retain only links and identifiers.",
+              "Attempt the unlabelled mixture in 40 training minutes; record order, skips and time spent.",
+              "Re-solve every skipped or wrong question blind, then compare topic knowledge with selection and calculation errors."
+            ],
+            "deliverables": [
+              "Timed attempt and blind-review logs.",
+              "Two testable next-attempt changes."
+            ],
+            "acceptanceCriteria": [
+              "4 points: complete timing and answer-entry record.",
+              "4 points: blind review precedes viewing explanations.",
+              "2 points: strategy changes address observed errors; the twelve-question exercise is not called an official section."
+            ],
+            "externalUrl": "https://iim-cat-questions-answers.2iim.com/",
+            "questions": [
+              {
+                "id": "cat-q-35",
+                "prompt": "A box initially contains red and blue counters in the ratio 2:3. After eight red counters are added, the ratio becomes 2:1. How many counters were initially in the box?",
+                "kind": "numeric",
+                "answer": 10,
+                "explanation": "Let the initial numbers be 2k and 3k. Then (2k+8)/(3k)=2, so k=2. The initial total is 5k=10."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Did you skip because the question was difficult or because its topic felt unfamiliar?",
+            "What quick check would have caught your most expensive mistake?"
+          ]
+        },
+        {
+          "id": "cat-lesson-full-mock",
+          "title": "Full-mock protocol and controlled strategy experiments",
+          "objectives": [
+            "Complete a realistic uninterrupted practice session.",
+            "Compare two attempts while changing only a small number of strategy variables."
+          ],
+          "topics": [
+            {
+              "title": "Simulation design",
+              "details": [
+                "Use a fresh external mock, the provider's instructions and a documented timing profile.",
+                "Practise fixed section order and onscreen tools; distinguish training restrictions from rules still awaiting official verification."
+              ]
+            },
+            {
+              "title": "Controlled comparison",
+              "details": [
+                "Predeclare a small strategy hypothesis, such as a different scan budget.",
+                "Compare section-level evidence, not just a headline score or provider percentile."
+              ]
+            }
+          ],
+          "estimatedMinutes": 600,
+          "canonicalConceptTags": [
+            "assessment",
+            "experimental-design",
+            "time-management"
+          ],
+          "video": {
+            "resourceId": "cat-video-mock-strategy",
+            "locator": "CAT 2026 Mock Strategy — When to Start, How Many & How to Analyse; video 8bTh1KD7jGM."
+          },
+          "reading": {
+            "resourceId": "cat-book-study",
+            "locator": "6.3 Test Taking, Preparation vs. Actual Test, Establishing Realistic Expectations, and Whole Person Approach to Testing."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-cracku",
+            "cat-doc-official"
+          ],
+          "assignment": {
+            "id": "cat-assignment-36",
+            "title": "Complete a two-mock experiment",
+            "kind": "project",
+            "instructions": [
+              "Take two previously unseen free mocks advertised by the verified provider, at least 48 hours apart. Signup is a learner action; no automatic enrolment is required.",
+              "For each, budget approximately two hours for the attempt and two hours for review; record the exact provider timing and scoring instructions.",
+              "Before the second attempt, state no more than two changes based on the first review. If free availability changes, use a legally sourced practice simulation and label it non-standardized rather than claiming an equivalent mock."
+            ],
+            "deliverables": [
+              "Two attempt logs and two review reports.",
+              "A predeclared strategy hypothesis and evidence-based comparison."
+            ],
+            "acceptanceCriteria": [
+              "3 points: both attempts are fresh and interruptions documented.",
+              "4 points: every wrong, skipped and high-confidence answer reviewed.",
+              "3 points: comparison separates strategy changes from differences in test difficulty."
+            ],
+            "externalUrl": "https://cracku.in/cat-mock-test",
+            "questions": [
+              {
+                "id": "cat-q-36",
+                "prompt": "A mock attempt has seven correct and two incorrect MCQs, plus three correct and two incorrect non-MCQs. Under the documented CAT marking scheme, what is its raw score? Can its CAT percentile be calculated from this information alone?",
+                "kind": "short-answer",
+                "answer": "28 marks; no, its CAT percentile cannot be determined from this information alone.",
+                "explanation": "Ten correct answers earn 30 marks and two incorrect MCQs lose two, leaving 28. Percentile requires a relevant candidate-score distribution and the applicable examination scoring process, not just this raw count."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which conclusions survive differences in mock difficulty?",
+            "What did you predeclare, and what are you rationalizing after seeing the score?"
+          ]
+        },
+        {
+          "id": "cat-lesson-mock-analysis",
+          "title": "Blind review, error taxonomy and repair sprints",
+          "objectives": [
+            "Diagnose why marks were lost rather than merely reading solutions.",
+            "Design a short repair intervention with a measurable delayed test."
+          ],
+          "topics": [
+            {
+              "title": "Forensic review",
+              "details": [
+                "Blind re-solve before solution viewing; separate unavailable knowledge from failed execution.",
+                "Inspect correct guesses and high-confidence errors, not just incorrect answers."
+              ]
+            },
+            {
+              "title": "Repair planning",
+              "details": [
+                "Group errors by repeated cause and choose a small, high-impact intervention.",
+                "Measure accuracy, confidence and time on fresh or clearly labelled repeated material; do not confuse percentage points with percent improvement."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "metacognition",
+            "error-analysis",
+            "retrieval-practice"
+          ],
+          "video": {
+            "resourceId": "cat-video-mock-strategy",
+            "locator": "Revisit 8bTh1KD7jGM specifically to extract the creator's mock-analysis workflow; no invented timestamp is required."
+          },
+          "reading": {
+            "resourceId": "cat-book-study",
+            "locator": "6.1 Memory; 6.2 Studying, retrieval and study-strategy discussions."
+          },
+          "supplementaryResourceIds": [
+            "cat-practice-2iim"
+          ],
+          "assignment": {
+            "id": "cat-assignment-37",
+            "title": "Complete a seven-day repair sprint",
+            "kind": "project",
+            "instructions": [
+              "Choose ten errors or fragile correct answers from the two mock reports and classify their primary causes.",
+              "Select the two most repeated causes. For each, design three original small drills by changing numbers or constraints in your own curriculum assignments, not in copied coaching content.",
+              "After seven days, re-solve the ten flagged items without solutions and use fresh external questions to check transfer. Mark repeated questions explicitly so they are not counted as a fresh mock."
+            ],
+            "deliverables": [
+              "Ten-item error audit.",
+              "Six original repair drills and a delayed-review comparison."
+            ],
+            "acceptanceCriteria": [
+              "4 points: diagnoses cite the actual failure step.",
+              "3 points: repair drills target the diagnosis.",
+              "3 points: delayed and fresh-transfer evidence retained without inflating a percentile claim."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "cat-q-37",
+                "prompt": "Accuracy on a twelve-question drill rises from eight correct to ten correct. By how many percentage points has accuracy increased?",
+                "kind": "short-answer",
+                "answer": "50/3 percentage points, approximately 16.67 percentage points.",
+                "explanation": "Accuracy changes from 8/12 to 10/12. The difference is 2/12 times 100 = 50/3 percentage points. The relative percentage increase in accuracy is 25%, which is a different quantity."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Was your error label specific enough to prescribe an intervention?",
+            "Would the improvement persist on a fresh question?"
+          ]
+        },
+        {
+          "id": "cat-lesson-final-rehearsal",
+          "title": "Official-interface check, final rehearsal and taper",
+          "objectives": [
+            "Update the exam configuration from current official instructions.",
+            "Prepare a practical final-week plan without chasing guaranteed outcomes."
+          ],
+          "topics": [
+            {
+              "title": "Official verification",
+              "details": [
+                "Check the released official mock, admit-card instructions, reporting requirements and permitted items.",
+                "Resolve sectional timing, navigation and accommodation details before treating them as official simulator settings."
+              ]
+            },
+            {
+              "title": "Final preparation",
+              "details": [
+                "Use one final fresh rehearsal early enough to review it.",
+                "Prioritize retrieval, sleep and logistics over indiscriminate last-minute question volume; create a contingency plan for technical issues using official instructions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "exam-readiness",
+            "risk-management",
+            "self-regulation"
+          ],
+          "video": {
+            "resourceId": "cat-video-mock-strategy",
+            "locator": "Review 8bTh1KD7jGM with a final-week checklist; use official sources, not the lecture, for current exam-day rules."
+          },
+          "reading": {
+            "resourceId": "cat-book-study",
+            "locator": "6.3 Test Taking, Whole Person Approach to Testing and Establishing Realistic Expectations for Test Situations."
+          },
+          "supplementaryResourceIds": [
+            "cat-doc-official",
+            "cat-practice-cracku"
+          ],
+          "assignment": {
+            "id": "cat-assignment-38",
+            "title": "Sign off a source-aware readiness checklist",
+            "kind": "project",
+            "instructions": [
+              "After the announced release, use the official CAT mock to inspect interface behaviour and record the current instructions. If it is not yet available, leave this checklist item pending rather than simulated-complete.",
+              "Take a third fresh provider mock early in the final week, if the advertised free allocation remains available, and perform a bounded review.",
+              "Create a private logistics checklist from the actual admit card and official instructions. Do not upload identity documents or sensitive registration details to the curriculum platform."
+            ],
+            "deliverables": [
+              "Dated official-instruction verification checklist.",
+              "Final rehearsal review and a seven-day taper/logistics plan."
+            ],
+            "acceptanceCriteria": [
+              "4 points: official verification has sources and dates; unresolved items remain visibly pending.",
+              "3 points: rehearsal review produces only actionable repairs.",
+              "3 points: logistics plan protects private information and does not claim an assured percentile or admission."
+            ],
+            "externalUrl": "https://iimcat.ac.in/",
+            "questions": [
+              {
+                "id": "cat-q-38",
+                "prompt": "A learner scores 42 on one provider's mock and 45 on a different provider's mock. Which conclusion is justified from these two numbers alone?",
+                "kind": "single-choice",
+                "choices": [
+                  "A. The learner's CAT percentile must have increased.",
+                  "B. The raw scores differ, but a percentile or ability improvement cannot be established without comparable tests and relevant evidence.",
+                  "C. Admission to an IIM is now guaranteed.",
+                  "D. The second mock must have been harder."
+                ],
+                "answer": "B",
+                "explanation": "Different tests can differ in difficulty, question composition, marking and cohort. The two raw numbers alone do not establish a percentile change, an ability gain or an admission outcome."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which checklist entries are verified and which are still assumptions?",
+            "What is the smallest useful final-week intervention supported by your error log?"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "id": "cat-source-home",
+      "title": "CAT 2026 official home content",
+      "url": "https://iimcat.ac.in/per/g06/pub/32842/ASM/WebPortal/1/1/XML/home.xml",
+      "publisher": "Official CAT portal",
+      "edition": "2026",
+      "publishedOn": null,
+      "checkedOn": "2026-09-20",
+      "locator": "Important-Dates; Know More / About CAT 2026",
+      "supports": [
+        "Registration starts August 3, 2026.",
+        "Home display lists registration ending September 22, 2026 at 5:00 PM IST.",
+        "Admit-card download begins November 4 and test day is November 29, 2026.",
+        "Official links to July 26 information bulletin and press release and September 15 media release."
+      ],
+      "verification": "Read public XML used by the official site's own JavaScript. PDF documents linked from this index were not downloaded."
+    },
+    {
+      "id": "cat-source-faq",
+      "title": "CAT 2026 official FAQs",
+      "url": "https://iimcat.ac.in/per/g06/pub/32842/ASM/WebPortal/1/1/XML/faq.xml",
+      "publisher": "Official CAT portal",
+      "edition": "2026",
+      "publishedOn": null,
+      "checkedOn": "2026-09-20",
+      "locator": "Registration Q10, Q12 and Q14; Exam Q1-Q15; PwBD Q5 and Q12",
+      "supports": [
+        "Computer-based examination, three named sections and fixed section order.",
+        "MCQ and non-MCQ marking details.",
+        "No defined preparation syllabus.",
+        "Official mock announced for November 12, 2026.",
+        "Two-hour ordinary test described in the PwBD timing answer, plus 40 minutes of compensatory time for the stated category."
+      ],
+      "verification": "Read full relevant FAQ sections directly. Registration Q10 retains the earlier September 15 deadline and conflicts with the updated home display. Ordinary sectional timing and detailed section-switching restrictions are not explicitly established by the passages read."
+    },
+    {
+      "id": "cat-source-contact",
+      "title": "CAT 2026 Centre contact details",
+      "url": "https://iimcat.ac.in/per/g06/pub/32842/ASM/WebPortal/1/1/XML/contact-us.xml",
+      "publisher": "Official CAT portal",
+      "edition": "2026",
+      "publishedOn": null,
+      "checkedOn": "2026-09-20",
+      "locator": "Contact-Us / Top-Section / Address",
+      "supports": [
+        "CAT 2026 Centre is listed at the Admissions Office, Indian Institute of Management Indore."
+      ],
+      "verification": "Directly read official contact XML."
+    },
+    {
+      "id": "cat-source-iim-indore",
+      "title": "Indian Institute of Management Indore",
+      "url": "https://iimidr.ac.in/",
+      "publisher": "IIM Indore",
+      "edition": "Current website",
+      "publishedOn": null,
+      "checkedOn": "2026-09-20",
+      "locator": "Main navigation, CAT 2026 link",
+      "supports": [
+        "The institute's own website links CAT 2026 to iimcat.ac.in."
+      ],
+      "verification": "Read public homepage HTML. No organizing-convenor name or additional pattern claim is inferred from it."
+    },
+    {
+      "id": "cat-source-bulletin-index",
+      "title": "CAT 2026 Information Bulletin, dated July 26, 2026",
+      "url": "https://cdn.digialm.com/per/g06/pub/32842/EForms/image/CAT2026/CAT2026InformationBulletin_26-07-2026_V2.pdf",
+      "publisher": "Official CAT portal, linked document",
+      "edition": "2026; filename includes V2",
+      "publishedOn": "2026-07-26",
+      "checkedOn": "2026-09-20",
+      "locator": "Official home index link labelled CAT 2026 Information Bulletin 26-07-26",
+      "supports": [
+        "Discovery of the current official information-bulletin link and its displayed edition/date."
+      ],
+      "verification": "Six-page official PDF retrieved and parsed in memory during the bounded follow-up. It does not supply the explicit ordinary sectional-timing/navigation statement found in the companion press release."
+    },
+    {
+      "id": "cat-source-press-index",
+      "title": "CAT 2026 Press Release, dated July 26, 2026",
+      "url": "https://cdn.digialm.com/per/g06/pub/32842/EForms/image/CAT2026/CAT_2026_Press_Release_26-07-2026.pdf",
+      "publisher": "CAT Centre, IIM Indore",
+      "edition": "2026",
+      "publishedOn": "2026-07-26",
+      "checkedOn": "2026-09-20",
+      "locator": "PDF page 1, Duration of the Test",
+      "supports": [
+        "The examination lasts 120 minutes.",
+        "Section order is VARC, DILR, then QA.",
+        "Candidates receive exactly 40 minutes for each ordinary section.",
+        "Candidates cannot switch from one section to another while answering questions in a section."
+      ],
+      "verification": "Official PDF retrieved and parsed in memory during the bounded follow-up; no persistent PDF file created."
+    },
+    {
+      "id": "cat-source-extension-index",
+      "title": "CAT 2026 Media Release, dated September 15, 2026",
+      "url": "https://g03.tcsion.com//per/g03/pub/726/EForms/image/ImageDocUpload/71161/7/2002639871.pdf",
+      "publisher": "Official CAT portal, linked document",
+      "edition": "2026",
+      "publishedOn": "2026-09-15",
+      "checkedOn": "2026-09-20",
+      "locator": "Official home index link labelled CAT 2026 Media Release 15-09-2026",
+      "supports": [
+        "A newer media-release link is present in the official index."
+      ],
+      "verification": "PDF body not fetched. The September 22 registration date is supported by the home display, not by an invented quotation from this document."
+    },
+    {
+      "id": "cat-source-about",
+      "title": "Official CAT portal: About IIMs and CAT",
+      "url": "https://iimcat.ac.in/per/g06/pub/32842/ASM/WebPortal/1/1/XML/about-us.xml",
+      "publisher": "Official CAT portal",
+      "edition": "Current 2026 portal",
+      "publishedOn": null,
+      "checkedOn": "2026-09-20",
+      "locator": "About-Us / Top-Section",
+      "supports": [
+        "Selection can involve CAT and additional components prescribed by individual IIMs."
+      ],
+      "verification": "Directly read public official XML. No institute cutoff table is claimed."
+    },
+    {
+      "id": "cat-source-2iim-free",
+      "title": "2IIM's Free CAT Study Material",
+      "url": "https://online.2iim.com/free-cat-study-material.shtml",
+      "publisher": "2IIM",
+      "edition": "Current page; includes mixed-age explanatory material",
+      "publishedOn": null,
+      "checkedOn": "2026-09-20",
+      "locator": "Free CAT Study Material #2, #8 and #9; linked question-bank homepage",
+      "supports": [
+        "2IIM identifies its own free question bank and official YouTube channel.",
+        "Some mock access requires signup.",
+        "The linked question-bank homepage states free access and prohibits reproduction on unaffiliated websites."
+      ],
+      "verification": "Read public page and linked bank. Old marketing examples and percentile claims were not adopted as 2026 facts."
+    },
+    {
+      "id": "cat-source-rodha",
+      "title": "Rodha official website and creator channel",
+      "url": "https://www.rodha.co.in/",
+      "publisher": "Rodha",
+      "edition": "Current website",
+      "publishedOn": null,
+      "checkedOn": "2026-09-20",
+      "locator": "Official homepage link to https://www.youtube.com/@Rodha",
+      "supports": [
+        "Attribution of the cited YouTube playlists to the preparation provider's own channel."
+      ],
+      "verification": "Read official homepage link, playlist metadata and assigned public watch-page metadata. No enrollment, video download or account edit occurred."
+    },
+    {
+      "id": "cat-source-cracku",
+      "title": "Cracku CAT Mock Test",
+      "url": "https://cracku.in/cat-mock-test",
+      "publisher": "Cracku",
+      "edition": "Page advertising CAT 2026 practice",
+      "publishedOn": null,
+      "checkedOn": "2026-09-20",
+      "locator": "FAQs: Where can I take my CAT mock test?; What is the CAT Mock Test Structure?",
+      "supports": [
+        "The page advertises three free mocks and says signup is required."
+      ],
+      "verification": "Public claim verified; no logged-in availability test. Provider claims about score-to-percentile conversion or closeness to CAT are not treated as verified official facts."
+    }
+  ],
+  "limitations": [
+    "Parent persisted and structurally validated the full handoff; all 38 lessons retain a video, book reading locator and original assignment.",
+    "Official exam and publisher PDFs were retrieved and parsed in memory during the follow-up. No third-party book, exam-paper or video asset was mirrored into the app by this research.",
+    "CAT 2026 total duration, section names/order, marking and absence of a defined syllabus were verified from official material. The July 26 press release explicitly confirms 120 minutes, 40 minutes per ordinary section and no section switching while answering. Detailed button-level navigation/early advancement and review-flag behavior remain unverified until the released official mock is checked.",
+    "The official home display and registration FAQ disagree on the closing date. The home shows September 22; the FAQ retains September 15. The newer displayed deadline should still be rechecked before action.",
+    "No fixed 2026 question count, non-MCQ split, official exhaustive topic syllabus, institution cutoff or score-to-percentile table is invented.",
+    "The four exact OpenStax PDFs are link-only for this implementation. Their 2026 notices license textbook content under CC BY-NC-SA 4.0 but exclude covers and named trademarks; complete-PDF packaging permission was not substantiated. This conservative approval decision is not a claim that all verbatim redistribution is necessarily unlawful.",
+    "Official publisher PDF links and SHA256 values are retained for external reading and provenance. downloadUrl remains null so an asset downloader cannot mistake those links for app-mirroring approval. Earlier CC BY grants are not retroactively revoked by the publisher's 2026 licensing transition.",
+    "Some established Rodha lectures have current titles containing 2027 although their verified publication dates are in 2019-2021. They are used as mathematics instruction, not as future exam evidence.",
+    "Public YouTube metadata and playability were checked without downloading or viewing video streams. Availability, geographic restrictions, playlist membership and titles may later change.",
+    "Free-account mock access was verified from the provider's public offer, not through enrollment. Free allocations can change.",
+    "Thirty-eight original self-checks support learning and diagnostics; they do not constitute a psychometrically calibrated examination or an adequate standalone volume of CAT practice.",
+    "External coaching material remains link-only. The implementation must not import copyrighted questions, solutions or passages merely because a creator makes them free to view.",
+    "Completing this route does not guarantee readiness by November 29, a percentile, rank, shortlist or admission. Reallocate time using observed weaknesses and current official information."
+  ]
+}

@@ -1,0 +1,3660 @@
+{
+  "schemaVersion": 1,
+  "trackId": "ai",
+  "title": "AI: Classical ML, Deep Learning and Reliable AI Systems",
+  "sourceCheckedOn": "2026-09-20",
+  "resources": [
+    {
+      "id": "ai-book-d2l",
+      "kind": "book",
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/",
+      "provider": "Aston Zhang, Zachary C. Lipton, Mu Li and Alexander J. Smola",
+      "access": "free",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/LICENSE",
+      "redistribution": "permitted",
+      "downloadUrl": "https://d2l.ai/d2l-en.pdf",
+      "verifiedOn": "2026-09-20",
+      "notes": "Official HTML contents identify edition 1.0.3. Repository license grants sharing and adaptation. Retain authors, copyright, source and license notices; identify modifications; license adaptations under compatible ShareAlike terms; do not impose additional restrictions. Review separately credited third-party material and separate code/model/data licenses. PDF availability was checked with HEAD only: HTTP 200, application/pdf. No PDF was downloaded."
+    },
+    {
+      "id": "ai-book-islp",
+      "kind": "book",
+      "title": "An Introduction to Statistical Learning: with Applications in Python",
+      "url": "https://www.statlearning.com/",
+      "provider": "Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani and Jonathan Taylor",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Python edition published in 2023; authors provide an authorized online book link. No general book redistribution license was established. Permissions for teaching slides or figures are not permission to mirror the book. Chapter names were cross-checked with the authors' course and official ISLP labs, without downloading the PDF. Assignments below are original, not copied book exercises."
+    },
+    {
+      "id": "ai-book-slp3",
+      "kind": "book",
+      "title": "Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition with Language Models",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/",
+      "provider": "Daniel Jurafsky and James H. Martin",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Third-edition online manuscript released August 19, 2026. Authors allow classroom use and printing, but a general platform-mirroring license was not established. Link to the authorized manuscript. This release renumbers material: chapter 7 is Transformers and Pretraining, chapter 8 Post-training, and chapter 11 Information Retrieval and RAG. Chapter 12 Agents is explicitly not written yet and is NOT assigned. Appendix K Frame-based Dialogue Systems is listed and is used only for foundational dialogue-state concepts."
+    },
+    {
+      "id": "ai-book-mlsys1",
+      "kind": "book",
+      "title": "Introduction to Machine Learning Systems",
+      "url": "https://mlsysbook.ai/vol1/",
+      "provider": "Vijay Janapa Reddi and the Machine Learning Systems contributors",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://mlsysbook.ai/about/license.html",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Online Volume I, version v0.7.2 observed; landing page labels the publisher year 2026. Textbook sharing/adaptation is permitted only subject to NonCommercial, attribution and ShareAlike conditions. Keep link-only for this handoff because the platform's commercial status and compliance process have not been established. A future non-commercial mirror must retain notices, credit, license and modification history and audit separately credited material."
+    },
+    {
+      "id": "ai-book-mlsys2",
+      "kind": "book",
+      "title": "Machine Learning Systems at Scale",
+      "url": "https://mlsysbook.ai/vol2/",
+      "provider": "Vijay Janapa Reddi and the Machine Learning Systems contributors",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://mlsysbook.ai/about/license.html",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Online Volume II draft v0.2.1 was accessible on the observation date. Its landing page lists a prospective 2027 publisher year; this is NOT a claim that a 2027 print edition has already been published. Use verified chapter titles rather than unstable chapter numbers. Same conditional non-commercial sharing rules as Volume I; no automatic mirroring clearance."
+    },
+    {
+      "id": "ai-video-statquest",
+      "kind": "video",
+      "title": "StatQuest Video Index",
+      "url": "https://statquest.org/video_index.html",
+      "provider": "Josh Starmer / StatQuest",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Creator-maintained index links the exact assigned Gradient Descent, Logistic Regression, Random Forests Part 1, Cross Validation and ROC and AUC videos. Use the named entries, not a guessed timestamp. No video files may be downloaded or mirrored."
+    },
+    {
+      "id": "ai-video-mit2026",
+      "kind": "video",
+      "title": "MIT 6.S191: Introduction to Deep Learning, 2026",
+      "url": "https://introtodeeplearning.com/",
+      "provider": "MIT 6.S191 / Alexander Amini and Ava Soleimany",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official 2026 schedule and public video links verified: Lecture 1 Intro to Deep Learning, Lecture 2 Deep Sequence Modeling, Lecture 3 Deep Computer Vision. Linked online dates are March 30, April 6 and April 13, 2026. Landing page is mutable; retain the 2026 edition and lecture names. External YouTube playback/embedding may vary by region."
+    },
+    {
+      "id": "ai-video-cs336",
+      "kind": "video",
+      "title": "Stanford CS336 Language Modeling from Scratch I 2025",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_",
+      "provider": "Stanford Online / Percy Liang and Tatsunori Hashimoto",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Public playlist metadata identifies Stanford Online and verifies Lecture 1 Overview and Tokenization, Lecture 7 Parallelism 1, Lecture 10 Inference, Lecture 12 Evaluation and Lecture 15 Alignment - SFT/RLHF. Cross-checked against Spring 2025 course schedule. Assign selected lectures, not the entire compute-intensive university course. No claim that every lecture is currently in the playlist."
+    },
+    {
+      "id": "ai-video-fsdl-framing",
+      "kind": "video",
+      "title": "Lecture 1: Course Vision and When to Use ML",
+      "url": "https://fullstackdeeplearning.com/course/2022/lecture-1-course-vision-and-when-to-use-ml/",
+      "provider": "Full Stack Deep Learning / Josh Tobin",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published August 8, 2022. Official lecture page and course video index verified. Use problem framing and lifecycle concepts; historical market claims and vendor recommendations are not current evidence."
+    },
+    {
+      "id": "ai-video-fsdl-tooling",
+      "kind": "video",
+      "title": "Lecture 2: Development Infrastructure & Tooling",
+      "url": "https://fullstackdeeplearning.com/course/2022/lecture-2-development-infrastructure-and-tooling/",
+      "provider": "Full Stack Deep Learning / Sergey Karayev",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published August 15, 2022. Use experiment/artifact concepts; Common Foundation already owns generic Python, Git, editors and testing. Current local MLflow docs supplement old tooling examples."
+    },
+    {
+      "id": "ai-video-fsdl-testing",
+      "kind": "video",
+      "title": "Lecture 3: Troubleshooting & Testing",
+      "url": "https://fullstackdeeplearning.com/course/2022/lecture-3-troubleshooting-and-testing/",
+      "provider": "Full Stack Deep Learning / Charles Frye",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published August 22, 2022. Assign ML-specific failure diagnosis, not a repeat of the shared testing introduction. Official lecture page includes written notes."
+    },
+    {
+      "id": "ai-video-fsdl-data",
+      "kind": "video",
+      "title": "Lecture 4: Data Management",
+      "url": "https://fullstackdeeplearning.com/course/2022/lecture-4-data-management/",
+      "provider": "Full Stack Deep Learning / Sergey Karayev",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published August 29, 2022. Relevant to ML data sourcing, labeling, processing and versioning. Database-platform depth remains in the Data stream."
+    },
+    {
+      "id": "ai-video-fsdl-deployment",
+      "kind": "video",
+      "title": "Lecture 5: Deployment",
+      "url": "https://fullstackdeeplearning.com/course/2022/lecture-5-deployment/",
+      "provider": "Full Stack Deep Learning / Josh Tobin",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published September 5, 2022. Batch/model-service and scaling concepts are assigned. Public hosting, cloud accounts and the lecture's managed services are not required."
+    },
+    {
+      "id": "ai-video-fsdl-monitoring",
+      "kind": "video",
+      "title": "Lecture 6: Continual Learning",
+      "url": "https://fullstackdeeplearning.com/course/2022/lecture-6-continual-learning/",
+      "provider": "Full Stack Deep Learning / Josh Tobin",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published September 12, 2022. Use logging, feedback, dataset formation and release testing concepts. Curriculum requires investigation and gated updates, not automatic retraining on any drift signal."
+    },
+    {
+      "id": "ai-video-fsdl-foundation-models",
+      "kind": "video",
+      "title": "Lecture 7: Foundation Models",
+      "url": "https://fullstackdeeplearning.com/course/2022/lecture-7-foundation-models/",
+      "provider": "Full Stack Deep Learning / Sergey Karayev",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published September 19, 2022. Verified section 1 Fine-Tuning and section 2 Transformers. Used for transfer-learning concepts; specific model availability and benchmark claims are historical."
+    },
+    {
+      "id": "ai-video-fsdl-ethics",
+      "kind": "video",
+      "title": "Lecture 9: Ethics",
+      "url": "https://fullstackdeeplearning.com/course/2022/lecture-9-ethics/",
+      "provider": "Full Stack Deep Learning / Charles Frye",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published October 3, 2022. Verified themes Alignment, Trade-Offs and Humility. Case discussion does not authorize collecting sensitive data or deploying high-stakes systems."
+    },
+    {
+      "id": "ai-video-llmops",
+      "kind": "video",
+      "title": "LLMOps",
+      "url": "https://fullstackdeeplearning.com/llm-bootcamp/spring-2023/llmops/",
+      "provider": "Full Stack Deep Learning / Josh Tobin",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published May 9, 2023. Assign evaluation, prompt versioning and monitoring sections. Model rankings, pricing and recommendations to begin with paid providers are historical and are not curriculum requirements."
+    },
+    {
+      "id": "ai-video-augmented-lm",
+      "kind": "video",
+      "title": "Augmented Language Models",
+      "url": "https://fullstackdeeplearning.com/llm-bootcamp/spring-2023/augmented-language-models/",
+      "provider": "Full Stack Deep Learning / Josh Tobin",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published May 9, 2023. Exact named sections for retrieval, reranking, chains and tools verified. Historical plugin APIs and framework popularity claims are not assigned as current facts. Permission controls come from current supplementary docs and original assignments."
+    },
+    {
+      "id": "ai-video-prompting",
+      "kind": "video",
+      "title": "Learn to Spell: Prompt Engineering",
+      "url": "https://fullstackdeeplearning.com/llm-bootcamp/spring-2023/prompt-engineering/",
+      "provider": "Full Stack Deep Learning / Charles Frye",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Published May 9, 2023. Treat prompting intuitions as historical instruction, not guarantees. Curriculum tests output contracts, context limits and errors; it does not equate prompt tricks or generated reasoning with correctness."
+    },
+    {
+      "id": "ai-video-berkeley-agents",
+      "kind": "video",
+      "title": "LLM Agents MOOC, Fall 2024",
+      "url": "https://llmagents-learning.org/f24",
+      "provider": "UC Berkeley RDI / Dawn Song and invited speakers",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official syllabus and public recordings verified, including Shunyu Yao on September 16 and Dawn Song on December 2, 2024. The course has ended; no certificate, quiz submission, social posting or hackathon participation is required. Use selected recordings, not historical application deadlines."
+    },
+    {
+      "id": "ai-doc-cross-validation",
+      "kind": "documentation",
+      "title": "Cross-validation: evaluating estimator performance",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "provider": "scikit-learn",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Living official documentation; train-only preprocessing, grouped validation and time-series-aware splits. Link-only documentation policy, not a statement about the separately licensed Python package."
+    },
+    {
+      "id": "ai-doc-calibration",
+      "kind": "documentation",
+      "title": "Probability calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "provider": "scikit-learn",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Reliability diagrams and independent calibration data. Brier/log loss combine more than calibration alone; do not interpret a score decrease as proof of improved calibration."
+    },
+    {
+      "id": "ai-doc-pytorch",
+      "kind": "documentation",
+      "title": "Learn the Basics",
+      "url": "https://docs.pytorch.org/tutorials/beginner/basics/intro.html",
+      "provider": "PyTorch",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Page shows updated January 20, 2026. Tensors, data loading, autograd, optimization and save/load. Use synthetic local fixtures rather than assuming tutorial datasets or pretrained assets can be redistributed."
+    },
+    {
+      "id": "ai-doc-distributed",
+      "kind": "documentation",
+      "title": "PyTorch Distributed Overview",
+      "url": "https://docs.pytorch.org/tutorials/beginner/dist_overview.html",
+      "provider": "PyTorch",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Updated July 20, 2025; DDP, FSDP2, tensor/pipeline parallelism and mixed precision. Multi-GPU execution is optional specialist work, not a completion requirement."
+    },
+    {
+      "id": "ai-doc-opencv-face",
+      "kind": "documentation",
+      "title": "DNN-based Face Detection And Recognition",
+      "url": "https://docs.opencv.org/4.13.0/d0/dd4/tutorial_dnn_face.html",
+      "provider": "OpenCV",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "API reference only for an optional local, consented, one-claimed-identity comparison. Do not adopt the tutorial's benchmark threshold as a locally validated threshold. YuNet/SFace code, weights and training-data provenance need separate review. No blanket model clearance is given."
+    },
+    {
+      "id": "ai-doc-nist-biometrics",
+      "kind": "documentation",
+      "title": "NIST SP 800-63B-4: Authenticator and Verifier Requirements",
+      "url": "https://pages.nist.gov/800-63-4/sp800-63b/authenticators/",
+      "provider": "NIST",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Read the Use of Biometrics section, anchor biometric_use. It treats biometrics as sensitive, discusses false matches/non-matches, local comparison and limits on biometric authentication. Student prototypes are not authentication products or NIST-certified systems. Do not collect or infer demographics for these projects."
+    },
+    {
+      "id": "ai-doc-landmarks",
+      "kind": "documentation",
+      "title": "Face landmark detection guide for Python",
+      "url": "https://developers.google.com/edge/mediapipe/solutions/vision/face_landmarker/python",
+      "provider": "Google AI Edge / MediaPipe",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Optional pose/landmark input for opted-in local capture-quality work after model-license review. Do not use expression/blendshape outputs for emotion or demographic inference. Landmarks are not liveness assurance. Synthetic document-quality alternative needs no face model."
+    },
+    {
+      "id": "ai-doc-retrieval",
+      "kind": "documentation",
+      "title": "Retrieve & Re-Rank",
+      "url": "https://sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html",
+      "provider": "Sentence Transformers",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Bi-encoder retrieval and cross-encoder reranking. Curriculum uses learner-authored fictional documents, not a copied corpus. Model and dataset permissions must be checked separately."
+    },
+    {
+      "id": "ai-doc-chat-templates",
+      "kind": "documentation",
+      "title": "Chat templates",
+      "url": "https://huggingface.co/docs/transformers/main/en/chat_templating",
+      "provider": "Hugging Face Transformers",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Main-branch documentation is mutable. Pin a compatible library version; verify message roles, control tokens and duplicate-special-token behavior for the chosen local model."
+    },
+    {
+      "id": "ai-doc-lora",
+      "kind": "documentation",
+      "title": "LoRA",
+      "url": "https://huggingface.co/docs/peft/main/en/conceptual_guides/lora",
+      "provider": "Hugging Face PEFT",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Frozen base weights, trainable low-rank matrices, target modules and adapter merging. CPU-scale toy adaptation is sufficient; large-model fine-tuning and paid compute are optional."
+    },
+    {
+      "id": "ai-doc-mcp-security",
+      "kind": "documentation",
+      "title": "Security Best Practices",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices",
+      "provider": "Model Context Protocol",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Versioned 2025-11-25 reference redirects to the official versioned tutorial. Covers consent, confused-deputy risks and authorization boundaries. Protocol compatibility is not permission to access a user's resources. Do not connect real accounts for the assignment."
+    },
+    {
+      "id": "ai-doc-owasp-agents",
+      "kind": "documentation",
+      "title": "OWASP Top 10 for Agentic Applications for 2026",
+      "url": "https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/",
+      "provider": "OWASP Gen AI Security Project",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "2026 edition, published December 10, 2025. Use the official framework to organize defensive tests for tool misuse, privilege abuse, context poisoning and cascading failures. No PDF download is required by this handoff."
+    },
+    {
+      "id": "ai-doc-sqlite",
+      "kind": "documentation",
+      "title": "sqlite3 - DB-API 2.0 interface for SQLite databases",
+      "url": "https://docs.python.org/3/library/sqlite3.html",
+      "provider": "Python Software Foundation",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Use URI read-only connections, set_authorizer, set_progress_handler and parameter binding. These support defense in depth; SQL text beginning with SELECT is not a sufficient safety check. Never run model proposals against employer or personal databases."
+    },
+    {
+      "id": "ai-doc-mlflow",
+      "kind": "documentation",
+      "title": "MLflow Tracking",
+      "url": "https://mlflow.org/docs/latest/ml/tracking/",
+      "provider": "MLflow",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Local runs, parameters, metrics, artifacts and experiments. No hosted MLflow account is required. Avoid automatic logging of private inputs, face images, templates or credentials."
+    },
+    {
+      "id": "ai-doc-evals",
+      "kind": "documentation",
+      "title": "Evaluation best practices",
+      "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+      "provider": "OpenAI",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Methodology only: scoped datasets, explicit metrics, human calibration and continuous evaluation. The page itself warns the hosted Evals platform is deprecated, becoming read-only October 31, 2026 and scheduled to shut down November 30, 2026. Implement a local harness; no paid API or provider dataset generation is required. Apply data minimization rather than literally logging all inputs."
+    },
+    {
+      "id": "ai-doc-rmf",
+      "kind": "documentation",
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+      "provider": "NIST",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "NIST AI 600-1, published July 26, 2024; observation in 2026 is not a new publication date. Governance, provenance, testing and incident-response reference, not a compliance certification or India-specific legal opinion."
+    },
+    {
+      "id": "ai-doc-small-model",
+      "kind": "documentation",
+      "title": "SmolLM2-135M-Instruct model card",
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct",
+      "provider": "Hugging Face TB",
+      "access": "free",
+      "license": "Apache-2.0 for model weights as declared by the model card; model-card text link-only",
+      "licenseUrl": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct#license",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Optional compact CPU-compatible local generator; the card includes a CPU example. This handoff does not download or mirror weights. Review pinned revision, training-source provenance and intended use first. The card's function-calling claim is for the 1.7B variant, not a guarantee for this 135M model. Limited capability and factual errors must remain visible."
+    },
+    {
+      "id": "ai-doc-small-encoder",
+      "kind": "documentation",
+      "title": "all-MiniLM-L6-v2 model card",
+      "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+      "provider": "Sentence Transformers",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Optional compact local encoder. Card verifies 384-dimensional embeddings and default truncation beyond 256 word pieces. No clearance of all training data or blanket model redistribution is asserted; review pinned model license, base model and training-data provenance before use. TF-IDF is the no-pretrained-weight baseline."
+    }
+  ],
+  "modules": [
+    {
+      "id": "ai-m01-foundations",
+      "title": "1. ML problem framing, mathematical reasoning and data contracts",
+      "stage": "foundation",
+      "description": "Take Common Foundation first: Python, SQL, Git, Linux, basic mathematics and testing are assumed, not retaught. This module applies those skills to prediction objectives, gradients, uncertainty and ML-specific data. Cross-track prerequisite IDs are intentionally not invented.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ai-l01-framing",
+          "title": "Turn a business request into an ML decision",
+          "status": "incomplete",
+          "objectives": [
+            "Define a prediction target, decision time and measurable utility.",
+            "Choose an honest non-ML baseline and identify when not to use ML."
+          ],
+          "topics": [
+            {
+              "title": "Decision framing",
+              "details": [
+                "Unit of prediction, target and prediction horizon",
+                "False-positive/false-negative costs and human escalation"
+              ]
+            },
+            {
+              "title": "Baselines",
+              "details": [
+                "Constant predictors and simple operational rules",
+                "Feasibility, data availability and cost of error"
+              ]
+            },
+            {
+              "title": "Evidence boundaries",
+              "details": [
+                "Offline proxy metrics versus user outcomes",
+                "Prediction is not causal evidence of an intervention"
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "ml.problem-framing",
+            "ml.baselines",
+            "ml.causal-awareness"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-framing",
+            "locator": "Lecture 1: Course Vision and When to Use ML; ML-Powered Products Require a Different Process"
+          },
+          "reading": {
+            "resourceId": "ai-book-d2l",
+            "locator": "Chapter 1: Introduction"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-rmf"
+          ],
+          "assignment": {
+            "id": "ai-a01",
+            "title": "Write a decision contract for fictional maintenance triage",
+            "kind": "design",
+            "instructions": [
+              "Define a fictional mall maintenance-ticket task with only equipment and operational fields, no personal profiling.",
+              "Write the label, when it becomes available, what action follows a prediction, and a rule-based baseline.",
+              "Create ten hand-written cases including ambiguous requests and justify a proceed/defer/no-ML decision."
+            ],
+            "deliverables": [
+              "One-page decision contract",
+              "Ten-case table with expected baseline actions"
+            ],
+            "acceptanceCriteria": [
+              "Every feature is available at decision time.",
+              "At least two distinct error costs and one human-escalation route are specified.",
+              "All ten baseline decisions are explainable without a trained model; no business impact is asserted as measured."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q01",
+                "prompt": "Ticket closure time is only known after resolution. May it be a feature for predicting urgency when the ticket first arrives?",
+                "kind": "short-answer",
+                "answer": "No. It is unavailable at prediction time and would leak future information.",
+                "explanation": "The training features must match information available to the deployed decision."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What decision changes when the prediction changes?",
+            "What observation would make the rule-based baseline preferable to ML?"
+          ]
+        },
+        {
+          "id": "ai-l02-optimization",
+          "title": "Connect gradients, loss functions and uncertainty",
+          "status": "incomplete",
+          "objectives": [
+            "Check an objective's gradient numerically and explain optimization failures.",
+            "Distinguish sampling uncertainty from optimization variability."
+          ],
+          "topics": [
+            {
+              "title": "Optimization",
+              "details": [
+                "Vectorized losses, gradients and the chain rule",
+                "Learning rate, scaling, convergence and divergence"
+              ]
+            },
+            {
+              "title": "Probabilistic reasoning",
+              "details": [
+                "Conditional probability and noisy observations",
+                "Sample size, variance and repeated sampling"
+              ]
+            },
+            {
+              "title": "Numerical checks",
+              "details": [
+                "Finite differences and tolerance selection",
+                "Seeded experiments versus universal reproducibility"
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "ml.loss-gradient",
+            "ml.optimization",
+            "ml.sampling-uncertainty"
+          ],
+          "video": {
+            "resourceId": "ai-video-statquest",
+            "locator": "Gradient Descent; optionally Stochastic Gradient Descent"
+          },
+          "reading": {
+            "resourceId": "ai-book-d2l",
+            "locator": "2.5 Automatic Differentiation; 2.6 Probability and Statistics"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-pytorch"
+          ],
+          "assignment": {
+            "id": "ai-a02",
+            "title": "Audit a tiny linear optimizer",
+            "kind": "coding",
+            "instructions": [
+              "Generate 200 synthetic scalar observations with a known linear signal and noise.",
+              "Implement mean-squared loss and its two parameter gradients, then compare with finite differences.",
+              "Run three learning rates and three seeds; explain a convergent, slow and unstable configuration without hiding failed runs."
+            ],
+            "deliverables": [
+              "Small script and gradient tests",
+              "Loss traces and a short failure analysis"
+            ],
+            "acceptanceCriteria": [
+              "Analytic and finite-difference gradients agree within 0.0001 on five non-degenerate fixtures.",
+              "The data generator and all settings are recorded.",
+              "Optimization variation and uncertainty about the underlying data-generating relation are explained separately."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q02",
+                "prompt": "A parameter is 2, its gradient is 3, and the learning rate is 0.1. What is its value after one ordinary gradient-descent step?",
+                "kind": "numeric",
+                "answer": 1.7,
+                "explanation": "Subtract the learning rate times the gradient: subtract 0.3 from 2."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why can feature scaling change optimization without adding information?",
+            "Why does fixing a seed not prove robustness?"
+          ]
+        },
+        {
+          "id": "ai-l03-data-contracts",
+          "title": "Create label, provenance and feature-availability contracts",
+          "status": "incomplete",
+          "objectives": [
+            "Build an auditable ML dataset from operational records.",
+            "Prevent consent, annotation and temporal mistakes before fitting a model."
+          ],
+          "topics": [
+            {
+              "title": "Dataset specification",
+              "details": [
+                "Entity IDs, event time, availability time and label maturity",
+                "Schema, missingness, duplicates and rejected rows"
+              ]
+            },
+            {
+              "title": "Labels",
+              "details": [
+                "Annotation rubric, ambiguous cases and disagreement",
+                "Sampling and representation without collecting unnecessary sensitive fields"
+              ]
+            },
+            {
+              "title": "Provenance",
+              "details": [
+                "Source and transformation manifests",
+                "License, consent, retention and deletion dependencies"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "ml.label-design",
+            "ml.feature-availability",
+            "ml.data-provenance"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-data",
+            "locator": "Lecture 4: Data Management"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys1",
+            "locator": "Data Engineering chapter"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-cross-validation"
+          ],
+          "assignment": {
+            "id": "ai-a03",
+            "title": "Build a point-in-time training manifest",
+            "kind": "lab",
+            "instructions": [
+              "Generate 300 fictional equipment events with delayed labels, corrections and duplicate IDs.",
+              "Produce eligible training rows at a chosen cutoff and retain excluded-row reasons.",
+              "Author a labeling rubric for 20 ambiguous cases and a lineage/deletion manifest."
+            ],
+            "deliverables": [
+              "Generator, transformation and manifest",
+              "Label rubric and ten invariant tests"
+            ],
+            "acceptanceCriteria": [
+              "No feature or label has an availability time after the cutoff.",
+              "Duplicate and corrected records follow a documented deterministic policy.",
+              "Every accepted and rejected row is traceable; generated data contains no employer or personal records."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q03",
+                "prompt": "An event occurred Monday but its corrected value arrived Thursday. Which time controls whether that correction may enter a Tuesday training snapshot?",
+                "kind": "short-answer",
+                "answer": "The correction's Thursday availability time.",
+                "explanation": "An earlier event timestamp does not make later information available to an earlier decision."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How would you discover inconsistent labels before training?",
+            "Which derived artifacts must be revisited after a source record is withdrawn?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-m02-classical-ml",
+      "title": "2. Classical ML, valid experiments and calibrated decisions",
+      "stage": "intermediate",
+      "description": "Build tabular models and understand their evaluation before moving to deep learning.",
+      "prerequisites": [
+        "ai-m01-foundations"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ai-l04-linear-models",
+          "title": "Build regression and classification pipelines",
+          "status": "incomplete",
+          "objectives": [
+            "Fit regularized linear and logistic baselines with train-only preprocessing.",
+            "Explain why prediction scores, probabilities and decisions are different outputs."
+          ],
+          "topics": [
+            {
+              "title": "Models",
+              "details": [
+                "Linear regression and squared-error loss",
+                "Logistic regression, log loss and regularization"
+              ]
+            },
+            {
+              "title": "Preprocessing",
+              "details": [
+                "Imputation, scaling and categorical encoding inside a pipeline",
+                "Unknown categories and schema mismatches"
+              ]
+            },
+            {
+              "title": "Comparison",
+              "details": [
+                "Dummy baselines and residual analysis",
+                "Class imbalance, decision thresholds and error costs"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "ml.linear-models",
+            "ml.classification",
+            "ml.preprocessing-pipelines"
+          ],
+          "video": {
+            "resourceId": "ai-video-statquest",
+            "locator": "Logistic Regression; Logistic Regression, Details Part 2: Maximum Likelihood"
+          },
+          "reading": {
+            "resourceId": "ai-book-islp",
+            "locator": "Chapter 3 Linear Regression; Chapter 4 Classification"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-cross-validation"
+          ],
+          "assignment": {
+            "id": "ai-a04",
+            "title": "Compare duration and urgency baselines",
+            "kind": "coding",
+            "instructions": [
+              "Create a separate 1,000-row synthetic equipment dataset with numeric, categorical and missing values.",
+              "Fit duration-regression and urgency-classification pipelines with a fixed train/validation/test manifest.",
+              "Compare each against a dummy baseline and test an unseen category and a missing required column."
+            ],
+            "deliverables": [
+              "Two pipelines and a reproducible comparison command",
+              "Error table and schema-contract tests"
+            ],
+            "acceptanceCriteria": [
+              "All learned preprocessing is fit on training rows only.",
+              "Report MAE for duration and precision/recall with a named threshold for urgency.",
+              "An unseen category has a documented behavior; a malformed schema raises an explicit error.",
+              "No required score improvement is fabricated or obtained by tuning on the test set."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q04",
+                "prompt": "Why is a classifier's 0.5 probability threshold not automatically the best operational threshold?",
+                "kind": "short-answer",
+                "answer": "Error costs, prevalence, capacity constraints and calibration determine the appropriate decision threshold.",
+                "explanation": "A probability estimate is not itself the policy for acting on that estimate."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What does regularization trade away and what can it improve?",
+            "Why must an imputer be included inside cross-validation?"
+          ]
+        },
+        {
+          "id": "ai-l05-trees-ensembles",
+          "title": "Compare trees, ensembles and exploratory structure",
+          "status": "incomplete",
+          "objectives": [
+            "Compare a tree, random forest and boosting model with controlled tuning.",
+            "Use PCA or clustering as exploration without treating clusters as verified labels."
+          ],
+          "topics": [
+            {
+              "title": "Tree models",
+              "details": [
+                "Splits, depth, leaf size and overfitting",
+                "Bagging versus sequential boosting"
+              ]
+            },
+            {
+              "title": "Search discipline",
+              "details": [
+                "Small search budgets and a common validation protocol",
+                "Fit time, model size and error-slice comparison"
+              ]
+            },
+            {
+              "title": "Exploration",
+              "details": [
+                "PCA and cluster stability under rescaling",
+                "Feature importance is not causal importance"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "ml.tree-ensembles",
+            "ml.unsupervised-exploration",
+            "ml.model-selection"
+          ],
+          "video": {
+            "resourceId": "ai-video-statquest",
+            "locator": "Random Forests Part 1: Building, using and evaluating; Principal Component Analysis (PCA) Step-by-Step"
+          },
+          "reading": {
+            "resourceId": "ai-book-islp",
+            "locator": "Chapter 8 Tree-Based Methods; Chapter 12 Unsupervised Learning"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-cross-validation"
+          ],
+          "assignment": {
+            "id": "ai-a05",
+            "title": "Run a fixed-budget model tournament",
+            "kind": "lab",
+            "instructions": [
+              "Generate 1,200 non-personal tabular rows with a nonlinear interaction and irrelevant columns.",
+              "Compare a shallow tree, random forest and gradient boosting using at most six configurations per family.",
+              "Inspect PCA and two clusterings under different scaling; explain why discovered groups are hypotheses."
+            ],
+            "deliverables": [
+              "Search manifest and score/time table",
+              "Exploration plot and an error-slice memo"
+            ],
+            "acceptanceCriteria": [
+              "All models share the same split and evaluation metric.",
+              "Exactly recorded search counts make the compute budget auditable.",
+              "Report at least one error slice and one stability failure; do not claim that feature importance establishes causality."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q05",
+                "prompt": "An equipment-location feature is important in a model. Does that establish that changing the location would cause the outcome to improve?",
+                "kind": "short-answer",
+                "answer": "No. Predictive importance does not identify an intervention's causal effect.",
+                "explanation": "Confounding, proxy information and correlated features can all produce predictive importance."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How does boosting differ from averaging independently trained trees?",
+            "What would make a cluster unsuitable as a business category?"
+          ]
+        },
+        {
+          "id": "ai-l06-calibration",
+          "title": "Evaluate probabilities, thresholds and uncertainty",
+          "status": "incomplete",
+          "objectives": [
+            "Select thresholds and calibrators without test leakage.",
+            "Report discrimination, calibration and sample-size limitations separately."
+          ],
+          "topics": [
+            {
+              "title": "Metrics",
+              "details": [
+                "Confusion matrices, precision/recall, ROC and PR trade-offs",
+                "Cost-sensitive thresholds and reject/abstain outcomes"
+              ]
+            },
+            {
+              "title": "Calibration",
+              "details": [
+                "Reliability diagrams, log loss and Brier score",
+                "Independent calibration folds and avoiding training-prediction bias"
+              ]
+            },
+            {
+              "title": "Uncertainty",
+              "details": [
+                "Bootstrap intervals and unit-of-resampling assumptions",
+                "Small-sample limits and correlated observations"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "ml.calibration",
+            "ml.uncertainty",
+            "ml.threshold-selection"
+          ],
+          "video": {
+            "resourceId": "ai-video-statquest",
+            "locator": "ROC and AUC; Bootstrapping Part 1: Main Ideas"
+          },
+          "reading": {
+            "resourceId": "ai-book-islp",
+            "locator": "Chapter 5 Resampling Methods: cross-validation and the bootstrap"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-calibration",
+            "ai-doc-cross-validation"
+          ],
+          "assignment": {
+            "id": "ai-a06",
+            "title": "Write a threshold decision record",
+            "kind": "lab",
+            "instructions": [
+              "Generate 600 labeled synthetic scores with known miscalibration, including an imbalanced subset.",
+              "Fit a calibrator on separate development data and freeze a cost-based threshold before the held-out evaluation.",
+              "Report score distributions, reliability bins, error counts and bootstrap intervals; keep an explicit uncertain region."
+            ],
+            "deliverables": [
+              "Calibration/evaluation script",
+              "Frozen threshold record and uncertainty report"
+            ],
+            "acceptanceCriteria": [
+              "Calibration, threshold selection and final evaluation use disjoint roles in the data protocol.",
+              "Precision and recall calculations match a hand-computed ten-case fixture.",
+              "Report bin sample counts and both calibration and discrimination evidence.",
+              "No claim that lower Brier loss alone proves better calibration."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q06",
+                "prompt": "A classifier makes 20 positive predictions, of which 15 are correct. What is its precision?",
+                "kind": "numeric",
+                "answer": 0.75,
+                "explanation": "Precision is correct positive predictions divided by all positive predictions."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why can AUROC stay unchanged after a useful recalibration?",
+            "Which resampling unit is appropriate when several rows belong to one capture session?"
+          ]
+        },
+        {
+          "id": "ai-l07-temporal-validation",
+          "title": "Prevent grouped and temporal leakage",
+          "status": "incomplete",
+          "objectives": [
+            "Design grouped and rolling-origin evaluation protocols.",
+            "Compare a simple forecast with a seasonal baseline using only available history."
+          ],
+          "topics": [
+            {
+              "title": "Dependence",
+              "details": [
+                "Entity/session overlap and near-duplicate examples",
+                "Augmentation lineage and correlated adjacent frames"
+              ]
+            },
+            {
+              "title": "Temporal experiments",
+              "details": [
+                "Lag features, prediction horizon and rolling-origin validation",
+                "Label delay, temporal gaps and available-at timestamps"
+              ]
+            },
+            {
+              "title": "Forecast baselines",
+              "details": [
+                "Last-value and seasonal-naive forecasts",
+                "Per-horizon error and drift without future leakage"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "ml.grouped-validation",
+            "ml.temporal-validation",
+            "ml.forecast-baselines"
+          ],
+          "video": {
+            "resourceId": "ai-video-statquest",
+            "locator": "Machine Learning Fundamentals: Cross Validation"
+          },
+          "reading": {
+            "resourceId": "ai-book-d2l",
+            "locator": "9.1 Working with Sequences"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-cross-validation"
+          ],
+          "assignment": {
+            "id": "ai-a07",
+            "title": "Expose a convincing but leaky forecast",
+            "kind": "lab",
+            "instructions": [
+              "Generate 180 days of fictional equipment-load data with weekly seasonality, delayed observations and duplicate session IDs.",
+              "Compare a deliberately leaky random split with a corrected rolling-origin experiment and a seasonal-naive baseline.",
+              "Add a separate grouped-image manifest fixture in which all augmentations remain with the original source capture."
+            ],
+            "deliverables": [
+              "Temporal and grouped split builders",
+              "Leakage counterexample and corrected per-horizon report"
+            ],
+            "acceptanceCriteria": [
+              "No corrected forecast consumes information unavailable at its forecast origin.",
+              "No source-capture ID occurs in both development and test fixtures.",
+              "Reported results label the leaky experiment invalid and retain the baseline even if the model is worse."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q07",
+                "prompt": "Can an augmented version of a training photograph be placed in the held-out test set?",
+                "kind": "short-answer",
+                "answer": "No. It must remain in the same split as its source photograph and capture group.",
+                "explanation": "Transformations do not create independent evidence of generalization."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When is ordinary shuffled cross-validation inappropriate?",
+            "How does delayed label availability change the training cutoff?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-m03-deep-learning-cv",
+      "title": "3. Deep learning, computer vision and local consent-based verification",
+      "stage": "intermediate",
+      "description": "Learn a real training loop and CV representations. Default practicals are non-biometric and synthetic; optional face work is tightly bounded, local and opt-in.",
+      "prerequisites": [
+        "ai-m02-classical-ml"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ai-l08-backprop",
+          "title": "Train and debug a small neural network",
+          "status": "incomplete",
+          "objectives": [
+            "Explain forward computation, backpropagation and parameter updates.",
+            "Diagnose broken gradients and train/evaluation mode mistakes."
+          ],
+          "topics": [
+            {
+              "title": "Network mechanics",
+              "details": [
+                "Tensors, layers, activations and computational graphs",
+                "Loss reduction, gradient accumulation and optimizer state"
+              ]
+            },
+            {
+              "title": "Training discipline",
+              "details": [
+                "Mini-batches, learning-rate schedules and regularization",
+                "Tiny-batch overfitting as a debugging check"
+              ]
+            },
+            {
+              "title": "Reproducibility",
+              "details": [
+                "Train/eval mode and deterministic fixture predictions",
+                "Checkpoint contents and environment limitations"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "dl.backpropagation",
+            "dl.training-loop",
+            "dl.debugging"
+          ],
+          "video": {
+            "resourceId": "ai-video-mit2026",
+            "locator": "2026 Lecture 1: Intro to Deep Learning"
+          },
+          "reading": {
+            "resourceId": "ai-book-d2l",
+            "locator": "5.1 Multilayer Perceptrons; 5.3 Forward Propagation, Backward Propagation, and Computational Graphs"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-pytorch"
+          ],
+          "assignment": {
+            "id": "ai-a08",
+            "title": "Repair three intentionally broken training runs",
+            "kind": "coding",
+            "instructions": [
+              "Train a small CPU MLP on learner-generated two-dimensional data.",
+              "Introduce, detect and repair a detached-gradient bug, missing gradient reset and incorrect evaluation-mode behavior.",
+              "Save and reload the trained artifact and document the actual final metrics."
+            ],
+            "deliverables": [
+              "Training script and three minimal failing fixtures",
+              "Checkpoint round-trip test and debugging log"
+            ],
+            "acceptanceCriteria": [
+              "Each planted defect has a test that fails before the fix and passes afterward.",
+              "Reloaded evaluation predictions agree with pre-save predictions within a documented tolerance.",
+              "Training/validation histories and seed/configuration are retained; no unseen test result is invented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q08",
+                "prompt": "Why must accumulated gradients normally be cleared between independent optimizer steps?",
+                "kind": "short-answer",
+                "answer": "Otherwise the next update includes gradients from previous batches rather than only the intended batch or explicit accumulation window.",
+                "explanation": "Autograd accumulation is useful only when it is deliberate and correctly scaled."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What does successfully overfitting a tiny batch check?",
+            "Which state is needed to resume training rather than merely perform inference?"
+          ]
+        },
+        {
+          "id": "ai-l09-image-quality",
+          "title": "Build image-quality features and a CNN baseline",
+          "status": "incomplete",
+          "objectives": [
+            "Explain convolution, receptive fields and image preprocessing.",
+            "Compare learned quality decisions with transparent feature rules."
+          ],
+          "topics": [
+            {
+              "title": "Vision fundamentals",
+              "details": [
+                "Channels, normalization, convolution, stride and pooling",
+                "Spatial invariance, augmentation and label preservation"
+              ]
+            },
+            {
+              "title": "Quality features",
+              "details": [
+                "Blur, exposure, object size and controlled geometric distortion",
+                "Usable-versus-retake rubric rather than identity or emotion labels"
+              ]
+            },
+            {
+              "title": "Comparisons",
+              "details": [
+                "Fixed-rule baseline, feature classifier and small CNN",
+                "Source-group splits and coverage/error trade-offs"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "cv.convolution",
+            "cv.capture-quality",
+            "ml.baseline-comparison"
+          ],
+          "video": {
+            "resourceId": "ai-video-mit2026",
+            "locator": "2026 Lecture 3: Deep Computer Vision"
+          },
+          "reading": {
+            "resourceId": "ai-book-d2l",
+            "locator": "7.1 From Fully Connected Layers to Convolutions; 7.2 Convolutions for Images"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-cross-validation",
+            "ai-doc-landmarks"
+          ],
+          "assignment": {
+            "id": "ai-a09",
+            "title": "Train a synthetic document-capture quality model",
+            "kind": "lab",
+            "instructions": [
+              "Render 80 original geometric document cards and create controlled blur, lighting and crop degradations.",
+              "Define a quality rubric, keep every derivative in its source-card split, and compare fixed rules with a small classifier.",
+              "Optionally train a small CNN within a declared CPU budget; present the untrained or unrun branch as incomplete, not a result."
+            ],
+            "deliverables": [
+              "Image generator, group manifest and rubric",
+              "Baseline/classifier report with rejected examples"
+            ],
+            "acceptanceCriteria": [
+              "Source groups are disjoint across development and test.",
+              "Report usable/retake confusion counts and retained coverage for both required models.",
+              "Every training image is generated locally; no face data or third-party corpus is necessary.",
+              "The report distinguishes synthetic capture quality from face quality or liveness."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q09",
+                "prompt": "Does a sharp, well-lit image prove that its subject is live?",
+                "kind": "short-answer",
+                "answer": "No. Capture quality and presentation-attack or liveness assurance are different problems.",
+                "explanation": "A photograph, screen or other replay can be visually high quality."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which augmentations could invalidate a quality label?",
+            "Why compare coverage as well as error among accepted captures?"
+          ]
+        },
+        {
+          "id": "ai-l10-embedding-verification",
+          "title": "Use embeddings for one-claim local verification",
+          "status": "incomplete",
+          "objectives": [
+            "Distinguish integration of pretrained representations from training their backbone.",
+            "Calibrate a one-claimed-identity comparison without introducing identification or gallery search."
+          ],
+          "topics": [
+            {
+              "title": "Transfer learning",
+              "details": [
+                "Frozen encoder versus trained head",
+                "Code, weights, training-data licenses and model cards"
+              ]
+            },
+            {
+              "title": "Verification",
+              "details": [
+                "Selected claim, enrollment template, similarity and threshold",
+                "Unknown claims, zero/multiple-object rejection and uncertain output"
+              ]
+            },
+            {
+              "title": "Evaluation",
+              "details": [
+                "Genuine/impostor pair construction and session separation",
+                "Frozen thresholds, denominators and small-sample limitations"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "dl.transfer-learning",
+            "cv.one-to-one-verification",
+            "ml.threshold-calibration"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-foundation-models",
+            "locator": "Lecture 7: Foundation Models; section 1 Fine-Tuning"
+          },
+          "reading": {
+            "resourceId": "ai-book-d2l",
+            "locator": "14.2 Fine-Tuning"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-opencv-face",
+            "ai-doc-nist-biometrics",
+            "ai-doc-calibration"
+          ],
+          "assignment": {
+            "id": "ai-a10",
+            "title": "Verify a selected synthetic emblem, not an unknown person",
+            "kind": "lab",
+            "instructions": [
+              "Generate five original emblem identities with separate capture sessions; the caller must select one claimed emblem.",
+              "Use a frozen representation or the prior synthetic-image model, choose a development threshold, then evaluate locked genuine/impostor pairs.",
+              "Write a license-review checklist for an optional face encoder; do not download or use unclear assets and do not execute a human-data branch before the next lesson's consent/storage controls."
+            ],
+            "deliverables": [
+              "One-claim verifier and pair manifest",
+              "Threshold/error report and component-license checklist"
+            ],
+            "acceptanceCriteria": [
+              "No API enumerates a gallery to infer an unknown identity.",
+              "An unknown claim and zero/multiple-object fixture return explicit rejection.",
+              "Threshold selection precedes test evaluation; pair counts and both false-match/non-match counts are reported.",
+              "Synthetic emblem results are never labeled biometric performance or secure authentication."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q10",
+                "prompt": "If a pretrained encoder is used unchanged, may the project claim that its backbone was trained by the learner?",
+                "kind": "short-answer",
+                "answer": "No. Report pretrained-model integration and any separately trained components accurately.",
+                "explanation": "Integration, head training, adaptation and backbone pretraining are distinct contributions."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How does one-to-one verification differ from identifying someone in a gallery?",
+            "Why is a published benchmark threshold not automatically suitable for a local dataset?"
+          ]
+        },
+        {
+          "id": "ai-l11-private-lifecycle",
+          "title": "Protect enrollment, withdrawal and local capture data",
+          "status": "incomplete",
+          "objectives": [
+            "Design consent, template protection and deletion as testable behaviors.",
+            "State the limits of a small educational biometric prototype."
+          ],
+          "topics": [
+            {
+              "title": "Consent and scope",
+              "details": [
+                "Explicit adult opt-in, purpose, retention and voluntary withdrawal",
+                "No surveillance, unknown-person identification, demographic or emotion inference"
+              ]
+            },
+            {
+              "title": "Protection",
+              "details": [
+                "Sensitive templates, restrictive access and vetted encryption/key storage",
+                "No sensitive telemetry, public repositories or cloud synchronization"
+              ]
+            },
+            {
+              "title": "Withdrawal",
+              "details": [
+                "Delete project-managed images, templates, caches and derived manifests",
+                "Exclude withdrawn subjects from clean retraining and document backup limits"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "ai.privacy-by-design",
+            "cv.consent-and-deletion",
+            "ai.model-documentation"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-ethics",
+            "locator": "Lecture 9: Ethics; themes Alignment, Trade-Offs and Humility"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys1",
+            "locator": "Responsible Engineering: Responsible Engineering Checklist; Predeployment assessment; Model documentation standards"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-nist-biometrics",
+            "ai-doc-opencv-face"
+          ],
+          "assignment": {
+            "id": "ai-a11",
+            "title": "Implement withdrawal using dummy sensitive templates",
+            "kind": "lab",
+            "instructions": [
+              "Add consent records and retention metadata to the synthetic-emblem verifier, using dummy vectors rather than personal biometrics.",
+              "Use a vetted local protection mechanism, keep keys outside exported artifacts, and implement withdrawal across managed stores and caches.",
+              "Run with networking disabled and inspect logs/exports; draft the optional adult-consent policy without collecting real data."
+            ],
+            "deliverables": [
+              "Consent/storage data-flow diagram and withdrawal command",
+              "Deletion/offline/log-sanitization tests and limitations note"
+            ],
+            "acceptanceCriteria": [
+              "Verification is blocked before opt-in and after withdrawal, including after a process restart.",
+              "No raw template, image or secret appears in logs or the public evidence package.",
+              "The report distinguishes application-level deletion from guaranteed physical erasure and documents backup policy.",
+              "Self-only or synthetic data is explicitly insufficient to establish real impostor performance, liveness or production authentication safety."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q11",
+                "prompt": "Is a stored face embedding anonymous merely because it is not a photograph?",
+                "kind": "short-answer",
+                "answer": "No. It remains sensitive biometric information requiring protection and controlled use.",
+                "explanation": "A derived representation can still support recognition and expose personal information."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What can a deletion command honestly guarantee?",
+            "How does the non-biometric alternative preserve the engineering learning objectives?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-m04-nlp-transformers",
+      "title": "4. NLP representations, transformers and structured generation",
+      "stage": "intermediate",
+      "description": "Understand language-model mechanics before adding retrieval or agents.",
+      "prerequisites": [
+        "ai-m03-deep-learning-cv"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ai-l12-tokenization",
+          "title": "Build tokenization and classical text baselines",
+          "status": "incomplete",
+          "objectives": [
+            "Explain token boundaries, vocabulary and truncation effects.",
+            "Establish a non-generative text baseline on original data."
+          ],
+          "topics": [
+            {
+              "title": "Text processing",
+              "details": [
+                "Unicode normalization, word/subword tokens and unknown inputs",
+                "Vocabulary fitted without held-out corpus leakage"
+              ]
+            },
+            {
+              "title": "Baselines",
+              "details": [
+                "N-gram counts, TF-IDF and linear text classifiers",
+                "Sparse versus dense representations"
+              ]
+            },
+            {
+              "title": "Evaluation units",
+              "details": [
+                "Template-family splits and near-duplicate prompts",
+                "Token budget, multilingual text and character/token mismatch"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "nlp.tokenization",
+            "nlp.classical-baselines",
+            "nlp.text-leakage"
+          ],
+          "video": {
+            "resourceId": "ai-video-cs336",
+            "locator": "Lecture 1: Overview and Tokenization, Spring 2025"
+          },
+          "reading": {
+            "resourceId": "ai-book-slp3",
+            "locator": "August 19, 2026 manuscript: Chapter 2 Words and Tokens; Chapter 3 N-gram Language Models"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-chat-templates"
+          ],
+          "assignment": {
+            "id": "ai-a12",
+            "title": "Create a small text-routing benchmark",
+            "kind": "coding",
+            "instructions": [
+              "Author 120 fictional maintenance messages across four operational intents and multiple wording families.",
+              "Compare a keyword router with a TF-IDF plus logistic-regression pipeline using family-aware splits.",
+              "Add Unicode, empty, very long and unfamiliar-word cases and inspect tokenization behavior."
+            ],
+            "deliverables": [
+              "Original text fixture and split manifest",
+              "Baseline comparison and tokenizer edge-case tests"
+            ],
+            "acceptanceCriteria": [
+              "Vocabulary and preprocessing are learned only from training messages.",
+              "All four intents and an explicit unknown/reject outcome are evaluated.",
+              "Near-duplicate wording families do not cross train/test boundaries.",
+              "No copyrighted corpus, customer ticket or private report is copied."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q12",
+                "prompt": "Does a limit of 100 tokens always mean a limit of 100 words?",
+                "kind": "short-answer",
+                "answer": "No. Tokenization can split words or encode punctuation and other text into separate tokens.",
+                "explanation": "The relationship depends on the tokenizer, language and input."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why should a vocabulary be fit on training data only?",
+            "Which text tasks may not need a generative model?"
+          ]
+        },
+        {
+          "id": "ai-l13-attention",
+          "title": "Understand embeddings, attention and transformer masking",
+          "status": "incomplete",
+          "objectives": [
+            "Trace the shapes and roles of queries, keys and values.",
+            "Explain causal masking, positional information and next-token training."
+          ],
+          "topics": [
+            {
+              "title": "Representations",
+              "details": [
+                "Learned token embeddings versus contextual embeddings",
+                "Similarity, vector norms and representation limitations"
+              ]
+            },
+            {
+              "title": "Transformer blocks",
+              "details": [
+                "Multi-head attention, residual paths and normalization",
+                "Positions, padding and causal masks"
+              ]
+            },
+            {
+              "title": "Model families",
+              "details": [
+                "Encoder, decoder and encoder-decoder use cases",
+                "Pretraining objectives versus downstream evaluation"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "nlp.embeddings",
+            "dl.transformer-attention",
+            "dl.causal-masking"
+          ],
+          "video": {
+            "resourceId": "ai-video-mit2026",
+            "locator": "2026 Lecture 2: Deep Sequence Modeling"
+          },
+          "reading": {
+            "resourceId": "ai-book-slp3",
+            "locator": "August 19, 2026 manuscript: Chapter 5 Embeddings; Chapter 7 Transformers and Pretraining"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-pytorch"
+          ],
+          "assignment": {
+            "id": "ai-a13",
+            "title": "Test a tiny attention block's information boundary",
+            "kind": "coding",
+            "instructions": [
+              "Implement one small attention head for synthetic token vectors and compare it with a library implementation.",
+              "Add padding and causal masks and inspect a hand-sized attention matrix.",
+              "Change only future tokens and test that earlier causal outputs do not change; include a deliberately unmasked failing example."
+            ],
+            "deliverables": [
+              "Attention module and shape/masking tests",
+              "Annotated synthetic attention matrix"
+            ],
+            "acceptanceCriteria": [
+              "Reference and custom outputs agree within a documented numerical tolerance.",
+              "Future-token perturbations cannot influence earlier causal outputs.",
+              "Padding and fully invalid input cases have defined behavior.",
+              "Attention weights are not claimed to be a complete causal explanation of a model."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q13",
+                "prompt": "Why is a future-token attention edge invalid when training an ordinary next-token predictor?",
+                "kind": "short-answer",
+                "answer": "It exposes information that would not exist at generation time and leaks the prediction target's future context.",
+                "explanation": "Causal masking preserves the autoregressive information constraint."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What information does a positional encoding add?",
+            "Why does attention need both masking and careful tensor-shape checks?"
+          ]
+        },
+        {
+          "id": "ai-l14-generation-contracts",
+          "title": "Treat prompts and generated outputs as versioned contracts",
+          "status": "incomplete",
+          "objectives": [
+            "Use a model's actual chat template and bounded context.",
+            "Validate structured outputs and surface failures instead of silently repairing meaning."
+          ],
+          "topics": [
+            {
+              "title": "Generation",
+              "details": [
+                "Prompt roles, special tokens and context budgeting",
+                "Greedy/sampled decoding, output limits and nondeterminism"
+              ]
+            },
+            {
+              "title": "Contracts",
+              "details": [
+                "JSON schema or typed output validation",
+                "Explicit unsupported, malformed and abstained states"
+              ]
+            },
+            {
+              "title": "Prompt experiments",
+              "details": [
+                "Versioned prompts and fixed representative cases",
+                "Prompting versus reliable computation or data access"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "genai.context-management",
+            "genai.structured-output",
+            "genai.prompt-evaluation"
+          ],
+          "video": {
+            "resourceId": "ai-video-prompting",
+            "locator": "Learn to Spell: Prompt Engineering; Language models are statistical models of text; Character-level operations are hard"
+          },
+          "reading": {
+            "resourceId": "ai-book-slp3",
+            "locator": "August 19, 2026 manuscript: Chapter 7 Transformers and Pretraining, including decoding"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-chat-templates",
+            "ai-doc-small-model"
+          ],
+          "assignment": {
+            "id": "ai-a14",
+            "title": "Build a local structured ticket extractor",
+            "kind": "coding",
+            "instructions": [
+              "Define a three-field operational JSON output schema and author 30 synthetic messages, including missing information.",
+              "Use a license-reviewed compact local model with its supplied chat template and bounded output; compare two prompt versions.",
+              "Validate all outputs and record malformed, unsupported and abstained cases; use a fake backend only for deterministic unit tests, not as evidence of model capability."
+            ],
+            "deliverables": [
+              "Prompt versions, schema and fixture runner",
+              "Actual local-model outcome table with resource requirements"
+            ],
+            "acceptanceCriteria": [
+              "Every response is either schema-valid or an explicit structured failure.",
+              "Missing values are not silently invented or replaced with success-shaped defaults.",
+              "No private message or paid API is needed.",
+              "If local inference cannot run, record a hardware/blocker limitation and leave the model-execution milestone incomplete."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q14",
+                "prompt": "Does a response passing JSON-schema validation prove that its factual content is correct?",
+                "kind": "short-answer",
+                "answer": "No. Schema validity checks structure; factual correctness needs separate evidence and evaluation.",
+                "explanation": "A perfectly formed object can contain invented or wrong values."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why can the wrong chat template degrade a capable model?",
+            "Which operations should be implemented by ordinary code instead of text generation?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-m05-rag-adaptation",
+      "title": "5. Retrieval, permission-aware RAG and measured adaptation",
+      "stage": "advanced",
+      "description": "Separate retrieval quality, answer quality, model behavior and authorization. Use local components and original fictional documents.",
+      "prerequisites": [
+        "ai-m04-nlp-transformers"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ai-l15-retrieval",
+          "title": "Build and evaluate a retrieval pipeline",
+          "status": "incomplete",
+          "objectives": [
+            "Compare lexical, dense and hybrid retrieval on a labeled query set.",
+            "Measure the incremental value and cost of reranking."
+          ],
+          "topics": [
+            {
+              "title": "Corpus preparation",
+              "details": [
+                "Chunk boundaries, document IDs, versions and metadata",
+                "Token truncation, overlap and duplicate passages"
+              ]
+            },
+            {
+              "title": "Retrieval",
+              "details": [
+                "TF-IDF/BM25, dense embeddings and hybrid score fusion",
+                "Exact search before approximate-index complexity"
+              ]
+            },
+            {
+              "title": "Evaluation",
+              "details": [
+                "Recall at a cutoff, reciprocal rank and relevance judgments",
+                "Reranking candidate coverage and latency"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "ir.retrieval",
+            "ir.reranking",
+            "ir.relevance-evaluation"
+          ],
+          "video": {
+            "resourceId": "ai-video-augmented-lm",
+            "locator": "Augmented Language Models; Traditional information retrieval; Embeddings for retrieval; Beyond naive embeddings"
+          },
+          "reading": {
+            "resourceId": "ai-book-slp3",
+            "locator": "August 19, 2026 manuscript: Chapter 11 Information Retrieval and RAG"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-retrieval",
+            "ai-doc-small-encoder"
+          ],
+          "assignment": {
+            "id": "ai-a15",
+            "title": "Rank fictional mall policy passages",
+            "kind": "lab",
+            "instructions": [
+              "Author 24 short fictional policies and 30 queries with relevant document IDs, including aliases and unanswerable questions.",
+              "Implement a lexical baseline and a license-reviewed local dense encoder; compare exact search and a simple hybrid.",
+              "Add a small, documented reranker or deterministic reranking baseline and report where it helps or hurts."
+            ],
+            "deliverables": [
+              "Original corpus, relevance judgments and retrieval runner",
+              "Quality/latency comparison with failed-query examples"
+            ],
+            "acceptanceCriteria": [
+              "A hand-ranked five-query fixture verifies the metric implementation.",
+              "Report recall at 5, reciprocal rank and latency under the same corpus/query snapshot.",
+              "Model revisions and truncation settings are recorded.",
+              "No claims of universal superiority are made from this small benchmark."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q15",
+                "prompt": "Can a reranker recover a relevant passage that the candidate retriever never returned?",
+                "kind": "short-answer",
+                "answer": "Not when it only scores the supplied candidate set.",
+                "explanation": "Candidate recall is an upper bound on the reranker's opportunity to select the missing passage."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When is exact vector search the simpler choice?",
+            "How can chunking damage a correct answer even with a good embedding model?"
+          ]
+        },
+        {
+          "id": "ai-l16-permission-rag",
+          "title": "Make RAG respect access, provenance and abstention",
+          "status": "incomplete",
+          "objectives": [
+            "Enforce authorization before retrieval content reaches the model.",
+            "Evaluate citations, answer support and abstention separately."
+          ],
+          "topics": [
+            {
+              "title": "Access-aware retrieval",
+              "details": [
+                "Trusted user/tenant context and document ACLs",
+                "Filtering before generation and permission-aware cache keys"
+              ]
+            },
+            {
+              "title": "Grounding",
+              "details": [
+                "Document-version citations and evidence coverage",
+                "Conflicting, stale, absent or withdrawn evidence"
+              ]
+            },
+            {
+              "title": "Failures",
+              "details": [
+                "Untrusted document instructions and context contamination",
+                "Explicit abstention rather than unsupported confident answers"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "genai.permission-aware-rag",
+            "genai.grounding",
+            "genai.abstention"
+          ],
+          "video": {
+            "resourceId": "ai-video-augmented-lm",
+            "locator": "Augmented Language Models; Patterns & case studies; What are chains and why do we need them?"
+          },
+          "reading": {
+            "resourceId": "ai-book-slp3",
+            "locator": "August 19, 2026 manuscript: Chapter 11 Information Retrieval and RAG"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-retrieval",
+            "ai-doc-owasp-agents",
+            "ai-doc-evals"
+          ],
+          "assignment": {
+            "id": "ai-a16",
+            "title": "Test a tenant-isolated policy answering slice",
+            "kind": "project",
+            "instructions": [
+              "Extend the fictional corpus to three tenants and public/staff roles using trusted fixture identities, not identity instructions inside a prompt.",
+              "Retrieve only authorized passages, generate locally, and require resolvable source-version citations or an abstention.",
+              "Create 36 allowed, forbidden, stale, conflicting and malicious-document test cases; include identical queries from different tenants."
+            ],
+            "deliverables": [
+              "Local RAG slice, ACL fixtures and cache-key design",
+              "Access/grounding/abstention evaluation report"
+            ],
+            "acceptanceCriteria": [
+              "No unauthorized passage reaches retrieval results, model context, traces or cache hits in the test suite.",
+              "Every accepted citation resolves to an authorized versioned passage.",
+              "Unsupported answers count as failures, not as successful abstentions.",
+              "Measured quality and access-control correctness are reported separately; a weak local model is not disguised by fixtures."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q16",
+                "prompt": "Is filtering unauthorized citations only after answer generation sufficient?",
+                "kind": "short-answer",
+                "answer": "No. Unauthorized content must be excluded before it can enter model context or shared caches.",
+                "explanation": "Post-generation citation filtering cannot undo information already exposed to the model or answer."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What changes when a document's access policy is revoked?",
+            "How would you distinguish a retrieval miss from a generation failure?"
+          ]
+        },
+        {
+          "id": "ai-l17-adaptation",
+          "title": "Run a small supervised adaptation experiment",
+          "status": "incomplete",
+          "objectives": [
+            "Explain SFT, LoRA and the distinction between task behavior and changing knowledge.",
+            "Evaluate an adapter against its unchanged base model and a prompt baseline."
+          ],
+          "topics": [
+            {
+              "title": "Adaptation data",
+              "details": [
+                "Original input/output examples, quality review and template-family splits",
+                "Licenses, contamination and sensitive-data exclusion"
+              ]
+            },
+            {
+              "title": "Training",
+              "details": [
+                "Frozen base weights, LoRA rank and trainable parameter counts",
+                "Loss masks, validation, overfitting and checkpoint compatibility"
+              ]
+            },
+            {
+              "title": "Evaluation",
+              "details": [
+                "Task-format quality, regression slices and held-out comparison",
+                "Preference optimization as an optional specialist extension"
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "genai.supervised-finetuning",
+            "genai.parameter-efficient-adaptation",
+            "genai.adaptation-evaluation"
+          ],
+          "video": {
+            "resourceId": "ai-video-cs336",
+            "locator": "Lecture 15: Alignment - SFT/RLHF, Spring 2025"
+          },
+          "reading": {
+            "resourceId": "ai-book-slp3",
+            "locator": "August 19, 2026 manuscript: Chapter 8 Post-training"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-lora",
+            "ai-doc-chat-templates",
+            "ai-doc-small-model"
+          ],
+          "assignment": {
+            "id": "ai-a17",
+            "title": "Adapt a tiny model to an original operational format",
+            "kind": "lab",
+            "instructions": [
+              "Author 80 synthetic field-extraction examples with disjoint wording families for training, validation and test.",
+              "Use a license-reviewed small local model or a learner-initialized tiny transformer to compare base/prompt behavior with a small LoRA run.",
+              "Record the trainable parameters, time budget and actual results; audit unchanged base parameters and checkpoint reload."
+            ],
+            "deliverables": [
+              "Original examples, split manifest and training configuration",
+              "Adapter artifact locally retained and comparison report"
+            ],
+            "acceptanceCriteria": [
+              "Training performs real optimization; a mock is not accepted as an adaptation result.",
+              "Frozen base weights remain unchanged within the expected representation.",
+              "Report schema accuracy and task correctness separately for all comparison conditions, including regressions.",
+              "CPU-scale toy results are labeled toy results, not proof of broad LLM improvement; an unrun experiment stays incomplete."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q17",
+                "prompt": "Should frequently changing mall opening hours normally be maintained by retraining the model each time?",
+                "kind": "short-answer",
+                "answer": "Usually no. Use an authoritative data source or retrieval/tool lookup for changing facts, with appropriate permissions and freshness.",
+                "explanation": "Adaptation is useful for behavior and task performance, not as a dependable mutable database."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What does LoRA freeze and what does it optimize?",
+            "Which failure modes cannot be repaired merely by adding more fine-tuning examples?"
+          ]
+        },
+        {
+          "id": "ai-l18-intervention-selection",
+          "title": "Choose search, RAG, adaptation or tools from evidence",
+          "status": "incomplete",
+          "objectives": [
+            "Select the least complex intervention that addresses a measured failure.",
+            "Compare quality, permissions, latency and operational cost without conflating them."
+          ],
+          "topics": [
+            {
+              "title": "Failure diagnosis",
+              "details": [
+                "Missing evidence versus weak instructions versus incorrect computation",
+                "Search-only answers and deterministic structured-data lookups"
+              ]
+            },
+            {
+              "title": "Controlled experiments",
+              "details": [
+                "Ablations and a fixed development workload",
+                "Versioned prompts, model revisions and retrieval configurations"
+              ]
+            },
+            {
+              "title": "Decision records",
+              "details": [
+                "Hardware, tokens, latency and maintenance burden",
+                "A locked holdout and explicit rejected alternatives"
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "genai.intervention-selection",
+            "genai.ablations",
+            "ai.cost-quality-tradeoffs"
+          ],
+          "video": {
+            "resourceId": "ai-video-llmops",
+            "locator": "LLMOps; Choosing your base LLM; Testing LLMs: What works?"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys1",
+            "locator": "ML Workflow chapter: ML Lifecycle"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-evals",
+            "ai-doc-retrieval",
+            "ai-doc-lora"
+          ],
+          "assignment": {
+            "id": "ai-a18",
+            "title": "Write an evidence-backed architecture choice",
+            "kind": "design",
+            "instructions": [
+              "Create 24 tasks spanning policy retrieval, exact totals, text formatting and unsupported requests.",
+              "Compare a deterministic baseline, local prompted model and permission-aware retrieval on a development subset; include adaptation results only if actually run.",
+              "Lock a remaining holdout, evaluate the chosen configuration once, and explain two rejected alternatives."
+            ],
+            "deliverables": [
+              "Task taxonomy and configuration manifest",
+              "Quality/latency decision record and holdout results"
+            ],
+            "acceptanceCriteria": [
+              "Exact arithmetic has an independently computed oracle.",
+              "No paid service is a required comparison condition.",
+              "Each architectural addition addresses an observed failure and includes its operational cost.",
+              "Not-run alternatives are labeled not run; no synthetic claim is presented as measured performance."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q18",
+                "prompt": "A model gives the wrong total for three known invoice amounts. What is the simplest reliable first intervention?",
+                "kind": "short-answer",
+                "answer": "Use deterministic code or a bounded query over the authorized amounts, then evaluate the complete answer path.",
+                "explanation": "Retraining or adding agents is unnecessary when exact computation directly addresses the failure."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What evidence justifies adding an agent?",
+            "When can retrieval add cost without improving the answer?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-m06-bounded-agents",
+      "title": "6. Bounded agents, governed analytics and tool security",
+      "stage": "advanced",
+      "description": "Keep control, permissions and execution limits outside the model. All exercises target owned synthetic fixtures and local tools only.",
+      "prerequisites": [
+        "ai-m05-rag-adaptation"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ai-l19-agent-state",
+          "title": "Design a bounded tool-using state machine",
+          "status": "incomplete",
+          "objectives": [
+            "Separate model proposals from authorized execution.",
+            "Make agent state, termination and recovery explicit."
+          ],
+          "topics": [
+            {
+              "title": "Control flow",
+              "details": [
+                "Fixed workflows versus model-selected next actions",
+                "Typed observations, tool calls and durable state"
+              ]
+            },
+            {
+              "title": "Bounds",
+              "details": [
+                "Maximum steps, time, tokens and output size",
+                "Timeouts, cancellation, idempotency and retry budgets"
+              ]
+            },
+            {
+              "title": "Human control",
+              "details": [
+                "Preview/approval boundaries for hypothetical consequential actions",
+                "Clear escalation and unsupported-operation states"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "agents.bounded-control",
+            "agents.tool-contracts",
+            "agents.recovery"
+          ],
+          "video": {
+            "resourceId": "ai-video-berkeley-agents",
+            "locator": "September 16, 2024: LLM agents: brief history and overview - Shunyu Yao"
+          },
+          "reading": {
+            "resourceId": "ai-book-slp3",
+            "locator": "August 19, 2026 manuscript: Appendix K Frame-based Dialogue Systems; foundational state/dialogue concepts, not the unwritten Agents chapter"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-owasp-agents",
+            "ai-doc-mcp-security"
+          ],
+          "assignment": {
+            "id": "ai-a19",
+            "title": "Build a three-tool fictional maintenance assistant",
+            "kind": "project",
+            "instructions": [
+              "Expose only search_policy, calculate_total and read_ticket tools over synthetic local fixtures.",
+              "Implement propose/validate/execute/observe/finish states with a maximum of five tool steps and an explicit failure state.",
+              "Test malformed proposals, repeated calls, tool timeout and restart; include an actual local-model trace and deterministic fake-model tests."
+            ],
+            "deliverables": [
+              "State diagram and bounded local runner",
+              "Tool-contract tests and sanitized execution traces"
+            ],
+            "acceptanceCriteria": [
+              "Every execution passes independent schema and permission checks.",
+              "No run exceeds five tool steps, including retries.",
+              "Duplicate request IDs cannot cause duplicate effects in the simulated effect fixture.",
+              "A fake trace is labeled as a control-flow test, not evidence of autonomous model capability."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q19",
+                "prompt": "If a model emits a syntactically valid tool call, who must decide whether it is permitted?",
+                "kind": "short-answer",
+                "answer": "Trusted application policy and execution code, using authenticated context rather than the model's claim.",
+                "explanation": "A generated action is a proposal, not an authorization grant."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What state must survive a crash?",
+            "Why can adding retries make a bounded system unbounded if counting is wrong?"
+          ]
+        },
+        {
+          "id": "ai-l20-governed-sql",
+          "title": "Execute text-to-SQL through a restricted analytics boundary",
+          "status": "incomplete",
+          "objectives": [
+            "Ground query proposals in an allowed schema and independently validate execution.",
+            "Evaluate query meaning, tenant isolation and resource bounds separately."
+          ],
+          "topics": [
+            {
+              "title": "Schema grounding",
+              "details": [
+                "Allowed tables/columns, units and join semantics",
+                "Ambiguous questions and refusal rather than invented fields"
+              ]
+            },
+            {
+              "title": "Execution safety",
+              "details": [
+                "Per-tenant read-only stores, allowlisted operations/functions and parameter binding",
+                "Authorizer/progress limits, one statement, row/output limits and no extension loading"
+              ]
+            },
+            {
+              "title": "Correctness",
+              "details": [
+                "Result-set equivalence against hand-written queries",
+                "Empty sets, duplicate joins, nulls and tenant-switch tests"
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "agents.governed-text-to-sql",
+            "ai.execution-sandboxing",
+            "ai.tenant-isolation"
+          ],
+          "video": {
+            "resourceId": "ai-video-augmented-lm",
+            "locator": "Augmented Language Models; Tool use; Recommendations for tool use"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys2",
+            "locator": "Security & Privacy chapter: Security defined; Privacy defined"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-sqlite",
+            "ai-doc-owasp-agents"
+          ],
+          "assignment": {
+            "id": "ai-a20",
+            "title": "Build a read-only synthetic mall query service",
+            "kind": "project",
+            "instructions": [
+              "Generate separate fictional databases for three tenants with shops, invoices and payments; expose an allowlisted analytical schema.",
+              "Treat local-model SQL as untrusted: validate one permitted query, bind values, enforce a read-only connection, deny unsafe authorizer operations/functions and bound execution/output.",
+              "Write 30 natural-language cases with reference SQL/results plus attempts to cross tenants, attach a database, write, execute multiple statements or consume excessive resources."
+            ],
+            "deliverables": [
+              "Schema catalog, restricted runner and original fixtures",
+              "Semantic-correctness and policy-test report"
+            ],
+            "acceptanceCriteria": [
+              "No write, attachment, extension loading, forbidden function or unauthorized table access succeeds in the adversarial fixtures.",
+              "Tenant identity comes from trusted application state, never model-supplied SQL text.",
+              "Reference comparisons specify row-order, null and numeric-tolerance policies.",
+              "Timeout, ambiguity and rejected queries produce explicit non-success responses; never run against real user or employer databases."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q20",
+                "prompt": "Is checking that generated SQL starts with SELECT a sufficient security boundary?",
+                "kind": "short-answer",
+                "answer": "No. It does not establish permitted functions, data access, statement structure or resource use.",
+                "explanation": "Read-only storage, authorization, structural validation and execution limits must provide independent controls."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why can two different SQL strings still be semantically equivalent?",
+            "What must remain isolated when two tenants issue the same question?"
+          ]
+        },
+        {
+          "id": "ai-l21-agent-security",
+          "title": "Threat-model prompt injection and tool interoperability",
+          "status": "incomplete",
+          "objectives": [
+            "Identify data-to-instruction and identity-boundary failures.",
+            "Define defensive regression tests for a local tool interface, including an optional MCP adapter."
+          ],
+          "topics": [
+            {
+              "title": "Untrusted inputs",
+              "details": [
+                "Prompt injection in retrieved text and tool results",
+                "Poisoned memory, oversized payloads and untrusted descriptions"
+              ]
+            },
+            {
+              "title": "Permissions",
+              "details": [
+                "Least privilege, credential isolation and per-client consent",
+                "Confused-deputy risks and no implicit trust from protocol compatibility"
+              ]
+            },
+            {
+              "title": "Defensive evidence",
+              "details": [
+                "Threat/control/test mappings and remaining risk",
+                "Human approval for scope changes, not rubber-stamp approval"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "agents.prompt-injection-defense",
+            "agents.mcp-security",
+            "ai.least-privilege"
+          ],
+          "video": {
+            "resourceId": "ai-video-berkeley-agents",
+            "locator": "December 2, 2024: Towards Building Safe & Trustworthy AI Agents and A Path for Science- and Evidence-based AI Policy - Dawn Song"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys2",
+            "locator": "Security & Privacy chapter"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-mcp-security",
+            "ai-doc-owasp-agents"
+          ],
+          "assignment": {
+            "id": "ai-a21",
+            "title": "Attack only the local synthetic assistant's trust boundaries",
+            "kind": "lab",
+            "instructions": [
+              "Draw boundaries for user input, documents, model output, tools, credentials and logs.",
+              "Author 15 harmless adversarial fixture strings that request forbidden data, broaden tool scope or exhaust the step budget; use dummy secrets only.",
+              "Add deterministic control tests and optionally wrap the same local tools in MCP without connecting any real account or external target."
+            ],
+            "deliverables": [
+              "Threat/control/test matrix",
+              "Defensive regression suite and unresolved-risk note"
+            ],
+            "acceptanceCriteria": [
+              "Forbidden operations remain impossible even when the model follows a malicious fixture.",
+              "No secret is placed in model context, generated code or tool descriptions.",
+              "Local identity/permission checks precede every protected read.",
+              "Passing a small attack suite is explicitly not presented as proof of complete prompt-injection resistance."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q21",
+                "prompt": "Does adding an MCP adapter automatically provide correct authorization for a tool?",
+                "kind": "short-answer",
+                "answer": "No. The host/server must still enforce identity, consent, scope and resource permissions.",
+                "explanation": "Interoperability standardizes communication, not every application's access policy."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which controls still work if the model obeys an injected instruction?",
+            "What evidence would show that human approval is meaningful rather than cosmetic?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-m07-mlops-serving",
+      "title": "7. Reproducible MLOps, local serving and performance",
+      "stage": "advanced",
+      "description": "Turn experiments into versioned local services with honest resource measurements and operational controls.",
+      "prerequisites": [
+        "ai-m06-bounded-agents"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ai-l22-artifact-lineage",
+          "title": "Version the full experiment and release artifact",
+          "status": "incomplete",
+          "objectives": [
+            "Reproduce a run from data, code, model and configuration identifiers.",
+            "Promote or reject a candidate through explicit evaluation gates."
+          ],
+          "topics": [
+            {
+              "title": "Artifacts",
+              "details": [
+                "Dataset/split fingerprints, feature schema and dependency versions",
+                "Model, tokenizer, adapter, prompt and retrieval-index versions"
+              ]
+            },
+            {
+              "title": "Tracking",
+              "details": [
+                "Local run/experiment records and metric definitions",
+                "Safe artifact retention without sensitive payloads"
+              ]
+            },
+            {
+              "title": "Promotion",
+              "details": [
+                "Baseline comparison and release manifests",
+                "Rollback targets and incompatible-schema rejection"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "mlops.reproducibility",
+            "mlops.artifact-lineage",
+            "mlops.promotion-gates"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-tooling",
+            "locator": "Lecture 2: Development Infrastructure & Tooling; model-development and experiment-management material"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys1",
+            "locator": "ML Workflow chapter"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-mlflow"
+          ],
+          "assignment": {
+            "id": "ai-a22",
+            "title": "Rebuild a model release from its manifest",
+            "kind": "lab",
+            "instructions": [
+              "Choose an earlier synthetic-data classifier and record three runs in local MLflow or an equivalent explicit local manifest.",
+              "Package a candidate with data/split hashes, model identity, schema, metric definitions and dependency versions.",
+              "Recreate predictions from a clean local environment and reject a deliberately mismatched preprocessing/model pair."
+            ],
+            "deliverables": [
+              "Run records and candidate manifest",
+              "Rebuild command and artifact-compatibility tests"
+            ],
+            "acceptanceCriteria": [
+              "Every reported metric names its dataset and split.",
+              "The packaged artifact reproduces fixture predictions within a declared tolerance.",
+              "Mismatched schemas or missing versions block promotion explicitly.",
+              "No private images, templates, raw client logs or secrets are tracked."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q22",
+                "prompt": "Is saving model weights alone enough to reproduce a text-model prediction?",
+                "kind": "short-answer",
+                "answer": "No. Tokenizer, input preprocessing, prompt/template, generation configuration and compatible runtime versions also matter.",
+                "explanation": "The operational prediction function includes components outside the parameter tensors."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which identifier changes when chunking changes but model weights do not?",
+            "How would a reviewer trace a release metric back to its exact test rows?"
+          ]
+        },
+        {
+          "id": "ai-l23-local-serving",
+          "title": "Serve batch and online predictions with explicit failures",
+          "status": "incomplete",
+          "objectives": [
+            "Define model-service input/output and failure contracts.",
+            "Keep model loading, readiness and request processing observable and bounded."
+          ],
+          "topics": [
+            {
+              "title": "Service shape",
+              "details": [
+                "Batch versus request/response inference",
+                "Model initialization, readiness and versioned response metadata"
+              ]
+            },
+            {
+              "title": "Contracts",
+              "details": [
+                "Input size/schema checks and typed error responses",
+                "Deadlines, cancellation, queue bounds and admission control"
+              ]
+            },
+            {
+              "title": "Release behavior",
+              "details": [
+                "Offline startup with previously reviewed local artifacts",
+                "Atomic model swaps and a known rollback version"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "mlops.local-serving",
+            "mlops.failure-contracts",
+            "mlops.release-readiness"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-deployment",
+            "locator": "Lecture 5: Deployment; Separate Your Model From Your UI"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys1",
+            "locator": "Model Serving chapter"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-pytorch",
+            "ai-doc-mlflow"
+          ],
+          "assignment": {
+            "id": "ai-a23",
+            "title": "Ship an offline-capable loopback inference service",
+            "kind": "project",
+            "instructions": [
+              "Expose an earlier local model through a minimal loopback-only API plus a batch command.",
+              "Add readiness, model-version metadata, schema/size limits and explicit timeout/unavailable responses.",
+              "Test corrupt artifacts, malformed input, missing model files and a controlled candidate-to-baseline rollback."
+            ],
+            "deliverables": [
+              "Local service, batch runner and request fixtures",
+              "Failure contract and rollback demo instructions"
+            ],
+            "acceptanceCriteria": [
+              "Service binds only to loopback by default and requires no paid hosting.",
+              "Readiness remains false until model loading and a smoke fixture succeed.",
+              "Failures cannot be mistaken for valid predictions; oversized inputs are rejected before expensive inference.",
+              "Batch and online results agree on shared deterministic fixtures."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q23",
+                "prompt": "Should a process return ready immediately after its HTTP socket opens if the model has not loaded?",
+                "kind": "short-answer",
+                "answer": "No. Readiness should reflect the ability to satisfy the inference contract, including successful model initialization.",
+                "explanation": "A live process is not necessarily a ready model service."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When is batch prediction simpler than online serving?",
+            "What happens to in-flight requests during a model swap?"
+          ]
+        },
+        {
+          "id": "ai-l24-performance",
+          "title": "Measure inference bottlenecks before optimizing",
+          "status": "incomplete",
+          "objectives": [
+            "Measure latency, throughput, memory and quality under a stated workload.",
+            "Explain when batching, caching, compression or distributed execution is appropriate."
+          ],
+          "topics": [
+            {
+              "title": "Measurement",
+              "details": [
+                "Warmup, cold starts, p50/p95 latency and concurrency",
+                "Preprocessing, model time, queueing and end-to-end latency"
+              ]
+            },
+            {
+              "title": "Efficiency",
+              "details": [
+                "Batching, token limits, quantization and distillation trade-offs",
+                "Permission-aware cache keys and KV-cache memory"
+              ]
+            },
+            {
+              "title": "Scaling choices",
+              "details": [
+                "Mixed precision and device compatibility",
+                "DDP versus FSDP and tensor/pipeline parallelism as specialist concepts"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "ai.inference-performance",
+            "ai.compression",
+            "dl.distributed-training-awareness"
+          ],
+          "video": {
+            "resourceId": "ai-video-cs336",
+            "locator": "Lecture 10: Inference; selected conceptual follow-up Lecture 7: Parallelism 1, Spring 2025"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys1",
+            "locator": "Model Compression chapter; Benchmarking chapter"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-distributed",
+            "ai-doc-small-model"
+          ],
+          "assignment": {
+            "id": "ai-a24",
+            "title": "Produce a reproducible CPU inference benchmark",
+            "kind": "lab",
+            "instructions": [
+              "Define 100 short synthetic requests and measure the previous service after declared warmup, retaining raw timing records.",
+              "Compare batch sizes or caching; optionally compare a supported quantized artifact with its baseline using identical tasks.",
+              "Write a scaling decision note explaining whether a GPU or distributed design is justified by measured bottlenecks."
+            ],
+            "deliverables": [
+              "Benchmark command, workload and raw timing table",
+              "Quality/memory/latency comparison and scaling decision"
+            ],
+            "acceptanceCriteria": [
+              "Report hardware, runtime versions, concurrency, warmup and model/input sizes.",
+              "Compute p50/p95 from retained timings and keep cold starts separate.",
+              "Any optimization is evaluated for correctness/quality regressions, not speed alone.",
+              "No required absolute speedup or GPU purchase; unsupported quantization is marked not run."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q24",
+                "prompt": "Can increasing batch size improve throughput while worsening the latency experienced by a single request?",
+                "kind": "short-answer",
+                "answer": "Yes. Better compute utilization can be offset by waiting to form or process a batch.",
+                "explanation": "Throughput and request latency are different objectives and need separate measurement."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What invalidates a comparison between two latency reports?",
+            "Why is model parallelism not the first fix for every slow application?"
+          ]
+        },
+        {
+          "id": "ai-l25-monitoring",
+          "title": "Monitor delayed quality signals and gate model updates",
+          "status": "incomplete",
+          "objectives": [
+            "Separate infrastructure health, data drift and model-quality signals.",
+            "Define investigation, rollback and retraining decisions with human ownership."
+          ],
+          "topics": [
+            {
+              "title": "Signals",
+              "details": [
+                "Schema/freshness errors, prediction distributions and feature shift",
+                "Task correctness, delayed labels and training-serving skew"
+              ]
+            },
+            {
+              "title": "Operational response",
+              "details": [
+                "Actionable alerts, owners and diagnostic slices",
+                "Drift is a warning, not automatic proof of degraded utility"
+              ]
+            },
+            {
+              "title": "Updates",
+              "details": [
+                "Shadow/canary evaluation and reproducible retraining inputs",
+                "Rollback, retention and privacy-preserving telemetry"
+              ]
+            }
+          ],
+          "estimatedMinutes": 270,
+          "canonicalConceptTags": [
+            "mlops.monitoring",
+            "mlops.drift-investigation",
+            "mlops.rollback"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-monitoring",
+            "locator": "Lecture 6: Continual Learning; How to Think About Continual Learning"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys1",
+            "locator": "ML Operations chapter"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-mlflow",
+            "ai-doc-evals"
+          ],
+          "assignment": {
+            "id": "ai-a25",
+            "title": "Replay three model-monitoring incidents",
+            "kind": "lab",
+            "instructions": [
+              "Replay a synthetic event stream containing schema breakage, a harmless covariate shift and a label-confirmed quality regression.",
+              "Record infrastructure, data and outcome metrics with delayed labels; omit raw private content.",
+              "Define an investigation owner and demonstrate a gated rollback rather than unconditional retraining."
+            ],
+            "deliverables": [
+              "Replay fixtures and monitor outputs",
+              "Three incident decisions and a rollback runbook"
+            ],
+            "acceptanceCriteria": [
+              "The schema failure is explicit and does not produce misleading predictions.",
+              "Harmless distribution shift is not labeled proven quality loss.",
+              "The quality regression is confirmed against outcome labels and a baseline.",
+              "A rejected candidate never replaces the serving baseline; retention and redaction policies are documented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q25",
+                "prompt": "Does a feature-distribution shift by itself prove that prediction quality has declined?",
+                "kind": "short-answer",
+                "answer": "No. It signals a change requiring investigation; quality evidence depends on labels, task outcomes and the model's response.",
+                "explanation": "Not every distribution change affects the decision-relevant relationship."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What can be monitored before labels arrive?",
+            "Which observations should trigger rollback rather than retraining?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-m08-reliability",
+      "title": "8. Professional evaluation, failure evidence and release review",
+      "stage": "professional",
+      "description": "Produce reviewable evidence for a bounded educational release. This stage is a curriculum depth label, not a claim of employment readiness or production expertise.",
+      "prerequisites": [
+        "ai-m07-mlops-serving"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ai-l26-eval-harness",
+          "title": "Build a versioned evaluation harness with honest uncertainty",
+          "status": "incomplete",
+          "objectives": [
+            "Evaluate components and end-to-end tasks against explicit rubrics.",
+            "Calibrate human/automated judging and preserve a final holdout."
+          ],
+          "topics": [
+            {
+              "title": "Dataset design",
+              "details": [
+                "Typical, edge, abstention, permission and adversarial cases",
+                "Development/regression suites versus locked final holdouts"
+              ]
+            },
+            {
+              "title": "Measurement",
+              "details": [
+                "Task correctness, groundedness, citation support and failure severity",
+                "Paired comparisons, confidence intervals and dependent samples"
+              ]
+            },
+            {
+              "title": "Judging",
+              "details": [
+                "Human rubric calibration and disagreement records",
+                "LLM-judge bias, position sensitivity and lack of automatic ground truth"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "ai.professional-evaluation",
+            "ai.judge-calibration",
+            "ai.holdout-discipline"
+          ],
+          "video": {
+            "resourceId": "ai-video-cs336",
+            "locator": "Lecture 12: Evaluation, Spring 2025"
+          },
+          "reading": {
+            "resourceId": "ai-book-islp",
+            "locator": "Chapter 5 Resampling Methods: cross-validation and the bootstrap"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-evals",
+            "ai-doc-calibration"
+          ],
+          "assignment": {
+            "id": "ai-a26",
+            "title": "Create an original 60-case AI regression pack",
+            "kind": "project",
+            "instructions": [
+              "Author 60 synthetic tasks with expected facts, allowed evidence, permission outcomes and rubric dimensions.",
+              "Separate development/regression cases from a final holdout and score two real local configurations with per-case records.",
+              "Double-review 12 outputs with a second reviewer where available; otherwise perform a blinded delayed self-review and disclose its limitation. An optional local LLM judge must be checked against human judgments."
+            ],
+            "deliverables": [
+              "Versioned cases, rubric and local evaluator",
+              "Per-case results, disagreement notes and uncertainty report"
+            ],
+            "acceptanceCriteria": [
+              "All aggregate metrics are traceable to original case-level evidence.",
+              "Permission violations and unsupported factual answers are not hidden inside an average fluency score.",
+              "No tuning is performed against the final holdout after opening it.",
+              "The report identifies sample dependence, judge limitations and not-run conditions; no paid judge API is required."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q26",
+                "prompt": "Can repeatedly adjusting prompts against the same final holdout preserve its role as an untouched final test?",
+                "kind": "short-answer",
+                "answer": "No. It becomes development feedback; a genuinely independent final evaluation is then needed.",
+                "explanation": "Selection based on test performance leaks information even without training on the test text."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What does an LLM judge fail to establish on its own?",
+            "How would you report a quality improvement whose interval still includes no improvement?"
+          ]
+        },
+        {
+          "id": "ai-l27-failure-injection",
+          "title": "Verify degradation, recovery and privacy-preserving traces",
+          "status": "incomplete",
+          "objectives": [
+            "Inject failures into a local AI service and check system invariants.",
+            "Demonstrate bounded recovery without cross-tenant cache leaks or false success."
+          ],
+          "topics": [
+            {
+              "title": "Failure modes",
+              "details": [
+                "Unavailable model, corrupt index, malformed output and timeout",
+                "Cancellation, saturated queues and partially completed workflows"
+              ]
+            },
+            {
+              "title": "Recovery",
+              "details": [
+                "Bounded retries, idempotent replay and rollback",
+                "Fallback capabilities explicitly labeled rather than silently substituted"
+              ]
+            },
+            {
+              "title": "Evidence",
+              "details": [
+                "Trace identifiers, configuration versions and redacted errors",
+                "Retention and deletion across caches, traces and derived artifacts"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "ai.failure-injection",
+            "ai.reliability-invariants",
+            "ai.privacy-aware-tracing"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-testing",
+            "locator": "Lecture 3: Troubleshooting & Testing; ML-specific failure diagnosis and testing"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys2",
+            "locator": "Fault Tolerance chapter"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-owasp-agents",
+            "ai-doc-evals"
+          ],
+          "assignment": {
+            "id": "ai-a27",
+            "title": "Run a local AI service failure game day",
+            "kind": "lab",
+            "instructions": [
+              "Inject six faults into a synthetic RAG or analytics service: model unavailable, timeout, malformed JSON, corrupt index, permission revocation and cache collision.",
+              "Record bounded recovery, explicit failures and sanitized traces with a maximum retry policy.",
+              "Revoke a document and replay previously cached queries; verify that stale authorization cannot resurrect access."
+            ],
+            "deliverables": [
+              "Failure-injection commands and expected invariants",
+              "Recovery trace pack and a short incident review"
+            ],
+            "acceptanceCriteria": [
+              "All six faults have reproducible evidence and an explicit observable outcome.",
+              "Retries never exceed the declared budget and do not multiply simulated effects.",
+              "Revoked data cannot be served from caches or traces to an unauthorized caller.",
+              "A fallback answer is labeled with its reduced capability, and unavailable service is never reported as model success."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q27",
+                "prompt": "Why can a cache keyed only by question text be unsafe for a permission-aware assistant?",
+                "kind": "short-answer",
+                "answer": "Different users or tenants may have different access rights, so the same text can require different authorized results.",
+                "explanation": "Cache identity and invalidation must account for permission scope and relevant data/configuration versions."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which faults must fail closed?",
+            "How can retries amplify rather than resolve a provider outage?"
+          ]
+        },
+        {
+          "id": "ai-l28-release-review",
+          "title": "Defend a release decision with documented evidence",
+          "status": "incomplete",
+          "objectives": [
+            "Assemble an honest model/system card and reproducible evaluation package.",
+            "Separate a bounded prototype claim from a production, safety or causal-impact claim."
+          ],
+          "topics": [
+            {
+              "title": "Release evidence",
+              "details": [
+                "Scope, data/model provenance, architecture and local run commands",
+                "Measured quality, latency, failure behavior and untested conditions"
+              ]
+            },
+            {
+              "title": "Governance",
+              "details": [
+                "Risk register, human oversight, retention and incident ownership",
+                "License/consent review and documented stop conditions"
+              ]
+            },
+            {
+              "title": "Professional communication",
+              "details": [
+                "Design alternatives, limitations and negative results",
+                "Portfolio claims tied to actual artifacts rather than certificates or demos"
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "ai.release-review",
+            "ai.evidence-package",
+            "ai.governance"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-ethics",
+            "locator": "Lecture 9: Ethics; Alignment, Trade-Offs and Humility"
+          },
+          "reading": {
+            "resourceId": "ai-book-mlsys1",
+            "locator": "Responsible Engineering: Responsible Engineering Checklist; Model documentation standards"
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-rmf",
+            "ai-doc-nist-biometrics",
+            "ai-doc-evals"
+          ],
+          "assignment": {
+            "id": "ai-a28",
+            "title": "Hold an evidence-based prototype release review",
+            "kind": "project",
+            "instructions": [
+              "Select one actually implemented synthetic/local project and assemble its architecture, provenance, model/system card, evaluation, failure tests and startup instructions.",
+              "Write a release/defer/reject decision with unresolved risks, human owner, retention/deletion plan and criteria for future reassessment.",
+              "Have another person reproduce a bounded fixture where possible; otherwise record a clean-environment self-reproduction and its limitation. Draft only claims supported by collected evidence."
+            ],
+            "deliverables": [
+              "Sanitized evidence index and model/system card",
+              "Release decision, reproducibility record and truthful portfolio summary"
+            ],
+            "acceptanceCriteria": [
+              "Every numerical claim links to a runnable workload and retained actual output.",
+              "No private source code, employer artifact, biometric image/template or secret is published.",
+              "Unfinished work remains explicitly incomplete; synthetic alternatives are not relabeled face-performance results.",
+              "A before/after KPI is not claimed as causal improvement without a suitable experimental design.",
+              "The decision states that an educational release is not certification of production security, biometric authentication or legal compliance."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ai-q28",
+                "prompt": "A prototype passes its small local test suite. What additional claim cannot be inferred from that alone?",
+                "kind": "short-answer",
+                "answer": "That it is production-ready, universally secure, legally compliant or reliable for untested populations and workloads.",
+                "explanation": "Evidence is bounded by the tested conditions, assumptions and coverage."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which uncertainty is important enough to block release?",
+            "Can every sentence in the portfolio summary be traced to a real artifact?"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [
+    {
+      "id": "ai-project-local-verification",
+      "projectTitle": "Consent-Based Local Face Verification",
+      "resumeVariant": "A-rebuild",
+      "status": "incomplete",
+      "recommendedAfter": [
+        "ai-m02-classical-ml",
+        "ai-m03-deep-learning-cv"
+      ],
+      "prerequisiteLessonIds": [
+        "ai-l06-calibration",
+        "ai-l07-temporal-validation",
+        "ai-l10-embedding-verification",
+        "ai-l11-private-lifecycle"
+      ],
+      "notes": "Reconstruction/evidence recreation, not recovered source. Historical completion in December 2023 is user-reported; all current build milestones start incomplete. Optional biometric path is explicit adult opt-in, local, one selected claimed identity only. No gallery identification, surveillance, demographic/emotion inference or remote service. The default alternative is a synthetic emblem verifier, labeled non-biometric and not reported as face-performance evidence.",
+      "milestones": [
+        {
+          "id": "ai-p1-design",
+          "title": "Design and lawful fixtures",
+          "status": "incomplete",
+          "deliverables": [
+            "One-claim pipeline and protected-storage diagram",
+            "Consent/withdrawal/retention policy and component-license matrix",
+            "Synthetic emblem fixtures or separately consented private capture-session manifest"
+          ],
+          "acceptanceCriteria": [
+            "Review detector/encoder code, weights and training-data provenance separately; unclear permission blocks that component.",
+            "No human capture occurs without explicit adult opt-in and a working non-biometric alternative.",
+            "Define disjoint enrollment/development/held-out sessions, threshold policy and prohibited uses before implementation."
+          ]
+        },
+        {
+          "id": "ai-p1-slice",
+          "title": "Working local verification slice",
+          "status": "incomplete",
+          "deliverables": [
+            "Local enrollment and selected-claim comparison",
+            "Zero/multiple-face rejection and uncertain outcome",
+            "Protected/deletable templates and sanitized local demo"
+          ],
+          "acceptanceCriteria": [
+            "Inference succeeds offline after approved components are provisioned.",
+            "The caller must choose a known enrolled claim; no API searches a gallery for an unknown person.",
+            "Templates remain local and sensitive; no embeddings/images enter logs or public repositories.",
+            "Clearly identify pretrained components and do not claim backbone training."
+          ]
+        },
+        {
+          "id": "ai-p1-correctness",
+          "title": "Correctness, privacy and failure checks",
+          "status": "incomplete",
+          "deliverables": [
+            "Tests for invalid claims, zero/multiple faces, unreadable input and missing model",
+            "Withdrawal and post-restart cache/deletion tests",
+            "Locked pair/split and threshold manifests"
+          ],
+          "acceptanceCriteria": [
+            "The frozen threshold is never tuned on held-out evaluation.",
+            "Withdrawn enrollment cannot be verified after restart; all project-managed copies and derived caches follow the documented deletion policy.",
+            "No raw biometric data or key is exported; backup/physical-erasure limitations are stated.",
+            "No inference of liveness or secure authentication from image quality or match score."
+          ]
+        },
+        {
+          "id": "ai-p1-evaluation",
+          "title": "Documented evaluation and evidence recreation",
+          "status": "incomplete",
+          "deliverables": [
+            "Genuine/impostor pair counts, false-match/non-match counts, uncertainty and rejection coverage",
+            "Hardware/versioned evaluation command, model card and limitations",
+            "Sanitized demonstration and truthful reconstruction summary"
+          ],
+          "acceptanceCriteria": [
+            "Report actual counts, thresholds and split rules; never copy a pretrained model's benchmark score as the project's result.",
+            "Self-only data cannot support meaningful impostor performance; use consented independent participants or explicitly report that metric unavailable.",
+            "Synthetic-mode results stay labeled synthetic and non-biometric.",
+            "State the absence of production authentication, PAD/liveness and broad-population validation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-project-capture-quality",
+      "projectTitle": "Face-Capture Quality Model",
+      "resumeVariant": "A-rebuild",
+      "status": "incomplete",
+      "recommendedAfter": [
+        "ai-m02-classical-ml",
+        "ai-m03-deep-learning-cv"
+      ],
+      "prerequisiteLessonIds": [
+        "ai-l03-data-contracts",
+        "ai-l07-temporal-validation",
+        "ai-l09-image-quality",
+        "ai-l11-private-lifecycle"
+      ],
+      "notes": "Independent reconstruction, not a renamed verification project. Historical completion in March 2022 is user-reported; present evidence starts incomplete. Predict usable capture versus retake, not identity, demographics, emotion or liveness. Default non-biometric alternative uses original rendered documents and controlled degradations. Face data, if used, is local and explicitly opted-in by adults.",
+      "milestones": [
+        {
+          "id": "ai-p2-design",
+          "title": "Quality rubric and grouped data design",
+          "status": "incomplete",
+          "deliverables": [
+            "Quality-label rubric and ambiguity policy",
+            "Source-capture/session lineage and split plan",
+            "Consent/license/withdrawal plan with synthetic alternative"
+          ],
+          "acceptanceCriteria": [
+            "Rubric uses capture properties such as blur, illumination, face/object size and pose, not inferred demographic or emotional attributes.",
+            "Every augmentation and adjacent frame remains in its source group.",
+            "Detector/landmark model licensing is reviewed separately; the synthetic path needs no face weights.",
+            "The project runs independently of the verification project's repository or data."
+          ]
+        },
+        {
+          "id": "ai-p2-slice",
+          "title": "Working train/evaluate/recapture slice",
+          "status": "incomplete",
+          "deliverables": [
+            "Local feature extractor and fixed-rule baseline",
+            "Actually trained small classifier and versioned artifact",
+            "Recapture guidance and evaluation/export command"
+          ],
+          "acceptanceCriteria": [
+            "Training uses only development groups with train-only preprocessing.",
+            "Guidance names an observable capture issue and does not infer emotion or identity.",
+            "The artifact loads and runs offline; actual training settings and model provenance are recorded.",
+            "An unrun model-training step cannot be marked complete."
+          ]
+        },
+        {
+          "id": "ai-p2-correctness",
+          "title": "Split, withdrawal and failure correctness",
+          "status": "incomplete",
+          "deliverables": [
+            "Grouped-split invariants and malformed-input tests",
+            "Consent withdrawal and clean-retraining exclusion tests",
+            "Baseline/model comparison fixtures"
+          ],
+          "acceptanceCriteria": [
+            "No source capture crosses development/test boundaries.",
+            "Withdrawal removes project-managed subject files/features and excludes the subject from a clean retraining run.",
+            "Previous model artifacts are retired or handled under an explicit policy; deleting training files alone is not claimed to unlearn them.",
+            "Missing faces or corrupted input return a clear recapture/error state."
+          ]
+        },
+        {
+          "id": "ai-p2-evaluation",
+          "title": "Coverage and downstream-effect report",
+          "status": "incomplete",
+          "deliverables": [
+            "Locked baseline-versus-classifier confusion counts and coverage curves",
+            "Downstream verification effect where independently measurable, with all rejected cases accounted for",
+            "Model card, hardware/version details and sanitized demo"
+          ],
+          "acceptanceCriteria": [
+            "Report accepted/rejected denominators rather than cherry-picking accepted images.",
+            "If downstream verification is not implemented or lacks consented evidence, label that evaluation unavailable instead of inventing it.",
+            "Synthetic document results are never labeled face or biometric results.",
+            "No assertion of secure authentication or liveness follows from quality classification."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-project-mall-assistant",
+      "projectTitle": "Permission-Aware Mall Knowledge Assistant",
+      "resumeVariant": "B-build",
+      "status": "incomplete",
+      "recommendedAfter": [
+        "ai-m05-rag-adaptation",
+        "ai-m06-bounded-agents",
+        "ai-m08-reliability"
+      ],
+      "prerequisiteLessonIds": [
+        "ai-l15-retrieval",
+        "ai-l16-permission-rag",
+        "ai-l21-agent-security",
+        "ai-l26-eval-harness"
+      ],
+      "notes": "Future build, not completed LLM experience. Standalone fictional corpus and local/free-model path; paid providers are optional substitutions only. No employer policies, tenant documents, customer data or credentials may be imported.",
+      "milestones": [
+        {
+          "id": "ai-p3-design",
+          "title": "Corpus, access model and evaluation design",
+          "status": "incomplete",
+          "deliverables": [
+            "Original synthetic policy corpus and versions",
+            "Three-tenant/public-staff ACL matrix",
+            "Development, adversarial and final-holdout query sets"
+          ],
+          "acceptanceCriteria": [
+            "Document ownership and source/version IDs are explicit.",
+            "User identity is trusted application context, not a model claim.",
+            "Embedding/generator/reranker model licenses and provenance are reviewed; no mandatory paid service.",
+            "Define answer, citation, abstention and access metrics before tuning."
+          ]
+        },
+        {
+          "id": "ai-p3-slice",
+          "title": "Working authorized retrieval-to-answer slice",
+          "status": "incomplete",
+          "deliverables": [
+            "Lexical baseline, local dense retrieval and bounded reranking",
+            "Access-filtered context construction and local generation",
+            "Resolvable citations and explicit abstention"
+          ],
+          "acceptanceCriteria": [
+            "Unauthorized passages cannot enter retrieval results, generation context, traces or caches.",
+            "At least one real local-model run is retained; fake backends only establish orchestration correctness.",
+            "Citations refer to the actual authorized document version.",
+            "Low-quality generation is surfaced as measured failure, not hidden by fabricated answers."
+          ]
+        },
+        {
+          "id": "ai-p3-correctness",
+          "title": "Permission, revocation and adversarial regression",
+          "status": "incomplete",
+          "deliverables": [
+            "Cross-tenant/role, revocation and cache-isolation tests",
+            "Malicious-document, absent-evidence and stale-version fixtures",
+            "Timeout and index-rebuild recovery checks"
+          ],
+          "acceptanceCriteria": [
+            "The same query from different tenants never shares an unauthorized cached result.",
+            "Permission revocation invalidates protected cached evidence and responses.",
+            "Retrieved instructions cannot broaden tool or document access.",
+            "Stale/contradictory evidence produces a declared policy outcome rather than silent invention."
+          ]
+        },
+        {
+          "id": "ai-p3-evaluation",
+          "title": "Documented retrieval and answer evaluation",
+          "status": "incomplete",
+          "deliverables": [
+            "Retrieval recall/rank and grounded-answer/citation/abstention results",
+            "Hardware-labeled latency and local resource measurements",
+            "System card, architecture trade-offs and sanitized demo"
+          ],
+          "acceptanceCriteria": [
+            "Compare lexical, dense and reranked conditions on identical frozen cases.",
+            "Keep permission correctness separate from aggregate answer quality.",
+            "Record actual results, adverse examples, judge disagreement and small-sample limitations.",
+            "No completion date or resume outcome is populated before the build and evaluation exist."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-project-governed-analytics",
+      "projectTitle": "Governed Analytics Agent and Text-to-SQL Service",
+      "resumeVariant": "B-build",
+      "status": "incomplete",
+      "recommendedAfter": [
+        "ai-m06-bounded-agents",
+        "ai-m07-mlops-serving",
+        "ai-m08-reliability"
+      ],
+      "prerequisiteLessonIds": [
+        "ai-l19-agent-state",
+        "ai-l20-governed-sql",
+        "ai-l21-agent-security",
+        "ai-l27-failure-injection"
+      ],
+      "notes": "Standalone future analytics build with independent synthetic databases and gold queries. It is not the knowledge assistant counted twice. All query execution is local, read-only, tenant-isolated and resource-bounded. Never attach employer or personal databases.",
+      "milestones": [
+        {
+          "id": "ai-p4-design",
+          "title": "Governance and semantic oracle design",
+          "status": "incomplete",
+          "deliverables": [
+            "Synthetic three-tenant schema/data generator",
+            "Allowed schema/function/query policy and trusted identity model",
+            "Labeled questions, reference SQL/results and ambiguity rules"
+          ],
+          "acceptanceCriteria": [
+            "Define units, joins, null behavior, ordering and numeric tolerances.",
+            "Write and destructive actions are out of scope.",
+            "Separate databases or independently enforced tenant controls do not rely solely on a model-written WHERE clause.",
+            "Local-model and parser/runtime licenses are recorded; no paid provider dependency."
+          ]
+        },
+        {
+          "id": "ai-p4-slice",
+          "title": "Working schema-grounded bounded execution",
+          "status": "incomplete",
+          "deliverables": [
+            "Local-model query proposer and typed proposal interface",
+            "Independent validator/authorizer and read-only query runner",
+            "Bounded agent state and provenance-bearing analytical response"
+          ],
+          "acceptanceCriteria": [
+            "Generated SQL cannot bypass operation/table/function allowlists or trusted tenant selection.",
+            "Queries have a deadline, row/output limit and cancellation path.",
+            "No generic shell, arbitrary code execution, extension loading or external account access is exposed.",
+            "Use actual local inference for capability evidence and mocks only for deterministic policy tests."
+          ]
+        },
+        {
+          "id": "ai-p4-correctness",
+          "title": "Semantic and adversarial correctness checks",
+          "status": "incomplete",
+          "deliverables": [
+            "Reference-result comparison suite",
+            "Cross-tenant, write, attachment, multi-statement and expensive-query tests",
+            "Retry, cancellation and malformed-output tests"
+          ],
+          "acceptanceCriteria": [
+            "Unauthorized access and every prohibited statement/operation fail closed in the fixtures.",
+            "Empty sets, duplicate joins, nulls and ambiguous requests have independently checked outcomes.",
+            "Retries remain bounded and cannot turn a rejected proposal into privileged execution.",
+            "Explicit failure responses are never counted as correct analytical answers."
+          ]
+        },
+        {
+          "id": "ai-p4-evaluation",
+          "title": "Documented query accuracy and operational limits",
+          "status": "incomplete",
+          "deliverables": [
+            "Per-question semantic correctness and refusal results",
+            "Measured latency, timeout and query-budget report",
+            "Threat model, sanitized demonstration and limitations"
+          ],
+          "acceptanceCriteria": [
+            "Execution success alone is not counted as semantic correctness.",
+            "Report actual gold-result agreement and denied-operation outcomes separately.",
+            "Record model/schema/data/prompt revisions and hardware.",
+            "No production database safety, universal SQL correctness or completed experience is claimed without evidence."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-project-evaluation-serving",
+      "projectTitle": "LLM Evaluation and Reliable Serving Platform",
+      "resumeVariant": "B-build",
+      "status": "incomplete",
+      "recommendedAfter": [
+        "ai-m07-mlops-serving",
+        "ai-m08-reliability"
+      ],
+      "prerequisiteLessonIds": [
+        "ai-l22-artifact-lineage",
+        "ai-l23-local-serving",
+        "ai-l24-performance",
+        "ai-l25-monitoring",
+        "ai-l26-eval-harness",
+        "ai-l27-failure-injection",
+        "ai-l28-release-review"
+      ],
+      "notes": "Independent future platform build with its own original synthetic workloads. Other portfolio services may be optional adapters but are not required dependencies. Local inference and a local evaluation harness are sufficient; paid-provider adapters are optional. Do not depend on a deprecated hosted Evals product.",
+      "milestones": [
+        {
+          "id": "ai-p5-design",
+          "title": "Versioned contracts and evaluation design",
+          "status": "incomplete",
+          "deliverables": [
+            "Model/prompt/retrieval/dataset version schema",
+            "Provider interface, permission-scoped cache policy and failure contract",
+            "Original representative/regression/holdout workloads and rubrics"
+          ],
+          "acceptanceCriteria": [
+            "Separate functional tests, model-quality evaluation and performance measurements.",
+            "Design bounded retries, deadlines, cancellation and trace redaction before serving.",
+            "Every external model/data component has a provenance/license review entry.",
+            "No account, paid API, production data or public hosting is required."
+          ]
+        },
+        {
+          "id": "ai-p5-slice",
+          "title": "Working local evaluation and serving slice",
+          "status": "incomplete",
+          "deliverables": [
+            "One actual local-model adapter and deterministic fake adapter",
+            "Versioned evaluator with case-level outputs and a loopback service",
+            "Candidate-versus-baseline report and release manifest"
+          ],
+          "acceptanceCriteria": [
+            "Real adapter results are distinguished from fake-adapter control tests.",
+            "Evaluation can run without any network request once approved local assets are provisioned.",
+            "Version identifiers accompany every score and served response.",
+            "A candidate cannot bypass the declared quality and policy gates."
+          ]
+        },
+        {
+          "id": "ai-p5-correctness",
+          "title": "Provider-failure, caching and trace correctness",
+          "status": "incomplete",
+          "deliverables": [
+            "Failure-injection suite and retry/cancellation tests",
+            "Cache isolation/revocation tests",
+            "Redaction, retention, artifact-corruption and rollback checks"
+          ],
+          "acceptanceCriteria": [
+            "Timeout, malformed output and unavailable models produce explicit errors with bounded retries.",
+            "Cache keys include permission scope and relevant model/prompt/retrieval versions.",
+            "No sensitive prompt, biometric asset or secret enters retained traces.",
+            "Fallbacks declare reduced capability; a provider failure is never transformed into apparent model success."
+          ]
+        },
+        {
+          "id": "ai-p5-evaluation",
+          "title": "Reproducible quality, reliability and cost evidence",
+          "status": "incomplete",
+          "deliverables": [
+            "Per-case quality and human-review disagreement report",
+            "Hardware/workload-labeled latency, throughput and resource measurements",
+            "Failure recovery demonstration, runbook and documented limitations"
+          ],
+          "acceptanceCriteria": [
+            "Retain raw observations supporting every numerical claim; report negative results.",
+            "Evaluate quality regressions alongside optimizations such as caching or quantization.",
+            "Keep final holdout use separate from iterative regression testing.",
+            "A documented local prototype does not imply internet-scale operation, guaranteed reliability or completed professional experience."
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ai-source-d2l",
+      "title": "D2L official HTML contents and repository license",
+      "url": "https://d2l.ai/",
+      "licenseEvidenceUrl": "https://raw.githubusercontent.com/d2l-ai/d2l-en/master/LICENSE",
+      "verifiedOn": "2026-09-20",
+      "verification": "Opened public HTML, each listed chapter HTML page and license text. Verified exact reading titles in the contents and chapter titles. Direct official PDF checked by HEAD only, without retrieving its body.",
+      "locators": [
+        {
+          "title": "1. Introduction",
+          "url": "https://d2l.ai/chapter_introduction/index.html"
+        },
+        {
+          "title": "2.5. Automatic Differentiation",
+          "url": "https://d2l.ai/chapter_preliminaries/autograd.html"
+        },
+        {
+          "title": "2.6. Probability and Statistics",
+          "url": "https://d2l.ai/chapter_preliminaries/probability.html"
+        },
+        {
+          "title": "5.1. Multilayer Perceptrons",
+          "url": "https://d2l.ai/chapter_multilayer-perceptrons/mlp.html"
+        },
+        {
+          "title": "5.3. Forward Propagation, Backward Propagation, and Computational Graphs",
+          "url": "https://d2l.ai/chapter_multilayer-perceptrons/backprop.html"
+        },
+        {
+          "title": "7.1. From Fully Connected Layers to Convolutions",
+          "url": "https://d2l.ai/chapter_convolutional-neural-networks/why-conv.html"
+        },
+        {
+          "title": "7.2. Convolutions for Images",
+          "url": "https://d2l.ai/chapter_convolutional-neural-networks/conv-layer.html"
+        },
+        {
+          "title": "9.1. Working with Sequences",
+          "url": "https://d2l.ai/chapter_recurrent-neural-networks/sequence.html"
+        },
+        {
+          "title": "14.2. Fine-Tuning",
+          "url": "https://d2l.ai/chapter_computer-vision/fine-tuning.html"
+        }
+      ]
+    },
+    {
+      "id": "ai-source-islp",
+      "title": "ISLP authors' companion course and official Python labs",
+      "url": "https://www.statlearning.com/online-courses",
+      "verifiedOn": "2026-09-20",
+      "verification": "Authors identify free companion lectures and chapter coverage; official ISLP documentation identifies numbered labs. No book PDF or problem set was downloaded or reproduced.",
+      "locators": [
+        {
+          "title": "Chapter 3: Linear Regression",
+          "url": "https://islp.readthedocs.io/en/latest/labs/Ch03-linreg-lab.html"
+        },
+        {
+          "title": "Chapter 4 lab: Logistic Regression, LDA, QDA, and KNN",
+          "url": "https://islp.readthedocs.io/en/latest/labs/Ch04-classification-lab.html"
+        },
+        {
+          "title": "Chapter 5 lab: Cross-Validation and the Bootstrap",
+          "url": "https://islp.readthedocs.io/en/latest/labs/Ch05-resample-lab.html"
+        },
+        {
+          "title": "Chapter 8 lab: Tree-Based Methods",
+          "url": "https://islp.readthedocs.io/en/latest/labs/Ch08-baggboost-lab.html"
+        },
+        {
+          "title": "Chapter 12 lab: Unsupervised Learning",
+          "url": "https://islp.readthedocs.io/en/latest/labs/Ch12-unsup-lab.html"
+        }
+      ]
+    },
+    {
+      "id": "ai-source-slp3",
+      "title": "Speech and Language Processing, August 19, 2026 manuscript contents",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/",
+      "publicationDate": "2026-08-19",
+      "verifiedOn": "2026-09-20",
+      "verification": "Opened authors' HTML contents and release note. Verified Words and Tokens, N-gram Language Models, Embeddings, Transformers and Pretraining, Post-training, Information Retrieval and RAG, and Appendix K Frame-based Dialogue Systems. Agents chapter is explicitly unwritten and excluded. Chapter PDFs were not retrieved."
+    },
+    {
+      "id": "ai-source-mlsys-license",
+      "title": "Machine Learning Systems component licensing",
+      "url": "https://mlsysbook.ai/about/license.html",
+      "verifiedOn": "2026-09-20",
+      "verification": "Authoritative page explicitly assigns CC BY-NC-SA 4.0 to textbook/labs/slides. Different code-framework licenses do not replace the textbook license. Non-commercial compatibility remains unresolved for a future platform mirror."
+    },
+    {
+      "id": "ai-source-mlsys-chapters",
+      "title": "ML Systems live HTML chapter locators",
+      "url": "https://mlsysbook.ai/vol1/",
+      "verifiedOn": "2026-09-20",
+      "verification": "Opened volume contents and the listed chapter HTML pages. These live drafts can change; use titles and preserve a checked-on date, not invented fixed chapter numbers or page ranges.",
+      "locators": [
+        {
+          "title": "ML Workflow",
+          "url": "https://mlsysbook.ai/vol1/ml_workflow/ml_workflow.html"
+        },
+        {
+          "title": "Data Engineering",
+          "url": "https://mlsysbook.ai/vol1/data_engineering/data_engineering.html"
+        },
+        {
+          "title": "Model Compression",
+          "url": "https://mlsysbook.ai/vol1/model_compression/model_compression.html"
+        },
+        {
+          "title": "Benchmarking",
+          "url": "https://mlsysbook.ai/vol1/benchmarking/benchmarking.html"
+        },
+        {
+          "title": "Model Serving",
+          "url": "https://mlsysbook.ai/vol1/model_serving/model_serving.html"
+        },
+        {
+          "title": "ML Operations",
+          "url": "https://mlsysbook.ai/vol1/ml_ops/ml_ops.html"
+        },
+        {
+          "title": "Responsible Engineering",
+          "url": "https://mlsysbook.ai/vol1/responsible_engr/responsible_engr.html"
+        },
+        {
+          "title": "Security & Privacy",
+          "url": "https://mlsysbook.ai/vol2/security_privacy/security_privacy.html"
+        },
+        {
+          "title": "Fault Tolerance",
+          "url": "https://mlsysbook.ai/vol2/fault_tolerance/fault_tolerance.html"
+        }
+      ]
+    },
+    {
+      "id": "ai-source-statquest-videos",
+      "title": "Creator-verified StatQuest lecture entries",
+      "url": "https://statquest.org/video_index.html",
+      "verifiedOn": "2026-09-20",
+      "verification": "Read named entries and their linked public video URLs from the creator's HTML index. YouTube public oEmbed metadata additionally confirmed all nine video identities and the StatQuest with Josh Starmer channel. Locator titles below follow the creator's index labels; YouTube display titles sometimes add punctuation or a StatQuest prefix. No invented timestamps and no video downloads.",
+      "locators": [
+        {
+          "title": "Gradient Descent",
+          "url": "https://youtu.be/sDv4f4s2SB8"
+        },
+        {
+          "title": "Stochastic Gradient Descent",
+          "url": "https://youtu.be/vMh0zPT0tLI"
+        },
+        {
+          "title": "Logistic Regression",
+          "url": "https://youtu.be/yIYKR4sgzI8"
+        },
+        {
+          "title": "Logistic Regression, Details Part 2: Maximum Likelihood",
+          "url": "https://youtu.be/BfKanl1aSG0"
+        },
+        {
+          "title": "Random Forests Part 1: Building, using and evaluating",
+          "url": "https://youtu.be/J4Wdy0Wc_xQ"
+        },
+        {
+          "title": "Principal Component Analysis (PCA) Step-by-Step",
+          "url": "https://youtu.be/FgakZw6K1QQ"
+        },
+        {
+          "title": "Machine Learning Fundamentals: Cross Validation",
+          "url": "https://youtu.be/fSytzGwwBVw"
+        },
+        {
+          "title": "ROC and AUC",
+          "url": "https://youtu.be/4jRBRDbJemM"
+        },
+        {
+          "title": "Bootstrapping Part 1: Main Ideas",
+          "url": "https://youtu.be/Xz0x-8-cgaQ"
+        }
+      ]
+    },
+    {
+      "id": "ai-source-mit-lectures",
+      "title": "MIT 6.S191 official 2026 lecture schedule",
+      "url": "https://introtodeeplearning.com/",
+      "verifiedOn": "2026-09-20",
+      "verification": "Read the public 2026 schedule, named lectures and YouTube links. Public oEmbed metadata also confirmed the three videos and Alexander Amini's channel. Schedule titles and video display titles differ as recorded below. Verification is of locators, not a guarantee of playback in every country. No private browser session or video download used.",
+      "locators": [
+        {
+          "title": "2026 Lecture 1: Intro to Deep Learning",
+          "videoTitle": "MIT Introduction to Deep Learning | 6.S191",
+          "url": "https://www.youtube.com/watch?v=II4giR4vOOo"
+        },
+        {
+          "title": "2026 Lecture 2: Deep Sequence Modeling",
+          "videoTitle": "MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention",
+          "url": "https://www.youtube.com/watch?v=d02VkQ9MP44"
+        },
+        {
+          "title": "2026 Lecture 3: Deep Computer Vision",
+          "videoTitle": "MIT 6.S191: Convolutional Neural Networks",
+          "url": "https://www.youtube.com/watch?v=pqIcoskUuWs"
+        }
+      ]
+    },
+    {
+      "id": "ai-source-cs336",
+      "title": "Stanford CS336 Spring 2025 schedule",
+      "url": "https://stanford-cs336.github.io/spring2025/",
+      "verifiedOn": "2026-09-20",
+      "verification": "Opened official course schedule and public Stanford Online playlist. Playlist metadata verified the exact selected lecture titles 1, 7, 10, 12 and 15. Full university programming assignments and GPU-scale training are not copied or required."
+    },
+    {
+      "id": "ai-source-fsdl",
+      "title": "Full Stack Deep Learning 2022 course video index",
+      "url": "https://fullstackdeeplearning.com/course/2022/",
+      "verifiedOn": "2026-09-20",
+      "verification": "Official index explicitly identifies lecture videos and publication dates. Opened every assigned lecture landing page. Reuse concepts with current docs; do not treat 2022 services or market claims as current."
+    },
+    {
+      "id": "ai-source-bootcamp",
+      "title": "LLM Bootcamp - Spring 2023",
+      "url": "https://fullstackdeeplearning.com/llm-bootcamp/spring-2023/",
+      "verifiedOn": "2026-09-20",
+      "verification": "Opened index and assigned Prompt Engineering, Augmented Language Models and LLMOps pages, including exact named chapter summaries. No timestamps are asserted; historical paid-provider recommendations are explicitly optional and superseded by local tasks."
+    },
+    {
+      "id": "ai-source-berkeley",
+      "title": "Berkeley LLM Agents MOOC Fall 2024 syllabus",
+      "url": "https://llmagents-learning.org/f24",
+      "verifiedOn": "2026-09-20",
+      "verification": "Opened syllabus table and verified Shunyu Yao's September 16 overview and Dawn Song's December 2 safety lecture with public recording links. Public YouTube oEmbed metadata also confirms both recordings and the Berkeley RDI channel. The completed course's certificate/submission requirements are not imported.",
+      "locators": [
+        {
+          "title": "September 16, 2024: LLM agents: brief history and overview",
+          "videoTitle": "LLM Agents MOOC | UC Berkeley CS294-196 Fall 2024 | LLM Agents: History & Overview by Shunyu Yao",
+          "url": "https://www.youtube.com/watch?v=RM6ZArd2nVc"
+        },
+        {
+          "title": "December 2, 2024: Towards Building Safe & Trustworthy AI Agents and A Path for Science- and Evidence-based AI Policy",
+          "videoTitle": "LLM Agents MOOC | UC Berkeley Fall 2024 | Safe AI Agents + Evidence-based AI Policy by Dawn Song",
+          "url": "https://www.youtube.com/live/QAgR4uQ15rc"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Common Foundation is a separate canonical path taken first, not the union of advanced streams. This AI handoff assumes its Python/SQL/Git/Linux/basic-math/test competencies and does not create undefined cross-track prerequisite IDs. The implementation must enforce the Common Foundation gate using its actual canonical IDs and progress, not duplicate foundation completion here.",
+    "All 28 lessons, 5 project mappings and 20 project milestones start incomplete. Historical A college completion dates are user-reported background, not present reconstruction progress. B projects remain future builds; no training, model result, deployment or measured outcome was invented.",
+    "Estimated minutes cover selected lecture viewing, assigned reading, a bounded first assignment attempt and review. They are not just video runtimes. Setup failures, full book chapters, iterative debugging and independent portfolio builds can take substantially longer. Completion does not guarantee mastery, hiring or compensation.",
+    "Original assignments and assessment prompts were written for this handoff; no book exercises, exam questions, solutions or third-party chapter text were reproduced. Books and videos remain separate resources subject to their own rights.",
+    "No PDF or video was downloaded in this curation task. D2L's official PDF was probed with HEAD only. Only D2L is marked redistribution permitted here, subject to its verified attribution/ShareAlike and third-party-material conditions. ML Systems is a potential non-commercial candidate but remains link-only pending platform-use and compliance review. ISLP and SLP remain link-only.",
+    "Source observation date is September 20, 2026, not every resource's publication date. SLP uses the August 19, 2026 draft; its unwritten Agents chapter is excluded. ML Systems Volume II is an accessible draft whose landing page advertises a prospective 2027 edition, not an already published 2027 book.",
+    "Lecture locators were verified through official university/creator pages and, for CS336, public playlist metadata. No timestamp is invented. Videos were not fully replayed; regional restrictions, removed videos, mutable course homepages and embedding policies can change. Link-only playback is the default, not a promise that embedding is authorized or technically available.",
+    "Historical FSDL/LLM Bootcamp lectures are selected for durable ideas, not current vendor rankings or API commands. Use current supplementary docs and pin implementation versions. The OpenAI evaluation page explicitly warns that the hosted Evals product is deprecated; only its methodology is used with a local harness.",
+    "All required practicals have a local, synthetic-data route. Compact local models can still require appreciable memory, disk and time and may perform poorly. Paid providers and GPU-scale experiments are optional. If real training/inference cannot run, log the blocker and keep that milestone incomplete; mocks validate control logic, not ML capability.",
+    "Book licenses do not license datasets, pretrained weights, video media or trademarks. Before any model/dataset download, inspect the pinned model card, code/weight licenses, training-source provenance and intended-use restrictions. A permissive model-weight declaration does not establish that every training-data right has been independently cleared.",
+    "Face-related work is optional, explicit adult opt-in, local and privacy-preserving. Protect and delete templates, images, caches and manifests; keep them out of public repositories and logs. No unknown-person identification, gallery search, surveillance, demographic classification, emotion inference or employer/private biometric assets. Synthetic emblems and rendered-document quality tasks are first-class alternatives but cannot substantiate biometric-performance claims.",
+    "A quality classifier is not liveness detection. A small verifier is not secure production authentication, a NIST certification or a legal-compliance claim. Self-only face data cannot establish meaningful impostor performance. Any real-world deployment would require additional safety, privacy, security, consent and jurisdiction-specific review.",
+    "Privacy-aware engineering may deliberately diverge from a lecture's generic advice to log everything or host a public demo. Use sanitized metadata, finite retention, synthetic exports and loopback-only defaults."
+  ]
+}

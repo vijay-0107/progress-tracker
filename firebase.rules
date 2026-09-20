@@ -2,6 +2,214 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function owner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    function fields(data, names) {
+      return data.keys().hasAll(names) && data.keys().hasOnly(names);
+    }
+
+    function boundedString(value, maximum) {
+      return value is string && value.size() <= maximum;
+    }
+
+    function identifier(value) {
+      return boundedString(value, 160)
+        && value.matches('^[A-Za-z0-9][A-Za-z0-9_.:%-]*$')
+        && !(value in ['constructor', 'prototype']);
+    }
+
+    function eventIdentifier(value) {
+      return boundedString(value, 1024)
+        && value.matches('^[A-Za-z0-9][A-Za-z0-9_.:%-]*$')
+        && !(value in ['constructor', 'prototype']);
+    }
+
+    function date(value) {
+      return value is string && value.matches(
+        '^([0-9]{4}-((01|03|05|07|08|10|12)-(0[1-9]|[12][0-9]|3[01])|(04|06|09|11)-(0[1-9]|[12][0-9]|30)|02-(0[1-9]|1[0-9]|2[0-8]))|([0-9]{2}(0[48]|[2468][048]|[13579][26])|([02468][048]|[13579][26])00)-02-29)$'
+      );
+    }
+
+    function iso(value) {
+      return value is string && value.matches(
+        '^([0-9]{4}-((01|03|05|07|08|10|12)-(0[1-9]|[12][0-9]|3[01])|(04|06|09|11)-(0[1-9]|[12][0-9]|30)|02-(0[1-9]|1[0-9]|2[0-8]))|([0-9]{2}(0[48]|[2468][048]|[13579][26])|([02468][048]|[13579][26])00)-02-29)T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9][.][0-9]{3}Z$'
+      );
+    }
+
+    function nullablePast(value, updatedAt) {
+      return value == null || (iso(value) && value <= updatedAt);
+    }
+
+    function integer(value, minimum, maximum) {
+      return value is int && value >= minimum && value <= maximum;
+    }
+
+    function timezone(value) {
+      return boundedString(value, 100) && value.matches('^[A-Za-z0-9_+:/.-]+$');
+    }
+
+    function track(value) {
+      return value in ['foundation', 'data', 'sde', 'quant', 'ai', 'gate', 'cat'];
+    }
+
+    function answerValues(values) {
+      let text = values.join('\u0000');
+      // NUL is reserved as a delimiter. Round-tripping enforces string types without
+      // unrolling 32 validations past Firestore's 1000-expression evaluation limit.
+      return values is list && values.size() <= 32
+        && (values.size() == 0 || (
+          (text + '\u0000end').split('\u0000') == values.concat(['end'])
+          && text.matches('^[^\\x00]{0,1000}[^\\x00]{0,1000}[^\\x00]{0,48}(\\x00[^\\x00]{0,1000}[^\\x00]{0,1000}[^\\x00]{0,48})*$')));
+    }
+
+    function identifiers(values) {
+      // Joining IDs keeps maximum-size assessments within the rules expression budget.
+      // Round-trip equality rejects nonstrings and IDs smuggling in a slash separator.
+      return values is list && values.size() <= 32 && values.toSet().size() == values.size()
+        && (values.size() == 0 || (
+          values.join('/').matches('^[A-Za-z0-9][A-Za-z0-9_.:%-]{0,159}(/[A-Za-z0-9][A-Za-z0-9_.:%-]{0,159})*$')
+          && values.join('/').split('/') == values));
+    }
+
+    function base(data, id) {
+      return identifier(id) && data.id == id && iso(data.updatedAt);
+    }
+
+    function review(value, updatedAt) {
+      return value == null || (value is map
+        && fields(value, ['dueAt', 'intervalDays', 'streak', 'lastReviewedAt'])
+        && iso(value.dueAt)
+        && integer(value.intervalDays, 1, 3650)
+        && integer(value.streak, 0, 100000)
+        && nullablePast(value.lastReviewedAt, updatedAt));
+    }
+
+    function assessment(value, updatedAt) {
+      return value == null || (value is map
+        && fields(value, ['attemptedAt', 'correct', 'total', 'answers'])
+        && iso(value.attemptedAt) && value.attemptedAt <= updatedAt
+        && integer(value.total, 1, 32)
+        && integer(value.correct, 0, value.total)
+        && value.answers is map && value.answers.size() <= value.total
+        && identifiers(value.answers.keys())
+        && answerValues(value.answers.values()));
+    }
+
+    function lesson(data, id) {
+      return fields(data, ['id', 'updatedAt', 'manualCompletedAt', 'evidence', 'rubricChecked',
+          'note', 'bookmarked', 'readingPosition', 'review', 'assessment'])
+        && base(data, id)
+        && nullablePast(data.manualCompletedAt, data.updatedAt)
+        && boundedString(data.evidence, 16000)
+        && answerValues(data.rubricChecked)
+        && data.rubricChecked.toSet().size() == data.rubricChecked.size()
+        && !data.rubricChecked.hasAny([''])
+        && boundedString(data.note, 16000)
+        && data.bookmarked is bool
+        && boundedString(data.readingPosition, 1000)
+        && review(data.review, data.updatedAt)
+        && assessment(data.assessment, data.updatedAt);
+    }
+
+    function project(data, id) {
+      return fields(data, ['id', 'updatedAt', 'milestones', 'evidence'])
+        && base(data, id)
+        && identifiers(data.milestones)
+        && boundedString(data.evidence, 16000);
+    }
+
+    function goal(data, id) {
+      return fields(data, ['id', 'updatedAt', 'title', 'targetDate', 'trackId', 'completedAt', 'deletedAt'])
+        && base(data, id)
+        && boundedString(data.title, 200) && data.title.size() > 0
+        && date(data.targetDate)
+        && track(data.trackId)
+        && nullablePast(data.completedAt, data.updatedAt)
+        && nullablePast(data.deletedAt, data.updatedAt);
+    }
+
+    function activity(data, id) {
+      return fields(data, ['id', 'updatedAt', 'at', 'timezone', 'kind', 'entityId', 'minutes', 'detail'])
+        && eventIdentifier(id) && data.id == id && iso(data.updatedAt)
+        && iso(data.at) && data.at <= data.updatedAt
+        && timezone(data.timezone)
+        && data.kind in ['study', 'assignment', 'assessment', 'review', 'project']
+        && identifier(data.entityId)
+        && integer(data.minutes, 0, 240)
+        && (data.kind != 'study' || data.minutes >= 5)
+        && boundedString(data.detail, 2000);
+    }
+
+    function errorEntry(data, id) {
+      return fields(data, ['id', 'updatedAt', 'lessonId', 'questionId', 'prompt', 'answer',
+          'explanation', 'reflection', 'resolvedAt'])
+        && eventIdentifier(id) && data.id == id && iso(data.updatedAt)
+        && identifier(data.lessonId) && identifier(data.questionId)
+        && boundedString(data.prompt, 4000)
+        && boundedString(data.answer, 2048)
+        && boundedString(data.explanation, 16000)
+        && boundedString(data.reflection, 16000)
+        && nullablePast(data.resolvedAt, data.updatedAt);
+    }
+
+    function settings(data, id) {
+      return fields(data, ['id', 'updatedAt', 'displayName', 'timezone', 'theme', 'dailyMinutes', 'primaryTrack'])
+        && base(data, id) && id == 'settings'
+        && boundedString(data.displayName, 120)
+        && timezone(data.timezone)
+        && data.theme in ['light', 'dark', 'system']
+        && integer(data.dailyMinutes, 5, 1440)
+        && track(data.primaryTrack);
+    }
+
+    function newer() {
+      return request.resource.data.updatedAt > resource.data.updatedAt;
+    }
+
+    match /learners/{uid}/lessons/{id} {
+      allow read: if owner(uid);
+      allow delete: if owner(uid);
+      allow create: if owner(uid) && lesson(request.resource.data, id);
+      allow update: if owner(uid) && newer() && lesson(request.resource.data, id);
+    }
+
+    match /learners/{uid}/projects/{id} {
+      allow read: if owner(uid);
+      allow delete: if owner(uid);
+      allow create: if owner(uid) && project(request.resource.data, id);
+      allow update: if owner(uid) && newer() && project(request.resource.data, id);
+    }
+
+    match /learners/{uid}/goals/{id} {
+      allow read: if owner(uid);
+      allow delete: if owner(uid);
+      allow create: if owner(uid) && goal(request.resource.data, id);
+      allow update: if owner(uid) && newer() && goal(request.resource.data, id)
+        && resource.data.deletedAt == null;
+    }
+
+    match /learners/{uid}/activity/{id} {
+      allow read: if owner(uid);
+      allow delete: if owner(uid);
+      allow create: if owner(uid) && activity(request.resource.data, id);
+    }
+
+    match /learners/{uid}/errors/{id} {
+      allow read: if owner(uid);
+      allow delete: if owner(uid);
+      allow create: if owner(uid) && errorEntry(request.resource.data, id);
+      allow update: if owner(uid) && newer() && errorEntry(request.resource.data, id);
+    }
+
+    match /learners/{uid}/settings/{id} {
+      allow read: if owner(uid) && id == 'settings';
+      allow delete: if owner(uid) && id == 'settings';
+      allow create: if owner(uid) && settings(request.resource.data, id);
+      allow update: if owner(uid) && newer() && settings(request.resource.data, id);
+    }
+
     match /studyProgressCatalog/{catalogId} {
       allow read: if true;
       allow write: if false;
@@ -13,7 +221,8 @@ service cloud.firestore {
     }
 
     match /studyProgressProfiles/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      // Older cached clients retain their original UID-owned access; the new app only reads this archive.
+      allow read, write: if owner(userId);
     }
   }
 }

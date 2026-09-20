@@ -1,0 +1,3101 @@
+{
+  "schemaVersion": 1,
+  "trackId": "foundation",
+  "title": "Common Foundation / Start Here",
+  "sourceCheckedOn": "2026-09-20",
+  "resources": [
+    {
+      "id": "foundation-book-bash",
+      "kind": "book",
+      "title": "GNU Bash Reference Manual, Edition 5.3",
+      "url": "https://www.gnu.org/software/bash/manual/bash.html",
+      "provider": "Chet Ramey, Brian Fox and the Free Software Foundation",
+      "access": "free",
+      "license": "GNU Free Documentation License 1.3 or later; no Invariant Sections, Front-Cover Texts or Back-Cover Texts",
+      "licenseUrl": "https://cgit.git.savannah.gnu.org/cgit/bash.git/plain/doc/bashref.texi",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "An official full technical manual, not a beginner narrative textbook. Use only the assigned short sections. Hosting requires preservation of copyright and license notices, the full GFDL, and applicable modified-version/history and transparent-source obligations. No noncommercial or no-derivatives restriction. Provide the corresponding editable source alongside a hosted rendering; do not add DRM. Bash syntax is not PowerShell syntax. No PDF was fetched or verified for download."
+    },
+    {
+      "id": "foundation-book-think-python",
+      "kind": "book",
+      "title": "Think Python, 3rd Edition",
+      "url": "https://allendowney.github.io/ThinkPython/",
+      "provider": "Allen B. Downey / Green Tea Press",
+      "access": "free",
+      "license": "Text: CC BY-NC-SA 4.0; code: MIT License",
+      "licenseUrl": "https://allendowney.github.io/ThinkPython/chap00.html",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The author's chapter footer verifies separate text and code licenses. Attribute Allen B. Downey, retain license links and notices, identify changes, and share adapted text under CC BY-NC-SA 4.0. Text hosting is gated on a genuinely noncommercial deployment or separate permission; otherwise link only. Retain the MIT notice when redistributing code. No no-derivatives restriction. Read HTML and run original local exercises; Colab, paid editions and author exercise solutions are not required."
+    },
+    {
+      "id": "foundation-book-python-manual",
+      "kind": "book",
+      "title": "Python 3.14 Documentation: Tutorial and Standard Library Reference",
+      "url": "https://docs.python.org/3.14/",
+      "provider": "Python Software Foundation and Python documentation contributors",
+      "access": "free",
+      "license": "Python Software Foundation License Version 2; documentation examples, recipes and other code additionally available under 0BSD",
+      "licenseUrl": "https://docs.python.org/3.14/license.html",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Transparently classified as an official multi-volume technical manual. The prose is not CC-licensed and is not all 0BSD. Retain the PSF license and copyright notices, summarize modifications, preserve applicable incorporated-material notices, and do not imply PSF endorsement. No noncommercial, share-alike or no-derivatives condition for PSF-licensed prose. The 3.14 URL can receive maintenance updates. Exercises use ordinary supported Python features, not a requirement to install the exact website patch release."
+    },
+    {
+      "id": "foundation-book-database-design",
+      "kind": "book",
+      "title": "Database Design - 2nd Edition",
+      "url": "https://opentextbc.ca/dbdesign01/",
+      "provider": "Adrienne Watt and Nelson Eng / BCcampus",
+      "access": "free",
+      "license": "Book text: CC BY 4.0; credited cover photograph: CC BY-SA 2.0",
+      "licenseUrl": "https://opentextbc.ca/dbdesign01/",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Attribute both authors and the edition, retain the CC BY 4.0 link, identify changes, and retain the requested 'Download for free from the B.C. Open Collection' notice with its source link. Omit the cover or separately preserve Michele Ursino's cover-photo attribution and CC BY-SA 2.0 conditions. Review other asset-specific notices before copying assets. Book text permits commercial use and adaptation without share-alike or no-derivatives restrictions. Chapter 16 contains SQL Server-specific syntax; assignments deliberately use SQLite and the linked SQLite references instead of copying dialect-specific examples."
+    },
+    {
+      "id": "foundation-book-python-algorithms",
+      "kind": "book",
+      "title": "Problem Solving with Algorithms and Data Structures using Python, 3rd edition",
+      "url": "https://runestone.academy/ns/books/published/pythonds3/index.html",
+      "provider": "Bradley N. Miller and David L. Ranum / Runestone Academy",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://runestone.academy/ns/books/published/pythonds3/index.html",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The book's own license block names both authors and CC BY-NC-SA 4.0. Attribute authors and source, retain notices and license, identify modifications, and license adaptations alike. Host text only after noncommercial-use review or separate permission; otherwise link only. No no-derivatives restriction. This is not blanket permission to mirror Runestone services, JavaScript dependencies, advertisements or account features. Public reading is free; saving interactive course progress may involve an optional account. Only elementary algorithm-analysis sections are assigned."
+    },
+    {
+      "id": "foundation-book-pro-git",
+      "kind": "book",
+      "title": "Pro Git, 2nd Edition",
+      "url": "https://git-scm.com/book/en/v2",
+      "provider": "Scott Chacon and Ben Straub / Apress and the Git project",
+      "access": "free",
+      "license": "CC BY-NC-SA 3.0",
+      "licenseUrl": "https://git-scm.com/book/en/v2",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The official book landing page explicitly licenses the book under CC BY-NC-SA 3.0. Attribute the authors and edition, retain the license and notices, identify changes, and share adapted text under the applicable share-alike terms. Gate hosting on noncommercial deployment or separate permission; otherwise link only. No no-derivatives restriction. The book license is distinct from the Git software license. No GitHub account, remote repository or public publication is required for the Foundation lab."
+    },
+    {
+      "id": "foundation-book-modern-statistics",
+      "kind": "book",
+      "title": "Introduction to Modern Statistics, Second Edition",
+      "url": "https://openintro-ims.netlify.app/",
+      "provider": "Mine Cetinkaya-Rundel and Johanna Hardin / OpenIntro",
+      "access": "free",
+      "license": "CC BY-SA 3.0 for licensed textbook content; branding, covers and other stated exceptions excluded",
+      "licenseUrl": "https://raw.githubusercontent.com/OpenIntroStat/ims/main/LICENSE.md",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "The book welcome page, author repository license and OpenIntro policy jointly verify the grant. Attribute authors, source and license; identify modifications and license adaptations under CC BY-SA 3.0. Commercial use is allowed for covered content. Exclude OpenIntro covers, logos, website assets, teacher-only resources, student projects and separately licensed/fair-use material unless separately cleared. Derivatives must not use OpenIntro branding or a confusingly similar book title implying endorsement. No no-derivatives restriction on covered text. Assigned conceptual readings do not require R, paid copies or Leanpub checkout."
+    },
+    {
+      "id": "foundation-book-technical-writing",
+      "kind": "book",
+      "title": "Technical Writing Essentials: Introduction to Professional Communications in the Technical Fields",
+      "url": "https://pressbooks.bccampus.ca/technicalwriting/",
+      "provider": "Suzan Last, with contributors / University of Victoria",
+      "access": "free",
+      "license": "CC BY 4.0 for covered authored content, with explicitly listed third-party exceptions",
+      "licenseUrl": "https://pressbooks.bccampus.ca/technicalwriting/wp-json/pressbooks/v2/metadata",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Conservative whole-resource decision: link only. Official metadata lists an uncleared Scientific Sailboat Racing excerpt and multiple third-party figures limited to noncommercial educational use, including Figure 5.3.1 in an assigned chapter. The CC BY 4.0 label does not clear the complete book or its PDF. A future author-text-only adaptation could be assessed separately after removing/clearing excluded material and providing attribution, license and change notices. This handoff does not authorize that extraction or whole-book hosting."
+    },
+    {
+      "id": "foundation-video-shell",
+      "kind": "video",
+      "title": "The Missing Semester (2020): Course Overview + The Shell",
+      "url": "https://missing.csail.mit.edu/2020/course-shell/",
+      "provider": "The Missing Semester of Your CS Education / MIT instructors",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://missing.csail.mit.edu/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official page and embedded lecture verified. Relevant headings include What is the shell?, Using the shell, Navigating in the shell and Connecting programs. Link or authorized embed only in this curriculum, even though the course has a conditional open license. The demonstration shell is Bash, not PowerShell."
+    },
+    {
+      "id": "foundation-video-processes",
+      "kind": "video",
+      "title": "The Missing Semester (2020): Command-line Environment",
+      "url": "https://missing.csail.mit.edu/2020/command-line/",
+      "provider": "The Missing Semester of Your CS Education / MIT instructors",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://missing.csail.mit.edu/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Assign only Job Control, Killing a process, and Pausing and backgrounding processes. Dotfile/profile changes, remote machines and SSH configuration are not Foundation assignments. Link/embed only; no video download or rehosting."
+    },
+    {
+      "id": "foundation-video-git",
+      "kind": "video",
+      "title": "The Missing Semester (2020): Version Control (Git)",
+      "url": "https://missing.csail.mit.edu/2020/version-control/",
+      "provider": "The Missing Semester of Your CS Education / MIT instructors",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://missing.csail.mit.edu/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Snapshots, references, staging, basic commands, branching and merging are verified topics. Advanced history rewriting and remote administration are outside the assignment. Link/embed only."
+    },
+    {
+      "id": "foundation-video-python-functions",
+      "kind": "video",
+      "title": "CS50P: Week 0 - Functions",
+      "url": "https://cs50.harvard.edu/python/weeks/0/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/python/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official weekly title is Functions; the verified topic list also includes variables, str, int, float, operators, def, scope and return. Use named topic selections, not invented timestamps. Public lecture viewing requires no course-submission account. Link/embed only."
+    },
+    {
+      "id": "foundation-video-python-conditionals",
+      "kind": "video",
+      "title": "CS50P: Week 1 - Conditionals",
+      "url": "https://cs50.harvard.edu/python/weeks/1/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/python/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified coverage: if, elif, else, or, and, bool and match. The lesson requires the first six concepts, not pattern matching. Link/embed only; CS50 problem submissions and certificates are not required."
+    },
+    {
+      "id": "foundation-video-python-loops",
+      "kind": "video",
+      "title": "CS50P: Week 2 - Loops",
+      "url": "https://cs50.harvard.edu/python/weeks/2/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/python/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified coverage: while, for, list, range, continue, break, len, dict and None. Sets, tuples and aliasing are assigned from the books rather than attributed to this lecture. Link/embed only."
+    },
+    {
+      "id": "foundation-video-python-exceptions",
+      "kind": "video",
+      "title": "CS50P: Week 3 - Exceptions",
+      "url": "https://cs50.harvard.edu/python/weeks/3/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/python/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified coverage includes SyntaxError, ValueError, try, except, NameError, else and raise. The assignment deliberately does not use pass to hide validation failures. Link/embed only."
+    },
+    {
+      "id": "foundation-video-python-libraries",
+      "kind": "video",
+      "title": "CS50P: Week 4 - Libraries",
+      "url": "https://cs50.harvard.edu/python/weeks/4/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/python/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified topics include modules, import, sys.argv, sys.exit, packages, pip, APIs, requests, JSON and __name__. Virtual environments come from the Python manual, not a claim about this lecture. The lab uses standard-library urllib instead of requiring requests or a remote demonstration API. Link/embed only."
+    },
+    {
+      "id": "foundation-video-python-tests",
+      "kind": "video",
+      "title": "CS50P: Week 5 - Unit Tests",
+      "url": "https://cs50.harvard.edu/python/weeks/5/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/python/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Lecture uses assert, AssertionError and pytest. Foundation transfers its test-design ideas to unittest using the assigned official manual, avoiding a mandatory third-party installation. Do not mislabel this as a unittest lecture. Link/embed only."
+    },
+    {
+      "id": "foundation-video-python-files",
+      "kind": "video",
+      "title": "CS50P: Week 6 - File I/O",
+      "url": "https://cs50.harvard.edu/python/weeks/6/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/python/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified topics include open, with, sorted, CSV, dict and csv. Use these parts only; PIL and image processing are not prerequisites here. The lecture is not claimed to teach a complete provenance or data-quality system. Link/embed only."
+    },
+    {
+      "id": "foundation-video-sql-querying",
+      "kind": "video",
+      "title": "CS50 SQL: Week 0 - Querying",
+      "url": "https://cs50.harvard.edu/sql/weeks/0/",
+      "provider": "Harvard CS50 / Carter Zenke",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/sql/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified SQLite, SELECT, WHERE, NULL, ordering, aggregate functions and DISTINCT coverage. Public lecture is free; the page's optional cs50.dev download workflow is not needed. Use original local fixtures, not copied course problem statements. Link/embed only."
+    },
+    {
+      "id": "foundation-video-sql-relating",
+      "kind": "video",
+      "title": "CS50 SQL: Week 1 - Relating",
+      "url": "https://cs50.harvard.edu/sql/weeks/1/",
+      "provider": "Harvard CS50 / Carter Zenke",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/sql/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified relational models, relationship cardinalities, ER diagrams, primary/foreign keys, joins, GROUP BY and HAVING. Foundation omits set operators, advanced subqueries and professional transaction design. Link/embed only."
+    },
+    {
+      "id": "foundation-video-algorithms",
+      "kind": "video",
+      "title": "CS50x 2025: Week 3 - Algorithms",
+      "url": "https://cs50.harvard.edu/x/2025/weeks/3/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/x/2025/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Use verified Linear Search, Binary Search and Asymptotic Notation topics. C syntax in demonstrations is not an additional language requirement; implement the ideas in Python. Sorting implementation and formal recurrence analysis are not assigned. This deliberately links a verified archived edition rather than claiming it is the latest. Link/embed only."
+    },
+    {
+      "id": "foundation-video-data-structures",
+      "kind": "video",
+      "title": "CS50x 2025: Week 5 - Data Structures",
+      "url": "https://cs50.harvard.edu/x/2025/weeks/5/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/x/2025/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official HTML verifies Abstract Data Types, Queues, Stacks and Hash Tables among its topics. Assign these concepts; skip pointer management, linked-list implementation, trees and tries. Python containers are taught by the reading. Archived 2025 lecture; link/embed only."
+    },
+    {
+      "id": "foundation-video-http",
+      "kind": "video",
+      "title": "CS50x 2025: Week 8 - HTML, CSS, JavaScript",
+      "url": "https://cs50.harvard.edu/x/2025/weeks/8/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/x/2025/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Only the verified Internet: Routers; TCP/IP; DNS and HTTP: URLs, GET, POST topics are assigned. The full lecture title is retained honestly; this is not a dedicated Python API lecture. No HTML/CSS/JavaScript implementation prerequisite is added. Link/embed only."
+    },
+    {
+      "id": "foundation-video-ai",
+      "kind": "video",
+      "title": "CS50x 2025: Artificial Intelligence",
+      "url": "https://cs50.harvard.edu/x/2025/weeks/ai/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/x/2025/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Assign only verified Prompt Engineering, System Prompt, User Prompt, Generative Artificial Intelligence and Hallucinations topics. Neural networks, deep learning, transformers, minimax and reinforcement learning are explicitly outside Foundation. Watching does not require using an AI account. Link/embed only."
+    },
+    {
+      "id": "foundation-video-privacy",
+      "kind": "video",
+      "title": "CS50 Cybersecurity: Week 4 - Preserving Privacy",
+      "url": "https://cs50.harvard.edu/cybersecurity/weeks/4/",
+      "provider": "Harvard CS50 / David J. Malan",
+      "access": "free",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://cs50.harvard.edu/cybersecurity/license/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Verified topics include Logs, HTTP Headers, Tracking Parameters, Private Browsing, Permissions and Location-Based Services. Assign these privacy concepts, not VPN/Tor setup or changes to actual accounts. Secret-generation cautions come from the Python manual. Link/embed only."
+    },
+    {
+      "id": "foundation-video-central-tendency",
+      "kind": "video",
+      "title": "Mean, Median, and Mode: Measures of Central Tendency: Crash Course Statistics #3",
+      "url": "https://thecrashcourse.com/courses/mean-median-and-mode-measures-of-central-tendency-crash-course-statistics-3/",
+      "provider": "Crash Course / Adriene Hill",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official episode page, description and embedded player verified. No open redistribution license verified. Link or use an authorized provider embed only; do not download, transcribe for republication or rehost."
+    },
+    {
+      "id": "foundation-video-spread",
+      "kind": "video",
+      "title": "Measures of Spread: Crash Course Statistics #4",
+      "url": "https://thecrashcourse.com/courses/measures-of-spread-crash-course-statistics-4/",
+      "provider": "Crash Course / Adriene Hill",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official description verifies dispersion and interpreting how well averages represent data; embedded player verified. No open redistribution license verified. Link/embed only."
+    },
+    {
+      "id": "foundation-video-probability",
+      "kind": "video",
+      "title": "Probability, Part 1 - Rules and Patterns: Crash Course Statistics #13",
+      "url": "https://thecrashcourse.com/courses/probability-part-1-rules-and-patterns-crash-course-statistics-13/",
+      "provider": "Crash Course / Adriene Hill",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official description explicitly verifies addition/OR, multiplication/AND and conditional probability; embedded player verified. The assignment is original and not an episode exercise. No open redistribution license verified. Link/embed only."
+    },
+    {
+      "id": "foundation-video-sampling",
+      "kind": "video",
+      "title": "Sampling Methods and Bias with Surveys: Crash Course Statistics #10",
+      "url": "https://thecrashcourse.com/courses/sampling-methods-and-bias-with-surveys-crash-course-statistics-10/",
+      "provider": "Crash Course / Adriene Hill",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official description verifies survey bias, sampling and population representation; embedded player verified. No actual survey of people is required. No open redistribution license verified. Link/embed only."
+    },
+    {
+      "id": "foundation-video-how-to-speak",
+      "kind": "video",
+      "title": "How to Speak",
+      "url": "https://www.youtube.com/watch?v=Unzc731iCUY",
+      "provider": "MIT OpenCourseWare",
+      "access": "free",
+      "license": "link-only/unknown",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "YouTube's public oEmbed response verifies the exact title, MIT OpenCourseWare channel and video player. A license covering this particular upload was not separately verified; do not infer it from general MIT policies. Use the talk for speaking practice; requirements analysis comes from the book. No timestamp or unverified internal chapter is asserted. Link/embed only."
+    },
+    {
+      "id": "foundation-doc-sqlite-select",
+      "kind": "documentation",
+      "title": "SQLite: SELECT",
+      "url": "https://www.sqlite.org/lang_select.html",
+      "provider": "SQLite project",
+      "access": "free",
+      "license": "Public-domain dedication for SQLite deliverable code and documentation",
+      "licenseUrl": "https://www.sqlite.org/copyright.html",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Official copyright page explicitly includes documentation. No attribution, share-alike, noncommercial or no-derivatives copyright condition is imposed by that dedication; retaining provenance is recommended. Do not extend the dedication to excluded build scripts or unrelated site assets. Deployment must consider jurisdictions that do not recognize public-domain dedication. Use SELECT, JOIN, GROUP BY, HAVING and ORDER BY only, not the entire syntax diagram."
+    },
+    {
+      "id": "foundation-doc-sqlite-foreign-keys",
+      "kind": "documentation",
+      "title": "SQLite Foreign Key Support",
+      "url": "https://www.sqlite.org/foreignkeys.html",
+      "provider": "SQLite project",
+      "access": "free",
+      "license": "Public-domain dedication for SQLite deliverable code and documentation",
+      "licenseUrl": "https://www.sqlite.org/copyright.html",
+      "redistribution": "permitted",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-20",
+      "notes": "Read sections 1, Introduction to Foreign Key Constraints, and 2, Enabling Foreign Key Support. Enable and verify foreign_keys on each connection before starting inserts; a schema declaration alone is not sufficient. Same public-domain scope and jurisdiction caveat as the SELECT documentation. Transactions, deferral, indexing and production database design remain specialization material."
+    }
+  ],
+  "modules": [
+    {
+      "id": "foundation-module-01-computing",
+      "title": "01. Files, processes and the command line",
+      "stage": "foundation",
+      "description": "Build a usable mental model of local computing before programming. Work only in a new learner-owned scratch directory. Prior job exposure is context, not evidence that these outcomes are already mastered.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "foundation-lesson-01-files-processes",
+          "title": "Distinguish files, running programs and execution context",
+          "objectives": [
+            "Resolve an absolute and a relative path to the same learner-created file.",
+            "Explain the difference between a program stored on disk, its running process and its current working directory.",
+            "Identify and interrupt only a harmless process started for the exercise."
+          ],
+          "topics": [
+            {
+              "title": "Files and paths",
+              "details": [
+                "Directories, file extensions, text versus bytes, current directory and path quoting.",
+                "A relative path depends on execution context; a file can remain after the program that created it exits."
+              ]
+            },
+            {
+              "title": "Processes and resources",
+              "details": [
+                "A process has an identity, lifetime, working directory and inherited environment.",
+                "An executable on disk is not the same thing as its running process; output and errors are separate observations."
+              ]
+            },
+            {
+              "title": "Safe local navigation",
+              "details": [
+                "Bash and PowerShell have different commands and syntax; PowerShell equivalents include Get-Location, Get-ChildItem and Get-Content.",
+                "Inspect before acting; no administrator commands, account changes, profile edits or broad process termination."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "computing.files-processes"
+          ],
+          "video": {
+            "resourceId": "foundation-video-shell",
+            "locator": "2020 lecture Course Overview + The Shell: What is the shell?, Using the shell, and Navigating in the shell. Also use the supplementary Command-line Environment lecture's Job Control portion."
+          },
+          "reading": {
+            "resourceId": "foundation-book-bash",
+            "locator": "GNU Bash Reference Manual 5.3: section 1.2 What is a shell? and sections 3.7.2 Command Search and Execution and 3.7.3 Command Execution Environment. Read the prose for the mental model, not all advanced shell features."
+          },
+          "supplementaryResourceIds": [
+            "foundation-video-processes",
+            "foundation-book-think-python"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-01-files-processes",
+            "title": "Map and observe a disposable workspace",
+            "kind": "lab",
+            "instructions": [
+              "Budget about 90 minutes for this assignment, included in the lesson estimate. Choose an installed shell and create a new empty practice directory, not an existing repository.",
+              "Create two nested directories, including one with a space in its name, and two short text files containing invented labels. Draw their directory tree.",
+              "Read one file by an absolute path and by a relative path from two different current directories. Record which relative path changes and why.",
+              "Start a harmless waiting subprocess using your shell's documented method, record its PID, observe it, and interrupt only that subprocess. Do not terminate by process name or modify system settings.",
+              "Write a six-sentence explanation separating the shell, the subprocess, its working directory, the program file and the text files."
+            ],
+            "deliverables": [
+              "Directory-tree sketch and a short command transcript without personal paths outside the practice directory.",
+              "Path-resolution table for the two working directories.",
+              "PID observation and the six-sentence explanation."
+            ],
+            "acceptanceCriteria": [
+              "Both path forms read identical file contents, and the transcript demonstrates two distinct current directories.",
+              "At least one path containing spaces is handled correctly.",
+              "The learner identifies the process they started and records its termination without affecting another process.",
+              "The explanation correctly distinguishes persistent files from a running process and contains no claim that a filename extension alone proves file contents."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why can the same relative path refer to different files in two terminals?",
+            "What remains on disk after a process exits, and what may be lost?",
+            "How would you establish that a PID belongs to your exercise before interrupting it?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-02-shell-pipelines",
+          "title": "Compose commands without hiding errors",
+          "objectives": [
+            "Build a small filter, sort and deduplication workflow over a text fixture.",
+            "Separate standard output from standard error and inspect command success.",
+            "Explain quoting, overwrite versus append, and why a pipeline can hide an earlier failure."
+          ],
+          "topics": [
+            {
+              "title": "Arguments and quoting",
+              "details": [
+                "Commands receive arguments; spaces and metacharacters can change how those arguments are parsed.",
+                "Use shell-specific quoting rather than pasting Bash redirections into PowerShell unchanged."
+              ]
+            },
+            {
+              "title": "Streams and composition",
+              "details": [
+                "Standard input, output and error; filtering, sorting, unique values and counting.",
+                "Overwrite and append have different effects; preserve the original input fixture."
+              ]
+            },
+            {
+              "title": "Visible failure",
+              "details": [
+                "Check native exit status or the chosen shell's documented error mechanism.",
+                "Bash normally reports the last pipeline command's status unless pipefail is enabled; do not turn a missing input into a successful empty report."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "computing.shell"
+          ],
+          "video": {
+            "resourceId": "foundation-video-shell",
+            "locator": "Course Overview + The Shell: Using the shell and Connecting programs; revisit the lecture's redirection and pipe demonstrations."
+          },
+          "reading": {
+            "resourceId": "foundation-book-bash",
+            "locator": "Sections 3.1.2 Quoting, 3.2.3 Pipelines, 3.6.1 Redirecting Input, 3.6.2 Redirecting Output and 3.6.3 Appending Redirected Output."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "foundation-assignment-02-shell-pipelines",
+            "title": "Produce a tiny log summary with a failure case",
+            "kind": "lab",
+            "instructions": [
+              "Budget about 90 minutes. In the practice directory, create an eight-line fixture: INFO alpha; ERROR beta; INFO gamma; ERROR beta; WARN delta; ERROR epsilon; INFO zeta; WARN eta, with each entry on its own line.",
+              "Use your selected shell's text tools to select ERROR lines, count them, and produce a sorted list of distinct ERROR lines. Keep raw counts distinct from deduplicated counts.",
+              "Save normal output and error output separately. Demonstrate append and overwrite on a disposable output file, not on the input.",
+              "Repeat with an intentionally nonexistent input path. Make the failure observable and prevent a success-shaped empty summary. Record the shell-specific error/status check.",
+              "Explain each stage in your own words and keep all commands scoped to the practice directory."
+            ],
+            "deliverables": [
+              "Input fixture, command sequence and output files.",
+              "A failure transcript and explanation of the status check.",
+              "A five-line explanation of quoting, pipes and redirection."
+            ],
+            "acceptanceCriteria": [
+              "The input has eight lines, three ERROR lines and two distinct ERROR lines.",
+              "The distinct output contains ERROR beta followed by ERROR epsilon.",
+              "The source fixture remains unchanged after all demonstrations.",
+              "The missing-input run is explicitly reported as failed, not as zero errors found."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "When does a pipe carry error output, and when does it not?",
+            "What is the difference between an empty valid input and an input that could not be opened?",
+            "Why can checking only the final pipeline stage be misleading?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foundation-module-02-python",
+      "title": "02. Python values, contracts, collections and modules",
+      "stage": "foundation",
+      "description": "Make Python the common implementation language. Move beyond exposure by writing and explaining small programs, explicit contracts, collection transformations and importable file-based tools. Advanced object-oriented design and frameworks are not prerequisites.",
+      "prerequisites": [
+        "foundation-module-01-computing"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "foundation-lesson-03-values-control",
+          "title": "Trace values and choose the correct branch",
+          "objectives": [
+            "Predict the values and types produced by short expressions before running them.",
+            "Implement mutually exclusive branches with explicit boundary behavior.",
+            "Explain assignment, comparison, Boolean logic and numeric conversion without treating them as interchangeable."
+          ],
+          "topics": [
+            {
+              "title": "Values and statements",
+              "details": [
+                "Integers, floats, strings, Booleans and None; variables bind names to objects.",
+                "Arithmetic, comparison, conversion, evaluation order and the distinction between = and ==."
+              ]
+            },
+            {
+              "title": "Branching",
+              "details": [
+                "if, elif, else, compound conditions and boundary cases.",
+                "Trace one path through a program; a branch condition is not evidence that an unrelated case was handled."
+              ]
+            },
+            {
+              "title": "Executable reasoning",
+              "details": [
+                "Predict, run, compare and explain a mismatch instead of changing code until a sample happens to pass.",
+                "Numeric representation is introduced here; detailed floating-point limitations are developed in module 06."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "python.values-control-flow"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-conditionals",
+            "locator": "CS50P Week 1 - Conditionals: if, elif, else, or, and and bool. First use the supplementary Week 0 - Functions lecture's Variables, int, float and Operators topics if unfamiliar."
+          },
+          "reading": {
+            "resourceId": "foundation-book-think-python",
+            "locator": "Chapter 1 Programming as a way of thinking; Chapter 2 Variables and Statements; the conditionals and Boolean-expression material in Chapter 5 Conditionals and Recursion. Recursion and the book's exercises are not required here."
+          },
+          "supplementaryResourceIds": [
+            "foundation-video-python-functions"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-03-values-control",
+            "title": "Classify a fictional practice-session duration",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 150 minutes. Write a script of at most 40 nonblank lines that reads integer actual_minutes and target_minutes and prints exactly one classification.",
+              "Require actual_minutes to be nonnegative and target_minutes to be positive. For valid inputs print below-target, equal-target or over-target; for an invalid numeric range print invalid-range.",
+              "Before running, predict the output for (0,30), (29,30), (30,30), (31,30), (1,0), (-1,30), (10,-2) and (120,60). This lesson's test domain is integer input; friendly handling of malformed text is developed next.",
+              "Run all eight cases, record actual output, and explain any correction. Include six additional expression predictions covering a string, integer, float, Boolean, conversion and None.",
+              "Do not connect these fictional labels to learning-platform completion or real personal study records."
+            ],
+            "deliverables": [
+              "The script and eight-case prediction/observation table.",
+              "Six expression predictions with observed types and values.",
+              "A short explanation of branch ordering and boundary choices."
+            ],
+            "acceptanceCriteria": [
+              "All eight specified cases match the written contract and print exactly one classification each.",
+              "Zero actual minutes is valid when the target is positive; zero or negative targets are rejected.",
+              "The equal case cannot also be labelled below or over target.",
+              "Predictions are distinguished from observations; the artifact does not invent a successful run."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What changes when a number is stored as a string?",
+            "How can reordering branches change boundary behavior?",
+            "Why is a missing value different from zero and from an empty string?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-04-functions-contracts",
+          "title": "Write functions with explicit success and failure contracts",
+          "objectives": [
+            "Separate input/output from reusable calculation and validation functions.",
+            "Document accepted inputs, return values and expected exceptions.",
+            "Read a traceback and catch only an exception that the caller can meaningfully handle."
+          ],
+          "topics": [
+            {
+              "title": "Function boundaries",
+              "details": [
+                "Parameters, arguments, local scope, return values and side effects.",
+                "A printed value is not a returned value; every intended success path must return the promised type."
+              ]
+            },
+            {
+              "title": "Contracts and decomposition",
+              "details": [
+                "State input domains, output meaning, units and invalid-input behavior.",
+                "Build and check a small function incrementally before adding another responsibility."
+              ]
+            },
+            {
+              "title": "Exceptions",
+              "details": [
+                "Syntax errors versus runtime exceptions; ValueError, TypeError and useful traceback context.",
+                "Use narrow exception handling at the interface; do not silently replace invalid input with a plausible result."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "python.functions-contracts"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-functions",
+            "locator": "CS50P Week 0 - Functions: def, parameters, scope and return. Pair with the supplementary Week 3 - Exceptions topics ValueError, try/except and raise."
+          },
+          "reading": {
+            "resourceId": "foundation-book-think-python",
+            "locator": "Chapter 3 Functions and Chapter 6 Return Values, especially 6.1 Some functions have return values, 6.2 And some have None, 6.3 Return values and conditionals, and 6.4 Incremental development."
+          },
+          "supplementaryResourceIds": [
+            "foundation-video-python-exceptions",
+            "foundation-book-python-manual"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-04-functions-contracts",
+            "title": "Build a duration parser with a real contract",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 135 minutes. Implement parse_seconds(text), accepting a string containing an integer after surrounding whitespace is removed, and returning an integer between 0 and 7200 inclusive.",
+              "Raise ValueError for malformed or out-of-range text. Implement classify_seconds(seconds), returning short below 60, standard from 60 through 300, and long above 300, for the same valid numeric domain.",
+              "Give both functions concise contract docstrings. Keep terminal input and output outside the functions, and show an actionable message for expected bad input.",
+              "Check at least ten calls, including '0', ' 60 ', '300', '301', '7200', '-1', '7201', 'later', '1.5' and the empty string. Use the Python manual's chapter 8 Errors and Exceptions for handling syntax.",
+              "Retain one deliberately caused traceback and explain its exception type, relevant line and root cause before fixing the code."
+            ],
+            "deliverables": [
+              "Two functions, a thin command-line wrapper and contract docstrings.",
+              "Ten input/expected-result checks, including expected exceptions.",
+              "A traceback explanation and the corresponding correction."
+            ],
+            "acceptanceCriteria": [
+              "Successful parse results are integers; 0 and 7200 are accepted and both out-of-range neighbors are rejected.",
+              "The classification boundaries at 59, 60, 300 and 301 are correct.",
+              "Malformed text raises ValueError in the parser rather than returning zero or None.",
+              "Importing the functions does not prompt or print, and exception handling does not use a blanket catch to hide unrelated bugs."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What should a caller know without reading the function body?",
+            "Why is print not a replacement for return?",
+            "Where should an expected validation error become a user-facing message?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-05-collections",
+          "title": "Transform collections without losing meaning",
+          "objectives": [
+            "Select an appropriate list, tuple, dictionary or set for a small problem.",
+            "Write an explicit iteration and a readable equivalent transformation where appropriate.",
+            "Demonstrate the difference between aliasing, copying and mutation."
+          ],
+          "topics": [
+            {
+              "title": "Container semantics",
+              "details": [
+                "Ordered sequences, dictionary keys and values, distinct set members and immutable tuples.",
+                "Membership, indexing, slicing, iteration and missing keys; absence is not automatically a zero value."
+              ]
+            },
+            {
+              "title": "Iteration",
+              "details": [
+                "for and while, range, enumerate-style index/value reasoning, accumulation and termination.",
+                "Prefer a clear loop to a dense comprehension when validation or several updates are required."
+              ]
+            },
+            {
+              "title": "Object identity and mutation",
+              "details": [
+                "Two names can reference the same mutable object; shallow copies still share nested objects.",
+                "Separate an input fixture from output collections and state whether input mutation is allowed."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "python.collections-iteration"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-loops",
+            "locator": "CS50P Week 2 - Loops: while, for, list, range, len, dict and None."
+          },
+          "reading": {
+            "resourceId": "foundation-book-think-python",
+            "locator": "Chapter 7 Iteration and Search; Chapter 9 Lists; Chapter 10 Dictionaries; Chapter 11 Tuples. Read the explanatory container and iteration material, not every chapter exercise. Use Python Tutorial chapter 5 Data Structures for sets."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-python-manual"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-05-collections",
+            "title": "Summarize five synthetic observations",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 150 minutes. Represent the original synthetic observations (A,1), (B,5), (A,3), (B,None), (C,0) as dictionaries in a list.",
+              "Write summarize(records), returning each station's row count, nonmissing-value count and sum of nonmissing values, plus the set of distinct station labels.",
+              "Keep None separate from zero. Preserve the original records unchanged and explicitly sort station labels only when presenting the result.",
+              "Add an empty-input case and at least three additional small fixtures. Demonstrate aliasing and a shallow copy using a separate disposable nested list, then explain why the inner object is still shared.",
+              "Write a short justification for the container chosen for each part; do not add a class hierarchy or a data-processing framework."
+            ],
+            "deliverables": [
+              "The summarizer and at least five fixture checks.",
+              "A deterministic human-readable output for the specified fixture.",
+              "An aliasing demonstration and container-choice explanation."
+            ],
+            "acceptanceCriteria": [
+              "A has row count 2, value count 2 and sum 4; B has row count 2, value count 1 and sum 5; C has row count 1, value count 1 and sum 0.",
+              "Distinct labels are A, B and C, while the original five records remain unchanged.",
+              "Empty input returns an explicitly documented empty summary without dividing by zero.",
+              "The learner can show why filtering values by truthiness would incorrectly discard the valid zero."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "When is a set the wrong choice even if you want fast membership tests?",
+            "What does a shallow copy fail to isolate?",
+            "How would you preserve both missingness and a legitimate zero while aggregating?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-06-modules-environments",
+          "title": "Turn a script into a repeatable local tool",
+          "objectives": [
+            "Split a small program into an importable module and a command-line entry point.",
+            "Read a text file with explicit encoding and resource cleanup.",
+            "Create an isolated environment and identify the interpreter actually running the program."
+          ],
+          "topics": [
+            {
+              "title": "Modules and entry points",
+              "details": [
+                "import, module namespaces, the search path and the __name__ guard.",
+                "Keep imports free of prompting, network calls and file writes; distinguish the standard library from installed packages."
+              ]
+            },
+            {
+              "title": "Local file input",
+              "details": [
+                "with and open, UTF-8 text, line boundaries and file-not-found errors.",
+                "Pass paths as arguments rather than hardcoding a personal directory or relying on a notebook's hidden state."
+              ]
+            },
+            {
+              "title": "Environments",
+              "details": [
+                "An environment belongs to a particular interpreter; python -m pip targets that interpreter.",
+                "A standard-library-only tool needs no third-party packages. On Windows the environment's Scripts\\python.exe can be invoked directly without changing execution policy or profiles."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "python.modules-environments"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-libraries",
+            "locator": "CS50P Week 4 - Libraries: Modules, import, Command-Line Arguments, sys.argv, sys.exit, Packages, pip and __name__. Virtual environments are in the reading."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Tutorial chapter 6 Modules, especially 6.1.1 Executing modules as scripts and 6.1.2 The Module Search Path; section 7.2 Reading and Writing Files; chapter 12 Virtual Environments and Packages."
+          },
+          "supplementaryResourceIds": [
+            "foundation-video-python-files"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-06-modules-environments",
+            "title": "Package a small text-summary command",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 120 minutes. Create text_summary.py with a reusable function and main.py with an entry-point guard. Count lines and whitespace-separated words in a UTF-8 file supplied as an argument.",
+              "Use only the standard library, a with block for file access, and a useful stderr message plus nonzero exit status for a missing file or argument.",
+              "Create a virtual environment and record sys.executable and the Python version. On Windows call its Scripts\\python.exe directly if activation is unavailable.",
+              "Create a three-line fixture containing six words in total, plus a separate empty fixture. Run from two current directories using appropriate paths.",
+              "Import text_summary in a fresh interpreter and show that no input prompt, output or file write occurs."
+            ],
+            "deliverables": [
+              "Two Python files, two original text fixtures and a short usage note.",
+              "Interpreter/environment identity and exact run commands.",
+              "Normal, empty-input and missing-file observations."
+            ],
+            "acceptanceCriteria": [
+              "The designed three-line fixture reports three lines and six words; the empty fixture reports zero of each.",
+              "Both working-directory runs produce the same counts for the same file.",
+              "Invalid invocation and missing files produce explicit errors and nonzero status, not a successful empty summary.",
+              "The module is safe to import, and all recorded execution uses the intended isolated interpreter."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What code executes when a module is imported?",
+            "Why can pip and python refer to different installations?",
+            "Why should the file path be an input instead of a hardcoded personal location?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foundation-module-03-data",
+      "title": "03. Relational data, SQL and trustworthy inputs",
+      "stage": "foundation",
+      "description": "Use Python's local SQLite support and a tiny synthetic station-reading dataset to establish relational reasoning, basic querying and provenance. SQL/PySpark/Fabric work exposure does not initialize this module as mastered. No PostgreSQL transactions, warehouses or distributed data systems are required.",
+      "prerequisites": [
+        "foundation-module-02-python"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "foundation-lesson-07-relational-model",
+          "title": "Give every row a clear meaning",
+          "objectives": [
+            "State the grain of each table and identify its primary and foreign keys.",
+            "Explain a one-to-many relationship and predict join cardinality.",
+            "Create a tiny schema that rejects duplicate keys and unknown references."
+          ],
+          "topics": [
+            {
+              "title": "Relational vocabulary",
+              "details": [
+                "Relation/table, row, column, domain and row grain.",
+                "A conceptual relation has distinct tuples, but SQL tables need appropriate constraints; query output is not inherently ordered."
+              ]
+            },
+            {
+              "title": "Keys and relationships",
+              "details": [
+                "Stable identifiers, primary-key uniqueness, foreign-key references and one-to-many cardinality.",
+                "Separate station descriptions from repeated measurements instead of duplicating descriptive fields in every row."
+              ]
+            },
+            {
+              "title": "Small, explicit constraints",
+              "details": [
+                "Required identifiers, allowed missing temperature and a bounded numeric domain.",
+                "Enable SQLite foreign-key enforcement on the connection before inserts and verify that it is enabled."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "data.relational-models"
+          ],
+          "video": {
+            "resourceId": "foundation-video-sql-relating",
+            "locator": "CS50 SQL Week 1 - Relating: Relational Databases, Relationships, Entity Relationship Diagrams, Primary Keys and Foreign Keys."
+          },
+          "reading": {
+            "resourceId": "foundation-book-database-design",
+            "locator": "Chapter 7 The Relational Data Model: Fundamental Concepts in the Relational Data Model and Properties of a Table. Keys and concrete SQLite enforcement are supplied by the lecture and supplementary official references."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-python-manual",
+            "foundation-doc-sqlite-foreign-keys"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-07-relational-model",
+            "title": "Model three fictional stations and six readings",
+            "kind": "lab",
+            "instructions": [
+              "Budget about 120 minutes. Draw two tables: stations(station_id, label) and readings(reading_id, station_id, minute_index, temperature_c). State one-row meaning, keys, units and nullability.",
+              "Use stations S1, S2 and S3 with invented labels. Use readings (r1,S1,0,18), (r2,S1,5,20), (r3,S1,10,NULL), (r4,S2,0,22), (r5,S2,5,24), (r6,S2,10,26). S3 intentionally has no readings.",
+              "Create the schema in a new local SQLite database using Python sqlite3. Identifiers and minute_index are required; minute_index must be an integer from 0 through 59. Temperature may be NULL or a number from -20 through 60.",
+              "Enable and check PRAGMA foreign_keys before inserts. Use bound parameters for data values, with the Python manual's sqlite3 placeholder guidance.",
+              "Attempt a duplicate reading ID, an unknown station and a missing required station ID. Keep these attempts separate from the six-row clean fixture and record the expected constraint failures."
+            ],
+            "deliverables": [
+              "Two-table diagram and a short data dictionary.",
+              "Schema and original fixture-loading code.",
+              "Evidence of the three rejected insert attempts and the foreign-key setting."
+            ],
+            "acceptanceCriteria": [
+              "Exactly three station rows and six clean reading rows remain after the rejection checks.",
+              "Primary keys reject duplicate IDs and foreign-key enforcement rejects an unknown station.",
+              "The missing temperature on r3 is valid, while a missing station_id is not.",
+              "The learner predicts that an inner join returns six reading rows and explains why S3 disappears from that result."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What question tells you the grain of a table?",
+            "Why is declaring a SQLite foreign key not enough by itself?",
+            "When can joining two tables multiply rows unexpectedly?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-08-sql-querying",
+          "title": "Answer small questions with SQL and a hand-check",
+          "objectives": [
+            "Write filtering, ordering, join and grouping queries over the six-row fixture.",
+            "Distinguish WHERE from HAVING and COUNT(*) from a count of nonmissing values.",
+            "Validate query output against a small independent expected-result table."
+          ],
+          "topics": [
+            {
+              "title": "Selection and missingness",
+              "details": [
+                "SELECT, WHERE, comparison predicates, IS NULL, DISTINCT and explicit ORDER BY.",
+                "NULL is not zero and is not equal to another value through ordinary equality."
+              ]
+            },
+            {
+              "title": "Joins and aggregation",
+              "details": [
+                "INNER JOIN versus LEFT JOIN, grouped COUNT and AVG, and HAVING.",
+                "In a left join, COUNT(reading_id) avoids counting a placeholder row as a real observation."
+              ]
+            },
+            {
+              "title": "Correctness before scale",
+              "details": [
+                "Predict result grain and cardinality before running a query.",
+                "Use SQLite documentation for executable dialect details; do not copy SQL Server-specific textbook syntax."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "data.sql-querying"
+          ],
+          "video": {
+            "resourceId": "foundation-video-sql-querying",
+            "locator": "CS50 SQL Week 0 - Querying: SELECT, WHERE, NULL, Ordering, Aggregate Functions and DISTINCT. Also view Week 1 - Relating selections Joins, GROUP BY and HAVING."
+          },
+          "reading": {
+            "resourceId": "foundation-book-database-design",
+            "locator": "Chapter 16 SQL Data Manipulation Language: SELECT Statement; SELECT statement with WHERE criteria; SELECT statement with ORDER BY clause; SELECT statement with GROUP BY clause; Using COUNT with GROUP BY; Using AVG and SUM with GROUP BY; Restricting rows with HAVING."
+          },
+          "supplementaryResourceIds": [
+            "foundation-video-sql-relating",
+            "foundation-doc-sqlite-select",
+            "foundation-book-python-manual"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-08-sql-querying",
+            "title": "Create six independently checkable queries",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 150 minutes. Reuse the six clean readings from the preceding lesson and write six queries: temperatures at least 22; total versus nonmissing temperature counts; missing-temperature IDs; an inner join to station labels; a per-station left-join summary; and stations having at least three readings.",
+              "The per-station summary must include station_id, reading_count, measured_count and mean_temperature_c, including S3 with no readings.",
+              "Write expected rows by hand before executing. Add explicit ordering wherever output order is part of your check.",
+              "Use a bound parameter for the temperature threshold. Run the threshold query with 22 and with a threshold above all fixture values.",
+              "Explain a deliberately wrong left-join COUNT(*) result and correct it without deleting the empty station."
+            ],
+            "deliverables": [
+              "Six SQL queries and a small Python runner.",
+              "Hand-derived expected outputs and actual-output comparisons.",
+              "A short explanation of NULL, HAVING and the left-join counting trap."
+            ],
+            "acceptanceCriteria": [
+              "Threshold 22 returns r4, r5 and r6; the above-maximum threshold returns an empty valid result.",
+              "The reading table has total count 6, measured count 5 and exactly one missing-temperature ID, r3.",
+              "S1 reports 3 readings, 2 measured values and mean 19; S2 reports 3, 3 and mean 24; S3 reports 0, 0 and a NULL mean.",
+              "The inner join has six rows, and the HAVING query returns S1 and S2 only.",
+              "Every expected-result comparison is independent of reusing the query itself as the oracle."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why can COUNT(*) and COUNT(temperature_c) disagree?",
+            "When does a filter belong in HAVING instead of WHERE?",
+            "How would an accidental many-to-many join distort an otherwise correct average?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-09-quality-provenance",
+          "title": "Preserve provenance while rejecting bad data",
+          "objectives": [
+            "Write a small validation policy that distinguishes missing, malformed and duplicate records.",
+            "Trace every accepted or rejected row to a source filename and row number.",
+            "Reconcile input, accepted and rejected counts without silently discarding evidence."
+          ],
+          "topics": [
+            {
+              "title": "Input contracts",
+              "details": [
+                "Required fields, allowed NULL temperature, numeric ranges and reference validity.",
+                "An identical repeated ID is still a duplicate to report under the chosen first-valid-row policy."
+              ]
+            },
+            {
+              "title": "Provenance and explicit rejection",
+              "details": [
+                "Preserve the raw input, source filename, CSV data-row number and rejection reason.",
+                "Do not fabricate replacements for missing values or include employer data in a learning fixture."
+              ]
+            },
+            {
+              "title": "Reconciliation",
+              "details": [
+                "Every input data row receives exactly one outcome.",
+                "Reconcile counts first, then check that validated query totals still match the clean fixture."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "data.quality-provenance"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-files",
+            "locator": "CS50P Week 6 - File I/O: open, with, CSV, dict and csv. The lesson's validation and provenance policy is an original application, not claimed lecture coverage."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Standard Library Reference: csv - CSV File Reading and Writing, especially reader/DictReader and newline handling; sqlite3 - How to use placeholders to bind values in SQL queries. Revisit Tutorial 7.2 Reading and Writing Files."
+          },
+          "supplementaryResourceIds": [
+            "foundation-video-sql-querying",
+            "foundation-book-database-design"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-09-quality-provenance",
+            "title": "Account for all ten rows in a dirty fixture",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 135 minutes. Export the six original clean readings to a learner-authored CSV, representing the allowed missing temperature as an empty field.",
+              "Append four rows in this order: an exact duplicate of r2; r7 with station S9 and an otherwise valid reading; r8 with station S1 and temperature 'warm'; and a row with an empty reading_id but otherwise valid fields.",
+              "Implement a validator retaining the first valid occurrence of an ID and recording later duplicates. Use distinct reasons DUPLICATE_ID, UNKNOWN_STATION, INVALID_TEMPERATURE and MISSING_ID for the four appended cases.",
+              "Write accepted rows and a rejection report with original values, filename and 1-based data-row number excluding the header. Do not modify the raw CSV.",
+              "Load only accepted rows into a fresh SQLite database and rerun the clean-fixture summary. Keep the source and counts in a small provenance manifest."
+            ],
+            "deliverables": [
+              "Ten-row synthetic source CSV and its data contract.",
+              "Validator, accepted output, rejection report and provenance manifest.",
+              "A row-count reconciliation and clean-summary comparison."
+            ],
+            "acceptanceCriteria": [
+              "Ten input data rows reconcile to six accepted rows and four rejected rows, with no unclassified row.",
+              "Each of the four appended rows has the specified reason and the correct source data-row number.",
+              "The allowed missing temperature on r3 remains missing and does not become zero or a rejection.",
+              "Accepted query counts and means match the preceding lesson, and the raw input remains byte-for-byte unchanged."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What evidence is lost if you simply drop malformed rows?",
+            "Why should duplicate handling be a written policy rather than an incidental dictionary overwrite?",
+            "What can reconciled row counts prove, and what can they not prove?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foundation-module-04-problem-solving",
+      "title": "04. Decomposition, complexity and basic data structures",
+      "stage": "foundation",
+      "description": "Practice bounded algorithmic reasoning in Python. Cover simple search, operation counts and basic container choices, not an interview-problem catalog, advanced graph algorithms or a second programming language.",
+      "prerequisites": [
+        "foundation-module-03-data"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "foundation-lesson-10-decomposition-complexity",
+          "title": "Decompose a search problem and count its work",
+          "objectives": [
+            "State search preconditions and a loop invariant in plain language.",
+            "Implement linear and iterative binary search with the same observable contract.",
+            "Compare operation growth separately from noisy wall-clock timing."
+          ],
+          "topics": [
+            {
+              "title": "From problem to algorithm",
+              "details": [
+                "Specify input, output, edge cases and the meaning of not found before implementation.",
+                "Separate correctness, termination and efficiency; binary search requires an ordered input."
+              ]
+            },
+            {
+              "title": "Growth rates",
+              "details": [
+                "Constant, logarithmic, linear and quadratic growth as introductory models.",
+                "Choose a countable operation; best and worst cases need different input examples."
+              ]
+            },
+            {
+              "title": "Bounded comparisons",
+              "details": [
+                "Compare reference and alternative algorithms on the same inputs.",
+                "Do not claim a universal speedup from one timing run or ignore the cost of sorting an unsorted input."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "problem.decomposition-complexity"
+          ],
+          "video": {
+            "resourceId": "foundation-video-algorithms",
+            "locator": "CS50x 2025 Week 3 - Algorithms: Linear Search, Binary Search and Asymptotic Notation. Translate the ideas into Python; do not undertake the C problem set."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-algorithms",
+            "locator": "Chapter 2 Algorithm Analysis: section 2.2 What Is Algorithm Analysis? and section 2.3 Big O Notation. Focus on operation counting and constant/logarithmic/linear/quadratic comparisons."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-think-python"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-10-decomposition-complexity",
+            "title": "Compare two searches with a transparent counter",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 120 minutes. Implement linear_search and iterative binary_search, each returning an index or None, plus the number of inspected list elements.",
+              "State that binary_search expects an ascending list. Do not insert sorting or an extra linear sortedness check into its measured search loop; discuss those costs separately.",
+              "Check an empty list, one-element hit and miss, first and last positions, an interior hit, an absent target and a list containing duplicates. Any matching index is acceptable for duplicates.",
+              "For sorted unique lists of lengths 16, 32 and 64, search for a value larger than every element and count inspections.",
+              "Write the invariant and termination argument in at most 200 words, and explain why operation counts are not milliseconds."
+            ],
+            "deliverables": [
+              "Two search functions and at least eight correctness checks.",
+              "An inspection-count table for lengths 16, 32 and 64.",
+              "A short invariant, termination and complexity explanation."
+            ],
+            "acceptanceCriteria": [
+              "Both implementations find valid matching indices or return None consistently with a simple membership oracle.",
+              "Empty input requires zero element inspections.",
+              "The absent-above-maximum linear searches inspect 16, 32 and 64 elements; binary searches inspect at most 5, 6 and 7 respectively.",
+              "The explanation states the sorted-input precondition and does not claim that sorting is free or that one measured timing proves an asymptotic bound."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Which fact about the remaining search interval stays true after every binary-search step?",
+            "How does a precondition differ from an invariant?",
+            "Why might a linear method still be reasonable for a tiny or one-off unsorted input?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-11-data-structures",
+          "title": "Choose structures by the operations they must support",
+          "objectives": [
+            "Demonstrate FIFO and LIFO behavior with Python containers.",
+            "Use a dictionary for identity lookup and a set for distinct membership.",
+            "Explain an average-case efficiency benefit without promising worst-case constant time."
+          ],
+          "topics": [
+            {
+              "title": "Abstract behavior",
+              "details": [
+                "A stack specifies last-in-first-out behavior; a queue specifies first-in-first-out behavior.",
+                "An abstract data type describes operations and invariants, not one mandatory implementation."
+              ]
+            },
+            {
+              "title": "Python implementations",
+              "details": [
+                "Use list.append/pop for a stack and collections.deque for queue endpoints.",
+                "Use dictionaries for keyed records and sets for membership; distinguish average-case hash lookup from a worst-case guarantee."
+              ]
+            },
+            {
+              "title": "State consistency",
+              "details": [
+                "Keep queue order and ID lookup consistent without dropping duplicate-input evidence silently.",
+                "Define empty-container behavior and avoid mutating a list while iterating over it."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "problem.data-structures"
+          ],
+          "video": {
+            "resourceId": "foundation-video-data-structures",
+            "locator": "CS50x 2025 Week 5 - Data Structures: Abstract Data Types, Queues, Stacks and Hash Tables. Skip C pointer implementation, trees and tries."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Tutorial chapter 5 Data Structures: 5.1.1 Using Lists as Stacks, 5.1.2 Using Lists as Queues, 5.4 Sets and 5.5 Dictionaries."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-python-algorithms"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-11-data-structures",
+            "title": "Model a five-item local work queue",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 135 minutes. Build a small function-based queue model for five invented task IDs using deque for order and a dictionary for their descriptions.",
+              "Enqueue T1, T2 and T3; process two; enqueue T4 and T5; then process the rest. A separate list records processed IDs as a stack that can show the most recently processed item.",
+              "Reject a repeated ID explicitly rather than silently replacing its description. Keep a set of IDs seen during this bounded run.",
+              "Define an explicit empty-queue outcome and check it. Keep the entire exercise local and in memory; it is not a concurrent job service.",
+              "Write a table matching enqueue, dequeue, last-processed lookup and duplicate detection to their container and expected operation cost."
+            ],
+            "deliverables": [
+              "Function-based model, operation trace and checks.",
+              "Container/operation decision table.",
+              "A short explanation of the model's invariants and limits."
+            ],
+            "acceptanceCriteria": [
+              "Processing order is T1, T2, T3, T4, T5 for the specified sequence.",
+              "The processed stack's last item is T5, and reversing it gives LIFO order without changing the queue's FIFO contract.",
+              "A duplicate ID is reported and does not change the accepted task count or stored description.",
+              "The empty case is explicit, queue and lookup state remain consistent, and no list.pop(0) is used as the queue implementation."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Which operations make a deque a better queue than a Python list?",
+            "When would a dictionary be inappropriate as the sole representation of a queue?",
+            "What state must stay consistent when one task is removed?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foundation-module-05-engineering",
+      "title": "05. Git, tests, debugging and reproducibility",
+      "stage": "foundation",
+      "description": "Make small programs inspectable and repeatable. Use a disposable local Git repository, standard-library tests and explicit run evidence. No remote account, hosted CI, container platform or deployment is necessary.",
+      "prerequisites": [
+        "foundation-module-04-problem-solving"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "foundation-lesson-12-git",
+          "title": "Explain and preserve a local change history",
+          "objectives": [
+            "Distinguish working-tree changes, staged changes and committed snapshots.",
+            "Create and merge a branch and resolve a small intentional conflict.",
+            "Undo an unwanted behavior through a new explicit change without rewriting shared history."
+          ],
+          "topics": [
+            {
+              "title": "Git's model",
+              "details": [
+                "Snapshots, commits, parents, branches and the staging area.",
+                "status, diff, staged diff and log answer different questions."
+              ]
+            },
+            {
+              "title": "Small reviewable changes",
+              "details": [
+                "Commit one coherent intent at a time and write a message explaining why.",
+                "Ignore generated outputs and environments; ignoring a file does not remove an already tracked copy."
+              ]
+            },
+            {
+              "title": "Safe collaboration concepts",
+              "details": [
+                "A merge reconciles histories; conflict markers require an intentional resolution.",
+                "For this beginner exercise use new corrective commits, not force pushes, hard resets or modifications to another repository."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "engineering.git"
+          ],
+          "video": {
+            "resourceId": "foundation-video-git",
+            "locator": "Version Control (Git): Snapshots, References, Staging area, Git command-line interface / Basics, and Branching and merging."
+          },
+          "reading": {
+            "resourceId": "foundation-book-pro-git",
+            "locator": "Sections 1.1 About Version Control and 1.3 What is Git?; 2.1 Getting a Git Repository, 2.2 Recording Changes to the Repository and 2.3 Viewing the Commit History; 3.1 Branches in a Nutshell and 3.2 Basic Branching and Merging."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "foundation-assignment-12-git",
+            "title": "Create a reviewable history in a throwaway repository",
+            "kind": "lab",
+            "instructions": [
+              "Budget about 120 minutes. Initialize a new disposable local repository containing a copy of one original Foundation exercise. Do not use an employer or existing portfolio repository.",
+              "Use per-command Git identity options with an invented learner name and learner@example.invalid if identity is needed; do not change a global profile or create a remote account.",
+              "Create at least four coherent commits, showing status, unstaged diff, staged diff and log at appropriate points. Ignore the virtual environment and generated output before committing.",
+              "Create a branch, make different edits to the same disposable documentation line on the two branches, merge and resolve the intended conflict.",
+              "Introduce and then correct a small documentation mistake in a new commit. Explain how this preserves history instead of concealing the earlier change."
+            ],
+            "deliverables": [
+              "Disposable repository history and a concise graph/log transcript.",
+              "Before/after conflict resolution evidence.",
+              "A short explanation of staged versus unstaged changes and the corrective commit."
+            ],
+            "acceptanceCriteria": [
+              "At least four meaningful commits exist, with a resolved branch merge and a separate corrective commit visible in history.",
+              "No conflict markers remain in the final file.",
+              "Environment directories, generated data and secrets are absent from tracked files.",
+              "The learner identifies what each of status, diff and staged diff shows, without changing a global identity or publishing the repository."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why can the working file differ from both the staged version and the last commit?",
+            "What does a branch name point to?",
+            "Why is adding a filename to .gitignore insufficient after it was committed?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-13-testing-debugging",
+          "title": "Turn a failure into a regression test",
+          "objectives": [
+            "Write independent tests for normal, boundary and invalid-input behavior.",
+            "Reproduce a bug with a small failing case before changing the implementation.",
+            "Demonstrate that a test detects a deliberately reintroduced fault."
+          ],
+          "topics": [
+            {
+              "title": "Test design",
+              "details": [
+                "Arrange, act and assert; an oracle must not simply repeat the implementation.",
+                "Check values, shapes, types, exceptions and input mutation where the contract makes them observable."
+              ]
+            },
+            {
+              "title": "Standard-library testing",
+              "details": [
+                "unittest.TestCase, test methods, assertEqual, assertRaises and discovery.",
+                "Learn only the minimal class/self syntax needed to organize tests, not a full object-oriented design syllabus."
+              ]
+            },
+            {
+              "title": "Debugging loop",
+              "details": [
+                "Observe, minimize, hypothesize, inspect, correct and rerun.",
+                "A passing suite is evidence about covered cases, not a proof of every possible behavior."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "engineering.testing-debugging"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-tests",
+            "locator": "CS50P Week 5 - Unit Tests: assert, AssertionError and pytest demonstrations. Apply the design principles with unittest from the book reading; do not claim the lecture teaches unittest."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Standard Library Reference: unittest - Unit testing framework, sections Basic example, Command-Line Interface and Test Discovery. Revisit Tutorial 8.2 Exceptions and 8.3 Handling Exceptions."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-think-python",
+            "foundation-video-python-exceptions"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-13-testing-debugging",
+            "title": "Protect the duration parser and observation summary",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 165 minutes. Add a unittest suite for the original duration parser and collection summarizer, with at least twelve named tests.",
+              "Cover successful values, both parser bounds, malformed input, empty records, allowed None, legitimate zero and unchanged inputs.",
+              "Deliberately change one comparison boundary or incorrectly filter out zero in a disposable working copy. Capture the failing test, minimize the cause and repair the implementation.",
+              "Reintroduce the same fault briefly to show the regression test fails for the intended reason, then restore the correct implementation.",
+              "Run the suite through unittest discovery and write a concise bug note separating the symptom, cause, fix and remaining uncertainty."
+            ],
+            "deliverables": [
+              "At least twelve named automated tests and the corrected implementation.",
+              "A red/green execution record showing the specific regression.",
+              "A short bug explanation with one explicitly uncovered risk."
+            ],
+            "acceptanceCriteria": [
+              "At least twelve tests are discovered and cover the listed normal, boundary and invalid cases.",
+              "The deliberately reintroduced fault causes at least one relevant test to fail; a test that always passes is not accepted.",
+              "After correction, the tests pass without suppressing exceptions or changing expected values merely to match faulty code.",
+              "The suite is local and deterministic, with no network, clock or private-data dependency."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "How can a test contain the same bug as the implementation?",
+            "Why is a smaller failing example often more useful than a longer error log?",
+            "What evidence shows that a new test actually protects against the reported bug?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-14-reproducibility",
+          "title": "Recreate a result from recorded inputs and commands",
+          "objectives": [
+            "Record the source revision, interpreter, dependencies and input identity needed for a rerun.",
+            "Recreate a small tool in a second fresh environment without hidden notebook state.",
+            "Compare stable data outputs while separating volatile run metadata."
+          ],
+          "topics": [
+            {
+              "title": "Reproduction manifest",
+              "details": [
+                "Code revision, Python version, operating system, input filenames, SHA-256 hashes and exact commands.",
+                "Record no third-party runtime dependencies explicitly when that is true; do not invent a dependency lockfile's guarantees."
+              ]
+            },
+            {
+              "title": "Environment isolation",
+              "details": [
+                "Recreate an environment instead of copying its platform-specific directory.",
+                "Avoid unrecorded global packages, absolute personal paths, ambient state and undeclared network access."
+              ]
+            },
+            {
+              "title": "Deterministic evidence",
+              "details": [
+                "Sort report records and use explicit encoding and output conventions.",
+                "A stable hash identifies bytes, not their truth or permission to use them; volatile timestamps belong outside equality-checked data."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "engineering.reproducibility"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-libraries",
+            "locator": "CS50P Week 4 - Libraries: Modules, Packages, PyPI, pip, Command-Line Arguments and __name__. Revisit these selected topics rather than taking another full course."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Tutorial 12.1 Introduction, 12.2 Creating Virtual Environments and 12.3 Managing Packages with pip; Standard Library Reference hashlib, Hash algorithms and Usage."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-pro-git"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-14-reproducibility",
+            "title": "Run the same small report in two clean environments",
+            "kind": "lab",
+            "instructions": [
+              "Budget about 150 minutes. Choose the original text-summary or validated-reading tool and record its local Git revision, input SHA-256 hashes, Python version and run/test commands.",
+              "Document setup from an empty learner-owned directory. If the runtime uses only the standard library, state that rather than listing unrelated globally installed packages.",
+              "Prepare a second clean copy with a newly created virtual environment, not a copied environment folder. Run the documented commands without relying on an open notebook session.",
+              "Compare the canonical data output and test outcomes. Keep environment paths, timestamps and other volatile observations in a separate run log.",
+              "Change one input byte in a disposable copy and show that input identity changes. Do not assert that the hash proves the dataset is accurate or legally reusable."
+            ],
+            "deliverables": [
+              "Reproduction instructions and a source/input/runtime manifest.",
+              "Two real execution logs and a data-output comparison.",
+              "An input-change/hash observation and known portability limitations."
+            ],
+            "acceptanceCriteria": [
+              "A second fresh environment runs the documented commands and produces the same canonical data result.",
+              "The manifest identifies code revision and input bytes, not just an informal project name.",
+              "Tests run in both environments without undeclared third-party packages or network access.",
+              "A changed input produces a different recorded SHA-256 hash, and any environment-specific setup differences are documented honestly."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What hidden dependencies can survive in a notebook but disappear in a fresh process?",
+            "What does an input hash establish, and what does it not establish?",
+            "Why should you recreate a virtual environment rather than commit and copy it?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foundation-module-06-numerical-statistical",
+      "title": "06. Numerical and statistical reasoning",
+      "stage": "foundation",
+      "description": "Develop numeracy, honest summaries and elementary probability/sampling intuition using small synthetic data and Python. No calculus, finance, machine learning, formal inference course or R installation is required.",
+      "prerequisites": [
+        "foundation-module-05-engineering"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "foundation-lesson-15-numeracy-floating-point",
+          "title": "Keep units, percentages and numeric precision honest",
+          "objectives": [
+            "Convert units and distinguish percentage-point changes from relative percentage changes.",
+            "Demonstrate a floating-point representation discrepancy without calling it a Python defect.",
+            "Choose an explicit comparison tolerance or exact representation for a stated need."
+          ],
+          "topics": [
+            {
+              "title": "Numeracy and units",
+              "details": [
+                "Ratios, fractions, proportions, percentages, scientific notation and consistent units.",
+                "A denominator and baseline must be named; absolute and relative changes answer different questions."
+              ]
+            },
+            {
+              "title": "Representations",
+              "details": [
+                "Integer counts, binary floating-point approximations and exact decimal construction from strings.",
+                "Rounding a display does not repair or change the underlying mathematical model."
+              ]
+            },
+            {
+              "title": "Comparisons and boundaries",
+              "details": [
+                "Absolute versus relative tolerance, especially near zero.",
+                "Reject nonfinite values when a measurement contract requires finite numbers; precision is not the same thing as measurement accuracy."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "math.numeracy-floating-point"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-functions",
+            "locator": "CS50P Week 0 - Functions: int, Operators and float portions. Floating-point error analysis and tolerance selection are supplied by the reading, not claimed as the full lecture's purpose."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Tutorial chapter 15 Floating-Point Arithmetic: Issues and Limitations, including its discussion of display rounding, math.isclose and decimal; Standard Library Reference math.isclose."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "foundation-assignment-15-numeracy-floating-point",
+            "title": "Audit a miniature measurement summary",
+            "kind": "problem-set",
+            "instructions": [
+              "Budget about 90 minutes. Produce a short Python-backed worksheet converting 90000 milliseconds to seconds and 12 accepted observations out of 20 into a percentage.",
+              "Compare a change from 60 percent to 75 percent using both percentage points and relative percent change, naming the baseline.",
+              "Compare 0.7 + 0.2 with 0.9 using direct equality, displayed rounding, math.isclose and Decimal values constructed from strings. Explain the different questions these comparisons answer.",
+              "Define a small measurement comparator with an explicitly documented absolute tolerance near zero and a relative tolerance away from zero. Include one acceptable and one unacceptable difference for each.",
+              "Add checks that nonfinite measurements are rejected. Do not use decimal arithmetic as a claim about instrument accuracy."
+            ],
+            "deliverables": [
+              "An original numerical worksheet with code and explanations.",
+              "Comparator function and at least six checks.",
+              "A table naming units, denominator, baseline and representation choices."
+            ],
+            "acceptanceCriteria": [
+              "The conversions give 90 seconds and 60 percent; the change is 15 percentage points and 25 percent relative to the original 60 percent.",
+              "The floating-point and Decimal observations are recorded from an actual run and explained as representation behavior.",
+              "Near-zero comparison uses an explicit nonzero absolute tolerance, and both accepted and rejected differences are checked.",
+              "NaN and infinite values do not silently pass as valid measurements."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why are percentage points and percent change not interchangeable?",
+            "When is exact integer representation preferable to a floating-point value?",
+            "Why does relative tolerance alone often fail near zero?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-16-descriptive-statistics",
+          "title": "Describe a distribution, not just its average",
+          "objectives": [
+            "Calculate and interpret mean, median, spread and missing-value counts.",
+            "Show how one outlier can change a mean without changing the median.",
+            "Label sample versus population variance and state a quartile convention."
+          ],
+          "topics": [
+            {
+              "title": "Center and shape",
+              "details": [
+                "Mean, median, mode, distribution shape, dot plots and histograms.",
+                "A numeric-looking identifier is not automatically a meaningful measurement."
+              ]
+            },
+            {
+              "title": "Spread",
+              "details": [
+                "Range, variance, standard deviation, quartiles and interquartile range.",
+                "Sample and population variance use different denominators; quartile conventions can differ between tools."
+              ]
+            },
+            {
+              "title": "Honest reporting",
+              "details": [
+                "Always report units, sample size and missingness alongside summaries.",
+                "Outliers and skewness can make a single average misleading; descriptive association is not a causal explanation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "math.descriptive-statistics"
+          ],
+          "video": {
+            "resourceId": "foundation-video-central-tendency",
+            "locator": "Complete episode Mean, Median, and Mode: Measures of Central Tendency: Crash Course Statistics #3; also watch the supplementary Measures of Spread: Crash Course Statistics #4."
+          },
+          "reading": {
+            "resourceId": "foundation-book-modern-statistics",
+            "locator": "Chapter 5 Exploring numerical data: 5.2 Dot plots and the mean, 5.3 Histograms and shape, 5.4 Variance and standard deviation, 5.5 Box plots, quartiles, and the median, and 5.6 Robust statistics."
+          },
+          "supplementaryResourceIds": [
+            "foundation-video-spread",
+            "foundation-book-python-manual"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-16-descriptive-statistics",
+            "title": "Explain two five-value summaries",
+            "kind": "problem-set",
+            "instructions": [
+              "Budget about 120 minutes. Use the original synthetic durations [4,4,5,7,10] seconds. Calculate count, mean, median, range and sample variance by hand and independently with Python.",
+              "Replace the final value 10 with 50 and compare the mean and median. Add a separate None entry and show the difference between raw count and measured count.",
+              "Calculate quartiles using a clearly stated method. For a by-hand method you may exclude the central observation before taking the medians of the lower and upper halves.",
+              "Draw a labelled dot plot or small histogram, by hand or as text; plotting packages are not required.",
+              "Write a 150-word interpretation naming the population you cannot infer from this deliberately tiny synthetic sample."
+            ],
+            "deliverables": [
+              "Hand calculation and Python comparison.",
+              "A labelled plot plus a compact summary table.",
+              "An interpretation with missingness, units and limitations."
+            ],
+            "acceptanceCriteria": [
+              "The original mean is 6, median is 5 and sample variance is 6.5; the range is 6 seconds.",
+              "After replacing 10 with 50, the mean is 14 and the median remains 5.",
+              "Adding None increases raw count but not measured count and does not insert a zero into the average.",
+              "The quartile convention is stated, sample variance is not labelled population variance, and the conclusion makes no causal or population-wide claim."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What can you miss when two datasets have the same mean?",
+            "Why do standard deviation and variance have different units?",
+            "How would you explain a disagreement between two software packages' quartiles?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-17-probability-sampling",
+          "title": "Separate chance, sampling variability and bias",
+          "objectives": [
+            "Enumerate a small sample space and calculate simple event probabilities.",
+            "Distinguish independent draws from draws whose probabilities change after an observation.",
+            "Demonstrate sampling variability and explain why a fixed random seed does not eliminate bias."
+          ],
+          "topics": [
+            {
+              "title": "Elementary probability",
+              "details": [
+                "Sample spaces, events, complements, addition/OR and multiplication/AND.",
+                "Conditioning changes the relevant sample space; disjoint events and independent events are different concepts."
+              ]
+            },
+            {
+              "title": "Sampling",
+              "details": [
+                "Population, sample, parameter, statistic, simple random selection and convenience sampling.",
+                "Larger samples can reduce random variation without repairing a systematically biased selection rule."
+              ]
+            },
+            {
+              "title": "Simulation with limits",
+              "details": [
+                "Use a local random.Random instance with a recorded seed for reproducible demonstrations.",
+                "Simulation frequencies are observations, not exact probabilities or guaranteed closeness; pseudorandom simulation is not secret generation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "math.probability-sampling"
+          ],
+          "video": {
+            "resourceId": "foundation-video-probability",
+            "locator": "Complete episode Probability, Part 1 - Rules and Patterns: Crash Course Statistics #13. Also watch Sampling Methods and Bias with Surveys: Crash Course Statistics #10."
+          },
+          "reading": {
+            "resourceId": "foundation-book-modern-statistics",
+            "locator": "Chapter 2 Study design: Sampling principles and strategies, including Populations and samples, Parameters and statistics, Anecdotal evidence and Sampling from a population. Elementary event rules are supplied by the verified probability video."
+          },
+          "supplementaryResourceIds": [
+            "foundation-video-sampling",
+            "foundation-book-python-manual"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-17-probability-sampling",
+            "title": "Enumerate first, simulate second",
+            "kind": "problem-set",
+            "instructions": [
+              "Budget about 150 minutes. Create ten distinct labelled tokens, three red and seven blue. Enumerate ordered pairs with replacement and ordered pairs without replacement.",
+              "Calculate the probability that both tokens are red in each model. Explain how observing a red first draw changes the second-draw probability without replacement.",
+              "Simulate 10000 two-token draws for each model using a recorded local seed. Report frequencies and differences from the enumerated probabilities, without imposing a brittle exact-match requirement on random output.",
+              "Use the synthetic population of integers 0 through 59. Compare the mean of the first ten values with five separate simple random samples of ten values.",
+              "Repeat one seeded run to demonstrate reproducibility and write a short explanation of why a reproducible convenience sample is still biased."
+            ],
+            "deliverables": [
+              "Two exact enumeration tables or counts and a probability explanation.",
+              "Simulation and sampling code with recorded seeds.",
+              "Observed-frequency and sample-mean tables with a bias/variability discussion."
+            ],
+            "acceptanceCriteria": [
+              "The with-replacement enumeration has 100 ordered pairs, 9 with two red tokens; the without-replacement enumeration has 90 ordered pairs, 6 with two red tokens.",
+              "The stated probabilities are 9/100 and 1/15 respectively; the explanation distinguishes the two sampling mechanisms.",
+              "The population mean is 29.5 and the first-ten mean is 4.5; random sample means are measured rather than invented.",
+              "The same seed and runtime reproduce the same simulated sequence, while all reported frequencies remain in the valid probability range.",
+              "The write-up does not claim that more trials repair the convenience-sampling rule or guarantee a particular random error bound."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "How does sampling without replacement change conditional probability?",
+            "What is the difference between sampling variability and bias?",
+            "Why does reproducibility not make a dataset representative?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foundation-module-07-connected-responsible",
+      "title": "07. HTTP, privacy and responsible AI-assisted work",
+      "stage": "foundation",
+      "description": "Understand a basic request/response, protect information and verify assistance. Use localhost and invented data. This is not backend architecture, a security certification, autonomous-agent deployment or deep-learning training.",
+      "prerequisites": [
+        "foundation-module-06-numerical-statistical"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "foundation-lesson-18-http-apis",
+          "title": "Read an HTTP response and validate its data",
+          "objectives": [
+            "Explain the roles of DNS, host, port, method, status, headers and body at an introductory level.",
+            "Fetch and decode a small JSON response with a finite timeout.",
+            "Distinguish a successful empty result from an HTTP, transport or parse failure."
+          ],
+          "topics": [
+            {
+              "title": "Network and HTTP model",
+              "details": [
+                "Names resolve to addresses; clients contact a host and port and exchange requests and responses.",
+                "URL parts, GET versus state-changing intent, status codes, content type and HTTPS transport protection."
+              ]
+            },
+            {
+              "title": "JSON and Python",
+              "details": [
+                "JSON text is not a Python object until parsed; validate the expected shape and value types after parsing.",
+                "Use urllib.request and json for this bounded standard-library client; a provider-specific SDK is unnecessary."
+              ]
+            },
+            {
+              "title": "Failure and scope",
+              "details": [
+                "Distinguish HTTPError, URLError/transport failure and JSON decoding errors.",
+                "The local teaching server is not production infrastructure; bind only to loopback and serve only synthetic fixtures."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "web.http-apis"
+          ],
+          "video": {
+            "resourceId": "foundation-video-http",
+            "locator": "CS50x 2025 Week 8 - HTML, CSS, JavaScript: Internet (Routers, TCP/IP, DNS) and HTTP (URLs, GET, POST). Supplement with CS50P Week 4 - Libraries topics APIs and JSON."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Standard Library Reference: urllib.request, urlopen and Request; urllib.error, URLError and HTTPError; json, decoding and Python/JSON type mapping; http.server, local file serving. This reading is API documentation, not a claim that its historical RFC citations are the latest HTTP standard."
+          },
+          "supplementaryResourceIds": [
+            "foundation-video-python-libraries"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-18-http-apis",
+            "title": "Inspect a localhost JSON fixture and three failures",
+            "kind": "lab",
+            "instructions": [
+              "Budget about 150 minutes. In a new fixtures directory create good.json containing an object with station_id S1 and values [18,20], plus bad.json containing deliberately invalid JSON.",
+              "Start Python's http.server on an unused local port, bound to 127.0.0.1 and restricted to this fixtures directory. Do not expose it publicly or serve a home directory.",
+              "Write a small urllib client using a two-second socket timeout. Print status and content type, validate the successful object's shape, and report its two values and mean.",
+              "Exercise a nonexistent path, malformed JSON and a transport failure after stopping only your teaching server. Report the three failures separately, with no silent empty-list substitute.",
+              "Explain where HTTPS would matter for a real remote connection and why this loopback HTTP exercise is not a deployment pattern."
+            ],
+            "deliverables": [
+              "Two synthetic fixtures, client code and the local-server command.",
+              "One successful response record and three distinct failure observations.",
+              "A request/response diagram and a short transport/privacy explanation."
+            ],
+            "acceptanceCriteria": [
+              "The successful response identifies S1, contains two measured values and produces mean 19.",
+              "The missing path is identified as an HTTP 404, invalid JSON as a parse failure and the stopped server as a transport failure.",
+              "A finite timeout is explicitly configured; no failure is returned as a successful empty dataset.",
+              "The server is loopback-only, serves only the fixture directory and is stopped after the exercise.",
+              "The explanation distinguishes DNS/connection work, HTTP status and application-level data validation."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why can an HTTP 200 response still be unusable by your program?",
+            "Which parts of a request might expose information even if the body is empty?",
+            "Why should network failure not be represented as an empty but successful result?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-19-privacy-secrets",
+          "title": "Minimize data and keep secrets out of artifacts",
+          "objectives": [
+            "Classify configuration, sensitive personal information and secrets in a fictional workflow.",
+            "Use an explicit logging allowlist and demonstrate that dummy sensitive fields are excluded.",
+            "Explain the limits of ignore files, random simulation values and private-browsing labels."
+          ],
+          "topics": [
+            {
+              "title": "Data minimization",
+              "details": [
+                "Collect and retain only fields needed for a stated purpose; use synthetic data for learning.",
+                "Source files, logs, URL parameters, screenshots and AI prompts are all potential disclosure surfaces."
+              ]
+            },
+            {
+              "title": "Secrets and permissions",
+              "details": [
+                "Keep credentials out of source and committed fixtures; inject necessary configuration only into the intended process.",
+                "Python random is for simulation, not security tokens; secrets is the standard-library source for security-sensitive randomness."
+              ]
+            },
+            {
+              "title": "Boundaries",
+              "details": [
+                "An ignore file does not erase tracked history, and environment variables are not a complete secret-management system.",
+                "A log-field allowlist reduces exposure but is not a general privacy or security certification."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "security.privacy-secrets"
+          ],
+          "video": {
+            "resourceId": "foundation-video-privacy",
+            "locator": "CS50 Cybersecurity Week 4 - Preserving Privacy: Logs, HTTP Headers, Tracking Parameters, Private Browsing and Permissions. No account-setting changes are assigned."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Standard Library Reference: Security Considerations; secrets - Generate secure random numbers for managing secrets, introduction and Generating tokens. Read the warnings conceptually; do not build an authentication system."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-pro-git"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-19-privacy-secrets",
+            "title": "Sanitize a deliberately fictional log record",
+            "kind": "lab",
+            "instructions": [
+              "Budget about 90 minutes. Create a fictional record containing station_id, validation_reason, learner@example.invalid, a field named API_KEY with value FAKE-DO-NOT-USE, and one unexpected extra field.",
+              "Write safe_log(record) that emits only station_id and validation_reason. Validate or normalize the allowed fields to their documented short-label format rather than logging arbitrary nested values.",
+              "Test that the email, fake key and extra field are absent from ordinary output and error messages. Use no real credential, client identity, personal dataset or browser profile.",
+              "In your disposable learning repository, explain how ignored files differ from previously tracked files. A written demonstration is sufficient; do not inspect or rewrite another repository's history.",
+              "Write a one-page checklist for collection purpose, retention/deletion, least access, safe sharing and what you would do if a real secret were exposed. No real account operation is part of this exercise."
+            ],
+            "deliverables": [
+              "Original dummy fixture, safe_log function and at least four checks.",
+              "A classification table for the five fields.",
+              "A privacy/secrets checklist and exposure-response explanation."
+            ],
+            "acceptanceCriteria": [
+              "Only the two allowed fields appear in the log, and unexpected fields do not leak through.",
+              "The literal dummy key and email are absent from both success and failure output.",
+              "Malformed allowed-field values are reported without echoing the full sensitive record.",
+              "The checklist distinguishes revocation/rotation of a real exposed credential from merely deleting a file, without claiming an actual incident or action occurred.",
+              "All exercise data are visibly fictional; no account, permission setting or profile is changed."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Why might an error log reveal more than a successful response?",
+            "What protection does an environment variable fail to provide?",
+            "Why are a fixed seed and Python random inappropriate for generating real secrets?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-20-ai-verification",
+          "title": "Use assistance as a hypothesis, not evidence",
+          "objectives": [
+            "Write a bounded assistance request with a contract, constraints and no private information.",
+            "Check a proposed implementation against independent tests and primary documentation.",
+            "Record assistance honestly and explain the final code without relying on the assistant's authority."
+          ],
+          "topics": [
+            {
+              "title": "Appropriate assistance",
+              "details": [
+                "Ask for explanation, alternatives or a small reviewable change rather than delegating unbounded actions.",
+                "State what information must not leave the local task and what operations are not authorized."
+              ]
+            },
+            {
+              "title": "Verification",
+              "details": [
+                "Plausible code, citations and confident explanations can be wrong.",
+                "Use contract-derived examples, boundary cases and primary references; having the same assistant approve its own answer is not independent evidence."
+              ]
+            },
+            {
+              "title": "Learning and accountability",
+              "details": [
+                "Predict behavior before running generated code and inspect side effects.",
+                "Separate source attribution, assistance disclosure, observed results and remaining uncertainty."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "ai.assistance-verification"
+          ],
+          "video": {
+            "resourceId": "foundation-video-ai",
+            "locator": "CS50x 2025 Artificial Intelligence: Prompt Engineering, System Prompt, User Prompt, Generative Artificial Intelligence and Hallucinations. Skip the specialist model/algorithm portions."
+          },
+          "reading": {
+            "resourceId": "foundation-book-think-python",
+            "locator": "Chapter 19 Final thoughts: the discussion of automated testing, incremental development, virtual assistants, code completion and experimentation/reflection in a learning workflow."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-python-manual"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-20-ai-verification",
+            "title": "Audit an original flawed mean proposal",
+            "kind": "coding",
+            "instructions": [
+              "Budget about 90 minutes. Specify mean_present(values): ignore None only, retain zero, accept finite integer/float measurements excluding bool, do not mutate the list, and raise ValueError if no measurements remain. Reject unsupported types explicitly.",
+              "Audit this original proposal without executing any unreviewed external code: def mean_present(values): kept = [v for v in values if v]; return sum(kept) / len(kept). Treat the semicolon-separated body as two ordinary Python statements.",
+              "Write independent checks for [0,2,None], an empty list, [None], [-2,2], [3], and a list containing an unsupported string; add a nonfinite-value case and an input-mutation check.",
+              "Repair the implementation and document each rejected assumption. Verify at least two relevant Python behaviors from the official manual rather than an assistant-generated citation.",
+              "Write a sanitized assistance prompt and an assistance log. A real AI service is optional: if none is used, label the work a manual proposal review, not a fabricated AI interaction."
+            ],
+            "deliverables": [
+              "Contract, original defect analysis, corrected implementation and tests.",
+              "Two primary-documentation references with the specific claims checked.",
+              "A sanitized prompt and truthful assistance/disclosure log."
+            ],
+            "acceptanceCriteria": [
+              "The audit identifies that truthiness discards a valid zero and that no-measurement input needs an explicit contract error.",
+              "[0,2,None] produces mean 1, [-2,2] produces 0 and [3] produces 3.",
+              "Empty/all-None, unsupported-type and nonfinite cases are explicitly handled, and the input list remains unchanged.",
+              "The tests are derived from the contract rather than from the proposed implementation.",
+              "No private input or credentials enter the prompt, and no AI response, source verification or execution result is invented."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "What makes an oracle independent of the implementation under review?",
+            "How would you verify a convincing-looking API name or citation?",
+            "What should remain your responsibility even when assistance writes most of a patch?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foundation-module-08-communication-integration",
+      "title": "08. Requirements, explanation and a shared integration exercise",
+      "stage": "foundation",
+      "description": "Translate a small need into measurable scope, explain trade-offs and integrate the shared prerequisites. The synthetic exercise is not an SDE A/B portfolio project, a professional-work reconstruction or a claim of completed experience.",
+      "prerequisites": [
+        "foundation-module-07-connected-responsible"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "foundation-lesson-21-requirements-explanation",
+          "title": "Define a bounded need and explain a defensible choice",
+          "objectives": [
+            "Turn an ambiguous request into a short scope with measurable acceptance criteria.",
+            "Compare two feasible local approaches using stated criteria rather than prestige or feature count.",
+            "Give a concise technical explanation tailored to an identified audience."
+          ],
+          "topics": [
+            {
+              "title": "Problem and scope",
+              "details": [
+                "Audience, need, inputs, outputs, constraints, non-goals and evidence needed for success.",
+                "Separate a requirement from an implementation choice and from an untested assumption."
+              ]
+            },
+            {
+              "title": "Trade-offs",
+              "details": [
+                "Compare simplicity, correctness, reproducibility and privacy for a small task.",
+                "Do not invent performance, user demand or business impact to justify a technology choice."
+              ]
+            },
+            {
+              "title": "Explanation",
+              "details": [
+                "Use a clear opening, an understandable example and a visible limitation.",
+                "Show a diagram and a failure case; state what was observed versus what is proposed."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "product.requirements-tradeoffs",
+            "communication.technical-explanation"
+          ],
+          "video": {
+            "resourceId": "foundation-video-how-to-speak",
+            "locator": "How to Speak, published by MIT OpenCourseWare; use the complete named talk as the speaking reference. No unverified segment title or timestamp is asserted."
+          },
+          "reading": {
+            "resourceId": "foundation-book-technical-writing",
+            "locator": "5.3 Defining the Scope of your Project, opening scope questions; 7.5 Long Reports - Recommendation Reports and Feasibility Studies, the introductory comparison of report types and the six-step problem-solving approach. Read online; do not copy the chapter's restricted figures."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "foundation-assignment-21-requirements-explanation",
+            "title": "Specify the synthetic room-reading reporter",
+            "kind": "design",
+            "instructions": [
+              "Budget about 90 minutes. Start with this original fictional need: 'A learner needs a local way to inspect a small file of invented room readings and explain which rows are usable.'",
+              "Write a 300-500 word brief for a command-line reporter with at most three stations and thirty input data rows. State the audience, input contract, output, privacy constraints and at least three non-goals.",
+              "Write at least five measurable acceptance criteria, including missing values, invalid rows, an empty station, reproducibility and a clear error case.",
+              "Compare a Python-only approach and a Python-plus-SQLite approach using three named criteria. The next lesson intentionally uses SQLite to integrate the shared SQL prerequisite, not because it is universally the best product choice.",
+              "Create one data-flow diagram and a three-minute explanation, either spoken privately or provided as a timed transcript. Do not present projected benefits as observed outcomes."
+            ],
+            "deliverables": [
+              "Scope brief with requirements, assumptions and non-goals.",
+              "A two-option, three-criterion comparison and a data-flow diagram.",
+              "A three-minute explanation or transcript."
+            ],
+            "acceptanceCriteria": [
+              "The brief stays within three stations, thirty input rows, local execution and synthetic data.",
+              "At least five criteria are testable without subjective words such as fast, robust or user-friendly standing alone.",
+              "The comparison gives one genuine disadvantage of each option and separates the learning constraint from product necessity.",
+              "The explanation names its audience, walks through one example and states at least one limitation without inventing results."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "How can you tell a requirement from a preferred technology?",
+            "Which assumption would most change your design if it turned out to be false?",
+            "How would your explanation differ for a learner, a reviewer and a nontechnical stakeholder?"
+          ]
+        },
+        {
+          "id": "foundation-lesson-22-integration",
+          "title": "Build and explain a reproducible foundation-sized reporter",
+          "objectives": [
+            "Integrate local files, Python contracts, SQLite queries, validation and automated checks.",
+            "Produce a reproducible report with explicit missingness and rejection evidence.",
+            "Demonstrate normal and failing behavior and explain the design without claiming production readiness."
+          ],
+          "topics": [
+            {
+              "title": "A thin complete workflow",
+              "details": [
+                "Read synthetic station/readings files, validate rows, populate a fresh local SQLite database and emit a deterministic report.",
+                "Keep parsing, validation, querying and presentation as small understandable functions; reuse earlier original work."
+              ]
+            },
+            {
+              "title": "Evidence",
+              "details": [
+                "Contract-derived tests, hand-checked fixture totals, provenance, runtime identity and exact commands.",
+                "Treat code, generated data, run logs and human explanation as different artifacts with different purposes."
+              ]
+            },
+            {
+              "title": "Handoff quality",
+              "details": [
+                "Instructions another person can follow, a deliberately failing case and clearly stated limits.",
+                "No cloud, web framework, authentication, concurrency, real sensor feed or advanced specialization feature."
+              ]
+            }
+          ],
+          "estimatedMinutes": 480,
+          "canonicalConceptTags": [
+            "engineering.reproducibility",
+            "engineering.testing-debugging",
+            "data.quality-provenance",
+            "communication.technical-explanation",
+            "product.requirements-tradeoffs"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-files",
+            "locator": "CS50P Week 6 - File I/O: revisit open, with, CSV, dict and csv while assembling the local workflow. This is a targeted integration revisit, not another course to complete."
+          },
+          "reading": {
+            "resourceId": "foundation-book-technical-writing",
+            "locator": "7.7 Writing Instructions: audience/task analysis, task grouping, introductions, warning notices and step-by-step instructions. Apply the guidance to your own setup and run instructions; do not reproduce the chapter text."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-python-manual",
+            "foundation-book-think-python",
+            "foundation-video-how-to-speak",
+            "foundation-doc-sqlite-select",
+            "foundation-doc-sqlite-foreign-keys"
+          ],
+          "assignment": {
+            "id": "foundation-assignment-22-integration",
+            "title": "Common Foundation: Synthetic Room-Reading Reporter",
+            "kind": "project",
+            "instructions": [
+              "Budget about 360 minutes for implementation, checks and the evidence package, within the 480-minute lesson. Reuse the original station schema, six clean rows and four appended bad rows from module 03; keep the supported input bounded to three stations and thirty rows.",
+              "Build a standard-library-only CLI that reads two local CSV inputs, validates their schema and values, records rejection reasons with provenance, and loads accepted readings into a fresh SQLite database with foreign keys enabled. Do not append into an old database or modify raw inputs.",
+              "Emit deterministic JSON containing input/accepted/rejected counts and, for every station including S3, reading_count, measured_count, missing_count and mean_temperature_c. Use JSON null for an unavailable mean, explicit sorting, and reject nonfinite measurements.",
+              "Add at least twelve named tests covering the known fixture, empty input, missing temperature, a valid zero, duplicate ID, unknown station, malformed number, empty required ID, numeric boundaries, missing file, nonfinite value and repeat-run equality.",
+              "Produce a README with setup/run/test commands, diagram, data dictionary, input hashes, Python/runtime details and limitations. Keep volatile timestamps outside the equality-checked report. Record only results you actually observe.",
+              "Run the tool in a fresh environment using only the instructions. Show one normal report and one deliberate failure in a short private demo or transcript; disclose any assistance and explain one design trade-off."
+            ],
+            "deliverables": [
+              "Original Python CLI, local schema, synthetic CSV fixtures and at least twelve tests.",
+              "Canonical report, rejection/provenance report and reproducibility manifest.",
+              "README, simple data-flow diagram, data dictionary and observed normal/failure demo evidence."
+            ],
+            "acceptanceCriteria": [
+              "The ten-row fixture produces input count 10, accepted count 6 and rejected count 4, with the four specified rejection reasons and source row numbers.",
+              "S1 reports reading_count 3, measured_count 2, missing_count 1 and mean 19; S2 reports 3, 3, 0 and mean 24; S3 reports 0, 0, 0 and null.",
+              "All twelve required behavioral cases have automated checks; deliberately invalid input does not become a successful empty report or an uncaught secret-bearing dump.",
+              "Two clean runs over identical inputs produce identical canonical report bytes, while raw input hashes remain unchanged.",
+              "A fresh environment can execute the documented run and test commands without paid services, remote accounts, unrecorded packages or private data.",
+              "The explanation distinguishes expected fixture values from measured run evidence and states that this is a learning prototype, not a deployed system or completed resume project."
+            ],
+            "externalUrl": null,
+            "questions": []
+          },
+          "reviewPrompts": [
+            "Which layer is responsible for parsing, validation, querying and explaining a result?",
+            "What evidence would let someone reproduce your report without trusting your narrative?",
+            "Which limitations must remain visible before any specialization extends this prototype?"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "id": "foundation-source-bash",
+      "title": "GNU Bash manual contents and authoritative document license",
+      "resourceIds": [
+        "foundation-book-bash"
+      ],
+      "url": "https://www.gnu.org/software/bash/manual/bash.html",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official HTML manual/TOC and GNU Savannah Texinfo source over public HTTP; no PDF downloaded.",
+      "locators": [
+        {
+          "url": "https://www.gnu.org/software/bash/manual/bash.html",
+          "locator": "Edition 5.3 and TOC: 1.2, 3.1.2, 3.2.3, 3.6 and 3.7.2-3.7.3.",
+          "relevance": "Files/process execution context, quoting, streams and shell composition."
+        },
+        {
+          "url": "https://www.gnu.org/software/bash/manual/html_node/What-is-a-shell_003f.html",
+          "locator": "1.2 What is a shell?",
+          "relevance": "Synchronous/asynchronous programs, builtins, environments and redirection."
+        },
+        {
+          "url": "https://www.gnu.org/software/bash/manual/html_node/Quoting.html",
+          "locator": "3.1.2 Quoting",
+          "relevance": "Arguments and metacharacters."
+        },
+        {
+          "url": "https://www.gnu.org/software/bash/manual/html_node/Pipelines.html",
+          "locator": "3.2.3 Pipelines",
+          "relevance": "Stream connections, subprocesses and pipefail semantics."
+        },
+        {
+          "url": "https://www.gnu.org/software/bash/manual/html_node/Redirections.html",
+          "locator": "3.6.1-3.6.3",
+          "relevance": "Input, overwrite and append."
+        },
+        {
+          "url": "https://cgit.git.savannah.gnu.org/cgit/bash.git/plain/doc/bashref.texi",
+          "locator": "@copying block",
+          "relevance": "Explicit GFDL 1.3-or-later grant; no invariant sections or cover texts."
+        },
+        {
+          "url": "https://www.gnu.org/licenses/fdl-1.3.html",
+          "locator": "Sections 2-4: verbatim copying, copying in quantity and modifications",
+          "relevance": "Hosting, notices, modification and transparent-copy obligations."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "GFDL-1.3-or-later, no invariant sections or cover texts",
+        "redistribution": "permitted",
+        "scope": "Covered manual content, not a blanket grant for unrelated linked assets.",
+        "conditions": [
+          "Preserve copyright, license notice and full GFDL.",
+          "Respect modified-version title/history/attribution requirements and keep adaptations under the applicable GFDL.",
+          "Meet transparent-source and quantity-distribution requirements; no obstructive DRM."
+        ],
+        "deploymentGate": "Provide corresponding editable source with any hosted rendering and complete GFDL compliance review. Commercial use and adaptation are allowed; no NC or ND restriction."
+      }
+    },
+    {
+      "id": "foundation-source-think-python",
+      "title": "Think Python third-edition TOC, selected chapters and author license",
+      "resourceIds": [
+        "foundation-book-think-python"
+      ],
+      "url": "https://allendowney.github.io/ThinkPython/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read author-hosted HTML TOC, preface and selected chapter pages.",
+      "locators": [
+        {
+          "url": "https://allendowney.github.io/ThinkPython/",
+          "locator": "The notebooks: chapters 1, 2, 3, 5, 6, 7, 9, 10, 11, 13 and 19",
+          "relevance": "Verified chapter titles for Python progression and supplementary paths/files reading."
+        },
+        {
+          "url": "https://allendowney.github.io/ThinkPython/chap00.html",
+          "locator": "Preface; footer Text license and Code license",
+          "relevance": "Audience, testing changes in the third edition, CC BY-NC-SA 4.0 text and MIT code."
+        },
+        {
+          "url": "https://allendowney.github.io/ThinkPython/chap06.html",
+          "locator": "6.1-6.4: return values, None, conditionals and incremental development",
+          "relevance": "Observable function contracts and small-step construction."
+        },
+        {
+          "url": "https://allendowney.github.io/ThinkPython/chap13.html",
+          "locator": "13.1 Filenames and paths",
+          "relevance": "Optional reinforcement of paths and working directories; not an advanced database assignment."
+        },
+        {
+          "url": "https://allendowney.github.io/ThinkPython/chap19.html",
+          "locator": "Final thoughts: testing, debugging, virtual assistants and reflection",
+          "relevance": "Responsible assistance and continuing independent learning."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY-NC-SA 4.0 text; MIT code",
+        "redistribution": "permitted",
+        "scope": "Author-licensed book text and code, with their distinct licenses.",
+        "conditions": [
+          "Credit Allen B. Downey and retain source/license links and notices.",
+          "Identify changes; share adapted text under CC BY-NC-SA 4.0.",
+          "Retain MIT copyright and permission notice for redistributed code."
+        ],
+        "deploymentGate": "Host text only on a demonstrably noncommercial deployment or under separate permission. Unknown, commercial, subscription or advertising-supported deployment requires review and defaults to link-only. No ND restriction."
+      }
+    },
+    {
+      "id": "foundation-source-python-manual",
+      "title": "Python official manual reading locations and documentation license",
+      "resourceIds": [
+        "foundation-book-python-manual"
+      ],
+      "url": "https://docs.python.org/3.14/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official HTML sections and CPython's public Doc/license.rst source to avoid incomplete HTML text extraction.",
+      "locators": [
+        {
+          "url": "https://docs.python.org/3.14/tutorial/modules.html",
+          "locator": "6 Modules; 6.1.1 Executing modules as scripts; 6.1.2 The Module Search Path",
+          "relevance": "Import safety and execution context."
+        },
+        {
+          "url": "https://docs.python.org/3.14/tutorial/inputoutput.html",
+          "locator": "7.2 Reading and Writing Files",
+          "relevance": "with, modes, encoding and cleanup."
+        },
+        {
+          "url": "https://docs.python.org/3.14/tutorial/errors.html",
+          "locator": "8.1 Syntax Errors; 8.2 Exceptions; 8.3 Handling Exceptions",
+          "relevance": "Tracebacks and narrow failure handling."
+        },
+        {
+          "url": "https://docs.python.org/3.14/tutorial/venv.html",
+          "locator": "12.1-12.3 Virtual Environments and Packages",
+          "relevance": "Interpreter isolation and repeatable setup."
+        },
+        {
+          "url": "https://docs.python.org/3.14/tutorial/datastructures.html",
+          "locator": "5.1.1 stacks; 5.1.2 queues; chapter 5 TOC for 5.4 Sets and 5.5 Dictionaries",
+          "relevance": "Python implementations of foundational containers."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/csv.html",
+          "locator": "CSV File Reading and Writing; reader, DictReader and newline guidance",
+          "relevance": "Bounded original fixture ingestion."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/sqlite3.html",
+          "locator": "How to use placeholders to bind values in SQL queries",
+          "relevance": "Parameter binding rather than interpolating input."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/unittest.html",
+          "locator": "Basic example; Command-Line Interface; Test Discovery",
+          "relevance": "Standard-library test runner and explicit assertion methods."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/hashlib.html",
+          "locator": "Hash algorithms and Usage",
+          "relevance": "SHA-256 identification of original input bytes."
+        },
+        {
+          "url": "https://docs.python.org/3.14/tutorial/floatingpoint.html",
+          "locator": "15 Floating-Point Arithmetic: Issues and Limitations",
+          "relevance": "Representation, display rounding and decimal alternatives."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/math.html#math.isclose",
+          "locator": "math.isclose",
+          "relevance": "Relative and absolute tolerances, especially near zero."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/statistics.html",
+          "locator": "Quantile-method discussion",
+          "relevance": "Why tools can use different quartile conventions."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/random.html",
+          "locator": "Introduction and Bookkeeping functions / random.seed",
+          "relevance": "Local generators, reproducibility and the warning against security use."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/urllib.request.html",
+          "locator": "Request and urlopen reference",
+          "relevance": "Client methods, headers and request behavior."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/urllib.error.html",
+          "locator": "URLError and HTTPError",
+          "relevance": "Separate transport and HTTP failures."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/json.html",
+          "locator": "Python/JSON type mapping and JSON encoding controls",
+          "relevance": "Null values, finite-value policy and deterministic output options."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/http.server.html",
+          "locator": "SimpleHTTPRequestHandler local file mapping and 404 behavior",
+          "relevance": "Local-only teaching fixture server, not production deployment."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/security_warnings.html",
+          "locator": "Security Considerations",
+          "relevance": "Library security cautions and unsafe execution context."
+        },
+        {
+          "url": "https://docs.python.org/3.14/library/secrets.html",
+          "locator": "Introduction and Generating tokens",
+          "relevance": "Distinguish simulation randomness from security-sensitive randomness."
+        },
+        {
+          "url": "https://docs.python.org/3.14/license.html",
+          "locator": "Terms and conditions for accessing or otherwise using Python",
+          "relevance": "Official license evidence."
+        },
+        {
+          "url": "https://raw.githubusercontent.com/python/cpython/3.14/Doc/license.rst",
+          "locator": "Python documentation license statement and PSF License Version 2 clauses 2, 3 and 7",
+          "relevance": "Documentation grant, retained notices, summary of modifications and non-endorsement; code dual licensing from Python 3.8.6."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "PSF License Version 2 for documentation; PSF/0BSD dual licensing for examples, recipes and other documentation code",
+        "redistribution": "permitted",
+        "scope": "Covered documentation, with applicable notices for any included third-party material.",
+        "conditions": [
+          "Retain PSF license and copyright notices.",
+          "Summarize changes in distributed derivatives.",
+          "Retain applicable incorporated-material notices and do not imply trademark endorsement."
+        ],
+        "deploymentGate": "Commercial hosting is allowed under the verified terms; no NC, SA or ND requirement for PSF prose. Do not mislabel all prose as 0BSD or automatically copy unrelated branding assets."
+      }
+    },
+    {
+      "id": "foundation-source-database-design",
+      "title": "Database Design chapter verification and mixed cover license",
+      "resourceIds": [
+        "foundation-book-database-design"
+      ],
+      "url": "https://opentextbc.ca/dbdesign01/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official book page, public Pressbooks TOC metadata and actual chapter HTML.",
+      "locators": [
+        {
+          "url": "https://opentextbc.ca/dbdesign01/",
+          "locator": "Copyright, CC BY 4.0 grant, required free-download notice and cover-image attribution",
+          "relevance": "Authoritative text and cover permissions."
+        },
+        {
+          "url": "https://opentextbc.ca/dbdesign01/wp-json/pressbooks/v2/toc",
+          "locator": "Chapter 7 The Relational Data Model; Chapter 16 SQL Data Manipulation Language",
+          "relevance": "Verified chapter numbering and actual URL slugs."
+        },
+        {
+          "url": "https://opentextbc.ca/dbdesign01/chapter/chapter-7-the-relational-data-model/",
+          "locator": "Fundamental Concepts in the Relational Data Model; Properties of a Table",
+          "relevance": "Grain, rows, columns, domains and relational vocabulary."
+        },
+        {
+          "url": "https://opentextbc.ca/dbdesign01/chapter/chapter-sql-dml/",
+          "locator": "SELECT, WHERE, ORDER BY, GROUP BY, COUNT, AVG/SUM and HAVING headings",
+          "relevance": "Basic querying; SQL Server-specific examples are not treated as SQLite instructions."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY 4.0 text; cover photograph CC BY-SA 2.0",
+        "redistribution": "permitted",
+        "scope": "Covered book text; separately credited assets keep their own conditions.",
+        "conditions": [
+          "Credit Adrienne Watt and Nelson Eng, edition and source; retain CC BY 4.0 and identify changes.",
+          "Preserve the requested notice linking to the B.C. Open Collection.",
+          "Omit the cover or retain Michele Ursino attribution and CC BY-SA 2.0 obligations for that asset."
+        ],
+        "deploymentGate": "Commercial text hosting and adaptation allowed after attribution/asset review. The text has no NC, SA or ND requirement; the cover's SA condition must not be silently discarded."
+      }
+    },
+    {
+      "id": "foundation-source-algorithms-book",
+      "title": "Runestone Python algorithms textbook TOC and license block",
+      "resourceIds": [
+        "foundation-book-python-algorithms"
+      ],
+      "url": "https://runestone.academy/ns/books/published/pythonds3/index.html",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read public official HTML, including raw TOC and the explicit author/license block.",
+      "locators": [
+        {
+          "url": "https://runestone.academy/ns/books/published/pythonds3/index.html",
+          "locator": "Chapter 2 Algorithm Analysis; 2.2 What Is Algorithm Analysis?; 2.3 Big O Notation; footer license",
+          "relevance": "Exact beginner analysis locators and CC BY-NC-SA 4.0 grant."
+        },
+        {
+          "url": "https://runestone.academy/ns/books/published/pythonds3/AlgorithmAnalysis/BigONotation.html",
+          "locator": "2.3 Big O Notation",
+          "relevance": "Counted work, input size and best/worst/average cases."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY-NC-SA 4.0",
+        "redistribution": "permitted",
+        "scope": "Covered textbook material, not a clone of the hosted learning service.",
+        "conditions": [
+          "Attribute Bradley N. Miller and David L. Ranum and retain license/source notices.",
+          "Identify changes and share adaptations alike.",
+          "Exclude or separately review platform dependencies, advertisements and external assets."
+        ],
+        "deploymentGate": "Noncommercial hosting only unless separate permission is obtained; default to linking while deployment status is unknown. No ND restriction."
+      }
+    },
+    {
+      "id": "foundation-source-pro-git",
+      "title": "Official Pro Git TOC and content license",
+      "resourceIds": [
+        "foundation-book-pro-git"
+      ],
+      "url": "https://git-scm.com/book/en/v2",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official book landing page and numbered table of contents.",
+      "locators": [
+        {
+          "url": "https://git-scm.com/book/en/v2",
+          "locator": "Opening license statement; sections 1.1, 1.3, 2.1-2.3 and 3.1-3.2",
+          "relevance": "Local version-control progression and verified CC BY-NC-SA 3.0 book license."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY-NC-SA 3.0",
+        "redistribution": "permitted",
+        "scope": "Pro Git book content under the stated license, distinct from Git software.",
+        "conditions": [
+          "Credit Scott Chacon and Ben Straub and retain source/license notices.",
+          "Identify modifications and comply with share-alike terms for adaptations."
+        ],
+        "deploymentGate": "Noncommercial hosting or separate permission; otherwise link only. No ND restriction and no inference of a commercial grant from the book's free availability."
+      }
+    },
+    {
+      "id": "foundation-source-statistics-book",
+      "title": "IMS second-edition readings and OpenIntro permission exceptions",
+      "resourceIds": [
+        "foundation-book-modern-statistics"
+      ],
+      "url": "https://openintro-ims.netlify.app/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read the author-hosted HTML book, publisher page, public author-repository license and publisher policy.",
+      "locators": [
+        {
+          "url": "https://openintro-ims.netlify.app/",
+          "locator": "Welcome to IMS2; second edition; version date March 31, 2026; sidebar TOC",
+          "relevance": "Edition, authors, chapter titles and free HTML access."
+        },
+        {
+          "url": "https://openintro-ims.netlify.app/explore-numerical",
+          "locator": "5.2-5.6: mean, shape, variance/standard deviation, quartiles/median and robust statistics",
+          "relevance": "Descriptive-statistics lesson."
+        },
+        {
+          "url": "https://openintro-ims.netlify.app/data-design",
+          "locator": "Chapter 2 Study design: Sampling principles and strategies",
+          "relevance": "Population/sample distinctions and selection bias."
+        },
+        {
+          "url": "https://www.openintro.org/book/ims/",
+          "locator": "Web native book and conceptual coverage",
+          "relevance": "Publisher confirmation; optional R tutorials are not assigned."
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenIntroStat/ims/main/LICENSE.md",
+          "locator": "License for resources and Exceptions",
+          "relevance": "CC BY-SA 3.0, separate assets and branding exclusions."
+        },
+        {
+          "url": "https://www.openintro.org/license/",
+          "locator": "License for resources and derivative branding policy",
+          "relevance": "Share-alike and prohibition on implying OpenIntro endorsement."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY-SA 3.0 for covered textbook material",
+        "redistribution": "permitted",
+        "scope": "Licensed book content only; no general grant for covers, logos, website assets, teacher-only resources, student projects or unlicensed files.",
+        "conditions": [
+          "Attribute authors, book source and license and identify changes.",
+          "Release adapted covered content under CC BY-SA 3.0.",
+          "Remove or separately clear excluded assets and fair-use material.",
+          "Do not brand or title a derivative as an OpenIntro product or imply endorsement."
+        ],
+        "deploymentGate": "Commercial use is permitted for covered content after asset and branding review. No NC or ND restriction on covered text; do not mirror the full branded website or a cover-bearing PDF without separate clearance."
+      }
+    },
+    {
+      "id": "foundation-source-technical-writing",
+      "title": "Technical Writing Essentials chapter titles and explicit rights exceptions",
+      "resourceIds": [
+        "foundation-book-technical-writing"
+      ],
+      "url": "https://pressbooks.bccampus.ca/technicalwriting/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official chapter HTML and public Pressbooks book/chapter metadata; no PDF downloaded.",
+      "locators": [
+        {
+          "url": "https://pressbooks.bccampus.ca/technicalwriting/wp-json/pressbooks/v2/metadata",
+          "locator": "Book author/publisher and license.description Exceptions list",
+          "relevance": "CC BY 4.0 does not cover every embedded item."
+        },
+        {
+          "url": "https://pressbooks.bccampus.ca/technicalwriting/chapter/definingscope/",
+          "locator": "Scope questions and problem-focused research; Figure 5.3.1",
+          "relevance": "Bounded requirements and a concrete excluded-asset example."
+        },
+        {
+          "url": "https://pressbooks.bccampus.ca/technicalwriting/wp-json/pressbooks/v2/chapters/599/metadata",
+          "locator": "5.3 Defining the Scope of your Project",
+          "relevance": "Exact chapter number and title."
+        },
+        {
+          "url": "https://pressbooks.bccampus.ca/technicalwriting/chapter/longreports/",
+          "locator": "Recommendation/feasibility distinctions and six-step problem-solving approach",
+          "relevance": "Criteria-led comparison and evidence-backed recommendations."
+        },
+        {
+          "url": "https://pressbooks.bccampus.ca/technicalwriting/wp-json/pressbooks/v2/chapters/1076/metadata",
+          "locator": "7.5 Long Reports - Recommendation Reports and Feasibility Studies",
+          "relevance": "Exact chapter number and title."
+        },
+        {
+          "url": "https://pressbooks.bccampus.ca/technicalwriting/chapter/writinginstructions/",
+          "locator": "Audience/task analysis, task groupings and instruction elements",
+          "relevance": "An executable learner-authored handoff."
+        },
+        {
+          "url": "https://pressbooks.bccampus.ca/technicalwriting/wp-json/pressbooks/v2/chapters/1709/metadata",
+          "locator": "7.7 Writing Instructions",
+          "relevance": "Exact chapter number and title."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY 4.0 for covered authored content, with listed third-party exceptions",
+        "redistribution": "link-only",
+        "scope": "Whole-resource redistribution is not cleared by this handoff.",
+        "conditions": [
+          "Do not rehost the complete book/PDF merely because it is free to read.",
+          "Exceptions include a Scientific Sailboat Racing excerpt and figures 1.5.1, 3.4.1, 3.4.2, 5.2.1, 5.2.2, 5.3.1 and 7.4.1, with restrictions or unresolved ownership described by the publisher.",
+          "Any later author-text-only adaptation needs asset removal/clearance plus attribution, license and change notices."
+        ],
+        "deploymentGate": "Keep this resource link-only. An educational/noncommercial label does not itself resolve the publisher's missing third-party permissions."
+      }
+    },
+    {
+      "id": "foundation-source-missing-semester",
+      "title": "Missing Semester 2020 lecture pages, players and course license",
+      "resourceIds": [
+        "foundation-video-shell",
+        "foundation-video-processes",
+        "foundation-video-git"
+      ],
+      "url": "https://missing.csail.mit.edu/2020/course-shell/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official topic notes and inspect embedded-player URLs in public HTML; no media downloaded or playback claimed.",
+      "locators": [
+        {
+          "url": "https://missing.csail.mit.edu/2020/course-shell/",
+          "locator": "Course Overview + The Shell; Using/Navigating in the shell; Connecting programs",
+          "relevance": "Basic local computing and command composition.",
+          "observedPlayerUrl": "https://www.youtube.com/embed/Z56Jmr9Z34Q"
+        },
+        {
+          "url": "https://missing.csail.mit.edu/2020/command-line/",
+          "locator": "Command-line Environment / Job Control",
+          "relevance": "Process identity, interruption and foreground/background concepts.",
+          "observedPlayerUrl": "https://www.youtube.com/embed/e8BO_dYxk5c"
+        },
+        {
+          "url": "https://missing.csail.mit.edu/2020/version-control/",
+          "locator": "Version Control (Git): snapshots, staging, basics, branching and merging",
+          "relevance": "Local version-control model.",
+          "observedPlayerUrl": "https://www.youtube.com/embed/2sjqTHE0zok"
+        },
+        {
+          "url": "https://missing.csail.mit.edu/license/",
+          "locator": "All course content, including lecture videos, licensed CC BY-NC-SA 4.0",
+          "relevance": "Authoritative conditional permission evidence."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY-NC-SA 4.0",
+        "redistribution": "link-only",
+        "scope": "This curriculum uses official links or permitted player embeds only.",
+        "conditions": [
+          "Retain attribution and do not imply MIT endorsement.",
+          "Any separately authorized copying would still require attribution, noncommercial use and share-alike compliance."
+        ],
+        "deploymentGate": "No local video copies, video downloads or media rehosting, regardless of the source's conditional open license."
+      }
+    },
+    {
+      "id": "foundation-source-cs50p",
+      "title": "CS50P exact weekly lectures and license",
+      "resourceIds": [
+        "foundation-video-python-functions",
+        "foundation-video-python-conditionals",
+        "foundation-video-python-loops",
+        "foundation-video-python-exceptions",
+        "foundation-video-python-libraries",
+        "foundation-video-python-tests",
+        "foundation-video-python-files"
+      ],
+      "url": "https://cs50.harvard.edu/python/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official weekly topic lists and inspected their CS50 player links in public HTML; read course license and free OpenCourseWare access statement.",
+      "locators": [
+        {
+          "url": "https://cs50.harvard.edu/python/weeks/0/",
+          "locator": "Week 0 Functions",
+          "relevance": "Values, functions, return values and numeric types.",
+          "observedPlayerUrl": "https://video.cs50.io/JP7ITIXGpHk"
+        },
+        {
+          "url": "https://cs50.harvard.edu/python/weeks/1/",
+          "locator": "Week 1 Conditionals",
+          "relevance": "Explicit branches and Boolean logic.",
+          "observedPlayerUrl": "https://video.cs50.io/_b6NgY_pMdw"
+        },
+        {
+          "url": "https://cs50.harvard.edu/python/weeks/2/",
+          "locator": "Week 2 Loops",
+          "relevance": "Iteration, lists, dictionaries and None.",
+          "observedPlayerUrl": "https://video.cs50.io/-7xg8pGcP6w"
+        },
+        {
+          "url": "https://cs50.harvard.edu/python/weeks/3/",
+          "locator": "Week 3 Exceptions",
+          "relevance": "Expected failure handling.",
+          "observedPlayerUrl": "https://video.cs50.io/LW7g1169v7w"
+        },
+        {
+          "url": "https://cs50.harvard.edu/python/weeks/4/",
+          "locator": "Week 4 Libraries",
+          "relevance": "Modules, packages, command-line arguments, APIs and JSON.",
+          "observedPlayerUrl": "https://video.cs50.io/MztLZWibctI"
+        },
+        {
+          "url": "https://cs50.harvard.edu/python/weeks/5/",
+          "locator": "Week 5 Unit Tests",
+          "relevance": "Test design; lecture uses pytest, while the curriculum's lab uses unittest.",
+          "observedPlayerUrl": "https://video.cs50.io/tIrcxwLqzjQ"
+        },
+        {
+          "url": "https://cs50.harvard.edu/python/weeks/6/",
+          "locator": "Week 6 File I/O",
+          "relevance": "Local files and CSV, excluding PIL.",
+          "observedPlayerUrl": "https://video.cs50.io/KD-Yoel6EVQ"
+        },
+        {
+          "url": "https://cs50.harvard.edu/python/license/",
+          "locator": "CC BY-NC-SA 4.0 course grant",
+          "relevance": "License version and conditions."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY-NC-SA 4.0",
+        "redistribution": "link-only",
+        "scope": "Official lecture links/player embeds; no course problem statements or solutions are imported.",
+        "conditions": [
+          "Attribute Harvard CS50 and the lecturer.",
+          "Copied/adapted course material would require attribution, noncommercial use, share-alike and no added restrictions."
+        ],
+        "deploymentGate": "Videos remain link/embed-only. Public viewing is free; optional edX feedback, certificates and CS50 account workflows are not requirements."
+      }
+    },
+    {
+      "id": "foundation-source-cs50-sql",
+      "title": "CS50 SQL Querying and Relating lectures",
+      "resourceIds": [
+        "foundation-video-sql-querying",
+        "foundation-video-sql-relating"
+      ],
+      "url": "https://cs50.harvard.edu/sql/weeks/0/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official weekly topic lists, inspect official lecture-player links and read the course license.",
+      "locators": [
+        {
+          "url": "https://cs50.harvard.edu/sql/weeks/0/",
+          "locator": "Week 0 Querying",
+          "relevance": "SQLite, SELECT, NULL, aggregation and ordering.",
+          "observedPlayerUrl": "https://video.cs50.io/vHYeChEf2lA?screen=6UZILCexEZ4"
+        },
+        {
+          "url": "https://cs50.harvard.edu/sql/weeks/1/",
+          "locator": "Week 1 Relating",
+          "relevance": "Relationships, keys, joins and groups.",
+          "observedPlayerUrl": "https://video.cs50.io/_2t18Hy9Z0Y?screen=2OrXwf138gs"
+        },
+        {
+          "url": "https://cs50.harvard.edu/sql/license/",
+          "locator": "CC BY-NC-SA 4.0",
+          "relevance": "Authoritative course permission."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY-NC-SA 4.0",
+        "redistribution": "link-only",
+        "scope": "Only official video links or allowed embeds.",
+        "conditions": [
+          "Retain creator attribution; no endorsement claim.",
+          "Any copying outside this handoff would require the source's NC/SA conditions and attribution."
+        ],
+        "deploymentGate": "No video hosting or downloads. Do not require the optional authenticated codespace or copy its course exercises."
+      }
+    },
+    {
+      "id": "foundation-source-cs50x",
+      "title": "CS50x 2025 selected foundational lecture topics",
+      "resourceIds": [
+        "foundation-video-algorithms",
+        "foundation-video-data-structures",
+        "foundation-video-http",
+        "foundation-video-ai"
+      ],
+      "url": "https://cs50.harvard.edu/x/2025/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read archived official weekly syllabi and inspect lecture-player links; use exact source titles and scope selections.",
+      "locators": [
+        {
+          "url": "https://cs50.harvard.edu/x/2025/weeks/3/",
+          "locator": "Week 3 Algorithms: linear/binary search and asymptotic notation",
+          "relevance": "Introductory search and operation growth.",
+          "observedPlayerUrl": "https://video.cs50.io/iCx3zwK8Ms8?screen=EJO-bqFqX8E"
+        },
+        {
+          "url": "https://cs50.harvard.edu/x/2025/weeks/5/",
+          "locator": "Week 5 Data Structures: abstract data types, queues, stacks and hash tables",
+          "relevance": "Conceptual structures; C pointer work excluded.",
+          "observedPlayerUrl": "https://video.cs50.io/aV8LlSmd1E8?screen=G3MySfRu9J4"
+        },
+        {
+          "url": "https://cs50.harvard.edu/x/2025/weeks/8/",
+          "locator": "Week 8 HTML, CSS, JavaScript: Internet and HTTP introductory topics",
+          "relevance": "DNS, host/protocol context and request/response concepts.",
+          "observedPlayerUrl": "https://video.cs50.io/xiWUL3M9D8c?screen=ALOLDAmmiTU"
+        },
+        {
+          "url": "https://cs50.harvard.edu/x/2025/weeks/ai/",
+          "locator": "Artificial Intelligence: prompting, generative AI and hallucinations",
+          "relevance": "Assistance literacy only; advanced AI topics excluded.",
+          "observedPlayerUrl": "https://video.cs50.io/1HuD2ryeOLg?screen=GIgsdCyCyvc"
+        },
+        {
+          "url": "https://cs50.harvard.edu/x/2025/license/",
+          "locator": "CC BY-NC-SA 4.0 course license",
+          "relevance": "Exact archived-edition permission evidence."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY-NC-SA 4.0",
+        "redistribution": "link-only",
+        "scope": "Links or authorized player embeds for selected topics.",
+        "conditions": [
+          "Credit Harvard CS50 and the lecturer.",
+          "No downloaded/rehosted videos; copied course content would additionally require NC/SA compliance and notices."
+        ],
+        "deploymentGate": "Keep the verified 2025 edition labelled as archived. No claim of full-course completion or of latest-edition coverage."
+      }
+    },
+    {
+      "id": "foundation-source-cs50-privacy",
+      "title": "CS50 Cybersecurity privacy lecture and license",
+      "resourceIds": [
+        "foundation-video-privacy"
+      ],
+      "url": "https://cs50.harvard.edu/cybersecurity/weeks/4/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official topic list and course license; inspected the official lecture-player URL.",
+      "locators": [
+        {
+          "url": "https://cs50.harvard.edu/cybersecurity/weeks/4/",
+          "locator": "Week 4 Preserving Privacy: logs, HTTP headers, tracking parameters, private browsing and permissions",
+          "relevance": "Information-exposure awareness without account modification.",
+          "observedPlayerUrl": "https://video.cs50.io/6IeqJtudKnk?screen=Zw5RQJ1B-4s"
+        },
+        {
+          "url": "https://cs50.harvard.edu/cybersecurity/license/",
+          "locator": "CC BY-NC-SA 4.0",
+          "relevance": "Course-specific permission evidence."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "CC BY-NC-SA 4.0",
+        "redistribution": "link-only",
+        "scope": "Official lecture link or permitted embed.",
+        "conditions": [
+          "Attribute the course and lecturer; no endorsement claim.",
+          "No account actions, copied problem statements or video rehosting."
+        ],
+        "deploymentGate": "Link/embed-only even though the course license conditionally allows some redistribution."
+      }
+    },
+    {
+      "id": "foundation-source-crash-course",
+      "title": "Official Crash Course Statistics episode descriptions and players",
+      "resourceIds": [
+        "foundation-video-central-tendency",
+        "foundation-video-spread",
+        "foundation-video-probability",
+        "foundation-video-sampling"
+      ],
+      "url": "https://thecrashcourse.com/topic/statistics/",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official series/episode pages and inspect embedded players through public HTML; no video files downloaded.",
+      "locators": [
+        {
+          "url": "https://thecrashcourse.com/courses/mean-median-and-mode-measures-of-central-tendency-crash-course-statistics-3/",
+          "locator": "Episode #3 exact title and official description",
+          "relevance": "Mean, median, mode and misleading uses of averages.",
+          "observedPlayerUrl": "https://www.youtube.com/embed/kn83BA7cRNM?feature=oembed"
+        },
+        {
+          "url": "https://thecrashcourse.com/courses/measures-of-spread-crash-course-statistics-4/",
+          "locator": "Measures of Spread: episode #4",
+          "relevance": "Dispersion and reliability of an average.",
+          "observedPlayerUrl": "https://www.youtube.com/embed/R4yfNi_8Kqw?feature=oembed"
+        },
+        {
+          "url": "https://thecrashcourse.com/courses/probability-part-1-rules-and-patterns-crash-course-statistics-13/",
+          "locator": "Probability, Part 1 - Rules and Patterns: episode #13",
+          "relevance": "Addition, multiplication and conditional probability.",
+          "observedPlayerUrl": "https://www.youtube.com/embed/OyddY7DlV58?feature=oembed"
+        },
+        {
+          "url": "https://thecrashcourse.com/courses/sampling-methods-and-bias-with-surveys-crash-course-statistics-10/",
+          "locator": "Sampling Methods and Bias with Surveys: episode #10",
+          "relevance": "Population representation, selection methods and bias.",
+          "observedPlayerUrl": "https://www.youtube.com/embed/Rf-fIpB4D50?feature=oembed"
+        }
+      ],
+      "permissionEvidence": {
+        "license": "link-only/unknown",
+        "redistribution": "link-only",
+        "scope": "Free public viewing through official pages and provider players.",
+        "conditions": [
+          "No verified permission to host copies, publish transcripts or reproduce episode exercises."
+        ],
+        "deploymentGate": "Link or use only provider-authorized embeds. Free viewing is not an open-content license."
+      }
+    },
+    {
+      "id": "foundation-source-how-to-speak",
+      "title": "MIT OpenCourseWare How to Speak upload identity",
+      "resourceIds": [
+        "foundation-video-how-to-speak"
+      ],
+      "url": "https://www.youtube.com/watch?v=Unzc731iCUY",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read the public watch page and YouTube oEmbed JSON; verified title and official channel without downloading media.",
+      "locators": [
+        {
+          "url": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=Unzc731iCUY&format=json",
+          "locator": "title: How to Speak; author_name: MIT OpenCourseWare; type: video",
+          "relevance": "Exact existing lecture identity and provider embed.",
+          "observedPlayerUrl": "https://www.youtube.com/embed/Unzc731iCUY?feature=oembed"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Unzc731iCUY",
+          "locator": "How to Speak",
+          "relevance": "Public viewing location; no chapter timestamps are asserted."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "link-only/unknown for this specific upload",
+        "redistribution": "link-only",
+        "scope": "Public link or provider-authorized embed only.",
+        "conditions": [
+          "Do not infer a per-upload redistribution license from a general institutional policy."
+        ],
+        "deploymentGate": "No download, local copy or rehost; provide a normal link if embedding is unavailable."
+      }
+    },
+    {
+      "id": "foundation-source-sqlite-docs",
+      "title": "SQLite executable-dialect references and public-domain evidence",
+      "resourceIds": [
+        "foundation-doc-sqlite-select",
+        "foundation-doc-sqlite-foreign-keys"
+      ],
+      "url": "https://www.sqlite.org/copyright.html",
+      "verifiedOn": "2026-09-20",
+      "verificationMethod": "Read official HTML syntax/foreign-key references and the copyright statement explicitly covering documentation.",
+      "locators": [
+        {
+          "url": "https://www.sqlite.org/lang_select.html",
+          "locator": "SELECT syntax and Overview",
+          "relevance": "Local query syntax, joins, grouping and explicit ordering."
+        },
+        {
+          "url": "https://www.sqlite.org/foreignkeys.html",
+          "locator": "1 Introduction to Foreign Key Constraints; 2 Enabling Foreign Key Support",
+          "relevance": "Connection-level enforcement and required-reference behavior."
+        },
+        {
+          "url": "https://www.sqlite.org/copyright.html",
+          "locator": "SQLite Is Public Domain; scope paragraph; Warranty of Title jurisdiction caveat",
+          "relevance": "Explicit deliverable code/documentation dedication and its boundaries."
+        }
+      ],
+      "permissionEvidence": {
+        "license": "Public-domain dedication",
+        "redistribution": "permitted",
+        "scope": "SQLite deliverable documentation, not excluded build scripts or unrelated third-party assets.",
+        "conditions": [
+          "No attribution, share-alike, noncommercial or no-derivatives copyright condition under the dedication; preserve provenance as good practice.",
+          "Respect the stated scope and do not infer a grant over unrelated materials."
+        ],
+        "deploymentGate": "Commercial copying/adaptation is allowed where the dedication is recognized. Review jurisdictional requirements if public-domain dedication is not recognized."
+      }
+    }
+  ],
+  "limitations": [
+    "This is an actual Common Foundation curriculum: 8 ordered modules and 22 lessons, not a union of advanced Data/SDE/Quant/AI specializations. Advanced calculus, finance, deep learning, professional backend/distributed design, cloud operations and specialist SDE source families are intentionally excluded.",
+    "Prior exposure to tools is not independently demonstrated proficiency. Initialize every module, lesson, assignment and review as not started/incomplete with no score, completion date or invented result. Meeting future acceptance criteria is a completion gate, not an assertion that the learner has already met it.",
+    "The lesson estimates total 5430 minutes, or 90.5 hours. These are personal planning estimates including the explicitly budgeted assignment work, selected lecture viewing, reading and recall. They are not measured learner timings or guarantees. Repeated targeted viewing is budgeted, not another full-course enrollment; optional full lectures, extra exercises, setup obstacles and remediation can require additional time.",
+    "All assignments, synthetic fixtures, acceptance criteria and review prompts in this handoff are original. Expected values are small-fixture oracles, not observed learner outcomes. Third-party problem statements, solutions, exam questions, book chapters and transcripts are not copied. Optional questions arrays are deliberately empty.",
+    "All external research used unauthenticated public HTML, JSON or text-source HTTP. Video titles, official topic locators and player links were verified, but playback, current regional availability, captions and future embed behavior were not end-to-end tested. Videos are strictly link/embed-only with downloadUrl null; offer the official page link if a provider blocks embedding.",
+    "No PDFs or media were downloaded. Every downloadUrl is null: no direct PDF artifact was checked for a hosting-ready edition. Permitted redistribution records concern verified licenses for covered text/documentation, not an already downloaded or fully audited offline asset bundle.",
+    "The field redistribution=permitted is conditional source permission, not an instruction to turn on hosting. Apply each sources.permissionEvidence deploymentGate first. While deployment purpose is unknown, keep NC-licensed Think Python text, Pro Git and the Runestone algorithms book link-only in the application; do not assume an educational, free-to-user or advertising-supported product is noncommercial.",
+    "Think Python text and code have different licenses. Database Design has a separately licensed cover photograph. OpenIntro excludes covers, branding and other categories from its general grant and limits derivative branding. GNU Bash requires GFDL notice/source/modification compliance. Python prose is PSF-licensed, not all 0BSD. Preserve these distinctions when adapting the catalog.",
+    "Technical Writing Essentials remains whole-resource link-only because its official metadata lists third-party restrictions and unresolved ownership, including an image in the assigned scope chapter. No whole-book/PDF hosting clearance is claimed. Crash Course episodes and the specific How to Speak upload also have no verified open redistribution grant in this handoff.",
+    "Bash and CS50 C-based demonstrations are used only for shared concepts. Windows learners should use an installed Bash environment or deliberate PowerShell equivalents; no profile or execution-policy change is required. Algorithms are implemented in Python, and the pytest lecture is paired with explicit unittest reading rather than misrepresented as a unittest tutorial.",
+    "The SQL textbook contains SQL Server-specific examples and some conceptual simplifications. SQLite official references and Python's bound-parameter interface govern the executable labs. Foreign-key enforcement must be enabled per connection before inserts. No PostgreSQL manual was needed or researched for this handoff.",
+    "The statistics book has optional R-based supplements, and Think Python offers optional Colab notebooks. Neither is required: all assigned computation uses original local Python exercises. Public lectures and readings are free; optional hosted feedback, saved interactive progress, certificates or paid print editions are not part of completion criteria.",
+    "HTTP work is a tiny loopback-only teaching lab, not a production server or a robust external-API integration. Official Python manual sections are used for library behavior rather than treating historical RFC references as current protocol standards. Privacy and AI-assistance lessons are basic professional hygiene, not certification, comprehensive security review or proof of model reliability.",
+    "The portfolio build briefs are scope/context only. No SDE A/B mapping is appropriated, projectMappings is intentionally empty, and the final synthetic integration exercise is not claimed as one of the user's completed historical projects or planned advanced resume projects. No employer code/data, accounts, real credentials, private reports or biometric assets are required.",
+    "Use canonicalConceptTags and the foundation-prefixed lesson IDs as the shared prerequisite/progress references in later tracks. Reusing a prerequisite should reuse this lesson's actual future progress, not duplicate it or auto-complete it from a job title.",
+    "Successful completion can provide evidence of these bounded prerequisites; it does not guarantee employment, an examination result, profitability, expert mastery or production readiness."
+  ]
+}

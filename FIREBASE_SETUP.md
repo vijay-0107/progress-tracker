@@ -1,156 +1,166 @@
-# Firebase Setup For Real Anywhere Sync
+# Firebase setup and safe release
 
-The app contains Firebase Auth, Firestore profile sync, and Firestore catalog loading. The committed `firebase-config.js` stays blank; GitHub Pages generates the deployed config from repository secrets.
+The learning platform works without credentials in explicit guest mode. Real
+cross-device sync uses Firebase Auth and UID-owned Firestore records, not local
+names/PINs. The course catalog and approved books are static assets on GitHub
+Pages; **no service-account download, Storage bucket or paid plan is required**.
 
-## 1. Create The Firebase Project
+## Existing project
 
-1. Open <https://console.firebase.google.com/>.
-2. Click **Add project**.
-3. Name it something like `progress-tracker`.
-4. Google Analytics is optional for this app.
-5. Finish project creation.
+Use the existing `progress-tracker-6ff13` project, Web app and `(default)`
+Firestore database in `asia-south1`. It is on Spark. Preserve
+`studyProgressCatalog` and `studyProgressProfiles`; do not create a replacement
+database or upgrade billing.
 
-## 2. Enable Email/Password And Google Login
+The user-authorized setup inspection confirmed:
 
-1. In Firebase, open **Build** > **Authentication**.
-2. Click **Get started** if prompted.
-3. Open **Sign-in method**.
-4. Enable **Email/Password**.
-5. Click **Add new provider**, choose **Google**, enable it, pick a support email, and save.
-6. Open **Settings** > **Authorized domains**.
-7. Add this domain:
+- Google and Email/Password providers enabled.
+- `localhost`, `127.0.0.1`, `vijay-0107.github.io`, and the project's Firebase
+  hosting/auth domains authorized.
+- The existing Pages public runtime configuration matches the Firebase Web app.
+- All seven existing `FIREBASE_*` GitHub Actions secrets are present.
 
-```text
-vijay-0107.github.io
+`127.0.0.1` was explicitly added. Do **not** assume new Firebase projects
+authorize localhost or the loopback IP automatically.
+
+For another installation, enable both providers, configure a Google support
+email, and explicitly add the three application hostnames above (replace Pages
+with your actual hostname). Password-reset and verification emails use Firebase
+Auth's project templates; verify authorized callback domains before production.
+
+## Runtime configuration
+
+Keep `public/firebase-config.js` blank in source control. The root
+`firebase-config.js` is the untouched legacy template. Firebase client
+configuration is public runtime metadata; never substitute Admin SDK JSON,
+private keys, OAuth tokens or learner data.
+
+For ignored local configuration:
+
+```powershell
+$env:FIREBASE_API_KEY = '<public Web API key>'
+$env:FIREBASE_AUTH_DOMAIN = 'progress-tracker-6ff13.firebaseapp.com'
+$env:FIREBASE_PROJECT_ID = 'progress-tracker-6ff13'
+$env:FIREBASE_APP_ID = '<public Web app id>'
+npm run config:local
+npm run dev
 ```
 
-For local testing, `localhost` and `127.0.0.1` are authorized by default. The Google sign-in popup only works on these authorized domains.
+Or use a local public configuration JSON with
+`npm run config:local -- --from C:\path\to\web-config.json`.
 
-## 3. Create Firestore
+The CLI generates `public/firebase-config.local.js`, ignored by Git, used only
+on loopback, and omitted from production output. Missing config displays a clear
+guest-only state. A network or permission failure after configuration is **not**
+reported as successful sync.
 
-1. Open **Build** > **Firestore Database**.
-2. Click **Create database**.
-3. Start in production mode.
-4. Choose the nearest region.
-
-## 4. Add Firestore Rules
-
-Open Firestore **Rules** and paste the same rules from `firebase.rules`:
-
-```text
-rules_version = '2';
-
-service cloud.firestore {
-	match /databases/{database}/documents {
-		match /studyProgressCatalog/{catalogId} {
-			allow read: if true;
-			allow write: if false;
-
-			match /{document=**} {
-				allow read: if true;
-				allow write: if false;
-			}
-		}
-
-		match /studyProgressProfiles/{userId} {
-			allow read, write: if request.auth != null && request.auth.uid == userId;
-		}
-	}
-}
-```
-
-Publish the rules.
-
-## 5. Store The Web App Config As GitHub Secrets
-
-1. Open **Project settings** > **General**.
-2. Under **Your apps**, add a Web app.
-3. Name it `progress-tracker-web`.
-4. Copy the `firebaseConfig` object.
-5. In GitHub, open the repository **Settings** > **Secrets and variables** > **Actions**.
-6. Add these repository secrets:
+The deployment uses these existing repository secrets:
 
 ```text
 FIREBASE_API_KEY
 FIREBASE_AUTH_DOMAIN
 FIREBASE_PROJECT_ID
+FIREBASE_APP_ID
 FIREBASE_STORAGE_BUCKET
 FIREBASE_MESSAGING_SENDER_ID
-FIREBASE_APP_ID
 FIREBASE_MEASUREMENT_ID
 ```
 
-The required fields are:
+Only the first four are required. Storage and Analytics SDKs are not initialized.
+The extra identifiers may remain in the supplied Web config without enabling
+those products.
 
-```js
-export const firebaseConfig = {
-	apiKey: "...",
-	authDomain: "...",
-	projectId: "...",
-	storageBucket: "...",
-	messagingSenderId: "...",
-	appId: "...",
-};
-```
+## Firestore model and rules
 
-Firebase web config values are public identifiers. Data security comes from Firebase Auth and Firestore rules.
-
-Do not paste these values into the committed `firebase-config.js`. Keep that file blank in Git and place the values in GitHub repository secrets instead.
-
-## 6. Upload The Course Catalog To Firestore
-
-The schedule file is too large for a single Firestore document, so upload it as a normalized catalog:
-
-- `studyProgressCatalog/current`
-- `studyProgressCatalog/current/topics/{topicId}`
-- `studyProgressCatalog/current/subtopics/{subtopicId}`
-- `studyProgressCatalog/current/sessions/{sessionId}`
-
-Create a Firebase service account key from **Project settings** > **Service accounts**. Store the downloaded JSON file outside this repository.
-
-Then run:
-
-```powershell
-python -m pip install firebase-admin
-python upload_schedule_to_firestore.py --service-account C:\path\to\service-account.json --project-id progress-tracker-6ff13
-```
-
-For a no-write check first:
-
-```powershell
-python upload_schedule_to_firestore.py --dry-run
-```
-
-The admin SDK uses your local service account and bypasses Firestore client rules. The `.gitignore` blocks common service-account and `.env` file names, but still keep credentials outside the project folder.
-
-## 7. Restrict The Firebase Web API Key
-
-Firebase Web API keys are delivered to the browser at runtime, so they cannot be treated like backend secrets. Restrict the key instead:
-
-1. Open <https://console.cloud.google.com/apis/credentials>.
-2. Select the browser key used by the Firebase Web app.
-3. Under **Application restrictions**, choose **Websites**.
-4. Add allowed referrers:
+New version-2 records:
 
 ```text
-https://vijay-0107.github.io/*
-http://localhost:*
-http://127.0.0.1:*
+learners/{uid}/settings/settings
+learners/{uid}/lessons/{canonicalLessonId}
+learners/{uid}/projects/{projectId}
+learners/{uid}/goals/{goalId}
+learners/{uid}/activity/{eventId}
+learners/{uid}/errors/{errorEntryId}
 ```
 
-5. Under **API restrictions**, restrict it to Firebase/Auth/Firestore APIs used by the app.
-6. Save the key restriction.
+The app uses bounded, validated documents rather than an ever-growing profile
+document. It saves intentional actions rather than every textarea keystroke.
+New notes/evidence have explicit size limits. Per-record optimistic transactions
+compare the acknowledged `updatedAt` version; concurrent changes require an
+explicit decision, not silent last-writer-wins replacement.
 
-## 8. Configure GitHub Pages Deployment
+`firebase.rules` is the source of truth. It denies unauthenticated and cross-UID
+access, restricts document paths and fields, and keeps the public legacy catalog
+read-only. Existing `studyProgressProfiles/{uid}` owner-only compatibility
+remains for older cached clients. The new app reads original profiles only for
+explicit same-UID archival and never rewrites them.
 
-In GitHub, open **Settings** > **Pages** and set **Build and deployment** > **Source** to **GitHub Actions**. The workflow in `.github/workflows/pages.yml` builds `firebase-config.js` from repository secrets during deployment.
+Before publication:
 
-## 9. Verify
-
-After repository secrets are added, Firestore rules are published, the catalog is uploaded, and GitHub Actions redeploys, open:
-
-```text
-https://vijay-0107.github.io/progress-tracker/
+```powershell
+npm run test:rules
 ```
 
-The sign-in screen should change from **Local storage mode** to **Firestore ready**. Sign in with an email and a password of at least 6 characters, or click **Continue with Google** to use a Gmail account. The same account will sync catalog data, progress, notes, review flags, and profile preferences across devices.
+Publish the **tested** file through the existing authenticated Firebase Console
+Rules editor, or an already-authorized Firebase CLI. An admin key is not needed.
+Do not publish partially edited rules. Verify the published text/checksum and
+then test same-UID live sync without exposing private records. Expected
+permission failures before rules rollout must remain visible in the UI.
+
+## Emulator isolation
+
+Install dependencies and Java 21+. Start the Auth and Firestore emulators:
+
+```powershell
+npm run emulators
+```
+
+In another terminal:
+
+```powershell
+$env:VITE_USE_EMULATORS = 'true'
+npm run dev
+```
+
+Only the `demo-progress-tracker` project and explicit loopback endpoints are
+used. Production config is ignored in this mode. Emulator mode is refused on
+non-loopback hosts and never falls back to production if an emulator is down.
+Keep emulator export files out of Git.
+
+Rules tests include legitimate operations, malformed/bounded data, unauthenticated
+denial, cross-user reads/writes/queries, public-catalog write denial and original
+profile ownership. Auth/sync tests cover failed initialization, explicit
+registration, password reset, verification, sign-out, identity races and conflicts.
+
+Independent browser testing with both emulators:
+
+```powershell
+$env:E2E_EMULATORS = 'true'
+npx firebase emulators:exec --project demo-progress-tracker --only auth,firestore "npm run test:e2e"
+```
+
+## Account transitions and preservation
+
+Browser caches and pending-write journals are scoped to the authenticated UID.
+An account switch invalidates in-flight results/listeners and remounts private
+draft views. Signed-out guest records are never replaced by cloud records.
+Matching an email or local display name is not authorization to merge data.
+
+Guest import and old local profile import each require an explicit ownership
+confirmation. Original cloud history requires the matching UID. Exports include
+only validated learning data and sanitized archives, never PIN/password hashes,
+Auth tokens or unrelated localStorage. Original legacy keys and Firestore
+documents remain unchanged. See the README for reset, conflict and backup behavior.
+
+## Free GitHub Pages release
+
+The Pages workflow publishes a typed Vite build under `/progress-tracker/`.
+The existing GitHub Pages source is GitHub Actions. Only `dist` is uploaded;
+repository scripts, tests, local configuration and private browser state are not
+published. The build/version footer distinguishes a new deployment from an older
+cached release.
+
+Keep the existing Web API key restrictions unless a verified local/Pages failure
+requires a scoped change. Client metadata is public; actual data protection
+comes from Firebase Auth, UID rules and application validation. Do not disable
+rules, loosen cross-user permissions or enable billing to bypass a setup error.
