@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Plus, Trash2 } from "lucide-react";
 import { dayKey, addDays } from "../domain/progress";
 import { trackMeta } from "../content/catalog";
-import type { TrackId } from "../domain/types";
+import { CORE_TRACK_IDS, type CoreTrackId } from "../domain/types";
 import type { LearningProps } from "./shared";
 import { EmptyState, PageHeading, readableDate, TrackBadge } from "./shared";
 
@@ -12,7 +12,7 @@ export function Planner({ state, mutate, notify }: LearningProps) {
   const [selectedDay, setSelectedDay] = useState(today);
   const [title, setTitle] = useState("");
   const [targetDate, setTargetDate] = useState(addDays(today, 7));
-  const [track, setTrack] = useState<TrackId>(state.settings.primaryTrack);
+  const [track, setTrack] = useState<CoreTrackId>(state.settings.primaryTrack);
   const first = `${month}-01`;
   const weekday = (new Date(`${first}T12:00:00Z`).getUTCDay() + 6) % 7;
   const days = Array.from({ length: 42 }, (_, index) =>
@@ -186,21 +186,26 @@ export function Planner({ state, mutate, notify }: LearningProps) {
                   />
                 </label>
                 <label className="field-label">
-                  Learning path
+                  Core learning path
                   <select
                     value={track}
                     onChange={(event) =>
-                      setTrack(event.target.value as TrackId)
+                      setTrack(event.target.value as CoreTrackId)
                     }
                   >
-                    {Object.entries(trackMeta).map(([id, meta]) => (
+                    {CORE_TRACK_IDS.map((id) => (
                       <option key={id} value={id}>
-                        {meta.short}
+                        {trackMeta[id].short}
                       </option>
                     ))}
                   </select>
                 </label>
               </div>
+              <p className="quiet-note">
+                Goals retain their core-path category. For an Extra Topic, use
+                its lesson assignments and stage evidence to track your work;
+                optional-topic progress is recorded separately.
+              </p>
               <button className="button primary">
                 <Plus size={16} />
                 Add personal goal

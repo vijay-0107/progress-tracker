@@ -27,7 +27,12 @@ import {
   X,
 } from "lucide-react";
 import { getCatalog, trackMeta } from "./content/catalog";
-import { TRACK_IDS, type TrackId } from "./domain/types";
+import {
+  CORE_TRACK_IDS,
+  EXTRA_TOPIC_IDS,
+  TRACK_IDS,
+  type TrackId,
+} from "./domain/types";
 import { useWorkspace, type Workspace } from "./state/useWorkspace";
 import { Dashboard } from "./ui/Dashboard";
 import { EmptyState } from "./ui/shared";
@@ -427,7 +432,7 @@ function Navigation({
       <nav aria-label="Primary navigation">
         {nav("dashboard", "My workspace", <LayoutDashboard size={17} />)}
         <p className="nav-section-label">YOUR LEARNING PATHS</p>
-        {TRACK_IDS.map((id) =>
+        {CORE_TRACK_IDS.map((id) =>
           nav(
             `path/${id}`,
             id === "foundation"
@@ -450,6 +455,10 @@ function Navigation({
             ),
             id === "foundation" ? "START" : undefined,
           ),
+        )}
+        <p className="nav-section-label">EXTRA TOPICS</p>
+        {EXTRA_TOPIC_IDS.map((id) =>
+          nav(`path/${id}`, trackMeta[id].label, <span className="nav-dot" />),
         )}
         <p className="nav-section-label">PUT IT INTO PRACTICE</p>
         {nav("projects", "Project studio", <FolderGit2 size={17} />, "21")}

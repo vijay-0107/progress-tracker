@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { TRACK_IDS } from "../domain/types";
+import { LEARNING_STAGES, TRACK_IDS } from "../domain/types";
 
 const id = z
   .string()
@@ -103,7 +103,7 @@ export const lessonSchema = z
       .min(1),
     estimatedMinutes: z.number().int().min(10).max(1800),
     canonicalConceptTags: z.array(text),
-    video: z.object({ resourceId: id, locator: text }).passthrough(),
+    video: z.object({ resourceId: id, locator: text }).passthrough().nullable(),
     reading: z.object({ resourceId: id, locator: text }).passthrough(),
     supplementaryResourceIds: z.array(id).default([]),
     assignment: z
@@ -145,12 +145,7 @@ export const trackSchema = z
           .object({
             id,
             title: text,
-            stage: z.enum([
-              "foundation",
-              "intermediate",
-              "advanced",
-              "professional",
-            ]),
+            stage: z.enum(LEARNING_STAGES),
             description: text,
             prerequisites: z.array(id),
             paperTags: z.array(text).default([]),
@@ -190,6 +185,15 @@ export const trackSchema = z
         .passthrough(),
     ),
     limitations: z.array(text),
+    stageOutcomes: z
+      .array(
+        z.object({
+          stage: z.enum(LEARNING_STAGES),
+          outcome: text,
+          evidence: text,
+        }),
+      )
+      .optional(),
     edition: z.string().optional(),
   })
   .passthrough();

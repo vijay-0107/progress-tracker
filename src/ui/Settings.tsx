@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { exportProgress } from "../domain/progress";
 import { trackMeta } from "../content/catalog";
-import type { Theme, TrackId } from "../domain/types";
+import { CORE_TRACK_IDS, type Theme, type CoreTrackId } from "../domain/types";
 import { downloadJson, type Workspace } from "../state/useWorkspace";
 import { PageHeading } from "./shared";
 
@@ -34,7 +34,7 @@ export function Settings({ workspace }: { workspace: Workspace }) {
   const [timezone, setTimezone] = useState(state.settings.timezone);
   const [theme, setTheme] = useState<Theme>(state.settings.theme);
   const [dailyMinutes, setDailyMinutes] = useState(state.settings.dailyMinutes);
-  const [primaryTrack, setPrimaryTrack] = useState<TrackId>(
+  const [primaryTrack, setPrimaryTrack] = useState<CoreTrackId>(
     state.settings.primaryTrack,
   );
   const [email, setEmail] = useState("");
@@ -399,19 +399,21 @@ export function Settings({ workspace }: { workspace: Workspace }) {
                 <select
                   value={primaryTrack}
                   onChange={(event) =>
-                    setPrimaryTrack(event.target.value as TrackId)
+                    setPrimaryTrack(event.target.value as CoreTrackId)
                   }
                 >
-                  {Object.entries(trackMeta).map(([id, meta]) => (
+                  {CORE_TRACK_IDS.map((id) => (
                     <option key={id} value={id}>
-                      {meta.label}
+                      {trackMeta[id].label}
                     </option>
                   ))}
                 </select>
               </label>
               <p className="quiet-note">
                 The Common Foundation still comes first for the four career
-                paths. No exam date or career outcome is assumed.
+                paths. Extra Topics are optional, opened independently from the
+                navigation, and never replace this saved core focus. No exam
+                date or career outcome is assumed.
               </p>
               <button className="button primary" type="submit">
                 <Save size={16} />

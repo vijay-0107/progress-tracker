@@ -1,0 +1,1886 @@
+{
+  "schemaVersion": 1,
+  "trackId": "trading",
+  "title": "Trading: Markets, Risk and Paper-Only Decision Practice",
+  "sourceCheckedOn": "2026-09-21",
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Explain what a trade commits you to and size a simulated exposure before considering a strategy.",
+      "evidence": "An instrument/order map and a paper risk budget that survives a gap beyond the assumed stop."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Reconcile execution costs and test a predeclared hypothesis without changing the test after seeing results.",
+      "evidence": "A fill ledger and locked holdout report, including a losing or rejected strategy."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Explain derivatives obligations, correlated losses and liquidity stress rather than treating margin as maximum loss.",
+      "evidence": "A payoff and portfolio stress workbook with margin, basis and gap scenarios."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Operate a controlled paper workflow and defend its limitations to an independent reviewer.",
+      "evidence": "A reproducible paper replay, exception journal, halt drill and signed-off audit checklist; profit is not a passing condition."
+    }
+  ],
+  "resources": [
+    {
+      "id": "trading-doc-sebi",
+      "kind": "documentation",
+      "title": "SEBI Investor: investor education reading material",
+      "url": "https://investor.sebi.gov.in/iematerial.html",
+      "provider": "Securities and Exchange Board of India",
+      "access": "free",
+      "license": "Official public reading; no redistribution permission asserted",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Select the named English booklet/module on this official index. Some readings open external PDFs on request. No download, registration or brokerage account is required by this app. Verify current rules separately; examples are not investment advice."
+    },
+    {
+      "id": "trading-doc-markets",
+      "kind": "documentation",
+      "title": "Varsity: Introduction to Stock Markets",
+      "url": "https://zerodha.com/varsity/module/introduction-to-stock-markets/",
+      "provider": "Zerodha Varsity",
+      "access": "free",
+      "license": "Copyrighted educational HTML; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Official free module index; named chapter titles and links checked. Broker-authored education, not a regulator or endorsement. Read mechanics only; skip account-opening, trade prompts and historical fee/settlement figures."
+    },
+    {
+      "id": "trading-doc-risk",
+      "kind": "documentation",
+      "title": "Varsity: Risk Management and Trading Psychology",
+      "url": "https://zerodha.com/varsity/module/risk-management/",
+      "provider": "Zerodha Varsity",
+      "access": "free",
+      "license": "Copyrighted educational HTML; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Verified chapters include Equity Curve, Expected Returns, Value at Risk, Position Sizing and Trading Biases. Do not adopt Kelly allocations or sample portfolios as advice. All course amounts and returns are invented."
+    },
+    {
+      "id": "trading-doc-futures",
+      "kind": "documentation",
+      "title": "Varsity: Futures Trading",
+      "url": "https://zerodha.com/varsity/module/futures-trading/",
+      "provider": "Zerodha Varsity",
+      "access": "free",
+      "license": "Copyrighted educational HTML; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Read contract obligations, leverage, margin and hedging chapters. Actual lot sizes, margins, settlement procedures and regulation can change. Do not open an account or place an order for these assignments."
+    },
+    {
+      "id": "trading-video-equities",
+      "kind": "video",
+      "title": "MIT 15.401 Finance Theory I: Equities",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/pages/video-lectures-and-slides/equities/",
+      "provider": "MIT OpenCourseWare / Andrew Lo",
+      "access": "free",
+      "license": "MIT OCW covered material: CC BY-NC-SA 4.0; third-party exceptions apply",
+      "licenseUrl": "https://ocw.mit.edu/pages/privacy-and-terms-of-use/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Official topic page linked from the verified lecture index. Historical valuation theory, not current Indian law, a stock recommendation or evidence of trading profitability. Videos stay external."
+    },
+    {
+      "id": "trading-video-futures",
+      "kind": "video",
+      "title": "MIT 15.401 Finance Theory I: Forward and Futures Contracts",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/pages/video-lectures-and-slides/forward-and-futures-contracts/",
+      "provider": "MIT OpenCourseWare / Andrew Lo",
+      "access": "free",
+      "license": "MIT OCW covered material: CC BY-NC-SA 4.0; third-party exceptions apply",
+      "licenseUrl": "https://ocw.mit.edu/pages/privacy-and-terms-of-use/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Use the official topic recordings for obligations and payoff mechanics. Historical US examples are not current Indian contract specifications. No live trading or recording redistribution."
+    }
+  ],
+  "modules": [
+    {
+      "id": "trading-m01-market-plumbing",
+      "title": "01. Instruments, market participants and orders",
+      "stage": "foundation",
+      "description": "Build a market map and distinguish a quote, an order, a fill and settlement.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "trading-l01-market-map",
+          "title": "Map instruments, ownership and market responsibilities",
+          "objectives": [
+            "Distinguish shares, bonds, funds and derivatives by cash flows and obligations.",
+            "Trace exchange, broker, clearing and depository responsibilities without opening an account."
+          ],
+          "topics": [
+            {
+              "title": "Economic claims",
+              "details": [
+                "Equity is a residual claim; debt has contractual payments and default risk.",
+                "A derivative is a contingent obligation, not ownership of the underlying asset."
+              ]
+            },
+            {
+              "title": "Market plumbing",
+              "details": [
+                "Primary issuance differs from secondary trading.",
+                "Regulation, custody and clearing address different risks; none guarantees a return."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "market-structure",
+            "instruments"
+          ],
+          "video": {
+            "resourceId": "trading-video-equities",
+            "locator": "Equities topic: ownership, dividends and valuation assumptions; contrast an equity claim with a debt claim."
+          },
+          "reading": {
+            "resourceId": "trading-doc-markets",
+            "locator": "Chapters 2 Regulators, the guardians of capital markets; 3 Market Intermediaries in Stock Markets explained; 6 The Stock Markets. Draw the roles rather than following account-opening steps."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-sebi"
+          ],
+          "assignment": {
+            "id": "trading-a01",
+            "title": "A synthetic market responsibility map",
+            "kind": "design",
+            "instructions": [
+              "Invent a company, a lender and a pooled fund. Describe one claim and one failure risk for each.",
+              "Draw the path of a fictional secondary-market order through broker, exchange, clearing and custody.",
+              "Mark where a dispute about execution differs from a custody problem; consult SEBI's Investor Grievance Redress Mechanism locator."
+            ],
+            "deliverables": [
+              "One labelled lifecycle diagram",
+              "An instrument and responsibility comparison table"
+            ],
+            "acceptanceCriteria": [
+              "Primary issuance and secondary transfer are distinct.",
+              "Debt, equity, funds and derivatives have different obligations and risk descriptions.",
+              "No account, real security recommendation or guaranteed return appears."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q01a",
+                "kind": "single-choice",
+                "prompt": "Which event usually transfers an existing claim rather than raising fresh capital for its issuer?",
+                "choices": [
+                  "A new share issuance",
+                  "A newly issued corporate bond",
+                  "A secondary-market share trade"
+                ],
+                "answer": "A secondary-market share trade",
+                "explanation": "A secondary trade normally transfers an existing security between investors. Issuance raises capital for the issuer; transaction costs and market risks still apply."
+              },
+              {
+                "id": "trading-q01b",
+                "kind": "short-answer",
+                "prompt": "Why does regulated custody not guarantee that a security retains its value?",
+                "answer": "Custody controls safeguard records and assets; they do not remove issuer failure, price changes or liquidity risk.",
+                "explanation": "Identify the boundary between operational protection and investment risk, rather than treating registration as a promise of performance."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Who owes what after each type of transaction?"
+          ],
+          "prerequisites": []
+        },
+        {
+          "id": "trading-l02-quotes-orders",
+          "title": "Read quotes and choose an order contract",
+          "objectives": [
+            "Interpret bid, ask, spread and displayed depth.",
+            "Explain market, limit, stop and stop-limit trade-offs without assuming a fill."
+          ],
+          "topics": [
+            {
+              "title": "Executable information",
+              "details": [
+                "The last trade is not a guaranteed available price.",
+                "Displayed depth can change before an order arrives."
+              ]
+            },
+            {
+              "title": "Order conditions",
+              "details": [
+                "Market orders prioritize execution, not a fixed price.",
+                "A triggered stop becomes a new order; a stop-limit may remain unfilled."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "order-types",
+            "bid-ask"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-markets",
+            "locator": "Chapter 9 The Trading Terminal and Chapter 15 Supplementary note - The 20 market depth or level 3 data. Focus on order conditions and bid/offer depth, not the named broker interface."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a02",
+            "title": "Order tickets against a toy book",
+            "kind": "problem-set",
+            "instructions": [
+              "Use synthetic asks of 10 units at INR 101 and 20 at INR 103, with a best bid of INR 100.",
+              "Compare a market buy of 15 with a limit buy of 15 at INR 101; show filled and remaining quantity under price-time priority.",
+              "Describe what happens to a stop and a stop-limit when the next quote gaps beyond the trigger. Do not submit actual orders."
+            ],
+            "deliverables": [
+              "Four annotated paper order tickets",
+              "A fill and non-fill comparison"
+            ],
+            "acceptanceCriteria": [
+              "The market buy costs INR 1525 before fees under the stated book.",
+              "The limit order never fills above INR 101 and leaves five units unfilled.",
+              "Stop protection is not described as a guaranteed exit price."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q02a",
+                "kind": "numeric",
+                "prompt": "With best bid INR 100 and best ask INR 101, what is the quoted spread in INR?",
+                "answer": 1,
+                "explanation": "The quoted spread is ask minus bid: 101 minus 100. A larger order may pay more by consuming deeper levels."
+              },
+              {
+                "id": "trading-q02b",
+                "kind": "single-choice",
+                "prompt": "After a gap, which risk is especially relevant to a stop-limit sell?",
+                "choices": [
+                  "It may trigger but never fill at its limit",
+                  "It guarantees the stop price",
+                  "It removes all liquidity risk"
+                ],
+                "answer": "It may trigger but never fill at its limit",
+                "explanation": "The limit prevents execution below the permitted price, but buyers may not be available there. Triggering and filling are different events."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which certainty does each order type sacrifice?"
+          ],
+          "prerequisites": [
+            "trading-l01-market-map"
+          ]
+        },
+        {
+          "id": "trading-l03-lifecycle",
+          "title": "Reconcile fills, settlement and corporate actions",
+          "objectives": [
+            "Maintain separate order, cash and position records.",
+            "Explain how splits and dividends affect a paper ledger without creating fictitious gains."
+          ],
+          "topics": [
+            {
+              "title": "Lifecycle states",
+              "details": [
+                "Submitted, partly filled, cancelled and settled are distinct states.",
+                "A cancellation request can race a fill."
+              ]
+            },
+            {
+              "title": "Accounting events",
+              "details": [
+                "Trade date and settlement date differ; consult current official rules.",
+                "Splits change units and price basis; cash dividends require a separate cash entry."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "settlement",
+            "corporate-actions"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-markets",
+            "locator": "Chapters 10 Clearing and Settlement Process and 11 Corporate actions and impact on stock prices. Treat printed settlement timings as historical and verify any current convention at the exchange."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-sebi"
+          ],
+          "assignment": {
+            "id": "trading-a03",
+            "title": "A lifecycle ledger that balances",
+            "kind": "lab",
+            "instructions": [
+              "Start with INR 10000 and no holdings. Record two partial fills of five shares at INR 100, an INR 10 total fee, and a cancellation of an unfilled remainder.",
+              "Apply a two-for-one split and then an invented INR 1 dividend per post-split share.",
+              "Reconcile order quantities, cash, positions and corporate-action identifiers; mark an assumed settlement date separately."
+            ],
+            "deliverables": [
+              "Event ledger and reconciliation worksheet",
+              "A discrepancy checklist"
+            ],
+            "acceptanceCriteria": [
+              "Cash ends at INR 9010 and holdings at 20 shares under the stated assumptions.",
+              "The split alone does not double portfolio value.",
+              "Fill, cancellation and settlement states remain distinguishable."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q03a",
+                "kind": "numeric",
+                "prompt": "Ten shares become how many shares after a two-for-one split?",
+                "answer": 20,
+                "explanation": "Units double while the comparable per-share price and cost basis halve. The split alone creates no economic gain."
+              },
+              {
+                "id": "trading-q03b",
+                "kind": "short-answer",
+                "prompt": "How should a fill arriving after a cancellation request be handled?",
+                "answer": "Reconcile the confirmed fill and actual remaining quantity; do not treat an unacknowledged cancellation request as final.",
+                "explanation": "An order request describes intent. Confirmed execution and settlement records determine obligations."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can each position change be traced to a unique event?"
+          ],
+          "prerequisites": [
+            "trading-l02-quotes-orders"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trading-m02-risk-before-return",
+      "title": "02. Probability and a capital-at-risk budget",
+      "stage": "foundation",
+      "description": "Estimate uncertainty and loss capacity before strategy or leverage.",
+      "prerequisites": [
+        "trading-m01-market-plumbing"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "trading-l04-expectancy",
+          "title": "Separate win rate, expectancy and drawdown",
+          "objectives": [
+            "Compute an assumed payoff distribution after costs.",
+            "Explain why a small sample or a high win rate does not establish an edge."
+          ],
+          "topics": [
+            {
+              "title": "Probability-weighted outcomes",
+              "details": [
+                "Expectancy depends on loss size as well as win frequency.",
+                "Estimated probabilities are uncertain and can change across regimes."
+              ]
+            },
+            {
+              "title": "Path-dependent risk",
+              "details": [
+                "Drawdown measures decline from an equity peak.",
+                "Dependence and clustering make simple independent-trial assumptions fragile."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "expectancy",
+            "drawdown",
+            "sampling"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-probability",
+            "locator": "Lecture 2: Conditioning and Bayes' Rule; use conditional probability to challenge an assumed success rate, not to predict an actual security."
+          },
+          "reading": {
+            "resourceId": "trading-doc-risk",
+            "locator": "Chapters 6 Equity Curve and 7 Expected Returns. Recompute the concepts with the invented distribution below."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-think-stats"
+          ],
+          "assignment": {
+            "id": "trading-a04",
+            "title": "A winning-frequency illusion",
+            "kind": "problem-set",
+            "instructions": [
+              "Model a paper outcome of +INR 100 with probability 0.7 and -INR 300 otherwise, with INR 10 cost per round trip.",
+              "Construct two ten-trade sequences with the same outcomes in different orders; calculate cumulative equity and maximum drawdown.",
+              "Vary the win probability from 0.5 to 0.8 and discuss estimation uncertainty rather than selecting the most attractive case."
+            ],
+            "deliverables": [
+              "Payoff sensitivity table",
+              "Two equity curves and an uncertainty note"
+            ],
+            "acceptanceCriteria": [
+              "Base-case expected net outcome is -INR 30 per trade.",
+              "Different orderings can have different drawdowns despite equal total P&L.",
+              "No historical win rate is treated as a known future probability."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q04a",
+                "kind": "numeric",
+                "prompt": "What is 0.7 times 100 minus 0.3 times 300 minus 10, in INR?",
+                "answer": -30,
+                "explanation": "Expected gains are 70, expected losses are 90 and cost is 10. A 70% win rate can still have negative expectancy."
+              },
+              {
+                "id": "trading-q04b",
+                "kind": "single-choice",
+                "prompt": "Two series have identical total return. Must maximum drawdown also match?",
+                "choices": [
+                  "Yes, drawdown is total return",
+                  "No, the order of outcomes matters",
+                  "Yes, if the trade count matches"
+                ],
+                "answer": "No, the order of outcomes matters",
+                "explanation": "Drawdown uses prior peaks and subsequent troughs, so it depends on the path, not only the endpoint."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which assumption is least supported by your sample?"
+          ],
+          "prerequisites": [
+            "trading-l03-lifecycle",
+            "foundation-lesson-17-probability-sampling"
+          ]
+        },
+        {
+          "id": "trading-l05-sizing",
+          "title": "Size paper positions and stress a failed stop",
+          "objectives": [
+            "Convert an invented risk budget into a bounded whole-unit position.",
+            "Check gap, fee, concentration and cash constraints independently."
+          ],
+          "topics": [
+            {
+              "title": "Sizing mechanics",
+              "details": [
+                "Budget divided by assumed loss per unit gives a candidate size, rounded down.",
+                "Notional exposure, committed cash and risk budget are different quantities."
+              ]
+            },
+            {
+              "title": "Limits of stops",
+              "details": [
+                "Gaps and market closures can exceed a stop-based loss estimate.",
+                "A daily halt and aggregate exposure limit complement individual trade limits."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "position-sizing",
+            "risk-limits"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-risk",
+            "locator": "Chapters 11 Position Sizing for active trader and 12 Position Sizing for active traders (Part 2). Treat percentages as examples, not recommended personal allocations."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a05",
+            "title": "Beginner evidence gate: a stressed paper risk budget",
+            "kind": "lab",
+            "instructions": [
+              "Use fictional equity INR 50000, a self-imposed paper loss budget INR 500, entry INR 100 and assumed exit INR 96 with INR 1 per-unit round-trip cost.",
+              "Compute whole-unit size, then stress an exit at INR 90 and a second correlated position.",
+              "Document conditions that prohibit opening another simulated position; retain the instrument map and ledger from earlier lessons."
+            ],
+            "deliverables": [
+              "Sizing worksheet with base and gap cases",
+              "One-page paper-only risk policy"
+            ],
+            "acceptanceCriteria": [
+              "Base size is 100 units and notional is INR 10000.",
+              "The gap case loses INR 1100, explicitly exceeding the assumed budget.",
+              "Cash, aggregate exposure, daily loss and no-trade conditions are separately stated."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q05a",
+                "kind": "numeric",
+                "prompt": "What is the maximum whole-unit size for an INR 500 budget and INR 5 assumed loss per unit?",
+                "answer": 100,
+                "explanation": "500 divided by 5 is 100. This is conditional on the assumed loss per unit and is not a guaranteed maximum loss."
+              },
+              {
+                "id": "trading-q05b",
+                "kind": "short-answer",
+                "prompt": "Why can a correctly computed stop-based size still breach the risk budget?",
+                "answer": "Execution can gap beyond the stop and costs or liquidity can worsen; correlated positions may lose together.",
+                "explanation": "Sizing arithmetic is only as strong as the scenario assumptions. Stress tests and halt limits address failures of those assumptions."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What invalidates the loss-per-unit estimate?"
+          ],
+          "prerequisites": [
+            "trading-l04-expectancy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trading-m03-execution",
+      "title": "03. Liquidity, execution and transaction costs",
+      "stage": "intermediate",
+      "description": "Explain how a plausible paper strategy loses value between a decision and a reconciled fill.",
+      "prerequisites": [
+        "trading-m02-risk-before-return"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "trading-l06-liquidity",
+          "title": "Measure spread, depth and implementation shortfall",
+          "objectives": [
+            "Separate spread, fees, delay and market impact.",
+            "Show how order size changes a depth-constrained simulated execution."
+          ],
+          "topics": [
+            {
+              "title": "Liquidity is conditional",
+              "details": [
+                "Tight top-of-book spread does not imply deep liquidity.",
+                "Urgency and participation affect achievable prices."
+              ]
+            },
+            {
+              "title": "Cost attribution",
+              "details": [
+                "Use a declared decision-price benchmark.",
+                "Avoid counting the same spread twice in execution and fee assumptions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "liquidity",
+            "transaction-costs"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-markets",
+            "locator": "Chapter 15 Supplementary note - The 20 market depth or level 3 data; compare best quotes with depth at multiple prices."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-money-banking"
+          ],
+          "assignment": {
+            "id": "trading-a06",
+            "title": "A depth-aware cost curve",
+            "kind": "lab",
+            "instructions": [
+              "Create an ask ladder of 20 units at 100, 30 at 101 and 50 at 103; compare buys of 10, 40 and 80 units.",
+              "Use decision midprice 99.5 and a separately stated fictional fee of INR 2 per order.",
+              "Report weighted fill price and total implementation shortfall; explain why the ladder is not a prediction of live impact."
+            ],
+            "deliverables": [
+              "Cost-versus-size table",
+              "One annotated depth chart"
+            ],
+            "acceptanceCriteria": [
+              "The 40-unit weighted price is INR 100.5 before fees.",
+              "The benchmark and fee are explicit and not double-counted.",
+              "The largest order is not granted unlimited liquidity at the best ask."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q06a",
+                "kind": "numeric",
+                "prompt": "Twenty units at 100 and twenty at 101 give what average price?",
+                "answer": 100.5,
+                "numericTolerance": 0.001,
+                "explanation": "Total consideration is 4020 for 40 units, hence 100.5. Fees would be an additional disclosed cost."
+              },
+              {
+                "id": "trading-q06b",
+                "kind": "short-answer",
+                "prompt": "Why is displayed depth insufficient to guarantee the simulated result?",
+                "answer": "Orders can cancel or arrive ahead of yours; latency, hidden liquidity and impact change the book before execution.",
+                "explanation": "A static ladder is a controlled scenario, not a faithful forecast of the future order book."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where did each unit of shortfall arise?"
+          ],
+          "prerequisites": [
+            "trading-l05-sizing"
+          ]
+        },
+        {
+          "id": "trading-l07-fill-policy",
+          "title": "Define defensible paper-fill rules",
+          "objectives": [
+            "Distinguish a touched price from an executable fill.",
+            "Specify partial fills, expiry and ambiguous-bar handling before replay."
+          ],
+          "topics": [
+            {
+              "title": "Simulation contracts",
+              "details": [
+                "OHLC bars do not reveal the sequence of intrabar prices.",
+                "Queue position cannot be inferred from a candle."
+              ]
+            },
+            {
+              "title": "Conservative choices",
+              "details": [
+                "Defer, reject or bracket ambiguous fills explicitly.",
+                "An unfilled order has opportunity cost but no invented execution."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "paper-execution",
+            "fill-assumptions"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-markets",
+            "locator": "Chapter 9 The Trading Terminal: order conditions; Chapter 10 Clearing and Settlement Process: execution versus subsequent obligations."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a07",
+            "title": "An ambiguity-resistant fill specification",
+            "kind": "design",
+            "instructions": [
+              "Write a paper-only contract for market, limit and stop orders using next-bar data, not a live connection.",
+              "Create a bar where both a profit limit and a protective stop are touched; record why their order is unknown.",
+              "Add partial quantity, expired order, missing bar and cancellation-race scenarios with deterministic outcomes."
+            ],
+            "deliverables": [
+              "Fill-policy table",
+              "Six scenario traces"
+            ],
+            "acceptanceCriteria": [
+              "A close-derived signal cannot fill at an earlier price in the same bar.",
+              "Ambiguous stop/limit ordering is not resolved in the profitable direction by default.",
+              "Every trace reconciles remaining quantity and cash."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q07a",
+                "kind": "single-choice",
+                "prompt": "A daily bar touches both exit limits. What can its OHLC values alone establish?",
+                "choices": [
+                  "That both prices were observed, not their order",
+                  "That the profitable exit came first",
+                  "That both orders fully filled"
+                ],
+                "answer": "That both prices were observed, not their order",
+                "explanation": "OHLC data compress the path. Claiming an intrabar ordering or fill quantity requires additional data or an explicit conservative assumption."
+              },
+              {
+                "id": "trading-q07b",
+                "kind": "short-answer",
+                "prompt": "What should a paper simulator do when the next required bar is missing?",
+                "answer": "Follow a predeclared no-fill or halt policy and flag the gap rather than silently inventing a price.",
+                "explanation": "Missing data are an operational condition. Fabricated fills turn uncertainty into misleading precision."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which simulated fills cannot be supported by the data resolution?"
+          ],
+          "prerequisites": [
+            "trading-l06-liquidity"
+          ]
+        },
+        {
+          "id": "trading-l08-attribution",
+          "title": "Reconcile execution quality with a decision journal",
+          "objectives": [
+            "Attribute gross-to-net P&L without hindsight edits.",
+            "Separate strategy error, execution error and process breach."
+          ],
+          "topics": [
+            {
+              "title": "Journal design",
+              "details": [
+                "Timestamp intent, risk check, observed data and simulated execution.",
+                "Retain cancelled and rejected ideas alongside successful cases."
+              ]
+            },
+            {
+              "title": "Attribution",
+              "details": [
+                "Gross return can disappear after turnover and costs.",
+                "Execution quality requires a benchmark chosen before the fill."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "journaling",
+            "execution-attribution"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-risk",
+            "locator": "Chapter 6 Equity Curve and Chapter 15 Trading Biases; use process evidence to distinguish outcomes from decision quality."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a08",
+            "title": "A five-decision execution review",
+            "kind": "lab",
+            "instructions": [
+              "Create five fictional decisions: filled, partly filled, rejected by risk, cancelled and expired.",
+              "For fills, reconcile reference P&L to net P&L using signed price differences and explicit fees.",
+              "Record one process-compliant loss and one profitable process breach, without changing the original entries."
+            ],
+            "deliverables": [
+              "Append-only decision journal",
+              "Gross-to-net reconciliation and corrective action"
+            ],
+            "acceptanceCriteria": [
+              "Non-fills are retained rather than dropped from the decision count.",
+              "P&L arithmetic ties to positions and cash.",
+              "A profitable rule breach is not labelled good process solely because it won."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q08a",
+                "kind": "numeric",
+                "prompt": "Reference profit is INR 120, adverse execution costs INR 35 and explicit fees INR 15. What is net profit?",
+                "answer": 70,
+                "explanation": "120 minus 35 minus 15 equals 70. Cost definitions must be disjoint to avoid double counting."
+              },
+              {
+                "id": "trading-q08b",
+                "kind": "short-answer",
+                "prompt": "Why retain rejected signals in a journal?",
+                "answer": "They show the denominator of decisions, demonstrate risk control operation and prevent selective reporting of only completed or profitable cases.",
+                "explanation": "A complete process record is auditable; a collection of selected wins is not."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which error category calls for a process change rather than a new strategy?"
+          ],
+          "prerequisites": [
+            "trading-l07-fill-policy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trading-m04-evaluation",
+      "title": "04. Strategy hypotheses and honest evaluation",
+      "stage": "intermediate",
+      "description": "Make a falsifiable claim and preserve negative results.",
+      "prerequisites": [
+        "trading-m03-execution"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "trading-l09-hypotheses",
+          "title": "Turn an idea into a falsifiable paper protocol",
+          "objectives": [
+            "State a hypothesis, information boundary and benchmark.",
+            "Identify whether an apparent result is return, exposure or just a measurement artifact."
+          ],
+          "topics": [
+            {
+              "title": "Claims and counterfactuals",
+              "details": [
+                "Trend and mean-reversion narratives are competing hypotheses, not universal laws.",
+                "A cash or simple exposure baseline makes incremental claims explicit."
+              ]
+            },
+            {
+              "title": "Research discipline",
+              "details": [
+                "Freeze entry, exit, sizing, costs and stopping criteria.",
+                "Treat later changes as new experiments."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "strategy-evaluation",
+            "hypothesis"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-efficient-markets",
+            "locator": "Efficient Markets I-III topic page: distinguish available information, prices and testable claims; do not adopt lecture examples as recommendations."
+          },
+          "reading": {
+            "resourceId": "quant-book-fpp3",
+            "locator": "Section 5.2 Some simple forecasting methods and Section 5.8 Evaluating point forecast accuracy. Use simple baselines and genuinely unseen observations."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a09",
+            "title": "A preregistered toy-strategy card",
+            "kind": "design",
+            "instructions": [
+              "Use a synthetic price sequence and specify one delayed moving-average rule plus an always-flat benchmark.",
+              "Write the causal explanation and a result that would count against it; choose costs and risk limits before replay.",
+              "Hash or timestamp the protocol and reserve the final block of observations for a later lesson."
+            ],
+            "deliverables": [
+              "Versioned research card",
+              "Data split diagram and baseline definition"
+            ],
+            "acceptanceCriteria": [
+              "The signal uses only data already available at decision time.",
+              "Net returns and risk are compared with a declared baseline.",
+              "The card includes a falsification criterion, not just a success target."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q09a",
+                "kind": "single-choice",
+                "prompt": "Which statement is testable without redefining success after the run?",
+                "choices": [
+                  "The strategy works whenever conditions are right",
+                  "A good-looking chart proves an edge",
+                  "The frozen rule will beat its stated baseline after declared costs on the reserved block"
+                ],
+                "answer": "The frozen rule will beat its stated baseline after declared costs on the reserved block",
+                "explanation": "A declared rule, metric, cost model and sample can be contradicted by evidence. Unspecified conditions permit hindsight excuses."
+              },
+              {
+                "id": "trading-q09b",
+                "kind": "short-answer",
+                "prompt": "Why compare a rule with a simple exposure baseline?",
+                "answer": "It reveals whether the result adds anything beyond taking the same broad market exposure and its associated risk.",
+                "explanation": "An attractive gross return during a rising market does not isolate the contribution of timing or selection."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What observation would make you retire this hypothesis?"
+          ],
+          "prerequisites": [
+            "trading-l08-attribution"
+          ]
+        },
+        {
+          "id": "trading-l10-holdout",
+          "title": "Audit holdouts, selection bias and fragile results",
+          "objectives": [
+            "Keep development choices separate from final evaluation.",
+            "Report all tried variants and test cost and parameter sensitivity."
+          ],
+          "topics": [
+            {
+              "title": "Selection effects",
+              "details": [
+                "Repeatedly consulting a holdout turns it into development data.",
+                "Many trials can produce a lucky apparent winner."
+              ]
+            },
+            {
+              "title": "Robust reporting",
+              "details": [
+                "Chronological testing respects available information.",
+                "Sparse, dependent samples do not support strong statistical conclusions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "holdout",
+            "overfitting"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-fpp3",
+            "locator": "Section 5.10 Time series cross-validation: rolling forecasting origins; compare with the training/test distinction in 5.8."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-think-stats"
+          ],
+          "assignment": {
+            "id": "trading-a10",
+            "title": "Intermediate evidence gate: a locked evaluation report",
+            "kind": "lab",
+            "instructions": [
+              "Evaluate the frozen l09 rule on the reserved synthetic block once, keeping development trials in a registry.",
+              "Compare no costs, declared costs and doubled costs; perturb one parameter without promoting the best final-block variant.",
+              "Publish the execution ledger, baseline, exposure, drawdown and all negative findings. A failed hypothesis is a valid outcome."
+            ],
+            "deliverables": [
+              "Holdout report and experiment registry",
+              "Cost/parameter sensitivity table"
+            ],
+            "acceptanceCriteria": [
+              "Training, selection and final evaluation periods are labelled.",
+              "Every tried variant is disclosed and the final block does not choose the winner.",
+              "Conclusions are bounded by sample size and fill assumptions, not profitability claims."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q10a",
+                "kind": "single-choice",
+                "prompt": "After changing a rule ten times based on the final block, that block is now best described as what?",
+                "choices": [
+                  "Untouched evidence",
+                  "A guaranteed unbiased test",
+                  "Development data"
+                ],
+                "answer": "Development data",
+                "explanation": "Feedback from the block has influenced the chosen rule. Relabelling it as final evidence does not restore independence."
+              },
+              {
+                "id": "trading-q10b",
+                "kind": "short-answer",
+                "prompt": "What does failure after realistic costs establish?",
+                "answer": "The tested version lacks support under those assumptions; it does not justify ignoring costs or claiming all variants must fail.",
+                "explanation": "State the narrow finding and retain it. Both overclaiming failure and selectively removing adverse costs misrepresent the evidence."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How much of the apparent edge survives unchanged assumptions?"
+          ],
+          "prerequisites": [
+            "trading-l09-hypotheses",
+            "quant-l20-overfitting-audit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trading-m05-derivatives-risk",
+      "title": "05. Derivatives obligations after risk foundations",
+      "stage": "advanced",
+      "description": "Use payoff diagrams and cash-call scenarios, never live derivatives positions.",
+      "prerequisites": [
+        "trading-m04-evaluation"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "trading-l11-futures-margin",
+          "title": "Separate futures notional, margin and loss",
+          "objectives": [
+            "Calculate notional exposure and daily variation cash flows.",
+            "Explain why margin is collateral rather than a cap on losses."
+          ],
+          "topics": [
+            {
+              "title": "Linear obligations",
+              "details": [
+                "Contract multiplier converts price changes into cash changes.",
+                "Leverage magnifies exposure relative to posted collateral."
+              ]
+            },
+            {
+              "title": "Liquidity demands",
+              "details": [
+                "Variation margin can create cash calls before a hedge pays out.",
+                "Default, expiry and physical settlement terms require separate attention."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "futures",
+            "margin",
+            "leverage"
+          ],
+          "video": {
+            "resourceId": "trading-video-futures",
+            "locator": "Forward and Futures Contracts topic: compare bilateral forwards with exchange-cleared futures and mark-to-market cash flows."
+          },
+          "reading": {
+            "resourceId": "trading-doc-futures",
+            "locator": "Chapters 2 Introducing Futures Contract, 4 Leverage & Payoff, 5 Margin & M2M and 13 Quick Note on Physical Settlement. Replace all contract sizes and margins with stated synthetic assumptions."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-sebi"
+          ],
+          "assignment": {
+            "id": "trading-a11",
+            "title": "A margin-call cash ladder",
+            "kind": "problem-set",
+            "instructions": [
+              "Use a fictional contract at 200 with multiplier 50, two long contracts and INR 2000 posted collateral.",
+              "Mark prices to 195, 190 and 185; separate daily losses, cumulative losses and required cash replenishment under your invented margin rule.",
+              "Add an expiry checklist without claiming that real contracts share this specification."
+            ],
+            "deliverables": [
+              "Daily margin/cash ladder",
+              "Notional-versus-collateral explanation"
+            ],
+            "acceptanceCriteria": [
+              "Initial notional is INR 20000.",
+              "A move from 200 to 185 produces INR 1500 loss independent of the chosen collateral figure.",
+              "The report states that larger moves can exceed posted margin."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q11a",
+                "kind": "numeric",
+                "prompt": "Two long contracts with multiplier 50 lose how many INR when price falls by 5?",
+                "answer": 500,
+                "explanation": "The loss magnitude is 2 times 50 times 5 = 500. Posted margin does not change that contractual sensitivity."
+              },
+              {
+                "id": "trading-q11b",
+                "kind": "single-choice",
+                "prompt": "What is initial margin primarily?",
+                "choices": [
+                  "Collateral against obligations",
+                  "The maximum possible loss",
+                  "An advance payment for the contract's full notional value"
+                ],
+                "answer": "Collateral against obligations",
+                "explanation": "Margin supports performance of the contract. Losses and cash calls can exceed the initial amount."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can a sound economic hedge still face a cash shortfall?"
+          ],
+          "prerequisites": [
+            "trading-l05-sizing",
+            "trading-l10-holdout"
+          ]
+        },
+        {
+          "id": "trading-l12-options",
+          "title": "Explain option asymmetry and nonlinear risks",
+          "objectives": [
+            "Compute expiration payoff separately from profit after premium.",
+            "Explain volatility, time decay, assignment and uncovered-writer risk."
+          ],
+          "topics": [
+            {
+              "title": "Rights and obligations",
+              "details": [
+                "The holder has a right; the writer may have an obligation.",
+                "Premium, payoff and profit are different quantities."
+              ]
+            },
+            {
+              "title": "Nonlinear exposure",
+              "details": [
+                "Delta changes with the underlying and time; a payoff chart is not an interim valuation.",
+                "An uncovered call writer can face unbounded loss as the underlying rises."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "options",
+            "nonlinear-risk"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-options",
+            "locator": "Options I for definitions and Options II for payoff diagrams; distinguish an expiration diagram from pre-expiry price sensitivities."
+          },
+          "reading": {
+            "resourceId": "quant-book-money-banking",
+            "locator": "Sections 12.1 Derivatives and Their Functions and 12.3 Options and Swaps. These historical explanations are theory, not current Indian product or tax rules."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-sebi"
+          ],
+          "assignment": {
+            "id": "trading-a12",
+            "title": "An option risk atlas, not a trade recommendation",
+            "kind": "problem-set",
+            "instructions": [
+              "For a fictional strike 100 and premium 8, graph long-call payoff and profit at terminal prices 60, 100, 108, 120 and 180.",
+              "Compare a long put, covered call and uncovered call with explicitly stated inventory and premium assumptions.",
+              "Describe one volatility shock, one time-decay case and one assignment/settlement obligation without using a brokerage platform."
+            ],
+            "deliverables": [
+              "Payoff/profit diagrams",
+              "A rights-and-obligations risk table"
+            ],
+            "acceptanceCriteria": [
+              "Long-call profit at terminal price 120 is 12 per unit before other costs.",
+              "Premium is deducted once, and uncovered call loss is not falsely bounded.",
+              "Interim price risk and expiry settlement risk are distinguished."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q12a",
+                "kind": "numeric",
+                "prompt": "A long call with strike 100 and premium 8 expires at underlying price 120. What is profit per unit before other costs?",
+                "answer": 12,
+                "explanation": "Payoff is max(120 minus 100, 0) = 20; subtracting premium 8 leaves 12."
+              },
+              {
+                "id": "trading-q12b",
+                "kind": "short-answer",
+                "prompt": "Why can an expiry payoff chart mislead someone about risk before expiry?",
+                "answer": "Interim value also depends on volatility, time and other pricing inputs; margin, exercise and liquidity obligations may occur before expiry.",
+                "explanation": "A terminal diagram fixes one horizon. It does not model every path or funding requirement along the way."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which side has an obligation rather than a right?"
+          ],
+          "prerequisites": [
+            "trading-l11-futures-margin"
+          ]
+        },
+        {
+          "id": "trading-l13-hedging",
+          "title": "Evaluate hedge basis and funding mismatches",
+          "objectives": [
+            "Define the exposure a hedge is intended to reduce.",
+            "Stress imperfect price co-movement, timing and contract-size mismatch."
+          ],
+          "topics": [
+            {
+              "title": "Basis risk",
+              "details": [
+                "A proxy hedge may move differently from the exposure.",
+                "A hedge can reduce one risk while introducing liquidity or counterparty risk."
+              ]
+            },
+            {
+              "title": "Effectiveness measures",
+              "details": [
+                "Judge cash-flow variability as well as P&L.",
+                "A static hedge ratio may fail when relationships change."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "hedging",
+            "basis-risk"
+          ],
+          "video": {
+            "resourceId": "trading-video-futures",
+            "locator": "Forward and Futures Contracts: hedging examples; identify assumptions about delivery, timing and the relation between spot and futures."
+          },
+          "reading": {
+            "resourceId": "trading-doc-futures",
+            "locator": "Chapter 11 Hedging with Futures. Critique proxy and timing assumptions rather than following a suggested live hedge."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a13",
+            "title": "A fictional procurement hedge review",
+            "kind": "design",
+            "instructions": [
+              "Model a synthetic buyer needing 100 units next month and a proxy futures contract covering 40 units each.",
+              "Compare no hedge, two contracts and three contracts across matching-price and diverging-basis scenarios.",
+              "Include an earlier margin call than the final purchase date; explain the residual risk even when total economic loss falls."
+            ],
+            "deliverables": [
+              "Scenario cash-flow comparison",
+              "Hedge limitation memo"
+            ],
+            "acceptanceCriteria": [
+              "Rounding leaves either under-hedging or over-hedging explicit.",
+              "At least one proxy-basis scenario worsens the hedge outcome.",
+              "Funding needs are scheduled separately from final economic P&L."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q13a",
+                "kind": "numeric",
+                "prompt": "Two contracts cover 40 units each against a 100-unit exposure. How many units remain unhedged on a simple quantity basis?",
+                "answer": 20,
+                "explanation": "100 minus 2 times 40 leaves 20. Price sensitivity or basis differences may make actual economic coverage less exact."
+              },
+              {
+                "id": "trading-q13b",
+                "kind": "short-answer",
+                "prompt": "Why is a profitable hedge not necessarily an effective hedge?",
+                "answer": "Effectiveness concerns the combined exposure and hedge cash flows; a hedge's stand-alone profit can accompany a larger loss or an unintended speculative exposure.",
+                "explanation": "Assess the risk being reduced, not a selected leg in isolation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which risk moved elsewhere rather than disappearing?"
+          ],
+          "prerequisites": [
+            "trading-l12-options"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trading-m06-portfolio-stress",
+      "title": "06. Portfolio concentration and adverse regimes",
+      "stage": "advanced",
+      "description": "Combine exposures and challenge diversification when market conditions change.",
+      "prerequisites": [
+        "trading-m05-derivatives-risk"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "trading-l14-concentration",
+          "title": "Look through positions to shared risk factors",
+          "objectives": [
+            "Distinguish number of holdings from diversification.",
+            "Explain correlation, gross/net exposure and limitations of variance measures."
+          ],
+          "topics": [
+            {
+              "title": "Portfolio exposures",
+              "details": [
+                "Different instruments may share sector, rate, currency or liquidity factors.",
+                "Net exposure can hide large offsetting gross positions."
+              ]
+            },
+            {
+              "title": "Risk aggregation",
+              "details": [
+                "Correlation is estimated, not fixed.",
+                "Variance and VaR do not cap extreme losses."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "portfolio-risk",
+            "correlation"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-risk",
+            "locator": "Chapters 5 Correlation Matrix & Portfolio Variance and 10 Value at Risk; focus on assumptions and what tail loss is not described."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a14",
+            "title": "A concentration map for four paper positions",
+            "kind": "lab",
+            "instructions": [
+              "Invent four positions with long and short notionals and assign sector, currency and liquidity factors.",
+              "Calculate gross and net exposure and compare a low-correlation estimate with an all-loss-together scenario.",
+              "Add a nonlinear option exposure described by scenarios rather than treating it as a fixed cash-equity position."
+            ],
+            "deliverables": [
+              "Exposure matrix and concentration limits",
+              "Correlation-stress comparison"
+            ],
+            "acceptanceCriteria": [
+              "Gross exposure sums absolute notionals and differs from net.",
+              "At least two named positions share an identified risk factor.",
+              "VaR and historical correlation are not represented as maximum-loss guarantees."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q14a",
+                "kind": "numeric",
+                "prompt": "A paper portfolio is long INR 1000 and short INR 800. What is gross notional exposure?",
+                "answer": 1800,
+                "explanation": "Gross notional sums absolute values: 1000 + 800 = 1800. Net notional is only 200 and can conceal larger two-sided exposure."
+              },
+              {
+                "id": "trading-q14b",
+                "kind": "short-answer",
+                "prompt": "Why can ten holdings fail to diversify a portfolio?",
+                "answer": "They may be exposed to the same sector, funding, liquidity or macro factor, especially in stressed conditions.",
+                "explanation": "Diversification depends on co-movement and economic drivers, not the count of labels."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which factor matters more than the instrument names?"
+          ],
+          "prerequisites": [
+            "trading-l13-hedging"
+          ]
+        },
+        {
+          "id": "trading-l15-regime-stress",
+          "title": "Stress joint price, liquidity and funding shocks",
+          "objectives": [
+            "Construct adverse scenarios without assigning false precision to their probability.",
+            "Distinguish a stress test from a forecast or statistical confidence bound."
+          ],
+          "topics": [
+            {
+              "title": "Regime changes",
+              "details": [
+                "Volatility, correlations and transaction costs may rise together.",
+                "Market closure creates time and funding risk beyond a price move."
+              ]
+            },
+            {
+              "title": "Reverse stress",
+              "details": [
+                "Ask which scenario breaches a fixed loss or cash limit.",
+                "Predefine halt and recovery conditions rather than optimizing the shock away."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "stress-testing",
+            "liquidity-risk"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-risk",
+            "locator": "Chapter 10 Value at Risk and Chapter 6 Equity Curve. Identify why scenario and drawdown analysis are needed in addition to a distribution summary."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a15",
+            "title": "Advanced evidence gate: the adverse-day workbook",
+            "kind": "lab",
+            "instructions": [
+              "Apply a simultaneous adverse price gap, doubled execution cost and delayed exit to the portfolio from l14.",
+              "Add the margin cash-call ladder from l11 and basis mismatch from l13.",
+              "Find a scenario that breaches your capital policy; record a paper halt and requirements for an independent restart review."
+            ],
+            "deliverables": [
+              "Joint-shock workbook with linked payoff schedules",
+              "Breach log and restart checklist"
+            ],
+            "acceptanceCriteria": [
+              "Price, cash and cost assumptions are inspectable and versioned.",
+              "The report includes at least one breached limit and an explicit no-new-orders response.",
+              "A scenario is not labelled an estimated probability or a guarantee of bounded loss."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q15a",
+                "kind": "single-choice",
+                "prompt": "What does a reverse stress test start with?",
+                "choices": [
+                  "The most likely forecast and its average expected loss",
+                  "A failure condition and the scenario that could cause it",
+                  "A historical quantile treated as a fixed maximum loss"
+                ],
+                "answer": "A failure condition and the scenario that could cause it",
+                "explanation": "Reverse stress testing works backward from a breach to plausible combinations of adverse drivers. It is not a probability estimate."
+              },
+              {
+                "id": "trading-q15b",
+                "kind": "short-answer",
+                "prompt": "Why stress liquidity and price jointly?",
+                "answer": "The need to exit can coincide with worse prices, thinner depth and higher funding demand, so isolated shocks may understate the combined failure.",
+                "explanation": "Operational and market risks interact; summing individually benign scenarios can miss the critical combination."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What must be true before resuming the paper workflow?"
+          ],
+          "prerequisites": [
+            "trading-l14-concentration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trading-m07-governed-practice",
+      "title": "07. Journaling, conduct and operational governance",
+      "stage": "professional",
+      "description": "Treat process integrity and explicit abstention as evidence, not as obstacles to a good-looking return.",
+      "prerequisites": [
+        "trading-m06-portfolio-stress"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "trading-l16-journal-review",
+          "title": "Review decisions without rewriting the past",
+          "objectives": [
+            "Use timestamped predecision reasoning to identify behavioral errors.",
+            "Turn a review finding into a falsifiable process improvement."
+          ],
+          "topics": [
+            {
+              "title": "Behavioral traps",
+              "details": [
+                "Outcome bias confuses a lucky result with a sound decision.",
+                "Confirmation and loss aversion can alter data selection or stopping rules."
+              ]
+            },
+            {
+              "title": "Journal governance",
+              "details": [
+                "Corrections are appended with reasons.",
+                "A review samples compliant losses and non-trades as well as wins."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "trading-psychology",
+            "audit-trail"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-risk",
+            "locator": "Chapters 15 Trading Biases and 16 Trading Biases (Part 2). Map each selected bias to an observable journal behavior."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a16",
+            "title": "A process-quality journal audit",
+            "kind": "design",
+            "instructions": [
+              "Create ten synthetic decision entries with original timestamps, available information, risk checks and outcomes.",
+              "Flag a missing precommitment, a hindsight correction and a profitable rule violation.",
+              "Propose a checklist intervention and specify how a later paper batch could show it failed."
+            ],
+            "deliverables": [
+              "Annotated journal sample",
+              "One measurable process improvement"
+            ],
+            "acceptanceCriteria": [
+              "Original entries remain visible after corrections.",
+              "At least one losing but compliant decision is judged separately from profitability.",
+              "The intervention has a checkable adoption/error metric."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q16a",
+                "kind": "single-choice",
+                "prompt": "Calling a risk-limit breach a good decision because it made money is an example of what?",
+                "choices": [
+                  "Confirmation bias about which new observations to collect",
+                  "Outcome bias",
+                  "Availability bias caused by a recent memorable event"
+                ],
+                "answer": "Outcome bias",
+                "explanation": "The result is being used to excuse a process failure. Decision quality must be assessed using the information and constraints known beforehand."
+              },
+              {
+                "id": "trading-q16b",
+                "kind": "short-answer",
+                "prompt": "How should an erroneous journal entry be corrected?",
+                "answer": "Append a dated correction with its reason and retain the original version.",
+                "explanation": "A visible revision history permits audit; replacing the past destroys the distinction between prior belief and hindsight."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Could another reviewer reconstruct your predecision belief?"
+          ],
+          "prerequisites": [
+            "trading-l15-regime-stress"
+          ]
+        },
+        {
+          "id": "trading-l17-halt-drill",
+          "title": "Operate limits, reconciliation and a halt drill",
+          "objectives": [
+            "Define ownership for approvals, exceptions and restart.",
+            "Fail closed when paper positions or input data cannot be trusted."
+          ],
+          "topics": [
+            {
+              "title": "Operational safeguards",
+              "details": [
+                "Stale prices and unresolved position mismatches prohibit new paper orders.",
+                "A halt must be independently visible and not silently reset on restart."
+              ]
+            },
+            {
+              "title": "Review and recovery",
+              "details": [
+                "Separate detection, containment, reconciliation and approval.",
+                "An exception needs an owner, expiry and rationale."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "trading-governance",
+            "kill-switch"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-sre",
+            "locator": "Chapters 13 Emergency Response and 15 Postmortem Culture: Learning from Failure. Apply incident roles and evidence preservation to a disconnected paper workflow."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a17",
+            "title": "A no-new-orders tabletop",
+            "kind": "lab",
+            "instructions": [
+              "Inject a synthetic stale quote and a mismatch between expected and recorded position into your paper ledger.",
+              "Record the halt, preserve the last known-good snapshot and reconcile the mismatch without discarding events.",
+              "Write an approval record that allows restart only after data freshness, limits and positions agree."
+            ],
+            "deliverables": [
+              "Timestamped halt/recovery transcript",
+              "Operator and reviewer checklist"
+            ],
+            "acceptanceCriteria": [
+              "No new simulated exposure is opened after detection.",
+              "Recovery retains the original discrepancy and its resolution.",
+              "Restart requires explicit checks rather than merely rerunning the worksheet."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q17a",
+                "kind": "single-choice",
+                "prompt": "Paper positions disagree with the event ledger. What is the safe next step?",
+                "choices": [
+                  "Pause new orders and reconcile",
+                  "Use the latest UI balance and reconcile after the next batch",
+                  "Accept new orders below the per-order cap without checking aggregate exposure"
+                ],
+                "answer": "Pause new orders and reconcile",
+                "explanation": "Untrusted inventory invalidates risk checks. Preserving evidence and reconciling the source of truth is safer than guessing."
+              },
+              {
+                "id": "trading-q17b",
+                "kind": "short-answer",
+                "prompt": "Why should a halt survive an application restart?",
+                "answer": "Restarting does not resolve the risk condition; persistence prevents a crash or reload from silently bypassing the stop.",
+                "explanation": "The safeguard protects a stateful workflow, not just one running process."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Who can approve a restart, and based on what evidence?"
+          ],
+          "prerequisites": [
+            "trading-l16-journal-review"
+          ]
+        },
+        {
+          "id": "trading-l18-conduct",
+          "title": "Communicate limitations, conflicts and current-rule checks",
+          "objectives": [
+            "Separate educational reporting from recommendations or solicitation.",
+            "Maintain a dated source register without copying stale regulatory figures."
+          ],
+          "topics": [
+            {
+              "title": "Responsible communication",
+              "details": [
+                "Disclose synthetic data, trial selection, costs and conflicts.",
+                "No educational result proves future return or professional qualification."
+              ]
+            },
+            {
+              "title": "Investor safeguards",
+              "details": [
+                "Use official sources to verify intermediary and grievance information.",
+                "Do not seek private information, trade on tips or collect account credentials."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "market-conduct",
+            "source-verification"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-sebi",
+            "locator": "Safeguarding against Securities Market Frauds; Securities Market and Safe Investing; Investor Grievance Redress Mechanism. Record document dates and scope, not unsourced tax or margin figures."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "trading-a18",
+            "title": "A claim-and-source audit",
+            "kind": "design",
+            "instructions": [
+              "Draft an educational summary of your paper research with data limitations and all tried variants.",
+              "Audit five invented promotional claims, including a guaranteed return and a backtest presented as live performance.",
+              "Create a source register with regulator/exchange authority, checked date and a next-verification trigger."
+            ],
+            "deliverables": [
+              "Redlined claims sheet",
+              "Source and conflict-of-interest register"
+            ],
+            "acceptanceCriteria": [
+              "No buy/sell recommendation, guarantee or certification claim remains.",
+              "Paper, historical and live performance are not conflated.",
+              "Time-sensitive rules are linked for verification rather than hard-coded as current facts."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q18a",
+                "kind": "single-choice",
+                "prompt": "Which description is supportable for this curriculum's result?",
+                "choices": [
+                  "Out-of-sample evidence sufficient to authorize real-money use",
+                  "A synthetic paper exercise under stated assumptions",
+                  "A risk-free process because all selected limit checks passed"
+                ],
+                "answer": "A synthetic paper exercise under stated assumptions",
+                "explanation": "The exercises establish learning evidence only, not investment suitability, regulatory authorization or future profitability."
+              },
+              {
+                "id": "trading-q18b",
+                "kind": "short-answer",
+                "prompt": "Why include a checked date next to a regulatory source?",
+                "answer": "Rules and product conditions can change; the date distinguishes verified historical information from an assertion of continuing validity.",
+                "explanation": "A reliable citation states authority, scope and currency instead of implying that an old figure is permanently correct."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which sentence could a reader mistake for investment advice?"
+          ],
+          "prerequisites": [
+            "trading-l17-halt-drill"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trading-m08-paper-capstone",
+      "title": "08. Paper trading evidence and independent challenge",
+      "stage": "professional",
+      "description": "Deliver one auditable research-and-operations dossier; losses and abstentions can satisfy the rubric.",
+      "prerequisites": [
+        "trading-m07-governed-practice"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "trading-l19-replay",
+          "title": "Freeze and replay a complete paper protocol",
+          "objectives": [
+            "Run a bounded paper experiment with immutable inputs.",
+            "Trace each decision from available information through limits to reconciled outcomes."
+          ],
+          "topics": [
+            {
+              "title": "Reproducibility",
+              "details": [
+                "Pin source dates, fixture hash, rule version and costs.",
+                "Retain both accepted and rejected decisions."
+              ]
+            },
+            {
+              "title": "Evidence collection",
+              "details": [
+                "Include a quiet regime, a gap and a liquidity shock.",
+                "Separate experiment scope from claims about real execution."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "paper-capstone",
+            "reproducibility"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-turing-way",
+            "locator": "Reproducible Environments and General guidance and good practice for testing: Document the tests and how to run them. Apply this to a spreadsheet or local script with synthetic inputs."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-risk"
+          ],
+          "assignment": {
+            "id": "trading-a19",
+            "title": "A frozen, inspectable paper replay",
+            "kind": "lab",
+            "instructions": [
+              "Create a reproducible synthetic fixture with at least three distinct regimes and enough observations to exercise every rule, explaining why that size is useful rather than statistically conclusive.",
+              "Freeze the l09 protocol, cost model, split and l05 risk limits before evaluating the reserved block.",
+              "Replay the fixture twice and compare every cash/position event; preserve no-trades, halts and a rejected hypothesis."
+            ],
+            "deliverables": [
+              "Fixture manifest and versioned protocol",
+              "Two matching replay ledgers and a holdout report"
+            ],
+            "acceptanceCriteria": [
+              "The manifest identifies inputs and decision timing.",
+              "Both replays produce identical reconciled states.",
+              "The report covers a cost shock, a gap, a halt and negative evidence."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q19a",
+                "kind": "single-choice",
+                "prompt": "What is the strongest reproducibility evidence here?",
+                "choices": [
+                  "Matching final P&L even when intermediate ledger events differ",
+                  "Matching configuration names without preserving the input snapshot",
+                  "The same frozen inputs and rules reproduce the full ledger"
+                ],
+                "answer": "The same frozen inputs and rules reproduce the full ledger",
+                "explanation": "Reproducing intermediate events and final states supports audit. A selected chart cannot establish which assumptions or decisions produced it."
+              },
+              {
+                "id": "trading-q19b",
+                "kind": "short-answer",
+                "prompt": "What does deterministic replay fail to prove?",
+                "answer": "It does not prove that the fill model is realistic, the data represent future regimes or the strategy will be profitable.",
+                "explanation": "Reproducibility is necessary for scrutiny, not a substitute for validity or external evidence."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can someone reproduce the worst result as easily as the best?"
+          ],
+          "prerequisites": [
+            "trading-l18-conduct"
+          ]
+        },
+        {
+          "id": "trading-l20-capstone",
+          "title": "Defend a paper trading dossier and its stop decision",
+          "objectives": [
+            "Present linked evidence for market mechanics, evaluation and operational safeguards.",
+            "Respond to a skeptical review with corrections, not selective reporting."
+          ],
+          "topics": [
+            {
+              "title": "Evidence standard",
+              "details": [
+                "Each claim points to a ledger, test or cited assumption.",
+                "Document what would invalidate the model or prevent continued paper operation."
+              ]
+            },
+            {
+              "title": "Independent challenge",
+              "details": [
+                "A reviewer or a delayed blind self-review reruns a sample.",
+                "Unresolved discrepancies remain visible and block a positive readiness claim."
+              ]
+            }
+          ],
+          "estimatedMinutes": 420,
+          "canonicalConceptTags": [
+            "capstone",
+            "trading-audit"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-sebi",
+            "locator": "Securities Market and Safe Investing and Safeguarding against Securities Market Frauds: use their investor-protection framing to audit the claims in your final dossier."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-turing-way"
+          ],
+          "assignment": {
+            "id": "trading-a20",
+            "title": "Capstone: an auditable paper-only decision practice",
+            "kind": "project",
+            "instructions": [
+              "Assemble the market map, risk policy, derivative/portfolio stress workbook, locked evaluation, complete journal and replay from earlier stages into one indexed dossier.",
+              "Have a peer or a separate delayed self-review select a losing decision and reproduce its costs, exposure and limit checks from raw events.",
+              "Demonstrate the halt/restart drill and write a continue-paper-only or stop decision with known limitations. Never connect a broker or use real money."
+            ],
+            "deliverables": [
+              "Indexed dossier and reproducible fixture/worksheet or code",
+              "Gross/net, baseline, drawdown and stress report",
+              "Reviewer questions, discrepancies and resolutions",
+              "Halt transcript and bounded final decision memo"
+            ],
+            "acceptanceCriteria": [
+              "Every reported result traces to frozen inputs, versions and explicit fill/cost assumptions.",
+              "All trials, rejected orders and negative results are retained.",
+              "Risk precedes derivatives and margin is not treated as maximum loss.",
+              "A reviewer reproduces sampled cash and position calculations.",
+              "Halt behavior and restart approvals are evidenced, not merely described.",
+              "No profitability threshold, recommendation or certification claim is used as a passing condition."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "trading-q20a",
+                "kind": "single-choice",
+                "prompt": "Which capstone outcome can meet the evidence standard?",
+                "choices": [
+                  "A reproducible loss with a justified stop decision",
+                  "A positive net return with an unresolved position reconciliation gap",
+                  "A simulated profit target met by selecting parameters on the final block"
+                ],
+                "answer": "A reproducible loss with a justified stop decision",
+                "explanation": "The goal is disciplined learning and auditability. A well-supported decision not to proceed is more credible than unsupported profit."
+              },
+              {
+                "id": "trading-q20b",
+                "kind": "short-answer",
+                "prompt": "Name one unresolved issue that should block a favorable review.",
+                "answer": "Examples include a position mismatch, missing trial history, future-data leakage, unsupported fills or an untested halt.",
+                "explanation": "The issue must undermine a material claim or safeguard, and the review should identify what evidence would resolve it."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which limitation would you state first to a skeptical reader?"
+          ],
+          "prerequisites": [
+            "trading-l19-replay"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "SEBI official investor education modules",
+      "url": "https://investor.sebi.gov.in/iematerial.html",
+      "notes": "Named modules and free access checked 2026-09-21. External documents remain at SEBI."
+    },
+    {
+      "title": "Varsity market, risk and derivatives chapter indexes",
+      "url": "https://zerodha.com/varsity/modules/",
+      "notes": "Broker-authored educational material; not personalized advice or a substitute for current official rules."
+    },
+    {
+      "title": "MIT Finance Theory I official video topic index",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/pages/video-lectures-and-slides/",
+      "notes": "Verified topic links, not guessed playlist URLs. Historical theory only."
+    }
+  ],
+  "limitations": [
+    "All Trading practice is synthetic, historical or paper-only: no real money, broker connection, buy/sell recommendation or guaranteed profit. Derivatives can produce losses beyond collateral; risk study comes first.",
+    "Professional Practice is a learning level, not certification, qualification, investment advice or evidence of future profitability.",
+    "Use self-created fixtures or lawfully reusable historical data with a dated source and license. Do not scrape restricted feeds or republish book/video content.",
+    "SEBI and current exchange publications govern Indian rules. Historical US lectures and broker examples do not establish current Indian fees, taxes, margins or settlement conventions.",
+    "Shared Common Foundation, Quant and SDE links retain their original progress IDs. Their learning can be revisited without duplicating completion credit; prerequisites guide order but do not lock previews.",
+    "Capstone assessment is self-reported evidence with a reviewer checklist, not a live trading test. Spreadsheet work can use free LibreOffice; no paid platform, textbook or certificate is required."
+  ]
+}

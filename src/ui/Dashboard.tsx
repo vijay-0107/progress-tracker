@@ -11,11 +11,16 @@ import {
 } from "lucide-react";
 import {
   allLessons,
+  coreLessons,
+  isExtraTopic,
+  lessonCompletion,
   moduleComplete,
   recommendedLessons,
+  requiredLessons,
   trackMeta,
 } from "../content/catalog";
 import { addDays, dayKey, getStreak } from "../domain/progress";
+import type { ProgressState, Track } from "../domain/types";
 import type { LearningProps } from "./shared";
 import {
   ArrowLink,
@@ -27,7 +32,14 @@ import {
 } from "./shared";
 
 export function Dashboard({ catalog, state }: LearningProps) {
-  const lessons = allLessons(catalog);
+  const lessons = coreLessons(catalog);
+  const extraTracks = catalog.tracks.filter((track) =>
+    isExtraTopic(track.trackId),
+  );
+  const extraProgress = lessonCompletion(
+    allLessons({ ...catalog, tracks: extraTracks }),
+    state,
+  );
   const completed = lessons.filter(
     (lesson) => state.lessons[lesson.id]?.manualCompletedAt,
   ).length;
@@ -112,7 +124,7 @@ export function Dashboard({ catalog, state }: LearningProps) {
           icon={<BookOpen size={20} />}
           value={`${completed}`}
           label="Lessons completed"
-          detail={`of ${lessons.length} unique lessons`}
+          detail={`of ${lessons.length} core lessons · extras separate`}
         />
         <Stat
           icon={<Clock3 size={20} />}
@@ -265,57 +277,31 @@ export function Dashboard({ catalog, state }: LearningProps) {
             Choose depth, not everything at once
           </span>
         </div>
-        <div className="path-cards">
-          {catalog.tracks.map((track) => {
-            const meta = trackMeta[track.trackId];
-            const requiredModules = track.modules.filter(
-              (module) => !module.optional,
-            );
-            const units = requiredModules.flatMap((module) =>
-              module.lessons.filter((lesson) => !lesson.optional),
-            );
-            const done = units.filter(
-              (lesson) => state.lessons[lesson.id]?.manualCompletedAt,
-            ).length;
-            const modulesDone = requiredModules.filter((module) =>
-              moduleComplete(module, state),
-            ).length;
-            return (
-              <a
-                href={`#/path/${track.trackId}`}
-                className={`path-card ${track.trackId === "foundation" ? "foundation-card" : ""}`}
-                key={track.trackId}
-                style={{ "--track-color": meta.color } as React.CSSProperties}
-              >
-                <div className="path-card-top">
-                  <span className="path-monogram">{meta.code}</span>
-                  {track.trackId === "foundation" ? (
-                    <span className="subtle-pill">Start here</span>
-                  ) : (
-                    <ArrowRight size={19} />
-                  )}
-                </div>
-                <h3>{meta.label}</h3>
-                <p>{meta.description}</p>
-                <div className="path-card-bottom">
-                  <ProgressBar
-                    value={(done / units.length) * 100}
-                    label={`${meta.label} progress`}
-                  />
-                  <div>
-                    <span>
-                      {modulesDone}/{requiredModules.length}{" "}
-                      {requiredModules.length !== track.modules.length
-                        ? "core modules"
-                        : "modules"}
-                    </span>
-                    <strong>{Math.round((done / units.length) * 100)}%</strong>
-                  </div>
-                </div>
-              </a>
-            );
-          })}
+        <PathCards
+          tracks={catalog.tracks.filter(
+            (track) => !isExtraTopic(track.trackId),
+          )}
+          state={state}
+        />
+      </section>
+      <section className="section-block" aria-labelledby="extra-topics-heading">
+        <div className="section-title">
+          <div>
+            <p className="eyebrow">OPTIONAL. YOUR CHOICE OF DEPTH.</p>
+            <h2 id="extra-topics-heading">Extra Topics</h2>
+          </div>
+          <span className="subtle-pill">
+            {extraProgress.completed} / {extraProgress.total} extra lessons
+            complete
+          </span>
         </div>
+        <p className="muted">
+          Beginner, Intermediate, Advanced and Professional Practice in each
+          topic. These tracks do not reduce core progress or change your saved
+          primary path. Professional Practice describes learning, not
+          certification, qualification or trading profitability.
+        </p>
+        <PathCards tracks={extraTracks} state={state} />
       </section>
       <section className="panel portfolio-progress">
         <span className="portfolio-icon">
@@ -380,6 +366,68 @@ export function Dashboard({ catalog, state }: LearningProps) {
         </p>
       </section>
     </>
+  );
+}
+
+function PathCards({
+  tracks,
+  state,
+}: {
+  tracks: Track[];
+  state: ProgressState;
+}) {
+  return (
+    <div className="path-cards">
+      {tracks.map((track) => {
+        const meta = trackMeta[track.trackId];
+        const modules = track.modules.filter((module) => !module.optional);
+        const progress = lessonCompletion(requiredLessons(track), state);
+        const modulesDone = modules.filter((module) =>
+          moduleComplete(module, state),
+        ).length;
+        return (
+          <a
+            href={`#/path/${track.trackId}`}
+            className={`path-card ${track.trackId === "foundation" ? "foundation-card" : ""}`}
+            key={track.trackId}
+            style={{ "--track-color": meta.color } as React.CSSProperties}
+          >
+            <div className="path-card-top">
+              <span className="path-monogram">{meta.code}</span>
+              {track.trackId === "foundation" ? (
+                <span className="subtle-pill">Start here</span>
+              ) : isExtraTopic(track.trackId) ? (
+                <span className="subtle-pill">Optional topic</span>
+              ) : (
+                <ArrowRight size={19} />
+              )}
+            </div>
+            <h3>{meta.label}</h3>
+            <p>{meta.description}</p>
+            <div className="path-card-bottom">
+              <ProgressBar
+                value={progress.percent}
+                label={`${meta.label} progress`}
+              />
+              <div className="path-card-metrics">
+                <span>
+                  {modulesDone}/{modules.length}{" "}
+                  {modules.length !== track.modules.length
+                    ? "core modules"
+                    : "modules"}
+                </span>
+                <strong>{progress.percent}%</strong>
+              </div>
+              {isExtraTopic(track.trackId) && (
+                <small>
+                  {progress.completed}/{progress.total} topic lessons
+                </small>
+              )}
+            </div>
+          </a>
+        );
+      })}
+    </div>
   );
 }
 

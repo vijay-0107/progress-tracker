@@ -9,6 +9,7 @@ import {
 } from "firebase/firestore";
 import { z } from "zod";
 import type { SyncEntity, SyncRecord } from "../domain/types";
+import { CORE_TRACK_IDS } from "../domain/types";
 
 export const SYNC_COLLECTIONS = [
   "lessons",
@@ -159,15 +160,7 @@ const rubric = z
   )
   .max(32)
   .refine((value) => new Set(value).size === value.length);
-const track = z.enum([
-  "foundation",
-  "data",
-  "sde",
-  "quant",
-  "ai",
-  "gate",
-  "cat",
-]);
+const track = z.enum(CORE_TRACK_IDS);
 const base = { id: identifier, updatedAt: isoTimestamp };
 const notAfter = (value: string | null, updatedAt: string) =>
   value === null || value <= updatedAt;

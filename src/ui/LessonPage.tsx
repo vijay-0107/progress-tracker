@@ -16,7 +16,9 @@ import {
   eligibleLessons,
   findLesson,
   findResource,
+  isExtraTopic,
   resourceEmbed,
+  stageLabel,
   unmetRequirements,
   unmetLessonRequirements,
 } from "../content/catalog";
@@ -40,6 +42,7 @@ import {
   External,
   minutesLabel,
   readableDate,
+  PathLink,
   TrackBadge,
 } from "./shared";
 import { QuestionField } from "./QuestionField";
@@ -156,11 +159,13 @@ export function LessonPage({
       </EmptyState>
     );
   const { lesson, module, track } = found;
-  const video = findResource(catalog, lesson.video.resourceId);
+  const video = lesson.video
+    ? findResource(catalog, lesson.video.resourceId)
+    : null;
   const book = findResource(catalog, lesson.reading.resourceId);
   const readerKey = `${lesson.id}:${book.id}:${book.hostedPath || book.url}`;
   const loadReader = loadedReader === readerKey;
-  const embed = resourceEmbed(video);
+  const embed = video ? resourceEmbed(video) : null;
   const blocked = unmetRequirements(catalog, module, state, paper);
   const priorLessons = unmetLessonRequirements(catalog, lesson, state);
   const questions = lesson.assignment.questions;
@@ -187,7 +192,12 @@ export function LessonPage({
         <div>
           <div className="inline-meta">
             <TrackBadge id={track.trackId} />
-            <span className="stage-badge">{module.stage}</span>
+            <span className="stage-badge">
+              {stageLabel(module.stage, track.trackId)}
+            </span>
+            {isExtraTopic(track.trackId) && (
+              <span className="subtle-pill">Optional topic</span>
+            )}
             <span>
               <Clock3 size={14} />
               {minutesLabel(lesson.estimatedMinutes)} estimated
@@ -216,6 +226,9 @@ export function LessonPage({
           {saved.bookmarked ? "Bookmarked" : "Bookmark"}
         </button>
       </header>
+      {isExtraTopic(track.trackId) && (
+        <p className="notice info">{track.limitations[0]}</p>
+      )}
       {blocked.length > 0 && (
         <details className="notice info">
           <summary>
@@ -229,10 +242,28 @@ export function LessonPage({
           </p>
         </details>
       )}
-      {priorLessons.length > 0 && (
+      {Boolean(lesson.prerequisites?.length) && (
         <div className="notice info">
-          <strong>Prior lesson concepts</strong>
-          <p>{priorLessons.map((item) => item.title).join(" · ")}</p>
+          <div>
+            <strong>
+              Prior lesson concepts · {priorLessons.length} remaining
+            </strong>
+            <ul>
+              {lesson.prerequisites?.map((prerequisiteId) => (
+                <li key={prerequisiteId}>
+                  <PathLink id={prerequisiteId}>
+                    {findLesson(catalog, prerequisiteId)!.lesson.title}
+                  </PathLink>
+                  {state.lessons[prerequisiteId]?.manualCompletedAt &&
+                    " (complete)"}
+                </li>
+              ))}
+            </ul>
+            <p>
+              These links reuse the original lesson and its saved progress, not
+              a second copy.
+            </p>
+          </div>
         </div>
       )}
       {saved.manualCompletedAt && (
@@ -315,71 +346,83 @@ export function LessonPage({
                   ))}
                 </ul>
               </section>
-              <section className="panel lesson-section">
-                <div className="section-title">
-                  <div>
-                    <p className="eyebrow">01 / WATCH & THINK</p>
-                    <h2>{video.title}</h2>
+              {video && lesson.video ? (
+                <section className="panel lesson-section">
+                  <div className="section-title">
+                    <div>
+                      <p className="eyebrow">01 / WATCH & THINK</p>
+                      <h2>{video.title}</h2>
+                    </div>
+                    <Play size={22} />
                   </div>
-                  <Play size={22} />
-                </div>
-                <p>{lesson.video.locator}</p>
-                {embed ? (
-                  <div className="video-frame">
-                    {loadVideo ? (
-                      <iframe
-                        title={`Lecture: ${video.title}`}
-                        src={embed}
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                      />
-                    ) : (
-                      <div className="video-consent">
-                        <button
-                          className="video-play"
-                          onClick={() => setLoadVideo(true)}
-                          aria-label="Load external lecture video"
-                        >
-                          <Play size={29} fill="currentColor" />
-                        </button>
-                        <strong>A lecture, then your own understanding.</strong>
+                  <p>{lesson.video.locator}</p>
+                  {embed ? (
+                    <div className="video-frame">
+                      {loadVideo ? (
+                        <iframe
+                          title={`Lecture: ${video.title}`}
+                          src={embed}
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                        />
+                      ) : (
+                        <div className="video-consent">
+                          <button
+                            className="video-play"
+                            onClick={() => setLoadVideo(true)}
+                            aria-label="Load external lecture video"
+                          >
+                            <Play size={29} fill="currentColor" />
+                          </button>
+                          <strong>
+                            A lecture, then your own understanding.
+                          </strong>
+                          <p>
+                            Load the YouTube privacy-enhanced player. The
+                            provider receives a connection when you choose to
+                            play.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="video-link-card">
+                      <Play size={32} />
+                      <div>
+                        <strong>Watch on the official course page</strong>
                         <p>
-                          Load the YouTube privacy-enhanced player. The provider
-                          receives a connection when you choose to play.
+                          This lecture collection does not have a verified
+                          embeddable player. Use the precise lecture locator
+                          above.
                         </p>
                       </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="video-link-card">
-                    <Play size={32} />
-                    <div>
-                      <strong>Watch on the official course page</strong>
-                      <p>
-                        This lecture collection does not have a verified
-                        embeddable player. Use the precise lecture locator
-                        above.
-                      </p>
+                      <External href={video.url}>Open lecture</External>
                     </div>
-                    <External href={video.url}>Open lecture</External>
+                  )}
+                  <div className="resource-caption">
+                    <span>
+                      {video.provider} · {video.access} · checked{" "}
+                      {video.verifiedOn}
+                    </span>
+                    <External href={video.url}>
+                      Official source / playback fallback
+                    </External>
                   </div>
-                )}
-                <div className="resource-caption">
-                  <span>
-                    {video.provider} · {video.access} · checked{" "}
-                    {video.verifiedOn}
-                  </span>
-                  <External href={video.url}>
-                    Official source / playback fallback
-                  </External>
-                </div>
-                <p className="quiet-note">{video.notes}</p>
-              </section>
+                  <p className="quiet-note">{video.notes}</p>
+                </section>
+              ) : (
+                <p className="notice info">
+                  Reading-led lesson: no verified, topic-specific free video is
+                  required. Use the official reading and practical work below.
+                </p>
+              )}
               <section className="panel lesson-section">
                 <div className="section-title">
                   <div>
-                    <p className="eyebrow">02 / READ WITH PURPOSE</p>
+                    <p className="eyebrow">
+                      {video ? "02" : "01"} / READ WITH PURPOSE
+                    </p>
                     <h2>{book.title}</h2>
                   </div>
                   <BookOpen size={22} />
@@ -535,7 +578,9 @@ export function LessonPage({
                 )}
               </section>
               <section className="panel lesson-section">
-                <p className="eyebrow">03 / CONNECT THE CONCEPTS</p>
+                <p className="eyebrow">
+                  {video ? "03" : "02"} / CONNECT THE CONCEPTS
+                </p>
                 <h2>Look a little closer</h2>
                 <div className="concept-list">
                   {lesson.topics.map((topic, index) => (
@@ -949,18 +994,17 @@ export function LessonPage({
           </section>
           <section className="lesson-checklist">
             <h3>Your lesson, step by step</h3>
-            <p>
-              <span>01</span>Watch the relevant lecture
-            </p>
-            <p>
-              <span>02</span>Read and connect the ideas
-            </p>
-            <p>
-              <span>03</span>Build and check your evidence
-            </p>
-            <p>
-              <span>04</span>Retrieve, reflect and review
-            </p>
+            {[
+              ...(video ? ["Watch the relevant lecture"] : []),
+              "Read and connect the ideas",
+              "Build and check your evidence",
+              "Retrieve, reflect and review",
+            ].map((step, index) => (
+              <p key={step}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {step}
+              </p>
+            ))}
             <a className="arrow-link" href={`#/path/${track.trackId}`}>
               Study guide & source notes <ArrowRight size={15} />
             </a>

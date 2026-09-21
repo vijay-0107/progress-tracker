@@ -966,7 +966,7 @@ summary {
 .path-card-bottom {
   margin-top: auto;
 }
-.path-card-bottom > div:last-child {
+.path-card-metrics {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
@@ -979,6 +979,25 @@ summary {
 }
 .path-card .progress-track {
   height: 4px;
+}
+.stage-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.stage-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.stage-card p {
+  color: var(--muted);
+}
+.stage-card .button {
+  margin-top: auto;
+  white-space: normal;
 }
 .portfolio-progress {
   display: flex;

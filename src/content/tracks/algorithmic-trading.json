@@ -1,0 +1,2262 @@
+{
+  "schemaVersion": 1,
+  "trackId": "algorithmic-trading",
+  "title": "Algorithmic Trading: Causal Research and Guarded Paper Systems",
+  "sourceCheckedOn": "2026-09-21",
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Build a typed, timestamp-aware data fixture and reconcile a simple delayed-signal paper ledger.",
+      "evidence": "A runnable local baseline with data-quality failures, availability-time checks and hand-calculated golden cases."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Implement a causal simulator and report chronological out-of-sample results after costs.",
+      "evidence": "A tested event loop, conservative fills, trial registry and frozen walk-forward report."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Evaluate constrained portfolios and model-based signals under dependence, leakage and adverse regimes.",
+      "evidence": "A portfolio/risk report and an adversarial validation pack that catches contaminated experiments."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Release a reproducible, disconnected paper engine with monitoring, durable halts and recovery controls.",
+      "evidence": "A replayable capstone bundle, no-network execution boundary, kill-switch/restart drill and independent audit memo."
+    }
+  ],
+  "resources": [
+    {
+      "id": "algorithmic-doc-timeseries",
+      "kind": "documentation",
+      "title": "pandas: Time series / date functionality",
+      "url": "https://pandas.pydata.org/docs/user_guide/timeseries.html",
+      "provider": "pandas project",
+      "access": "free",
+      "license": "Official documentation; linked, not redistributed",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Public HTML covers timestamps, resampling and time zones. Pin the version used in your experiment; a business-day frequency is not an exchange holiday calendar. pandas is free and can run locally."
+    },
+    {
+      "id": "algorithmic-doc-asof",
+      "kind": "documentation",
+      "title": "pandas.merge_asof reference",
+      "url": "https://pandas.pydata.org/docs/reference/api/pandas.merge_asof.html",
+      "provider": "pandas project",
+      "access": "free",
+      "license": "Official documentation; linked, not redistributed",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Verified sorted-key requirement and backward/forward/nearest, tolerance and allow_exact_matches parameters. The function does not automatically identify a correct availability timestamp or eliminate financial leakage."
+    },
+    {
+      "id": "algorithmic-doc-splits",
+      "kind": "documentation",
+      "title": "scikit-learn: TimeSeriesSplit",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html",
+      "provider": "scikit-learn developers",
+      "access": "free",
+      "license": "Official documentation; linked, not redistributed",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Public reference documents expanding training sets, gap and test_size, with an equal-spacing caveat for comparable fold durations. It does not automatically purge overlapping financial labels or fit transformations without leakage."
+    },
+    {
+      "id": "algorithmic-doc-research",
+      "kind": "documentation",
+      "title": "QuantConnect documentation: Research Guide",
+      "url": "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide",
+      "provider": "QuantConnect",
+      "access": "free",
+      "license": "Public documentation; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Read hypothesis development and research pitfalls only. This curriculum requires neither the hosted platform, market-data subscription, brokerage account nor paid features. Implement original synthetic exercises locally."
+    },
+    {
+      "id": "algorithmic-doc-realism",
+      "kind": "documentation",
+      "title": "QuantConnect documentation: Reality Modeling key concepts",
+      "url": "https://www.quantconnect.com/docs/v2/writing-algorithms/reality-modeling/key-concepts",
+      "provider": "QuantConnect",
+      "access": "free",
+      "license": "Public documentation; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Public descriptions of fills, fees, slippage, portfolio and capacity models. Defaults assume liquid assets; realistic live performance is not guaranteed. Use this as a taxonomy, not a requirement to use the service."
+    },
+    {
+      "id": "algorithmic-doc-unittest",
+      "kind": "documentation",
+      "title": "Python: unittest framework reference",
+      "url": "https://docs.python.org/3/library/unittest.html",
+      "provider": "Python Software Foundation",
+      "access": "free",
+      "license": "Official Python documentation; link-only in this curriculum",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Use Basic example, test discovery and assert methods for local deterministic cases. No external service or account is needed; standard-library tests are sufficient for the core route."
+    }
+  ],
+  "modules": [
+    {
+      "id": "algorithmic-m01-data-contracts",
+      "title": "01. Programming and point-in-time research data",
+      "stage": "foundation",
+      "description": "Start with inspectable local files, explicit types and data that were actually available at each decision.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "algorithmic-l01-research-contract",
+          "title": "Create a small, reproducible Python research contract",
+          "objectives": [
+            "Separate pure calculations from file and clock access.",
+            "Validate a synthetic price record and fail visibly on invalid input."
+          ],
+          "topics": [
+            {
+              "title": "Program boundaries",
+              "details": [
+                "Inputs, outputs, units and error conditions belong in the contract.",
+                "A research function must not place orders or depend on an uncontrolled current time."
+              ]
+            },
+            {
+              "title": "Local reproducibility",
+              "details": [
+                "Pin interpreter and dependency versions and record the command.",
+                "Keep fixture generation deterministic and original source data immutable."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "python",
+            "reproducibility",
+            "contracts"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-functions",
+            "locator": "CS50P Week 0 - Functions: parameters, return values and decomposition; reuse the Common Foundation lecture."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Python Tutorial sections 4.8 Defining Functions and 8 Errors and Exceptions; define contracts and explicit invalid-record errors."
+          },
+          "supplementaryResourceIds": [
+            "algorithmic-doc-unittest"
+          ],
+          "assignment": {
+            "id": "algorithmic-a01",
+            "title": "A no-network price transformation",
+            "kind": "coding",
+            "instructions": [
+              "Write a pure function accepting symbol, timestamp, price and quantity with explicit units.",
+              "Use six invented records: valid, missing price, negative quantity, duplicate ID, invalid timestamp and non-finite price.",
+              "Return valid normalized records and an explicit rejection report; document a local command and environment without any broker library."
+            ],
+            "deliverables": [
+              "Small Python module and six test cases",
+              "Environment and run instructions"
+            ],
+            "acceptanceCriteria": [
+              "No invalid or non-finite number reaches return calculations.",
+              "Errors identify the rejected record and reason rather than replacing values with zero.",
+              "Repeated runs of the same fixture are identical and require no network."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q01a",
+                "kind": "single-choice",
+                "prompt": "A missing price should become which of these?",
+                "choices": [
+                  "An explicit invalid-record outcome",
+                  "Zero without a warning",
+                  "The next future price"
+                ],
+                "answer": "An explicit invalid-record outcome",
+                "explanation": "Silent zero substitution corrupts returns; a future fill can introduce leakage. Rejection or a declared missing-data policy must be visible."
+              },
+              {
+                "id": "algorithmic-q01b",
+                "kind": "short-answer",
+                "prompt": "Why inject a decision timestamp instead of reading the current clock inside a research function?",
+                "answer": "An explicit timestamp makes availability checks reproducible and prevents results from depending on when the function happens to run.",
+                "explanation": "Time is part of the model input, not an invisible dependency."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can the function be tested without a file, clock or network?"
+          ],
+          "prerequisites": [
+            "foundation-lesson-04-functions-contracts",
+            "foundation-lesson-06-modules-environments"
+          ]
+        },
+        {
+          "id": "algorithmic-l02-bars-calendars",
+          "title": "Normalize bars without inventing market observations",
+          "objectives": [
+            "Handle time zones, duplicates and session boundaries.",
+            "Distinguish a missing observation from a zero-volume or closed-market interval."
+          ],
+          "topics": [
+            {
+              "title": "Temporal contracts",
+              "details": [
+                "State whether a timestamp names bar opening, closing or publication.",
+                "A local date, UTC instant and exchange session are not interchangeable."
+              ]
+            },
+            {
+              "title": "Quality policy",
+              "details": [
+                "Missing bars and duplicate revisions require different handling.",
+                "Forward filling for a mark is not permission to invent tradable volume."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "data-quality",
+            "market-calendars"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "algorithmic-doc-timeseries",
+            "locator": "Time zone handling; Resampling; DateOffset objects. Explain why generic business-day offsets alone do not encode an exchange's calendar."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a02",
+            "title": "A bar-quality quarantine",
+            "kind": "coding",
+            "instructions": [
+              "Create a 12-row synthetic bar file with one duplicate, one out-of-order row, one missing interval and one ambiguous naive timestamp.",
+              "Normalize only records with an explicit time-zone policy; produce a quarantine report for unresolved rows.",
+              "Resample a valid subset and record closed/open interval choices, with a test showing that resampling cannot create execution volume."
+            ],
+            "deliverables": [
+              "Input fixture and normalized/quarantined outputs",
+              "Calendar and resampling tests"
+            ],
+            "acceptanceCriteria": [
+              "No local-time ambiguity is silently guessed.",
+              "Duplicate resolution preserves provenance and is deterministic.",
+              "A missing interval cannot create a simulated trade by forward filling volume."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q02a",
+                "kind": "single-choice",
+                "prompt": "What does a missing one-minute bar prove?",
+                "choices": [
+                  "That the price was zero",
+                  "That unlimited volume traded at the last price",
+                  "Only that the observation is missing under the feed contract"
+                ],
+                "answer": "Only that the observation is missing under the feed contract",
+                "explanation": "A missing record may reflect closure, no trades or feed failure. Its meaning must be established before resampling or filling."
+              },
+              {
+                "id": "algorithmic-q02b",
+                "kind": "short-answer",
+                "prompt": "Why must a bar-close signal not use a bar labelled by its opening time without further checks?",
+                "answer": "The completed bar may contain future observations relative to the label; its close becomes available only after the bar ends and is published.",
+                "explanation": "Labels and availability are different clocks."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What is the earliest instant at which this bar is usable?"
+          ],
+          "prerequisites": [
+            "algorithmic-l01-research-contract",
+            "foundation-lesson-09-quality-provenance"
+          ]
+        },
+        {
+          "id": "algorithmic-l03-vintages",
+          "title": "Build an availability-time and universe-history join",
+          "objectives": [
+            "Join features by publication time rather than their economic period.",
+            "Preserve revisions, delistings and historical membership."
+          ],
+          "topics": [
+            {
+              "title": "Point-in-time data",
+              "details": [
+                "Event time describes what happened; availability time describes when it could be known.",
+                "Revised values must not replace earlier vintages in an old decision."
+              ]
+            },
+            {
+              "title": "Survivorship and actions",
+              "details": [
+                "Today's surviving instruments are not yesterday's full universe.",
+                "Raw prices and adjusted series need explicit corporate-action and publication conventions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "point-in-time",
+            "survivorship",
+            "leakage"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "algorithmic-doc-asof",
+            "locator": "Parameters direction, tolerance, allow_exact_matches and by; use sorted availability times and backward matches, with an explicit publication-latency rule."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-turing-way"
+          ],
+          "assignment": {
+            "id": "algorithmic-a03",
+            "title": "A two-clock counterexample fixture",
+            "kind": "coding",
+            "instructions": [
+              "Invent an earnings record for period-end day 1 released on day 5 and revised on day 9.",
+              "Evaluate decisions on days 3, 6 and 10 using only then-available vintages; include one instrument removed from the universe on day 8.",
+              "Compare an intentionally wrong event-date join with the correct availability join and retain a failing regression test."
+            ],
+            "deliverables": [
+              "Vintage and membership tables",
+              "Join tests with expected values at three decision dates"
+            ],
+            "acceptanceCriteria": [
+              "Day 3 cannot see the release and day 6 cannot see the revision.",
+              "The removed instrument is retained in earlier membership and loss history.",
+              "Tolerance, equality and adjustment policies are documented rather than delegated blindly to merge_asof."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q03a",
+                "kind": "single-choice",
+                "prompt": "A day-1 value is first published on day 5. Which decision can legitimately use it?",
+                "choices": [
+                  "A day-6 decision, subject to delivery latency",
+                  "A day-2 decision because the period ended",
+                  "Every past decision after later revision"
+                ],
+                "answer": "A day-6 decision, subject to delivery latency",
+                "explanation": "Economic period labels do not make a value observable. Publication and actual availability must precede the decision."
+              },
+              {
+                "id": "algorithmic-q03b",
+                "kind": "short-answer",
+                "prompt": "How can removing delisted instruments bias a backtest?",
+                "answer": "It can remove failed or adverse histories that an earlier investor could have held, overstating the apparent performance of the selected universe.",
+                "explanation": "Historical membership is part of the data-generating process, not just a current lookup table."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which future fact could still enter through metadata?"
+          ],
+          "prerequisites": [
+            "algorithmic-l02-bars-calendars",
+            "quant-l10-availability-time"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithmic-m02-baselines",
+      "title": "02. Returns, baselines and accounting invariants",
+      "stage": "foundation",
+      "description": "Establish a correct simple system before optimizing or adding machine learning.",
+      "prerequisites": [
+        "algorithmic-m01-data-contracts"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "algorithmic-l04-ledger",
+          "title": "Compute returns from a cash-and-position ledger",
+          "objectives": [
+            "Reconcile equity, cash, holdings, dividends and fees.",
+            "Distinguish simple returns, compounding and valuation assumptions."
+          ],
+          "topics": [
+            {
+              "title": "Accounting first",
+              "details": [
+                "Equity is cash plus marked holdings under a declared mark policy.",
+                "Splits and dividends must not be double counted in prices and cash."
+              ]
+            },
+            {
+              "title": "Return measurement",
+              "details": [
+                "Compound period returns rather than adding percentages.",
+                "External deposits are not trading profits."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "backtest-accounting",
+            "returns"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-markets",
+            "locator": "Chapter 11 Corporate actions and impact on stock prices; distinguish mechanical price adjustments from cash entitlements."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a04",
+            "title": "A hand-checkable portfolio ledger",
+            "kind": "coding",
+            "instructions": [
+              "Start with cash 1000, buy five units at 100 with total fee 2, then mark at 110 and credit a synthetic dividend of 1 per unit.",
+              "Add a two-for-one split, preserving equity under a corresponding halved mark.",
+              "Test a deposit as an external flow, not strategy P&L, and declare whether dividend-adjusted prices are excluded."
+            ],
+            "deliverables": [
+              "Ledger implementation and hand calculation",
+              "Corporate-action and external-flow tests"
+            ],
+            "acceptanceCriteria": [
+              "Equity before the split is 1053 under the specified events.",
+              "The split preserves equity and doubles units.",
+              "Dividends and external deposits cannot be double counted as return."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q04a",
+                "kind": "numeric",
+                "prompt": "Returns of +10% followed by -10% leave what total percentage return?",
+                "answer": -1,
+                "explanation": "1.10 times 0.90 equals 0.99, so the total return is -1%, not zero."
+              },
+              {
+                "id": "algorithmic-q04b",
+                "kind": "short-answer",
+                "prompt": "Why does adding cash to an account not prove strategy profitability?",
+                "answer": "A deposit is an external flow; performance must separate it from gains or losses earned on exposure.",
+                "explanation": "A growing equity balance can reflect new funding rather than trading return."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can every change in equity be explained by an event or mark?"
+          ],
+          "prerequisites": [
+            "algorithmic-l03-vintages"
+          ]
+        },
+        {
+          "id": "algorithmic-l05-delayed-baseline",
+          "title": "Implement a delayed signal and simple baselines",
+          "objectives": [
+            "Separate observation, decision and simulated execution timestamps.",
+            "Compare a candidate rule with flat and constant-exposure baselines."
+          ],
+          "topics": [
+            {
+              "title": "Signal timing",
+              "details": [
+                "A closing observation cannot justify an earlier same-bar fill.",
+                "A rolling window's alignment must be explicit."
+              ]
+            },
+            {
+              "title": "Baseline design",
+              "details": [
+                "A simple baseline can expose accidental look-ahead or exposure differences.",
+                "All comparators need the same data and accounting conventions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "causal-signal",
+            "baseline"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "algorithmic-doc-research",
+            "locator": "Hypothesis Development: state a cause/effect claim before implementing a rule. Use original synthetic rules, not the page's suggested trading examples."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-fpp3"
+          ],
+          "assignment": {
+            "id": "algorithmic-a05",
+            "title": "A one-step-delayed toy signal",
+            "kind": "coding",
+            "instructions": [
+              "Use twelve invented closes and a three-observation trailing average; begin decisions only after a full window exists.",
+              "Execute any position change at the next available synthetic observation, with no intrabar price assumptions.",
+              "Run flat, constant-one-unit and delayed-signal comparators through the same ledger and print the timestamp of every decision/fill."
+            ],
+            "deliverables": [
+              "Three baseline traces",
+              "A timing diagram and alignment test"
+            ],
+            "acceptanceCriteria": [
+              "Changing a future price cannot change an earlier signal.",
+              "Warm-up observations produce no unsupported trades.",
+              "Baselines use identical cost and mark policies."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q05a",
+                "kind": "single-choice",
+                "prompt": "A signal calculated from today's close can safely use which declared paper execution assumption?",
+                "choices": [
+                  "Yesterday's close",
+                  "The next available observation after the decision",
+                  "Today's low selected after seeing the full bar"
+                ],
+                "answer": "The next available observation after the decision",
+                "explanation": "The decision cannot cause a trade before its inputs become available. Even next-observation execution remains a disclosed approximation."
+              },
+              {
+                "id": "algorithmic-q05b",
+                "kind": "short-answer",
+                "prompt": "What does a future-perturbation test check?",
+                "answer": "It changes later data and verifies that earlier features and decisions remain unchanged.",
+                "explanation": "This directly probes causal dependence and can reveal centered windows or improperly fitted transformations."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What exactly is known when the signal is emitted?"
+          ],
+          "prerequisites": [
+            "algorithmic-l04-ledger"
+          ]
+        },
+        {
+          "id": "algorithmic-l06-golden-tests",
+          "title": "Prove the baseline with golden traces and invariants",
+          "objectives": [
+            "Use hand-derived cases before trusting aggregate metrics.",
+            "Test conservation, determinism and explicit failure behavior."
+          ],
+          "topics": [
+            {
+              "title": "Golden examples",
+              "details": [
+                "Small expected event traces reveal timing and sign errors.",
+                "A passing profit metric can hide compensating accounting mistakes."
+              ]
+            },
+            {
+              "title": "Invariants",
+              "details": [
+                "Filled plus remaining quantity must match accepted quantity.",
+                "Duplicate events must not create duplicate cash effects."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "testing",
+            "ledger-invariants"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-tests",
+            "locator": "CS50P Week 5 - Unit Tests: test boundaries and failing cases; apply to the original ledger rather than copying course problems."
+          },
+          "reading": {
+            "resourceId": "algorithmic-doc-unittest",
+            "locator": "Basic example, test discovery, assertEqual and assertRaises. Write golden-state assertions and explicit rejection tests."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a06",
+            "title": "Beginner evidence gate: a trusted local baseline",
+            "kind": "coding",
+            "instructions": [
+              "Write golden traces for no trades, one round trip, split/dividend, duplicate event and missing price.",
+              "Add invariants for cash/position reconciliation and decision-before-fill timing.",
+              "Publish one command that runs fixture validation, baseline replay and tests in a clean local environment."
+            ],
+            "deliverables": [
+              "Executable regression suite",
+              "Five golden ledgers and a reproducibility README in the learner's project"
+            ],
+            "acceptanceCriteria": [
+              "At least one intentionally broken timing or fee implementation fails a targeted test.",
+              "Duplicate events are rejected or idempotently ignored with an explicit report.",
+              "Results reconcile exactly on integer-unit fixtures; any floating tolerance is justified."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q06a",
+                "kind": "single-choice",
+                "prompt": "Which assertion most directly catches charging a fee twice?",
+                "choices": [
+                  "Expected cash after a one-trade golden case",
+                  "The final chart has a title",
+                  "The strategy has many trades"
+                ],
+                "answer": "Expected cash after a one-trade golden case",
+                "explanation": "A hand-derived cash balance isolates the fee effect. Presentation and trade counts do not establish accounting correctness."
+              },
+              {
+                "id": "algorithmic-q06b",
+                "kind": "short-answer",
+                "prompt": "Why retain the test that first exposed a bug?",
+                "answer": "It records the failure contract and prevents future changes from silently reintroducing the same error.",
+                "explanation": "A regression suite is evidence of known failure handling, not proof that every possible bug is absent."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which invariant fails earliest when an event is duplicated?"
+          ],
+          "prerequisites": [
+            "algorithmic-l05-delayed-baseline",
+            "foundation-lesson-13-testing-debugging"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithmic-m03-simulator",
+      "title": "03. Event-driven backtesting and realistic frictions",
+      "stage": "intermediate",
+      "description": "Make event order, fills, capacity and transaction costs inspectable.",
+      "prerequisites": [
+        "algorithmic-m02-baselines"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "algorithmic-l07-event-clock",
+          "title": "Build a causal event loop and explicit order state",
+          "objectives": [
+            "Order data, signal, risk, order and fill events deterministically.",
+            "Separate a requested action from a confirmed simulated effect."
+          ],
+          "topics": [
+            {
+              "title": "Event ordering",
+              "details": [
+                "Tied timestamps need a documented stable tie-breaker.",
+                "Publication, processing and fill latency are separate assumptions."
+              ]
+            },
+            {
+              "title": "State transitions",
+              "details": [
+                "Pending, accepted, partially filled, cancelled and expired states have permitted transitions.",
+                "Rejected orders cannot affect inventory."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "event-driven",
+            "causal-clock"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "algorithmic-doc-realism",
+            "locator": "Introduction and reality-model categories: distinguish fill, fee and portfolio responsibilities rather than hiding them in the signal function."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a07",
+            "title": "A deterministic paper event engine",
+            "kind": "coding",
+            "instructions": [
+              "Implement typed events for data arrival, decision, risk approval, order and fill using an in-memory queue.",
+              "Define tie-breakers for same-time events and reject a fill that precedes the approved order.",
+              "Replay a cancellation/partial-fill race and compare a golden final state."
+            ],
+            "deliverables": [
+              "Event-state diagram and local engine",
+              "Race and timestamp regression tests"
+            ],
+            "acceptanceCriteria": [
+              "Every fill references an accepted order and a causally later available observation.",
+              "Identical event streams yield identical transitions.",
+              "Invalid transitions surface an error without mutating cash or positions."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q07a",
+                "kind": "single-choice",
+                "prompt": "What is required when two events share a timestamp?",
+                "choices": [
+                  "A documented deterministic ordering rule",
+                  "Whichever order produces more profit",
+                  "Random ordering without a recorded seed"
+                ],
+                "answer": "A documented deterministic ordering rule",
+                "explanation": "Same-time processing can change available information or position state. The rule must be stable and justified, not outcome-selected."
+              },
+              {
+                "id": "algorithmic-q07b",
+                "kind": "short-answer",
+                "prompt": "Why not update positions when an order is merely submitted?",
+                "answer": "Submission is intent; rejection, delay or partial execution can change the actual effect. Positions should reflect confirmed simulated fills.",
+                "explanation": "Conflating intent and execution makes risk and cash accounting unreliable."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which transition proves that inventory actually changed?"
+          ],
+          "prerequisites": [
+            "algorithmic-l06-golden-tests",
+            "quant-l18-causal-backtest-clock"
+          ]
+        },
+        {
+          "id": "algorithmic-l08-cost-capacity",
+          "title": "Model spread, fees, impact and capacity limits",
+          "objectives": [
+            "Specify disjoint transaction-cost components.",
+            "Stress execution as order size becomes large relative to available volume."
+          ],
+          "topics": [
+            {
+              "title": "Friction model",
+              "details": [
+                "Price-side slippage and separate fees must not overlap.",
+                "Turnover drives repeated costs even for low net exposure."
+              ]
+            },
+            {
+              "title": "Capacity",
+              "details": [
+                "A participation limit bounds assumed available volume.",
+                "Historical volume is not a guarantee of executable liquidity."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "slippage",
+            "capacity",
+            "fees"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "algorithmic-doc-realism",
+            "locator": "Reality models for fees, fills, slippage and capacity; note the documentation's highly-liquid-assets default assumption."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-markets"
+          ],
+          "assignment": {
+            "id": "algorithmic-a08",
+            "title": "A size-sensitive cost model",
+            "kind": "coding",
+            "instructions": [
+              "Define an invented half-spread, per-order fee and increasing size/volume impact term with stated units.",
+              "Cap simulated fills at 10% of an invented bar's 200-unit volume and carry or expire the remainder according to policy.",
+              "Compare net results at 1x and 2x costs without fitting the assumptions to the preferred strategy."
+            ],
+            "deliverables": [
+              "Cost model with dimensional checks",
+              "Sensitivity and capacity report"
+            ],
+            "acceptanceCriteria": [
+              "At most 20 units fill under the stated participation assumption.",
+              "Buy and sell adverse slippage have correct opposite price signs.",
+              "Zero-volume bars produce no market fill and an explicit reason."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q08a",
+                "kind": "numeric",
+                "prompt": "A paper participation cap is 10% of 200 units. How many units may fill?",
+                "answer": 20,
+                "explanation": "0.10 times 200 is 20. This is a modelling limit, not a promise that even those 20 units are available in a real queue."
+              },
+              {
+                "id": "algorithmic-q08b",
+                "kind": "short-answer",
+                "prompt": "Why should adverse sell slippage lower the fill price?",
+                "answer": "A worse sell receives less money, whereas a worse buy pays more; applying the same signed price offset to both sides can overstate performance.",
+                "explanation": "Cost sign conventions must follow the cash-flow direction."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which assumption breaks first as capital scales up?"
+          ],
+          "prerequisites": [
+            "algorithmic-l07-event-clock"
+          ]
+        },
+        {
+          "id": "algorithmic-l09-fill-failures",
+          "title": "Handle partial fills, missing data and cancellation races",
+          "objectives": [
+            "Preserve a quantity-conserving lifecycle under adverse events.",
+            "Mark unsupported execution assumptions visibly rather than fabricating liquidity."
+          ],
+          "topics": [
+            {
+              "title": "Failure cases",
+              "details": [
+                "Rejected and expired orders retain IDs and reasons.",
+                "A cancel request may be overtaken by an earlier fill."
+              ]
+            },
+            {
+              "title": "Bar ambiguity",
+              "details": [
+                "OHLC data cannot establish stop/limit ordering.",
+                "Missing feed data should trigger an explicit halt or no-fill state."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "partial-fills",
+            "simulation-failures"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-markets",
+            "locator": "Chapter 9 The Trading Terminal: distinguish order instructions from executions; Chapter 15 market depth: available quantity is finite."
+          },
+          "supplementaryResourceIds": [
+            "algorithmic-doc-realism"
+          ],
+          "assignment": {
+            "id": "algorithmic-a09",
+            "title": "A fill-state adversarial suite",
+            "kind": "coding",
+            "instructions": [
+              "Send a 30-unit paper order, fill 12, then interleave a 5-unit fill with a cancellation acknowledgement.",
+              "Add duplicate acknowledgement, expiry, absent next bar and a bar touching both stop and limit.",
+              "Specify the conservative outcome of each ambiguity and reconcile all remaining quantities."
+            ],
+            "deliverables": [
+              "Six failure traces",
+              "Lifecycle/property regression suite"
+            ],
+            "acceptanceCriteria": [
+              "The 17 confirmed filled units remain held after cancellation.",
+              "Filled plus cancelled/remaining quantity never exceeds the accepted quantity.",
+              "An unsupported profitable intrabar ordering is not silently assumed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q09a",
+                "kind": "numeric",
+                "prompt": "A 30-unit order fills 12 then 5 before the remainder is cancelled. How many units were filled?",
+                "answer": 17,
+                "explanation": "Cancellation affects only the remaining 13 units; it does not undo the 17 already filled."
+              },
+              {
+                "id": "algorithmic-q09b",
+                "kind": "short-answer",
+                "prompt": "What evidence should accompany an ambiguous-bar policy?",
+                "answer": "The policy version, the affected events and sensitivity to a conservative alternative should be recorded.",
+                "explanation": "Making uncertainty inspectable is more honest than treating an arbitrary assumption as observed execution."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does every exceptional path preserve inventory and audit history?"
+          ],
+          "prerequisites": [
+            "algorithmic-l08-cost-capacity"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithmic-m04-validation",
+      "title": "04. Walk-forward evaluation and research selection",
+      "stage": "intermediate",
+      "description": "Keep chronology, preprocessing, parameter selection and final evidence separate.",
+      "prerequisites": [
+        "algorithmic-m03-simulator"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "algorithmic-l10-walk-forward",
+          "title": "Design walk-forward folds and protect label horizons",
+          "objectives": [
+            "Implement chronological training, validation and final test blocks.",
+            "Purge overlapping labels and fit preprocessing only within each training fold."
+          ],
+          "topics": [
+            {
+              "title": "Split design",
+              "details": [
+                "Expanding and rolling windows answer different stability questions.",
+                "A gap measured in rows is not automatically a purge based on label end-times."
+              ]
+            },
+            {
+              "title": "Leakage beyond rows",
+              "details": [
+                "Scaling, imputation and feature selection can leak if fitted globally.",
+                "Uneven time spacing requires care when comparing fold durations."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "walk-forward",
+            "purging",
+            "temporal-validation"
+          ],
+          "video": {
+            "resourceId": "quant-video-stanford-islp",
+            "locator": "5.Py Cross-Validation I 2023: contrast ordinary cross-validation with the chronological, overlap-aware design required here."
+          },
+          "reading": {
+            "resourceId": "algorithmic-doc-splits",
+            "locator": "TimeSeriesSplit definition, equal-spacing caveat, gap and test_size examples. Add explicit label-interval purging; the library does not infer it."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-fpp3"
+          ],
+          "assignment": {
+            "id": "algorithmic-a10",
+            "title": "An interval-aware walk-forward splitter",
+            "kind": "coding",
+            "instructions": [
+              "Create 60 equally spaced synthetic observations with labels using the next three observations.",
+              "Build three chronological folds and a separate untouched final block; exclude any training label whose horizon crosses into validation.",
+              "Fit a scaler only on each training portion and test that changing validation values does not change its parameters."
+            ],
+            "deliverables": [
+              "Split/label-horizon visualization",
+              "Purging and preprocessing tests"
+            ],
+            "acceptanceCriteria": [
+              "No training label overlaps a validation interval.",
+              "Final-test values cannot affect parameter or feature selection.",
+              "Fold duration, training size and gap/purge policy are documented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q10a",
+                "kind": "single-choice",
+                "prompt": "TimeSeriesSplit alone automatically fixes which issue?",
+                "choices": [
+                  "It orders the row-based train/test splits",
+                  "It purges every overlapping label",
+                  "It prevents a scaler fitted on all data"
+                ],
+                "answer": "It orders the row-based train/test splits",
+                "explanation": "The caller must still handle availability, overlap, preprocessing and selection. Chronology is necessary but not sufficient."
+              },
+              {
+                "id": "algorithmic-q10b",
+                "kind": "short-answer",
+                "prompt": "When must a training observation be purged for a three-period forward label?",
+                "answer": "When any part of the label's outcome interval reaches the validation or test interval under the declared boundary policy.",
+                "explanation": "The training row's timestamp can precede validation while its label still contains validation-period information."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What information can enter through labels rather than features?"
+          ],
+          "prerequisites": [
+            "algorithmic-l09-fill-failures",
+            "quant-l11-time-series-validation"
+          ]
+        },
+        {
+          "id": "algorithmic-l11-trials",
+          "title": "Control trial selection and overfitting claims",
+          "objectives": [
+            "Record all candidate experiments and selection decisions.",
+            "Explain why multiple tries weaken a winner's apparent evidence."
+          ],
+          "topics": [
+            {
+              "title": "Research registry",
+              "details": [
+                "Each change to data, rules or costs is a distinct version.",
+                "Failed and abandoned trials remain part of the search history."
+              ]
+            },
+            {
+              "title": "Multiplicity",
+              "details": [
+                "The best observed score is selected and therefore optimistic.",
+                "A final block cannot serve repeatedly as a model-development oracle."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "multiple-testing",
+            "overfitting"
+          ],
+          "video": {
+            "resourceId": "quant-video-stanford-islp",
+            "locator": "13.Py Multiple Testing I 2023: use the selection problem as a warning, not as permission to treat dependent trading trials as independent tests."
+          },
+          "reading": {
+            "resourceId": "algorithmic-doc-research",
+            "locator": "Hypothesis Development and the warning against developing a hypothesis from test results. Record every deviation as a new trial."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-think-stats"
+          ],
+          "assignment": {
+            "id": "algorithmic-a11",
+            "title": "A transparent six-trial registry",
+            "kind": "lab",
+            "instructions": [
+              "Try six predeclared variants on development data generated with no known predictive signal.",
+              "Record configuration, data version, selection metric, cost assumption and result for every trial, including errors.",
+              "Select using development folds, freeze the winner and explain the limitations before opening the final block."
+            ],
+            "deliverables": [
+              "Machine-readable trial registry",
+              "Selection memo and final-test access log"
+            ],
+            "acceptanceCriteria": [
+              "All six trials and their failures are retained.",
+              "Selection never consults the final block.",
+              "The memo does not equate the best in-sample score with an established edge."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q11a",
+                "kind": "single-choice",
+                "prompt": "What happens to evidential strength when only the best of many trials is reported?",
+                "choices": [
+                  "Independent confirmation is created",
+                  "Selection bias is hidden",
+                  "Trading costs disappear"
+                ],
+                "answer": "Selection bias is hidden",
+                "explanation": "Searching many variants can find a lucky high score. Omitting the search history conceals how the result was selected."
+              },
+              {
+                "id": "algorithmic-q11b",
+                "kind": "short-answer",
+                "prompt": "What should happen when the final block inspires a new feature?",
+                "answer": "Treat the block as development information for that new version and seek genuinely new evaluation evidence rather than reusing it as untouched proof.",
+                "explanation": "The information boundary follows actual decisions, not labels in a report."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Could a reader reconstruct how many opportunities you had to get lucky?"
+          ],
+          "prerequisites": [
+            "algorithmic-l10-walk-forward",
+            "quant-l08-hypothesis-families"
+          ]
+        },
+        {
+          "id": "algorithmic-l12-report",
+          "title": "Report net performance, uncertainty and failure honestly",
+          "objectives": [
+            "Combine return, exposure, turnover, drawdown and benchmark information.",
+            "Qualify ratios and confidence estimates under serial dependence."
+          ],
+          "topics": [
+            {
+              "title": "Metric contracts",
+              "details": [
+                "State frequency, annualization and treatment of idle periods.",
+                "A high ratio on a short sample can be unstable or undefined."
+              ]
+            },
+            {
+              "title": "Evaluation narrative",
+              "details": [
+                "Report worst folds and cost sensitivity, not only an average.",
+                "A negative result can be a successful research outcome."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "performance-metrics",
+            "uncertainty"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-fpp3",
+            "locator": "Sections 5.8 Evaluating point forecast accuracy and 5.10 Time series cross-validation: distinguish fit error, evaluation error and rolling-origin evidence."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-risk"
+          ],
+          "assignment": {
+            "id": "algorithmic-a12",
+            "title": "Intermediate evidence gate: the cost-aware OOS report",
+            "kind": "lab",
+            "instructions": [
+              "Run the frozen candidate, flat baseline and simple constant exposure on untouched synthetic data.",
+              "Report net/gross P&L, maximum drawdown, turnover, exposure, trade count, per-fold outcomes and doubled-cost sensitivity.",
+              "Include an undefined-ratio case, sample/dependence caveats and the full registry/ledger links."
+            ],
+            "deliverables": [
+              "Out-of-sample report with metric definitions",
+              "Reproducible tables and trace references"
+            ],
+            "acceptanceCriteria": [
+              "The report ties to the accounting ledger and discloses all cost assumptions.",
+              "Zero variance or no trades does not yield a fabricated infinite success score.",
+              "No annualized statistic or small synthetic sample is presented as a profitability forecast."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q12a",
+                "kind": "single-choice",
+                "prompt": "A risk-adjusted ratio has a zero denominator. What should the report do?",
+                "choices": [
+                  "Mark it undefined and explain the case",
+                  "Replace it with a very large positive number",
+                  "Drop the period without disclosure"
+                ],
+                "answer": "Mark it undefined and explain the case",
+                "explanation": "Undefined metrics are data, not an opportunity to improve the presentation. The underlying return and exposure should remain visible."
+              },
+              {
+                "id": "algorithmic-q12b",
+                "kind": "short-answer",
+                "prompt": "Why can naive square-root-of-time annualization mislead?",
+                "answer": "It relies on assumptions about sampling, dependence and variance stability that may not hold for clustered or serially correlated strategy returns.",
+                "explanation": "Declare the convention and its limitations instead of implying additional observations or certainty."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What part of the report would change if costs doubled?"
+          ],
+          "prerequisites": [
+            "algorithmic-l11-trials"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithmic-m05-portfolio-risk",
+      "title": "05. Portfolio construction and risk enforcement",
+      "stage": "advanced",
+      "description": "Constrain positions, cash and correlated risk before admitting paper orders.",
+      "prerequisites": [
+        "algorithmic-m04-validation"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "algorithmic-l13-sizing-limits",
+          "title": "Implement pretrade sizing and aggregate exposure checks",
+          "objectives": [
+            "Convert a risk target into feasible rounded quantities.",
+            "Enforce cash, gross exposure and loss limits in one explicit admission decision."
+          ],
+          "topics": [
+            {
+              "title": "Sizing constraints",
+              "details": [
+                "Volatility estimates and stop distances are uncertain inputs.",
+                "Rounding and minimum quantities can make a target infeasible."
+              ]
+            },
+            {
+              "title": "Risk state",
+              "details": [
+                "Pending orders consume capacity until resolved.",
+                "Rejection reasons must be observable and reproducible."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "pretrade-risk",
+            "position-sizing"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-risk",
+            "locator": "Chapters 11-13 Position Sizing for active traders; evaluate the assumptions and apply additional aggregate/pending-order constraints."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a13",
+            "title": "A pure paper-risk admission function",
+            "kind": "coding",
+            "instructions": [
+              "Use invented capital 10000, per-order notional cap 2000 and gross cap 4000; include pending orders in exposure.",
+              "Evaluate a batch with rounded sizes, insufficient cash, duplicate intent and an already-breached daily loss limit.",
+              "Return an accept/reject record with the evaluated inputs and rule version."
+            ],
+            "deliverables": [
+              "Risk admission function",
+              "Boundary tests and rejection ledger"
+            ],
+            "acceptanceCriteria": [
+              "Pending orders cannot bypass the gross cap.",
+              "Zero or non-finite risk estimates cannot create an unbounded size.",
+              "A breached daily limit rejects all new exposure until explicit clearance."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q13a",
+                "kind": "numeric",
+                "prompt": "Existing gross exposure is 2500 and pending exposure is 1000 against a 4000 cap. What remaining notional capacity is available?",
+                "answer": 500,
+                "explanation": "4000 minus 2500 minus 1000 is 500. Ignoring pending orders would overstate capacity."
+              },
+              {
+                "id": "algorithmic-q13b",
+                "kind": "short-answer",
+                "prompt": "Why reject a zero volatility estimate rather than divide the risk target by it?",
+                "answer": "It may reflect a short, stale or constant data sample, and division would create undefined or unbounded exposure.",
+                "explanation": "An invalid risk estimate is a reason to stop and inspect inputs, not a free allocation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What commitments are not yet visible in holdings but still consume risk?"
+          ],
+          "prerequisites": [
+            "algorithmic-l12-report"
+          ]
+        },
+        {
+          "id": "algorithmic-l14-allocation",
+          "title": "Construct a constrained multi-asset paper portfolio",
+          "objectives": [
+            "Compare transparent equal-weight and risk-aware allocations.",
+            "Stress estimation sensitivity, turnover and concentration constraints."
+          ],
+          "topics": [
+            {
+              "title": "Portfolio inputs",
+              "details": [
+                "Covariance estimates are noisy and can be unstable.",
+                "Weights are targets; quantity, cash and cost constraints govern execution."
+              ]
+            },
+            {
+              "title": "Allocation trade-offs",
+              "details": [
+                "A lower estimated variance need not imply lower future tail loss.",
+                "Rebalancing can improve target adherence while raising costs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "portfolio-construction",
+            "covariance"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-risk",
+            "locator": "Chapters 3-5 Variance, Covariance and Portfolio Variance; Chapters 8-9 Portfolio Optimization. Challenge input stability rather than maximizing a backtest score."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a14",
+            "title": "A three-asset allocation challenge",
+            "kind": "coding",
+            "instructions": [
+              "Generate three synthetic return streams with a recorded seed and an explicit shared-factor structure.",
+              "Compare equal weights with a capped inverse-volatility allocation, including transaction costs and rounding.",
+              "Perturb the estimation window and correlations; record concentration, turnover and feasibility, including any inability to meet targets."
+            ],
+            "deliverables": [
+              "Allocation and rebalance implementation",
+              "Sensitivity/constraint report"
+            ],
+            "acceptanceCriteria": [
+              "Weights and residual cash reconcile after rounding.",
+              "No asset exceeds the declared cap, including a rejected infeasible case.",
+              "Evaluation is on later observations, not the estimation window."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q14a",
+                "kind": "single-choice",
+                "prompt": "What is a key weakness of an allocation optimized on estimated covariance?",
+                "choices": [
+                  "It must use identical weights in every future period",
+                  "Sensitivity to estimation error and changing relationships",
+                  "It cannot express concentration constraints mathematically"
+                ],
+                "answer": "Sensitivity to estimation error and changing relationships",
+                "explanation": "The matrix is an estimate from a limited regime. Constraints and stress tests help expose, but cannot remove, that uncertainty."
+              },
+              {
+                "id": "algorithmic-q14b",
+                "kind": "short-answer",
+                "prompt": "Why report turnover alongside target weights?",
+                "answer": "Reaching targets requires trades, which consume liquidity and incur costs; frequent weight changes can overwhelm an apparent allocation benefit.",
+                "explanation": "A portfolio is an executable sequence of transitions, not just a static vector."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does the allocation survive a small change in its estimates?"
+          ],
+          "prerequisites": [
+            "algorithmic-l13-sizing-limits"
+          ]
+        },
+        {
+          "id": "algorithmic-l15-tail-funding",
+          "title": "Combine gap, leverage and funding stress",
+          "objectives": [
+            "Distinguish accounting solvency from available cash.",
+            "Test correlated shocks and delayed liquidation against operational limits."
+          ],
+          "topics": [
+            {
+              "title": "Tail scenarios",
+              "details": [
+                "Gap and liquidity shocks can invalidate normal-period estimates.",
+                "Collateral is not maximum loss."
+              ]
+            },
+            {
+              "title": "Funding",
+              "details": [
+                "Cash calls may arrive before offsetting gains settle.",
+                "A halt stops new risk but does not erase existing obligations."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "tail-risk",
+            "funding",
+            "stress-testing"
+          ],
+          "video": {
+            "resourceId": "trading-video-futures",
+            "locator": "Forward and Futures Contracts: mark-to-market and obligations. Use only invented contracts in the local simulator."
+          },
+          "reading": {
+            "resourceId": "trading-doc-futures",
+            "locator": "Chapters 4 Leverage & Payoff and 5 Margin & M2M; separate price exposure from collateral and timing of cash calls."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a15",
+            "title": "A stressed cash-availability simulator",
+            "kind": "coding",
+            "instructions": [
+              "Add a synthetic margined contract and a separate unsettled positive cash flow to the paper ledger.",
+              "Apply a joint price gap, higher margin requirement and one-session exit delay.",
+              "Record when cash is insufficient and prevent the engine from treating an unrealized offset as immediately spendable."
+            ],
+            "deliverables": [
+              "Stress event stream and liquidity ladder",
+              "Breach/containment tests"
+            ],
+            "acceptanceCriteria": [
+              "Collateral, notional, realized cash and unsettled flows are distinct fields.",
+              "A positive marked equity value can coexist with an explicitly detected cash shortfall.",
+              "Halted state does not delete existing positions or obligations."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q15a",
+                "kind": "single-choice",
+                "prompt": "Can a portfolio with positive marked equity face a funding failure?",
+                "choices": [
+                  "No, any positive mark is immediately spendable",
+                  "Yes, cash may be unavailable when obligations fall due",
+                  "No, margin caps all losses"
+                ],
+                "answer": "Yes, cash may be unavailable when obligations fall due",
+                "explanation": "Settlement timing, collateral and realizability matter. Balance-sheet value is not the same as ready cash."
+              },
+              {
+                "id": "algorithmic-q15b",
+                "kind": "short-answer",
+                "prompt": "What remains after a no-new-orders kill switch activates?",
+                "answer": "Existing positions, pending effects and funding or settlement obligations still require reconciliation and a controlled response.",
+                "explanation": "A stop control prevents additional risk; it is not a magical liquidation or rollback of the economic state."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which obligation arrives before its supposed hedge pays?"
+          ],
+          "prerequisites": [
+            "algorithmic-l14-allocation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithmic-m06-robust-research",
+      "title": "06. Robust signals, model evaluation and leakage audits",
+      "stage": "advanced",
+      "description": "Add complexity only when evidence survives simple baselines and independent challenges.",
+      "prerequisites": [
+        "algorithmic-m05-portfolio-risk"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "algorithmic-l16-regimes",
+          "title": "Challenge stationarity and parameter stability",
+          "objectives": [
+            "Recognize shifting mean, volatility and dependence.",
+            "Use stability analysis without choosing parameters on future regimes."
+          ],
+          "topics": [
+            {
+              "title": "Time-series behavior",
+              "details": [
+                "A price level and its changes have different statistical properties.",
+                "Apparent mean reversion can disappear after a structural change."
+              ]
+            },
+            {
+              "title": "Robustness checks",
+              "details": [
+                "Inspect rolling diagnostics and performance by regime.",
+                "A broad stable parameter region is more credible than a sharp optimum, but proves no future edge."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "stationarity",
+            "regime-change"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-financial-math",
+            "locator": "Lecture 8: regression and stationarity. Translate the assumptions into explicit diagnostics on an invented series."
+          },
+          "reading": {
+            "resourceId": "quant-book-fpp3",
+            "locator": "Section 9.1 Stationarity and differencing; distinguish a modelling assumption from proof that a financial signal will persist."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a16",
+            "title": "A structural-break counterexample",
+            "kind": "lab",
+            "instructions": [
+              "Generate a series with a known mean or volatility change at a recorded boundary, retaining the generating assumptions.",
+              "Compare rolling diagnostics and a frozen strategy across before/after windows without retuning on the second window.",
+              "Report parameter sensitivity and one condition that should pause research rather than trigger automatic optimization."
+            ],
+            "deliverables": [
+              "Generator and regime diagnostic plots",
+              "Stability/abstention report"
+            ],
+            "acceptanceCriteria": [
+              "The regime boundary and generation process are disclosed.",
+              "The second regime is not used to claim an untouched optimized result.",
+              "The report distinguishes lack of detected change from evidence of stationarity."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q16a",
+                "kind": "single-choice",
+                "prompt": "Not rejecting a stationarity-related test on a short sample proves what?",
+                "choices": [
+                  "That the test has high power against every plausible regime shift",
+                  "Very little beyond the test's result under its assumptions",
+                  "That chronological folds can now be replaced by shuffled folds"
+                ],
+                "answer": "Very little beyond the test's result under its assumptions",
+                "explanation": "Low power, model assumptions and regime changes limit interpretation. Failure to reject is not proof of permanent stability."
+              },
+              {
+                "id": "algorithmic-q16b",
+                "kind": "short-answer",
+                "prompt": "Why inspect a neighborhood of parameters rather than only the best setting?",
+                "answer": "A sharp isolated optimum can indicate noise fitting or hidden sensitivity; nearby results reveal how fragile the selected configuration is.",
+                "explanation": "Sensitivity is part of evidence quality, not another opportunity to optimize the final test."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which change in the data would invalidate the model assumption?"
+          ],
+          "prerequisites": [
+            "algorithmic-l15-tail-funding"
+          ]
+        },
+        {
+          "id": "algorithmic-l17-ml-pipeline",
+          "title": "Evaluate a modest ML signal without leakage",
+          "objectives": [
+            "Build lagged features and train-only preprocessing.",
+            "Compare probability calibration and decision costs with a simple baseline."
+          ],
+          "topics": [
+            {
+              "title": "Model boundaries",
+              "details": [
+                "Features, labels and predictions carry separate availability times.",
+                "A prediction score is not an executable order or assured return."
+              ]
+            },
+            {
+              "title": "Evaluation",
+              "details": [
+                "Thresholds are chosen on validation data, not the final block.",
+                "Calibration, false positives and turnover matter alongside classification accuracy."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "financial-ml",
+            "calibration",
+            "feature-leakage"
+          ],
+          "video": {
+            "resourceId": "quant-video-stanford-islp",
+            "locator": "5.Py Cross-Validation I 2023: validation concepts; replace random folds with the interval-aware chronological splitter already built."
+          },
+          "reading": {
+            "resourceId": "algorithmic-doc-splits",
+            "locator": "TimeSeriesSplit examples and gap parameter; document separately how preprocessing, label horizons and threshold selection respect the same boundary."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a17",
+            "title": "A calibrated synthetic-signal comparison",
+            "kind": "coding",
+            "instructions": [
+              "Fit a small logistic model or a simple probability table to lagged synthetic features using train-only transforms.",
+              "Compare a constant-probability baseline and choose any action threshold only on development folds.",
+              "Evaluate calibration, false positives, turnover and net paper results on the frozen block; retain a future-feature contamination test."
+            ],
+            "deliverables": [
+              "Versioned feature/model pipeline",
+              "Calibration and net-cost comparison"
+            ],
+            "acceptanceCriteria": [
+              "No forward return appears among the available features.",
+              "Threshold selection is separated from the final report.",
+              "Higher accuracy alone is not presented as evidence of a profitable executable strategy."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q17a",
+                "kind": "single-choice",
+                "prompt": "A model has better direction accuracy but much higher turnover. What remains necessary?",
+                "choices": [
+                  "Selecting the model using direction accuracy alone",
+                  "Annualizing accuracy to estimate expected net return",
+                  "Cost-aware evaluation under the execution and risk model"
+                ],
+                "answer": "Cost-aware evaluation under the execution and risk model",
+                "explanation": "Accuracy does not encode payoff size, timing, costs or capacity. Decisions must be evaluated through the full paper system."
+              },
+              {
+                "id": "algorithmic-q17b",
+                "kind": "short-answer",
+                "prompt": "Why can fitting an imputer on all observations leak information even when the model sees only training rows?",
+                "answer": "The imputation parameters can reflect the distribution of later data, indirectly injecting future information into training features.",
+                "explanation": "The information boundary applies to every learned transformation, not just model.fit."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which model improvement survives realistic decision costs?"
+          ],
+          "prerequisites": [
+            "algorithmic-l16-regimes",
+            "ai-l07-temporal-validation",
+            "ai-l06-calibration"
+          ]
+        },
+        {
+          "id": "algorithmic-l18-audit-pack",
+          "title": "Detect deliberately contaminated research results",
+          "objectives": [
+            "Design checks for future joins, survivor-only universes and selective trials.",
+            "Produce a reviewable rejection or bounded acceptance decision."
+          ],
+          "topics": [
+            {
+              "title": "Adversarial validation",
+              "details": [
+                "Plant known faults in isolated copies of the research pipeline.",
+                "Tests should fail on the intended fault without hiding other failures."
+              ]
+            },
+            {
+              "title": "Evidence standards",
+              "details": [
+                "A clean result requires traceability through data, model and simulation.",
+                "Unresolved discrepancies must remain visible in the report."
+              ]
+            }
+          ],
+          "estimatedMinutes": 220,
+          "canonicalConceptTags": [
+            "research-audit",
+            "negative-controls"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-turing-way",
+            "locator": "General guidance and good practice for testing; Acceptance and Regression Testing, including Limitations of Regression Testing. Use negative controls as evidence of detection capability."
+          },
+          "supplementaryResourceIds": [
+            "algorithmic-doc-research"
+          ],
+          "assignment": {
+            "id": "algorithmic-a18",
+            "title": "Advanced evidence gate: a leakage challenge pack",
+            "kind": "lab",
+            "instructions": [
+              "Create separate intentionally flawed copies with a future revision, a survivor-only universe, global preprocessing and omitted failed trials.",
+              "Run your checks against each flawed copy and the clean baseline, recording why each finding matters.",
+              "Add portfolio stress and cost sensitivity to an audit memo that may reject the candidate."
+            ],
+            "deliverables": [
+              "Four contamination fixtures and failing checks",
+              "Clean-run evidence and review memo"
+            ],
+            "acceptanceCriteria": [
+              "Every planted fault is detected by a named check.",
+              "The clean version remains reproducible with no unexplained ledger differences.",
+              "The memo states remaining limitations and does not infer profitability from passing tests."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q18a",
+                "kind": "single-choice",
+                "prompt": "Why include a deliberately leaky copy in the audit pack?",
+                "choices": [
+                  "To show that the check can actually detect the known fault",
+                  "To tune the validation checks until the final metric becomes positive",
+                  "To replace untouched evaluation with data containing known faults"
+                ],
+                "answer": "To show that the check can actually detect the known fault",
+                "explanation": "A negative control makes the test's detection capability observable. It must be isolated and never passed off as valid research."
+              },
+              {
+                "id": "algorithmic-q18b",
+                "kind": "short-answer",
+                "prompt": "Does detecting all planted faults prove the research is free of leakage?",
+                "answer": "No. It establishes coverage of those known fault classes; other data paths, assumptions and unknown errors still need review.",
+                "explanation": "An audit should bound its claim and identify untested surfaces."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which high-scoring result should the audit reject?"
+          ],
+          "prerequisites": [
+            "algorithmic-l17-ml-pipeline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithmic-m07-paper-operations",
+      "title": "07. Paper execution, monitoring and safe recovery",
+      "stage": "professional",
+      "description": "Build operational safeguards in an offline adapter that cannot send real orders.",
+      "prerequisites": [
+        "algorithmic-m06-robust-research"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "algorithmic-l19-paper-adapter",
+          "title": "Design a disconnected, idempotent paper adapter",
+          "objectives": [
+            "Isolate order intent from execution transport.",
+            "Deduplicate retries and reconcile acknowledgements without a live endpoint."
+          ],
+          "topics": [
+            {
+              "title": "Execution boundary",
+              "details": [
+                "The only adapter is an in-memory or local-file simulator.",
+                "No broker credentials, SDK, network order transport or live mode is included."
+              ]
+            },
+            {
+              "title": "Idempotency",
+              "details": [
+                "A stable intent ID prevents retry from duplicating exposure.",
+                "Acknowledgement is not the same as a complete fill."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "paper-architecture",
+            "idempotency"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-cosmic",
+            "locator": "Chapter 4 Our First Use Case: Flask API and Service Layer and Chapter 6 Unit of Work Pattern; separate orchestration and durable state from adapters."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a19",
+            "title": "A simulator-only execution interface",
+            "kind": "coding",
+            "instructions": [
+              "Define submit, cancel and reconcile interfaces implemented only by a local fake exchange.",
+              "Persist stable intent IDs and simulate lost acknowledgements, duplicate submissions and partial fills.",
+              "Run with network access disabled and show that no live transport or credentials are needed or accepted."
+            ],
+            "deliverables": [
+              "Adapter boundary diagram and implementation",
+              "Idempotency and no-network tests"
+            ],
+            "acceptanceCriteria": [
+              "Retrying one intent cannot create a second position.",
+              "Duplicate IDs with conflicting payloads fail visibly.",
+              "The runnable system contains no broker integration, live mode or secret configuration."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q19a",
+                "kind": "single-choice",
+                "prompt": "An acknowledgement is lost after a simulated order is accepted. What should a retry reuse?",
+                "choices": [
+                  "A new ID that may duplicate exposure",
+                  "The previous fill ID even when it belongs to another order",
+                  "The same stable intent ID"
+                ],
+                "answer": "The same stable intent ID",
+                "explanation": "Stable identity lets the receiver distinguish a retry from a new economic intent and return the existing state."
+              },
+              {
+                "id": "algorithmic-q19b",
+                "kind": "short-answer",
+                "prompt": "Why exclude a live-adapter switch rather than merely leave it disabled?",
+                "answer": "Removing the capability prevents accidental real orders and keeps the exercise's safety boundary verifiable.",
+                "explanation": "A missing dangerous capability is a stronger boundary than a default that can be misconfigured."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can any path convert this exercise into a live trade?"
+          ],
+          "prerequisites": [
+            "algorithmic-l18-audit-pack",
+            "sde-l07-idempotent-effects"
+          ]
+        },
+        {
+          "id": "algorithmic-l20-monitors-halts",
+          "title": "Monitor freshness, drift and limit breaches",
+          "objectives": [
+            "Distinguish data/system health alerts from uncertain strategy drift signals.",
+            "Persist a fail-closed halt with explicit restart authorization."
+          ],
+          "topics": [
+            {
+              "title": "Monitoring contracts",
+              "details": [
+                "Freshness, lag, queue length and reconciliation are operational signals.",
+                "Model drift is a diagnostic, not proof of a profitable replacement."
+              ]
+            },
+            {
+              "title": "Kill switches",
+              "details": [
+                "A halt blocks new exposure even after a process restart.",
+                "Alert ownership and acknowledgement are part of the control."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "monitoring",
+            "kill-switch",
+            "data-freshness"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-sre",
+            "locator": "Chapter 6 Monitoring Distributed Systems: actionable symptoms and avoiding noisy alerts; adapt to data freshness, reconciliation and simulated order health."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a20",
+            "title": "A durable no-new-exposure switch",
+            "kind": "coding",
+            "instructions": [
+              "Inject stale data, queue lag, a position mismatch and a paper loss-limit breach using deterministic clock control.",
+              "Persist the halt reason and reject new exposure while retaining current obligations.",
+              "Restart the process, verify the halt remains, then require an explicit reconciled clearance record with an owner."
+            ],
+            "deliverables": [
+              "Monitor rules and alert examples",
+              "Restart-surviving halt tests"
+            ],
+            "acceptanceCriteria": [
+              "All four injected conditions are visible and assigned a response.",
+              "Restart cannot bypass the halt.",
+              "A harmless transient and a true breach are distinguished using a documented threshold policy."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q20a",
+                "kind": "single-choice",
+                "prompt": "Which signal most directly invalidates a paper position-risk calculation?",
+                "choices": [
+                  "A lower average return on a short but fully reconciled sample",
+                  "An unresolved position reconciliation mismatch",
+                  "A changed deployment label with identical verified code and input hashes"
+                ],
+                "answer": "An unresolved position reconciliation mismatch",
+                "explanation": "If inventory is uncertain, exposure and admission checks cannot be trusted. New exposure should stop pending reconciliation."
+              },
+              {
+                "id": "algorithmic-q20b",
+                "kind": "short-answer",
+                "prompt": "Why should a model-drift alert not automatically trigger a new optimized model?",
+                "answer": "Drift may reflect data faults or a changed regime; automatic optimization can introduce unvalidated behavior and selection bias.",
+                "explanation": "Investigate, evaluate and approve a versioned change instead of turning an alert into permission to retrain on the test."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What happens if the operator ignores an alert?"
+          ],
+          "prerequisites": [
+            "algorithmic-l19-paper-adapter",
+            "ai-l25-monitoring"
+          ]
+        },
+        {
+          "id": "algorithmic-l21-recovery",
+          "title": "Recover from a checkpoint without duplicating effects",
+          "objectives": [
+            "Define durable event and checkpoint boundaries.",
+            "Reconcile replayed state before resuming paper execution."
+          ],
+          "topics": [
+            {
+              "title": "Recovery model",
+              "details": [
+                "A checkpoint must identify the last included event.",
+                "Replaying a suffix requires stable IDs and idempotent effects."
+              ]
+            },
+            {
+              "title": "Operations evidence",
+              "details": [
+                "Backups need a tested restoration procedure.",
+                "Measure recovery on the exercise rather than inventing a service guarantee."
+              ]
+            }
+          ],
+          "estimatedMinutes": 220,
+          "canonicalConceptTags": [
+            "replay",
+            "recovery",
+            "runbook"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-turing-way",
+            "locator": "Runtime testing and Acceptance and Regression Testing: apply checks to a crash/restart contract, including limitations of regression coverage."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-sre"
+          ],
+          "assignment": {
+            "id": "algorithmic-a21",
+            "title": "An interrupted-replay recovery drill",
+            "kind": "coding",
+            "instructions": [
+              "Checkpoint after a partial fill, then simulate a crash between event persistence and acknowledgement.",
+              "Restore, replay the suffix and compare with an uninterrupted golden run.",
+              "Corrupt a copied checkpoint and demonstrate a visible rejection and fallback to a verified earlier snapshot without deleting evidence."
+            ],
+            "deliverables": [
+              "Checkpoint format and recovery runbook",
+              "Interrupted/uninterrupted comparison and measured drill timings"
+            ],
+            "acceptanceCriteria": [
+              "Cash, positions, IDs and halt state match the uninterrupted run.",
+              "No fill or fee is applied twice.",
+              "Corrupt input fails visibly and recovery preserves an audit trail."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q21a",
+                "kind": "single-choice",
+                "prompt": "Which checkpoint field is essential for safe suffix replay?",
+                "choices": [
+                  "The number of submitted orders without their fill identities",
+                  "Only a wall-clock timestamp shared by several different events",
+                  "The last included event identity/sequence"
+                ],
+                "answer": "The last included event identity/sequence",
+                "explanation": "The replay boundary determines which effects are already represented. Without it, effects can be lost or applied twice."
+              },
+              {
+                "id": "algorithmic-q21b",
+                "kind": "short-answer",
+                "prompt": "What must be reconciled before a recovered engine resumes?",
+                "answer": "Cash, positions, pending orders, event sequence, risk limits, data freshness and any persistent halt or unresolved exception.",
+                "explanation": "Loading a file is not proof that the operational state is safe to use."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which crash boundary has the greatest duplicate-effect risk?"
+          ],
+          "prerequisites": [
+            "algorithmic-l20-monitors-halts",
+            "sde-l23-incident-restore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithmic-m08-release-evidence",
+      "title": "08. Reproducible paper-engine capstone and review",
+      "stage": "professional",
+      "description": "Deliver an inspectable local system whose safety and research limitations are part of the result.",
+      "prerequisites": [
+        "algorithmic-m07-paper-operations"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "algorithmic-l22-artifacts",
+          "title": "Package a versioned research and execution artifact",
+          "objectives": [
+            "Bind data, code, parameters and reports to a manifest.",
+            "Reproduce the system without private data or paid services."
+          ],
+          "topics": [
+            {
+              "title": "Artifact lineage",
+              "details": [
+                "Hashes identify exact fixtures and configurations.",
+                "A dependency lock and explicit run command reduce environment drift."
+              ]
+            },
+            {
+              "title": "Release discipline",
+              "details": [
+                "Reports are outputs of the pinned run, not manually edited successes.",
+                "No credentials or restricted data enter the bundle."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "artifact-lineage",
+            "reproducible-build"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-turing-way",
+            "locator": "Reproducible Environments and Version Control for Data: capture the environment and immutable inputs necessary to repeat a result."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "algorithmic-a22",
+            "title": "A one-command paper artifact",
+            "kind": "coding",
+            "instructions": [
+              "Package original synthetic inputs, environment versions, code revision, split definitions, model parameters and expected output checksums.",
+              "Provide one command that validates, tests and regenerates all final tables locally.",
+              "Reproduce in a clean directory with no network; inventory licenses for any optional public data or dependency."
+            ],
+            "deliverables": [
+              "Manifest and reproducibility command",
+              "Clean-run log and privacy/license inventory"
+            ],
+            "acceptanceCriteria": [
+              "Changing a fixture causes a manifest mismatch or a new version, not silent replacement.",
+              "The bundle has no tokens, broker settings or private datasets.",
+              "A clean rerun regenerates the reported ledger and evaluation."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q22a",
+                "kind": "single-choice",
+                "prompt": "Why record a data hash rather than only a file name?",
+                "choices": [
+                  "It confirms that the fixture represents future market regimes",
+                  "It replaces historical membership and availability-time metadata",
+                  "The name can stay the same while contents change"
+                ],
+                "answer": "The name can stay the same while contents change",
+                "explanation": "A content hash binds the run to exact bytes. It establishes neither validity nor permission to reuse the data."
+              },
+              {
+                "id": "algorithmic-q22b",
+                "kind": "short-answer",
+                "prompt": "Which artifacts are needed beyond model weights?",
+                "answer": "Feature definitions, preprocessing, availability and split policies, code/environment versions, cost/risk parameters and source data identity.",
+                "explanation": "Weights alone cannot reconstruct the decision system or its information boundary."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can a reviewer regenerate tables without trusting your notebook state?"
+          ],
+          "prerequisites": [
+            "algorithmic-l21-recovery",
+            "ai-l22-artifact-lineage"
+          ]
+        },
+        {
+          "id": "algorithmic-l23-capstone",
+          "title": "Deliver a reproducible and guarded paper engine",
+          "objectives": [
+            "Integrate causal research, accounting and operational controls.",
+            "Demonstrate failure handling through executable evidence rather than architecture claims."
+          ],
+          "topics": [
+            {
+              "title": "End-to-end contract",
+              "details": [
+                "Data quality, research selection and execution controls form one chain.",
+                "No positive-return target substitutes for correctness and safety."
+              ]
+            },
+            {
+              "title": "Acceptance evidence",
+              "details": [
+                "Reviewers can replay a normal run and named failure drills.",
+                "Unresolved critical defects prevent a readiness claim."
+              ]
+            }
+          ],
+          "estimatedMinutes": 600,
+          "canonicalConceptTags": [
+            "capstone",
+            "paper-engine"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "algorithmic-doc-realism",
+            "locator": "Reality-model categories and liquid-market assumptions: audit which mechanisms your engine represents and which it explicitly omits."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-turing-way",
+            "sde-book-sre"
+          ],
+          "assignment": {
+            "id": "algorithmic-a23",
+            "title": "Capstone: causal research to disconnected paper operations",
+            "kind": "project",
+            "instructions": [
+              "Integrate your fixture/vintage pipeline, delayed baseline, event simulator, interval-aware evaluation, trial registry and constrained portfolio.",
+              "Add the simulator-only adapter, monitoring, persistent kill switch and crash/recovery workflow; expose no live transport.",
+              "Deliver the versioned bundle with a normal replay and stale-data, duplicate-event, partial-fill, leakage and recovery drills; a losing strategy is acceptable."
+            ],
+            "deliverables": [
+              "Runnable local repository and immutable manifest",
+              "OOS/benchmark, cost, turnover, drawdown and stress report",
+              "Automated fault suite with actual outputs",
+              "Operations runbook, halt/restart transcript and limitation register"
+            ],
+            "acceptanceCriteria": [
+              "Decisions use only available vintages and historical membership.",
+              "Accounting, partial fills, costs and pending exposure reconcile.",
+              "Purged chronological evaluation and full trial history are inspectable.",
+              "The final test does not choose parameters or thresholds.",
+              "Halts persist and recovery matches uninterrupted replay without duplicate effects.",
+              "Execution is disconnected; there are no broker credentials, live mode or required paid services.",
+              "All reported outputs regenerate from the pinned command; no profitability guarantee or certification claim is made."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q23a",
+                "kind": "single-choice",
+                "prompt": "Which finding should block capstone acceptance despite a positive backtest?",
+                "choices": [
+                  "The strategy loses under a disclosed stress scenario",
+                  "The kill switch resets silently after a restart",
+                  "The report includes rejected trials"
+                ],
+                "answer": "The kill switch resets silently after a restart",
+                "explanation": "A broken operational safeguard invalidates the claimed control. Transparent losses and rejected trials are legitimate evidence, not defects to hide."
+              },
+              {
+                "id": "algorithmic-q23b",
+                "kind": "short-answer",
+                "prompt": "Why does a passing capstone not justify live deployment?",
+                "answer": "Synthetic evidence and simplified models do not establish market validity, regulatory suitability, funding resilience or production execution safety.",
+                "explanation": "Professional Practice is a learning level. Live activity would require separate expertise, permissions and risk decisions outside this track."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can the reviewer reproduce both the happy path and the stop path?"
+          ],
+          "prerequisites": [
+            "algorithmic-l22-artifacts"
+          ]
+        },
+        {
+          "id": "algorithmic-l24-independent-review",
+          "title": "Run an independent challenge and close the research record",
+          "objectives": [
+            "Respond to reviewer counterexamples without editing historical evidence.",
+            "Issue a bounded paper-only continue, revise or retire decision."
+          ],
+          "topics": [
+            {
+              "title": "Review protocol",
+              "details": [
+                "A peer or delayed blind self-review selects tests, not the author alone.",
+                "Corrections produce new versions with comparable reports."
+              ]
+            },
+            {
+              "title": "Decision governance",
+              "details": [
+                "Residual risk and open issues have owners and deadlines.",
+                "Retiring an unsupported idea is a valid professional learning outcome."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "audit",
+            "research-governance"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-turing-way",
+            "locator": "Guide for Ethical Research: Data Hazards; identify affected parties, misleading claims and remaining mitigations in your release record."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-sre"
+          ],
+          "assignment": {
+            "id": "algorithmic-a24",
+            "title": "A challenge-response release memo",
+            "kind": "design",
+            "instructions": [
+              "Give a reviewer the pinned bundle and ask them to reproduce a losing trade, a rejected order and a recovery boundary.",
+              "Record three challenges to data validity, execution realism or evaluation selection; rerun after any correction under a new version.",
+              "Publish a paper-only continue/revise/retire memo with unresolved limitations and a source-currency check."
+            ],
+            "deliverables": [
+              "Reviewer transcript and discrepancy log",
+              "Version comparison and final decision memo"
+            ],
+            "acceptanceCriteria": [
+              "The reviewer-selected cases reconcile or remain openly unresolved.",
+              "Corrections preserve the prior evidence and trial count.",
+              "The conclusion is proportional to the tested claims and contains no live-trading or profitability authorization."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "algorithmic-q24a",
+                "kind": "single-choice",
+                "prompt": "What should happen when a reviewer finds an invalid availability timestamp?",
+                "choices": [
+                  "Keep the old final metric and call the timing error a sensitivity issue",
+                  "Retune on the affected final block before reporting it as unchanged evidence",
+                  "Correct it in a new version and rerun affected evidence"
+                ],
+                "answer": "Correct it in a new version and rerun affected evidence",
+                "explanation": "A timing defect can invalidate all dependent results. Versioned correction and reevaluation preserve an honest record."
+              },
+              {
+                "id": "algorithmic-q24b",
+                "kind": "short-answer",
+                "prompt": "What makes a retire decision useful evidence?",
+                "answer": "It states the rejected claim, reproducible reasons, known assumptions and what genuinely new evidence would be needed to reconsider.",
+                "explanation": "Stopping unsupported work is part of disciplined research, not a failure to manufacture an attractive outcome."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which claim survived challenge, and which did you withdraw?"
+          ],
+          "prerequisites": [
+            "algorithmic-l23-capstone"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "pandas temporal data reference",
+      "url": "https://pandas.pydata.org/docs/user_guide/timeseries.html",
+      "notes": "Public HTML verified; explicit bar/session and publication policies remain the learner's responsibility."
+    },
+    {
+      "title": "Chronological split and gap reference",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html",
+      "notes": "Not an automatic solution to overlapping labels or point-in-time leakage."
+    },
+    {
+      "title": "QuantConnect research concepts",
+      "url": "https://www.quantconnect.com/docs/v2/writing-algorithms/key-concepts/research-guide",
+      "notes": "Free documentation only; no hosted service, data subscription or account is required."
+    },
+    {
+      "title": "QuantConnect simulation model taxonomy",
+      "url": "https://www.quantconnect.com/docs/v2/writing-algorithms/reality-modeling/key-concepts",
+      "notes": "Explicitly critique realism assumptions."
+    }
+  ],
+  "limitations": [
+    "Algorithmic Trading is synthetic, historical and paper-only. Build a disconnected local simulator: no real money, broker connection, live mode, credential entry or guaranteed-profit claim.",
+    "Professional Practice is a learning level, not professional qualification, certification or authorization to deploy a financial service.",
+    "Use original synthetic fixtures for the required route. Public historical data are optional only with provenance, permitted use, historical membership and availability timestamps; do not scrape restricted feeds.",
+    "Reused Common Foundation, Quant, SDE and AI lessons retain their original IDs and progress. They provide prerequisite concepts; this track's applied assignments are distinct evidence, not duplicate credits.",
+    "The full route uses free local Python tooling and free official readings. Optional platform features, paid market data, cloud hosting and certificates are not required.",
+    "Backtests omit aspects of actual markets, operations and law. Deterministic replay, statistical metrics and passing tests do not establish trading profitability or suitability."
+  ]
+}

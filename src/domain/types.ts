@@ -1,4 +1,4 @@
-export const TRACK_IDS = [
+export const CORE_TRACK_IDS = [
   "foundation",
   "data",
   "sde",
@@ -7,8 +7,24 @@ export const TRACK_IDS = [
   "gate",
   "cat",
 ] as const;
+export const EXTRA_TOPIC_IDS = [
+  "trading",
+  "algorithmic-trading",
+  "finance",
+  "computer-security-systems",
+  "ethical-hacking",
+] as const;
+export const TRACK_IDS = [...CORE_TRACK_IDS, ...EXTRA_TOPIC_IDS] as const;
+export type CoreTrackId = (typeof CORE_TRACK_IDS)[number];
+export type ExtraTopicId = (typeof EXTRA_TOPIC_IDS)[number];
 export type TrackId = (typeof TRACK_IDS)[number];
-export type Stage = "foundation" | "intermediate" | "advanced" | "professional";
+export const LEARNING_STAGES = [
+  "foundation",
+  "intermediate",
+  "advanced",
+  "professional",
+] as const;
+export type Stage = (typeof LEARNING_STAGES)[number];
 export type OwnerId = "guest" | `local:${string}` | `uid:${string}`;
 export type Theme = "light" | "dark" | "system";
 
@@ -62,7 +78,7 @@ export interface Lesson {
   topics: { title: string; details: string[] }[];
   estimatedMinutes: number;
   canonicalConceptTags: string[];
-  video: { resourceId: string; locator: string };
+  video: { resourceId: string; locator: string } | null;
   reading: { resourceId: string; locator: string };
   supplementaryResourceIds: string[];
   assignment: Assignment;
@@ -127,6 +143,11 @@ export interface Track {
   }[];
   sources: Source[];
   limitations: string[];
+  stageOutcomes?: {
+    stage: Stage;
+    outcome: string;
+    evidence: string;
+  }[];
   edition?: string;
   guidance?: Record<string, unknown>;
 }
@@ -176,7 +197,7 @@ export interface Settings {
   timezone: string;
   theme: Theme;
   dailyMinutes: number;
-  primaryTrack: TrackId;
+  primaryTrack: CoreTrackId;
 }
 
 export interface Goal {
@@ -184,7 +205,7 @@ export interface Goal {
   updatedAt: string;
   title: string;
   targetDate: string;
-  trackId: TrackId;
+  trackId: CoreTrackId;
   completedAt: string | null;
   deletedAt: string | null;
 }

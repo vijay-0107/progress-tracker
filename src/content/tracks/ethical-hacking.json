@@ -1,0 +1,2513 @@
+{
+  "schemaVersion": 1,
+  "trackId": "ethical-hacking",
+  "title": "Ethical Hacking: Authorized Lab Assessment and Remediation Verification",
+  "sourceCheckedOn": "2026-09-21",
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Scope an authorized assessment and map a resettable isolated lab using Linux, network and HTTP evidence.",
+      "evidence": "Rules of engagement, verified loopback/host-only containment, a synthetic asset/request map and a baseline evidence log."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Validate bounded local input, file, identity, access-control and browser-boundary weaknesses without collecting real data.",
+      "evidence": "Reproducible lab findings with positive/negative controls, minimal harmless proof and documented restoration."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Assess API/server-request and local infrastructure boundaries, challenge tool output and prioritize defensible findings.",
+      "evidence": "An API boundary matrix, offline container/configuration review and independently reproducible, context-rated findings."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Run an authorized assessment lifecycle from planning through reporting, remediation, retesting and handover.",
+      "evidence": "A scoped local-lab capstone report, owner-approved fixes, before/after regression evidence and a responsible-disclosure tabletop."
+    }
+  ],
+  "resources": [
+    {
+      "id": "ethical-hacking-doc-start",
+      "kind": "documentation",
+      "title": "PortSwigger Web Security Academy: Getting started",
+      "url": "https://portswigger.net/web-security/getting-started",
+      "provider": "PortSwigger Web Security Academy",
+      "access": "free",
+      "license": "Official free educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Reading is public and free. Optional hosted labs may require a free Academy account and must stay within that lab's authorization. The required route uses owned local fixtures; Burp Professional and certification are not required."
+    },
+    {
+      "id": "ethical-hacking-doc-wstg-framework",
+      "kind": "documentation",
+      "title": "OWASP WSTG v4.2: The OWASP Testing Framework",
+      "url": "https://github.com/OWASP/wstg/blob/v4.2/document/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework.md",
+      "provider": "OWASP Web Security Testing Guide",
+      "access": "free",
+      "license": "Official versioned guide; linked, not reproduced",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Direct versioned v4.2 chapter body, not only its index; avoids the currently broken stable-site redirect. Use SDLC and maintenance/retest phases, following its Introduction cross-reference for balanced testing. Complement historical examples with current guidance and explicit lab authorization."
+    },
+    {
+      "id": "ethical-hacking-doc-wstg-tests",
+      "kind": "documentation",
+      "title": "OWASP WSTG v4.2: Web Application Security Testing",
+      "url": "https://github.com/OWASP/wstg/tree/v4.2/document/4-Web_Application_Security_Testing",
+      "provider": "OWASP Web Security Testing Guide",
+      "access": "free",
+      "license": "Official versioned guide; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Verified directories include Information Gathering, Configuration, Identity, Authentication, Authorization, Sessions, Input Validation, Client-side and API Testing. Read the named category; this curriculum never authorizes testing any non-lab target."
+    },
+    {
+      "id": "ethical-hacking-doc-wstg-report",
+      "kind": "documentation",
+      "title": "OWASP WSTG v4.2: Reporting",
+      "url": "https://github.com/OWASP/wstg/blob/v4.2/document/5-Reporting/README.md",
+      "provider": "OWASP Web Security Testing Guide",
+      "access": "free",
+      "license": "Official versioned guide; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Use report structure, executive communication and reproducible technical evidence. Assignments are original; do not republish copied WSTG text or disclose actual third-party vulnerabilities."
+    },
+    {
+      "id": "ethical-hacking-doc-juice",
+      "kind": "documentation",
+      "title": "OWASP Juice Shop: official repository and local setup",
+      "url": "https://github.com/juice-shop/juice-shop",
+      "provider": "OWASP Juice Shop contributors",
+      "access": "free",
+      "license": "Official project instructions; no app content rehosted",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Deliberately vulnerable training software. Use a pinned official release only in a disposable owned lab, with loopback/host-only binding and synthetic data. Never use its shared public demo as an assessment target or expose a local instance to a LAN/Internet. A source-runtime route is available without paid container software."
+    },
+    {
+      "id": "ethical-hacking-doc-webgoat",
+      "kind": "documentation",
+      "title": "OWASP WebGoat: official warnings and local installation",
+      "url": "https://github.com/WebGoat/WebGoat",
+      "provider": "OWASP WebGoat contributors",
+      "access": "free",
+      "license": "Official project instructions; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "The README explicitly warns against unauthorized testing and recommends disconnection/isolation; examples bind to 127.0.0.1. Use only local dummy accounts. Check the chosen release's Java/runtime requirements; no public instance, external victim or paid lab is required."
+    },
+    {
+      "id": "ethical-hacking-doc-injection",
+      "kind": "documentation",
+      "title": "PortSwigger Academy: SQL injection",
+      "url": "https://portswigger.net/web-security/sql-injection",
+      "provider": "PortSwigger",
+      "access": "free",
+      "license": "Official public educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Read the data/query boundary, detection limitations and prevention sections. Practice uses benign synthetic records and local instrumentation only; no credential extraction, schema dumping, destructive statements or external targets."
+    },
+    {
+      "id": "ethical-hacking-doc-paths",
+      "kind": "documentation",
+      "title": "PortSwigger Academy: Path traversal",
+      "url": "https://portswigger.net/web-security/file-path-traversal",
+      "provider": "PortSwigger",
+      "access": "free",
+      "license": "Official public educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Read root-containment failures and prevention. The only file proof allowed here is a deliberately created harmless marker in a disposable lab, never OS secrets, private files or a real host mount."
+    },
+    {
+      "id": "ethical-hacking-doc-access",
+      "kind": "documentation",
+      "title": "PortSwigger Academy: Access control",
+      "url": "https://portswigger.net/web-security/access-control",
+      "provider": "PortSwigger",
+      "access": "free",
+      "license": "Official public educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Use horizontal/vertical access-control and insecure direct object reference concepts with exactly two synthetic owners in a local fixture. Never enumerate real users or extract real records."
+    },
+    {
+      "id": "ethical-hacking-doc-auth",
+      "kind": "documentation",
+      "title": "PortSwigger Academy: Authentication",
+      "url": "https://portswigger.net/web-security/authentication",
+      "provider": "PortSwigger",
+      "access": "free",
+      "license": "Official public educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Read authentication, session and recovery failure classes. The assigned method is bounded state-transition testing with known dummy accounts, not password guessing, credential stuffing, phishing or real identity collection."
+    },
+    {
+      "id": "ethical-hacking-doc-xss",
+      "kind": "documentation",
+      "title": "PortSwigger Academy: Cross-site scripting",
+      "url": "https://portswigger.net/web-security/cross-site-scripting",
+      "provider": "PortSwigger",
+      "access": "free",
+      "license": "Official public educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Study reflected/stored/DOM contexts and context-sensitive defenses. Use inert markers or the owned lab's harmless built-in indicator only; no cookie reads, exfiltration, external callbacks or persistent client modifications."
+    },
+    {
+      "id": "ethical-hacking-doc-csrf",
+      "kind": "documentation",
+      "title": "PortSwigger Academy: Cross-site request forgery",
+      "url": "https://portswigger.net/web-security/csrf",
+      "provider": "PortSwigger",
+      "access": "free",
+      "license": "Official public educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Read conditions and defenses for unintended authenticated actions. Local tests may change only a disposable note or preference using the learner's dummy identity; no real user is induced to visit anything."
+    },
+    {
+      "id": "ethical-hacking-doc-cors",
+      "kind": "documentation",
+      "title": "PortSwigger Academy: Cross-origin resource sharing",
+      "url": "https://portswigger.net/web-security/cors",
+      "provider": "PortSwigger",
+      "access": "free",
+      "license": "Official public educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Compare origin policy, response sharing and credential assumptions. Test only explicitly owned lab origins; CORS is not a substitute for server-side authorization."
+    },
+    {
+      "id": "ethical-hacking-doc-api",
+      "kind": "documentation",
+      "title": "PortSwigger Academy: API testing",
+      "url": "https://portswigger.net/web-security/api-testing",
+      "provider": "PortSwigger",
+      "access": "free",
+      "license": "Official public educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Read API documentation, endpoints, supported methods and mass-assignment concepts. Use a predeclared local request inventory and bounded synthetic cases; do not probe unknown public APIs or cause resource exhaustion."
+    },
+    {
+      "id": "ethical-hacking-doc-ssrf",
+      "kind": "documentation",
+      "title": "PortSwigger Academy: Server-side request forgery",
+      "url": "https://portswigger.net/web-security/ssrf",
+      "provider": "PortSwigger",
+      "access": "free",
+      "license": "Official public educational reading; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Understand delegated server authority and destination validation. Exercises use two explicitly owned local HTTP sinks only: no cloud metadata endpoint, private-network discovery, external callback, credential collection or protocol exploitation."
+    },
+    {
+      "id": "ethical-hacking-doc-assessment",
+      "kind": "documentation",
+      "title": "NIST SP 800-115: Technical Guide to Information Security Testing and Assessment",
+      "url": "https://csrc.nist.gov/pubs/sp/800/115/final",
+      "provider": "NIST",
+      "access": "free",
+      "license": "Official US government publication; link-only here",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "September 2008 historical assessment-process reference. Use planning, rules of engagement, execution control and post-assessment reporting; do not treat its tool/protocol details as current configuration or legal advice."
+    },
+    {
+      "id": "ethical-hacking-practice-academy",
+      "kind": "practice",
+      "title": "Optional PortSwigger Academy learning paths",
+      "url": "https://portswigger.net/web-security/learning-paths",
+      "provider": "PortSwigger Web Security Academy",
+      "access": "free-account",
+      "license": "Provider-hosted practice under its terms; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Optional hosted practice may require a free account. Authorization applies only to your assigned lab instance and its rules, not the provider's infrastructure or other sites. All required original assignments have a local-only route."
+    },
+    {
+      "id": "ethical-hacking-practice-cylab",
+      "kind": "practice",
+      "title": "Optional CMU CyLab Security Academy",
+      "url": "https://cylabacademy.org/",
+      "provider": "Carnegie Mellon University / CyLab",
+      "access": "free-account",
+      "license": "Provider-hosted practice under its terms; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Current home of the migrated picoCTF learning platform, verified from picoCTF's official notice and this landing page. Optional account-required General Skills/Web practice only within assigned challenge authorization; no stale picoCTF practice links or requirement to pursue other categories."
+    }
+  ],
+  "modules": [
+    {
+      "id": "ethical-hacking-m01-authorized-practice",
+      "title": "01. Authorization, isolation and evidence discipline",
+      "stage": "foundation",
+      "description": "Begin an assessment only when ownership, boundaries, harmless proof and reset procedures are explicit.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l01-engagement",
+          "title": "Write scope and rules of engagement before testing",
+          "objectives": [
+            "Distinguish permission to read a site from authorization to assess it.",
+            "Define targets, allowed methods, data handling, time windows and stop conditions."
+          ],
+          "topics": [
+            {
+              "title": "Authority",
+              "details": [
+                "A public endpoint, employer relationship or bug-bounty label is not blanket permission.",
+                "Written scope identifies the owner, exact assets and permitted actions."
+              ]
+            },
+            {
+              "title": "Bounded testing",
+              "details": [
+                "Minimize proof and avoid affecting availability or other users.",
+                "Unexpected real data or an out-of-scope destination requires stopping."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "ethical-hacking",
+            "rules-of-engagement"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-assessment",
+            "locator": "Planning and post-assessment portions of the official SP 800-115 publication, including rules-of-engagement guidance; use process concepts, not historical tool recommendations."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-start"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a01",
+            "title": "A fictional assessment authorization pack",
+            "kind": "design",
+            "instructions": [
+              "Act as owner and assessor of a fictional local notes application; identify the exact loopback/host-only endpoints and synthetic accounts.",
+              "Write allowed request types, a small request budget, excluded actions, evidence retention and a stop/escalation procedure.",
+              "Evaluate three scope changes: a redirect outside the lab, unexpected real data and a request to test a coworker's account. Do not perform them."
+            ],
+            "deliverables": [
+              "Rules-of-engagement document",
+              "Scope-change decision table"
+            ],
+            "acceptanceCriteria": [
+              "Only owned/expressly authorized isolated assets are in scope.",
+              "No real credentials, private records, availability disruption or external target testing is permitted.",
+              "Stop conditions and the person/role authorized to expand scope are explicit."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q01a",
+                "kind": "single-choice",
+                "prompt": "A lab response redirects to an unrelated public host. What should the assessor do?",
+                "choices": [
+                  "Stop following that path and seek scope clarification",
+                  "Continue because the first request was authorized",
+                  "Scan the new host automatically"
+                ],
+                "answer": "Stop following that path and seek scope clarification",
+                "explanation": "Authorization does not automatically transfer through a redirect. The exact destination and permitted actions must remain within the engagement boundary."
+              },
+              {
+                "id": "ethical-hacking-q01b",
+                "kind": "short-answer",
+                "prompt": "Why include stop conditions rather than only a target list?",
+                "answer": "Unexpected data, impact or destinations can make a previously safe action out of scope; stop rules define how to contain that uncertainty without improvising permission.",
+                "explanation": "Authorization is an operational constraint throughout testing, not a one-time checkbox."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What evidence establishes permission for this exact action?"
+          ],
+          "prerequisites": []
+        },
+        {
+          "id": "ethical-hacking-l02-isolated-target",
+          "title": "Create and verify a resettable deliberately vulnerable lab",
+          "objectives": [
+            "Choose an official training target without exposing it to a shared network.",
+            "Verify binding, egress restrictions, synthetic data and reset behavior."
+          ],
+          "topics": [
+            {
+              "title": "Lab containment",
+              "details": [
+                "Deliberately vulnerable applications must not bind publicly or mount host secrets.",
+                "Loopback publication and a disposable host-only VM are different but bounded designs."
+              ]
+            },
+            {
+              "title": "Repeatability",
+              "details": [
+                "Pin the target release and record the runtime.",
+                "A reset must restore expected dummy accounts, data and application state."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "isolated-labs",
+            "juice-shop",
+            "webgoat"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-webgoat",
+            "locator": "README warnings and Installation instructions: localhost defaults and explicit 127.0.0.1 port bindings. Check the selected release's runtime requirements rather than copying an old version string."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-juice"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a02",
+            "title": "A contained training-target baseline",
+            "kind": "lab",
+            "instructions": [
+              "Choose one official local WebGoat or Juice Shop release in a disposable owned VM or a minimal locally authored vulnerable fixture; no public demo is a target.",
+              "Bind only to loopback or the approved host-only segment, deny unneeded egress, use disposable dummy accounts and mount no host/user directories.",
+              "Verify listening addresses, make one harmless local page request, save a baseline and prove a reset. Record the exact target/runtime versions and teardown steps."
+            ],
+            "deliverables": [
+              "Containment inventory and binding evidence",
+              "Baseline/reset/teardown log"
+            ],
+            "acceptanceCriteria": [
+              "The target is not reachable through an unintended LAN/Internet-facing binding.",
+              "There are no real secrets, personal data or production mounts.",
+              "Reset restores the declared synthetic fixture; unsafe exposure causes testing to stop."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q02a",
+                "kind": "single-choice",
+                "prompt": "Which target is appropriate for the required assessment route?",
+                "choices": [
+                  "The project's shared public demo",
+                  "Any site built with the same framework",
+                  "A pinned official training app in your isolated local lab"
+                ],
+                "answer": "A pinned official training app in your isolated local lab",
+                "explanation": "A software project being intentionally vulnerable does not authorize attacks on every hosted instance. Control and scope must be explicit."
+              },
+              {
+                "id": "ethical-hacking-q02b",
+                "kind": "short-answer",
+                "prompt": "Why avoid mounting a home directory into a deliberately vulnerable container?",
+                "answer": "A lab flaw could then reach real files or credentials outside the synthetic exercise, breaking the containment boundary.",
+                "explanation": "Isolation depends on mounts and permissions as well as network bindings."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Could a mistake in the training app affect anything outside the disposable lab?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l01-engagement",
+            "security-l01-lab-charter"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l03-evidence",
+          "title": "Capture minimal, reproducible evidence without secrets",
+          "objectives": [
+            "Distinguish an observation, a hypothesis and a confirmed finding.",
+            "Record target version, request context, expected/actual behavior and restoration."
+          ],
+          "topics": [
+            {
+              "title": "Evidence discipline",
+              "details": [
+                "The smallest harmless proof is preferable to collecting more data.",
+                "Redact session values and preserve test IDs, timestamps and causal context."
+              ]
+            },
+            {
+              "title": "Finding quality",
+              "details": [
+                "A tool alert is a lead rather than a verdict.",
+                "Negative controls and reproducibility reduce false conclusions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "security-evidence",
+            "reproducibility"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-report",
+            "locator": "Reporting README: report components and technical finding communication. Build an original finding record rather than copying a report template verbatim."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-logging"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a03",
+            "title": "A redacted evidence notebook",
+            "kind": "design",
+            "instructions": [
+              "Record a benign local request and an expected denial from your lab with method, path, synthetic role, time, target version and response status.",
+              "Create a hypothesis for an unexpected result and state a bounded confirming test and a negative control.",
+              "Replace all dummy session values with redacted placeholders and define evidence access, retention and deletion rules."
+            ],
+            "deliverables": [
+              "Evidence record and reproducibility checklist",
+              "Data-minimization/retention policy"
+            ],
+            "acceptanceCriteria": [
+              "A reviewer can repeat the action using newly issued dummy sessions without seeing secret values.",
+              "Facts and unconfirmed interpretations are labelled separately.",
+              "Proof stops after the minimum synthetic result needed to demonstrate the issue."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q03a",
+                "kind": "single-choice",
+                "prompt": "Which is a confirmed-finding record rather than just a lead?",
+                "choices": [
+                  "A scoped reproducible boundary violation with expected/actual results and controls",
+                  "A scanner's severity label alone",
+                  "A screenshot with no target version or context"
+                ],
+                "answer": "A scoped reproducible boundary violation with expected/actual results and controls",
+                "explanation": "Confirmation needs evidence that the intended boundary actually failed under stated conditions, not just a tool's interpretation."
+              },
+              {
+                "id": "ethical-hacking-q03b",
+                "kind": "short-answer",
+                "prompt": "Why redact even disposable session tokens from a shared report?",
+                "answer": "It builds correct evidence-handling discipline and avoids distributing reusable authority while preserving the context needed to reproduce the test.",
+                "explanation": "A report should explain how to obtain a test session, not circulate the original credential."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What is the least data needed to prove this claim?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l02-isolated-target"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ethical-hacking-m02-foundation-map",
+      "title": "02. Linux, network and HTTP assessment foundations",
+      "stage": "foundation",
+      "description": "Map only the assets you own and understand normal behavior before interpreting a failure.",
+      "prerequisites": [
+        "ethical-hacking-m01-authorized-practice"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l04-local-inventory",
+          "title": "Inspect lab processes, permissions and service exposure",
+          "objectives": [
+            "Relate processes, users, files and listening endpoints.",
+            "Identify unnecessary lab exposure without broad scanning or privilege escalation."
+          ],
+          "topics": [
+            {
+              "title": "Host context",
+              "details": [
+                "A process's user and permissions bound its authority.",
+                "A listening address reveals intended reachability, not the whole application policy."
+              ]
+            },
+            {
+              "title": "Safe inventory",
+              "details": [
+                "Read the owned lab's service/configuration inventory before testing.",
+                "Do not enumerate external ranges, host secrets or other users' files."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "linux-foundations",
+            "asset-inventory"
+          ],
+          "video": {
+            "resourceId": "security-video-systems",
+            "locator": "Week 2 Securing Systems: ports, firewalls and service boundaries. This exercise uses read-only local inventory rather than public scanning."
+          },
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-tests",
+            "locator": "02-Configuration_and_Deployment_Management_Testing: infrastructure and application configuration review. Apply only to the known local target and its declared ports."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-lsm"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a04",
+            "title": "An owned-lab exposure inventory",
+            "kind": "lab",
+            "instructions": [
+              "Inside the disposable lab, record process identity, executable/version, known listening address/port and synthetic data directory permissions.",
+              "Compare the inventory with the rules of engagement, flagging one unnecessary capability or documenting why none is present.",
+              "Verify a harmless connection to one declared endpoint and a denied synthetic-file access; perform no network-range scan or privilege escalation."
+            ],
+            "deliverables": [
+              "Process/service/permission map",
+              "Scope comparison and bounded observation log"
+            ],
+            "acceptanceCriteria": [
+              "All observations concern declared lab assets only.",
+              "Process identity and application user identity are not confused.",
+              "Unnecessary exposure is treated as a finding to review, not permission to explore beyond scope."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q04a",
+                "kind": "single-choice",
+                "prompt": "A service unexpectedly listens on all interfaces. What does the assessor do first?",
+                "choices": [
+                  "Invite external users to test it",
+                  "Assume the lab is safe because the app is educational",
+                  "Stop and correct or escalate the containment issue"
+                ],
+                "answer": "Stop and correct or escalate the containment issue",
+                "explanation": "The target's reachability may now exceed authorization and expose a deliberately vulnerable service. Containment takes priority over assessment progress."
+              },
+              {
+                "id": "ethical-hacking-q04b",
+                "kind": "short-answer",
+                "prompt": "Why record the process user as well as the signed-in application user?",
+                "answer": "They represent different authority boundaries: one governs OS resources and the other governs application permissions.",
+                "explanation": "A weakness's impact depends on both layers of authority."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which unexpected capability expands the possible impact of a lab flaw?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l03-evidence",
+            "foundation-lesson-01-files-processes"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l05-http",
+          "title": "Trace HTTP methods, parameters, cookies and responses",
+          "objectives": [
+            "Read a normal request/response and identify state and trust boundaries.",
+            "Use browser developer tools or a scoped local proxy without affecting unrelated browsing."
+          ],
+          "topics": [
+            {
+              "title": "HTTP contract",
+              "details": [
+                "Method, path, headers, body and status each carry different meaning.",
+                "Client fields are not authoritative simply because the UI produced them."
+              ]
+            },
+            {
+              "title": "Tool hygiene",
+              "details": [
+                "Restrict interception/history to the owned target.",
+                "Use an isolated browser profile; never install a test CA in the host-wide store."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "http",
+            "request-analysis",
+            "tool-scope"
+          ],
+          "video": {
+            "resourceId": "security-video-software",
+            "locator": "Week 3 Securing Software: developer tools, requests and client/server validation. Observe the local app's benign normal behavior first."
+          },
+          "reading": {
+            "resourceId": "ethical-hacking-doc-api",
+            "locator": "API reconnaissance and API documentation: identify methods, paths, parameters and response shapes from the local target's own normal traffic and documentation."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-start"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a05",
+            "title": "A normal-flow request notebook",
+            "kind": "lab",
+            "instructions": [
+              "Capture the local dummy user's sign-in, note read, note update and sign-out using an isolated browser profile and developer tools.",
+              "Annotate method, path, content type, state-changing fields, cookie presence and response code without retaining token values.",
+              "If using a free intercepting proxy, restrict it to the exact local origin and show that unrelated browsing is excluded; developer tools alone satisfy the assignment."
+            ],
+            "deliverables": [
+              "Four redacted normal-flow traces",
+              "Browser/proxy scope and cleanup checklist"
+            ],
+            "acceptanceCriteria": [
+              "The notebook distinguishes expected state changes from reads.",
+              "No real browsing session or non-lab traffic is captured.",
+              "No client owner/role field is assumed to be trustworthy without a server check."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q05a",
+                "kind": "single-choice",
+                "prompt": "A role field appears in a browser request. What does its presence establish?",
+                "choices": [
+                  "Only that the client supplied the field",
+                  "That the server should trust the role",
+                  "That the caller has administrative authority"
+                ],
+                "answer": "Only that the client supplied the field",
+                "explanation": "The authoritative service must establish permissions independently. Observing a field is not evidence that it is trusted or exploitable."
+              },
+              {
+                "id": "ethical-hacking-q05b",
+                "kind": "short-answer",
+                "prompt": "Why use a separate browser profile for lab interception?",
+                "answer": "It prevents unrelated sessions, cookies and browsing data from entering the tool's history or trust configuration.",
+                "explanation": "Tool setup is itself a privacy and scope boundary."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which fields describe intent, and which component decides authority?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l04-local-inventory",
+            "foundation-lesson-18-http-apis"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l06-baseline-map",
+          "title": "Build a bounded asset and authorization baseline",
+          "objectives": [
+            "Map known endpoints, actors and intended permissions.",
+            "Choose tests by trust boundary instead of spraying generic probes."
+          ],
+          "topics": [
+            {
+              "title": "Assessment map",
+              "details": [
+                "Record how each endpoint was discovered within normal authorized use.",
+                "Unknown or redirected assets remain out of scope until explicitly included."
+              ]
+            },
+            {
+              "title": "Baseline controls",
+              "details": [
+                "Expected denials establish useful negative controls.",
+                "Test selection should follow threats, impact and the request budget."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "assessment-baseline",
+            "test-planning"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-tests",
+            "locator": "01-Information_Gathering and 05-Authorization_Testing: map entry points, execution paths and intended authorization in the owned lab only."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-threats"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a06",
+            "title": "Beginner evidence gate: a scoped test inventory",
+            "kind": "design",
+            "instructions": [
+              "Combine the local service inventory and normal HTTP traces into a map of endpoints, data stores and synthetic roles.",
+              "Define owner, other-owner and anonymous expectations for each selected operation.",
+              "Choose a small prioritized set of tests with proof limits, negative controls, reset steps and explicit stop conditions."
+            ],
+            "deliverables": [
+              "Asset/request/permission map",
+              "Prioritized bounded test plan and baseline checks"
+            ],
+            "acceptanceCriteria": [
+              "Every planned request has a known authorized destination and purpose.",
+              "Expected allowed and denied behaviors are written before testing.",
+              "The plan includes reset/evidence handling and excludes unknown targets and unbounded scans."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q06a",
+                "kind": "single-choice",
+                "prompt": "What should drive test selection after mapping a small lab?",
+                "choices": [
+                  "The largest possible request count",
+                  "A list of unrelated public hosts",
+                  "Its trust boundaries and authorized risk questions"
+                ],
+                "answer": "Its trust boundaries and authorized risk questions",
+                "explanation": "A focused assessment gathers evidence about the system's actual assumptions while minimizing unnecessary impact."
+              },
+              {
+                "id": "ethical-hacking-q06b",
+                "kind": "short-answer",
+                "prompt": "Why state expected behavior before sending a test?",
+                "answer": "It makes a failure distinguishable from normal behavior and prevents interpreting any unusual response as a vulnerability.",
+                "explanation": "A clear control expectation is necessary for an evidence-based finding."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which test has the highest information value for the least possible impact?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l05-http",
+            "security-l02-threat-model"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ethical-hacking-m03-input-files",
+      "title": "03. Input interpretation and file boundaries",
+      "stage": "intermediate",
+      "description": "Validate local data/control separation using harmless fixtures and explicit negative controls.",
+      "prerequisites": [
+        "ethical-hacking-m02-foundation-map"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l07-injection",
+          "title": "Validate an injection hypothesis without extracting data",
+          "objectives": [
+            "Trace untrusted input to query interpretation in a deliberately vulnerable local example.",
+            "Distinguish an error symptom from a confirmed data/control boundary failure."
+          ],
+          "topics": [
+            {
+              "title": "Injection mechanism",
+              "details": [
+                "Concatenating data into query syntax can change interpretation.",
+                "A quoted surname causing an error is a clue, not proof of exploitable injection."
+              ]
+            },
+            {
+              "title": "Bounded proof",
+              "details": [
+                "Use synthetic records and local query instrumentation, never credential tables or data dumps.",
+                "A parameterized version provides a negative control and remediation target."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "sql-injection",
+            "safe-validation"
+          ],
+          "video": {
+            "resourceId": "security-video-software",
+            "locator": "Week 3 Securing Software: SQL injection and prepared statements. Focus on the mechanism and defensive comparison, not external exploitation."
+          },
+          "reading": {
+            "resourceId": "ethical-hacking-doc-injection",
+            "locator": "What is SQL injection?, detecting SQL injection, and prevention using parameterized queries. Restrict proof to the instrumented synthetic fixture."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-webgoat"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a07",
+            "title": "A query-boundary finding with a safe control",
+            "kind": "lab",
+            "instructions": [
+              "Use a local teaching fixture with three invented product records and visible query-construction logging, or an explicitly assigned local training lesson.",
+              "Compare ordinary text and a benign quote-containing name; inspect whether data enter query syntax and use the local lesson's minimal harmless indicator to validate the hypothesis.",
+              "Compare a parameterized variant, documenting expected/actual behavior. Do not enumerate schemas, extract credentials, execute destructive statements or contact another target."
+            ],
+            "deliverables": [
+              "Redacted local finding and mechanism explanation",
+              "Vulnerable/fixed comparison with negative control"
+            ],
+            "acceptanceCriteria": [
+              "An error alone is not labelled confirmed injection.",
+              "Proof demonstrates the input-to-query boundary using only synthetic fixture data.",
+              "The parameterized control preserves legitimate quoted input and prevents syntax interpretation."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q07a",
+                "kind": "single-choice",
+                "prompt": "A quote in a search field causes a server error. What has been established?",
+                "choices": [
+                  "A diagnostic lead needing scoped confirmation",
+                  "Permission to dump a database",
+                  "Certain proof of every form of SQL injection"
+                ],
+                "answer": "A diagnostic lead needing scoped confirmation",
+                "explanation": "Errors can have many causes. A finding requires evidence of the relevant interpretation boundary and a bounded authorized proof."
+              },
+              {
+                "id": "ethical-hacking-q07b",
+                "kind": "short-answer",
+                "prompt": "Why include legitimate quote-containing text in remediation tests?",
+                "answer": "The fix should keep user input as data without breaking valid names or content; simply banning characters is not a complete query-construction defense.",
+                "explanation": "Security and functional correctness should be verified together."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What observation confirms the mechanism rather than merely a symptom?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l06-baseline-map",
+            "security-l15-input-output"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l08-file-boundaries",
+          "title": "Assess path containment and upload assumptions",
+          "objectives": [
+            "Test whether a local file interface enforces an allowed root.",
+            "Separate filename, media type, content validation and storage permissions."
+          ],
+          "topics": [
+            {
+              "title": "Path interpretation",
+              "details": [
+                "Normalization and containment are different checks.",
+                "A file outside an application's allowed root can still be inside the disposable lab proof boundary."
+              ]
+            },
+            {
+              "title": "Upload handling",
+              "details": [
+                "Extensions and client-declared content types are untrusted metadata.",
+                "Storage should not grant uploaded content execution authority."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "path-traversal",
+            "file-upload",
+            "containment"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-paths",
+            "locator": "File path traversal concepts and prevention: resolve and enforce the allowed root; do not use example sensitive OS files as test targets."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-asvs"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a08",
+            "title": "A harmless file-boundary assessment",
+            "kind": "lab",
+            "instructions": [
+              "Create an allowed document folder and a separate harmless marker folder within the disposable fixture; neither may contain real host data.",
+              "Test normal, normalized and out-of-root requests against a local teaching endpoint, stopping after a single marker proves the boundary behavior.",
+              "For uploads, use only plain text with conflicting extension/type metadata; compare acceptance, storage location and non-executable handling before/after a fix."
+            ],
+            "deliverables": [
+              "Allowed-root diagram and bounded test table",
+              "Upload metadata/control comparison"
+            ],
+            "acceptanceCriteria": [
+              "No real filesystem, secret, executable payload or host-mounted file is read or uploaded.",
+              "The finding distinguishes normalization from enforceable containment.",
+              "The fixed path rejects out-of-root access while preserving legitimate documents."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q08a",
+                "kind": "single-choice",
+                "prompt": "Normalizing a user-supplied path is sufficient only if what also happens?",
+                "choices": [
+                  "The user picked a friendly filename",
+                  "The resolved target is checked against the authorized root and policy",
+                  "The file extension is short"
+                ],
+                "answer": "The resolved target is checked against the authorized root and policy",
+                "explanation": "Normalization produces a canonical interpretation; it does not decide whether that location is permitted."
+              },
+              {
+                "id": "ethical-hacking-q08b",
+                "kind": "short-answer",
+                "prompt": "Why is a plain-text marker preferable to reading a system secret as proof?",
+                "answer": "It demonstrates the same access boundary failure with minimal impact and without collecting sensitive data or expanding scope.",
+                "explanation": "An ethical assessment proves the relevant condition, not the maximum possible harm."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does the test prove the boundary while leaving all real data untouched?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l07-injection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ethical-hacking-m04-identity-access",
+      "title": "04. Identity, access-control and session assessment",
+      "stage": "intermediate",
+      "description": "Use known dummy identities to test authority transitions and owner boundaries.",
+      "prerequisites": [
+        "ethical-hacking-m03-input-files"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l09-object-access",
+          "title": "Validate horizontal and vertical access-control failures",
+          "objectives": [
+            "Compare intended and observed permissions for synthetic owners and roles.",
+            "Confirm an ownership flaw with one minimal local record, not enumeration."
+          ],
+          "topics": [
+            {
+              "title": "Access failure classes",
+              "details": [
+                "Horizontal failures cross owners; vertical failures cross privilege levels.",
+                "Predictable IDs do not themselves prove unauthorized access."
+              ]
+            },
+            {
+              "title": "Confirmation",
+              "details": [
+                "Control requests establish what each known actor should see.",
+                "Lists, reads and writes can fail independently."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "access-control-testing",
+            "idor"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-access",
+            "locator": "Horizontal and vertical privilege escalation, insecure direct object references and access-control prevention. Apply only to the two predeclared synthetic users."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-authorization"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a09",
+            "title": "A two-user ownership proof",
+            "kind": "lab",
+            "instructions": [
+              "Prepare Alice/Bob dummy records and a narrowly scoped synthetic support role in a deliberately vulnerable local fixture.",
+              "Compare authorized self-access with one known other-owner read and one reversible update; restore the fixture immediately.",
+              "Record a local list/role boundary separately, stopping at the first minimal proof and never guessing or enumerating real identifiers."
+            ],
+            "deliverables": [
+              "Expected/actual permission matrix",
+              "Minimal finding record and restoration log"
+            ],
+            "acceptanceCriteria": [
+              "The report identifies principal, action, resource and violated policy.",
+              "Only predeclared synthetic IDs and reversible fixture changes are used.",
+              "Predictability of an ID is not substituted for proof of unauthorized access."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q09a",
+                "kind": "single-choice",
+                "prompt": "Sequential record IDs by themselves establish what?",
+                "choices": [
+                  "A confirmed cross-user data leak",
+                  "An identifier pattern, not necessarily an authorization flaw",
+                  "Permission to enumerate the service"
+                ],
+                "answer": "An identifier pattern, not necessarily an authorization flaw",
+                "explanation": "Access control may still be correct. The relevant finding is an unauthorized operation succeeding under a scoped test."
+              },
+              {
+                "id": "ethical-hacking-q09b",
+                "kind": "short-answer",
+                "prompt": "What is a useful negative control for a cross-owner read test?",
+                "answer": "A request by the rightful owner that should succeed, paired with an anonymous or other-owner request that should be denied under the declared policy.",
+                "explanation": "Controls distinguish authorization behavior from a missing record, application error or misunderstood workflow."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which exact permission check is absent or incorrect?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l08-file-boundaries",
+            "security-l05-permissions"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l10-session-assessment",
+          "title": "Test login, logout, recovery and session transitions safely",
+          "objectives": [
+            "Evaluate authority before and after a session-state change.",
+            "Identify recovery and token-validation assumptions without guessing credentials."
+          ],
+          "topics": [
+            {
+              "title": "State transitions",
+              "details": [
+                "Logout and role changes must affect the right sessions.",
+                "Client deletion alone may leave server authority active."
+              ]
+            },
+            {
+              "title": "Authentication scope",
+              "details": [
+                "Known dummy credentials are sufficient to test session lifecycle.",
+                "Password spraying, real MFA interception and credential collection are outside this curriculum."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "session-testing",
+            "authentication-testing"
+          ],
+          "video": {
+            "resourceId": "security-video-accounts",
+            "locator": "Week 0 Securing Accounts: authentication, MFA and recovery concepts. Use current NIST guidance for requirements and bounded dummy-session tests for evidence."
+          },
+          "reading": {
+            "resourceId": "ethical-hacking-doc-auth",
+            "locator": "Authentication mechanisms and vulnerabilities in other authentication mechanisms; use these as a checklist for explicit local lifecycle transitions, not password attacks."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-sessions",
+            "security-doc-identity"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a10",
+            "title": "A dummy-session transition matrix",
+            "kind": "lab",
+            "instructions": [
+              "With one known dummy account, record successful login and a permitted operation, then logout, expire or revoke the session using local controls.",
+              "Attempt only the same benign operation after each transition, keeping token values out of evidence.",
+              "Review the fictional recovery flow on paper for assurance gaps; do not send recovery messages to real people or attempt password guessing."
+            ],
+            "deliverables": [
+              "Before/after session tests",
+              "Recovery-assurance review and bounded finding"
+            ],
+            "acceptanceCriteria": [
+              "Each finding identifies the intended authority transition and observed result.",
+              "No real credentials, OTPs, session values or identity documents are collected.",
+              "A role/session change is retested at the server boundary, not only in the UI."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q10a",
+                "kind": "single-choice",
+                "prompt": "A logout button disappears but the old dummy session still authorizes a private local read. What is the relevant finding?",
+                "choices": [
+                  "The page needs a different color",
+                  "The expected server-side session invalidation failed",
+                  "All authentication algorithms are broken"
+                ],
+                "answer": "The expected server-side session invalidation failed",
+                "explanation": "The proof concerns a specific lifecycle/authority transition. A bounded description avoids unsupported broader claims."
+              },
+              {
+                "id": "ethical-hacking-q10b",
+                "kind": "short-answer",
+                "prompt": "Why can recovery be weaker than normal sign-in?",
+                "answer": "It may grant the same account authority with fewer or different checks, so its assurance and revocation effects need separate review.",
+                "explanation": "Strong normal login does not compensate for an unexamined alternate path."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which state transition changed authority, and where is that enforced?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l09-object-access",
+            "security-l06-sessions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ethical-hacking-m05-browser-boundaries",
+      "title": "05. Browser interpretation and cross-origin trust",
+      "stage": "intermediate",
+      "description": "Assess browser-context assumptions with harmless markers and reversible local actions.",
+      "prerequisites": [
+        "ethical-hacking-m04-identity-access"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l11-output-context",
+          "title": "Distinguish reflection from executable browser interpretation",
+          "objectives": [
+            "Trace reflected, stored and DOM output contexts.",
+            "Validate context-sensitive defenses without reading cookies or creating external callbacks."
+          ],
+          "topics": [
+            {
+              "title": "Browser boundaries",
+              "details": [
+                "A visible reflected string is not automatically executable script.",
+                "HTML, attribute, URL and script contexts require different handling."
+              ]
+            },
+            {
+              "title": "Harmless proof",
+              "details": [
+                "Use an inert unique marker first and inspect the resulting DOM context.",
+                "If execution confirmation is needed, use only the owned lab's benign indicator and restore its state."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "xss-testing",
+            "output-context"
+          ],
+          "video": {
+            "resourceId": "security-video-software",
+            "locator": "Week 3 Securing Software: reflected/stored XSS and character escapes. Learn the interpretation boundary without assigning harmful payloads."
+          },
+          "reading": {
+            "resourceId": "ethical-hacking-doc-xss",
+            "locator": "Reflected, stored and DOM-based XSS; contexts and prevention. Distinguish observing reflection from demonstrating unsafe interpretation."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-asvs"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a11",
+            "title": "A harmless output-context comparison",
+            "kind": "lab",
+            "instructions": [
+              "Place a unique plain-text marker through search, saved-note and client-rendered paths in the owned local teaching fixture.",
+              "Inspect the DOM and sink context; if the selected built-in lab requires active proof, use only its harmless visual indicator, with no cookie access, network calls, file access or persistent changes.",
+              "Compare a safely encoded/text-rendered version and test that ordinary user text still displays correctly; reset stored markers afterward."
+            ],
+            "deliverables": [
+              "Source-to-sink context map",
+              "Minimal proof, safe-control comparison and reset log"
+            ],
+            "acceptanceCriteria": [
+              "Reflection alone is not reported as confirmed script execution.",
+              "No credentials, callbacks, exfiltration or harmful/persistent payload is used.",
+              "The proposed fix matches the actual output context and preserves legitimate text."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q11a",
+                "kind": "single-choice",
+                "prompt": "Your marker appears on a page. What must still be established before claiming XSS?",
+                "choices": [
+                  "Only that the text is visible",
+                  "That the page has any JavaScript",
+                  "Unsafe interpretation/execution in the relevant browser context"
+                ],
+                "answer": "Unsafe interpretation/execution in the relevant browser context",
+                "explanation": "Safely rendered text can reflect user input without becoming executable. Context and behavior determine the finding."
+              },
+              {
+                "id": "ethical-hacking-q11b",
+                "kind": "short-answer",
+                "prompt": "Why is one generic escaping function not appropriate for every output context?",
+                "answer": "HTML text, attributes, URLs and script contexts have different parsing rules and required safe APIs or encodings.",
+                "explanation": "A defense must match the boundary where the data are interpreted."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "At which sink does data become a browser instruction?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l10-session-assessment"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l12-cross-origin",
+          "title": "Assess CSRF and CORS as different boundaries",
+          "objectives": [
+            "Distinguish unintended authenticated actions from cross-origin response reading.",
+            "Test only reversible dummy actions across explicitly owned local origins."
+          ],
+          "topics": [
+            {
+              "title": "CSRF conditions",
+              "details": [
+                "Automatically attached authority can accompany an unintended request.",
+                "State-changing operations need the appropriate server-validated defense."
+              ]
+            },
+            {
+              "title": "CORS scope",
+              "details": [
+                "CORS affects browser sharing of responses.",
+                "A permissive header is not by itself proof of sensitive credentialed data exposure."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "csrf-testing",
+            "cors-testing"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-csrf",
+            "locator": "How does CSRF work? and prevention: identify required conditions before testing a reversible local action."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-cors",
+            "security-doc-sessions"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a12",
+            "title": "Intermediate evidence gate: browser-boundary findings",
+            "kind": "lab",
+            "instructions": [
+              "Use two declared local origins and one dummy user to test a reversible note preference change with present/absent valid anti-CSRF context.",
+              "Separately compare allowed and unapproved origins reading a synthetic response under the fixture's credential policy.",
+              "Assemble your input/file, owner/session and browser findings with negative controls, redaction and restoration evidence."
+            ],
+            "deliverables": [
+              "CSRF-versus-CORS condition matrix",
+              "Intermediate finding dossier with proof limits"
+            ],
+            "acceptanceCriteria": [
+              "The report separates action authorization from browser response-sharing policy.",
+              "Any claimed CORS issue shows actual relevant synthetic data visibility under stated credential conditions.",
+              "All state changes are reversible, authorized and restored; no real user is involved."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q12a",
+                "kind": "single-choice",
+                "prompt": "Does a broad Access-Control-Allow-Origin header alone prove sensitive credentialed data exposure?",
+                "choices": [
+                  "Yes, regardless of response contents",
+                  "No, the full credential, response and browser behavior must be evaluated",
+                  "Yes, and it authorizes testing any origin"
+                ],
+                "answer": "No, the full credential, response and browser behavior must be evaluated",
+                "explanation": "Header observations require context and an authorized behavioral check. A finding must show the material boundary failure, not only a suspicious configuration."
+              },
+              {
+                "id": "ethical-hacking-q12b",
+                "kind": "short-answer",
+                "prompt": "Why can blocking response reading fail to prevent a CSRF-style action?",
+                "answer": "A state-changing request can sometimes be sent and acted on even when the browser does not expose its response to the initiating origin.",
+                "explanation": "Sending/authorizing an action and reading its response are distinct security questions."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Did the test demonstrate a change, a read, or merely a header?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l11-output-context",
+            "security-l17-browser-controls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ethical-hacking-m06-api-server-boundaries",
+      "title": "06. API permissions and server-side request boundaries",
+      "stage": "advanced",
+      "description": "Trace authority across API fields and delegated requests using tightly bounded local fixtures.",
+      "prerequisites": [
+        "ethical-hacking-m05-browser-boundaries"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l13-api-contracts",
+          "title": "Assess object/function authorization and writable fields",
+          "objectives": [
+            "Distinguish object-level, function-level and property-level permission checks.",
+            "Verify bounded input/resource limits without stress or denial-of-service testing."
+          ],
+          "topics": [
+            {
+              "title": "API authority",
+              "details": [
+                "A caller may read a property without permission to write it.",
+                "Unexpected fields must not become privileged state automatically."
+              ]
+            },
+            {
+              "title": "Bounded testing",
+              "details": [
+                "Use a documented local endpoint inventory rather than guessing public APIs.",
+                "Check limit boundaries with tiny requests and explicit budgets."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "api-assessment",
+            "mass-assignment",
+            "object-authorization"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-api",
+            "locator": "API documentation, supported methods/content types, hidden parameters and mass-assignment vulnerabilities. Apply only to the predeclared local schema."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-rest",
+            "ethical-hacking-doc-access"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a13",
+            "title": "A property-level permission challenge",
+            "kind": "lab",
+            "instructions": [
+              "Use a local synthetic user-profile API with declared editable displayName and server-controlled role/owner properties.",
+              "Within a five-request budget, compare valid edits, an unexpected property, a different known owner, a forbidden function and one tiny over-limit input.",
+              "Record whether unauthorized fields change durable state, then reset. Do not create load, discover real endpoints or acquire real privileges."
+            ],
+            "deliverables": [
+              "Object/function/property matrix",
+              "Five bounded test records with state verification"
+            ],
+            "acceptanceCriteria": [
+              "The finding distinguishes rejected input, ignored fields and actual unauthorized state changes.",
+              "Allowed user edits still work as a positive control.",
+              "No performance degradation, resource exhaustion or non-lab request occurs."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q13a",
+                "kind": "single-choice",
+                "prompt": "An API returns a user's role. Does that imply the user may set that role?",
+                "choices": [
+                  "Yes, every returned property is writable",
+                  "No, read and write permissions differ",
+                  "Yes, if the UI hides the field"
+                ],
+                "answer": "No, read and write permissions differ",
+                "explanation": "Property-level authorization must distinguish disclosure from modification. Serialization output is not a grant of write authority."
+              },
+              {
+                "id": "ethical-hacking-q13b",
+                "kind": "short-answer",
+                "prompt": "Why inspect stored state after a suspicious API response?",
+                "answer": "A response may echo input without applying it, or may hide a write despite an error; durable state confirms the actual effect.",
+                "explanation": "Findings should describe observed authority changes, not infer them from presentation alone."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which property is authoritative, and who is allowed to change it?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l12-cross-origin",
+            "security-l18-tenant-boundaries"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l14-server-requests",
+          "title": "Validate delegated fetch boundaries with local sinks",
+          "objectives": [
+            "Explain how a user-controlled destination can borrow server authority.",
+            "Prove a destination-validation failure without contacting sensitive services."
+          ],
+          "topics": [
+            {
+              "title": "SSRF mechanism",
+              "details": [
+                "A server fetch can cross a boundary the client itself could not cross.",
+                "Redirects, name resolution and protocol choices affect destination policy."
+              ]
+            },
+            {
+              "title": "Safe confirmation",
+              "details": [
+                "Two expressly owned local sinks can show an allowed-versus-denied destination difference.",
+                "Never use cloud metadata, private-network discovery or an external callback as proof."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "ssrf",
+            "server-request-boundaries"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-ssrf",
+            "locator": "What is SSRF?, common attack surfaces and defenses; translate the mechanism into the two-sink isolated exercise, excluding sensitive target examples."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-rest"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a14",
+            "title": "A two-sink server-request proof",
+            "kind": "lab",
+            "instructions": [
+              "Within the approved isolated lab, create two harmless HTTP sinks: A explicitly allowed by the fixture policy and B explicitly forbidden but still owned and authorized for this test.",
+              "Submit a unique non-secret marker through the local fetch feature and observe which sink receives it; optionally use one local-only redirect between these same sinks to test policy revalidation.",
+              "Document and fix destination enforcement, then retest. Never query cloud metadata, host services, unknown addresses, other protocols or external collectors."
+            ],
+            "deliverables": [
+              "Delegated-authority flow diagram",
+              "Allowed/forbidden sink observations and retest"
+            ],
+            "acceptanceCriteria": [
+              "All requests stay among the three declared local components.",
+              "A finding is supported by a sink observation, not just a timeout or error message.",
+              "The corrected policy validates the actual destination at the relevant boundary, including an allowed local redirect test if used."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q14a",
+                "kind": "single-choice",
+                "prompt": "Which proof is appropriate for this SSRF lesson?",
+                "choices": [
+                  "A harmless marker reaching an explicitly authorized but policy-forbidden local sink",
+                  "Reading cloud instance credentials",
+                  "Scanning unknown internal addresses"
+                ],
+                "answer": "A harmless marker reaching an explicitly authorized but policy-forbidden local sink",
+                "explanation": "The local observation proves the destination-policy failure without expanding scope or collecting sensitive data."
+              },
+              {
+                "id": "ethical-hacking-q14b",
+                "kind": "short-answer",
+                "prompt": "Why can validating only an initial URL be insufficient?",
+                "answer": "A subsequent redirect or resolved destination may differ from what the original check allowed, so enforcement must cover the actual request path under the declared policy.",
+                "explanation": "The trust boundary concerns where the server ultimately sends the request, not only the first string it receives."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Whose authority is performing this request, and which destination policy constrains it?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l13-api-contracts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ethical-hacking-m07-local-infrastructure",
+      "title": "07. Local network, transport and container configuration assessment",
+      "stage": "advanced",
+      "description": "Review concrete exposure and privilege assumptions without exploit chains, host escape or unknown-target scanning.",
+      "prerequisites": [
+        "ethical-hacking-m06-api-server-boundaries"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l15-network-controls",
+          "title": "Assess known service exposure and transport assumptions",
+          "objectives": [
+            "Compare declared and effective local network reachability.",
+            "Evaluate transport protection with synthetic traffic and certificate checks."
+          ],
+          "topics": [
+            {
+              "title": "Exposure review",
+              "details": [
+                "Published ports, host binding and segmentation jointly affect reachability.",
+                "Service banners can guide a review but do not prove an exploitable weakness."
+              ]
+            },
+            {
+              "title": "Transport evidence",
+              "details": [
+                "Plaintext dummy traffic demonstrates a confidentiality boundary without real credentials.",
+                "TLS failures must not be bypassed to make a test pass."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "network-assessment",
+            "transport-testing"
+          ],
+          "video": {
+            "resourceId": "security-video-systems",
+            "locator": "Week 2 Securing Systems: HTTP/HTTPS, certificates, VPN and firewalls. Use only declared local endpoints and benign traffic."
+          },
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-tests",
+            "locator": "02-Configuration_and_Deployment_Management_Testing and 09-Testing_for_Weak_Cryptography: configuration and transport review, with current TLS guidance replacing historical defaults."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-tls",
+            "security-doc-firewalls"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a15",
+            "title": "A known-endpoint transport and reachability review",
+            "kind": "lab",
+            "instructions": [
+              "Use the declared client/app/database lab flow matrix and inspect published port bindings before any connection attempt.",
+              "Verify one allowed and one denied connection using harmless requests to those exact owned endpoints, never a scan range.",
+              "Compare a synthetic plaintext marker with a correctly validated local TLS connection, documenting why certificate failures are findings rather than reasons to disable verification."
+            ],
+            "deliverables": [
+              "Reachability and transport evidence matrix",
+              "Prioritized configuration recommendation"
+            ],
+            "acceptanceCriteria": [
+              "Only listed endpoints are contacted and no real traffic is captured.",
+              "A version/banner alone is not labelled proof of exploitability.",
+              "A proposed fix preserves required access and enforces TLS validation and scope."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q15a",
+                "kind": "single-choice",
+                "prompt": "An old-looking service banner alone supports which conclusion?",
+                "choices": [
+                  "A lead for version and exposure verification",
+                  "A confirmed vulnerable deployment without checking its actual patched build",
+                  "A high-confidence impact rating without reachability or configuration evidence"
+                ],
+                "answer": "A lead for version and exposure verification",
+                "explanation": "Backports, configuration and actual reachability matter. Confirm the relevant condition within scope instead of assigning impact from a string."
+              },
+              {
+                "id": "ethical-hacking-q15b",
+                "kind": "short-answer",
+                "prompt": "Why test legitimate connectivity after tightening a network policy?",
+                "answer": "A control that blocks required safe use may fail operational acceptance; both allowed and denied flows must match the intended policy.",
+                "explanation": "Security remediation must preserve the system's authorized function."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does the evidence show reachability, weak protection or actual unauthorized access?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l14-server-requests",
+            "security-l13-firewall-vpn"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l16-container-review",
+          "title": "Review container privilege, mounts and build inputs",
+          "objectives": [
+            "Explain how container settings affect host and workload boundaries.",
+            "Distinguish a risky configuration from proven impact without attempting escape."
+          ],
+          "topics": [
+            {
+              "title": "Runtime scope",
+              "details": [
+                "Host mounts, privileged mode, user identity and published ports require justification.",
+                "A container is not automatically a complete security boundary."
+              ]
+            },
+            {
+              "title": "Build trust",
+              "details": [
+                "Pinned base images, dependency inventory and provenance aid assessment.",
+                "A secret in a fictional image recipe should be replaced by a dummy handle, not collected from a real image."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "container-assessment",
+            "configuration-review"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-tests",
+            "locator": "02-Configuration_and_Deployment_Management_Testing: deployment and infrastructure configuration review. Pair with the SLSA build-track definitions for provenance scope."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-slsa",
+            "security-doc-secrets"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a16",
+            "title": "An offline container-boundary challenge",
+            "kind": "design",
+            "instructions": [
+              "Author two synthetic container/configuration manifests: one unnecessarily privileged with an invented host-mount path, one least-privilege and loopback-bound.",
+              "Review capabilities, writable mounts, runtime user, base/dependency pinning and dummy-secret handling without launching the unsafe variant.",
+              "Propose a corrected manifest and tests that inspect configuration and expected access; do not attempt host escape, persistence or discovery of real secrets."
+            ],
+            "deliverables": [
+              "Annotated safe/unsafe fixture manifests",
+              "Boundary-risk and remediation table"
+            ],
+            "acceptanceCriteria": [
+              "The unsafe example is reviewed offline and never applied to the host.",
+              "Impact claims state required conditions and affected boundaries.",
+              "Corrections remove unnecessary authority while retaining the declared local service function."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q16a",
+                "kind": "single-choice",
+                "prompt": "What is the appropriate way to assess a deliberately unsafe privileged-container example here?",
+                "choices": [
+                  "Run the unsafe example first and confirm containment afterward",
+                  "Treat containerization alone as sufficient without reviewing mounts and privileges",
+                  "Review the synthetic manifest offline and validate a safe corrected design"
+                ],
+                "answer": "Review the synthetic manifest offline and validate a safe corrected design",
+                "explanation": "The lesson teaches configuration and authority reasoning without creating a dangerous host exposure or collecting real secrets."
+              },
+              {
+                "id": "ethical-hacking-q16b",
+                "kind": "short-answer",
+                "prompt": "Why can a read-only host mount still be sensitive?",
+                "answer": "Read access can disclose private data or credentials even when modification is prevented.",
+                "explanation": "Confidentiality and integrity risks need separate evaluation; read-only is not synonymous with harmless."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What exact capability makes the configuration risky?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l15-network-controls",
+            "security-l22-supply-chain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ethical-hacking-m08-finding-quality",
+      "title": "08. Tool validation, impact and prioritization",
+      "stage": "advanced",
+      "description": "Turn leads into minimally proven findings and prioritize them by actual context.",
+      "prerequisites": [
+        "ethical-hacking-m07-local-infrastructure"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l17-tool-validation",
+          "title": "Challenge tool output with independent local checks",
+          "objectives": [
+            "Treat proxy/scanner observations as hypotheses requiring validation.",
+            "Reproduce a bounded result without relying on a tool's severity label."
+          ],
+          "topics": [
+            {
+              "title": "Tool discipline",
+              "details": [
+                "Tools need explicit target scope, rate budgets and logging.",
+                "Passive inspection and a few manual requests often answer a small lab question."
+              ]
+            },
+            {
+              "title": "False positives",
+              "details": [
+                "Missing headers, banners and errors do not automatically establish material harm.",
+                "A clean tool result does not establish absence of weaknesses."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "tool-validation",
+            "false-positives",
+            "assessment-evidence"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-framework",
+            "locator": "The Web Security Testing Framework: before/during/after development and maintenance phases; follow its Introduction cross-reference for balanced automated, manual and source-review methods."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-start"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a17",
+            "title": "A three-lead validation notebook",
+            "kind": "lab",
+            "instructions": [
+              "Use three prepared synthetic leads: a suspicious header, a query error and an owner-boundary observation from earlier lessons.",
+              "Confirm or reject each with a bounded manual local request or source/configuration check and a negative control; no automated broad scan is required.",
+              "Record tool/version/scope and why its initial label was insufficient. Free developer tools and a local HTTP client satisfy the route."
+            ],
+            "deliverables": [
+              "Lead-to-finding decision table",
+              "Independent reproductions and false-positive rationale"
+            ],
+            "acceptanceCriteria": [
+              "At least one unsupported lead is explicitly rejected or left unconfirmed.",
+              "Confirmed findings have a mechanism and actual scoped effect.",
+              "Tool output never substitutes for authorization or expands the request budget."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q17a",
+                "kind": "single-choice",
+                "prompt": "A scanner labels a missing header critical. What should follow?",
+                "choices": [
+                  "Contextual validation of the actual risk and applicability",
+                  "Automatic acceptance of the severity",
+                  "Unapproved wider scanning"
+                ],
+                "answer": "Contextual validation of the actual risk and applicability",
+                "explanation": "Tool labels lack the full business and architectural context. A report must justify the control expectation and demonstrated impact."
+              },
+              {
+                "id": "ethical-hacking-q17b",
+                "kind": "short-answer",
+                "prompt": "Why record a rejected false positive?",
+                "answer": "It shows the assessment's reasoning and prevents repeated investigation or misleading inclusion in later summaries.",
+                "explanation": "Evidence discipline includes why a claim was not established."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Could another assessor reproduce the finding without your tool's label?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l16-container-review"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l18-prioritization",
+          "title": "Rate impact, prerequisites and uncertainty responsibly",
+          "objectives": [
+            "Separate technical severity, business consequence and confidence.",
+            "Describe a possible failure chain without executing additional harmful steps."
+          ],
+          "topics": [
+            {
+              "title": "Prioritization",
+              "details": [
+                "Required privileges, reachable assets and data sensitivity affect impact.",
+                "A score is a structured estimate, not a substitute for a narrative."
+              ]
+            },
+            {
+              "title": "Confidence",
+              "details": [
+                "Observed minimal proof and hypothesized wider impact must be distinguished.",
+                "Uncertainty can justify further authorized investigation, not an exaggerated claim."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "vulnerability-prioritization",
+            "impact-analysis"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-report",
+            "locator": "Reporting guidance on risk, technical detail and remediation. Use the guide's structure while stating the current scope and uncertainty of every impact claim."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-csf"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a18",
+            "title": "Advanced evidence gate: context-rated findings",
+            "kind": "design",
+            "instructions": [
+              "Prioritize four synthetic findings from the web/API/configuration exercises by prerequisites, exposure, potential consequence, ease of remediation and evidence confidence.",
+              "For one hypothetical combined failure, draw the causal chain on paper and mark untested links; do not execute an escalation or collect more data.",
+              "Include the API/server-request matrix and offline container review, identifying what remains unconfirmed."
+            ],
+            "deliverables": [
+              "Ranked finding register with confidence and rationale",
+              "Advanced assessment dossier and bounded impact diagram"
+            ],
+            "acceptanceCriteria": [
+              "Observed facts and hypothetical consequences are explicitly separated.",
+              "Each priority has a context-based reason, not only a tool score.",
+              "No chain validation goes beyond the existing authorization or minimal synthetic proof."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q18a",
+                "kind": "single-choice",
+                "prompt": "A potentially severe issue has only a partial local proof. Which pair must remain distinct in the report?",
+                "choices": [
+                  "A single combined score treating suspected impact as confirmed",
+                  "The tool's highest severity label used as the final decision",
+                  "Potential impact and confidence in the evidence"
+                ],
+                "answer": "Potential impact and confidence in the evidence",
+                "explanation": "A high-impact scenario can be weakly evidenced, while a modest issue may be certain. The distinction guides responsible prioritization."
+              },
+              {
+                "id": "ethical-hacking-q18b",
+                "kind": "short-answer",
+                "prompt": "How should an untested step in a possible vulnerability chain be described?",
+                "answer": "As a hypothesis with stated prerequisites and uncertainty, not as a demonstrated compromise.",
+                "explanation": "A professional report does not turn a plausible narrative into claimed observation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What would change this finding's priority without changing its underlying defect?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l17-tool-validation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ethical-hacking-m09-assessment-lifecycle",
+      "title": "09. Controlled assessment, remediation and retesting",
+      "stage": "professional",
+      "description": "Manage the engagement as an accountable change-and-evidence process rather than a list of tricks.",
+      "prerequisites": [
+        "ethical-hacking-m08-finding-quality"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l19-assessment-plan",
+          "title": "Run a time-bounded assessment with change control",
+          "objectives": [
+            "Translate scope into test order, budgets and checkpoints.",
+            "Handle unexpected results and scope changes without silently continuing."
+          ],
+          "topics": [
+            {
+              "title": "Execution governance",
+              "details": [
+                "Authorization, target version and fixture identity accompany each test.",
+                "Changes to scope or methods require explicit approval from the owner role."
+              ]
+            },
+            {
+              "title": "Operational discipline",
+              "details": [
+                "Pause on unexplained errors or impact.",
+                "A completed assessment can contain untested items with honest reasons."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "assessment-planning",
+            "change-control"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-assessment",
+            "locator": "Assessment planning, execution and post-assessment activities in SP 800-115. Keep the historical process reference separate from current tool and protocol choices."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-wstg-framework"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a19",
+            "title": "An assessment runbook with a stop drill",
+            "kind": "design",
+            "instructions": [
+              "Plan a two-hour local assessment using a prioritized subset of the known fixture tests and a fixed request/evidence budget.",
+              "Include checkpoints for target health, scope and reset, plus a simulated unexpected-data inject that requires stopping.",
+              "Record tested, untested, blocked and not-applicable cases with distinct meanings; do not mark coverage complete by default."
+            ],
+            "deliverables": [
+              "Authorized runbook and coverage tracker",
+              "Stop/escalation tabletop record"
+            ],
+            "acceptanceCriteria": [
+              "Every test has a destination, expected boundary, proof limit and reset step.",
+              "The unexpected-data inject stops the affected work and records a scope decision.",
+              "Untested cases remain visible instead of being counted as passes."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q19a",
+                "kind": "single-choice",
+                "prompt": "Time runs out before a planned test. How should it be reported?",
+                "choices": [
+                  "Passed because no problem was observed",
+                  "Untested, with its scope and reason retained",
+                  "Deleted from the plan without explanation"
+                ],
+                "answer": "Untested, with its scope and reason retained",
+                "explanation": "Absence of testing is not evidence of protection. Coverage must distinguish a successful test from no test."
+              },
+              {
+                "id": "ethical-hacking-q19b",
+                "kind": "short-answer",
+                "prompt": "What must accompany approval of a scope change?",
+                "answer": "The approving owner, exact new assets/actions, limits, timing and revised evidence/stop conditions.",
+                "explanation": "A vague instruction to continue cannot replace specific authorization."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which result would require pausing the rest of the assessment?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l18-prioritization"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l20-remediation",
+          "title": "Propose fixes at the failed enforcement boundary",
+          "objectives": [
+            "Identify root causes rather than suppressing a proof string.",
+            "Choose fixes that preserve legitimate application behavior."
+          ],
+          "topics": [
+            {
+              "title": "Root cause",
+              "details": [
+                "An input pattern is not the vulnerability; the failed interpretation or permission boundary is.",
+                "A compensating control may reduce risk without removing the root cause."
+              ]
+            },
+            {
+              "title": "Fix design",
+              "details": [
+                "Parameterized queries, owner checks and destination policy address different mechanisms.",
+                "Changes require owner approval and a rollback plan even in a lab engagement."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "remediation",
+            "root-cause-analysis"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-asvs",
+            "locator": "Existing ASVS 5.0.0 PDF: V1 Encoding and Sanitization, V8 Authorization and relevant V4 API/Web Service requirements. Select exact IDs that address your confirmed finding."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-authorization",
+            "security-doc-rest"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a20",
+            "title": "A finding-to-control remediation patch",
+            "kind": "coding",
+            "instructions": [
+              "Choose one confirmed local input-boundary issue and one owner/API policy issue, using your own minimal fixture source rather than modifying third-party production code.",
+              "Apply owner-approved fixes at the authoritative boundary and add positive tests for legitimate input and owner actions.",
+              "Document any temporary compensating control, its limitations and expiry; retain before/after versions for retesting."
+            ],
+            "deliverables": [
+              "Two scoped local fixes and regression tests",
+              "Root-cause and compensating-control note"
+            ],
+            "acceptanceCriteria": [
+              "The fix addresses the mechanism, not just the exact test string.",
+              "Legitimate behavior remains supported.",
+              "Changed assumptions, rollback and remaining risk are documented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q20a",
+                "kind": "single-choice",
+                "prompt": "Blocking one quote character is a weak substitute for which SQL defense?",
+                "choices": [
+                  "Client-side character checks that the server does not enforce",
+                  "Suppressing database errors without changing query construction",
+                  "Correct parameter binding at the query boundary"
+                ],
+                "answer": "Correct parameter binding at the query boundary",
+                "explanation": "The root issue is interpreting input as query syntax. Hiding a symptom or banning one character does not establish correct separation."
+              },
+              {
+                "id": "ethical-hacking-q20b",
+                "kind": "short-answer",
+                "prompt": "Why label a compensating control differently from a root-cause fix?",
+                "answer": "It may reduce exposure or impact while the underlying defect remains, so its assumptions, limitations and expiry need explicit management.",
+                "explanation": "Risk reduction should not be misrepresented as complete remediation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which invariant now prevents the entire failure class?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l19-assessment-plan",
+            "security-l19-asvs-evidence"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l21-retesting",
+          "title": "Retest fixes and detect functional regressions",
+          "objectives": [
+            "Reproduce the original bounded proof against the corrected version.",
+            "Test nearby cases and legitimate workflows without expanding scope."
+          ],
+          "topics": [
+            {
+              "title": "Retest contract",
+              "details": [
+                "Record the fixed version and unchanged fixture assumptions.",
+                "A different status code alone may not prove that unauthorized state change stopped."
+              ]
+            },
+            {
+              "title": "Regression",
+              "details": [
+                "Expected allowed behavior must still work.",
+                "A reopened finding retains its history and current owner."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "remediation-verification",
+            "regression-testing"
+          ],
+          "video": {
+            "resourceId": "foundation-video-python-tests",
+            "locator": "CS50P Week 5 - Unit Tests: regression and boundary cases; apply the pattern to your own local remediation tests."
+          },
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-framework",
+            "locator": "Testing during maintenance and operations; use a repeatable regression/verification cycle after changes."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-wstg-report"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a21",
+            "title": "A defensible remediation retest",
+            "kind": "lab",
+            "instructions": [
+              "Rerun the original minimal proofs from l20 on the fixed local fixture with newly issued dummy sessions.",
+              "Check durable state, a nearby bounded variation and legitimate owner/quoted-text behavior.",
+              "Classify each finding fixed, partially mitigated, not fixed or unable to verify, with exact evidence and any revised scope limitation."
+            ],
+            "deliverables": [
+              "Before/after retest matrix",
+              "Finding status and regression evidence"
+            ],
+            "acceptanceCriteria": [
+              "Closure requires the original boundary violation to stop, not merely an altered response.",
+              "At least one positive legitimate workflow is preserved for each fix.",
+              "Partial or unverifiable outcomes remain explicit and are not silently closed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q21a",
+                "kind": "single-choice",
+                "prompt": "The response now says forbidden, but an unauthorized dummy-record write still occurs. Is the finding fixed?",
+                "choices": [
+                  "Yes, the status code changed",
+                  "Yes, if the UI hides the result",
+                  "No, the protected state still changes"
+                ],
+                "answer": "No, the protected state still changes",
+                "explanation": "The authoritative effect is the security property being tested. Presentation cannot substitute for enforcement."
+              },
+              {
+                "id": "ethical-hacking-q21b",
+                "kind": "short-answer",
+                "prompt": "Why repeat tests with a fresh session after a fix?",
+                "answer": "It separates the corrected behavior from stale caches, old tokens or leftover fixture state that could give misleading results.",
+                "explanation": "Reproducibility includes identity and state setup, not only request text."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What exact observation justifies closing this finding?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l20-remediation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ethical-hacking-m10-professional-evidence",
+      "title": "10. Reporting, capstone and responsible handover",
+      "stage": "professional",
+      "description": "Deliver a scoped assessment that a defender can reproduce, fix and operate safely.",
+      "prerequisites": [
+        "ethical-hacking-m09-assessment-lifecycle"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "ethical-hacking-l22-reporting",
+          "title": "Write executive and technical reports with bounded claims",
+          "objectives": [
+            "Communicate business impact without overstating technical proof.",
+            "Give defenders sufficient reproduction and remediation detail without distributing sensitive data."
+          ],
+          "topics": [
+            {
+              "title": "Report audiences",
+              "details": [
+                "Executives need scope, material risks and priorities.",
+                "Implementers need exact versions, preconditions, expected/actual behavior and verification steps."
+              ]
+            },
+            {
+              "title": "Safe reporting",
+              "details": [
+                "Redact secrets and minimize synthetic record content.",
+                "State exclusions, untested areas and limitations prominently."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "penetration-test-reporting",
+            "responsible-communication"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-report",
+            "locator": "Reporting README: executive summary, scope, technical findings and remediation communication. Use your own wording and synthetic evidence."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "ethical-hacking-a22",
+            "title": "A report that a defender can act on",
+            "kind": "design",
+            "instructions": [
+              "Write an executive summary and two full technical findings from the local assessment, including one corrected finding.",
+              "For each, link minimal redacted evidence, prerequisites, confidence, impact, root cause, fix and retest status.",
+              "Include coverage/exclusions and a contrary interpretation you ruled out; do not publish real target details or contact external parties."
+            ],
+            "deliverables": [
+              "Executive summary and technical report",
+              "Evidence index and limitations section"
+            ],
+            "acceptanceCriteria": [
+              "A reviewer can reproduce each finding using only the isolated fixture instructions.",
+              "Severity, confidence and observed effect are not conflated.",
+              "No credential, real personal information, unsupported compromise claim or certification claim appears."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q22a",
+                "kind": "single-choice",
+                "prompt": "Which report title best matches one confirmed cross-owner dummy-note read?",
+                "choices": [
+                  "Critical account takeover inferred solely from one synthetic record read",
+                  "Owner authorization missing on the scoped note-read operation",
+                  "All tenant data are exposed without testing the relevant endpoints"
+                ],
+                "answer": "Owner authorization missing on the scoped note-read operation",
+                "explanation": "A precise title identifies the actual enforcement failure and avoids unsupported broader impact claims."
+              },
+              {
+                "id": "ethical-hacking-q22b",
+                "kind": "short-answer",
+                "prompt": "Why keep assessment exclusions in the executive summary?",
+                "answer": "Decision-makers may otherwise interpret limited testing as broad assurance over systems or risks that were never evaluated.",
+                "explanation": "Scope is essential context for every conclusion, not a minor appendix."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Could a defender fix and verify the issue without asking what you actually tested?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l21-retesting"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l23-capstone",
+          "title": "Deliver an authorized local assessment and verified remediation",
+          "objectives": [
+            "Execute the complete assessment lifecycle on a declared disposable target.",
+            "Demonstrate minimal proof, root-cause fixes and independent retest evidence."
+          ],
+          "topics": [
+            {
+              "title": "Capstone scope",
+              "details": [
+                "Use a local deliberately vulnerable teaching app plus owned minimal fixtures where code changes are needed.",
+                "Do not replace bounded proof with maximum exploitation or real-target activity."
+              ]
+            },
+            {
+              "title": "Evidence standard",
+              "details": [
+                "A false positive rejected with evidence is useful work.",
+                "Readiness depends on scope, quality and remediation evidence, not finding count or severity inflation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 660,
+          "canonicalConceptTags": [
+            "capstone",
+            "authorized-assessment"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-tests",
+            "locator": "Use the v4.2 category folders matching your declared input, authorization, session/browser and API tests; cite exact versioned case IDs where applicable, paired with current PortSwigger/OWASP guidance."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-wstg-report",
+            "ethical-hacking-doc-webgoat",
+            "ethical-hacking-doc-juice"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a23",
+            "title": "Capstone: a scoped lab assessment defenders can reproduce",
+            "kind": "project",
+            "instructions": [
+              "Define and sign off a rules-of-engagement pack for one pinned, isolated local training target and synthetic fixtures; verify containment/reset before testing.",
+              "Assess three distinct boundary types chosen from input/file interpretation, identity/ownership/session, browser trust and API/server requests. Use deliberately flawed local examples so confirming or rejecting the expected issue is assessable.",
+              "Produce minimal harmless proofs and at least one rejected false positive; implement root-cause fixes in your own fixture code and retest with positive/negative controls.",
+              "Deliver a redacted report, coverage register, residual-risk decisions and clean handover. Never use real accounts, unknown endpoints, credential harvesting, persistence/evasion, malware or harmful payloads."
+            ],
+            "deliverables": [
+              "Authorization, scope, containment and reset evidence",
+              "Versioned synthetic fixture pack and bounded test log",
+              "Technical/executive report with minimal proofs and false-positive analysis",
+              "Remediation diffs and independent before/after retests",
+              "Residual-risk register, operations handover and teardown record"
+            ],
+            "acceptanceCriteria": [
+              "Every test stays within the expressly authorized isolated scope and stated request/data limits.",
+              "Three distinct mechanisms have a confirmed or correctly rejected finding supported by expected/actual behavior and controls.",
+              "No finding depends on real data extraction, external callbacks, covert access or destructive effects.",
+              "Fixes address enforcement mechanisms and preserve legitimate behavior.",
+              "A peer or delayed blind self-review reproduces selected findings and retests from the provided setup.",
+              "Untested areas, uncertainty and remaining risk are explicit.",
+              "The report makes no certification, job-readiness guarantee or authorization for real-world targets."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q23a",
+                "kind": "single-choice",
+                "prompt": "Which result can satisfy this capstone's assessment standard?",
+                "choices": [
+                  "A bounded reproducible finding, a justified rejection and a verified fix",
+                  "A high finding count with no evidence",
+                  "An unauthorized real-target compromise"
+                ],
+                "answer": "A bounded reproducible finding, a justified rejection and a verified fix",
+                "explanation": "The goal is authorized, useful and defensible assessment practice, not maximizing harm or inflating the number of findings."
+              },
+              {
+                "id": "ethical-hacking-q23b",
+                "kind": "short-answer",
+                "prompt": "Why does finishing this capstone not authorize testing a real organization?",
+                "answer": "Authorization is granted by the owner for specific assets and actions; educational completion creates neither that permission nor a professional certification.",
+                "explanation": "Skill and permission are separate. Every real engagement needs its own explicit scope and safeguards."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can a reviewer establish the finding and the fix without trusting an unexplained screenshot?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l22-reporting"
+          ]
+        },
+        {
+          "id": "ethical-hacking-l24-disclosure-handover",
+          "title": "Practice responsible disclosure and close the engagement",
+          "objectives": [
+            "Communicate a finding through an agreed owner channel without public pressure or unnecessary disclosure.",
+            "Close or transfer remaining risks and remove lab artifacts safely."
+          ],
+          "topics": [
+            {
+              "title": "Responsible disclosure",
+              "details": [
+                "Use the owner's published policy and agreed scope; do not promise universal legal protection.",
+                "Coordinate evidence access, remediation and publication decisions with the authorized owner."
+              ]
+            },
+            {
+              "title": "Closure",
+              "details": [
+                "Finding status, residual risk and retest limitations remain visible.",
+                "Destroy disposable secrets and restore only explicitly owned lab resources."
+              ]
+            }
+          ],
+          "estimatedMinutes": 220,
+          "canonicalConceptTags": [
+            "responsible-disclosure",
+            "assessment-handover"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-wstg-report",
+            "locator": "Reporting and final communication guidance; pair with SP 800-115 post-assessment activities for remediation and final deliverables."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-assessment",
+            "ethical-hacking-practice-academy",
+            "ethical-hacking-practice-cylab"
+          ],
+          "assignment": {
+            "id": "ethical-hacking-a24",
+            "title": "A fictional disclosure and closure tabletop",
+            "kind": "design",
+            "instructions": [
+              "Draft a private disclosure to the fictional lab owner with scope, minimal proof, impact confidence and a proposed remediation/retest process; do not send it to a real vendor.",
+              "Role-play acknowledgement, a disputed finding and a partial fix, recording evidence-based resolutions and unverified status.",
+              "Hand over the final report, remove dummy credentials/interception profiles, reset the target and verify that no vulnerable listener remains outside the declared retained lab."
+            ],
+            "deliverables": [
+              "Fictional disclosure/response transcript",
+              "Final finding register and residual-risk handover",
+              "Teardown/evidence-retention confirmation"
+            ],
+            "acceptanceCriteria": [
+              "No real third party is contacted or pressured and no real vulnerability is publicly disclosed.",
+              "Disputed or partial findings remain accurately labelled with next steps.",
+              "Only known lab resources are cleaned up; real browser/Auth data, host settings and other services are untouched."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "ethical-hacking-q24a",
+                "kind": "single-choice",
+                "prompt": "An owner disputes a finding. What is the professional next step?",
+                "choices": [
+                  "Keep the original severity without addressing the owner's counterexample",
+                  "Clarify the scoped evidence and reproduce or revise the claim",
+                  "Close solely because the owner disagrees, without a verification record"
+                ],
+                "answer": "Clarify the scoped evidence and reproduce or revise the claim",
+                "explanation": "Responsible communication is evidence-led and permission-bound. Disagreement does not authorize pressure, disclosure of secrets or expanded access."
+              },
+              {
+                "id": "ethical-hacking-q24b",
+                "kind": "short-answer",
+                "prompt": "What should remain after the lab itself is removed?",
+                "answer": "A minimal redacted evidence/report package under the agreed retention policy, with scope, versions, findings, remediation status and residual-risk owners.",
+                "explanation": "Safe closure preserves useful learning and accountability without retaining unnecessary sensitive or dangerous artifacts."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What permission, evidence and responsibility remain at engagement closure?"
+          ],
+          "prerequisites": [
+            "ethical-hacking-l23-capstone"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "PortSwigger free Web Security Academy",
+      "url": "https://portswigger.net/web-security",
+      "notes": "Public topic readings; optional assigned hosted labs may require a free account. No paid tool or certificate is required."
+    },
+    {
+      "title": "OWASP WSTG version 4.2 official source",
+      "url": "https://github.com/OWASP/wstg/tree/v4.2/document",
+      "notes": "Versioned source used instead of the currently broken stable redirect; named framework/testing/reporting directories verified."
+    },
+    {
+      "title": "OWASP Juice Shop official project",
+      "url": "https://owasp.org/projects/juice-shop",
+      "notes": "Local isolated training target only, never the shared public demo."
+    },
+    {
+      "title": "OWASP WebGoat official README and safety warnings",
+      "url": "https://github.com/WebGoat/WebGoat",
+      "notes": "Explicit local binding and isolation guidance; dummy local accounts only."
+    },
+    {
+      "title": "NIST technical assessment process",
+      "url": "https://csrc.nist.gov/pubs/sp/800/115/final",
+      "notes": "2008 historical framework, complemented by modern web/security guidance."
+    },
+    {
+      "title": "CMU CyLab Security Academy",
+      "url": "https://cylabacademy.org/",
+      "notes": "Current migrated picoCTF learning platform, optional free-account practice within assigned CTF rules."
+    }
+  ],
+  "limitations": [
+    "Ethical Hacking means expressly authorized assessment in owned, isolated local labs or provider-assigned CTF instances, with synthetic data and minimal harmless proof. No real-target intrusion, real credential/personal-data collection, covert access, persistence/evasion, malware, harmful payloads or unapproved scanning.",
+    "Professional Practice is a learning level, not certification, qualification, guaranteed job mastery or permission to test real organizations. Computer Security Systems explains protections; this topic assesses bounded failure conditions and verifies fixes.",
+    "The core route uses free public readings, free local tools and owned synthetic fixtures. PortSwigger and CMU hosted practice are optional and may require free accounts; provider authorization never extends to unrelated infrastructure.",
+    "Deliberately vulnerable applications must remain loopback/host-only, disposable and separated from real accounts, data, host mounts and production networks. Pin supported official releases, verify reset and stop if containment is uncertain.",
+    "Do not run test tooling against any real target while following the examples. Minimize proof, avoid destructive/resource-exhausting actions and use only the declared request budget, local sinks and marker files.",
+    "WSTG v4.2 and NIST SP 800-115 provide versioned/historical process references. Current defensive standards and official maintained tool documentation govern contemporary configuration; no historical technique creates present-day legal authorization.",
+    "Shared Common Foundation/SDE/Computer Security Systems prerequisites and the existing ASVS PDF keep canonical IDs and checksums. No book, solution, video or new PDF is copied or rehosted."
+  ]
+}
