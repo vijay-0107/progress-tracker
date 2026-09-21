@@ -9,10 +9,18 @@ if (argument === -1 || !process.argv[argument + 1]) {
   );
 }
 const source = path.resolve(process.argv[argument + 1]);
-const allTracks = ["foundation", "data", "sde", "quant", "ai", "gate", "cat"];
+const coreTracks = ["foundation", "data", "sde", "quant", "ai", "gate", "cat"];
+const extraTopics = [
+  "trading",
+  "algorithmic-trading",
+  "finance",
+  "computer-security-systems",
+  "ethical-hacking",
+];
+const allTracks = [...coreTracks, ...extraTopics];
 const selectedIndex = process.argv.indexOf("--track");
 const tracks =
-  selectedIndex === -1 ? allTracks : [process.argv[selectedIndex + 1]];
+  selectedIndex === -1 ? coreTracks : [process.argv[selectedIndex + 1]];
 if (tracks.some((track) => !allTracks.includes(track)))
   throw new Error("Unknown track selection.");
 
@@ -84,6 +92,22 @@ function adaptSources(data, track) {
       };
     });
   });
+}
+
+const provenancePath = path.join("public", "curriculum-provenance.json");
+let previousTracks = [];
+try {
+  const previous = JSON.parse(await readFile(provenancePath, "utf8"));
+  if (!Array.isArray(previous.tracks))
+    throw new Error("Existing curriculum provenance has no track inventory.");
+  previousTracks = previous.tracks;
+} catch (error) {
+  if (
+    !(error instanceof Error) ||
+    !("code" in error) ||
+    error.code !== "ENOENT"
+  )
+    throw error;
 }
 
 const inputs = await Promise.all(
@@ -159,30 +183,40 @@ for (const input of inputs) {
     input.text,
   );
 }
+const provenance = new Map(
+  previousTracks.map((track) => [track.trackId, track]),
+);
+for (const { track, data, originalSha256, packagedSha256 } of inputs) {
+  provenance.set(track, {
+    trackId: track,
+    group: extraTopics.includes(track) ? "extra" : "core",
+    sourceCheckedOn: data.sourceCheckedOn,
+    modules: data.modules.length,
+    lessons: data.modules.reduce(
+      (total, module) => total + module.lessons.length,
+      0,
+    ),
+    originalSha256,
+    packagedSha256,
+  });
+}
+await mkdir("public", { recursive: true });
 await writeFile(
-  path.join("public", "curriculum-provenance.json"),
+  provenancePath,
   JSON.stringify(
     {
-      version: "2026.09.20.1",
+      version: "2026.09.21.1",
       description:
-        "Approved research handoffs retain their curriculum, sources, rights and assessments. Private history, internal handoff paths and transport-only metadata are omitted. Checksums identify original and packaged files, not proof of source availability or mastery.",
-      complete: tracks.length === allTracks.length,
-      tracks: inputs.map(({ track, data, originalSha256, packagedSha256 }) => ({
-        trackId: track,
-        sourceCheckedOn: data.sourceCheckedOn,
-        modules: data.modules.length,
-        lessons: data.modules.reduce(
-          (total, module) => total + module.lessons.length,
-          0,
-        ),
-        originalSha256,
-        packagedSha256,
-      })),
+        "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery.",
+      complete: allTracks.every((track) => provenance.has(track)),
+      tracks: allTracks.flatMap((track) =>
+        provenance.has(track) ? [provenance.get(track)] : [],
+      ),
     },
     null,
     2,
   ) + "\n",
 );
 console.log(
-  `Imported ${inputs.length} handoffs without modifying the research originals. All seven paths must pass content checks before publishing.`,
+  `Imported ${inputs.length} handoffs without modifying the research originals; unselected provenance is preserved. All seven core paths and five optional topics must pass content checks before publishing.`,
 );

@@ -10,9 +10,10 @@ import {
   allLessons,
   assetUrl,
   findLesson,
+  stageLabel,
   trackMeta,
 } from "../content/catalog";
-import type { TrackId } from "../domain/types";
+import { CORE_TRACK_IDS, EXTRA_TOPIC_IDS, type TrackId } from "../domain/types";
 import type { LearningProps } from "./shared";
 import {
   EmptyState,
@@ -26,6 +27,16 @@ export function Library({ catalog }: LearningProps) {
   const [query, setQuery] = useState("");
   const [track, setTrack] = useState<TrackId | "all">("all");
   const [kind, setKind] = useState("book");
+  const referenced = new Set(
+    catalog.tracks
+      .filter((item) => item.trackId === track)
+      .flatMap((item) => item.modules.flatMap((module) => module.lessons))
+      .flatMap((lesson) => [
+        lesson.reading.resourceId,
+        ...(lesson.video ? [lesson.video.resourceId] : []),
+        ...lesson.supplementaryResourceIds,
+      ]),
+  );
   const resources = catalog.tracks
     .flatMap((item) =>
       item.resources.map((resource) => ({
@@ -35,7 +46,9 @@ export function Library({ catalog }: LearningProps) {
     )
     .filter(
       (resource) =>
-        (track === "all" || resource.trackId === track) &&
+        (track === "all" ||
+          resource.trackId === track ||
+          referenced.has(resource.id)) &&
         (kind === "all" || resource.kind === kind) &&
         `${resource.title} ${resource.provider} ${resource.notes}`
           .toLowerCase()
@@ -98,11 +111,20 @@ export function Library({ catalog }: LearningProps) {
             }
           >
             <option value="all">Every path</option>
-            {Object.entries(trackMeta).map(([id, meta]) => (
-              <option value={id} key={id}>
-                {meta.short}
-              </option>
-            ))}
+            <optgroup label="Core learning paths">
+              {CORE_TRACK_IDS.map((id) => (
+                <option value={id} key={id}>
+                  {trackMeta[id].label}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Extra Topics (optional)">
+              {EXTRA_TOPIC_IDS.map((id) => (
+                <option value={id} key={id}>
+                  {trackMeta[id].label}
+                </option>
+              ))}
+            </optgroup>
           </select>
         </label>
       </div>
@@ -111,7 +133,7 @@ export function Library({ catalog }: LearningProps) {
           const lessons = allLessons(catalog).filter(
             (lesson) =>
               lesson.reading.resourceId === resource.id ||
-              lesson.video.resourceId === resource.id ||
+              lesson.video?.resourceId === resource.id ||
               lesson.supplementaryResourceIds.includes(resource.id),
           );
           return (
@@ -194,10 +216,14 @@ export function SearchPage({
 }: LearningProps & { query: string }) {
   const normalized = query.trim().toLowerCase();
   const lessons = normalized
-    ? allLessons(catalog).filter((lesson) =>
-        `${lesson.title} ${lesson.objectives.join(" ")} ${lesson.topics.map((topic) => `${topic.title} ${topic.details.join(" ")}`).join(" ")}`
-          .toLowerCase()
-          .includes(normalized),
+    ? catalog.tracks.flatMap((track) =>
+        track.modules.flatMap((module) =>
+          module.lessons.filter((lesson) =>
+            `${trackMeta[track.trackId].label} ${track.title} ${module.title} ${stageLabel(module.stage, track.trackId)} ${lesson.title} ${lesson.objectives.join(" ")} ${lesson.topics.map((topic) => `${topic.title} ${topic.details.join(" ")}`).join(" ")}`
+              .toLowerCase()
+              .includes(normalized),
+          ),
+        ),
       )
     : [];
   const projects = normalized

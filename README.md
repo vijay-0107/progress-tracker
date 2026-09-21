@@ -5,9 +5,72 @@ Quant, AI, GATE (CS/IT and DA), and CAT (VARC, DILR and QA)**. It combines curat
 lesson roadmaps, official resources, practical assignments, original self-checks,
 project evidence, private notes and deliberate review.
 
+**Extra Topics** adds optional curricula in Trading, Algorithmic Trading,
+Finance, Computer Security Systems and Ethical Hacking without replacing any of
+those paths.
+
 The Common Foundation is the shared starting point, **not** a concatenation of
 four advanced career tracks. Lesson IDs are canonical: a foundation completion
 satisfies the same prerequisite everywhere without being counted four times.
+
+## Extra Topics: optional, with their own progress
+
+Curriculum **2026.09.21.1** is an append-only addition. The original seven paths
+still contain **66 modules and 231 unique lessons**, and the Project studio still
+contains the same **21 projects**. Extra Topics adds **48 modules / 124 lessons**
+and five integrated capstones inside the topic roadmaps:
+
+| Optional topic | Modules | Lessons by stage: Beginner / Intermediate / Advanced / Professional Practice | Capstone evidence |
+| --- | --- | --- | --- |
+| Trading | 8 | 5 / 5 / 5 / 5 | Frozen paper replay, risk/stress workbook, complete journal, halt drill and independent review |
+| Algorithmic Trading | 8 | 6 / 6 / 6 / 6 | Point-in-time data, causal/cost-aware simulator, OOS audit, disconnected paper adapter and recovery tests |
+| Finance | 10 | 7 / 7 / 5 / 5 | Synthetic household resilience plan and audited three-statement/valuation dossier |
+| Computer Security Systems | 12 | 8 / 8 / 8 / 8 | Authorized isolated service, mechanism-to-test matrix, scoped ASVS evidence and measured restoration |
+| Ethical Hacking | 10 | 6 / 6 / 6 / 6 | Authorized local-lab assessment, minimal harmless proofs, root-cause fixes, independent retests and redacted handover |
+
+Find **Extra Topics** in the dashboard or navigation. Each roadmap has four
+stage outcomes, evidence requirements, stage filters and independent stage/topic
+progress. A topic is optional as a whole; its lessons still count normally
+*within that topic*. Extra completions never inflate or reduce core totals.
+Bookmarks, notes, self-checks, reviews, evidence and study activity use the existing
+owner-scoped records. Shared Common Foundation/Quant/SDE/AI prerequisites link to
+their canonical lessons rather than copying IDs or awarding duplicate credit.
+
+The saved primary focus and goal categories deliberately remain the original
+seven core paths, matching the unchanged Firestore rules. Extras open independently
+and do not overwrite a selected core path. No progress migration, seeding, reset,
+Auth/storage clearing or Firebase configuration change is needed. Schema-2
+exports include new lesson records; import continues to preserve the destination's
+existing preferences and conflicting records rather than silently overwrite them.
+
+Every lesson includes original practical work, acceptance criteria and explained
+self-checks. Some lessons are explicitly reading-led rather than given a
+fabricated video. Resources include SEBI and RBI education, verified Varsity chapter
+indexes, MIT OCW, NYU Stern, pandas/scikit-learn, OWASP, NIST revision-4 identity
+guidance and revision-3 incident response, Harvard CS50 and Stanford cryptography.
+Locators, availability, source dates and historical/jurisdiction limitations are
+shown with the readings. Ethical Hacking adds public PortSwigger Academy readings,
+versioned OWASP WSTG 4.2, official local WebGoat/Juice Shop setup and historical
+NIST 800-115 process guidance. PortSwigger hosted labs and CMU CyLab Security
+Academy (the current migrated picoCTF platform) are optional, free-account
+practice, not a requirement or permission to test unrelated services.
+Core learning requires no paid service or certificate;
+the six existing licensed PDFs and checksums are unchanged and remain opt-in.
+`public/curriculum-provenance.json` preserves the original seven file checksums
+and records the new topic files separately. `content:import` retains its
+seven-core-handoff default; `--track <id>` also supports an extra topic and keeps
+unselected provenance entries rather than replacing the whole inventory.
+
+Trading and algorithmic practice is **synthetic/historical/paper-only**, with no
+broker connection, real-money activity, buy/sell recommendation or profit guarantee.
+Finance uses fictional cases, not personalized product or tax advice. Security
+practice is **defensive, owned/authorized and isolated**, using synthetic data and
+benign tests, never real-target intrusion, credential harvesting, harmful payloads
+or evasion. Ethical Hacking assesses intentionally vulnerable **authorized local
+fixtures**, using bounded harmless proof, remediation and retesting; it never
+assigns unauthorized scanning, real credential collection or real-target attacks.
+**Professional Practice is a learning level**, not certification,
+qualification or externally verified professional competence.
 
 ## Run locally
 
@@ -45,8 +108,8 @@ The build footer identifies its curriculum version and, in CI, Git commit.
 
 - **Roadmaps:** expandable modules, nested concepts, prerequisites, stage and
   paper/section filters, search and next eligible lessons.
-- **Lessons:** observable objectives, estimated study time, a relevant lecture,
-  a specific book reading, supplemental official documentation, and an original
+- **Lessons:** observable objectives, estimated study time, a verified lecture
+  where relevant and available, a specific book or official reading, supplemental documentation, and an original
   assignment with deliverables and acceptance criteria. Watch/read/build/reflect
   are different activities; merely loading a page grants no credit.
 - **Evidence:** a meaningful plain-text evidence record and the learner's rubric
@@ -254,6 +317,10 @@ or a guaranteed frame rate.
 
 ## Deployment
 
+The Extra Topics addition needs **no Firebase rules or service-setting changes**:
+new lessons use the existing per-owner record contract and core settings/goal
+IDs remain unchanged.
+
 `.github/workflows/ci.yml` validates feature branches and pull requests.
 `.github/workflows/pages.yml` publishes **only `dist`** on `main` after the
 catalog/domain checks and a typed build. It generates runtime config using the
@@ -271,7 +338,7 @@ unverified rules. No force push or destructive migration is part of release.
 
 | Location | Responsibility |
 | --- | --- |
-| `src/content/tracks/` | Versioned, researched seven-path handoffs with provenance |
+| `src/content/tracks/` | Seven preserved core paths and five append-only optional topic curricula |
 | `src/content/schema.ts`, `catalog.ts` | Runtime content validation, reference/cycle checks, canonical routing |
 | `src/content/projects.ts` | Exact 21 original portfolio build briefs |
 | `src/domain/` | Pure progress, assessment, review, timezone, import/migration and storage logic |

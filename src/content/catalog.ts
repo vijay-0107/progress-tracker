@@ -4,10 +4,11 @@ import type {
   Module,
   ProgressState,
   Resource,
+  Stage,
   Track,
   TrackId,
 } from "../domain/types";
-import { TRACK_IDS } from "../domain/types";
+import { EXTRA_TOPIC_IDS, LEARNING_STAGES, TRACK_IDS } from "../domain/types";
 import { trackSchema } from "./schema";
 import { projects } from "./projects";
 import hostedBooks from "./hosted-books.json";
@@ -80,9 +81,63 @@ export const trackMeta: Record<
     color: "#b66532",
     code: "07",
   },
+  trading: {
+    label: "Trading",
+    short: "Trading",
+    description:
+      "Understand markets, execution and risk using paper-only evidence.",
+    color: "#976122",
+    code: "E1",
+  },
+  "algorithmic-trading": {
+    label: "Algorithmic Trading",
+    short: "Algo Trading",
+    description:
+      "Build reproducible research and guarded paper-execution systems.",
+    color: "#326d82",
+    code: "E2",
+  },
+  finance: {
+    label: "Finance",
+    short: "Finance",
+    description:
+      "From household decisions to audited financial analysis and valuation.",
+    color: "#5f6f35",
+    code: "E3",
+  },
+  "computer-security-systems": {
+    label: "Computer Security Systems",
+    short: "Security",
+    description:
+      "Explain, test and operate defensive controls in authorized isolated labs.",
+    color: "#7858a6",
+    code: "E4",
+  },
+  "ethical-hacking": {
+    label: "Ethical Hacking",
+    short: "Ethical Hacking",
+    description:
+      "Assess authorized isolated labs, validate findings and verify remediation.",
+    color: "#865442",
+    code: "E5",
+  },
 };
 
 export const CAREER_TRACKS: TrackId[] = ["data", "sde", "quant", "ai"];
+export function isExtraTopic(id: TrackId): boolean {
+  return EXTRA_TOPIC_IDS.some((topic) => topic === id);
+}
+
+export function stageLabel(stage: Stage, trackId: TrackId): string {
+  if (isExtraTopic(trackId)) {
+    if (stage === "foundation") return "Beginner";
+    if (stage === "professional") return "Professional Practice";
+  }
+  return stage === "foundation"
+    ? "Foundations"
+    : stage.charAt(0).toUpperCase() + stage.slice(1);
+}
+
 const handoffs = import.meta.glob("./tracks/*.json", {
   eager: true,
   import: "default",
@@ -177,7 +232,7 @@ export function buildCatalog(rawTracks: unknown[]): Catalog {
     };
   });
   const catalog: Catalog = {
-    version: "2026.09.20.1",
+    version: "2026.09.21.1",
     tracks,
     projects: mappedProjects,
   };
@@ -221,6 +276,15 @@ export function validateCatalog(catalog: Catalog): void {
     });
   });
   for (const track of catalog.tracks) {
+    if (
+      isExtraTopic(track.trackId) &&
+      (track.stageOutcomes?.map((item) => item.stage).join(",") !==
+        LEARNING_STAGES.join(",") ||
+        LEARNING_STAGES.some(
+          (stage) => !track.modules.some((module) => module.stage === stage),
+        ))
+    )
+      throw new Error(`${track.trackId} needs all four ordered stage outcomes`);
     for (const module of track.modules) {
       for (const prerequisite of module.prerequisites) {
         if (!modules.has(prerequisite))
@@ -238,10 +302,20 @@ export function validateCatalog(catalog: Catalog): void {
               `${lesson.id} references unknown prerequisite lesson ${id}`,
             );
         });
-        if (resources.get(lesson.video.resourceId)?.kind !== "video")
+        if (
+          lesson.video
+            ? resources.get(lesson.video.resourceId)?.kind !== "video"
+            : !isExtraTopic(track.trackId)
+        )
           throw new Error(`${lesson.id} needs a known lecture/video`);
-        if (resources.get(lesson.reading.resourceId)?.kind !== "book")
-          throw new Error(`${lesson.id} needs a known book reading`);
+        const readingKind = resources.get(lesson.reading.resourceId)?.kind;
+        if (
+          readingKind !== "book" &&
+          !(isExtraTopic(track.trackId) && readingKind === "documentation")
+        )
+          throw new Error(
+            `${lesson.id} needs a known book or official reading`,
+          );
         for (const resourceId of lesson.supplementaryResourceIds) {
           if (!resources.has(resourceId))
             throw new Error(
@@ -316,6 +390,38 @@ export function allLessons(catalog: Catalog): Lesson[] {
   return catalog.tracks.flatMap((track) =>
     track.modules.flatMap((module) => module.lessons),
   );
+}
+
+export function coreLessons(catalog: Catalog): Lesson[] {
+  return allLessons({
+    ...catalog,
+    tracks: catalog.tracks.filter((track) => !isExtraTopic(track.trackId)),
+  });
+}
+
+export function requiredLessons(
+  track: Track,
+  paper = "all",
+  stage?: Stage,
+): Lesson[] {
+  return track.modules
+    .filter((module) => !module.optional && (!stage || module.stage === stage))
+    .flatMap((module) =>
+      eligibleLessons(module, paper).filter((lesson) => !lesson.optional),
+    );
+}
+
+export function lessonCompletion(lessons: Lesson[], state: ProgressState) {
+  const completed = lessons.filter(
+    (lesson) => state.lessons[lesson.id]?.manualCompletedAt,
+  ).length;
+  return {
+    completed,
+    total: lessons.length,
+    percent: lessons.length
+      ? Math.round((completed / lessons.length) * 100)
+      : 0,
+  };
 }
 
 export function findLesson(

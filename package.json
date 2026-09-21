@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:unit": "vitest run --exclude tests/rules.test.ts",
-    "check:content": "vitest run tests/content.test.ts tests/books.test.ts",
+    "check:content": "vitest run tests/content.test.ts tests/books.test.ts tests/extra-topics.test.ts",
     "test:rules": "firebase emulators:exec --project demo-progress-tracker --only auth,firestore \"vitest run tests/rules.test.ts\"",
     "test:e2e": "playwright test",
     "emulators": "firebase emulators:start --project demo-progress-tracker --only auth,firestore",

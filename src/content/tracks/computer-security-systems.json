@@ -1,0 +1,3323 @@
+{
+  "schemaVersion": 1,
+  "trackId": "computer-security-systems",
+  "title": "Computer Security Systems: Defensive Mechanisms and Operational Assurance",
+  "sourceCheckedOn": "2026-09-21",
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Explain trust boundaries, identity, sessions and cryptographic protections in a scoped local service.",
+      "evidence": "An authorized-lab charter, threat model, permission matrix and tested authentication/TLS boundary using synthetic identities."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Explain and verify OS, hardware, network, endpoint and application/database controls.",
+      "evidence": "A least-privilege lab baseline with firewall/IDS observations and positive/negative application tests."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Audit browser/API ownership, cloud policy, secrets, supply-chain provenance and detection coverage.",
+      "evidence": "An ASVS-linked verification matrix, offline IAM cases, secret-rotation drill and labelled detection fixtures."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Operate incident response, tested restoration and risk governance for an evidence-backed security architecture.",
+      "evidence": "A defended local-service capstone, timed recovery drill, risk/exception register and reviewer handover. This is not a certification."
+    }
+  ],
+  "resources": [
+    {
+      "id": "security-doc-threats",
+      "kind": "documentation",
+      "title": "OWASP Threat Modeling Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html",
+      "provider": "OWASP Cheat Sheet Series",
+      "access": "free",
+      "license": "Official public guidance; linked rather than redistributed",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Use System Modeling, threat identification, mitigations and review to answer what is protected and how. All exercises target only an owned, isolated lab with synthetic data."
+    },
+    {
+      "id": "security-doc-identity",
+      "kind": "documentation",
+      "title": "NIST SP 800-63B-4: Authentication and Authenticator Management",
+      "url": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+      "provider": "NIST",
+      "access": "free",
+      "license": "Official US government publication; link-only here",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Current revision 4, final 2025; supersedes the earlier SP 800-63B. Public HTML covers assurance, authenticator requirements, lifecycle and sessions. Use as technical guidance, not a claim of legal compliance or certification."
+    },
+    {
+      "id": "security-doc-authorization",
+      "kind": "documentation",
+      "title": "OWASP Authorization Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+      "provider": "OWASP",
+      "access": "free",
+      "license": "Official public guidance; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Authentication and authorization are distinct. Read least privilege, deny by default and permission validation on every request. Test only synthetic users/resources in the local service."
+    },
+    {
+      "id": "security-doc-sessions",
+      "kind": "documentation",
+      "title": "OWASP Session Management Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+      "provider": "OWASP",
+      "access": "free",
+      "license": "Official public guidance; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Session identity, lifecycle, cookie attributes, renewal and expiration. Never collect real cookies or credentials for an exercise."
+    },
+    {
+      "id": "security-doc-crypto",
+      "kind": "documentation",
+      "title": "OWASP Cryptographic Storage Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html",
+      "provider": "OWASP",
+      "access": "free",
+      "license": "Official public guidance; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Architecture, data minimization, authenticated encryption and key handling. Use maintained libraries rather than implementing cryptographic primitives. Recheck current algorithm guidance when applying outside the lab."
+    },
+    {
+      "id": "security-doc-tls",
+      "kind": "documentation",
+      "title": "OWASP Transport Layer Security Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html",
+      "provider": "OWASP",
+      "access": "free",
+      "license": "Official public guidance; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Server configuration, certificates and client authentication. Local test CA trust must remain per-process or inside a disposable lab; never disable certificate verification or change the host's trust store."
+    },
+    {
+      "id": "security-doc-lsm",
+      "kind": "documentation",
+      "title": "Linux kernel documentation: Linux Security Module Usage",
+      "url": "https://docs.kernel.org/admin-guide/LSM/index.html",
+      "provider": "Linux kernel documentation project",
+      "access": "free",
+      "license": "Official documentation; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "LSM enforcement hooks, MAC implementations and active-module inspection. Kernel/version details vary. Do not disable controls or alter the host system for these exercises."
+    },
+    {
+      "id": "security-doc-boot",
+      "kind": "documentation",
+      "title": "Microsoft Learn: Secure the Windows boot process",
+      "url": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/system-security/secure-the-windows-10-boot-process",
+      "provider": "Microsoft Learn",
+      "access": "free",
+      "license": "Official public documentation; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "The historical URL covers Windows 10 and Windows 11 mechanisms. Use Secure Boot, Trusted Boot and Measured Boot concepts; it does not endorse running an unsupported OS. No firmware/key changes or paid Windows installation are required."
+    },
+    {
+      "id": "security-doc-dns",
+      "kind": "documentation",
+      "title": "RFC 1034: Domain Names - Concepts and Facilities",
+      "url": "https://www.rfc-editor.org/rfc/rfc1034.html",
+      "provider": "RFC Editor / Internet standards community",
+      "access": "free",
+      "license": "Official public standards reference; link-only here",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Foundational 1987 DNS architecture reference: domain names, name servers, resolvers and caching. Historical examples are not current operational settings. Modern DNSSEC concepts are complemented by RFC 4033; neither requires an account."
+    },
+    {
+      "id": "security-doc-dnssec",
+      "kind": "documentation",
+      "title": "RFC 4033: DNS Security Introduction and Requirements",
+      "url": "https://www.rfc-editor.org/rfc/rfc4033.html",
+      "provider": "RFC Editor / Internet standards community",
+      "access": "free",
+      "license": "Official public standards reference; link-only here",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Sections 3-4 explain services DNSSEC provides and does not provide. Use the conceptual authenticity/confidentiality distinction, not historical algorithm choices as deployment guidance."
+    },
+    {
+      "id": "security-doc-firewalls",
+      "kind": "documentation",
+      "title": "NIST SP 800-41 Rev. 1: Guidelines on Firewalls and Firewall Policy",
+      "url": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+      "provider": "NIST",
+      "access": "free",
+      "license": "Official US government publication; link-only here",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "September 2009 historical architecture/policy reference, not current product configuration or cipher advice. Open the full publication from its official page on demand. Use current platform documentation for any lab settings."
+    },
+    {
+      "id": "security-doc-ids",
+      "kind": "documentation",
+      "title": "Suricata User Guide: Rules Format",
+      "url": "https://docs.suricata.io/en/latest/rules/intro.html",
+      "provider": "Open Information Security Foundation / Suricata",
+      "access": "free",
+      "license": "Official documentation; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Action, header, protocol/direction and rule options. Use only benign, self-generated lab traffic or synthetic events. No public scanning, attack payload, evasion or third-party packet capture is assigned."
+    },
+    {
+      "id": "security-doc-rest",
+      "kind": "documentation",
+      "title": "OWASP REST Security Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+      "provider": "OWASP",
+      "access": "free",
+      "license": "Official public guidance; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "HTTPS, access control, token validation, input/content-type handling and security headers. Use a small owned local API; no external target testing."
+    },
+    {
+      "id": "security-doc-iam",
+      "kind": "documentation",
+      "title": "AWS IAM: Policy evaluation logic",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html",
+      "provider": "AWS documentation",
+      "access": "free",
+      "license": "Official public documentation; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Policy unions/intersections, explicit deny and boundaries. Exercises are offline policy tables, not AWS provisioning. No cloud account, billing change or permission change is needed; simplified exercises are not full AWS authorization emulators."
+    },
+    {
+      "id": "security-doc-secrets",
+      "kind": "documentation",
+      "title": "OWASP Secrets Management Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html",
+      "provider": "OWASP",
+      "access": "free",
+      "license": "Official public guidance; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Lifecycle, least privilege, rotation, revocation and audit. Use disposable dummy values only; never inspect, copy or print actual credentials in a learning artifact."
+    },
+    {
+      "id": "security-doc-slsa",
+      "kind": "documentation",
+      "title": "SLSA v1.1: Security levels",
+      "url": "https://slsa.dev/spec/v1.1/levels",
+      "provider": "SLSA / OpenSSF",
+      "access": "free",
+      "license": "Official specification; link-only here",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Pinned v1.1 build-track overview: provenance, hosted-build signing and hardened builds. A learner-generated manifest alone does not establish a SLSA level or certify dependencies."
+    },
+    {
+      "id": "security-doc-logging",
+      "kind": "documentation",
+      "title": "OWASP Logging Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html",
+      "provider": "OWASP",
+      "access": "free",
+      "license": "Official public guidance; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Event attributes, sensitive-data exclusion, verification and protection of logs. Build original synthetic fixtures rather than collecting real user activity."
+    },
+    {
+      "id": "security-doc-ir",
+      "kind": "documentation",
+      "title": "NIST SP 800-61 Rev. 3: Incident Response Recommendations and Considerations for Cybersecurity Risk Management",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+      "provider": "NIST",
+      "access": "free",
+      "license": "Official US government publication; link-only here",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Final April 2025, superseding Rev. 2. Read the public overview and linked full publication's CSF 2.0-aligned recommendations. Regulatory reporting obligations remain jurisdiction-specific; no live incident is created."
+    },
+    {
+      "id": "security-doc-recovery",
+      "kind": "documentation",
+      "title": "CISA: #StopRansomware Guide",
+      "url": "https://www.cisa.gov/stopransomware/ransomware-guide",
+      "provider": "CISA and partner agencies",
+      "access": "free",
+      "license": "Official public guidance; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Read prevention and response/recovery checklists, especially offline backups and tested restoration. Labs simulate missing or corrupted copies of synthetic data; never run ransomware, malware or destructive payloads."
+    },
+    {
+      "id": "security-doc-csf",
+      "kind": "documentation",
+      "title": "NIST Cybersecurity Framework 2.0",
+      "url": "https://www.nist.gov/cyberframework",
+      "provider": "NIST",
+      "access": "free",
+      "license": "Official public framework; link-only here",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Use the CSF 2.0 core, profiles and quick-start material linked from this official hub. Govern, Identify, Protect, Detect, Respond and Recover are outcomes, not a certification checklist."
+    },
+    {
+      "id": "security-doc-zero-trust",
+      "kind": "documentation",
+      "title": "NIST SP 800-207: Zero Trust Architecture",
+      "url": "https://csrc.nist.gov/pubs/sp/800/207/final",
+      "provider": "NIST",
+      "access": "free",
+      "license": "Official US government publication; link-only here",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "August 2020 architecture reference. Read the linked publication's tenets and logical components; no vendor product, cloud deployment or compliance claim is required."
+    },
+    {
+      "id": "security-video-accounts",
+      "kind": "video",
+      "title": "CS50 Cybersecurity: Week 0 - Securing Accounts",
+      "url": "https://cs50.harvard.edu/cybersecurity/weeks/0/",
+      "provider": "Harvard CS50 OpenCourseWare",
+      "access": "free",
+      "license": "Official course viewing; recording redistribution not asserted",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Verified official week page and topic list. Lecture viewing is free; edX submission/certification is not required. Study defenses only and do not reproduce credential-theft demonstrations."
+    },
+    {
+      "id": "security-video-systems",
+      "kind": "video",
+      "title": "CS50 Cybersecurity: Week 2 - Securing Systems",
+      "url": "https://cs50.harvard.edu/cybersecurity/weeks/2/",
+      "provider": "Harvard CS50 OpenCourseWare",
+      "access": "free",
+      "license": "Official course viewing; recording redistribution not asserted",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "TLS, certificates, VPNs, firewalls and endpoint defenses. External demonstrations are conceptual only; this track does not assign scanning, intrusion or malware execution."
+    },
+    {
+      "id": "security-video-software",
+      "kind": "video",
+      "title": "CS50 Cybersecurity: Week 3 - Securing Software",
+      "url": "https://cs50.harvard.edu/cybersecurity/weeks/3/",
+      "provider": "Harvard CS50 OpenCourseWare",
+      "access": "free",
+      "license": "Official course viewing; recording redistribution not asserted",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Use prepared statements, validation, encoding and software-update discussions. No copied attack exercises, real-target probes, exploitation or evasion are assigned."
+    },
+    {
+      "id": "security-video-crypto",
+      "kind": "video",
+      "title": "Stanford: Dan Boneh's free online cryptography lectures",
+      "url": "https://crypto.stanford.edu/~dabo/courses/OnlineCrypto/",
+      "provider": "Dan Boneh / Stanford University",
+      "access": "free",
+      "license": "Official free viewing; no redistribution permission asserted",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "The official page provides free lectures without Coursera enrollment. Named topics include message integrity, authenticated encryption, key exchange and digital signatures. Historical algorithm examples are not current deployment recommendations."
+    }
+  ],
+  "modules": [
+    {
+      "id": "security-m01-boundaries",
+      "title": "01. Security objectives and an authorized lab",
+      "stage": "foundation",
+      "description": "Define what must be protected, from whom, under which explicit authorization and recovery boundary.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l01-lab-charter",
+          "title": "Define assets, security goals and safe practice scope",
+          "objectives": [
+            "Distinguish confidentiality, integrity, availability and privacy.",
+            "Establish an owned, isolated lab with explicit exclusions and stop conditions."
+          ],
+          "topics": [
+            {
+              "title": "Security goals",
+              "details": [
+                "A control protects a particular property against stated threats.",
+                "Protecting confidentiality alone does not ensure correctness or recovery."
+              ]
+            },
+            {
+              "title": "Authorization",
+              "details": [
+                "Ownership or explicit permission defines the testing boundary.",
+                "Synthetic identities and host-only/loopback services prevent contact with real targets."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "security-goals",
+            "authorized-labs"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-threats",
+            "locator": "Overview and System Modeling: answer what is being built and what security properties matter before considering controls."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-csf"
+          ],
+          "assignment": {
+            "id": "security-a01",
+            "title": "A defensive lab charter",
+            "kind": "design",
+            "instructions": [
+              "Define a fictional notes service containing only generated users and notes, accessible on loopback or an owned host-only VM network.",
+              "List assets, permitted actions, excluded networks/data and conditions requiring an immediate stop.",
+              "Specify snapshot/backup and teardown steps; no public scans, stolen credentials, malware, evasion or production configuration changes are permitted."
+            ],
+            "deliverables": [
+              "Signed scope/ownership statement and topology",
+              "Asset/property and stop-condition table"
+            ],
+            "acceptanceCriteria": [
+              "Every endpoint and dataset is explicitly owned or authorized and isolated.",
+              "Confidentiality, integrity and availability each have an observable requirement.",
+              "Recovery and cleanup are planned before lab changes."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q01a",
+                "kind": "single-choice",
+                "prompt": "Which activity fits this track's scope?",
+                "choices": [
+                  "Trying credentials on a public service",
+                  "Testing synthetic users in your isolated local service",
+                  "Scanning an employer network without permission"
+                ],
+                "answer": "Testing synthetic users in your isolated local service",
+                "explanation": "Practice requires explicit authorization, isolation and synthetic data. Public accessibility or curiosity is not permission."
+              },
+              {
+                "id": "security-q01b",
+                "kind": "short-answer",
+                "prompt": "Give an integrity requirement distinct from confidentiality.",
+                "answer": "For example, only the authorized note owner can change a note and every accepted change is recorded correctly.",
+                "explanation": "Preventing unauthorized reading and preventing unauthorized or incorrect modification are separate properties."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What exact boundary would make you stop the exercise?"
+          ],
+          "prerequisites": []
+        },
+        {
+          "id": "security-l02-threat-model",
+          "title": "Draw data flows and explain trust boundaries",
+          "objectives": [
+            "Identify where inputs, identity and authority cross boundaries.",
+            "Link threats to mechanisms, residual risk and verification evidence."
+          ],
+          "topics": [
+            {
+              "title": "System modelling",
+              "details": [
+                "Browsers, services, databases and administrators hold different authority.",
+                "An authenticated request can still carry untrusted data."
+              ]
+            },
+            {
+              "title": "Control reasoning",
+              "details": [
+                "A threat statement includes asset, actor, action and consequence.",
+                "Mitigation must explain how it changes the failure path."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "threat-modeling",
+            "trust-boundaries"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-threats",
+            "locator": "System Modeling, threat identification/ranking, mitigations and review/validation; use the four-question structure for the local notes service."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a02",
+            "title": "A trust-boundary diagram with testable controls",
+            "kind": "design",
+            "instructions": [
+              "Draw browser, identity verifier, API, database, log sink and backup flows for the fictional service.",
+              "Write six threats spanning unauthorized reading, unauthorized modification, data loss and operational misuse.",
+              "For each, identify a mechanism and one positive/negative test; document at least one residual risk."
+            ],
+            "deliverables": [
+              "Data-flow diagram",
+              "Threat-control-test matrix"
+            ],
+            "acceptanceCriteria": [
+              "Client assertions and server-authoritative identity are separated.",
+              "Every mitigation explains an enforcement point, not merely a product name.",
+              "At least one risk is explicitly accepted or deferred with a reason."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q02a",
+                "kind": "single-choice",
+                "prompt": "Does authenticating a user make all their request fields trustworthy?",
+                "choices": [
+                  "Yes, all fields become authoritative",
+                  "No, identity and input validity are separate",
+                  "Yes, including another user's owner ID"
+                ],
+                "answer": "No, identity and input validity are separate",
+                "explanation": "Authentication identifies a principal; it does not establish that supplied data are valid or that the requested action is authorized."
+              },
+              {
+                "id": "security-q02b",
+                "kind": "short-answer",
+                "prompt": "What makes 'use encryption' an incomplete mitigation statement?",
+                "answer": "It does not specify the data state, keys, trust boundary, threat addressed or remaining exposure.",
+                "explanation": "Mechanisms must be tied to a concrete failure path and verifiable behavior."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where does untrusted data become an authority decision?"
+          ],
+          "prerequisites": [
+            "security-l01-lab-charter"
+          ]
+        },
+        {
+          "id": "security-l03-baseline",
+          "title": "Record a minimal baseline and prove restoration",
+          "objectives": [
+            "Inventory software, services and data in a disposable lab.",
+            "Verify a baseline backup before changing controls."
+          ],
+          "topics": [
+            {
+              "title": "Attack surface",
+              "details": [
+                "Every service and dependency adds a reason for exposure.",
+                "Unused capability is safer removed than merely forgotten."
+              ]
+            },
+            {
+              "title": "Recovery-first practice",
+              "details": [
+                "A snapshot is useful only if it can be restored and checked.",
+                "Lab changes must not alter a shared or production machine."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "hardening-baseline",
+            "lab-recovery"
+          ],
+          "video": {
+            "resourceId": "security-video-systems",
+            "locator": "Week 2 Securing Systems: firewalls, antivirus and automatic updates; focus on minimizing exposure and maintaining systems."
+          },
+          "reading": {
+            "resourceId": "security-doc-recovery",
+            "locator": "Ransomware and Data Extortion Prevention Best Practices: offline backups and tested recovery. Use a harmless synthetic-file loss, never malware."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a03",
+            "title": "A restorable local-service baseline",
+            "kind": "lab",
+            "instructions": [
+              "Inventory the owned lab OS/runtime version, listening service addresses, dependencies and synthetic data locations.",
+              "Create a backup or snapshot, change a copied synthetic note and restore the baseline in the isolated environment.",
+              "Compare file hashes and application behavior; explicitly state which hardware or network features the lab cannot simulate."
+            ],
+            "deliverables": [
+              "Versioned baseline inventory",
+              "Restore log with integrity checks"
+            ],
+            "acceptanceCriteria": [
+              "The service binds only to the declared isolated scope.",
+              "Restoration reproduces the known synthetic data and successful application read.",
+              "No host firmware, trust store, firewall or real user data is changed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q03a",
+                "kind": "single-choice",
+                "prompt": "What is stronger backup evidence than a successful copy message?",
+                "choices": [
+                  "A filename that says backup",
+                  "A restored copy with verified contents and application use",
+                  "A large archive size"
+                ],
+                "answer": "A restored copy with verified contents and application use",
+                "explanation": "Recovery depends on readable, complete and usable data, not only the act of copying it."
+              },
+              {
+                "id": "security-q03b",
+                "kind": "short-answer",
+                "prompt": "Why record limitations of the lab?",
+                "answer": "They prevent simulated evidence from being misrepresented as proof about hardware, production traffic or controls that were never exercised.",
+                "explanation": "An honest boundary is part of a credible security assessment."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can the original baseline be restored without relying on undocumented state?"
+          ],
+          "prerequisites": [
+            "security-l02-threat-model"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m02-identity",
+      "title": "02. Authentication, authorization and sessions",
+      "stage": "foundation",
+      "description": "Explain how an identity claim becomes a bounded, revocable permission decision.",
+      "prerequisites": [
+        "security-m01-boundaries"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l04-authenticators",
+          "title": "Explain password verification, MFA and recovery",
+          "objectives": [
+            "Distinguish password hashing from reversible encryption.",
+            "Explain authenticator factors, phishing resistance and recovery trade-offs."
+          ],
+          "topics": [
+            {
+              "title": "Verification mechanisms",
+              "details": [
+                "A salted password verifier avoids storing recoverable plaintext.",
+                "Work factors and rate limits address different parts of guessing risk."
+              ]
+            },
+            {
+              "title": "Authenticator lifecycle",
+              "details": [
+                "Two knowledge secrets are not two distinct factors.",
+                "Enrollment, device loss and recovery can be weaker than normal login."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "authentication",
+            "mfa",
+            "password-storage"
+          ],
+          "video": {
+            "resourceId": "security-video-accounts",
+            "locator": "Week 0 Securing Accounts: authentication, MFA factors, password managers and passkeys. Study defensive mechanisms only."
+          },
+          "reading": {
+            "resourceId": "security-doc-identity",
+            "locator": "Authentication Assurance Levels; Authenticator and Verifier Requirements; Authenticator Management. Compare phishing-resistant public-key authenticators with manually entered OTPs."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a04",
+            "title": "A synthetic authentication and recovery design",
+            "kind": "lab",
+            "instructions": [
+              "Use a maintained authentication/password library in the local service with two dummy users and no real passwords.",
+              "Verify that equal dummy passwords receive different salts, wrong passwords fail and rate-limit decisions are observable.",
+              "Design a factor-loss recovery flow and compare its assurance with the normal sign-in path; do not send messages or collect identity documents."
+            ],
+            "deliverables": [
+              "Authentication tests with redacted dummy data",
+              "Factor/enrollment/recovery diagram"
+            ],
+            "acceptanceCriteria": [
+              "No plaintext password or reversible password copy is stored or logged.",
+              "Factors and recovery paths are distinguished rather than labelled generically MFA.",
+              "The design addresses session revocation after an authenticator change."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q04a",
+                "kind": "single-choice",
+                "prompt": "Password plus another memorized PIN is best described as what?",
+                "choices": [
+                  "Phishing-resistant MFA by definition",
+                  "Two knowledge secrets, not two distinct factor categories",
+                  "A hardware possession factor"
+                ],
+                "answer": "Two knowledge secrets, not two distinct factor categories",
+                "explanation": "Factor diversity concerns knowledge, possession and inherence. Adding another memorized secret does not create a possession factor."
+              },
+              {
+                "id": "security-q04b",
+                "kind": "short-answer",
+                "prompt": "What does a per-user salt protect against, and what does it not do?",
+                "answer": "It prevents identical passwords from having identical stored verifiers and frustrates reusable precomputed tables; it does not make weak passwords strong or stop all online guessing.",
+                "explanation": "Salting, password strength, work factors and rate limits address different risks."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can account recovery bypass the strongest login protection?"
+          ],
+          "prerequisites": [
+            "security-l03-baseline"
+          ]
+        },
+        {
+          "id": "security-l05-permissions",
+          "title": "Enforce least privilege and per-resource authorization",
+          "objectives": [
+            "Express permissions by principal, action, resource and context.",
+            "Implement deny-by-default checks independent of UI visibility."
+          ],
+          "topics": [
+            {
+              "title": "Authorization models",
+              "details": [
+                "Roles group privileges; attributes can constrain ownership and context.",
+                "A hidden button is not an authorization boundary."
+              ]
+            },
+            {
+              "title": "Complete mediation",
+              "details": [
+                "Check every relevant server operation, including lists and background jobs.",
+                "Use server-established identity rather than trusting a supplied owner field."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "authorization",
+            "least-privilege",
+            "rbac"
+          ],
+          "video": {
+            "resourceId": "security-video-accounts",
+            "locator": "Week 0 Securing Accounts: authentication versus authorization; use the distinction to explain resource-level checks."
+          },
+          "reading": {
+            "resourceId": "security-doc-authorization",
+            "locator": "Least Privilege, Deny by Default and Validate the Permissions on Every Request. Translate the principles into a local permission matrix."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a05",
+            "title": "A two-owner permission matrix",
+            "kind": "coding",
+            "instructions": [
+              "Create synthetic users Alice and Bob, each with one note, plus a narrowly scoped support role.",
+              "Test read, edit, delete and list operations for owner, other owner, support and anonymous contexts.",
+              "Run tests directly against the local server boundary as well as through the UI; use only identifiers from your own fixtures."
+            ],
+            "deliverables": [
+              "Permission matrix",
+              "Positive and denied-operation regression tests"
+            ],
+            "acceptanceCriteria": [
+              "Cross-owner read/write and list leakage are denied.",
+              "Missing identity and unknown actions default to deny.",
+              "A client-provided owner ID cannot override the authenticated principal."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q05a",
+                "kind": "single-choice",
+                "prompt": "Where must a private-note ownership rule be enforced?",
+                "choices": [
+                  "Only by hiding an edit button",
+                  "Only during initial account creation",
+                  "At the authoritative server/data access boundary for every relevant operation"
+                ],
+                "answer": "At the authoritative server/data access boundary for every relevant operation",
+                "explanation": "Clients can issue requests independently of the interface. Authorization must protect the resource access itself."
+              },
+              {
+                "id": "security-q05b",
+                "kind": "short-answer",
+                "prompt": "Why test list operations separately from single-record reads?",
+                "answer": "A list query may omit ownership filtering or leak metadata even when a single-record endpoint checks permissions correctly.",
+                "explanation": "Each path crossing the trust boundary needs its own evidence."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which operation could reveal another owner's metadata?"
+          ],
+          "prerequisites": [
+            "security-l04-authenticators"
+          ]
+        },
+        {
+          "id": "security-l06-sessions",
+          "title": "Trace session creation, renewal, revocation and federation",
+          "objectives": [
+            "Explain session tokens as temporary bearer authority.",
+            "Distinguish authentication federation from access delegation and local authorization."
+          ],
+          "topics": [
+            {
+              "title": "Session lifecycle",
+              "details": [
+                "Rotate identity-bearing sessions at authentication/privilege changes.",
+                "Expiration, logout and revocation need authoritative behavior."
+              ]
+            },
+            {
+              "title": "Federation boundaries",
+              "details": [
+                "An identity provider assertion must have the expected issuer, audience and validity.",
+                "OIDC authenticates on top of OAuth; an OAuth access token is not automatically a login identity."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sessions",
+            "oidc",
+            "token-validation"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-sessions",
+            "locator": "Session ID Properties, Cookies, Session ID Renewal and Session Expiration. Pair with NIST 800-63B-4 Session Management."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-identity",
+            "security-doc-rest"
+          ],
+          "assignment": {
+            "id": "security-a06",
+            "title": "A local session lifecycle trace",
+            "kind": "coding",
+            "instructions": [
+              "Use only dummy local sessions to record pre-login, authenticated, renewed, expired and revoked states.",
+              "Test logout and privilege change, including a stale session that must no longer authorize an operation.",
+              "Draw a federation message flow and list issuer/audience/expiry checks using invented assertions; do not connect a real provider or capture real tokens."
+            ],
+            "deliverables": [
+              "Lifecycle tests and redacted trace",
+              "Federation trust diagram"
+            ],
+            "acceptanceCriteria": [
+              "Logout or server revocation invalidates the appropriate local session.",
+              "Tokens are absent from URLs, logs and submitted evidence.",
+              "A valid identity assertion still leads to a separate local authorization decision."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q06a",
+                "kind": "single-choice",
+                "prompt": "A validly signed token for a different audience should be what?",
+                "choices": [
+                  "Accepted because the signature is valid",
+                  "Used to skip authorization",
+                  "Rejected for this service"
+                ],
+                "answer": "Rejected for this service",
+                "explanation": "A signature binds claims to an issuer, but the service must also verify intended audience, validity and other protocol requirements."
+              },
+              {
+                "id": "security-q06b",
+                "kind": "short-answer",
+                "prompt": "Why does deleting a browser cookie not necessarily revoke the server-side session?",
+                "answer": "The server may still consider that session valid; authoritative revocation or expiry must govern later requests carrying the old token.",
+                "explanation": "Client cleanup and server-side authority are different state changes."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where is the final decision that a session is no longer valid?"
+          ],
+          "prerequisites": [
+            "security-l05-permissions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m03-cryptographic-trust",
+      "title": "03. Cryptography, keys and TLS/PKI",
+      "stage": "foundation",
+      "description": "Explain what each cryptographic mechanism proves and the key/trust assumptions it requires.",
+      "prerequisites": [
+        "security-m02-identity"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l07-primitives",
+          "title": "Distinguish hashes, MACs, encryption and signatures",
+          "objectives": [
+            "Match confidentiality, integrity and authenticity requirements to primitives.",
+            "Use authenticated encryption through a maintained library with safe key/nonce handling."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism roles",
+              "details": [
+                "A hash alone does not authenticate a sender.",
+                "A MAC shares a secret; a digital signature uses asymmetric verification."
+              ]
+            },
+            {
+              "title": "Authenticated encryption",
+              "details": [
+                "AEAD checks integrity as well as confidentiality and can bind associated metadata.",
+                "Key/nonce rules and failure handling are part of the security contract."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "cryptography",
+            "aead",
+            "key-management"
+          ],
+          "video": {
+            "resourceId": "security-video-crypto",
+            "locator": "Week 3 Message Integrity 1 and HMAC; Week 4 Authenticated Encryption 1 and 3. Historical examples explain principles, not algorithms to deploy uncritically."
+          },
+          "reading": {
+            "resourceId": "security-doc-crypto",
+            "locator": "Architectural Design, Algorithms, Cipher Modes and key-management guidance. Never implement your own primitive."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a07",
+            "title": "A synthetic authenticated-record envelope",
+            "kind": "coding",
+            "instructions": [
+              "Use a maintained AEAD library and a disposable generated key to protect two synthetic note records.",
+              "Bind an invented record ID as associated data and test successful decryption, changed ciphertext, changed metadata and a wrong key.",
+              "Record only test outcomes and key lifecycle decisions, never key bytes; document the library's nonce requirements."
+            ],
+            "deliverables": [
+              "Envelope format and tests",
+              "Key/nonce lifecycle explanation"
+            ],
+            "acceptanceCriteria": [
+              "Tampered ciphertext or associated metadata fails closed.",
+              "No unauthenticated partial plaintext is used after verification failure.",
+              "Keys are disposable and excluded from source, logs and evidence."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q07a",
+                "kind": "single-choice",
+                "prompt": "Which property does a plain hash by itself not provide?",
+                "choices": [
+                  "A deterministic digest of the input",
+                  "A way to compare exact-byte integrity when the expected digest is trusted",
+                  "Authentication of the sender"
+                ],
+                "answer": "Authentication of the sender",
+                "explanation": "Anyone can compute a hash. Authenticity requires a trusted binding, such as a MAC, signature or independently protected expected digest."
+              },
+              {
+                "id": "security-q07b",
+                "kind": "short-answer",
+                "prompt": "Why bind a record ID as AEAD associated data?",
+                "answer": "It lets integrity verification detect ciphertext being presented under the wrong record context, while the associated metadata need not be encrypted.",
+                "explanation": "Encryption alone does not necessarily bind data to its intended application meaning."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What does successful verification prove, and what does it leave unproven?"
+          ],
+          "prerequisites": [
+            "security-l06-sessions",
+            "foundation-lesson-19-privacy-secrets"
+          ]
+        },
+        {
+          "id": "security-l08-tls-pki",
+          "title": "Explain certificate chains, hostname validation and key lifecycle",
+          "objectives": [
+            "Trace TLS peer authentication and encrypted session establishment.",
+            "Test expiry, trust-anchor and hostname failures without disabling verification."
+          ],
+          "topics": [
+            {
+              "title": "PKI",
+              "details": [
+                "A certificate binds a key to an identity under an issuer's policy.",
+                "Trust chain, validity and hostname checks solve different problems."
+              ]
+            },
+            {
+              "title": "TLS boundaries",
+              "details": [
+                "Server-authenticated TLS does not automatically identify the client or authorize an action.",
+                "Rotation, revocation and private-key protection remain operational requirements."
+              ]
+            }
+          ],
+          "estimatedMinutes": 220,
+          "canonicalConceptTags": [
+            "tls",
+            "pki",
+            "certificates"
+          ],
+          "video": {
+            "resourceId": "security-video-systems",
+            "locator": "Week 2 Securing Systems: HTTPS, TLS, X.509 certificates and certificate authorities; separate transport protection from application permission checks."
+          },
+          "reading": {
+            "resourceId": "security-doc-tls",
+            "locator": "Server Configuration, Certificates and Client Certificates and Mutual TLS. Use current guidance and per-process lab trust."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a08",
+            "title": "Beginner evidence gate: trusted local transport",
+            "kind": "lab",
+            "instructions": [
+              "Create a disposable local CA/service certificate for a loopback-only lab, trusted only by the test process or disposable VM.",
+              "Verify successful connection and explicit rejection of wrong hostname, untrusted issuer and expired certificate fixtures using supported library test facilities.",
+              "Submit the threat/permission matrix, session tests and a key-rotation plan; never disable verification or install the CA into the host-wide trust store."
+            ],
+            "deliverables": [
+              "TLS trust diagram and positive/negative tests",
+              "Integrated identity/transport evidence and cleanup record"
+            ],
+            "acceptanceCriteria": [
+              "All three invalid-certificate cases fail for the correct reason.",
+              "Application authorization is still required after TLS succeeds.",
+              "Dummy CA keys and scoped trust are removed from the disposable lab after the exercise."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q08a",
+                "kind": "single-choice",
+                "prompt": "A certificate chains to a trusted root but names a different host. What should the client do?",
+                "choices": [
+                  "Ignore the name because the chain is valid",
+                  "Disable verification for all connections",
+                  "Reject the hostname mismatch"
+                ],
+                "answer": "Reject the hostname mismatch",
+                "explanation": "Trust in an issuer does not make every certificate valid for every service name. Identity matching is a distinct check."
+              },
+              {
+                "id": "security-q08b",
+                "kind": "short-answer",
+                "prompt": "Why does HTTPS not prove a user may read a particular note?",
+                "answer": "TLS authenticates/protects the transport endpoint; resource authorization depends on the authenticated application principal and permission policy.",
+                "explanation": "Cryptographic transport and business authorization enforce different boundaries."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which trust decision happens before the first application request?"
+          ],
+          "prerequisites": [
+            "security-l07-primitives"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m04-os-hardware",
+      "title": "04. Operating systems, hardware roots and endpoint controls",
+      "stage": "intermediate",
+      "description": "Trace how privilege, memory isolation, boot trust and patching constrain failures.",
+      "prerequisites": [
+        "security-m03-cryptographic-trust"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l09-process-isolation",
+          "title": "Explain process, kernel and mandatory-access boundaries",
+          "objectives": [
+            "Distinguish user/kernel privilege and process memory isolation.",
+            "Compare discretionary permissions, capabilities and mandatory access control."
+          ],
+          "topics": [
+            {
+              "title": "OS mediation",
+              "details": [
+                "System calls cross from user code to privileged kernel services.",
+                "File ownership and process authority determine permitted operations."
+              ]
+            },
+            {
+              "title": "Defense in depth",
+              "details": [
+                "MAC policies can constrain an application beyond ordinary user permissions.",
+                "Memory protections reduce classes of failure but are not proof of bug-free code."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "os-security",
+            "process-isolation",
+            "mac"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-lsm",
+            "locator": "Linux Security Module Usage: enforcement hooks, MAC examples, capabilities and active-module inspection. Treat exact configuration as version-specific."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a09",
+            "title": "A least-privilege file-access experiment",
+            "kind": "lab",
+            "instructions": [
+              "Inside an owned disposable Linux VM/container, create separate synthetic service and reviewer accounts with one private test file.",
+              "Record allowed and denied read/write operations under normal permissions; inspect available MAC controls without disabling them.",
+              "Draw the kernel mediation path and explain ASLR, non-executable memory and memory-safe language benefits conceptually, without exploitation."
+            ],
+            "deliverables": [
+              "Permission test matrix and outputs",
+              "Process/kernel boundary diagram"
+            ],
+            "acceptanceCriteria": [
+              "The service cannot write reviewer-only synthetic data.",
+              "Tests run in the declared disposable scope, not on real user directories.",
+              "The explanation distinguishes permission enforcement from memory-corruption mitigations."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q09a",
+                "kind": "single-choice",
+                "prompt": "Which component ultimately mediates a local file-open permission check?",
+                "choices": [
+                  "Only the application's button label",
+                  "The operating system kernel and configured security controls",
+                  "The filename's appearance"
+                ],
+                "answer": "The operating system kernel and configured security controls",
+                "explanation": "Applications request operations; kernel and security policy enforce the authority boundary. Application checks can add further constraints."
+              },
+              {
+                "id": "security-q09b",
+                "kind": "short-answer",
+                "prompt": "Why is running a service with minimal privilege valuable even if its code is intended to be correct?",
+                "answer": "If the service is misused or contains a defect, reduced authority limits the resources and operations it can affect.",
+                "explanation": "Least privilege reduces consequences; it does not eliminate the need to fix defects."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What authority does the process actually need?"
+          ],
+          "prerequisites": [
+            "security-l08-tls-pki",
+            "foundation-lesson-01-files-processes"
+          ]
+        },
+        {
+          "id": "security-l10-boot-disk",
+          "title": "Trace secure boot, measurement, TPM and disk encryption",
+          "objectives": [
+            "Distinguish prevention by verified boot from evidence by measured boot.",
+            "Explain how disk encryption and hardware-bound keys protect specific data states."
+          ],
+          "topics": [
+            {
+              "title": "Boot trust",
+              "details": [
+                "Secure Boot checks allowed signed components in a chain.",
+                "Measured Boot records measurements that can inform attestation or key release."
+              ]
+            },
+            {
+              "title": "At-rest limits",
+              "details": [
+                "A TPM can protect/seal keys to conditions; it is not a general guarantee of clean software.",
+                "Full-disk encryption protects a powered-off disk differently from a logged-in compromised process."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "secure-boot",
+            "tpm",
+            "disk-encryption"
+          ],
+          "video": {
+            "resourceId": "security-video-crypto",
+            "locator": "Week 4 Odds and Ends 3: disk encryption and creditcard encryption. Focus on at-rest threat boundaries; use current platform documentation for actual settings."
+          },
+          "reading": {
+            "resourceId": "security-doc-boot",
+            "locator": "Secure Boot, Trusted Boot and Measured Boot sections; distinguish signature enforcement, measurement and attestation."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-crypto"
+          ],
+          "assignment": {
+            "id": "security-a10",
+            "title": "A boot-to-data protection map",
+            "kind": "design",
+            "instructions": [
+              "Draw firmware, bootloader, kernel, TPM-bound key and encrypted volume trust relationships from the official documentation.",
+              "Evaluate stolen powered-off disk, unlocked running session and unexpected boot measurement scenarios.",
+              "Inspect only read-only status inside a supported disposable lab if available; otherwise label the exercise a documentation-backed design. Never change firmware keys, host encryption or recovery settings."
+            ],
+            "deliverables": [
+              "Mechanism/assumption diagram",
+              "Three-scenario protection and limitation table"
+            ],
+            "acceptanceCriteria": [
+              "Secure and measured boot are not treated as identical.",
+              "Disk encryption is not claimed to stop an authorized running process reading plaintext.",
+              "Recovery-key availability and protection are part of the design."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q10a",
+                "kind": "single-choice",
+                "prompt": "What does full-disk encryption most directly protect?",
+                "choices": [
+                  "Data on storage when the decryption key is unavailable",
+                  "Every action of an already authorized running process",
+                  "All network traffic automatically"
+                ],
+                "answer": "Data on storage when the decryption key is unavailable",
+                "explanation": "Once a system has unlocked the data for use, process and application permissions still matter."
+              },
+              {
+                "id": "security-q10b",
+                "kind": "short-answer",
+                "prompt": "How does measured boot differ from secure boot?",
+                "answer": "Measured boot records component measurements for evaluation/attestation; secure boot enforces a policy about which signed boot components may execute.",
+                "explanation": "Evidence about a state and prevention of an unapproved state are related but distinct mechanisms."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What happens if the recovery key is unavailable or exposed?"
+          ],
+          "prerequisites": [
+            "security-l09-process-isolation"
+          ]
+        },
+        {
+          "id": "security-l11-endpoint",
+          "title": "Operate patching, endpoint policy and rollback safely",
+          "objectives": [
+            "Connect asset inventory to supported software and update decisions.",
+            "Test a controlled update without treating detection tools as infallible."
+          ],
+          "topics": [
+            {
+              "title": "Endpoint layers",
+              "details": [
+                "Updates remove known defects; endpoint controls observe or block classes of behavior.",
+                "Application allowlisting and least privilege can reduce unnecessary execution."
+              ]
+            },
+            {
+              "title": "Change governance",
+              "details": [
+                "Patch urgency, compatibility and rollback all need evidence.",
+                "A disabled alert or unsupported OS should not silently become the baseline."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "endpoint-security",
+            "patching"
+          ],
+          "video": {
+            "resourceId": "security-video-systems",
+            "locator": "Week 2 Securing Systems: antivirus and automatic updates. Explain why these complement rather than replace permissions and backups."
+          },
+          "reading": {
+            "resourceId": "security-doc-recovery",
+            "locator": "Prevention best practices: asset management, patching, least privilege and backups. Avoid any offensive examples; use a benign local dependency update."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a11",
+            "title": "A reversible endpoint maintenance record",
+            "kind": "lab",
+            "instructions": [
+              "Select one benign lab runtime/dependency update using its official release/security information and the baseline inventory.",
+              "Back up, update only the disposable lab and run service, permission and recovery checks.",
+              "Document a rollback rehearsal or a safely simulated incompatibility; do not disable host protections or deploy a known vulnerable target."
+            ],
+            "deliverables": [
+              "Version/advisory/decision record",
+              "Before/after tests and rollback evidence"
+            ],
+            "acceptanceCriteria": [
+              "The changed component and source are identifiable.",
+              "Core service and least-privilege checks remain valid after the update.",
+              "Failed validation triggers an explicit pause or rollback rather than being marked successful."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q11a",
+                "kind": "single-choice",
+                "prompt": "Which is an adequate patch-completion claim?",
+                "choices": [
+                  "The download finished",
+                  "The intended version is installed and relevant behavior/control checks pass",
+                  "Alerts were disabled so no errors appeared"
+                ],
+                "answer": "The intended version is installed and relevant behavior/control checks pass",
+                "explanation": "Installation and functional/security verification are distinct. Suppressing alerts is not remediation evidence."
+              },
+              {
+                "id": "security-q11b",
+                "kind": "short-answer",
+                "prompt": "Why retain the pre-update baseline?",
+                "answer": "It supports comparison, diagnosis and controlled rollback when a change breaks functionality or a security assumption.",
+                "explanation": "A recoverable change is safer than an undocumented irreversible one."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which observable result proves the update took effect?"
+          ],
+          "prerequisites": [
+            "security-l10-boot-disk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m05-networks",
+      "title": "05. Networking, segmentation and detection",
+      "stage": "intermediate",
+      "description": "Explain packet routing and control placement, including what encryption hides from sensors.",
+      "prerequisites": [
+        "security-m04-os-hardware"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l12-network-dns",
+          "title": "Trace TCP, DNS and a service boundary",
+          "objectives": [
+            "Explain address, port, transport connection and name resolution roles.",
+            "Distinguish DNS authenticity, DNS privacy and application TLS."
+          ],
+          "topics": [
+            {
+              "title": "Network mechanics",
+              "details": [
+                "IP routes packets; transport ports identify service endpoints.",
+                "A connection to an address is not proof of application identity."
+              ]
+            },
+            {
+              "title": "DNS",
+              "details": [
+                "Recursive resolvers and authoritative servers have different responsibilities.",
+                "DNSSEC authenticates supported DNS data; encrypted DNS protects a transport link, and neither replaces application authorization."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "networking",
+            "dns",
+            "segmentation"
+          ],
+          "video": {
+            "resourceId": "security-video-systems",
+            "locator": "Week 2 Securing Systems: IP addresses, ports, HTTPS and proxies. Restrict any observation to self-generated local traffic."
+          },
+          "reading": {
+            "resourceId": "security-doc-dns",
+            "locator": "RFC 1034 Sections 3 Domain Name Space and Resource Records, 4 Name Servers and 5 Resolvers, especially caching. Pair with RFC 4033 Sections 3-4 for DNSSEC's service and limitation boundaries."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-tls",
+            "security-doc-dnssec"
+          ],
+          "assignment": {
+            "id": "security-a12",
+            "title": "A local name-to-service trace",
+            "kind": "lab",
+            "instructions": [
+              "Use a reserved synthetic hostname and a loopback service, or an isolated host-only resolver with locally authored records.",
+              "Record lookup result, address/port and TLS/application identity checks as separate steps; capture only your own benign lab traffic if capture is used.",
+              "Diagram a client, application and database segment with required flows and explicitly denied direct database access."
+            ],
+            "deliverables": [
+              "Resolution/connection sequence",
+              "Allowed-flow matrix"
+            ],
+            "acceptanceCriteria": [
+              "Name resolution is not confused with user authentication.",
+              "No real-user traffic or public network is scanned/captured.",
+              "The database is reachable only through a justified lab flow."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q12a",
+                "kind": "single-choice",
+                "prompt": "What does a DNS answer primarily provide to a client?",
+                "choices": [
+                  "Name-related records such as an address",
+                  "Permission to read every application record",
+                  "A guarantee that the user is authenticated"
+                ],
+                "answer": "Name-related records such as an address",
+                "explanation": "Resolution is one step before connecting. TLS identity and application access decisions remain separate."
+              },
+              {
+                "id": "security-q12b",
+                "kind": "short-answer",
+                "prompt": "Why are DNSSEC and encrypted DNS not the same protection?",
+                "answer": "DNSSEC validates signed DNS data where deployed; encrypted DNS protects the client-resolver transport from some observers, with a different trust boundary.",
+                "explanation": "Integrity/authenticity of records and privacy of a transport link solve different problems."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which device knows the hostname, and which knows the application identity?"
+          ],
+          "prerequisites": [
+            "security-l11-endpoint"
+          ]
+        },
+        {
+          "id": "security-l13-firewall-vpn",
+          "title": "Place firewall and VPN controls at the right boundary",
+          "objectives": [
+            "Explain stateful filtering and default-deny flow policy.",
+            "Identify where a VPN's protection ends and application controls begin."
+          ],
+          "topics": [
+            {
+              "title": "Firewall policy",
+              "details": [
+                "Rules match declared traffic properties at a specific enforcement point.",
+                "State tracking does not understand every business authorization rule."
+              ]
+            },
+            {
+              "title": "VPN trust",
+              "details": [
+                "A VPN encrypts a tunnel between endpoints, not every remaining path.",
+                "Network location alone should not grant broad application authority."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "firewalls",
+            "vpn",
+            "default-deny"
+          ],
+          "video": {
+            "resourceId": "security-video-systems",
+            "locator": "Week 2 Securing Systems: VPN, firewall and HTTPS. Identify tunnel endpoints and the continuing need for application TLS."
+          },
+          "reading": {
+            "resourceId": "security-doc-firewalls",
+            "locator": "Publication overview and full publication sections Firewall Technologies and Firewall Policy. Use the 2009 document for architecture principles, not current vendor commands."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-zero-trust"
+          ],
+          "assignment": {
+            "id": "security-a13",
+            "title": "An isolated segmentation policy",
+            "kind": "lab",
+            "instructions": [
+              "In a disposable VM/network namespace only, permit a test client to the app and the app to its test database, denying other flows.",
+              "Verify allowed/denied flows with harmless connection attempts to those explicitly owned endpoints.",
+              "Overlay a hypothetical VPN tunnel and explain which traffic remains outside it; provide a rollback procedure before applying rules."
+            ],
+            "deliverables": [
+              "Rule rationale and flow-test results",
+              "VPN boundary and rollback diagram"
+            ],
+            "acceptanceCriteria": [
+              "Rules implement the declared flow matrix and preserve needed management access in the lab.",
+              "Tests do not touch the host firewall or external networks.",
+              "The explanation does not equate VPN access with record-level permission."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q13a",
+                "kind": "single-choice",
+                "prompt": "A VPN connection to a private network should automatically grant what application privileges?",
+                "choices": [
+                  "Administrative access to every service",
+                  "None beyond separately evaluated identity and policy",
+                  "Access to every user's records"
+                ],
+                "answer": "None beyond separately evaluated identity and policy",
+                "explanation": "A tunnel protects transport to its endpoint. It is not a universal application authorization decision."
+              },
+              {
+                "id": "security-q13b",
+                "kind": "short-answer",
+                "prompt": "Why keep a rollback path for a firewall change?",
+                "answer": "An incorrect rule can cut off legitimate service or management access; rollback preserves availability while the error is diagnosed.",
+                "explanation": "Security controls must be introduced with operational recovery, not simply enabled and assumed correct."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which request must still be rejected after the network permits the connection?"
+          ],
+          "prerequisites": [
+            "security-l12-network-dns"
+          ]
+        },
+        {
+          "id": "security-l14-ids",
+          "title": "Explain IDS/IPS visibility and detection trade-offs",
+          "objectives": [
+            "Read a signature's action, scope and matching conditions.",
+            "Measure true/false alerts on benign labelled local fixtures."
+          ],
+          "topics": [
+            {
+              "title": "Sensor roles",
+              "details": [
+                "IDS alerts; inline IPS may block under a configured policy.",
+                "Encrypted payloads reduce network visibility, so endpoint/application telemetry remains important."
+              ]
+            },
+            {
+              "title": "Detection quality",
+              "details": [
+                "A match is evidence for investigation, not proof of compromise.",
+                "False positives and false negatives require labelled evaluation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "ids",
+            "ips",
+            "detection"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-ids",
+            "locator": "Rules Format: Action, Header, Protocol and Rule Options. Use a harmless training marker instead of attack signatures or payloads."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-logging"
+          ],
+          "assignment": {
+            "id": "security-a14",
+            "title": "A benign training-marker detector",
+            "kind": "lab",
+            "instructions": [
+              "Generate a small set of owned local HTTP health-check requests containing or omitting the literal marker training-demo.",
+              "Use an offline capture from only this lab or a synthetic rule-evaluation table to predict and verify alerts; state honestly which mode was executed.",
+              "Label expected matches, compute false positives/negatives and explain why TLS payload encryption changes sensor coverage without teaching bypass."
+            ],
+            "deliverables": [
+              "Rule interpretation and labelled benign fixture",
+              "Detection/confusion table and visibility map"
+            ],
+            "acceptanceCriteria": [
+              "Every alert maps to an expected condition or a documented false positive.",
+              "The exercise uses no attack payload, evasion, third-party capture or public probing.",
+              "The report distinguishes alerting from prevention and from confirmed incident evidence."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q14a",
+                "kind": "single-choice",
+                "prompt": "An IDS alert proves which statement?",
+                "choices": [
+                  "A compromise definitely occurred",
+                  "The traffic was necessarily blocked",
+                  "A configured detection condition matched observed data"
+                ],
+                "answer": "A configured detection condition matched observed data",
+                "explanation": "Alerts require context and triage. IDS and IPS enforcement behavior also differ."
+              },
+              {
+                "id": "security-q14b",
+                "kind": "short-answer",
+                "prompt": "Why retain application logs when using a network sensor?",
+                "answer": "Application logs can reveal authenticated actions and resource context that a network sensor may not see, especially with encrypted payloads.",
+                "explanation": "Different telemetry layers observe different parts of the trust boundary."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What exactly can this sensor observe, and what can it not conclude?"
+          ],
+          "prerequisites": [
+            "security-l13-firewall-vpn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m06-application-data",
+      "title": "06. Application, API and database protections",
+      "stage": "intermediate",
+      "description": "Treat parsing, authorization, query construction and data permissions as separate enforcement mechanisms.",
+      "prerequisites": [
+        "security-m05-networks"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l15-input-output",
+          "title": "Keep input data separate from executable instructions",
+          "objectives": [
+            "Explain server-side validation, parameterized queries and contextual output encoding.",
+            "Test the local API's types, sizes and response behavior with harmless malformed data."
+          ],
+          "topics": [
+            {
+              "title": "Input boundaries",
+              "details": [
+                "Validation enforces shape/range; authorization enforces who may act.",
+                "Parameterized queries separate data from query syntax."
+              ]
+            },
+            {
+              "title": "Output boundaries",
+              "details": [
+                "HTML, URL and other output contexts need appropriate encoding.",
+                "Errors should be useful without disclosing secrets or internals."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "api-security",
+            "parameterization",
+            "validation"
+          ],
+          "video": {
+            "resourceId": "security-video-software",
+            "locator": "Week 3 Securing Software: prepared statements, client/server validation and character escapes. Practice only defensive cases in the owned service."
+          },
+          "reading": {
+            "resourceId": "security-doc-rest",
+            "locator": "Input Validation, Validate Content Types, Access Control and Error Handling. Verify that parsing and permission checks serve different purposes."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-asvs"
+          ],
+          "assignment": {
+            "id": "security-a15",
+            "title": "A defensive API contract suite",
+            "kind": "coding",
+            "instructions": [
+              "Test valid note creation, oversized text, wrong JSON types, missing identity and unsupported content type against the local fixture service.",
+              "Use parameter binding for a dummy note containing ordinary quotes and markup-like text; render it as text rather than instructions.",
+              "Record expected status codes and sanitized errors without generating exploit payloads or targeting any other application."
+            ],
+            "deliverables": [
+              "API schema and bounded-input tests",
+              "Query/encoding explanation"
+            ],
+            "acceptanceCriteria": [
+              "Invalid data never reaches a database mutation.",
+              "User text remains data in both query and display contexts.",
+              "Errors and test artifacts expose no credentials or private environment details."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q15a",
+                "kind": "single-choice",
+                "prompt": "Why use a parameterized query for user-supplied text?",
+                "choices": [
+                  "To keep the text in the data channel rather than query syntax",
+                  "To grant the user more permissions",
+                  "To encrypt the whole database automatically"
+                ],
+                "answer": "To keep the text in the data channel rather than query syntax",
+                "explanation": "Parameter binding addresses interpretation at the query boundary. Authorization and encryption remain separate controls."
+              },
+              {
+                "id": "security-q15b",
+                "kind": "short-answer",
+                "prompt": "Why is client-side validation alone insufficient?",
+                "answer": "The authoritative service can receive requests that do not originate from that client interface, so it must validate its own inputs.",
+                "explanation": "The server cannot delegate trust enforcement to untrusted callers."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which protection changes interpretation, and which changes permission?"
+          ],
+          "prerequisites": [
+            "security-l14-ids",
+            "foundation-lesson-18-http-apis"
+          ]
+        },
+        {
+          "id": "security-l16-database",
+          "title": "Enforce database privilege and recoverable data integrity",
+          "objectives": [
+            "Separate application, migration and backup privileges.",
+            "Test owner-scoped data access and transaction rollback."
+          ],
+          "topics": [
+            {
+              "title": "Data authority",
+              "details": [
+                "Database authentication does not imply unrestricted table access.",
+                "Row ownership and service-level authorization must agree."
+              ]
+            },
+            {
+              "title": "Integrity and recovery",
+              "details": [
+                "Transactions prevent partial multi-step changes under a stated isolation model.",
+                "A backup needs both access control and verified restoration."
+              ]
+            }
+          ],
+          "estimatedMinutes": 220,
+          "canonicalConceptTags": [
+            "database-security",
+            "transactions",
+            "data-recovery"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-postgresql",
+            "locator": "PostgreSQL manual: Database Roles, Privileges and Row Security Policies. Use a local disposable database with synthetic rows; distinguish role grants from application ownership."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-authorization",
+            "security-doc-recovery"
+          ],
+          "assignment": {
+            "id": "security-a16",
+            "title": "Intermediate evidence gate: a bounded data service",
+            "kind": "lab",
+            "instructions": [
+              "Give the synthetic application a limited database role separate from schema migration and backup roles.",
+              "Verify owner-scoped reads/writes and a transaction that rolls back after an intentional harmless validation failure.",
+              "Restore a synthetic backup in the isolated lab and attach the OS, firewall and benign IDS evidence from this stage."
+            ],
+            "deliverables": [
+              "Role/row permission tests and rollback trace",
+              "Restored-service check and stage control map"
+            ],
+            "acceptanceCriteria": [
+              "The application role cannot perform schema administration.",
+              "A failed transaction leaves no partial synthetic update.",
+              "Cross-owner data remain inaccessible and restored data match the baseline.",
+              "Network and endpoint control evidence states exactly which layers were tested."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q16a",
+                "kind": "single-choice",
+                "prompt": "Why separate the migration role from the normal application role?",
+                "choices": [
+                  "It automatically removes all bugs",
+                  "It makes backups unnecessary",
+                  "Routine requests should not have schema-changing authority"
+                ],
+                "answer": "Routine requests should not have schema-changing authority",
+                "explanation": "Separate privileges reduce the impact of application defects or misuse and make sensitive operations auditable."
+              },
+              {
+                "id": "security-q16b",
+                "kind": "short-answer",
+                "prompt": "What should a transaction rollback test verify beyond receiving an error?",
+                "answer": "It should inspect persistent state to confirm that none of the intended atomic changes were partially committed.",
+                "explanation": "An error response does not by itself prove data integrity."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which layer enforces ownership if the application query is wrong?"
+          ],
+          "prerequisites": [
+            "security-l15-input-output",
+            "foundation-lesson-08-sql-querying"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m07-web-assurance",
+      "title": "07. Browser/API boundaries and verification evidence",
+      "stage": "advanced",
+      "description": "Reason about cookies, cross-origin behavior, tokens and multi-tenant ownership, then verify against a scoped standard.",
+      "prerequisites": [
+        "security-m06-application-data"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l17-browser-controls",
+          "title": "Explain cookies, CSRF defenses, CORS and security headers",
+          "objectives": [
+            "Distinguish browser-enforced policies from server authorization.",
+            "Verify session cookie and state-changing request safeguards."
+          ],
+          "topics": [
+            {
+              "title": "Browser context",
+              "details": [
+                "Cookies can be attached automatically to eligible requests.",
+                "SameSite, Secure and HttpOnly constrain different behaviors."
+              ]
+            },
+            {
+              "title": "Cross-origin controls",
+              "details": [
+                "CORS governs browser response sharing, not general API authorization.",
+                "CSRF defenses protect state changes; output encoding and CSP address other boundaries."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "browser-security",
+            "csrf",
+            "cors"
+          ],
+          "video": {
+            "resourceId": "sde-video-web-security",
+            "locator": "MIT 6.858 Lecture 9: Securing Web Applications. Use historical architecture principles, checking current browser behavior against OWASP rather than adopting old defaults."
+          },
+          "reading": {
+            "resourceId": "security-doc-sessions",
+            "locator": "Cookies: Secure, HttpOnly and SameSite attributes; Session Management WAF Protections and lifecycle guidance. Pair with REST guidance on security headers."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-rest",
+            "sde-book-asvs"
+          ],
+          "assignment": {
+            "id": "security-a17",
+            "title": "A local browser-boundary verification",
+            "kind": "lab",
+            "instructions": [
+              "Inspect only your lab's dummy session cookie attributes and explain each flag's function.",
+              "Use owned local test origins to verify allowed/disallowed response sharing and server-side permission checks independently.",
+              "Test a state-changing request with missing/incorrect CSRF context where cookie sessions require that defense; use benign note updates, not payloads."
+            ],
+            "deliverables": [
+              "Cookie/header and origin policy table",
+              "Allowed/denied local browser tests"
+            ],
+            "acceptanceCriteria": [
+              "CORS denial is not used as a replacement for server authorization.",
+              "Cookie flags are justified separately and tokens never enter the report.",
+              "State-changing requests require the appropriate server-validated anti-CSRF or protocol control."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q17a",
+                "kind": "single-choice",
+                "prompt": "Can CORS alone protect an API from unauthorized non-browser requests?",
+                "choices": [
+                  "No, the API still needs server-side authentication and authorization",
+                  "Yes, all clients obey browser CORS rules",
+                  "Yes, if the header is hidden"
+                ],
+                "answer": "No, the API still needs server-side authentication and authorization",
+                "explanation": "CORS is a browser response-sharing policy. It does not establish the caller's permission at the service boundary."
+              },
+              {
+                "id": "security-q17b",
+                "kind": "short-answer",
+                "prompt": "How do HttpOnly and Secure differ?",
+                "answer": "HttpOnly limits script access to a cookie; Secure limits sending it to secure transport contexts under browser rules.",
+                "explanation": "Neither flag alone solves every session, CSRF or application authorization risk."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which protections still apply to a non-browser caller?"
+          ],
+          "prerequisites": [
+            "security-l16-database",
+            "sde-l13-web-controls"
+          ]
+        },
+        {
+          "id": "security-l18-tenant-boundaries",
+          "title": "Test multi-tenant access and background authority",
+          "objectives": [
+            "Verify resource ownership across reads, lists, writes and asynchronous work.",
+            "Prevent stale or changed identity from leaking another synthetic tenant's data."
+          ],
+          "topics": [
+            {
+              "title": "Tenant isolation",
+              "details": [
+                "Object IDs identify resources but do not grant access.",
+                "Caches, queues and exports must preserve the same tenant boundary."
+              ]
+            },
+            {
+              "title": "Identity transitions",
+              "details": [
+                "A background operation must retain the correct initiating scope.",
+                "Account switching must not expose the previous owner's private state."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "tenant-isolation",
+            "object-authorization"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-authorization",
+            "locator": "Validate Permissions on Every Request, attribute/relationship-based controls and authorization tests. Apply them beyond normal UI reads."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-asvs"
+          ],
+          "assignment": {
+            "id": "security-a18",
+            "title": "An owner-boundary regression matrix",
+            "kind": "coding",
+            "instructions": [
+              "Using only Alice/Bob synthetic fixtures, test direct reads, lists, edits, exports and one queued task for each owner.",
+              "Switch local identities while a delayed read is pending and ensure the previous result is not displayed or written under the new owner.",
+              "Record permission decisions and redacted tenant IDs, including anonymous and stale-session cases."
+            ],
+            "deliverables": [
+              "Operation-by-identity matrix",
+              "Account-switch and delayed-work tests"
+            ],
+            "acceptanceCriteria": [
+              "Every cross-owner access is denied without leaking content or private metadata.",
+              "Queued/cached data remain bound to their original authorized scope.",
+              "Denied operations have visible, non-sensitive error records."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q18a",
+                "kind": "single-choice",
+                "prompt": "Knowing another synthetic tenant's object ID should grant what?",
+                "choices": [
+                  "Read access by default",
+                  "No access without an independent permission check",
+                  "Permission to export the tenant"
+                ],
+                "answer": "No access without an independent permission check",
+                "explanation": "Identifiers locate resources. Authorization determines whether a principal may act on them."
+              },
+              {
+                "id": "security-q18b",
+                "kind": "short-answer",
+                "prompt": "Why test a delayed response during account switching?",
+                "answer": "A response authorized for the previous identity can arrive after the interface has changed owners, exposing or corrupting data if identity generation is not checked.",
+                "explanation": "Access control includes lifecycle and asynchronous state, not only a synchronous endpoint check."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where might an owner ID be lost between components?"
+          ],
+          "prerequisites": [
+            "security-l17-browser-controls",
+            "sde-l05-auth-ownership"
+          ]
+        },
+        {
+          "id": "security-l19-asvs-evidence",
+          "title": "Turn ASVS requirements into scoped verification evidence",
+          "objectives": [
+            "Select relevant verification requirements without claiming full compliance.",
+            "Record pass, fail and not-applicable decisions with reproducible evidence."
+          ],
+          "topics": [
+            {
+              "title": "Assurance scope",
+              "details": [
+                "A standard provides requirements, not automatic protection.",
+                "Version and applicability decisions must accompany a checklist."
+              ]
+            },
+            {
+              "title": "Evidence quality",
+              "details": [
+                "A screenshot is weaker than a reproducible permission/validation test.",
+                "A not-applicable decision needs a threat-model-based reason."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "asvs",
+            "verification",
+            "secure-design"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-asvs",
+            "locator": "Use the existing hosted ASVS 5.0.0 PDF: locate Authentication, Session Management, Authorization, and API/Web Service requirements. Record exact versioned requirement IDs from the PDF, not older ASVS numbering."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-rest",
+            "security-doc-threats"
+          ],
+          "assignment": {
+            "id": "security-a19",
+            "title": "A scoped ASVS verification matrix",
+            "kind": "lab",
+            "instructions": [
+              "Select at least eight relevant ASVS 5.0.0 requirements spanning identity, sessions, authorization, data and API boundaries.",
+              "For each, record the exact ID, applicability, implementation mechanism, test command and evidence.",
+              "Keep at least one real lab gap visible with remediation and owner; do not label the service certified or wholly ASVS-compliant."
+            ],
+            "deliverables": [
+              "Versioned requirement-to-test matrix",
+              "Gap/remediation register"
+            ],
+            "acceptanceCriteria": [
+              "All selected IDs are verified against the existing 5.0.0 artifact.",
+              "Pass entries have repeatable evidence and not-applicable entries have reasons.",
+              "The conclusion states the limited sample and unresolved issues."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q19a",
+                "kind": "single-choice",
+                "prompt": "Passing eight selected requirements supports which claim?",
+                "choices": [
+                  "Those scoped requirements were checked with the recorded evidence",
+                  "The selected sample establishes the entire ASVS verification level",
+                  "The service no longer needs threat-model review after feature changes"
+                ],
+                "answer": "Those scoped requirements were checked with the recorded evidence",
+                "explanation": "Assurance is bounded by requirements, scope, version and test coverage. A sample is not an independent certification."
+              },
+              {
+                "id": "security-q19b",
+                "kind": "short-answer",
+                "prompt": "What should justify a not-applicable result?",
+                "answer": "A documented architectural or threat-model reason showing why the requirement's relevant capability or exposure is absent.",
+                "explanation": "Not applicable is an evidence-backed scope decision, not a convenient substitute for an unimplemented control."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which requirement has the weakest evidence rather than the most polished description?"
+          ],
+          "prerequisites": [
+            "security-l18-tenant-boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m08-cloud-supply-chain",
+      "title": "08. Cloud IAM, secrets and software supply chain",
+      "stage": "advanced",
+      "description": "Explain authority and artifact trust without deploying a cloud account or handling real secrets.",
+      "prerequisites": [
+        "security-m07-web-assurance"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l20-cloud-iam",
+          "title": "Reason about cloud identities and effective permissions",
+          "objectives": [
+            "Distinguish identity policy, resource policy, permissions boundary and explicit deny.",
+            "Explain workload identity and shared responsibility."
+          ],
+          "topics": [
+            {
+              "title": "Effective authority",
+              "details": [
+                "Policy interactions depend on principal and resource context.",
+                "Explicit deny overrides allows in the documented evaluation model."
+              ]
+            },
+            {
+              "title": "Cloud boundaries",
+              "details": [
+                "Provider infrastructure controls do not replace customer identity/data configuration.",
+                "Short-lived workload credentials reduce exposure compared with unmanaged static keys."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "cloud-security",
+            "iam",
+            "shared-responsibility"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-iam",
+            "locator": "Evaluating identity-based policies with resource-based policies; permissions boundaries; Organizations SCPs. Read the linked caveats before generalizing a simplified exercise."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-zero-trust"
+          ],
+          "assignment": {
+            "id": "security-a20",
+            "title": "An offline IAM policy decision table",
+            "kind": "design",
+            "instructions": [
+              "Create six fictitious same-account requests for a role, initially with identity policies only and no resource-policy grants.",
+              "Evaluate explicit deny, missing allow and a permissions boundary; then describe how adding a resource policy requires revisiting the model.",
+              "Assign provider/customer responsibilities for patching, data encryption configuration and access review. Do not provision or modify any cloud resource."
+            ],
+            "deliverables": [
+              "Request/policy/effective-permission table",
+              "Scope caveats and responsibility matrix"
+            ],
+            "acceptanceCriteria": [
+              "An explicit deny is never overridden by a more permissive allow in the exercise.",
+              "A boundary is not treated as an independent grant.",
+              "The simplified table is not described as a complete AWS evaluator or a cloud compliance proof."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q20a",
+                "kind": "single-choice",
+                "prompt": "In the documented IAM model, what does an applicable explicit deny do?",
+                "choices": [
+                  "Overrides an allow",
+                  "Is overridden by a broader allow attached to the same principal",
+                  "Applies only before the principal successfully authenticates"
+                ],
+                "answer": "Overrides an allow",
+                "explanation": "Authentication establishes identity; applicable policy evaluation, including explicit deny, determines effective authority."
+              },
+              {
+                "id": "security-q20b",
+                "kind": "short-answer",
+                "prompt": "Why does a permissions boundary not grant an action on its own?",
+                "answer": "It constrains the maximum identity-based permissions; an applicable grant is still required under the relevant evaluation rules.",
+                "explanation": "A limit on authority is distinct from a source of authority."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which policy grants authority, and which only limits it?"
+          ],
+          "prerequisites": [
+            "security-l19-asvs-evidence"
+          ]
+        },
+        {
+          "id": "security-l21-secret-lifecycle",
+          "title": "Design secret issuance, rotation, revocation and key recovery",
+          "objectives": [
+            "Map secret/key access through creation, storage, use and retirement.",
+            "Rotate dummy credentials without logging them or silently accepting old authority."
+          ],
+          "topics": [
+            {
+              "title": "Secret lifecycle",
+              "details": [
+                "A secret store needs its own access and availability policy.",
+                "Versioning supports rotation, but old credentials need a retirement decision."
+              ]
+            },
+            {
+              "title": "Key management",
+              "details": [
+                "Envelope encryption separates data keys from key-encryption keys.",
+                "Key loss affects availability; key compromise affects confidentiality and trust."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "secrets",
+            "rotation",
+            "envelope-encryption"
+          ],
+          "video": {
+            "resourceId": "security-video-crypto",
+            "locator": "Week 4 Odds and Ends 1: how to derive keys; Week 5 Basic Key Exchange 1. Distinguish cryptographic key establishment from operational secret distribution."
+          },
+          "reading": {
+            "resourceId": "security-doc-secrets",
+            "locator": "General Secrets Management: least privilege, lifecycle, rotation and auditing. Pair with Cryptographic Storage guidance on key handling."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-crypto"
+          ],
+          "assignment": {
+            "id": "security-a21",
+            "title": "A dummy-secret rotation and revocation drill",
+            "kind": "lab",
+            "instructions": [
+              "Use generated disposable dummy credentials in the local fixture service, referenced by version/handle rather than embedded in code.",
+              "Rotate to a new version, verify intended clients continue, then revoke the old version and test rejection.",
+              "Simulate secret-store unavailability and key-loss recovery using only synthetic copies; capture outcomes, never values."
+            ],
+            "deliverables": [
+              "Lifecycle/access diagram",
+              "Rotation, revocation and outage test log"
+            ],
+            "acceptanceCriteria": [
+              "No secret value appears in source, logs, screenshots or evidence.",
+              "The revoked version cannot authorize a new request.",
+              "Outage behavior is explicit and fail-closed for protected operations; recovery is tested."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q21a",
+                "kind": "single-choice",
+                "prompt": "A credential is rotated but the old value remains valid indefinitely. What is still missing?",
+                "choices": [
+                  "A controlled retirement/revocation policy",
+                  "A second issued value without an expiry for the first",
+                  "A rotation log message without testing old-client access"
+                ],
+                "answer": "A controlled retirement/revocation policy",
+                "explanation": "Creating a new secret does not remove authority from the old one. Rotation includes transition and retirement."
+              },
+              {
+                "id": "security-q21b",
+                "kind": "short-answer",
+                "prompt": "Why separate data keys from key-encryption keys?",
+                "answer": "It supports scoped data encryption and managed wrapping/rotation boundaries, while concentrating protection requirements on the higher-level keys.",
+                "explanation": "The hierarchy improves manageability but still requires correct access controls, backup and lifecycle handling."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Who can use, rotate, revoke and recover each secret?"
+          ],
+          "prerequisites": [
+            "security-l20-cloud-iam",
+            "sde-l14-supply-chain-secrets"
+          ]
+        },
+        {
+          "id": "security-l22-supply-chain",
+          "title": "Verify dependencies, build provenance and release artifacts",
+          "objectives": [
+            "Distinguish hashes, signatures, provenance and vulnerability information.",
+            "Design least-privilege build and dependency-update gates."
+          ],
+          "topics": [
+            {
+              "title": "Artifact trust",
+              "details": [
+                "A checksum identifies bytes; a signature binds a signer under a trust policy.",
+                "Provenance links inputs and build process, not automatic code safety."
+              ]
+            },
+            {
+              "title": "Delivery controls",
+              "details": [
+                "Pin dependencies and review updates using supported versions.",
+                "CI permissions, third-party actions and secret exposure affect the build boundary."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "supply-chain",
+            "sbom",
+            "provenance"
+          ],
+          "video": {
+            "resourceId": "security-video-software",
+            "locator": "Week 3 Securing Software: package managers, updates, CVE and vulnerability prioritization. Treat advisories as inputs to triage, not proof of exploitation."
+          },
+          "reading": {
+            "resourceId": "security-doc-slsa",
+            "locator": "Build track and Build L1/L2/L3 descriptions: distinguish provenance existence, signed hosted-build provenance and hardened build guarantees."
+          },
+          "supplementaryResourceIds": [
+            "sde-doc-actions-security"
+          ],
+          "assignment": {
+            "id": "security-a22",
+            "title": "A local release provenance pack",
+            "kind": "lab",
+            "instructions": [
+              "Inventory dependencies/licenses in the synthetic service and generate a simple SBOM/manifest with exact versions and artifact hashes.",
+              "Build from a clean local environment and compare a modified copy against the expected hash; do not publish a malicious package or alter external registries.",
+              "Design a CI permission and review policy, marking which SLSA properties are demonstrated and which are only proposed."
+            ],
+            "deliverables": [
+              "Dependency/SBOM and build manifest",
+              "Artifact verification and CI authority review"
+            ],
+            "acceptanceCriteria": [
+              "A changed artifact fails identity verification.",
+              "The build record identifies source revision, inputs and process.",
+              "No SLSA level or vulnerability-free claim is inferred from a manifest alone."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q22a",
+                "kind": "single-choice",
+                "prompt": "Matching an artifact's expected hash establishes what?",
+                "choices": [
+                  "Byte identity with the trusted expected digest",
+                  "That the code has no vulnerabilities",
+                  "That the author is automatically trustworthy"
+                ],
+                "answer": "Byte identity with the trusted expected digest",
+                "explanation": "The expected hash must itself be obtained through a trusted channel. Byte identity is not a security review of the content."
+              },
+              {
+                "id": "security-q22b",
+                "kind": "short-answer",
+                "prompt": "Why restrict CI token permissions even for a private repository?",
+                "answer": "Build steps and dependencies can be compromised or misconfigured; limiting token authority reduces the impact on code, releases and secrets.",
+                "explanation": "Build infrastructure is another trust boundary, not inherently safe because it is internal."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What evidence connects this binary to the reviewed source?"
+          ],
+          "prerequisites": [
+            "security-l21-secret-lifecycle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m09-detection-engineering",
+      "title": "09. Security telemetry and detection engineering",
+      "stage": "advanced",
+      "description": "Create evidence that supports triage while minimizing private data and alert noise.",
+      "prerequisites": [
+        "security-m08-cloud-supply-chain"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l23-security-logs",
+          "title": "Design structured, privacy-preserving security events",
+          "objectives": [
+            "Record actor, action, result, resource and correlation context.",
+            "Protect log integrity, retention and sensitive-data boundaries."
+          ],
+          "topics": [
+            {
+              "title": "Event design",
+              "details": [
+                "Event time and ingest time support ordering and delay analysis.",
+                "Correlation IDs link events without copying credentials or full payloads."
+              ]
+            },
+            {
+              "title": "Log trust",
+              "details": [
+                "Restricted writers/readers and external copies improve tamper resistance.",
+                "An application-generated log is evidence with limitations, not absolute non-repudiation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "security-logging",
+            "privacy",
+            "telemetry"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-logging",
+            "locator": "Event Attributes, Data to Exclude, Verification and Protection. Define a bounded schema and test it with synthetic entries."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a23",
+            "title": "A redacted event contract",
+            "kind": "coding",
+            "instructions": [
+              "Generate synthetic login outcome, denied note access, role change, secret rotation and restore events.",
+              "Validate event/ingest timestamps, actor pseudonyms, action, outcome and correlation IDs; exclude passwords, tokens and full note bodies.",
+              "Test access restrictions and a log-sink outage, including how dropped events are surfaced rather than silently ignored."
+            ],
+            "deliverables": [
+              "Event schema and example fixtures",
+              "Redaction, access and outage tests"
+            ],
+            "acceptanceCriteria": [
+              "Every event has sufficient context to distinguish a denied action from success.",
+              "No credential or sensitive payload enters stored/logged output.",
+              "Logging failure produces a visible operational signal under a documented policy."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q23a",
+                "kind": "single-choice",
+                "prompt": "Which belongs in a security log?",
+                "choices": [
+                  "A plaintext password",
+                  "A pseudonymous actor, action, outcome and correlation ID",
+                  "A reusable session token"
+                ],
+                "answer": "A pseudonymous actor, action, outcome and correlation ID",
+                "explanation": "Logs need investigative context, not reusable secrets. Data minimization reduces the harm if a log store is exposed."
+              },
+              {
+                "id": "security-q23b",
+                "kind": "short-answer",
+                "prompt": "Why distinguish event time from ingest time?",
+                "answer": "Delayed collection and clock differences can otherwise distort an incident timeline or hide telemetry outages.",
+                "explanation": "A trustworthy chronology records both when something happened and when it became visible to the monitoring system."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Could this log help an investigator without exposing the underlying private content?"
+          ],
+          "prerequisites": [
+            "security-l22-supply-chain"
+          ]
+        },
+        {
+          "id": "security-l24-detections",
+          "title": "Evaluate detections with labelled synthetic cases",
+          "objectives": [
+            "Translate a threat hypothesis into observable conditions and triage steps.",
+            "Measure false positives, false negatives and missing visibility."
+          ],
+          "topics": [
+            {
+              "title": "Detection contracts",
+              "details": [
+                "A rule needs a data source, threshold/window and response owner.",
+                "Thresholds can hide rare events or overwhelm operators."
+              ]
+            },
+            {
+              "title": "Coverage",
+              "details": [
+                "No alert is not proof of no incident.",
+                "Evaluate both benign and concerning synthetic sequences."
+              ]
+            }
+          ],
+          "estimatedMinutes": 220,
+          "canonicalConceptTags": [
+            "detection-engineering",
+            "false-positives"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-sre",
+            "locator": "Chapter 6 Monitoring Distributed Systems: symptoms, actionable alerts and avoiding excessive noise. Pair with OWASP Logging verification guidance."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-logging"
+          ],
+          "assignment": {
+            "id": "security-a24",
+            "title": "Advanced evidence gate: a labelled detection pack",
+            "kind": "coding",
+            "instructions": [
+              "Create labelled synthetic sequences for repeated denied access, an approved role change, an unapproved role change and a missing log interval.",
+              "Implement bounded-window rules and evaluate them on a separate fixture set; include a benign sequence likely to trigger a naive rule.",
+              "Link detections to the threat/ASVS matrix, offline IAM decisions, secret rotation and supply-chain evidence from this stage."
+            ],
+            "deliverables": [
+              "Rule definitions and confusion matrix",
+              "Triage playbooks and stage coverage/gap map"
+            ],
+            "acceptanceCriteria": [
+              "Expected positives and negatives are evaluated, not only matched examples.",
+              "At least one false positive or visibility gap is documented and addressed or accepted.",
+              "Alerts contain an owner, reason and safe next investigative step."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q24a",
+                "kind": "numeric",
+                "prompt": "A fixture has 10 truly concerning sequences and the rule detects 8. How many false negatives remain?",
+                "answer": 2,
+                "explanation": "Ten actual positives minus eight detected positives leaves two missed cases. Their mechanisms matter as much as the count."
+              },
+              {
+                "id": "security-q24b",
+                "kind": "short-answer",
+                "prompt": "Why evaluate a benign approved role change?",
+                "answer": "It tests whether the rule can distinguish authorized maintenance from a concerning change and whether it would create avoidable operator noise.",
+                "explanation": "Detection usefulness depends on discrimination and triage context, not just the ability to emit alerts."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What could happen without producing any event this rule can observe?"
+          ],
+          "prerequisites": [
+            "security-l23-security-logs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m10-response-recovery",
+      "title": "10. Incident response, backups and recovery",
+      "stage": "professional",
+      "description": "Use harmless incident fixtures to practice containment, evidence handling and verifiable restoration.",
+      "prerequisites": [
+        "security-m09-detection-engineering"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l25-triage",
+          "title": "Triage and contain a synthetic incident",
+          "objectives": [
+            "Separate observed facts, hypotheses and scope uncertainty.",
+            "Choose reversible containment while preserving evidence."
+          ],
+          "topics": [
+            {
+              "title": "Incident reasoning",
+              "details": [
+                "An alert needs validation and business-impact assessment.",
+                "Evidence handling records source, time, handler and integrity checks."
+              ]
+            },
+            {
+              "title": "Containment",
+              "details": [
+                "Revoke a dummy session or isolate a lab component instead of destroying data.",
+                "Containment and root-cause analysis have different immediate goals."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "incident-response",
+            "triage",
+            "evidence-handling"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-ir",
+            "locator": "SP 800-61 Rev. 3 publication overview and linked full text: CSF 2.0 Detect and Respond recommendations. Focus on analysis, incident scope, communication and mitigation."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-logging"
+          ],
+          "assignment": {
+            "id": "security-a25",
+            "title": "An evidence-preserving tabletop incident",
+            "kind": "lab",
+            "instructions": [
+              "Use a prepared synthetic alert showing an unexpected privilege change and a dummy session still active after revocation.",
+              "Build a timeline with facts, hypotheses, affected assets and confidence; hash copied evidence and record its handling.",
+              "Contain only the disposable lab identity/component, preserving original fixtures and documenting expected user impact."
+            ],
+            "deliverables": [
+              "Incident timeline and evidence register",
+              "Containment decision and verification"
+            ],
+            "acceptanceCriteria": [
+              "Facts are distinguished from unconfirmed hypotheses.",
+              "Evidence copies and handling are traceable without real sensitive data.",
+              "Containment is scoped, reversible where possible and checked for effectiveness."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q25a",
+                "kind": "single-choice",
+                "prompt": "What should happen before treating an alert's interpretation as fact?",
+                "choices": [
+                  "Assume the alert's severity also establishes the affected scope",
+                  "Contain all connected systems before checking authorization and impact",
+                  "Validate the observation and preserve evidence with uncertainty stated"
+                ],
+                "answer": "Validate the observation and preserve evidence with uncertainty stated",
+                "explanation": "An alert is a signal, not a complete incident narrative. Validation and evidence preservation support a defensible response."
+              },
+              {
+                "id": "security-q25b",
+                "kind": "short-answer",
+                "prompt": "Why can immediate deletion be a poor containment action?",
+                "answer": "It can destroy evidence, prevent diagnosis and disrupt recovery without actually removing the underlying access path.",
+                "explanation": "Containment should reduce ongoing impact while preserving the information needed for investigation and restoration."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which containment action changes the least while reducing the immediate risk?"
+          ],
+          "prerequisites": [
+            "security-l24-detections"
+          ]
+        },
+        {
+          "id": "security-l26-restoration",
+          "title": "Test backup isolation, RPO and RTO",
+          "objectives": [
+            "Define acceptable data loss and recovery time as separate objectives.",
+            "Restore verified synthetic data and recheck access controls."
+          ],
+          "topics": [
+            {
+              "title": "Backup design",
+              "details": [
+                "A replica can replicate unwanted changes; versioned/offline backups serve a different role.",
+                "Restore keys and permissions are part of recoverability."
+              ]
+            },
+            {
+              "title": "Recovery evidence",
+              "details": [
+                "RPO concerns the recoverable data point; RTO concerns time to restore service.",
+                "A service that starts with incorrect ownership or missing data is not fully recovered."
+              ]
+            }
+          ],
+          "estimatedMinutes": 220,
+          "canonicalConceptTags": [
+            "backups",
+            "rpo",
+            "rto",
+            "recovery"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-recovery",
+            "locator": "Prevention guidance on offline/encrypted backups and the response checklist's recovery actions. Test restoration with benign synthetic copies only."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-ir"
+          ],
+          "assignment": {
+            "id": "security-a26",
+            "title": "A timed, harmless restore drill",
+            "kind": "lab",
+            "instructions": [
+              "Set an invented RPO of one hour and RTO of 30 minutes for the small isolated service.",
+              "Use a prepared copy with missing synthetic records to simulate data loss; restore from a known-good backup without running malware or altering original user data.",
+              "Measure recovery duration, latest recovered event and owner-permission tests; report misses honestly rather than changing targets after the drill."
+            ],
+            "deliverables": [
+              "Recovery timeline and integrity comparison",
+              "RPO/RTO result and access-control checks"
+            ],
+            "acceptanceCriteria": [
+              "Recovered data and record counts match the declared backup point.",
+              "Measured data loss and service recovery time are reported separately.",
+              "Authentication, authorization and logging remain effective after restoration."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q26a",
+                "kind": "single-choice",
+                "prompt": "Which objective concerns how much recent data might be lost?",
+                "choices": [
+                  "RPO",
+                  "RTO",
+                  "Password length"
+                ],
+                "answer": "RPO",
+                "explanation": "Recovery Point Objective limits the acceptable data gap; Recovery Time Objective limits the duration to restore the required service."
+              },
+              {
+                "id": "security-q26b",
+                "kind": "short-answer",
+                "prompt": "Why is a live replica not a complete backup strategy?",
+                "answer": "It may quickly reproduce deletion, corruption or unauthorized changes, leaving no intact earlier version to recover.",
+                "explanation": "Versioning, isolation and tested restoration address failure modes that availability replicas alone do not."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Was the service merely running, or was its security state also restored?"
+          ],
+          "prerequisites": [
+            "security-l25-triage",
+            "sde-l23-incident-restore"
+          ]
+        },
+        {
+          "id": "security-l27-tabletop",
+          "title": "Coordinate response roles and a blameless improvement review",
+          "objectives": [
+            "Assign incident command, technical, communication and approval responsibilities.",
+            "Translate findings into verified corrective actions."
+          ],
+          "topics": [
+            {
+              "title": "Coordination",
+              "details": [
+                "Status updates should distinguish impact, uncertainty and next actions.",
+                "Notification obligations depend on actual jurisdiction and contracts."
+              ]
+            },
+            {
+              "title": "Learning",
+              "details": [
+                "A post-incident review examines system conditions, not just individual blame.",
+                "Each corrective action needs an owner and verification evidence."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "incident-governance",
+            "postmortem"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-ir",
+            "locator": "Rev. 3 CSF-aligned Respond and Recover recommendations: incident communication, coordination and improvement. Consult current applicable authorities for any real reporting obligation."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-sre"
+          ],
+          "assignment": {
+            "id": "security-a27",
+            "title": "A synthetic incident tabletop and postmortem",
+            "kind": "design",
+            "instructions": [
+              "Run a timed tabletop with scripted injects: alert uncertainty, backup mismatch and a service-owner request to resume early.",
+              "Record who decides containment, communicates status and approves recovery; a solo learner can role-play these as separate written passes.",
+              "Write a no-blame postmortem with three prioritized actions and proof required to close each."
+            ],
+            "deliverables": [
+              "Decision/communication timeline",
+              "Postmortem and tracked corrective actions"
+            ],
+            "acceptanceCriteria": [
+              "Uncertainty and impact remain explicit in status updates.",
+              "Recovery approval waits for stated checks, not pressure alone.",
+              "No invented legal deadline or notification to real third parties is performed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q27a",
+                "kind": "single-choice",
+                "prompt": "Which corrective action is most auditable?",
+                "choices": [
+                  "Ask the on-call team to remember the issue without a check or owner",
+                  "Close the incident on service recovery without tracking prevention work",
+                  "Add and demonstrate a stale-session revocation regression test with an owner and deadline"
+                ],
+                "answer": "Add and demonstrate a stale-session revocation regression test with an owner and deadline",
+                "explanation": "A concrete owner, change and verification criterion can be tracked to closure. Vague intentions cannot."
+              },
+              {
+                "id": "security-q27b",
+                "kind": "short-answer",
+                "prompt": "Why separate incident communication from speculative attribution?",
+                "answer": "Stakeholders need reliable impact and response information, while attribution may remain uncertain and premature claims can mislead or harm.",
+                "explanation": "Evidence-led communication supports response without converting hypotheses into public accusations."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which action reduces recurrence and how will you know it worked?"
+          ],
+          "prerequisites": [
+            "security-l26-restoration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m11-architecture-governance",
+      "title": "11. Risk governance and security architecture",
+      "stage": "professional",
+      "description": "Connect mechanism-level evidence to business outcomes, residual risk and sustainable operations.",
+      "prerequisites": [
+        "security-m10-response-recovery"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l28-risk-register",
+          "title": "Build a CSF profile and accountable risk register",
+          "objectives": [
+            "Map controls and gaps to Govern, Identify, Protect, Detect, Respond and Recover.",
+            "Record risk ownership, treatment and expiring exceptions."
+          ],
+          "topics": [
+            {
+              "title": "Risk decisions",
+              "details": [
+                "Risk combines plausible impact with likelihood/uncertainty, not just a tool's score.",
+                "Acceptance is an accountable decision, not the absence of a fix."
+              ]
+            },
+            {
+              "title": "Profiles",
+              "details": [
+                "Current and target profiles describe outcomes and priorities.",
+                "Framework alignment is not a certification or proof of compliance."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "governance",
+            "risk-management",
+            "csf"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-csf",
+            "locator": "CSF 2.0 Core and Organizational Profiles/quick-start material linked from the official hub; cover all six functions, including Govern."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "security-a28",
+            "title": "A scoped security risk and exception register",
+            "kind": "design",
+            "instructions": [
+              "Map the lab's implemented controls and open gaps to the six CSF functions.",
+              "Prioritize five risks by documented impact and uncertainty, assigning an owner, treatment and evidence needed for closure.",
+              "Create one time-limited exception with compensating controls and a review/expiry condition."
+            ],
+            "deliverables": [
+              "Current/target profile",
+              "Risk and exception register"
+            ],
+            "acceptanceCriteria": [
+              "All six functions have relevant outcomes or justified scope notes.",
+              "Risk acceptance has an owner and rationale rather than a silent default.",
+              "Exceptions expire and include measurable compensating checks."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q28a",
+                "kind": "single-choice",
+                "prompt": "An accepted risk should have what?",
+                "choices": [
+                  "The scanner's default score without an accountable acceptance decision",
+                  "A permanent exception that needs no review while the service stays online",
+                  "An accountable owner, rationale and review conditions"
+                ],
+                "answer": "An accountable owner, rationale and review conditions",
+                "explanation": "Acceptance does not remove the exposure. It records who understands and takes responsibility for a bounded decision."
+              },
+              {
+                "id": "security-q28b",
+                "kind": "short-answer",
+                "prompt": "Why include Govern in addition to technical controls?",
+                "answer": "Authority, policy, responsibilities and risk decisions determine which controls are sustained, reviewed and corrected over time.",
+                "explanation": "Technical mechanisms depend on organizational ownership and decision processes."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Who can knowingly accept this risk, and for how long?"
+          ],
+          "prerequisites": [
+            "security-l27-tabletop"
+          ]
+        },
+        {
+          "id": "security-l29-zero-trust",
+          "title": "Design a resource-centered, defense-in-depth architecture",
+          "objectives": [
+            "Explain policy decision/enforcement points and continuous context checks.",
+            "Compare centralized and distributed controls with availability and privacy trade-offs."
+          ],
+          "topics": [
+            {
+              "title": "Zero trust principles",
+              "details": [
+                "Network location does not automatically establish trust.",
+                "Access decisions are scoped to resources, identity and current context."
+              ]
+            },
+            {
+              "title": "Architecture trade-offs",
+              "details": [
+                "Central policy improves consistency but creates availability/dependency concerns.",
+                "Telemetry and repeated checks must minimize unnecessary personal data."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "security-architecture",
+            "zero-trust"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-zero-trust",
+            "locator": "Linked SP 800-207 full publication: Tenets of Zero Trust and Logical Components of Zero Trust Architecture. Identify policy engine, administrator and enforcement point responsibilities."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-iam",
+            "security-doc-threats"
+          ],
+          "assignment": {
+            "id": "security-a29",
+            "title": "An architecture decision with failure boundaries",
+            "kind": "design",
+            "instructions": [
+              "Redesign the fictional notes service around resource-level identity checks, scoped workloads, protected secrets and segmented data access.",
+              "Draw policy decision/enforcement points and simulate their unavailability or stale policy using a decision table.",
+              "Compare two designs for usability, availability, privacy, cost and residual risk; no cloud deployment is needed."
+            ],
+            "deliverables": [
+              "Architecture and trust diagrams",
+              "Decision record with failure-mode comparison"
+            ],
+            "acceptanceCriteria": [
+              "Internal network placement grants no blanket authority.",
+              "The policy outage behavior is explicit and does not silently allow protected actions.",
+              "Trade-offs and an unaddressed residual risk are documented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q29a",
+                "kind": "single-choice",
+                "prompt": "Which statement best reflects zero-trust architecture principles?",
+                "choices": [
+                  "Evaluate scoped access rather than trusting network location alone",
+                  "Require a VPN and trust every request after network entry",
+                  "Repeat authentication but omit resource-level checks inside the network"
+                ],
+                "answer": "Evaluate scoped access rather than trusting network location alone",
+                "explanation": "Zero trust is an architectural approach to decisions and enforcement, not a magic product or a promise of perfect security."
+              },
+              {
+                "id": "security-q29b",
+                "kind": "short-answer",
+                "prompt": "Why consider policy-service availability in a security design?",
+                "answer": "If a dependency fails, systems must choose an explicit safe degraded mode; otherwise an outage can cause either uncontrolled access or unnecessary total failure.",
+                "explanation": "Security architecture includes fail-safe operation and availability, not only normal-case permission logic."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where is policy decided, and where is that decision actually enforced?"
+          ],
+          "prerequisites": [
+            "security-l28-risk-register"
+          ]
+        },
+        {
+          "id": "security-l30-assurance-review",
+          "title": "Review architecture changes and evidence limitations",
+          "objectives": [
+            "Update the threat model for new data, dependencies and actors.",
+            "Distinguish test evidence, design intent and unverified assumptions."
+          ],
+          "topics": [
+            {
+              "title": "Change impact",
+              "details": [
+                "A new export, integration or service role can introduce a new boundary.",
+                "Supplier and privacy risks must be reviewed alongside application code."
+              ]
+            },
+            {
+              "title": "Assurance communication",
+              "details": [
+                "Evidence has a date, scope, version and confidence.",
+                "A passing checklist does not prove the absence of unknown defects."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "architecture-review",
+            "privacy",
+            "assurance"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-threats",
+            "locator": "Review and Validation and threat-model maintenance across the SDLC. Pair with CSF 2.0 Govern outcomes for ownership and supply-chain decisions."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-csf",
+            "security-doc-slsa"
+          ],
+          "assignment": {
+            "id": "security-a30",
+            "title": "A change-impact security review",
+            "kind": "design",
+            "instructions": [
+              "Propose a fictional offline export feature and one new dependency for the lab service.",
+              "Update the data-flow model, retention/deletion policy, permission matrix and dependency evidence without building a real external integration.",
+              "Record which existing tests must change and which security claims remain unsupported."
+            ],
+            "deliverables": [
+              "Threat-model delta and change checklist",
+              "Evidence/assumption/limitation register"
+            ],
+            "acceptanceCriteria": [
+              "Export authorization and retention are explicitly reviewed.",
+              "A supplier update is tied to identity, provenance and maintenance evidence.",
+              "Design intent is not labelled as a control that has been implemented and tested."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q30a",
+                "kind": "single-choice",
+                "prompt": "A new data export endpoint requires what?",
+                "choices": [
+                  "Reuse the old read permission without evaluating bulk disclosure",
+                  "A fresh boundary, authorization and privacy review",
+                  "Approve on transport encryption alone without reviewing retention and ownership"
+                ],
+                "answer": "A fresh boundary, authorization and privacy review",
+                "explanation": "Export changes how much data can cross a boundary and how it may be retained. Existing login does not establish safe scope."
+              },
+              {
+                "id": "security-q30b",
+                "kind": "short-answer",
+                "prompt": "How should an untested architecture claim appear in a handover?",
+                "answer": "As a proposed or unverified control with its assumptions and required verification, not as demonstrated protection.",
+                "explanation": "Evidence quality depends on honest separation of what is intended, implemented and actually checked."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What new trust assumption did this change introduce?"
+          ],
+          "prerequisites": [
+            "security-l29-zero-trust"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security-m12-defensive-capstone",
+      "title": "12. Defended-service capstone and operational handover",
+      "stage": "professional",
+      "description": "Demonstrate layered mechanisms, realistic residual risk and recovery in a wholly authorized synthetic environment.",
+      "prerequisites": [
+        "security-m11-architecture-governance"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "security-l31-capstone",
+          "title": "Deliver an evidence-backed defensive system",
+          "objectives": [
+            "Integrate identity, cryptographic, OS/network, application/data and delivery controls.",
+            "Map each protection to a threat, an enforcement mechanism and a reproducible test."
+          ],
+          "topics": [
+            {
+              "title": "Layered assurance",
+              "details": [
+                "Controls should have independent purposes and known failure boundaries.",
+                "A minimal well-tested service is preferable to an unverified stack of products."
+              ]
+            },
+            {
+              "title": "Acceptance",
+              "details": [
+                "Review includes negative cases, outages and cleanup.",
+                "Residual risk and unsupported hardware features remain visible."
+              ]
+            }
+          ],
+          "estimatedMinutes": 660,
+          "canonicalConceptTags": [
+            "capstone",
+            "defensive-systems"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-asvs",
+            "locator": "Existing hosted ASVS 5.0.0: revisit the exact requirement IDs selected in l19 for authentication, sessions, authorization, API and data protection. Do not claim coverage of untested requirements."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-csf",
+            "security-doc-ir",
+            "security-doc-zero-trust"
+          ],
+          "assignment": {
+            "id": "security-a31",
+            "title": "Capstone: a defended synthetic notes service",
+            "kind": "project",
+            "instructions": [
+              "Deliver an owned loopback/host-only service with two synthetic tenants, maintained authentication, revocable sessions, resource-level authorization and scoped local TLS.",
+              "Apply least-privilege OS/database roles, allowed network flows, bounded API validation, safe output handling and a dependency/provenance manifest.",
+              "Add redacted logging, labelled detections, dummy-secret rotation and a tested backup/restore path. Use only benign authorized test cases.",
+              "Package the threat model, scoped ASVS/CSF matrix, architecture decisions, residual-risk register and a clean reproducibility/teardown procedure."
+            ],
+            "deliverables": [
+              "Local runnable service and synthetic fixture pack",
+              "Control/threat/test matrix with actual outputs",
+              "Dependency, secret-lifecycle and telemetry evidence",
+              "Backup/restore runbook and risk/exception register",
+              "Scope/authorization statement and complete cleanup instructions"
+            ],
+            "acceptanceCriteria": [
+              "No real accounts, credentials, public targets, harmful payloads, evasion or production settings are involved.",
+              "Owner, anonymous, stale-session and invalid-input tests enforce the declared boundaries.",
+              "TLS trust checks, least-privilege roles and network flow restrictions have reproducible evidence.",
+              "Artifact provenance, secret rotation and sensitive-log exclusions are checked.",
+              "Detection cases include benign negatives and documented gaps.",
+              "A restored service preserves data integrity and owner isolation.",
+              "Unsupported controls and residual risks are labelled; no certification or complete-security claim is made."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q31a",
+                "kind": "single-choice",
+                "prompt": "Which capstone result is acceptable to report?",
+                "choices": [
+                  "Every component meets the standard because selected requirements passed",
+                  "Local test success proves the application cannot have unknown defects",
+                  "Scoped controls passed named tests, with these residual risks"
+                ],
+                "answer": "Scoped controls passed named tests, with these residual risks",
+                "explanation": "Security evidence is bounded by scope, time, assumptions and test coverage. Professional Practice does not award certification."
+              },
+              {
+                "id": "security-q31b",
+                "kind": "short-answer",
+                "prompt": "What should block handover even if the application appears functional?",
+                "answer": "Examples include a cross-owner data leak, exposed real secret, unverified restore, disabled TLS validation or unresolved critical permission mismatch.",
+                "explanation": "The service must meet its stated safety and protection contract, not only return a successful page."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can every 'secure' claim be replaced with a specific tested mechanism?"
+          ],
+          "prerequisites": [
+            "security-l30-assurance-review"
+          ]
+        },
+        {
+          "id": "security-l32-recovery-defense",
+          "title": "Defend the architecture through an incident and recovery review",
+          "objectives": [
+            "Run a reviewer-selected benign failure drill and verify recovery.",
+            "Hand over limitations, risk owners and operating procedures clearly."
+          ],
+          "topics": [
+            {
+              "title": "Operational acceptance",
+              "details": [
+                "A peer or delayed blind self-review chooses an access denial and recovery case.",
+                "The reviewer verifies restored authorization as well as data availability."
+              ]
+            },
+            {
+              "title": "Handover",
+              "details": [
+                "Open risks, source versions and next-review triggers remain attached to the artifact.",
+                "Safe teardown removes dummy secrets and restores the isolated lab boundary."
+              ]
+            }
+          ],
+          "estimatedMinutes": 300,
+          "canonicalConceptTags": [
+            "security-handover",
+            "recovery-review"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-ir",
+            "locator": "Rev. 3 Recover and improvement recommendations in the linked full publication; use measured recovery evidence and tracked corrective actions."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-csf",
+            "security-doc-recovery"
+          ],
+          "assignment": {
+            "id": "security-a32",
+            "title": "Final evidence gate: a recoverable security architecture",
+            "kind": "lab",
+            "instructions": [
+              "Give the reviewer the clean bundle and let them select a synthetic owner-denial case, log-sink interruption and backup-restoration scenario.",
+              "Measure detection/response/recovery timing, reconcile restored records and rerun permissions/TLS/session checks.",
+              "Deliver a challenge-response memo, unresolved-risk handover and teardown record. Simulate incident effects with fixture changes only; never create a real intrusion."
+            ],
+            "deliverables": [
+              "Reviewer-selected drill transcript and measured results",
+              "Residual-risk/operating handover",
+              "Cleanup and source-currency checklist"
+            ],
+            "acceptanceCriteria": [
+              "The chosen denial and restoration cases reproduce from documented commands.",
+              "Recovery preserves ownership, logging and session-revocation behavior.",
+              "Target misses and open findings are explicit with owners and next checks.",
+              "Dummy secrets, scoped test trust and temporary lab resources are cleaned up without affecting shared systems."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "security-q32a",
+                "kind": "single-choice",
+                "prompt": "After restoring records, what must still be checked?",
+                "choices": [
+                  "Authorization, session state, integrity and operational controls",
+                  "Only whether the restored row count matches, regardless of ownership",
+                  "Only whether the backup checksum is valid, without exercising the restored service"
+                ],
+                "answer": "Authorization, session state, integrity and operational controls",
+                "explanation": "Recovery must restore the intended security properties, not just availability of some files."
+              },
+              {
+                "id": "security-q32b",
+                "kind": "short-answer",
+                "prompt": "What belongs in an honest final security handover?",
+                "answer": "Scope, tested versions, mechanisms, reproducible evidence, failed or untested cases, residual-risk owners and review/recovery procedures.",
+                "explanation": "A defensible handover lets the next operator understand both the protections and their limits."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which residual risk should the next operator understand first?"
+          ],
+          "prerequisites": [
+            "security-l31-capstone"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "Current NIST digital identity guidance",
+      "url": "https://pages.nist.gov/800-63-4/",
+      "notes": "Revision 4 supersedes older digital identity publications; public HTML, no account required."
+    },
+    {
+      "title": "OWASP defensive cheat sheets",
+      "url": "https://cheatsheetseries.owasp.org/",
+      "notes": "Direct topic pages are attached to each lesson; exercises are original and defensive."
+    },
+    {
+      "title": "ASVS 5.0.0 official versioned source",
+      "url": "https://github.com/OWASP/ASVS/releases/tag/v5.0.0_release",
+      "notes": "Use the already licensed/pinned ASVS PDF in the existing reader. No new PDF or checksum is introduced."
+    },
+    {
+      "title": "NIST CSF 2.0",
+      "url": "https://www.nist.gov/cyberframework",
+      "notes": "Outcome framework, not a certification."
+    },
+    {
+      "title": "NIST Incident Response Rev. 3, April 2025",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+      "notes": "Supersedes Rev. 2; jurisdiction-specific obligations require separate current verification."
+    },
+    {
+      "title": "Harvard CS50 Cybersecurity free weeks",
+      "url": "https://cs50.harvard.edu/cybersecurity/weeks/",
+      "notes": "Official lecture pages verified; external assessed submission/certificates are not required."
+    },
+    {
+      "title": "Stanford free cryptography lecture index",
+      "url": "https://crypto.stanford.edu/~dabo/courses/OnlineCrypto/",
+      "notes": "No Coursera enrollment required for these public lecture links."
+    }
+  ],
+  "limitations": [
+    "Defensive practice only in owned or explicitly authorized isolated labs using synthetic users, data and traffic. No real-target intrusion, credential harvesting, harmful payloads, evasion, public scanning or production/security-setting changes.",
+    "Professional Practice is a learning level, not a professional certification, qualification, regulatory compliance claim or guarantee that a system has no vulnerabilities.",
+    "Use maintained cryptographic/authentication libraries. Never invent production cryptography, disable TLS verification or alter the host-wide trust store, firmware, real keys or firewall for these exercises.",
+    "All required readings and lecture viewing are free. No cloud account, billing, paid lab, certificate, textbook or special hardware purchase is needed. Hardware controls can be assessed through a clearly labelled documentation-backed design when unavailable in the lab.",
+    "The ASVS reader reuses the existing approved PDF, checksum and per-book consent behavior. Other standards, diagrams and recordings remain external official links and are not rehosted.",
+    "Historical MIT, cryptography and firewall sources teach mechanisms; current NIST identity/incident guidance and maintained platform documentation govern contemporary configuration choices.",
+    "Common Foundation, SDE and other shared lessons retain original progress IDs. Prerequisites guide understanding while previews stay open; extra-topic completion remains separate from core progress."
+  ]
+}

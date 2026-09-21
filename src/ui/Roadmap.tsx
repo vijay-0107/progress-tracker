@@ -9,7 +9,11 @@ import {
 import {
   CAREER_TRACKS,
   eligibleLessons,
+  isExtraTopic,
+  lessonCompletion,
   moduleComplete,
+  requiredLessons,
+  stageLabel,
   trackMeta,
   unmetRequirements,
   unmetLessonRequirements,
@@ -42,17 +46,14 @@ export function Roadmap({
     (item) => item.trackId === "foundation",
   )!;
   const meta = trackMeta[trackId];
+  const extra = isExtraTopic(trackId);
   const eligibleModules = track.modules.filter(
     (module) => eligibleLessons(module, paper).length > 0,
   );
   const lessons = track.modules.flatMap((module) =>
     eligibleLessons(module, paper),
   );
-  const coreLessons = track.modules
-    .filter((module) => !module.optional)
-    .flatMap((module) =>
-      eligibleLessons(module, paper).filter((lesson) => !lesson.optional),
-    );
+  const coreLessons = requiredLessons(track, paper);
   const optionalCount = lessons.length - coreLessons.length;
   const completed = coreLessons.filter(
     (lesson) => state.lessons[lesson.id]?.manualCompletedAt,
@@ -75,9 +76,11 @@ export function Roadmap({
     <>
       <PageHeading
         eyebrow={
-          trackId === "foundation"
-            ? "YOUR SHARED STARTING POINT"
-            : `LEARNING PATH ${meta.code}`
+          extra
+            ? "EXTRA TOPICS / OPTIONAL TRACK"
+            : trackId === "foundation"
+              ? "YOUR SHARED STARTING POINT"
+              : `LEARNING PATH ${meta.code}`
         }
         title={meta.label}
         description={meta.description}
@@ -98,7 +101,9 @@ export function Roadmap({
           <span>
             {optionalCount
               ? `core lessons · ${optionalCount} optional lessons separate`
-              : "lessons complete"}
+              : extra
+                ? "topic lessons complete · separate from core"
+                : "lessons complete"}
           </span>
         </div>
         <div>
@@ -130,10 +135,65 @@ export function Roadmap({
           </span>
           <ProgressBar
             value={(completed / coreLessons.length) * 100}
-            label="Path completion"
+            label={extra ? "Topic completion" : "Path completion"}
           />
         </div>
       </div>
+      {extra && (
+        <>
+          <div className="notice info">
+            <div>
+              <strong>Optional learning, with its own progress</strong>
+              <p>
+                Your core path, goals and totals are unchanged. Professional
+                Practice is a learning level, not a professional certification,
+                qualification or promise of trading profitability.
+              </p>
+              <p>{track.limitations[0]}</p>
+            </div>
+          </div>
+          <section aria-label="Topic stages">
+            <h2>Beginner to Professional Practice</h2>
+            <div className="stage-cards">
+              {track.stageOutcomes?.map((outcome) => {
+                const label = stageLabel(outcome.stage, trackId);
+                const progress = lessonCompletion(
+                  requiredLessons(track, paper, outcome.stage),
+                  state,
+                );
+                return (
+                  <article className="panel stage-card" key={outcome.stage}>
+                    <h3>{label}</h3>
+                    <p>{outcome.outcome}</p>
+                    <p>
+                      <strong>Evidence:</strong> {outcome.evidence}
+                    </p>
+                    <ProgressBar
+                      value={progress.percent}
+                      label={`${label} completion`}
+                    />
+                    <p className="small-text">
+                      {progress.completed}/{progress.total} lessons complete
+                    </p>
+                    <button
+                      className="button secondary small"
+                      aria-pressed={stage === outcome.stage}
+                      aria-controls="roadmap-modules"
+                      onClick={() => {
+                        setStage(outcome.stage);
+                        setQuery("");
+                        setIncomplete(false);
+                      }}
+                    >
+                      Show {label} lessons
+                    </button>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        </>
+      )}
       {CAREER_TRACKS.includes(trackId) && (
         <div className="foundation-notice">
           <span className="path-monogram">01</span>
@@ -188,10 +248,14 @@ export function Roadmap({
             onChange={(event) => setStage(event.target.value as Stage | "all")}
           >
             <option value="all">All stages</option>
-            <option value="foundation">Foundations</option>
+            <option value="foundation">
+              {stageLabel("foundation", trackId)}
+            </option>
             <option value="intermediate">Intermediate</option>
             <option value="advanced">Advanced</option>
-            <option value="professional">Professional</option>
+            <option value="professional">
+              {stageLabel("professional", trackId)}
+            </option>
           </select>
         </label>
         {(trackId === "gate" || trackId === "cat") && (
@@ -230,7 +294,7 @@ export function Roadmap({
           Incomplete only
         </label>
       </div>
-      <div className="roadmap-list">
+      <div className="roadmap-list" id="roadmap-modules">
         {matches.map((module) => {
           const blocked = unmetRequirements(catalog, module, state, paper);
           const units = eligibleLessons(module, paper);
@@ -253,7 +317,9 @@ export function Roadmap({
                 </span>
                 <span className="module-summary">
                   <span className="inline-meta">
-                    <span className="stage-badge">{module.stage}</span>
+                    <span className="stage-badge">
+                      {stageLabel(module.stage, trackId)}
+                    </span>
                     {module.optional && (
                       <span className="subtle-pill">
                         Optional specialist lane
@@ -323,7 +389,9 @@ export function Roadmap({
                           </span>
                         )}
                         <span>{lesson.topics.length} concept groups</span>
-                        <span>Watch · Read · Build · Reflect</span>
+                        <span>
+                          {lesson.video ? "Watch · " : ""}Read · Build · Reflect
+                        </span>
                       </div>
                       {unmetLessonRequirements(catalog, lesson, state).length >
                         0 && (

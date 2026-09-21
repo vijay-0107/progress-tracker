@@ -1,6 +1,6 @@
 {
-  "version": "2026.09.20.1",
-  "description": "Approved research handoffs retain their curriculum, sources, rights and assessments. Private history, internal handoff paths and transport-only metadata are omitted. Checksums identify original and packaged files, not proof of source availability or mastery.",
+  "version": "2026.09.21.1",
+  "description": "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery.",
   "complete": true,
   "tracks": [
     {
@@ -58,6 +58,51 @@
       "lessons": 38,
       "originalSha256": "cb3e2c2f09b10c4dc4730e94da3ee9c3c250cc3527df45973c929b18a51c025b",
       "packagedSha256": "761fa1010f5026b16fee54b5175091a5f8206afa71d778ebd2707e9d3f5f4643"
+    },
+    {
+      "trackId": "trading",
+      "group": "extra",
+      "sourceCheckedOn": "2026-09-21",
+      "modules": 8,
+      "lessons": 20,
+      "originalSha256": "4e61d862798a9735f6bb0b31b2ce93301673bd374e7ddcc49c833fe491a23ca0",
+      "packagedSha256": "4e61d862798a9735f6bb0b31b2ce93301673bd374e7ddcc49c833fe491a23ca0"
+    },
+    {
+      "trackId": "algorithmic-trading",
+      "group": "extra",
+      "sourceCheckedOn": "2026-09-21",
+      "modules": 8,
+      "lessons": 24,
+      "originalSha256": "d08138a1bf00997e90f296e3884312e871e768a79d5e7a37a1fe340e1a8d44fb",
+      "packagedSha256": "d08138a1bf00997e90f296e3884312e871e768a79d5e7a37a1fe340e1a8d44fb"
+    },
+    {
+      "trackId": "finance",
+      "group": "extra",
+      "sourceCheckedOn": "2026-09-21",
+      "modules": 10,
+      "lessons": 24,
+      "originalSha256": "4f42966e5661d274569d58cb7fed04d02eeb409a2ae189eb687efa35c7d0aff9",
+      "packagedSha256": "4f42966e5661d274569d58cb7fed04d02eeb409a2ae189eb687efa35c7d0aff9"
+    },
+    {
+      "trackId": "computer-security-systems",
+      "group": "extra",
+      "sourceCheckedOn": "2026-09-21",
+      "modules": 12,
+      "lessons": 32,
+      "originalSha256": "4c0337240f758936e3f7dd5720be0504c2e81c0f5ef0de1f891057a5d2344816",
+      "packagedSha256": "4c0337240f758936e3f7dd5720be0504c2e81c0f5ef0de1f891057a5d2344816"
+    },
+    {
+      "trackId": "ethical-hacking",
+      "group": "extra",
+      "sourceCheckedOn": "2026-09-21",
+      "modules": 10,
+      "lessons": 24,
+      "originalSha256": "af227927253cc81412057f35deaf26acc1c779cba78f0cbd7f1d8fe2361384a8",
+      "packagedSha256": "af227927253cc81412057f35deaf26acc1c779cba78f0cbd7f1d8fe2361384a8"
     }
   ]
 }

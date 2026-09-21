@@ -30,6 +30,15 @@ import {
   type Firestore,
 } from "firebase/firestore";
 import type { LessonProgress, SyncRecord } from "../src/domain/types";
+import { EXTRA_TOPIC_IDS } from "../src/domain/types";
+import { trackSchema } from "../src/content/schema";
+import {
+  assessLesson,
+  completeLesson,
+  createProgress,
+  updateLesson,
+} from "../src/domain/progress";
+import { recordsFromState } from "../src/state/records";
 import { initializeCloud, type CloudClient } from "../src/services/firebase";
 import {
   createSyncRepository,
@@ -179,6 +188,68 @@ describe.skipIf(!process.env.FIRESTORE_EMULATOR_HOST)(
     afterAll(async () => {
       await environment?.cleanup();
       setLogLevel("error");
+    });
+
+    it.each(EXTRA_TOPIC_IDS)(
+      "syncs %s lesson evidence with the unchanged rules and rejects other UIDs",
+      async (trackId) => {
+        const track = trackSchema.parse(
+          JSON.parse(
+            await readFile(
+              resolve("src", "content", "tracks", `${trackId}.json`),
+              "utf8",
+            ),
+          ),
+        );
+        const lesson = track.modules[0].lessons[0];
+        const answers = Object.fromEntries(
+          lesson.assignment.questions
+            .filter((question) => question.kind !== "short-answer")
+            .map((question) => [question.id, String(question.answer)]),
+        );
+        const state = completeLesson(
+          updateLesson(
+            assessLesson(createProgress("uid:alice", T0), lesson, answers, T0),
+            lesson.id,
+            {
+              note: "Synthetic owner-only topic notes.",
+              bookmarked: true,
+              readingPosition: "Named official reading section",
+              evidence:
+                "Synthetic emulator evidence: retained the fixture, checked every criterion and explained the failure case.",
+              rubricChecked: lesson.assignment.acceptanceCriteria,
+            },
+            T0,
+          ),
+          lesson,
+          T0,
+        );
+        for (const record of recordsFromState(state)) {
+          await assertSucceeds(setDoc(reference(alice, record), record.data));
+          expect(
+            (await assertSucceeds(getDoc(reference(alice, record)))).data(),
+          ).toEqual(record.data);
+          await assertFails(getDoc(reference(bob, record)));
+          await assertFails(getDoc(reference(anonymous, record)));
+        }
+        expect(state.settings.primaryTrack).toBe("foundation");
+      },
+    );
+
+    it("keeps optional topic IDs out of the unchanged core settings and goal contract", async () => {
+      for (const trackId of EXTRA_TOPIC_IDS) {
+        const settings = fixture("settings");
+        const goal = fixture("goals");
+        await assertFails(
+          setDoc(reference(alice, settings), {
+            ...settings.data,
+            primaryTrack: trackId,
+          }),
+        );
+        await assertFails(
+          setDoc(reference(alice, goal), { ...goal.data, trackId }),
+        );
+      }
     });
 
     it.each(fixtures().map((item) => [item.collection, item] as const))(

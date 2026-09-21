@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Clock3, RotateCcw } from "lucide-react";
 import { assessLesson } from "../domain/progress";
-import { eligibleLessons } from "../content/catalog";
+import { eligibleLessons, isExtraTopic, trackMeta } from "../content/catalog";
 import type { Lesson, TrackId } from "../domain/types";
 import type { LearningProps } from "./shared";
 import { EmptyState, PageHeading, PathLink } from "./shared";
@@ -145,7 +145,7 @@ export function Practice({
     <>
       <PageHeading
         eyebrow="PRACTICE WITH INTENTION"
-        title={`${trackId.toUpperCase()} practice room`}
+        title={`${isExtraTopic(trackId) ? trackMeta[trackId].label : trackId.toUpperCase()} practice room`}
         description="An original practice bank with an adjustable section timer. Not a replica, prediction or complete official mock exam."
       />
       <div className="notice info">

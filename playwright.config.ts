@@ -19,7 +19,7 @@ export default defineConfig({
     },
     {
       name: "mobile",
-      testMatch: "**/mobile.spec.ts",
+      testMatch: ["**/mobile.spec.ts", "**/extra-topics.spec.ts"],
       use: { ...devices["Pixel 7"] },
     },
   ],

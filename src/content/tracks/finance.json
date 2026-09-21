@@ -1,0 +1,2271 @@
+{
+  "schemaVersion": 1,
+  "trackId": "finance",
+  "title": "Finance: Household Resilience to Audited Financial Analysis",
+  "sourceCheckedOn": "2026-09-21",
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Explain a household's cash, debt, insurance and time-value trade-offs using stated assumptions.",
+      "evidence": "A synthetic household plan with amortization, inflation-adjusted goals and a loss-of-income scenario."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Reconcile financial statements and compare investments by cash flows, diversification, costs and suitability constraints.",
+      "evidence": "A linked statement/ratio analysis and a fictional investment policy with a cost-aware rebalancing worksheet."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Evaluate corporate projects and valuation ranges under financing, macroeconomic and modelling uncertainty.",
+      "evidence": "A capital-budgeting decision, enterprise-to-equity bridge and scenario-sensitive valuation model."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Build, audit and explain a decision-ready financial model without disguising assumptions as facts.",
+      "evidence": "A versioned household/corporate analysis dossier, independent error challenge and bounded decision memo."
+    }
+  ],
+  "resources": [
+    {
+      "id": "finance-doc-fame",
+      "kind": "documentation",
+      "title": "RBI: FAME financial awareness messages",
+      "url": "https://www.rbi.org.in/FinancialEducation/fame.aspx",
+      "provider": "Reserve Bank of India",
+      "access": "free",
+      "license": "Official public education; no redistribution permission asserted",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Official index links the fourth-edition booklet: Financial Competencies, Basic Banking, Digital Financial Literacy and Consumer Protection. Open the named English material on demand; the app does not mirror it. No bank account is required."
+    },
+    {
+      "id": "finance-doc-rbi-functions",
+      "kind": "documentation",
+      "title": "RBI financial education: Money Kumar",
+      "url": "https://www.rbi.org.in/FinancialEducation/Basic.aspx",
+      "provider": "Reserve Bank of India",
+      "access": "free",
+      "license": "Official public education; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "RBI's FAME page identifies this series as explaining the Reserve Bank's role and functions. Select English on the language page. Illustrations are historical; verify current policy statements separately and do not infer current rates."
+    },
+    {
+      "id": "finance-doc-insurance",
+      "kind": "documentation",
+      "title": "Varsity: Personal Finance - Insurance",
+      "url": "https://zerodha.com/varsity/module/insurance/",
+      "provider": "Zerodha Varsity / contributing insurance educators",
+      "access": "free",
+      "license": "Copyrighted educational HTML; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Introduction explains health-policy conditions and exclusions; chapters also address incentives. Commercial contributors and linked services can have conflicts. Ignore purchase prompts, historical numerical claims and product recommendations; use a fictional policy."
+    },
+    {
+      "id": "finance-doc-statements",
+      "kind": "documentation",
+      "title": "Varsity: Fundamental Analysis",
+      "url": "https://zerodha.com/varsity/module/fundamental-analysis/",
+      "provider": "Zerodha Varsity",
+      "access": "free",
+      "license": "Copyrighted educational HTML; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Verified chapters cover annual reports, P&L, balance sheets, cash flow, ratios and DCF. Use statement mechanics with invented companies. Historical company examples are not current prices, accounting advice or recommendations."
+    },
+    {
+      "id": "finance-doc-modelling",
+      "kind": "documentation",
+      "title": "Varsity: Integrated Financial Modelling",
+      "url": "https://zerodha.com/varsity/module/financial-modelling/",
+      "provider": "Zerodha Varsity",
+      "access": "free",
+      "license": "Copyrighted educational HTML; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Verified chapters include workbook setup, assumptions, revenue/asset/debt schedules, projections, cash flow, FCFF/FCFE, WACC and DCF. Implement an original workbook in free LibreOffice or Python; Microsoft Excel and example downloads are not required."
+    },
+    {
+      "id": "finance-video-rbi",
+      "kind": "video",
+      "title": "RBI: Basic Financial Literacy",
+      "url": "https://youtu.be/aIEqsPLo_1o",
+      "provider": "Reserve Bank of India",
+      "access": "free",
+      "license": "Officially linked public recording; no redistribution permission asserted",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Exact recording linked as Basic Financial Literacy on RBI's FAME page. Playback may require regional/consent access; the FAME reading is the free text alternative. Do not infer current financial-product terms from the video."
+    },
+    {
+      "id": "finance-video-present-value",
+      "kind": "video",
+      "title": "MIT 15.401 Finance Theory I: Present Value Relations",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/pages/video-lectures-and-slides/present-value-relations/",
+      "provider": "MIT OpenCourseWare / Andrew Lo",
+      "access": "free",
+      "license": "MIT OCW covered material: CC BY-NC-SA 4.0; third-party exceptions apply",
+      "licenseUrl": "https://ocw.mit.edu/pages/privacy-and-terms-of-use/",
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Official lecture topic page verified from the course index. Use discounting and cash-flow timing theory, not historical market yields or US legal/account examples as Indian rules."
+    },
+    {
+      "id": "finance-video-valuation",
+      "kind": "video",
+      "title": "NYU Stern: Damodaran valuation and tools webcasts",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/webcastvalonline.htm",
+      "provider": "Aswath Damodaran / NYU Stern",
+      "access": "free",
+      "license": "Author-hosted public educational recordings; link-only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-21",
+      "notes": "Free webcasts; no textbook purchase required. Verified tools include From financial disclosures to value, Terminal Value Check, and EV, Firm Value and Equity Value. Historical filings, lease treatments and numerical inputs need current-context checks. Do not download/rehost examples as app content."
+    }
+  ],
+  "modules": [
+    {
+      "id": "finance-m01-household-cash",
+      "title": "01. Household cash flow and debt",
+      "stage": "foundation",
+      "description": "Use a fictional household to separate cash availability, net worth and borrowing cost.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l01-budget",
+          "title": "Build a cash-flow budget and resilience buffer",
+          "objectives": [
+            "Classify income, essentials, discretionary costs and irregular obligations.",
+            "Distinguish a monthly surplus from liquid emergency capacity."
+          ],
+          "topics": [
+            {
+              "title": "Household statements",
+              "details": [
+                "Net worth is assets minus liabilities at a date.",
+                "A budget is a flow plan; illiquid assets cannot pay every immediate bill."
+              ]
+            },
+            {
+              "title": "Resilience",
+              "details": [
+                "Annual bills need explicit sinking-fund treatment.",
+                "An emergency target depends on obligations and income uncertainty, not a universal number."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "budgeting",
+            "personal-finance"
+          ],
+          "video": {
+            "resourceId": "finance-video-rbi",
+            "locator": "Basic Financial Literacy recording linked by RBI: budgeting, saving and responsible financial decisions. Use the FAME reading if playback is unavailable."
+          },
+          "reading": {
+            "resourceId": "finance-doc-fame",
+            "locator": "Open the fourth-edition FAME booklet, Financial Competencies theme: use budgeting and saving messages to distinguish cash planning from product selection."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-sebi"
+          ],
+          "assignment": {
+            "id": "finance-a01",
+            "title": "A fictional household cash map",
+            "kind": "lab",
+            "instructions": [
+              "Use invented monthly income INR 40000, essentials 22000, discretionary spending 6000, debt payment 5000 and annual bills 24000.",
+              "Allocate the annual bills monthly and calculate free surplus without recording any real account information.",
+              "Compare a one-month income interruption with a three-month interruption and propose a justified hypothetical liquidity target."
+            ],
+            "deliverables": [
+              "Monthly cash-flow worksheet",
+              "Buffer scenarios and assumptions"
+            ],
+            "acceptanceCriteria": [
+              "Annual bills reserve INR 2000 per month and base surplus is INR 5000.",
+              "Cash reserves are not confused with total net worth.",
+              "The target is justified for the invented household, not presented as personalized advice."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q01a",
+                "kind": "numeric",
+                "prompt": "Income is 40000 and monthly outflows including reserves are 35000. What is the surplus?",
+                "answer": 5000,
+                "explanation": "40000 minus 35000 is 5000. Ignoring periodic bills would overstate spendable surplus."
+              },
+              {
+                "id": "finance-q01b",
+                "kind": "short-answer",
+                "prompt": "Why can a household with positive net worth still miss a bill?",
+                "answer": "Its assets may be illiquid or unavailable when cash obligations fall due.",
+                "explanation": "Solvency and liquidity answer different questions; both matter in a financial plan."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which irregular payment is easiest to overlook?"
+          ],
+          "prerequisites": []
+        },
+        {
+          "id": "finance-l02-debt",
+          "title": "Compare debt by total cost and repayment behavior",
+          "objectives": [
+            "Distinguish principal, interest, fees and repayment.",
+            "Explain nominal versus effective rates and the effects of missed or reduced payments."
+          ],
+          "topics": [
+            {
+              "title": "Borrowing arithmetic",
+              "details": [
+                "Interest is charged on a stated balance under a stated convention.",
+                "Upfront fees can make equal quoted rates unequal in cost."
+              ]
+            },
+            {
+              "title": "Debt trade-offs",
+              "details": [
+                "Minimum payments can extend repayment substantially.",
+                "A lower instalment may come from a longer term rather than a cheaper loan."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "debt",
+            "interest",
+            "amortization"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "finance-doc-fame",
+            "locator": "FAME Financial Competencies and Basic Banking themes: responsible borrowing, understanding terms and repayment. Read the terms of the invented exercise rather than assuming a current legal APR definition."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a02",
+            "title": "A two-offer debt comparison",
+            "kind": "problem-set",
+            "instructions": [
+              "Compare invented one-year loans of INR 12000: offer A has 1% monthly interest on the remaining balance with equal principal repayments; offer B has 10% flat annual interest plus a fee of INR 600.",
+              "Build the cash-flow schedule for both and state how upfront fees affect usable proceeds.",
+              "Explain the effect of one skipped principal payment under an explicitly invented no-penalty case; do not use real borrower data."
+            ],
+            "deliverables": [
+              "Repayment schedules and cost comparison",
+              "A terms-and-assumptions checklist"
+            ],
+            "acceptanceCriteria": [
+              "Offer A's interest uses a declining balance rather than the initial balance every month.",
+              "Fees and timing are included in the comparison.",
+              "A quoted lower percentage is not automatically labelled cheaper."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q02a",
+                "kind": "numeric",
+                "prompt": "What is one month's interest at 1% on a remaining principal of INR 12000?",
+                "answer": 120,
+                "explanation": "12000 times 0.01 equals 120. Later interest depends on the remaining principal and the loan's stated convention."
+              },
+              {
+                "id": "finance-q02b",
+                "kind": "single-choice",
+                "prompt": "A smaller monthly instalment necessarily means what?",
+                "choices": [
+                  "Nothing about total cost without rate, fee and term information",
+                  "A lower total borrowing cost",
+                  "No interest is charged"
+                ],
+                "answer": "Nothing about total cost without rate, fee and term information",
+                "explanation": "Extending the term can reduce each payment while increasing total interest. Compare cash flows, not one number."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What does the lender's quoted rate leave out?"
+          ],
+          "prerequisites": [
+            "finance-l01-budget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance-m02-protection",
+      "title": "02. Insurance, consumer protection and information hygiene",
+      "stage": "foundation",
+      "description": "Understand risk transfer, contract limits and authoritative sources before choosing products.",
+      "prerequisites": [
+        "finance-m01-household-cash"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l03-insurance",
+          "title": "Explain insurance pooling, exclusions and retained risk",
+          "objectives": [
+            "Separate insurable loss, premium, deductible and claim limit.",
+            "Compare protection needs without recommending a specific policy."
+          ],
+          "topics": [
+            {
+              "title": "Risk transfer",
+              "details": [
+                "Pooling spreads uncertain covered losses across a group.",
+                "Insurance does not remove exclusions, deductibles or claims conditions."
+              ]
+            },
+            {
+              "title": "Protection choices",
+              "details": [
+                "Health, life, disability and property cover respond to different losses.",
+                "Emergency liquidity and insurance complement rather than replace one another."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "insurance",
+            "risk-pooling"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "finance-doc-insurance",
+            "locator": "Chapter 1 Introduction, especially 1.2 A game of cat and mouse: read policy conditions and exclusions critically. Chapter 2 Perverse Incentives provides a commercial-incentive discussion."
+          },
+          "supplementaryResourceIds": [
+            "finance-doc-fame"
+          ],
+          "assignment": {
+            "id": "finance-a03",
+            "title": "An invented policy claims worksheet",
+            "kind": "problem-set",
+            "instructions": [
+              "Create a fictional policy with an INR 10000 deductible and INR 90000 maximum insurer payout; no coinsurance or other limits for this exercise.",
+              "Evaluate covered losses of 5000, 50000 and 150000, then a separately excluded loss.",
+              "Map the household's income/dependant/property risks to coverage questions and residual cash needs, without naming providers."
+            ],
+            "deliverables": [
+              "Claim/payout/residual-loss table",
+              "Needs and exclusions checklist"
+            ],
+            "acceptanceCriteria": [
+              "A covered INR 50000 loss produces insurer payout INR 40000 under the invented terms.",
+              "The 150000 case retains INR 60000 because the insurer payout is capped at 90000.",
+              "Excluded losses and claim documentation requirements remain explicit."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q03a",
+                "kind": "numeric",
+                "prompt": "A covered INR 50000 loss has a 10000 deductible and a non-binding payout cap. What does the insurer pay?",
+                "answer": 40000,
+                "explanation": "50000 minus the deductible 10000 equals 40000 under the exercise's simplified terms. Real contracts may have additional conditions."
+              },
+              {
+                "id": "finance-q03b",
+                "kind": "short-answer",
+                "prompt": "Why should policy premium not be the only comparison criterion?",
+                "answer": "Coverage, exclusions, waiting periods, limits, deductibles, claim process and the household's actual risks determine the protection provided.",
+                "explanation": "A cheaper contract may transfer less of the relevant risk; no particular product is recommended here."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What loss remains with the household even after a valid claim?"
+          ],
+          "prerequisites": [
+            "finance-l02-debt"
+          ]
+        },
+        {
+          "id": "finance-l04-consumer-safety",
+          "title": "Verify financial claims and protect sensitive information",
+          "objectives": [
+            "Identify authority, incentives and dates in financial information.",
+            "Recognize fraud signals and distinguish complaint routes from promises of recovery."
+          ],
+          "topics": [
+            {
+              "title": "Source checking",
+              "details": [
+                "Registration is checked through official sources, not a promotional badge.",
+                "A source can be authoritative but outdated or outside the jurisdiction."
+              ]
+            },
+            {
+              "title": "Consumer protection",
+              "details": [
+                "Never share passwords, OTPs or remote access for a supposed refund.",
+                "Keep minimal records and use official grievance channels."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "financial-literacy",
+            "consumer-protection"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-sebi",
+            "locator": "Safeguarding against Securities Market Frauds and Investor Grievance Redress Mechanism; compare with FAME's Digital Financial Literacy and Consumer Protection themes."
+          },
+          "supplementaryResourceIds": [
+            "finance-doc-fame"
+          ],
+          "assignment": {
+            "id": "finance-a04",
+            "title": "A synthetic claim-verification log",
+            "kind": "design",
+            "instructions": [
+              "Evaluate four invented messages: guaranteed returns, urgency to share an OTP, a dated regulatory statistic and a legitimate-looking but unverified registration claim.",
+              "For each, record the missing evidence and the official authority you would consult without contacting the sender.",
+              "Write a minimal incident record containing no real account numbers, identity documents or credentials."
+            ],
+            "deliverables": [
+              "Claim/evidence/authority matrix",
+              "Privacy-preserving response checklist"
+            ],
+            "acceptanceCriteria": [
+              "No credential entry, transfer or contact with a suspicious party is performed.",
+              "Dates and jurisdiction are checked separately from branding.",
+              "Complaint channels are not represented as guaranteed recovery."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q04a",
+                "kind": "single-choice",
+                "prompt": "A message asks for an OTP to release a refund. What is the appropriate learning response?",
+                "choices": [
+                  "Share it if a logo looks genuine",
+                  "Do not share it; verify independently through an official channel",
+                  "Publish it in the evidence log"
+                ],
+                "answer": "Do not share it; verify independently through an official channel",
+                "explanation": "Logos and urgency do not establish authority. Authentication secrets should never be supplied to an unverified requester or included in learning artifacts."
+              },
+              {
+                "id": "finance-q04b",
+                "kind": "short-answer",
+                "prompt": "Why can a true US account rule be inappropriate in an Indian financial plan?",
+                "answer": "Legal scope and eligible products differ by jurisdiction, so a source must be relevant as well as accurate and current.",
+                "explanation": "Global materials teach concepts; Indian rules must be verified with the relevant Indian authority."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What independently verifiable evidence supports the claim?"
+          ],
+          "prerequisites": [
+            "finance-l03-insurance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance-m03-time-goals",
+      "title": "03. Time value, inflation and financial goals",
+      "stage": "foundation",
+      "description": "Make cash-flow timing and purchasing-power assumptions explicit.",
+      "prerequisites": [
+        "finance-m02-protection"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l05-time-value",
+          "title": "Discount cash flows and distinguish real from nominal value",
+          "objectives": [
+            "Calculate present and future value for a single cash flow.",
+            "Match inflation-adjusted cash flows with consistent discount rates."
+          ],
+          "topics": [
+            {
+              "title": "Time value",
+              "details": [
+                "Compounding moves value forward; discounting moves it backward.",
+                "Rate frequency and cash-flow timing must agree."
+              ]
+            },
+            {
+              "title": "Purchasing power",
+              "details": [
+                "A nominal gain can be a real loss after inflation.",
+                "Nominal and real values cannot be mixed without conversion."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "time-value",
+            "inflation"
+          ],
+          "video": {
+            "resourceId": "finance-video-present-value",
+            "locator": "Present Value Relations topic: single cash-flow discounting and compounding; use only the exercise's invented rates."
+          },
+          "reading": {
+            "resourceId": "quant-book-finance",
+            "locator": "Section 7.3 Methods for Solving Time Value of Money Problems. Match the cash-flow date and periodic rate before calculating."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a05",
+            "title": "A purchasing-power timeline",
+            "kind": "problem-set",
+            "instructions": [
+              "Discount a fictional INR 1100 receipt in one year at an assumed 10% annual rate.",
+              "Compare a 6% nominal increase with 4% assumed inflation using both the exact ratio and a labelled approximation.",
+              "Show the same future goal in nominal and today's-money terms without claiming either assumed rate is current."
+            ],
+            "deliverables": [
+              "Cash-flow timeline and calculations",
+              "Nominal/real consistency note"
+            ],
+            "acceptanceCriteria": [
+              "The INR 1100 receipt has present value INR 1000 at the assumed rate.",
+              "Exact real growth uses 1.06 divided by 1.04 minus 1.",
+              "All rates are explicitly hypothetical and use compatible periods."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q05a",
+                "kind": "numeric",
+                "prompt": "What is the present value of 1100 received in one year at a 10% assumed discount rate?",
+                "answer": 1000,
+                "explanation": "1100 divided by 1.10 equals 1000. This is a valuation under an assumption, not a market quote."
+              },
+              {
+                "id": "finance-q05b",
+                "kind": "single-choice",
+                "prompt": "Which pairing is internally consistent?",
+                "choices": [
+                  "Nominal cash flows with a nominal discount rate",
+                  "Real cash flows with an unadjusted nominal rate",
+                  "Monthly cash flows with an annual rate applied each month"
+                ],
+                "answer": "Nominal cash flows with a nominal discount rate",
+                "explanation": "Both inflation treatment and time period must match. Inconsistent pairs distort value."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "In which year's purchasing power is each number stated?"
+          ],
+          "prerequisites": [
+            "finance-l04-consumer-safety",
+            "foundation-lesson-15-numeracy-floating-point"
+          ]
+        },
+        {
+          "id": "finance-l06-annuity",
+          "title": "Model recurring payments and an amortizing loan",
+          "objectives": [
+            "Build a payment schedule from interest and principal identities.",
+            "Explain how timing and term change total cost."
+          ],
+          "topics": [
+            {
+              "title": "Annuities",
+              "details": [
+                "Beginning-period and end-period payments have different values.",
+                "A spreadsheet formula is only correct under its timing assumptions."
+              ]
+            },
+            {
+              "title": "Amortization",
+              "details": [
+                "Payment equals interest plus principal reduction.",
+                "The final balance is a useful model invariant."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "annuity",
+            "loan-schedule"
+          ],
+          "video": {
+            "resourceId": "finance-video-present-value",
+            "locator": "Present Value Relations: multiple cash flows and annuities; verify end-of-period versus beginning-of-period timing."
+          },
+          "reading": {
+            "resourceId": "finance-doc-modelling",
+            "locator": "Chapter 9 Debt Schedule: distinguish opening balance, interest, borrowing, repayment and closing balance. Build an original simplified household schedule."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a06",
+            "title": "A loan schedule with a zero-balance check",
+            "kind": "lab",
+            "instructions": [
+              "Use a fictional INR 12000 loan repaid in twelve end-of-month equal-principal instalments with 1% monthly interest.",
+              "Calculate each opening balance, interest, principal payment, total payment and closing balance.",
+              "Compare with a zero-interest case and a longer term; keep rounding differences visible and check the terminal balance."
+            ],
+            "deliverables": [
+              "Twelve-row amortization worksheet",
+              "Sensitivity and reconciliation checks"
+            ],
+            "acceptanceCriteria": [
+              "Principal repayments sum to INR 12000.",
+              "First payment is INR 1120 and final payment INR 1010 before any invented fee.",
+              "The final principal balance is zero within a stated rounding tolerance."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q06a",
+                "kind": "numeric",
+                "prompt": "Opening principal is 3000, monthly rate 1% and principal repayment 1000. What is that month's total payment?",
+                "answer": 1030,
+                "explanation": "Interest is 30 and principal reduction is 1000, producing a total payment of 1030."
+              },
+              {
+                "id": "finance-q06b",
+                "kind": "short-answer",
+                "prompt": "Why test a zero-interest case?",
+                "answer": "It provides a simple boundary where total payments should equal principal, helping expose formula, timing or sign errors.",
+                "explanation": "A hand-checkable boundary is a model audit tool, not just an alternative financial scenario."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does each payment reconcile to interest plus principal?"
+          ],
+          "prerequisites": [
+            "finance-l05-time-value"
+          ]
+        },
+        {
+          "id": "finance-l07-household-plan",
+          "title": "Connect goals, protection and an income shock",
+          "objectives": [
+            "Prioritize competing fictional goals by timing and liquidity needs.",
+            "Stress a household plan without assuming future returns will repair a deficit."
+          ],
+          "topics": [
+            {
+              "title": "Goal planning",
+              "details": [
+                "Near-term essential spending and distant discretionary goals have different risk capacity.",
+                "Assumptions need periodic review rather than a one-time forecast."
+              ]
+            },
+            {
+              "title": "Resilience trade-offs",
+              "details": [
+                "Debt service, premiums and cash buffers compete for a finite surplus.",
+                "A deficit must be addressed through explicit changes, not a promised investment gain."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "financial-planning",
+            "household-stress"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-sebi",
+            "locator": "Financial Planning Guide and Financial Education Booklet, English editions: organize goals and risk considerations; disregard any stale product/tax numbers unless currently verified."
+          },
+          "supplementaryResourceIds": [
+            "finance-doc-fame"
+          ],
+          "assignment": {
+            "id": "finance-a07",
+            "title": "Beginner evidence gate: a resilient fictional household",
+            "kind": "design",
+            "instructions": [
+              "Combine l01 cash flows, l03 coverage assumptions and l06 debt schedule with a one-year essential goal and a five-year discretionary goal.",
+              "Stress three months without income, higher essential costs and an excluded claim.",
+              "Propose transparent changes to timing, spending or borrowing and record which goals are deferred; use no actual person's financial data."
+            ],
+            "deliverables": [
+              "Integrated household cash/goal plan",
+              "Three-shock scenario and revision memo"
+            ],
+            "acceptanceCriteria": [
+              "The base plan and shock plan reconcile each month's cash.",
+              "At least one trade-off or unmet goal is explicitly recorded.",
+              "No speculative return, product recommendation or current-tax assertion is used to close a gap."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q07a",
+                "kind": "single-choice",
+                "prompt": "A stress scenario creates a cash deficit. Which response is analytically honest?",
+                "choices": [
+                  "Assume a guaranteed high return",
+                  "State a spending, timing or funding change and its consequences",
+                  "Hide the deficit in miscellaneous assets"
+                ],
+                "answer": "State a spending, timing or funding change and its consequences",
+                "explanation": "A model must expose trade-offs. Unfounded returns or balancing entries conceal the actual constraint."
+              },
+              {
+                "id": "finance-q07b",
+                "kind": "short-answer",
+                "prompt": "Why does a near-term essential goal limit capacity for volatile assets?",
+                "answer": "The spending date may arrive during a drawdown, leaving insufficient liquid funds even if long-term expected returns are positive.",
+                "explanation": "Horizon, liquidity and consequence of shortfall matter alongside expected return."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which goal changes first if the assumptions fail?"
+          ],
+          "prerequisites": [
+            "finance-l06-annuity"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance-m04-statements",
+      "title": "04. Accounting and linked financial statements",
+      "stage": "intermediate",
+      "description": "Explain accrual, balance-sheet claims and the movement of cash.",
+      "prerequisites": [
+        "finance-m03-time-goals"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l08-accounting",
+          "title": "Translate business transactions into linked statements",
+          "objectives": [
+            "Use the accounting equation to classify transactions.",
+            "Distinguish revenue recognition, cash receipt and financing."
+          ],
+          "topics": [
+            {
+              "title": "Accounting structure",
+              "details": [
+                "Assets equal liabilities plus equity.",
+                "Every transaction has offsetting effects; profit changes equity but is not all cash."
+              ]
+            },
+            {
+              "title": "Accrual",
+              "details": [
+                "Credit sales create receivables before collection.",
+                "Equipment purchase and depreciation have different cash and profit timing."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "accounting",
+            "financial-statements"
+          ],
+          "video": {
+            "resourceId": "finance-video-valuation",
+            "locator": "Valuation Tools: From financial disclosures to value. Focus on locating statement inputs, not on the historical P&G valuation."
+          },
+          "reading": {
+            "resourceId": "finance-doc-statements",
+            "locator": "Chapters 4-5 Understanding the P&L Statement and 6-7 Understanding the Balance Sheet Statement. Trace the relationship between flows and closing balances."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a08",
+            "title": "Six transactions, three statements",
+            "kind": "lab",
+            "instructions": [
+              "Create a fictional firm: owner contributes 1000 cash, borrows 500, buys equipment for 600 cash, sells services for 400 on credit, pays wages 100 and records depreciation 60.",
+              "Prepare a transaction table, income statement and balance sheet; assume no taxes for this exercise.",
+              "Explain why profit and closing cash differ and retain the accounts-receivable balance."
+            ],
+            "deliverables": [
+              "Transaction-to-statement mapping",
+              "Balanced statements and profit/cash bridge"
+            ],
+            "acceptanceCriteria": [
+              "Profit is 240 and cash is 800 under the specified assumptions.",
+              "Closing assets 1740 equal liabilities 500 plus equity 1240.",
+              "Borrowing is not revenue and equipment cost is not expensed twice."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q08a",
+                "kind": "numeric",
+                "prompt": "Revenue is 400, wages 100 and depreciation 60 with no tax. What is profit?",
+                "answer": 240,
+                "explanation": "400 minus 100 minus 60 equals 240. Cash receipt timing does not change this simplified accrual calculation."
+              },
+              {
+                "id": "finance-q08b",
+                "kind": "short-answer",
+                "prompt": "Why is a new loan not operating revenue?",
+                "answer": "It creates cash and a repayment liability rather than income from delivering goods or services.",
+                "explanation": "Financing changes the capital structure; treating it as revenue overstates performance."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which transaction changes cash without changing current profit?"
+          ],
+          "prerequisites": [
+            "finance-l07-household-plan"
+          ]
+        },
+        {
+          "id": "finance-l09-working-capital",
+          "title": "Explain cash conversion and working-capital needs",
+          "objectives": [
+            "Reconcile operating profit to cash with receivables, inventory and payables.",
+            "Show how growth can consume cash even when profitable."
+          ],
+          "topics": [
+            {
+              "title": "Cash-flow classification",
+              "details": [
+                "Operating, investing and financing flows answer different questions.",
+                "Noncash expenses require reconciliation rather than a second cash deduction."
+              ]
+            },
+            {
+              "title": "Working capital",
+              "details": [
+                "Receivables and inventory can absorb cash before customers pay.",
+                "Supplier credit can help temporarily but carries contractual obligations."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "cash-flow",
+            "working-capital"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "finance-doc-statements",
+            "locator": "Chapter 8 The Cash Flow statement; use the operating/investing/financing distinction and reconcile noncash changes."
+          },
+          "supplementaryResourceIds": [
+            "finance-doc-modelling"
+          ],
+          "assignment": {
+            "id": "finance-a09",
+            "title": "A profitable but cash-constrained company",
+            "kind": "lab",
+            "instructions": [
+              "Use profit 200, depreciation 40, receivables increase 150, inventory increase 100 and payables increase 30.",
+              "Build an indirect operating-cash bridge, then add capex 120 and financing 80.",
+              "Stress a further 60 delay in collections and state the funding shortfall without inventing sales."
+            ],
+            "deliverables": [
+              "Cash-flow bridge",
+              "Working-capital shock analysis"
+            ],
+            "acceptanceCriteria": [
+              "Base operating cash flow is 20.",
+              "Capex and financing are not hidden inside operating profit.",
+              "The collection delay reduces cash by 60 while leaving the assumed accrual revenue unchanged."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q09a",
+                "kind": "numeric",
+                "prompt": "Using 200 profit + 40 depreciation - 150 receivables - 100 inventory + 30 payables, what is operating cash flow?",
+                "answer": 20,
+                "explanation": "The bridge yields 20. Positive profit can coexist with weak cash generation when working capital expands."
+              },
+              {
+                "id": "finance-q09b",
+                "kind": "short-answer",
+                "prompt": "Why is rapid sales growth not automatically self-financing?",
+                "answer": "Inventory, credit sales and operating capacity may need funding before cash is collected.",
+                "explanation": "The timing and working-capital intensity of growth determine its cash requirements."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which balance-sheet account explains the largest profit/cash difference?"
+          ],
+          "prerequisites": [
+            "finance-l08-accounting"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance-m05-analysis-quality",
+      "title": "05. Ratios, comparability and earnings quality",
+      "stage": "intermediate",
+      "description": "Use financial measures as questions to investigate, not mechanical verdicts.",
+      "prerequisites": [
+        "finance-m04-statements"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l10-ratios",
+          "title": "Interpret margins, returns and solvency in context",
+          "objectives": [
+            "Compute common-size statements and consistently defined ratios.",
+            "Compare businesses only after checking denominator, period and business-model differences."
+          ],
+          "topics": [
+            {
+              "title": "Measurement",
+              "details": [
+                "Margins, turnover and leverage explain different drivers.",
+                "Average versus ending balance choices affect return measures."
+              ]
+            },
+            {
+              "title": "Comparability",
+              "details": [
+                "Negative or near-zero denominators can make ratios misleading.",
+                "Sector, accounting policy and seasonality affect comparisons."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "ratio-analysis",
+            "comparability"
+          ],
+          "video": {
+            "resourceId": "finance-video-valuation",
+            "locator": "Valuation Tools: ROIC and ROE: The \"only\" valuation numbers that matters. Critique denominator definitions and historical example assumptions."
+          },
+          "reading": {
+            "resourceId": "finance-doc-statements",
+            "locator": "Chapters 9-11 The Financial Ratio Analysis. State each numerator, denominator and averaging convention explicitly."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a10",
+            "title": "A two-firm ratio comparison with caveats",
+            "kind": "problem-set",
+            "instructions": [
+              "Invent two small firms with the same sales but different margins, assets and debt; keep statements balanced.",
+              "Compute operating margin, current ratio, debt/equity and return on average assets with defined periods.",
+              "Add a negative-equity case and explain why a mechanical ranking breaks."
+            ],
+            "deliverables": [
+              "Common-size and ratio table",
+              "Comparability and denominator warnings"
+            ],
+            "acceptanceCriteria": [
+              "All formulas disclose the relevant period and balance convention.",
+              "A near-zero or negative denominator is flagged rather than used for a confident ranking.",
+              "At least one business-model explanation is separated from the arithmetic."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q10a",
+                "kind": "numeric",
+                "prompt": "Operating profit 120 on revenue 1000 gives what operating margin in percent?",
+                "answer": 12,
+                "explanation": "120 divided by 1000 times 100 is 12%. The number still needs context about costs, accounting and business model."
+              },
+              {
+                "id": "finance-q10b",
+                "kind": "short-answer",
+                "prompt": "Why can return on ending assets differ from return on average assets?",
+                "answer": "Assets may change during the earning period, so the ending snapshot may not represent the capital used throughout that period.",
+                "explanation": "Flow measures should be paired with a defensible stock denominator."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which ranking changes when you correct the denominator?"
+          ],
+          "prerequisites": [
+            "finance-l09-working-capital"
+          ]
+        },
+        {
+          "id": "finance-l11-quality",
+          "title": "Investigate one-offs, estimates and cash reconciliation",
+          "objectives": [
+            "Distinguish recurring operations from disclosed unusual items.",
+            "Create an evidence trail for normalized figures without accusing real firms."
+          ],
+          "topics": [
+            {
+              "title": "Earnings quality",
+              "details": [
+                "Accounting estimates and revenue timing affect reported results.",
+                "An adjustment is a judgment that needs evidence and consistent treatment."
+              ]
+            },
+            {
+              "title": "Audit mindset",
+              "details": [
+                "Footnotes and reconciliations can explain apparent anomalies.",
+                "Analytical red flags are not proof of wrongdoing."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "earnings-quality",
+            "financial-analysis"
+          ],
+          "video": {
+            "resourceId": "finance-video-valuation",
+            "locator": "Valuation Tools: Creating a trailing 12-month financial statement. Identify period overlap and avoid double counting historical quarters."
+          },
+          "reading": {
+            "resourceId": "finance-doc-statements",
+            "locator": "Chapter 3 How to Read the Annual Report of a Company and Chapter 12 The Investment Due Diligence. Trace each adjustment to a stated fictional note."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a11",
+            "title": "A normalized-profit evidence bridge",
+            "kind": "lab",
+            "instructions": [
+              "Invent reported operating profit 300 including a disclosed one-time asset gain of 80 and restructuring expense of 30.",
+              "Show reported versus adjusted profit under two defensible treatments of the restructuring cost.",
+              "Add rising receivables and a revenue-recognition note; state follow-up questions rather than a fraud accusation."
+            ],
+            "deliverables": [
+              "Adjustment bridge with source notes",
+              "Cash-quality and alternative-treatment memo"
+            ],
+            "acceptanceCriteria": [
+              "Removing the gain gives 220; also adding back the expense gives 250, with a reason for either treatment.",
+              "Reported and adjusted numbers are both retained.",
+              "Judgments and unverified concerns are labelled as such."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q11a",
+                "kind": "numeric",
+                "prompt": "Reported operating profit 300 contains a nonrecurring gain of 80. Removing only that gain yields what?",
+                "answer": 220,
+                "explanation": "300 minus 80 equals 220. Additional adjustments require separate justification rather than selective optimism."
+              },
+              {
+                "id": "finance-q11b",
+                "kind": "short-answer",
+                "prompt": "Why should both reported and normalized figures remain visible?",
+                "answer": "A reader must be able to inspect the original result, reproduce each adjustment and disagree with the analyst's judgment.",
+                "explanation": "Transparency matters more than presenting a single seemingly precise corrected number."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Would you apply the same adjustment if it made results worse?"
+          ],
+          "prerequisites": [
+            "finance-l10-ratios"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance-m06-investments",
+      "title": "06. Investments, diversification and policy",
+      "stage": "intermediate",
+      "description": "Compare cash-flow claims and construct a hypothetical policy, never a recommendation for the learner's money.",
+      "prerequisites": [
+        "finance-m05-analysis-quality"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l12-assets-bonds",
+          "title": "Compare asset claims and interest-rate sensitivity",
+          "objectives": [
+            "Explain equity, debt, pooled funds and cash by claims and risks.",
+            "Price a simple bond and reason about rate/default risk."
+          ],
+          "topics": [
+            {
+              "title": "Claims and horizons",
+              "details": [
+                "Contractual payments can still default.",
+                "Liquidity and inflation risk differ from price volatility."
+              ]
+            },
+            {
+              "title": "Bond valuation",
+              "details": [
+                "Discount coupons and principal at consistent rates.",
+                "Longer-duration cash flows are generally more rate sensitive, all else equal."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "investments",
+            "bonds",
+            "interest-rate-risk"
+          ],
+          "video": {
+            "resourceId": "finance-video-present-value",
+            "locator": "Present Value Relations: discount multiple cash flows, then apply the method to a fictional bond."
+          },
+          "reading": {
+            "resourceId": "quant-book-finance",
+            "locator": "Section 10.1 Characteristics of Bonds and Section 7.3 Methods for Solving Time Value of Money Problems. Use fictional terms, not current yields."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-sebi"
+          ],
+          "assignment": {
+            "id": "finance-a12",
+            "title": "A bond and asset-risk comparison",
+            "kind": "problem-set",
+            "instructions": [
+              "Price a one-year fictional bond paying 50 coupon plus 1000 principal at assumed required returns of 5% and 10%.",
+              "Compare its liquidity, default and inflation risks with cash, an equity claim and a diversified fund.",
+              "Add a missed-payment scenario; do not treat a coupon promise as a guarantee."
+            ],
+            "deliverables": [
+              "Two-rate bond valuation",
+              "Asset-claim risk matrix"
+            ],
+            "acceptanceCriteria": [
+              "At 5% the bond value is 1000; at 10% it is about 954.55.",
+              "A higher discount rate reduces value for the same promised cash flow.",
+              "Default and liquidity risks are not erased by the valuation formula."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q12a",
+                "kind": "numeric",
+                "prompt": "A one-year bond pays 1050 and is discounted at 5%. What is its value?",
+                "answer": 1000,
+                "explanation": "1050 divided by 1.05 equals 1000, assuming the promised payment is received."
+              },
+              {
+                "id": "finance-q12b",
+                "kind": "short-answer",
+                "prompt": "Why can a bond lose market value before maturity even if payments remain on schedule?",
+                "answer": "Required yields can rise or credit/liquidity risk can change, reducing the present value of unchanged promised payments.",
+                "explanation": "Payment performance and current market valuation are related but distinct."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which risk is omitted by the simple discount-rate calculation?"
+          ],
+          "prerequisites": [
+            "finance-l11-quality"
+          ]
+        },
+        {
+          "id": "finance-l13-funds-costs",
+          "title": "Look through funds to holdings, costs and overlap",
+          "objectives": [
+            "Explain how pooled funds, NAV and expenses work.",
+            "Assess diversification by underlying exposures rather than product count."
+          ],
+          "topics": [
+            {
+              "title": "Fund mechanics",
+              "details": [
+                "A fund share represents pooled assets net of liabilities.",
+                "Expense ratios, tracking differences and transaction costs affect realized outcomes."
+              ]
+            },
+            {
+              "title": "Diversification",
+              "details": [
+                "Two funds may own largely the same assets.",
+                "Diversification reduces some idiosyncratic risk, not every market loss."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "mutual-funds",
+            "diversification",
+            "fees"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-sebi",
+            "locator": "Introduction to Mutual Funds Investing; Introduction to Exchange Traded Funds (ETFs); Mutual Funds for Beginners. Use the official educational explanations, not current product recommendations."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-risk"
+          ],
+          "assignment": {
+            "id": "finance-a13",
+            "title": "A two-fund overlap and fee worksheet",
+            "kind": "lab",
+            "instructions": [
+              "Invent two funds with disclosed weights across four fictional assets and calculate the combined look-through allocation.",
+              "Compare an assumed 6% gross annual return with 0.5% and 1.5% annual cost under a clearly stated simplified subtraction convention.",
+              "Discuss tracking, liquidity and shared-factor risks; no real fund is selected."
+            ],
+            "deliverables": [
+              "Look-through holdings table",
+              "Cost sensitivity and risk note"
+            ],
+            "acceptanceCriteria": [
+              "Combined asset weights sum to 100%.",
+              "The report identifies overlap rather than counting funds as independent exposures.",
+              "Assumed gross returns and simplified fee timing are labelled, not promised."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q13a",
+                "kind": "numeric",
+                "prompt": "Half the portfolio is in Fund A with 60% Asset X and half in Fund B with 20% Asset X. What percent of the total is X?",
+                "answer": 40,
+                "explanation": "0.5 times 60% plus 0.5 times 20% equals 40%. Product count alone would conceal this exposure."
+              },
+              {
+                "id": "finance-q13b",
+                "kind": "short-answer",
+                "prompt": "Why might two broad-looking funds provide little additional diversification?",
+                "answer": "Their underlying holdings or economic risk factors can overlap substantially.",
+                "explanation": "Look through wrappers to the actual exposures and how they may move together."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which costs are visible in a stated expense ratio, and which are not?"
+          ],
+          "prerequisites": [
+            "finance-l12-assets-bonds"
+          ]
+        },
+        {
+          "id": "finance-l14-policy",
+          "title": "Write a fictional investment policy and rebalance rule",
+          "objectives": [
+            "Translate horizon, liquidity and loss capacity into constraints.",
+            "Design a rule-based, cost-aware review process without market timing promises."
+          ],
+          "topics": [
+            {
+              "title": "Policy design",
+              "details": [
+                "Goals, constraints and governance precede asset selection.",
+                "Risk willingness and financial ability to bear loss may differ."
+              ]
+            },
+            {
+              "title": "Rebalancing",
+              "details": [
+                "Bands or calendar reviews trade target adherence against turnover.",
+                "A policy can require holding cash for near-term obligations."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "investment-policy",
+            "rebalancing"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-sebi",
+            "locator": "Financial Planning Guide and Mutual Funds for Intermediate: connect horizon, risk and diversification, while leaving all personal product decisions outside this exercise."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-risk"
+          ],
+          "assignment": {
+            "id": "finance-a14",
+            "title": "Intermediate evidence gate: a constrained policy",
+            "kind": "design",
+            "instructions": [
+              "Use the fictional household, preserving its emergency cash and debt obligations.",
+              "Specify a hypothetical allocation, liquidity floor, review frequency, rebalance bands and maximum permitted transaction budget.",
+              "Apply an invented market decline and an approaching goal date; reconcile proposed changes and identify when abstaining from a rebalance is justified."
+            ],
+            "deliverables": [
+              "Fictional investment policy statement",
+              "Before/after allocation and cost worksheet"
+            ],
+            "acceptanceCriteria": [
+              "No essential near-term payment depends on an assumed market gain.",
+              "The policy states who reviews changes and what triggers reconsideration.",
+              "Rebalancing respects costs, cash needs and the documented hypothetical constraints."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q14a",
+                "kind": "single-choice",
+                "prompt": "What should guide a hypothetical allocation before choosing products?",
+                "choices": [
+                  "The highest recent return alone",
+                  "Goals, time horizon, liquidity and ability to bear loss",
+                  "A guarantee that diversification prevents losses"
+                ],
+                "answer": "Goals, time horizon, liquidity and ability to bear loss",
+                "explanation": "A defensible policy starts with constraints and purpose. Recent performance or false safety claims cannot replace them."
+              },
+              {
+                "id": "finance-q14b",
+                "kind": "short-answer",
+                "prompt": "Why can a fixed rebalance rule still need governance?",
+                "answer": "Goals, liquidity needs, costs or assumptions can change, and exceptions must be reviewed and documented rather than improvised.",
+                "explanation": "A rule is part of a decision process, not permission to ignore changed circumstances."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which constraint takes priority over returning to target weights?"
+          ],
+          "prerequisites": [
+            "finance-l13-funds-costs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance-m07-corporate-decisions",
+      "title": "07. Capital budgeting and financing",
+      "stage": "advanced",
+      "description": "Evaluate incremental cash flows and the cost of financing under uncertainty.",
+      "prerequisites": [
+        "finance-m06-investments"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l15-npv",
+          "title": "Evaluate an incremental project with NPV",
+          "objectives": [
+            "Separate sunk, incremental and opportunity costs.",
+            "Compare NPV with payback and explain decision conflicts."
+          ],
+          "topics": [
+            {
+              "title": "Cash-flow scope",
+              "details": [
+                "Include working capital, replacement effects and terminal cash flows when relevant.",
+                "Exclude sunk costs from a forward incremental decision."
+              ]
+            },
+            {
+              "title": "Decision measures",
+              "details": [
+                "Discounting accounts for timing and a stated required return.",
+                "IRR and payback can misrank projects of different scale or cash-flow pattern."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "capital-budgeting",
+            "npv"
+          ],
+          "video": {
+            "resourceId": "finance-video-present-value",
+            "locator": "Present Value Relations: multiple-date discounting; apply the method to incremental project cash flows."
+          },
+          "reading": {
+            "resourceId": "finance-doc-modelling",
+            "locator": "Chapters 6 Revenue model, 7-8 Asset Schedule and 15 Valuation (Part 2) - FCFF & FCFE. Distinguish operating investment from financing flows."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a15",
+            "title": "An incremental equipment decision",
+            "kind": "problem-set",
+            "instructions": [
+              "Evaluate a fictional outlay of 1000 now and cash receipts 600 at the end of each of two years at an assumed 10% required return.",
+              "Add a previously spent research cost of 100 and explain why it is not a new outlay in the decision.",
+              "Stress operating receipts and working-capital recovery; compare NPV with undiscounted payback."
+            ],
+            "deliverables": [
+              "Incremental cash-flow timeline",
+              "NPV sensitivity and recommendation for the fictional firm only"
+            ],
+            "acceptanceCriteria": [
+              "Base NPV is approximately 41.32, with formulas visible.",
+              "The sunk research cost is separated from future incremental cash flows.",
+              "The decision changes or is qualified when scenario assumptions weaken."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q15a",
+                "kind": "numeric",
+                "prompt": "Compute -1000 + 600/1.1 + 600/1.1^2, rounded to two decimals.",
+                "answer": 41.32,
+                "numericTolerance": 0.01,
+                "explanation": "Discounted receipts total about 1041.32, leaving NPV 41.32. This small positive result depends on the assumed cash flows and discount rate."
+              },
+              {
+                "id": "finance-q15b",
+                "kind": "short-answer",
+                "prompt": "Why can a short payback period disagree with an NPV ranking?",
+                "answer": "Payback can ignore timing within the period and cash flows after the recovery point, while NPV includes discounted incremental cash flows over the horizon.",
+                "explanation": "Measures answer different questions and should not be treated as interchangeable."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which cash flow disappears if the project is not undertaken?"
+          ],
+          "prerequisites": [
+            "finance-l14-policy"
+          ]
+        },
+        {
+          "id": "finance-l16-capital-structure",
+          "title": "Match financing risk and discount rates",
+          "objectives": [
+            "Distinguish debt cost, equity cost and weighted capital cost.",
+            "Explain leverage benefits, distress costs and cash-flow/rate consistency."
+          ],
+          "topics": [
+            {
+              "title": "Financing",
+              "details": [
+                "Debt creates contractual obligations; equity bears residual risk.",
+                "More leverage can raise distress risk and the required return on equity."
+              ]
+            },
+            {
+              "title": "WACC",
+              "details": [
+                "Use consistent weights, currency and tax assumptions.",
+                "Do not discount equity cash flow at an enterprise cash-flow rate."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "wacc",
+            "capital-structure"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "finance-doc-modelling",
+            "locator": "Chapters 15 FCFF & FCFE, 16 Risk Premium & Tax Shield and 17 Weighted average cost of capital and Terminal Growth. Treat any tax rate in the reading as an example, not current Indian law."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a16",
+            "title": "A financing and discount-rate consistency sheet",
+            "kind": "problem-set",
+            "instructions": [
+              "Use fictional weights of 60% equity and 40% debt, equity cost 12%, debt cost 8% and an explicitly assumed 25% tax rate used only for arithmetic.",
+              "Calculate after-tax WACC and compare an alternative with greater debt and a higher equity/debt risk premium.",
+              "Map enterprise cash flows to WACC and equity cash flows to cost of equity, noting where tax-shield availability is uncertain."
+            ],
+            "deliverables": [
+              "Capital-cost calculations",
+              "Leverage and cash-flow consistency checklist"
+            ],
+            "acceptanceCriteria": [
+              "Base WACC is 9.6% under the invented assumptions.",
+              "The assumed tax input is not described as a prevailing tax rate.",
+              "No claim is made that increasing leverage always lowers total financing cost."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q16a",
+                "kind": "numeric",
+                "prompt": "What is 0.6*12% + 0.4*8%*(1-0.25), expressed as a percent?",
+                "answer": 9.6,
+                "numericTolerance": 0.001,
+                "explanation": "The weighted equity cost is 7.2% and weighted after-tax debt cost is 2.4%, totaling 9.6% under these fictional assumptions."
+              },
+              {
+                "id": "finance-q16b",
+                "kind": "short-answer",
+                "prompt": "Why does more debt not guarantee a lower WACC?",
+                "answer": "Lenders and shareholders can demand higher returns as distress and refinancing risks rise, and tax benefits may be limited or unavailable.",
+                "explanation": "Capital costs respond to risk; holding them fixed while changing leverage can produce a misleading result."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Do the cash flow, currency and discount rate belong to the same claim?"
+          ],
+          "prerequisites": [
+            "finance-l15-npv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance-m08-valuation-macro",
+      "title": "08. Valuation ranges and macroeconomic context",
+      "stage": "advanced",
+      "description": "Use multiple methods and current-source discipline to explain a range rather than manufacture a target price.",
+      "prerequisites": [
+        "finance-m07-corporate-decisions"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l17-dcf",
+          "title": "Build a DCF and challenge terminal value",
+          "objectives": [
+            "Discount explicit forecast cash flows and a consistent terminal value.",
+            "Expose sensitivity to growth, margins, reinvestment and discount rates."
+          ],
+          "topics": [
+            {
+              "title": "Value drivers",
+              "details": [
+                "Growth usually needs reinvestment and cannot be free by assumption.",
+                "Terminal assumptions can dominate a short explicit forecast."
+              ]
+            },
+            {
+              "title": "Model boundaries",
+              "details": [
+                "A perpetual-growth denominator requires discount rate greater than growth.",
+                "A scenario range is not a guaranteed trading price."
+              ]
+            }
+          ],
+          "estimatedMinutes": 230,
+          "canonicalConceptTags": [
+            "dcf",
+            "terminal-value"
+          ],
+          "video": {
+            "resourceId": "finance-video-valuation",
+            "locator": "Valuation Tools: Terminal Value Check. Audit the long-run assumptions rather than copying the historical spreadsheet."
+          },
+          "reading": {
+            "resourceId": "finance-doc-modelling",
+            "locator": "Chapters 17 Weighted average cost of capital and Terminal Growth and 18 Discounted Cash Flow Analysis (DCF). Explain the terminal cash-flow timing and reinvestment assumptions."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a17",
+            "title": "A terminal-value-sensitive fictional business",
+            "kind": "lab",
+            "instructions": [
+              "Forecast three years of original synthetic operating cash flows with explicit capex and working-capital assumptions.",
+              "Compute terminal value using next-period cash flow 105, assumed discount rate 10% and perpetual growth 5%, then discount it from the terminal date.",
+              "Create a rate/growth sensitivity grid including invalid cases where growth meets or exceeds the discount rate."
+            ],
+            "deliverables": [
+              "DCF workbook with input/logic/output separation",
+              "Sensitivity and terminal-value audit"
+            ],
+            "acceptanceCriteria": [
+              "Undiscounted terminal value is 2100 under the given terminal inputs.",
+              "The terminal amount is discounted to the valuation date exactly once.",
+              "Invalid perpetual-growth combinations produce a visible error, not a plausible value."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q17a",
+                "kind": "numeric",
+                "prompt": "Next-period terminal cash flow is 105, discount rate 10% and growth 5%. What is terminal value at the terminal date?",
+                "answer": 2100,
+                "explanation": "105 divided by (0.10 minus 0.05) is 2100. It still needs discounting back to the valuation date."
+              },
+              {
+                "id": "finance-q17b",
+                "kind": "short-answer",
+                "prompt": "Why is a perpetual growth rate near the discount rate dangerous in a model?",
+                "answer": "The denominator becomes very small, making value extremely sensitive and potentially inconsistent with sustainable long-run economics.",
+                "explanation": "A mathematically large value can be a sign of fragile assumptions rather than a valuable business."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How much of the valuation depends on the least observable assumption?"
+          ],
+          "prerequisites": [
+            "finance-l16-capital-structure"
+          ]
+        },
+        {
+          "id": "finance-l18-multiples",
+          "title": "Reconcile enterprise, firm and equity values",
+          "objectives": [
+            "Build an enterprise-to-equity bridge with consistent claims.",
+            "Use comparable multiples while checking operating and accounting differences."
+          ],
+          "topics": [
+            {
+              "title": "Value bridge",
+              "details": [
+                "Operating asset value differs from equity value after debt and other claims.",
+                "Cash, non-operating assets and diluted shares need consistent treatment."
+              ]
+            },
+            {
+              "title": "Comparables",
+              "details": [
+                "A multiple must match the numerator's claim to the denominator's flow.",
+                "Growth, profitability, leverage and one-offs affect comparability."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "enterprise-value",
+            "relative-valuation"
+          ],
+          "video": {
+            "resourceId": "finance-video-valuation",
+            "locator": "Valuation Tools: EV, Firm Value and Equity Value; Multiples and Fundamentals - Analyzing relationships. Distinguish operating and equity claims."
+          },
+          "reading": {
+            "resourceId": "finance-doc-modelling",
+            "locator": "Chapter 14 Valuation (Part 1) - Overview and Chapter 15 FCFF & FCFE; compare what is being valued before applying a multiple."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a18",
+            "title": "A value bridge and imperfect peer set",
+            "kind": "problem-set",
+            "instructions": [
+              "Use fictional enterprise value 2000, debt 600, surplus cash 150 and no other claims; calculate equity value and value per 100 diluted shares.",
+              "Create three fictional peers with different margins, growth and debt; compare an enterprise multiple and an equity multiple.",
+              "Document one peer exclusion and one alternative treatment that changes the range."
+            ],
+            "deliverables": [
+              "Enterprise-to-equity bridge",
+              "Peer-comparison table and caveats"
+            ],
+            "acceptanceCriteria": [
+              "Equity value is 1550 and per-share value is 15.5 under the simplified assumptions.",
+              "Enterprise and equity multiples use compatible denominators.",
+              "The peer range is not presented as a buy/sell recommendation."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q18a",
+                "kind": "numeric",
+                "prompt": "Enterprise value 2000 minus debt 600 plus surplus cash 150 gives what equity value?",
+                "answer": 1550,
+                "explanation": "2000 - 600 + 150 = 1550 before any other claims or adjustments."
+              },
+              {
+                "id": "finance-q18b",
+                "kind": "short-answer",
+                "prompt": "Why can comparing enterprise value to net income be inconsistent?",
+                "answer": "Enterprise value covers operating claims before financing, while net income is after interest and belongs to equity under the usual definitions.",
+                "explanation": "Numerator and denominator must refer to compatible claimholders."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which claim or non-operating asset is missing from the bridge?"
+          ],
+          "prerequisites": [
+            "finance-l17-dcf"
+          ]
+        },
+        {
+          "id": "finance-l19-macro",
+          "title": "Trace macroeconomic and institutional transmission",
+          "objectives": [
+            "Explain how policy rates, credit conditions, inflation and exchange rates can affect cash flows.",
+            "Distinguish central-bank, market-regulator and fiscal roles."
+          ],
+          "topics": [
+            {
+              "title": "Institutions",
+              "details": [
+                "Monetary policy, fiscal policy and securities regulation have different responsibilities.",
+                "Policy announcements do not mechanically determine every retail borrowing or market rate."
+              ]
+            },
+            {
+              "title": "Scenario channels",
+              "details": [
+                "Currency movements can affect imported costs, export revenue and foreign debt differently.",
+                "Demand, margin and discount-rate effects can offset or amplify each other."
+              ]
+            }
+          ],
+          "estimatedMinutes": 210,
+          "canonicalConceptTags": [
+            "macroeconomics",
+            "financial-institutions"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "finance-doc-rbi-functions",
+            "locator": "Select English in Money Kumar, the RBI series explaining the Reserve Bank's roles and functions. Pair institutional concepts with the SEBI investor material; do not use the booklet for current policy rates."
+          },
+          "supplementaryResourceIds": [
+            "trading-doc-sebi",
+            "quant-book-money-banking"
+          ],
+          "assignment": {
+            "id": "finance-a19",
+            "title": "Advanced evidence gate: macro-to-value scenario map",
+            "kind": "design",
+            "instructions": [
+              "Use the fictional business from l17 with some imported inputs and one foreign-currency borrowing exposure.",
+              "Create rate-rise, currency-depreciation and demand-slowdown scenarios; trace each through operating cash, financing and valuation separately.",
+              "Link the NPV decision, value bridge and official-source register, using invented shocks rather than asserting a live macro forecast."
+            ],
+            "deliverables": [
+              "Causal channel map and revised valuation ranges",
+              "Institution/source responsibility table"
+            ],
+            "acceptanceCriteria": [
+              "At least one scenario has competing positive and negative channels.",
+              "No current policy, exchange, tax or regulatory number is asserted without a dated official source.",
+              "The scenario is labelled conditional analysis, not a forecast or trading instruction."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q19a",
+                "kind": "single-choice",
+                "prompt": "For a firm importing inputs and earning only domestic revenue, local currency depreciation may directly do what?",
+                "choices": [
+                  "Raise local-currency input costs, other things equal",
+                  "Leave domestic input costs unchanged because invoice currency is unchanged",
+                  "Lower domestic input costs because the local currency lost purchasing power"
+                ],
+                "answer": "Raise local-currency input costs, other things equal",
+                "explanation": "The foreign-currency purchase price translates into more domestic currency. Pricing power, hedges and other exposures can modify the total effect."
+              },
+              {
+                "id": "finance-q19b",
+                "kind": "short-answer",
+                "prompt": "Why separate operating and discount-rate effects in a scenario?",
+                "answer": "A shock can change both expected cash flows and required returns; separating channels makes assumptions auditable and avoids hidden double counting.",
+                "explanation": "A single unexplained valuation adjustment obscures the mechanism."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which institution has authority over the specific claim you are making?"
+          ],
+          "prerequisites": [
+            "finance-l18-multiples"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance-m09-model-operations",
+      "title": "09. Integrated modelling and independent audit",
+      "stage": "professional",
+      "description": "Build schedules that reconcile and expose failure instead of plugging discrepancies.",
+      "prerequisites": [
+        "finance-m08-valuation-macro"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l20-integrated-model",
+          "title": "Link operating, asset, debt and cash schedules",
+          "objectives": [
+            "Forecast a small three-statement model from explicit business drivers.",
+            "Keep financing shortfalls visible instead of adding unexplained balancing plugs."
+          ],
+          "topics": [
+            {
+              "title": "Model architecture",
+              "details": [
+                "Separate assumptions, historical inputs, schedules and outputs.",
+                "Revenue, working capital, capex, depreciation and debt must agree across statements."
+              ]
+            },
+            {
+              "title": "Reconciliation",
+              "details": [
+                "Closing cash follows the cash-flow statement.",
+                "Retained earnings follow profit and distributions; unexplained differences are errors."
+              ]
+            }
+          ],
+          "estimatedMinutes": 260,
+          "canonicalConceptTags": [
+            "financial-modelling",
+            "three-statements"
+          ],
+          "video": {
+            "resourceId": "finance-video-valuation",
+            "locator": "Valuation Tools: From financial disclosures to value; use the extraction workflow, but create original synthetic inputs rather than copying the historical company workbook."
+          },
+          "reading": {
+            "resourceId": "finance-doc-modelling",
+            "locator": "Chapters 2 Excel workbook setup, 4-5 Assumptions, 6 Revenue model, 7-9 Asset and Debt Schedules, 12 Projections and 13 Cash flow statement. Translate to free LibreOffice or Python."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a20",
+            "title": "A driver-based three-year model",
+            "kind": "lab",
+            "instructions": [
+              "Invent and balance an opening statement, then forecast three years using unit sales, unit price, cost margin, collection days and capex assumptions.",
+              "Link depreciation, debt interest, repayments, retained earnings and cash.",
+              "Run a downside case that creates a financing need; expose the deficit and a separately specified financing choice rather than hiding it."
+            ],
+            "deliverables": [
+              "Integrated workbook or script",
+              "Base/downside reconciliation report"
+            ],
+            "acceptanceCriteria": [
+              "Assets equal liabilities plus equity in each period.",
+              "Cash-flow closing cash equals balance-sheet cash.",
+              "Financing assumptions, circular dependencies and any unresolved deficit are explicit."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q20a",
+                "kind": "single-choice",
+                "prompt": "An unexplained cash plug that makes the balance sheet balance is best treated as what?",
+                "choices": [
+                  "A valid funding source that need not appear in the financing schedule",
+                  "An automatic reduction in working-capital investment",
+                  "A model error or undisclosed financing assumption to investigate"
+                ],
+                "answer": "A model error or undisclosed financing assumption to investigate",
+                "explanation": "Balancing mechanically does not explain where funds come from. Every cash change needs an economic source."
+              },
+              {
+                "id": "finance-q20b",
+                "kind": "short-answer",
+                "prompt": "What is the benefit of driver-based revenue over typing a desired total?",
+                "answer": "Units, prices and capacity assumptions become inspectable and can be stressed independently, revealing the mechanism behind growth.",
+                "explanation": "A transparent causal model is easier to challenge than an unexplained output target."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which schedule first reveals the downside funding need?"
+          ],
+          "prerequisites": [
+            "finance-l19-macro"
+          ]
+        },
+        {
+          "id": "finance-l21-model-audit",
+          "title": "Audit units, formulas, scenarios and source lineage",
+          "objectives": [
+            "Detect sign, timing, unit and formula-link errors.",
+            "Record review findings and corrections without overwriting prior evidence."
+          ],
+          "topics": [
+            {
+              "title": "Model checks",
+              "details": [
+                "Test zeros, boundary rates and invalid terminal assumptions.",
+                "Separate hard-coded inputs from formulas and clearly label currency/unit scale."
+              ]
+            },
+            {
+              "title": "Review independence",
+              "details": [
+                "A reviewer samples calculations and follows references to their sources.",
+                "A corrected version needs a traceable change log and regenerated outputs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 220,
+          "canonicalConceptTags": [
+            "model-audit",
+            "financial-controls"
+          ],
+          "video": {
+            "resourceId": "finance-video-valuation",
+            "locator": "Valuation Tools: Terminal Value Check; apply the same skeptical review to formula boundaries and sensitivity tables."
+          },
+          "reading": {
+            "resourceId": "finance-doc-modelling",
+            "locator": "Chapter 2 Excel workbook setup and Chapter 3 Historical Data; inspect input/formula separation and source consistency in the original model you built."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-turing-way"
+          ],
+          "assignment": {
+            "id": "finance-a21",
+            "title": "A four-defect financial-model challenge",
+            "kind": "lab",
+            "instructions": [
+              "In copied synthetic workbooks, introduce a thousands-versus-units mismatch, a reversed working-capital sign, a broken formula reference and an invalid terminal growth rate.",
+              "Write checks that identify each defect and confirm the clean model still reconciles.",
+              "Record severity, affected decisions, fix and regenerated output under a new version."
+            ],
+            "deliverables": [
+              "Audit checklist and four fault fixtures",
+              "Findings/change log and clean-run checks"
+            ],
+            "acceptanceCriteria": [
+              "All four inserted defects are caught by named checks.",
+              "The clean version passes balance, cash and timing checks.",
+              "Source/version changes remain visible; no false claim of independent certification is made."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q21a",
+                "kind": "single-choice",
+                "prompt": "Which check is most useful for a thousands-versus-units error?",
+                "choices": [
+                  "Explicit unit labels and a dimensional consistency check",
+                  "Checking balance-sheet equality alone even if both sides share a scale error",
+                  "Comparing chart shapes without verifying currency and magnitude"
+                ],
+                "answer": "Explicit unit labels and a dimensional consistency check",
+                "explanation": "The arithmetic can be internally precise while units are inconsistent. Labels and cross-checks expose the mismatch."
+              },
+              {
+                "id": "finance-q21b",
+                "kind": "short-answer",
+                "prompt": "Why keep an old model version after correcting an error?",
+                "answer": "It allows reviewers to understand which outputs and decisions changed and why, while the corrected version becomes the clearly identified current artifact.",
+                "explanation": "Auditability requires lineage, not preserving an error as if it were still valid."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which wrong result would still look plausible without an invariant?"
+          ],
+          "prerequisites": [
+            "finance-l20-integrated-model"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance-m10-decision-evidence",
+      "title": "10. Financial-analysis capstone and decision governance",
+      "stage": "professional",
+      "description": "Bring household constraints, business economics and model uncertainty into one accountable evidence dossier.",
+      "prerequisites": [
+        "finance-m09-model-operations"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "finance-l22-memo",
+          "title": "Write an assumption-led financial decision memo",
+          "objectives": [
+            "Separate observed facts, fictional inputs, estimates and judgments.",
+            "Explain alternatives, conflicts and downside conditions to a non-specialist."
+          ],
+          "topics": [
+            {
+              "title": "Decision communication",
+              "details": [
+                "Lead with the question, alternatives and constraints.",
+                "Show ranges and major drivers rather than false precision."
+              ]
+            },
+            {
+              "title": "Ethics and scope",
+              "details": [
+                "Disclose commercial conflicts, missing data and jurisdiction limits.",
+                "An educational analysis is not personalized financial, tax or investment advice."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "financial-communication",
+            "ethics"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "trading-doc-sebi",
+            "locator": "Financial Planning Guide and Safeguarding against Securities Market Frauds: review how claims, suitability and source authority should be communicated."
+          },
+          "supplementaryResourceIds": [
+            "finance-doc-fame"
+          ],
+          "assignment": {
+            "id": "finance-a22",
+            "title": "A two-page, bounded decision memo",
+            "kind": "design",
+            "instructions": [
+              "Compare undertake, defer and reject for the fictional project using NPV, funding and downside evidence.",
+              "Label every key figure as synthetic input, derived result or external contextual fact with a dated source.",
+              "Include conflicts, limitations, a contrary interpretation and conditions for revisiting the decision."
+            ],
+            "deliverables": [
+              "Decision memo",
+              "Claim-to-evidence and assumption register"
+            ],
+            "acceptanceCriteria": [
+              "The memo distinguishes model output from market fact.",
+              "It discusses an adverse case and a credible alternative.",
+              "No actual security, tax filing or financial product recommendation is issued."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q22a",
+                "kind": "single-choice",
+                "prompt": "Which wording is defensible for an assumption-driven valuation?",
+                "choices": [
+                  "A point estimate accurate to two decimals regardless of assumption uncertainty",
+                  "A value established solely by reusing last year's peer multiple",
+                  "The model implies a range under these stated scenarios"
+                ],
+                "answer": "The model implies a range under these stated scenarios",
+                "explanation": "A model is conditional reasoning. It does not compel market prices or remove uncertainty."
+              },
+              {
+                "id": "finance-q22b",
+                "kind": "short-answer",
+                "prompt": "Why state a contrary interpretation?",
+                "answer": "It exposes the judgments and assumptions that could change the decision and helps a reviewer avoid being led by a one-sided presentation.",
+                "explanation": "A useful memo supports scrutiny rather than merely defending its author's preferred conclusion."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which uncertainty matters to the decision more than another decimal place?"
+          ],
+          "prerequisites": [
+            "finance-l21-model-audit"
+          ]
+        },
+        {
+          "id": "finance-l23-capstone",
+          "title": "Deliver an audited household and business analysis dossier",
+          "objectives": [
+            "Integrate financial resilience, accounting and corporate valuation evidence.",
+            "Make every material conclusion reproducible and bounded by assumptions."
+          ],
+          "topics": [
+            {
+              "title": "Cross-scale reasoning",
+              "details": [
+                "A household's liquidity constraints and a firm's funding constraints share timing concepts but not identical rules.",
+                "Investment analysis is distinct from advice to purchase an actual asset."
+              ]
+            },
+            {
+              "title": "Evidence gates",
+              "details": [
+                "Models, sources and memo claims must reconcile.",
+                "A reviewer must reproduce both a base result and an adverse scenario."
+              ]
+            }
+          ],
+          "estimatedMinutes": 600,
+          "canonicalConceptTags": [
+            "capstone",
+            "applied-financial-analysis"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "finance-doc-modelling",
+            "locator": "Chapters 12-18 Projections, Cash flow statement and Valuation; revisit only the sections needed to justify your original integrated model."
+          },
+          "supplementaryResourceIds": [
+            "finance-doc-fame",
+            "trading-doc-sebi"
+          ],
+          "assignment": {
+            "id": "finance-a23",
+            "title": "Capstone: a reproducible financial decision dossier",
+            "kind": "project",
+            "instructions": [
+              "Finalize a synthetic household cash/debt/insurance/goal plan and a separate synthetic company's three-statement forecast, NPV and valuation range.",
+              "Include a macro/working-capital downside, enterprise-to-equity bridge, model checks and an authority/date register for contextual claims.",
+              "Provide the input pack, formulas or code, audit trail and decision memo so another learner can regenerate results without paid software or personal data."
+            ],
+            "deliverables": [
+              "Two clearly separated synthetic case input packs",
+              "Household resilience plan and integrated corporate model",
+              "Valuation/financing sensitivities and audit tests",
+              "Claim-linked memo, source register and reviewer instructions"
+            ],
+            "acceptanceCriteria": [
+              "Household cash, debt principal and coverage limits reconcile under a loss-of-income scenario.",
+              "Corporate statements, cash flow and debt/asset schedules reconcile for every forecast period.",
+              "Cash-flow types, rates, currency units and terminal assumptions are consistent.",
+              "A downside funding need is visible rather than solved by an unexplained plug.",
+              "No current tax/regulatory figure is fabricated or imported from another jurisdiction.",
+              "The reviewer can reproduce a base case, an adverse case and a planted error detection.",
+              "The dossier makes no certification, personal advice or guaranteed-return claim."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q23a",
+                "kind": "single-choice",
+                "prompt": "Which evidence most strengthens this capstone?",
+                "choices": [
+                  "A precise point estimate with terminal assumptions chosen to match a target",
+                  "A base case with balanced statements but no adverse funding analysis",
+                  "Reproducible calculations and an openly explained downside"
+                ],
+                "answer": "Reproducible calculations and an openly explained downside",
+                "explanation": "The assessment rewards reasoning, consistency and transparency, not a favorable result."
+              },
+              {
+                "id": "finance-q23b",
+                "kind": "short-answer",
+                "prompt": "Why keep household and business cases separate even when using shared finance concepts?",
+                "answer": "Their objectives, obligations, legal context and decision constraints differ; shared arithmetic does not make assumptions or advice interchangeable.",
+                "explanation": "Transfer concepts carefully while preserving the scope of each analysis."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can the reviewer regenerate a conclusion from source inputs rather than trust a screenshot?"
+          ],
+          "prerequisites": [
+            "finance-l22-memo"
+          ]
+        },
+        {
+          "id": "finance-l24-review",
+          "title": "Defend the analysis and establish a review cadence",
+          "objectives": [
+            "Respond to a skeptical financial-model review with evidence.",
+            "Define triggers for updating assumptions and retiring stale conclusions."
+          ],
+          "topics": [
+            {
+              "title": "Challenge and correction",
+              "details": [
+                "A peer or delayed blind self-review selects calculations and scenarios.",
+                "Material errors require corrected outputs and a revised decision, not just a footnote."
+              ]
+            },
+            {
+              "title": "Ongoing governance",
+              "details": [
+                "Assumptions have owners, dates and refresh triggers.",
+                "Professional Practice does not award a regulated qualification."
+              ]
+            }
+          ],
+          "estimatedMinutes": 220,
+          "canonicalConceptTags": [
+            "financial-governance",
+            "independent-review"
+          ],
+          "video": {
+            "resourceId": "finance-video-valuation",
+            "locator": "Valuation Tools: Terminal Value Check and EV, Firm Value and Equity Value. Use these as a challenge checklist for your final model, not as an authority approving it."
+          },
+          "reading": {
+            "resourceId": "quant-book-turing-way",
+            "locator": "General guidance and good practice for testing: Document the tests and how to run them; Reproducible Environments. Apply the evidence standard to the model handover."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "finance-a24",
+            "title": "A financial-analysis handover and challenge record",
+            "kind": "design",
+            "instructions": [
+              "Ask a peer or delayed self-reviewer to select one household cash shock, one corporate bridge and one valuation assumption for independent recalculation.",
+              "Record disagreements, corrected versions and any remaining blockers to the decision.",
+              "Set review triggers for changed goals, funding terms, source currency or business drivers; retain a dated final limitations statement."
+            ],
+            "deliverables": [
+              "Reviewer challenge/resolution log",
+              "Versioned handover and refresh policy"
+            ],
+            "acceptanceCriteria": [
+              "Reviewer-selected results are reproduced or marked unresolved.",
+              "Material corrections propagate to the memo and all dependent outputs.",
+              "Review triggers are event-based as well as calendar-based, with no qualification claim."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "finance-q24a",
+                "kind": "single-choice",
+                "prompt": "A material debt-schedule error changes valuation. What needs revision?",
+                "choices": [
+                  "Only the debt tab because the summary is a separate presentation",
+                  "The affected model outputs and decision memo",
+                  "Only the written disclaimer without regenerating dependent outputs"
+                ],
+                "answer": "The affected model outputs and decision memo",
+                "explanation": "A model supports decisions through linked calculations. Material changes must propagate through that chain."
+              },
+              {
+                "id": "finance-q24b",
+                "kind": "short-answer",
+                "prompt": "Give an event that should trigger review before the next scheduled date.",
+                "answer": "Examples include a lost income source, changed financing terms, a major business-model change or new authoritative information invalidating a material assumption.",
+                "explanation": "A calendar alone cannot keep a decision valid when its key conditions change."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which assumption could make today's conclusion stale tomorrow?"
+          ],
+          "prerequisites": [
+            "finance-l23-capstone"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "RBI FAME and financial literacy material",
+      "url": "https://www.rbi.org.in/FinancialEducation/fame.aspx",
+      "notes": "Institution/product-neutral public education and exact official video link verified."
+    },
+    {
+      "title": "SEBI financial planning and investor safeguards",
+      "url": "https://investor.sebi.gov.in/iematerial.html",
+      "notes": "Named English booklets available from the official index; no local redistribution."
+    },
+    {
+      "title": "Varsity financial modelling chapter index",
+      "url": "https://zerodha.com/varsity/module/financial-modelling/",
+      "notes": "Free HTML; spreadsheet concepts transfer to LibreOffice or Python."
+    },
+    {
+      "title": "NYU Stern valuation webcasts and model checks",
+      "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/webcastvalonline.htm",
+      "notes": "Free author-hosted recordings; historical examples are not current accounting law or market data."
+    }
+  ],
+  "limitations": [
+    "Finance assignments use fictional households and businesses, not real personal account data. They teach analysis, not personalized investment, insurance, borrowing or tax advice; no product purchase or guaranteed return is required.",
+    "Professional Practice describes a learning level, not a professional certification, qualification, regulated advisory status or independently verified competence.",
+    "All rates, premiums, tax assumptions and exchange-rate shocks in exercises are explicitly invented. Check current Indian rules with the relevant regulator; historical US examples do not establish Indian law.",
+    "The required route uses free official HTML/externally linked readings, free videos where relevant and LibreOffice or local Python. Paid textbooks, Microsoft Excel, subscriptions and certificates are unnecessary.",
+    "Readings remain at their official hosts. Do not copy or redistribute book chapters, recordings, company workbooks or third-party data without permission.",
+    "Shared finance, research and Common Foundation resources/lessons retain their canonical IDs. Optional topic progress does not replace or dilute core-path progress."
+  ]
+}

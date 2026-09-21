@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { TRACK_IDS, type ProgressState } from "./types";
+import { CORE_TRACK_IDS, type ProgressState } from "./types";
 
 export const MAX_JSON_LENGTH = 5_000_000;
 export const MAX_COLLECTION_ENTRIES = 10_000;
@@ -140,7 +140,7 @@ export const settingsSchema = z
     timezone: timezoneSchema,
     theme: z.enum(["light", "dark", "system"]),
     dailyMinutes: z.number().finite().int().min(5).max(1_440),
-    primaryTrack: z.enum(TRACK_IDS),
+    primaryTrack: z.enum(CORE_TRACK_IDS),
   })
   .strict();
 
@@ -269,7 +269,7 @@ const goalSchema = z
     updatedAt: instantSchema,
     title: z.string().min(1).max(200),
     targetDate: dateKeySchema,
-    trackId: z.enum(TRACK_IDS),
+    trackId: z.enum(CORE_TRACK_IDS),
     completedAt: instantSchema.nullable(),
     deletedAt: instantSchema.nullable(),
   })
