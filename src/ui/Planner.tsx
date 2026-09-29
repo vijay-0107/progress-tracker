@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Plus, Trash2 } from "lucide-react";
 import { dayKey, addDays } from "../domain/progress";
 import { trackMeta } from "../content/catalog";
+import { isReadinessEntity } from "../domain/careers";
 import { CORE_TRACK_IDS, type CoreTrackId } from "../domain/types";
 import type { LearningProps } from "./shared";
 import { EmptyState, PageHeading, readableDate, TrackBadge } from "./shared";
@@ -112,7 +113,12 @@ export function Planner({ state, mutate, notify }: LearningProps) {
             <ul className="activity-log">
               {events.map((event) => (
                 <li key={event.id}>
-                  <span className="stage-badge">{event.kind}</span>
+                  <span className="stage-badge">
+                    {event.kind === "project" &&
+                    isReadinessEntity(event.entityId)
+                      ? "readiness"
+                      : event.kind}
+                  </span>
                   <div>
                     <strong>{event.detail}</strong>
                     <small>

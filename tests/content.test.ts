@@ -23,7 +23,12 @@ describe("curated catalog", () => {
     expect(catalog.tracks.map((track) => track.trackId)).toEqual([
       ...TRACK_IDS,
     ]);
-    expect(catalog.projects).toHaveLength(21);
+    expect(catalog.projects).toHaveLength(26);
+    expect(
+      catalog.projects.filter(
+        (project) => project.variant !== "career-practice",
+      ),
+    ).toHaveLength(21);
     for (const lesson of allLessons(catalog)) {
       expect(lesson.objectives.length).toBeGreaterThan(0);
       expect(lesson.topics.every((topic) => topic.details.length > 0)).toBe(

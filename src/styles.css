@@ -980,6 +980,89 @@ summary {
 .path-card .progress-track {
   height: 4px;
 }
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  gap: 18px;
+}
+.career-card {
+  padding: 22px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.career-card h2,
+.career-card h3,
+.career-card p {
+  margin: 0;
+}
+.career-card .arrow-link {
+  margin-top: auto;
+}
+.career-filters {
+  margin-top: 24px;
+}
+.career-filters label {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.career-filters input,
+.career-filters select,
+.career-practice select {
+  max-width: 100%;
+}
+.career-self-check {
+  margin: 20px 0;
+}
+.career-self-check summary {
+  cursor: pointer;
+  padding: 12px 0;
+}
+.readiness-editor {
+  border-top: 1px solid var(--line);
+  margin-top: 22px;
+  padding-top: 18px;
+}
+.readiness-status {
+  color: var(--muted);
+}
+.career-practice [hidden] {
+  display: none;
+}
+.career-practice {
+  scroll-margin-top: 90px;
+}
+.career-card .button,
+.career-filters select,
+.career-filters .check-label,
+.readiness-editor .check-label,
+.career-practice .button,
+.stage-card .button,
+.career-practice select {
+  min-height: 44px;
+}
+@media (max-width: 520px) {
+  .career-card,
+  .career-practice {
+    font-size: 16px;
+  }
+  .career-card input,
+  .career-card select,
+  .career-practice input,
+  .career-practice textarea,
+  .career-practice select,
+  .career-filters input,
+  .career-filters select {
+    font-size: 16px;
+    min-width: 0;
+  }
+  .career-filters > label {
+    flex-basis: 100%;
+  }
+}
 .stage-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));

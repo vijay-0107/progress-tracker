@@ -19,6 +19,7 @@ import {
 import {
   CORE_TRACK_IDS,
   EXTRA_TOPIC_IDS,
+  ORIGINAL_EXTRA_TOPIC_IDS,
   LEARNING_STAGES,
   TRACK_IDS,
   type Lesson,
@@ -52,7 +53,9 @@ const rawTracks = () =>
     ),
   );
 const catalog = buildCatalog(rawTracks());
-const extras = catalog.tracks.filter((track) => isExtraTopic(track.trackId));
+const extras = catalog.tracks.filter((track) =>
+  ORIGINAL_EXTRA_TOPIC_IDS.some((id) => id === track.trackId),
+);
 const T0 = "2026-09-20T10:00:00.000Z";
 const T1 = "2026-09-21T10:00:00.000Z";
 const T2 = "2026-09-21T10:01:00.000Z";
@@ -129,7 +132,7 @@ describe("optional Extra Topics content contract", () => {
   });
 
   it("appends five complete topics without changing the released core inventory", () => {
-    expect(catalog.version).toBe("2026.09.21.1");
+    expect(catalog.version).toBe("2026.09.29.1");
     expect(
       catalog.tracks
         .filter((track) => !isExtraTopic(track.trackId))
@@ -141,8 +144,14 @@ describe("optional Extra Topics content contract", () => {
         .filter((track) => !isExtraTopic(track.trackId))
         .flatMap((track) => track.modules),
     ).toHaveLength(66);
-    expect(catalog.projects).toHaveLength(21);
-    expect(extras.map((track) => track.trackId)).toEqual([...EXTRA_TOPIC_IDS]);
+    expect(
+      catalog.projects.filter(
+        (project) => project.variant !== "career-practice",
+      ),
+    ).toHaveLength(21);
+    expect(extras.map((track) => track.trackId)).toEqual([
+      ...ORIGINAL_EXTRA_TOPIC_IDS,
+    ]);
     expect(
       extras.map((track) => [
         track.modules.length,
@@ -155,7 +164,14 @@ describe("optional Extra Topics content contract", () => {
       [12, 32],
       [10, 24],
     ]);
-    expect(allLessons(catalog)).toHaveLength(355);
+    expect(
+      allLessons({
+        ...catalog,
+        tracks: catalog.tracks.filter(
+          (track) => track.trackId !== "technical-product-management",
+        ),
+      }),
+    ).toHaveLength(355);
   });
 
   for (const track of extras) {

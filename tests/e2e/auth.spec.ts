@@ -55,6 +55,131 @@ async function saveNote(page: Page, note: string) {
   ).toBeVisible({ timeout: 20000 });
 }
 
+test("readiness keeps per-gate evidence private during live owner switches and protects stale drafts", async ({
+  page,
+  context,
+  browser,
+}) => {
+  const suffix = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const alice = `readiness-alice-${suffix}@example.test`;
+  const bob = `readiness-bob-${suffix}@example.test`;
+  const openReadiness = async (target: Page) => {
+    await target.goto(
+      "http://127.0.0.1:5178/progress-tracker/#/project/sde-order-orchestrator",
+    );
+    await expect(
+      target.getByRole("region", {
+        name: "Career exercises and independent readiness",
+      }),
+    ).toBeVisible();
+  };
+  const synced = async (target: Page) => {
+    await expect(
+      target.getByRole("link", { name: "Emulator synced", exact: true }),
+    ).toBeVisible({ timeout: 20000 });
+  };
+  await authenticate(page, alice, true);
+  await openReadiness(page);
+  const explain = page.locator('[data-readiness-gate="explain"]');
+  const aliceEvidence =
+    "Alice independently explained the synthetic order/provider boundary and retained her own hand-calculated rollback fixture.";
+  await explain
+    .getByLabel("Evidence for Explain", { exact: true })
+    .fill(aliceEvidence);
+  for (const checkbox of await explain.getByRole("checkbox").all())
+    await checkbox.check();
+  await explain
+    .getByRole("button", { name: "Record Explain readiness", exact: true })
+    .click();
+  await expect(
+    explain.getByText("Independent practice recorded (self-reported).", {
+      exact: true,
+    }),
+  ).toBeVisible();
+  await synced(page);
+  await page
+    .getByLabel("Evidence for Modify", { exact: true })
+    .fill(
+      "Alice unsaved modification draft must not follow an account switch.",
+    );
+
+  const accountTab = await context.newPage();
+  const remoteContext = await browser.newContext();
+  try {
+    await accountTab.goto("http://127.0.0.1:5178/progress-tracker/#/settings");
+    await expect(
+      accountTab.getByRole("button", { name: "Sign out", exact: true }),
+    ).toBeVisible();
+    await accountTab
+      .getByRole("button", { name: "Sign out", exact: true })
+      .click();
+    await authenticate(accountTab, bob, true);
+    await expect(
+      page.getByLabel("Evidence for Explain", { exact: true }),
+    ).toHaveValue("");
+    await expect(
+      page.getByLabel("Evidence for Modify", { exact: true }),
+    ).toHaveValue("");
+    await expect(
+      page
+        .locator('[data-readiness-gate="explain"]')
+        .getByText("Not yet independently demonstrated.", { exact: true }),
+    ).toBeVisible();
+    const bobEvidence =
+      "Bob private draft explains a different synthetic fixture and must stay in Bob's own account.";
+    await page
+      .getByLabel("Evidence for Explain", { exact: true })
+      .fill(bobEvidence);
+    await page
+      .getByRole("button", { name: "Save Explain evidence", exact: true })
+      .click();
+    await synced(page);
+    await accountTab
+      .getByRole("button", { name: "Sign out", exact: true })
+      .click();
+    await authenticate(accountTab, alice);
+    await expect(
+      page.getByLabel("Evidence for Explain", { exact: true }),
+    ).toHaveValue(aliceEvidence);
+    await expect(
+      page.getByLabel("Evidence for Modify", { exact: true }),
+    ).toHaveValue("");
+
+    const draft =
+      "Alice unsaved local revision must survive a newer cloud edit until she explicitly reconciles the evidence.";
+    await page.getByLabel("Evidence for Explain", { exact: true }).fill(draft);
+    const remote = await remoteContext.newPage();
+    await authenticate(remote, alice);
+    await openReadiness(remote);
+    await expect(
+      remote.getByLabel("Evidence for Explain", { exact: true }),
+    ).toHaveValue(aliceEvidence);
+    await remote
+      .getByLabel("Evidence for Explain", { exact: true })
+      .fill(
+        "Alice newer cloud evidence from another disposable browser, with a revised independent fixture explanation.",
+      );
+    await remote
+      .getByRole("button", { name: "Save Explain evidence", exact: true })
+      .click();
+    await synced(remote);
+    await expect(
+      page
+        .getByRole("alert")
+        .filter({ hasText: "Saved evidence changed while you were editing" }),
+    ).toBeVisible({ timeout: 20000 });
+    await expect(
+      page.getByLabel("Evidence for Explain", { exact: true }),
+    ).toHaveValue(draft);
+    await expect(
+      page.getByRole("button", { name: "Save Explain evidence", exact: true }),
+    ).toBeDisabled();
+  } finally {
+    await accountTab.close();
+    await remoteContext.close();
+  }
+});
+
 test("Auth emulator isolates guest, Alice and Bob; fresh context reloads real Firestore records", async ({
   page,
   browser,

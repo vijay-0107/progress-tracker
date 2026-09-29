@@ -14,6 +14,8 @@ import {
   trackMeta,
 } from "../content/catalog";
 import { CORE_TRACK_IDS, EXTRA_TOPIC_IDS, type TrackId } from "../domain/types";
+import { careerProfiles } from "../content/careers";
+import { careerPackets } from "../content/career-exercises";
 import type { LearningProps } from "./shared";
 import {
   EmptyState,
@@ -228,7 +230,14 @@ export function SearchPage({
     : [];
   const projects = normalized
     ? catalog.projects.filter((project) =>
-        `${project.title} ${project.summary} ${project.scope}`
+        `${project.title} ${project.summary} ${project.scope} ${careerPackets.find((packet) => packet.projectId === project.id)?.title || ""} ${careerPackets.find((packet) => packet.projectId === project.id)?.repository || ""}`
+          .toLowerCase()
+          .includes(normalized),
+      )
+    : [];
+  const careers = normalized
+    ? careerProfiles.filter((profile) =>
+        `${profile.title} ${profile.summary} ${profile.stages.flatMap((stage) => stage.competencies.map((skill) => skill.label)).join(" ")}`
           .toLowerCase()
           .includes(normalized),
       )
@@ -242,8 +251,22 @@ export function SearchPage({
             ? `Results for "${query}"`
             : "What would you like to learn?"
         }
-        description={`${lessons.length} lessons and ${projects.length} projects. Your progress is shared wherever you find a lesson.`}
+        description={`${lessons.length} lessons, ${projects.length} projects and ${careers.length} career profiles. Canonical records are shared wherever you find them.`}
       />
+      {careers.map((profile) => (
+        <a
+          className="panel search-result"
+          href={`#/career/${profile.id}`}
+          key={profile.id}
+        >
+          <span className="stage-badge">Career Preparation</span>
+          <h2>{profile.title}</h2>
+          <p>{profile.summary}</p>
+          <span className="arrow-link">
+            View competency map <ArrowRight size={16} />
+          </span>
+        </a>
+      ))}
       {lessons.map((lesson) => {
         const found = findLesson(catalog, lesson.id)!;
         return (
@@ -280,7 +303,7 @@ export function SearchPage({
           </span>
         </a>
       ))}
-      {normalized && !lessons.length && !projects.length && (
+      {normalized && !lessons.length && !projects.length && !careers.length && (
         <EmptyState title="No match, but plenty to explore">
           Try a broader concept like SQL, probability, testing or reading.
         </EmptyState>

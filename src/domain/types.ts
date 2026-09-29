@@ -7,12 +7,16 @@ export const CORE_TRACK_IDS = [
   "gate",
   "cat",
 ] as const;
-export const EXTRA_TOPIC_IDS = [
+export const ORIGINAL_EXTRA_TOPIC_IDS = [
   "trading",
   "algorithmic-trading",
   "finance",
   "computer-security-systems",
   "ethical-hacking",
+] as const;
+export const EXTRA_TOPIC_IDS = [
+  ...ORIGINAL_EXTRA_TOPIC_IDS,
+  "technical-product-management",
 ] as const;
 export const TRACK_IDS = [...CORE_TRACK_IDS, ...EXTRA_TOPIC_IDS] as const;
 export type CoreTrackId = (typeof CORE_TRACK_IDS)[number];
@@ -116,7 +120,11 @@ export interface Project {
   id: string;
   title: string;
   tracks: TrackId[];
-  variant: "A-rebuild" | "B-build" | "professional-synthetic-recreation";
+  variant:
+    | "A-rebuild"
+    | "B-build"
+    | "professional-synthetic-recreation"
+    | "career-practice";
   summary: string;
   scope: string;
   prerequisites: string[];
@@ -156,6 +164,77 @@ export interface Catalog {
   version: string;
   tracks: Track[];
   projects: Project[];
+}
+
+export const CAREER_PROFILE_IDS = [
+  "backend",
+  "ai-systems",
+  "security",
+  "data-platform",
+  "quant-developer",
+  "technical-pm",
+] as const;
+export type CareerProfileId = (typeof CAREER_PROFILE_IDS)[number];
+export const READINESS_GATES = [
+  "explain",
+  "modify",
+  "debug",
+  "test-defend",
+] as const;
+export type ReadinessGate = (typeof READINESS_GATES)[number];
+
+export interface CareerCompetency {
+  id: string;
+  label: string;
+  lessonIds: string[];
+  exerciseIds: string[];
+  depth: "canonical" | "applied-extension" | "conceptual";
+  coverageNote: string;
+}
+
+export interface CareerProfile {
+  id: CareerProfileId;
+  title: string;
+  summary: string;
+  projectIds: [string, string, string];
+  stages: {
+    stage: Stage;
+    outcome: string;
+    evidence: string;
+    competencies: CareerCompetency[];
+  }[];
+  laterSpecializations: string[];
+}
+
+export interface CareerReading {
+  title: string;
+  url: string;
+  locator: string;
+  verifiedOn: string;
+}
+
+export interface CareerExercise {
+  id: string;
+  stage: Stage;
+  title: string;
+  objective: string;
+  lessonIds: string[];
+  reading: CareerReading;
+  concepts: string[];
+  instructions: string[];
+  deliverables: string[];
+  acceptanceCriteria: string[];
+  selfCheck: { prompt: string; answer: string; explanation: string };
+}
+
+export interface CareerProjectPacket {
+  repository: string;
+  projectId: string;
+  title: string;
+  referenceStatus: "pending-parent-review" | "accepted-local-reference";
+  coverage: string[];
+  limitations: string[];
+  exercises: CareerExercise[];
 }
 
 export interface ReviewState {

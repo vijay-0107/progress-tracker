@@ -37,7 +37,7 @@ describe("append-only curriculum import provenance", () => {
           "utf8",
         ),
       );
-      expect(after.version).toBe("2026.09.21.1");
+      expect(after.version).toBe("2026.09.29.1");
       expect(after.complete).toBe(true);
       expect(
         after.tracks.map((track: { trackId: string }) => track.trackId),

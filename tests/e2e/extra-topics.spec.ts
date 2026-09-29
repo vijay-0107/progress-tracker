@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { z } from "zod";
 import { trackSchema } from "../../src/content/schema";
-import { EXTRA_TOPIC_IDS, type Lesson } from "../../src/domain/types";
+import { ORIGINAL_EXTRA_TOPIC_IDS, type Lesson } from "../../src/domain/types";
 import {
   completeLesson,
   createProgress,
@@ -13,7 +13,7 @@ import {
 import { progressStorageKey } from "../../src/domain/storage";
 import { validateProgressState } from "../../src/domain/validation";
 
-const topics = EXTRA_TOPIC_IDS.map((id) =>
+const topics = ORIGINAL_EXTRA_TOPIC_IDS.map((id) =>
   trackSchema.parse(
     JSON.parse(
       fs.readFileSync(

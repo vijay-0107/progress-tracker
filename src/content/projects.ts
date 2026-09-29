@@ -7,6 +7,7 @@ type GateEvidence = Pick<
 type FourGates = [GateEvidence, GateEvidence, GateEvidence, GateEvidence];
 type ProjectBrief = Omit<Project, "milestones" | "prerequisites"> & {
   gates: FourGates;
+  prerequisites?: string[];
 };
 
 const gateDefinitions = [
@@ -116,11 +117,11 @@ const faceBoundaries = [
   "Review pretrained component and dataset permissions separately. Do not claim backbone training, liveness assurance, production authentication or NIST certification.",
 ];
 
-function defineProject(brief: ProjectBrief): Project {
+export function defineProject(brief: ProjectBrief): Project {
   const { gates, ...metadata } = brief;
   return {
     ...metadata,
-    prerequisites: [],
+    prerequisites: brief.prerequisites || [],
     safety: [
       ...metadata.safety,
       "Never publish employer/client data, code, screenshots, identities or confidential architecture, personal data or secrets.",

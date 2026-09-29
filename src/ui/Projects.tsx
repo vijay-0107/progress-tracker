@@ -15,7 +15,10 @@ import {
   trackMeta,
 } from "../content/catalog";
 import { recordActivity } from "../domain/progress";
-import type { Project, ProjectProgress, TrackId } from "../domain/types";
+import type { Project, ProjectProgress, TrackId, Stage } from "../domain/types";
+import { careerProfiles } from "../content/careers";
+import { findCareer, findCareerPacket } from "../domain/careers";
+import { CareerReadiness } from "./CareerPreparation";
 import type { LearningProps } from "./shared";
 import {
   EmptyState,
@@ -49,14 +52,19 @@ function projectLessonRequirements(project: Project, props: LearningProps) {
     );
 }
 
-export function Projects(props: LearningProps) {
+export function Projects(props: LearningProps & { careerId?: string }) {
   const { catalog, state } = props;
   const [track, setTrack] = useState<TrackId | "all">("all");
   const [variant, setVariant] = useState("all");
+  const [career, setCareer] = useState(
+    findCareer(props.careerId || "")?.id || "all",
+  );
+  const profile = findCareer(career);
   const visible = catalog.projects.filter(
     (project) =>
       (track === "all" || project.tracks.includes(track)) &&
-      (variant === "all" || project.variant === variant),
+      (variant === "all" || project.variant === variant) &&
+      (!profile || profile.projectIds.includes(project.id)),
   );
   return (
     <>
@@ -75,6 +83,16 @@ export function Projects(props: LearningProps) {
         <span>
           <strong>1</strong> shared synthetic work recreation
         </span>
+        <span>
+          <strong>
+            {
+              catalog.projects.filter(
+                (project) => project.variant === "career-practice",
+              ).length
+            }
+          </strong>{" "}
+          additional career-practice builds
+        </span>
       </div>
       <div className="notice info">
         <strong>Past work and current evidence are different.</strong>
@@ -87,7 +105,7 @@ export function Projects(props: LearningProps) {
       </div>
       <div className="filter-bar">
         <label>
-          Career path
+          Curriculum path
           <select
             value={track}
             onChange={(event) =>
@@ -95,9 +113,25 @@ export function Projects(props: LearningProps) {
             }
           >
             <option value="all">All career paths</option>
-            {(["data", "sde", "quant", "ai"] as TrackId[]).map((id) => (
+            {[
+              ...new Set(catalog.projects.flatMap((project) => project.tracks)),
+            ].map((id) => (
               <option value={id} key={id}>
                 {trackMeta[id].label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Career preparation profile
+          <select
+            value={career}
+            onChange={(event) => setCareer(event.target.value)}
+          >
+            <option value="all">All preparation profiles</option>
+            {careerProfiles.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.title}
               </option>
             ))}
           </select>
@@ -111,6 +145,9 @@ export function Projects(props: LearningProps) {
             <option value="all">All project types</option>
             <option value="A-rebuild">A · Reconstruction</option>
             <option value="B-build">B · Advanced build</option>
+            <option value="career-practice">
+              Career practice · Additional build
+            </option>
             <option value="professional-synthetic-recreation">
               Synthetic work recreation
             </option>
@@ -134,7 +171,9 @@ export function Projects(props: LearningProps) {
                     ? "A / RECONSTRUCT"
                     : project.variant === "B-build"
                       ? "B / BUILD NEXT"
-                      : "SHARED / SYNTHETIC"}
+                      : project.variant === "career-practice"
+                        ? "CAREER / PRACTICE"
+                        : "SHARED / SYNTHETIC"}
                 </span>
                 <FolderGit2 size={22} />
               </div>
@@ -180,9 +219,12 @@ export function Projects(props: LearningProps) {
   );
 }
 
-export function ProjectPage(props: LearningProps & { id: string }) {
+export function ProjectPage(
+  props: LearningProps & { id: string; selectedStage?: Stage | "all" },
+) {
   const { catalog, state, mutate, notify, id } = props;
   const project = catalog.projects.find((item) => item.id === id);
+  const careerPacket = findCareerPacket(id);
   const saved: ProjectProgress = state.projects[id] || {
     id,
     updatedAt: new Date().toISOString(),
@@ -257,17 +299,44 @@ export function ProjectPage(props: LearningProps & { id: string }) {
             ? "A / RECONSTRUCTION"
             : project.variant === "B-build"
               ? "B / FUTURE BUILD"
-              : "ONE SHARED SYNTHETIC RECREATION"
+              : project.variant === "career-practice"
+                ? "ADDITIONAL CAREER PRACTICE BUILD"
+                : "ONE SHARED SYNTHETIC RECREATION"
         }
         title={project.title}
         description={project.summary}
+        actions={
+          careerPacket && (
+            <button
+              className="button secondary"
+              onClick={() => {
+                const section = document.getElementById(
+                  `career-exercises-${id}`,
+                );
+                if (!section) {
+                  notify(
+                    "Career exercises are not available yet. Reload this page to retry.",
+                  );
+                  return;
+                }
+                section.scrollIntoView({ block: "start" });
+                section.focus({ preventScroll: true });
+              }}
+            >
+              Jump to career exercises and readiness <ArrowRight size={16} />
+            </button>
+          )
+        }
       />
       <div className="project-detail-grid">
         <div>
           <section className="panel lesson-section">
             <h2>A bounded, honest scope</h2>
             <p>{project.scope}</p>
-            <div className="notice info">{project.historicalNote}</div>
+            <div className="notice info">
+              <strong>Original learner build brief</strong>
+              <p>{project.historicalNote}</p>
+            </div>
             <h3>Build within these boundaries</h3>
             <ul>
               {project.safety.map((item) => (
@@ -415,6 +484,11 @@ export function ProjectPage(props: LearningProps & { id: string }) {
           </section>
         </aside>
       </div>
+      <CareerReadiness
+        key={`${state.ownerId}:${id}`}
+        {...props}
+        projectId={id}
+      />
     </>
   );
 }

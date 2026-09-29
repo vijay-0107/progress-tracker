@@ -11,6 +11,10 @@ import type {
 import { EXTRA_TOPIC_IDS, LEARNING_STAGES, TRACK_IDS } from "../domain/types";
 import { trackSchema } from "./schema";
 import { projects } from "./projects";
+import { careerProjects } from "./career-projects";
+import { careerProfiles } from "./careers";
+import { careerPackets } from "./career-exercises";
+import { CAREER_PROFILE_IDS, READINESS_GATES } from "../domain/types";
 import hostedBooks from "./hosted-books.json";
 import verifiedEmbeds from "./verified-embeds.json";
 
@@ -121,6 +125,14 @@ export const trackMeta: Record<
     color: "#865442",
     code: "E5",
   },
+  "technical-product-management": {
+    label: "Technical Product Management",
+    short: "Technical PM",
+    description:
+      "Discovery, evidence, economics and responsible product decisions.",
+    color: "#397780",
+    code: "C1",
+  },
 };
 
 export const CAREER_TRACKS: TrackId[] = ["data", "sde", "quant", "ai"];
@@ -203,7 +215,7 @@ export function buildCatalog(rawTracks: unknown[]): Catalog {
   tracks.sort(
     (a, b) => TRACK_IDS.indexOf(a.trackId) - TRACK_IDS.indexOf(b.trackId),
   );
-  const mappedProjects = projects.map((project) => {
+  const mappedProjects = [...projects, ...careerProjects].map((project) => {
     const mappings = tracks
       .flatMap((track) => track.projectMappings)
       .filter(
@@ -232,7 +244,7 @@ export function buildCatalog(rawTracks: unknown[]): Catalog {
     };
   });
   const catalog: Catalog = {
-    version: "2026.09.21.1",
+    version: "2026.09.29.1",
     tracks,
     projects: mappedProjects,
   };
@@ -384,6 +396,115 @@ export function validateCatalog(catalog: Catalog): void {
     });
     project.milestones.forEach((milestone) => claim(milestone.id));
   });
+  validateCareers(catalog, claim);
+}
+
+function validateCareers(catalog: Catalog, claim: (id: string) => void) {
+  const lessons = new Set(allLessons(catalog).map((lesson) => lesson.id));
+  const projectIds = new Set(catalog.projects.map((project) => project.id));
+  const exerciseIds = new Set<string>();
+  const repositories = new Set<string>();
+  const packetProjects = new Set<string>();
+  for (const packet of careerPackets) {
+    if (
+      !projectIds.has(packet.projectId) ||
+      packetProjects.has(packet.projectId) ||
+      repositories.has(packet.repository)
+    )
+      throw new Error(
+        `Invalid or duplicate career project: ${packet.projectId}`,
+      );
+    packetProjects.add(packet.projectId);
+    repositories.add(packet.repository);
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(packet.repository))
+      throw new Error("Invalid private reference repository name");
+    if (
+      packet.referenceStatus === "pending-parent-review" &&
+      packet.coverage.length
+    )
+      throw new Error(
+        "Pending references cannot assert implemented capabilities",
+      );
+    if (
+      packet.referenceStatus === "accepted-local-reference" &&
+      !packet.coverage.length
+    )
+      throw new Error("Accepted references need scoped capability notes");
+    if (
+      packet.exercises.map((item) => item.stage).join() !==
+      LEARNING_STAGES.join()
+    )
+      throw new Error(
+        `${packet.projectId} needs four ordered career exercises`,
+      );
+    for (const exercise of packet.exercises) {
+      claim(exercise.id);
+      exerciseIds.add(exercise.id);
+      for (const id of exercise.lessonIds)
+        if (!lessons.has(id))
+          throw new Error(`Unknown career exercise lesson: ${id}`);
+      const url = new URL(exercise.reading.url);
+      if (
+        url.protocol !== "https:" ||
+        url.username ||
+        url.password ||
+        exercise.reading.locator.length < 35
+      )
+        throw new Error(`Invalid career reading for ${exercise.id}`);
+    }
+    for (const gate of READINESS_GATES) {
+      const id = `career-readiness-${packet.projectId}-${gate}`;
+      if (id.length > 160)
+        throw new Error("Career readiness ID exceeds the deployed contract");
+      claim(id);
+      claim(`${id}-recorded`);
+    }
+  }
+  if (
+    careerProfiles.map((profile) => profile.id).join() !==
+    CAREER_PROFILE_IDS.join()
+  )
+    throw new Error("Career profiles must retain the six canonical identities");
+  for (const profile of careerProfiles) {
+    if (
+      new Set(profile.projectIds).size !== 3 ||
+      profile.projectIds.some((id) => !packetProjects.has(id))
+    )
+      throw new Error(
+        `${profile.id} needs three distinct registered project packets`,
+      );
+    if (
+      profile.stages.map((item) => item.stage).join() !== LEARNING_STAGES.join()
+    )
+      throw new Error(`${profile.id} needs four ordered preparation stages`);
+    for (const stage of profile.stages) {
+      if (!stage.competencies.length)
+        throw new Error(`${profile.id} has an empty stage`);
+      for (const skill of stage.competencies) {
+        claim(skill.id);
+        if (
+          !skill.lessonIds.length ||
+          new Set(skill.lessonIds).size !== skill.lessonIds.length
+        )
+          throw new Error(
+            `Missing or repeated canonical learning references: ${skill.id}`,
+          );
+        for (const id of skill.lessonIds)
+          if (!lessons.has(id))
+            throw new Error(`Unknown competency lesson: ${id}`);
+        for (const id of skill.exerciseIds)
+          if (
+            !exerciseIds.has(id) ||
+            !careerPackets.some(
+              (packet) =>
+                profile.projectIds.includes(packet.projectId) &&
+                packet.exercises.some((exercise) => exercise.id === id),
+            )
+          )
+            throw new Error(`Unknown or unrelated competency exercise: ${id}`);
+      }
+    }
+  }
 }
 
 export function allLessons(catalog: Catalog): Lesson[] {

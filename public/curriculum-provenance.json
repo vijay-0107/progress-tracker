@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.21.1",
+  "version": "2026.09.29.1",
   "description": "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery.",
   "complete": true,
   "tracks": [
@@ -103,6 +103,15 @@
       "lessons": 24,
       "originalSha256": "af227927253cc81412057f35deaf26acc1c779cba78f0cbd7f1d8fe2361384a8",
       "packagedSha256": "af227927253cc81412057f35deaf26acc1c779cba78f0cbd7f1d8fe2361384a8"
+    },
+    {
+      "trackId": "technical-product-management",
+      "group": "extra",
+      "sourceCheckedOn": "2026-09-29",
+      "modules": 8,
+      "lessons": 16,
+      "originalSha256": "a4230acbed43edf6e3bf05b756d40ed804d12617c3c329814580e8c2a60e9cb2",
+      "packagedSha256": "20d0f5652239f874fa551a99c39a476e7bba753a5c4b51303eb429791380a30b"
     }
   ]
 }

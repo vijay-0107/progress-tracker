@@ -27,10 +27,13 @@ import {
   X,
 } from "lucide-react";
 import { getCatalog, trackMeta } from "./content/catalog";
+import { careerProfiles } from "./content/careers";
 import {
   CORE_TRACK_IDS,
-  EXTRA_TOPIC_IDS,
+  ORIGINAL_EXTRA_TOPIC_IDS,
+  LEARNING_STAGES,
   TRACK_IDS,
+  type Stage,
   type TrackId,
 } from "./domain/types";
 import { useWorkspace, type Workspace } from "./state/useWorkspace";
@@ -51,6 +54,16 @@ const Projects = lazy(() =>
 );
 const ProjectPage = lazy(() =>
   import("./ui/Projects").then((module) => ({ default: module.ProjectPage })),
+);
+const CareerHub = lazy(() =>
+  import("./ui/CareerPreparation").then((module) => ({
+    default: module.CareerHub,
+  })),
+);
+const CareerProfilePage = lazy(() =>
+  import("./ui/CareerPreparation").then((module) => ({
+    default: module.CareerProfilePage,
+  })),
 );
 const Review = lazy(() =>
   import("./ui/Review").then((module) => ({ default: module.Review })),
@@ -91,11 +104,16 @@ function useRoute() {
   }
   const parameters = new URLSearchParams(search);
   const requestedPaper = parameters.get("paper") || "all";
+  const requestedStage = parameters.get("stage") || "all";
   return {
     hash,
     page: segments[0] || "dashboard",
     id: segments[1] || "",
     query: parameters.get("q") || "",
+    career: parameters.get("career") || "",
+    stage: LEARNING_STAGES.some((stage) => stage === requestedStage)
+      ? (requestedStage as Stage)
+      : ("all" as const),
     paper: ["all", "CS", "DA", "VARC", "DILR", "QA"].includes(requestedPaper)
       ? requestedPaper
       : "all",
@@ -148,7 +166,7 @@ export default function App() {
   useEffect(() => {
     drawer.current?.close();
     main.current?.focus({ preventScroll: true });
-    document.title = `Progress | ${route.page === "path" && TRACK_IDS.includes(route.id as TrackId) ? trackMeta[route.id as TrackId].label : route.page === "dashboard" ? "Your learning workspace" : route.page.charAt(0).toUpperCase() + route.page.slice(1)}`;
+    document.title = `Progress | ${route.page === "path" && TRACK_IDS.includes(route.id as TrackId) ? trackMeta[route.id as TrackId].label : route.page === "career" ? careerProfiles.find((profile) => profile.id === route.id)?.title || "Career profile" : route.page === "careers" ? "Career Preparation" : route.page === "dashboard" ? "Your learning workspace" : route.page.charAt(0).toUpperCase() + route.page.slice(1)}`;
   }, [route.hash, route.id, route.page]);
 
   let page: ReactNode;
@@ -172,13 +190,18 @@ export default function App() {
         paper={route.paper}
       />
     );
-  else if (route.page === "projects") page = <Projects {...props} />;
+  else if (route.page === "careers") page = <CareerHub {...props} />;
+  else if (route.page === "career")
+    page = <CareerProfilePage key={route.id} {...props} id={route.id} />;
+  else if (route.page === "projects")
+    page = <Projects key={route.career} {...props} careerId={route.career} />;
   else if (route.page === "project")
     page = (
       <ProjectPage
         key={`${state.ownerId}:${route.id}`}
         {...props}
         id={route.id}
+        selectedStage={route.stage}
       />
     );
   else if (route.page === "review") page = <Review {...props} />;
@@ -220,7 +243,12 @@ export default function App() {
       </EmptyState>
     );
 
-  const active = route.page === "path" ? `path/${route.id}` : route.page;
+  const active =
+    route.page === "path"
+      ? `path/${route.id}`
+      : route.page === "career"
+        ? "careers"
+        : route.page;
   const syncLabel = !workspace.user
     ? "Saved on this browser"
     : {
@@ -457,11 +485,23 @@ function Navigation({
           ),
         )}
         <p className="nav-section-label">EXTRA TOPICS</p>
-        {EXTRA_TOPIC_IDS.map((id) =>
+        {ORIGINAL_EXTRA_TOPIC_IDS.map((id) =>
           nav(`path/${id}`, trackMeta[id].label, <span className="nav-dot" />),
         )}
+        <p className="nav-section-label">CAREER PREPARATION</p>
+        {nav("careers", "Career Preparation", <GraduationCap size={17} />)}
+        {nav(
+          "path/technical-product-management",
+          "Technical Product Management",
+          <span className="nav-dot" />,
+        )}
         <p className="nav-section-label">PUT IT INTO PRACTICE</p>
-        {nav("projects", "Project studio", <FolderGit2 size={17} />, "21")}
+        {nav(
+          "projects",
+          "Project studio",
+          <FolderGit2 size={17} />,
+          String(getCatalog().projects.length),
+        )}
         {nav("review", "Review & recall", <ChartNoAxesCombined size={17} />)}
         {nav("planner", "Calendar & goals", <CalendarDays size={17} />)}
         {nav("library", "Resource library", <BookOpen size={17} />)}

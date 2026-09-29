@@ -13,11 +13,91 @@ The Common Foundation is the shared starting point, **not** a concatenation of
 four advanced career tracks. Lesson IDs are canonical: a foundation completion
 satisfies the same prerequisite everywhere without being counted four times.
 
+## Career Preparation: six maps, not six duplicate curricula
+
+Curriculum **2026.09.29.1** adds a Career Preparation hub and six profiles:
+Backend/Platform, AI/ML Systems, Product/Cloud Security, Data Platform,
+Quantitative Development and Technical Product Management. Each has Beginner,
+Intermediate, Advanced and Professional Practice outcomes, an explicit
+competency map and three shared project references. The **141 required
+competencies** distinguish canonical lessons, applied extensions and conceptual
+coverage; **19 later specializations** remain outside required readiness.
+Evidence-gap filters indicate missing records, not a diagnosis of ability.
+
+All **355 existing lessons and their 12 file hashes are preserved**. Only the
+missing Technical PM curriculum is new: **8 modules / 16 lessons**, four per
+stage, with original discovery/ethics, PRD, instrumentation, experiment-validity,
+unit-economics and release/stakeholder work. Core remains **231 lessons**;
+the original five Extra Topics retain **124 lessons** in their own dashboard
+section; the **16 PM lessons are counted separately**. The combined inventory
+is 13 catalogs, 122 modules and 371 lessons. Reading-led PM lessons honestly
+have no invented videos. All readings are free official links; hosted PDFs
+and their registry/bytes/checksums are unchanged.
+
+Ten unique project packets provide **40 original staged exercises**, reused
+across profiles rather than copied. Commerce orchestration, recovery, versioned
+point-in-time data, the broader paper-exchange/ledger target and portfolio
+reconciliation retain their existing B project IDs. Five distinct
+`career-practice` definitions add tenant policy, model serving, retrieval
+evaluation, model observability and signed-release verification. The original
+**21 projects / 84 build gates** retain their identities, briefs, prerequisites,
+saved records and separate totals. The five additions have **20 separate build
+gates**; they do not reduce the original project's completion percentage.
+
+Reference availability, original build gates and **independent learner
+readiness** are three different things. A tested AI-assisted reference never
+completes a learner record. Explain, Modify, Debug, and Test and defend each
+require explicit learner action and their own meaningful evidence and rubric
+acknowledgement. These four gates use separate registered records named
+`career-readiness-<project-id>-<gate>` with the existing `ProjectProgress`
+shape. They are not additional catalog projects, and never count toward
+lesson/build completion. Distinct per-gate evidence is preserved across edits;
+stale drafts and owner changes cannot silently overwrite another version.
+Only explicitly recorded independent practice adds a clearly labelled readiness
+activity to the calendar/streak. Drafts, filters and reference status do not.
+
+Each profile links to the same canonical lessons and project records. Readiness
+uses existing UID-scoped storage, sync journals, conflict handling and schema-2
+exports/imports, with **no new Firebase fields, collections, rules, Auth changes
+or saved primary-focus/goal values**. Existing preferences and conflicting
+imported records retain their established preservation behavior.
+
+Private GitHub links are opt-in and require an authorized GitHub account;
+tracker sign-in does not grant repository access. There is no GitHub API,
+token integration, iframe, prefetch or automatic repository download. Reference
+capabilities under review remain explicitly pending. Public content contains
+original learning briefs and permitted names/links, not private source, receipts,
+resume data, employer/client material or secrets. Hypothetical PM personas,
+experiments and economics are not real interviews, adoption, revenue or causal
+impact. Professional Practice is not certification, a salary promise or verified
+job readiness.
+
+Scope notes matter: the paper exchange lacks an account cash/position ledger;
+the risk service uses latest accepted knowledge and linear equity stress, not
+historical knowledge-time or VaR. Commerce is a single-host SQLite/simulated
+provider reference, not PostgreSQL or distributed exactly-once delivery. Tenant
+policy decisions do not enforce external resources. Model-gateway CPU inference
+and SHA integrity are not LLM/GPU execution or publisher signatures. Replayable
+data admits inputs incrementally but rematerializes gold and needs source/run
+history for recovery. Point-in-time outputs honor cutoffs, while raw ZIP history
+can contain future events. Signed manifest claims and actual artifact integrity
+are independently checked; the verifier is not a SLSA or code-safety guarantee.
+Retrieval uses sparse/LSA methods rather than Transformers or generated answers;
+known authorized-but-irrelevant results on zero-relevance queries remain disclosed,
+and corpus rollback can restore older ACLs instead of independently preserving
+revocation. Its scoped, coauthor-judged evaluation and in-process timings do not
+establish independent assessment, a network SLO or customer impact.
+The monitoring workbench filters both label-availability and receipt time before
+selecting visible truth, but remains a single-tenant unauthenticated loopback
+service. Its classical CPU inference timing excludes HTTP/storage, and its
+promotion checks do not guarantee statistical validity or causal improvement.
+Unsupported features stay learner extensions, never inferred completions.
+
 ## Extra Topics: optional, with their own progress
 
 Curriculum **2026.09.21.1** is an append-only addition. The original seven paths
-still contain **66 modules and 231 unique lessons**, and the Project studio still
-contains the same **21 projects**. Extra Topics adds **48 modules / 124 lessons**
+still contain **66 modules and 231 unique lessons**, and the original Project
+studio inventory retains the same **21 projects**. Extra Topics adds **48 modules / 124 lessons**
 and five integrated capstones inside the topic roadmaps:
 
 | Optional topic | Modules | Lessons by stage: Beginner / Intermediate / Advanced / Professional Practice | Capstone evidence |
@@ -317,7 +397,7 @@ or a guaranteed frame rate.
 
 ## Deployment
 
-The Extra Topics addition needs **no Firebase rules or service-setting changes**:
+The Extra Topics and Career Preparation additions need **no Firebase rules or service-setting changes**:
 new lessons use the existing per-owner record contract and core settings/goal
 IDs remain unchanged.
 
@@ -338,9 +418,11 @@ unverified rules. No force push or destructive migration is part of release.
 
 | Location | Responsibility |
 | --- | --- |
-| `src/content/tracks/` | Seven preserved core paths and five append-only optional topic curricula |
+| `src/content/tracks/` | Seven preserved core paths, five preserved Extra Topics and the optional Technical PM curriculum |
 | `src/content/schema.ts`, `catalog.ts` | Runtime content validation, reference/cycle checks, canonical routing |
 | `src/content/projects.ts` | Exact 21 original portfolio build briefs |
+| `src/content/careers.ts`, `career-exercises.ts`, `career-projects.ts` | Six competency maps, ten shared exercise/reference packets and five distinct additional build briefs |
+| `src/domain/careers.ts`, `src/ui/CareerPreparation.tsx` | Separate per-gate independent readiness, honest profile progress and career views |
 | `src/domain/` | Pure progress, assessment, review, timezone, import/migration and storage logic |
 | `src/services/` | Firebase Auth, account guards and transactional per-record sync |
 | `src/state/` | Owner-scoped local state, outbox and explicit conflict resolution |

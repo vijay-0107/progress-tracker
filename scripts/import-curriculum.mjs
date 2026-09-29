@@ -16,6 +16,7 @@ const extraTopics = [
   "finance",
   "computer-security-systems",
   "ethical-hacking",
+  "technical-product-management",
 ];
 const allTracks = [...coreTracks, ...extraTopics];
 const selectedIndex = process.argv.indexOf("--track");
@@ -205,7 +206,7 @@ await writeFile(
   provenancePath,
   JSON.stringify(
     {
-      version: "2026.09.21.1",
+      version: "2026.09.29.1",
       description:
         "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery.",
       complete: allTracks.every((track) => provenance.has(track)),
@@ -218,5 +219,5 @@ await writeFile(
   ) + "\n",
 );
 console.log(
-  `Imported ${inputs.length} handoffs without modifying the research originals; unselected provenance is preserved. All seven core paths and five optional topics must pass content checks before publishing.`,
+  `Imported ${inputs.length} handoffs without modifying the research originals; unselected provenance is preserved. All seven core paths and six optional curricula must pass content checks before publishing.`,
 );
