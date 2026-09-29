@@ -31,6 +31,10 @@ import {
 } from "firebase/firestore";
 import type { LessonProgress, SyncRecord } from "../src/domain/types";
 import { EXTRA_TOPIC_IDS } from "../src/domain/types";
+import { READINESS_GATES } from "../src/domain/types";
+import { careerPackets } from "../src/content/career-exercises";
+import { careerProjects } from "../src/content/career-projects";
+import { saveReadiness } from "../src/domain/careers";
 import { trackSchema } from "../src/content/schema";
 import {
   assessLesson,
@@ -235,6 +239,59 @@ describe.skipIf(!process.env.FIRESTORE_EMULATOR_HOST)(
         expect(state.settings.primaryTrack).toBe("foundation");
       },
     );
+
+    it.each(careerProjects)(
+      "syncs the new $id build without broadening ownership",
+      async (project) => {
+        const data = {
+          id: project.id,
+          updatedAt: T0,
+          milestones: project.milestones.map((milestone) => milestone.id),
+          evidence:
+            "Synthetic owner-only build evidence with original fixture and failure checks.",
+        };
+        const record: SyncRecord = {
+          collection: "projects",
+          id: data.id,
+          data,
+        };
+        await assertSucceeds(setDoc(reference(alice, record), data));
+        expect(
+          (await assertSucceeds(getDoc(reference(alice, record)))).data(),
+        ).toEqual(data);
+        await assertFails(getDoc(reference(bob, record)));
+        await assertFails(getDoc(reference(anonymous, record)));
+        await assertFails(setDoc(reference(bob, record), data));
+      },
+    );
+
+    it("stores all forty per-gate readiness records and activity under the unchanged UID contract", async () => {
+      let state = createProgress("uid:alice", T0);
+      for (const packet of careerPackets)
+        for (const gate of READINESS_GATES)
+          state = saveReadiness(
+            state,
+            "uid:alice",
+            packet.projectId,
+            gate,
+            `My ${gate} readiness for ${packet.title}: independently reproduced an original fixture, explained the boundary and retained the observed result.`,
+            true,
+            true,
+            T0,
+          );
+      expect(Object.keys(state.projects)).toHaveLength(40);
+      expect(Object.keys(state.activity)).toHaveLength(40);
+      for (const record of recordsFromState(state)) {
+        await assertSucceeds(setDoc(reference(alice, record), record.data));
+        expect(
+          (await assertSucceeds(getDoc(reference(alice, record)))).data(),
+        ).toEqual(record.data);
+        await assertFails(getDoc(reference(bob, record)));
+        await assertFails(getDoc(reference(anonymous, record)));
+      }
+      expect(state.lessons).toEqual({});
+      expect(state.settings.primaryTrack).toBe("foundation");
+    });
 
     it("keeps optional topic IDs out of the unchanged core settings and goal contract", async () => {
       for (const trackId of EXTRA_TOPIC_IDS) {

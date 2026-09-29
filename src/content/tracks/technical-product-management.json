@@ -1,0 +1,1788 @@
+{
+  "schemaVersion": 1,
+  "trackId": "technical-product-management",
+  "title": "Technical Product Management",
+  "sourceCheckedOn": "2026-09-29",
+  "resources": [
+    {
+      "id": "tpm-doc-needs",
+      "kind": "documentation",
+      "title": "Learning user needs",
+      "url": "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+      "provider": "GOV.UK Service Manual",
+      "access": "free",
+      "license": "Official publication terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected researching, writing and validating needs. Treat opinions without user evidence as assumptions; government-service examples are contextual."
+    },
+    {
+      "id": "tpm-doc-discovery",
+      "kind": "documentation",
+      "title": "How discovery works",
+      "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+      "provider": "GOV.UK Service Manual",
+      "access": "free",
+      "license": "Official publication terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected problem definition, constraints and proceed/stop decisions. No public service, account or research participant is required for the original synthetic assignments."
+    },
+    {
+      "id": "tpm-doc-consent",
+      "kind": "documentation",
+      "title": "Informed consent for research",
+      "url": "https://www.gov.uk/service-manual/user-research/getting-users-consent-for-research",
+      "provider": "GOV.UK Service Manual",
+      "access": "free",
+      "license": "Official publication terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected consent, withdrawal and research-data handling. Use hypothetical protocols; optional real participation needs actual informed consent and appropriate privacy safeguards."
+    },
+    {
+      "id": "tpm-doc-stories",
+      "kind": "documentation",
+      "title": "Writing user stories and acceptance criteria",
+      "url": "https://www.gov.uk/service-manual/agile-delivery/writing-user-stories",
+      "provider": "GOV.UK Service Manual",
+      "access": "free",
+      "license": "Official publication terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected actor/need/goal, acceptance criteria and supporting evidence links. A story is not a substitute for a complete implementation contract."
+    },
+    {
+      "id": "tpm-doc-roadmap",
+      "kind": "documentation",
+      "title": "Developing an outcome-oriented roadmap",
+      "url": "https://www.gov.uk/service-manual/agile-delivery/developing-a-roadmap",
+      "provider": "GOV.UK Service Manual",
+      "access": "free",
+      "license": "Official publication terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected vision, iteration, collaboration and roadmap-versus-backlog distinctions. Public-sector cadence examples are not mandatory deadlines for learners."
+    },
+    {
+      "id": "tpm-doc-metrics",
+      "kind": "documentation",
+      "title": "Set meaningful performance metrics",
+      "url": "https://www.gov.uk/service-manual/measuring-success/how-to-set-performance-metrics-for-your-service",
+      "provider": "GOV.UK Service Manual",
+      "access": "free",
+      "license": "Official publication terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected purpose, benefits, hypotheses, definitions and data sources. UK government mandatory KPI publication is not a requirement for these private synthetic exercises."
+    },
+    {
+      "id": "tpm-doc-usability",
+      "kind": "documentation",
+      "title": "Moderated usability testing",
+      "url": "https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing",
+      "provider": "GOV.UK Service Manual",
+      "access": "free",
+      "license": "Official publication terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected neutral task design, discussion guides and observation. A labelled self-walkthrough cannot establish independent customer behavior."
+    },
+    {
+      "id": "tpm-doc-technology",
+      "kind": "documentation",
+      "title": "Choosing technology deliberately",
+      "url": "https://www.gov.uk/service-manual/technology/choosing-technology-an-introduction",
+      "provider": "GOV.UK Service Manual",
+      "access": "free",
+      "license": "Official publication terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected reversibility, total cost, data control and contextual decisions. No cloud provisioning, paid service or procurement is assigned."
+    },
+    {
+      "id": "tpm-doc-srm",
+      "kind": "documentation",
+      "title": "Diagnosing sample ratio mismatch",
+      "url": "https://www.microsoft.com/en-us/research/articles/diagnosing-sample-ratio-mismatch-in-a-b-testing/",
+      "provider": "Microsoft Research",
+      "access": "free",
+      "license": "Publisher terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected SRM causes across assignment, execution, logging and analysis. Historical platform examples are not current universal incidence estimates or proof about a learner's experiment."
+    },
+    {
+      "id": "tpm-book-economics",
+      "kind": "book",
+      "title": "Principles of Managerial Accounting: break-even analysis",
+      "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-2-calculate-a-break-even-point-in-units-and-dollars",
+      "provider": "OpenStax",
+      "access": "free",
+      "license": "Publisher edition terms; official link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected CVP assumptions, contribution margin and break-even units/revenue. Assignments use original numerical cases; no book, illustrations or answer bank is rehosted."
+    },
+    {
+      "id": "tpm-doc-release",
+      "kind": "documentation",
+      "title": "Canarying releases",
+      "url": "https://sre.google/workbook/canarying-releases/",
+      "provider": "Google SRE",
+      "access": "free",
+      "license": "Publisher terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected release engineering principles and balancing release velocity/reliability. Operational canary health checks do not automatically constitute randomized product-impact experiments."
+    },
+    {
+      "id": "tpm-doc-telemetry",
+      "kind": "documentation",
+      "title": "Metrics and instruments",
+      "url": "https://opentelemetry.io/docs/concepts/signals/metrics/",
+      "provider": "OpenTelemetry",
+      "access": "free",
+      "license": "Official documentation terms; link only",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-29",
+      "notes": "Inspected runtime metric events, instrument types and aggregation. Local output is sufficient; there is no requirement to purchase a telemetry backend or send learner data to one."
+    }
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Frame a bounded problem, distinguish evidence from assumptions and connect a synthetic user journey to technical constraints and meaningful outcomes.",
+      "evidence": "An ethical discovery protocol, original segments/jobs, a system map and metric definitions with explicit populations and denominators; no invented research participants."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Translate a hypothetical need into a traceable PRD, dependency-aware priorities, reproducible instrumentation and a neutral research/experiment design.",
+      "evidence": "A requirement-to-test matrix, a sensitivity-aware roadmap, executable local funnel analysis and a labelled self-walkthrough or genuinely consented research record."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Make defensible platform, experiment, unit-economics and risk decisions while checking validity, uncertainty, operational constraints and ownership.",
+      "evidence": "An API/build-buy decision, an SRM and contamination audit, unit-labelled financial calculations and a risk/sequencing decision that can reject an attractive but unsupported release."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Defend a launch/defer decision, resolve stakeholder trade-offs and revise a roadmap from reproducible evidence without manufacturing impact claims.",
+      "evidence": "An integrated three-project case-study dossier separating real implemented behavior, hypothetical personas/experiments, local measurements and independently demonstrated learner work."
+    }
+  ],
+  "modules": [
+    {
+      "id": "tpm-m01-discovery",
+      "title": "01. Problems, research ethics and segments",
+      "stage": "foundation",
+      "description": "Establish what is known, assumed and ethically researchable before committing to a feature.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "tpm-l01-problem-evidence",
+          "title": "Frame a problem without inventing user evidence",
+          "objectives": [
+            "Separate a user need, proposed solution, assumption and observed fact.",
+            "Design an ethical discovery protocol with a bounded stop/proceed decision."
+          ],
+          "topics": [
+            {
+              "title": "Evidence before solutions",
+              "details": [
+                "A stakeholder request is evidence that the request was made, not proof that all users need the proposed feature.",
+                "Label facts, hypotheses and unknowns explicitly; a synthetic persona is a learning device, not a research participant."
+              ]
+            },
+            {
+              "title": "Ethical discovery",
+              "details": [
+                "A research protocol names purpose, voluntary participation, data minimization, retention and withdrawal.",
+                "The required path uses a hypothetical protocol and synthetic data. Real interviews remain optional and must not be fabricated."
+              ]
+            }
+          ],
+          "estimatedMinutes": 90,
+          "canonicalConceptTags": [
+            "product-discovery",
+            "research-ethics",
+            "evidence-quality"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-discovery",
+            "locator": "Define the problem and What to find out in discovery: reframe a proposed solution, identify constraints and choose what evidence would justify proceeding."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-needs",
+            "tpm-doc-consent"
+          ],
+          "assignment": {
+            "id": "tpm-a01",
+            "title": "A synthetic recovery-discovery brief",
+            "kind": "design",
+            "instructions": [
+              "Use the fictional request 'operators need a retry button for a failed batch' and write three competing explanations for the problem.",
+              "Create a fact/assumption/unknown table; label every invented operator and event as synthetic rather than claiming interviews.",
+              "Write a hypothetical consent/data-retention protocol and a discovery question that could justify not building the button."
+            ],
+            "deliverables": [
+              "A problem brief with an evidence-status table.",
+              "A hypothetical ethical research protocol and stop/proceed criteria."
+            ],
+            "acceptanceCriteria": [
+              "The problem is distinct from the retry-button solution.",
+              "No fictional interview, customer adoption or observed pain is presented as a fact.",
+              "The protocol includes voluntary participation, minimal data, withdrawal and a decision that could reject the feature."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q01-choice",
+                "kind": "single-choice",
+                "prompt": "A stakeholder says every operator needs a retry button, but no operator evidence exists. How should the claim be recorded?",
+                "choices": [
+                  "An assumption to investigate",
+                  "A validated user need",
+                  "An observed adoption result"
+                ],
+                "answer": "An assumption to investigate",
+                "explanation": "A request establishes stakeholder preference, not the population's actual need. Discovery must distinguish that assumption from directly observed user evidence."
+              },
+              {
+                "id": "tpm-q01-written",
+                "kind": "short-answer",
+                "prompt": "Explain one reason discovery might reject the retry button even if users report failed batches.",
+                "answer": "The underlying need may be reliable recovery, while a retry button could duplicate unsafe effects or hide a contract defect. Investigate root causes and alternatives before choosing the interface.",
+                "explanation": "A well-framed need allows several solutions and a no-build decision. Reports of failure do not establish that replay is safe or that a button addresses the root cause."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which sentence in your brief is least supported?",
+            "What observation could change your proposed decision?"
+          ],
+          "prerequisites": [
+            "foundation-lesson-21-requirements-explanation",
+            "foundation-lesson-19-privacy-secrets"
+          ]
+        },
+        {
+          "id": "tpm-l02-segments-jobs",
+          "title": "Describe segments and jobs as testable hypotheses",
+          "objectives": [
+            "Distinguish a behavior-based segment from an invented demographic stereotype.",
+            "Write a job with context, desired progress and a plausible competing approach."
+          ],
+          "topics": [
+            {
+              "title": "Segmentation",
+              "details": [
+                "Segment by relevant behavior, constraints and decision context rather than unnecessary sensitive attributes.",
+                "A segment hypothesis needs disconfirming evidence; one persona cannot stand in for a population."
+              ]
+            },
+            {
+              "title": "Jobs and alternatives",
+              "details": [
+                "A job describes desired progress in a situation, not a mandated screen or technology.",
+                "Current workarounds and choosing not to act are credible alternatives that affect priority."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "segmentation",
+            "jobs-to-be-done",
+            "product-assumptions"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-needs",
+            "locator": "Understanding, writing and validating user needs; retain the context and goal while treating non-user opinions and invented personas as assumptions."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-usability"
+          ],
+          "assignment": {
+            "id": "tpm-a02",
+            "title": "Three original retrieval-use situations",
+            "kind": "design",
+            "instructions": [
+              "Invent three explicitly hypothetical situations for searching permitted operating guidance: routine lookup, ambiguous incident and revoked guidance.",
+              "For each, name the context, desired progress, existing workaround and relevant access constraint without using protected demographic categories.",
+              "Propose one observation that would disconfirm each segment and show how it changes your initial priority."
+            ],
+            "deliverables": [
+              "A three-segment/job/alternative matrix.",
+              "A disconfirmation and prioritization note."
+            ],
+            "acceptanceCriteria": [
+              "Every segment is labelled hypothetical and based on relevant behavior or constraints.",
+              "Jobs describe desired outcomes rather than demanding a specific search feature.",
+              "Each segment has a plausible alternative and a disconfirming observation."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q02-choice",
+                "kind": "single-choice",
+                "prompt": "Which segment is most useful for the bounded retrieval case?",
+                "choices": [
+                  "Everyone aged 25 to 35",
+                  "Operators resolving an ambiguous incident with restricted guidance access",
+                  "All people who like modern technology"
+                ],
+                "answer": "Operators resolving an ambiguous incident with restricted guidance access",
+                "explanation": "The incident context and access constraint explain meaningful product behavior. Age and vague technology preferences do not establish the relevant job or a need for sensitive profiling."
+              },
+              {
+                "id": "tpm-q02-written",
+                "kind": "short-answer",
+                "prompt": "Rewrite 'users want an AI chatbot' as a job hypothesis with an alternative.",
+                "answer": "During an unfamiliar incident, an operator wants to identify current permitted guidance quickly enough to choose a safe next action; asking a colleague or using a document index may be alternatives.",
+                "explanation": "The reformulation separates desired progress from a chosen interface and leaves room to compare simpler solutions against the same outcome."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which attribute in your segment actually changes the product decision?",
+            "What evidence would make your preferred segment less important?"
+          ],
+          "prerequisites": [
+            "tpm-l01-problem-evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tpm-m02-system-outcomes",
+      "title": "02. Technical journeys and outcome definitions",
+      "stage": "foundation",
+      "description": "Connect user-facing needs to system boundaries and metrics whose populations and units are explicit.",
+      "prerequisites": [
+        "tpm-m01-discovery"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "tpm-l03-product-system-map",
+          "title": "Map a journey across technical and responsibility boundaries",
+          "objectives": [
+            "Trace a product journey through application, data and external-effect boundaries.",
+            "Separate implemented behavior, a learning target and an untested integration."
+          ],
+          "topics": [
+            {
+              "title": "System literacy",
+              "details": [
+                "A successful HTTP response, a database commit and an external effect are different events.",
+                "Identify ownership, durable state, retries and failure visibility before proposing a user-facing promise."
+              ]
+            },
+            {
+              "title": "Honest scope",
+              "details": [
+                "A local simulated provider is not real payment processing or distributed availability.",
+                "A reference implementation demonstrates only its reviewed scope; its existence is not independent learner competence."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "product-architecture",
+            "failure-boundaries",
+            "scope-traceability"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-technology",
+            "locator": "Understand the landscape, start with prototypes and allow for evolution. Identify existing dependencies, data control and which assumptions a prototype can actually test."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-stories"
+          ],
+          "assignment": {
+            "id": "tpm-a03",
+            "title": "A commerce journey and boundary map",
+            "kind": "design",
+            "instructions": [
+              "Map submit order, reserve stock, persist intent, simulated provider effect and reconcile outcome using the original commerce learning brief.",
+              "Identify which steps share a transaction and which belong to another persistent component; explicitly distinguish a SQLite reference from PostgreSQL-specific learning.",
+              "Mark each claim implemented, learner extension or unknown, then write a user-visible response for one uncertain provider outcome."
+            ],
+            "deliverables": [
+              "A journey/data/responsibility diagram.",
+              "A scoped capability table and uncertain-outcome response contract."
+            ],
+            "acceptanceCriteria": [
+              "The map distinguishes request success, durable intent and provider effect.",
+              "Local/synthetic and stack-specific limits remain explicit.",
+              "Unknown outcomes are communicated honestly instead of being called completed orders."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q03-choice",
+                "kind": "single-choice",
+                "prompt": "An order is stored but its simulated provider outcome is unknown. Which product response is defensible?",
+                "choices": [
+                  "Payment definitely succeeded",
+                  "The entire distributed workflow is exactly once",
+                  "Order accepted; provider outcome is pending reconciliation"
+                ],
+                "answer": "Order accepted; provider outcome is pending reconciliation",
+                "explanation": "Durable acceptance does not prove an external effect. A pending reconciliation state communicates the known boundary without inventing success or an exactly-once guarantee."
+              },
+              {
+                "id": "tpm-q03-written",
+                "kind": "short-answer",
+                "prompt": "Why is a diagram that places a separate provider database inside the order transaction misleading?",
+                "answer": "It implies atomic rollback across components that do not share that transaction. The design needs an explicit retry, idempotency and reconciliation/compensation policy for the separate effect.",
+                "explanation": "A diagram is part of the product contract. Drawing a false atomic boundary can lead stakeholders to promise outcomes the implementation cannot guarantee."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where can this journey be durable but incomplete?",
+            "Which promise would require a different implementation?"
+          ],
+          "prerequisites": [
+            "foundation-lesson-18-http-apis",
+            "tpm-l01-problem-evidence"
+          ]
+        },
+        {
+          "id": "tpm-l04-outcome-metrics",
+          "title": "Define outcomes, inputs and guardrails with correct denominators",
+          "objectives": [
+            "Distinguish activity metrics from user outcomes and safety guardrails.",
+            "Specify population, grain, numerator, denominator, window and undefined behavior."
+          ],
+          "topics": [
+            {
+              "title": "Metric meaning",
+              "details": [
+                "A click or request count measures activity, not necessarily a successful user outcome.",
+                "Define the eligible population before measuring completion; denominator changes can create artificial improvements."
+              ]
+            },
+            {
+              "title": "Numeric communication",
+              "details": [
+                "A fraction, percent and percentage-point difference are distinct quantities.",
+                "An empty eligible population produces an undefined rate, not automatically zero or perfect success."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "product-metrics",
+            "denominators",
+            "measurement-validity"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-metrics",
+            "locator": "Base metrics on service purpose, define benefits, develop hypotheses and decide what to measure; document data sources and population boundaries."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-telemetry"
+          ],
+          "assignment": {
+            "id": "tpm-a04",
+            "title": "An auditable recovery-success metric",
+            "kind": "problem-set",
+            "instructions": [
+              "Define successful recovery for a fictional cohort of 80 eligible failed runs, of which 20 meet the declared completion checks.",
+              "Specify one input metric, one outcome metric and one correctness guardrail with windows, exclusions and grain.",
+              "Compute the completion fraction and percent, then show what the report should display when no runs are eligible."
+            ],
+            "deliverables": [
+              "A metric dictionary with populations and units.",
+              "A hand-calculated rate table including the empty-population case."
+            ],
+            "acceptanceCriteria": [
+              "The outcome rate is 0.25 as a fraction and 25 as a percent number.",
+              "Each metric states its population, grain, numerator/denominator and window.",
+              "The zero-denominator case is explicitly undefined rather than a fabricated success rate."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q04-choice",
+                "kind": "single-choice",
+                "prompt": "Which metric best measures the declared recovery outcome rather than interface activity?",
+                "choices": [
+                  "Eligible failed runs restored with reconciled outputs divided by eligible failed runs",
+                  "Number of clicks on Retry",
+                  "Number of visits to the recovery page"
+                ],
+                "answer": "Eligible failed runs restored with reconciled outputs divided by eligible failed runs",
+                "explanation": "The numerator checks the intended result and the denominator identifies the eligible population. Clicks and visits can rise while recovery remains incorrect."
+              },
+              {
+                "id": "tpm-q04-numeric",
+                "kind": "numeric",
+                "prompt": "20 of 80 eligible runs meet all recovery checks. Enter the success percentage as a number, not a fraction.",
+                "answer": 25,
+                "numericTolerance": 0,
+                "explanation": "Twenty is one quarter of eighty. The fraction is 0.25, so the requested percentage number is 25; entering 0.25 would use the wrong unit."
+              },
+              {
+                "id": "tpm-q04-written",
+                "kind": "short-answer",
+                "prompt": "Explain why removing failed runs from the denominator makes a recovery metric misleading.",
+                "answer": "Eligibility would depend on the outcome, excluding precisely the failures the metric should represent. Define inclusion before observing success and retain failures in the cohort.",
+                "explanation": "Outcome-dependent selection can mechanically improve a rate without improving the system or the user journey."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Who is excluded from your denominator, and why?",
+            "Is a better activity metric necessarily a better outcome?"
+          ],
+          "prerequisites": [
+            "foundation-lesson-08-sql-querying",
+            "foundation-lesson-15-numeracy-floating-point",
+            "tpm-l03-product-system-map"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tpm-m03-scope-priorities",
+      "title": "03. PRDs, acceptance and uncertain priorities",
+      "stage": "intermediate",
+      "description": "Specify a bounded product change and choose work using dependencies and evidence rather than feature volume.",
+      "prerequisites": [
+        "tpm-m02-system-outcomes"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "tpm-l05-prd-acceptance",
+          "title": "Write a PRD that traces needs to observable behavior",
+          "objectives": [
+            "Write a concise PRD with scope, non-goals, constraints and acceptance checks.",
+            "Trace a requirement to code/test evidence without assuming a reference implements it."
+          ],
+          "topics": [
+            {
+              "title": "Requirement quality",
+              "details": [
+                "A requirement states an observable outcome or constraint, not merely a technology choice.",
+                "Include denied, empty, duplicate and failure paths rather than describing only the happy path."
+              ]
+            },
+            {
+              "title": "Traceability",
+              "details": [
+                "A requirement, its implementation and its test are different artifacts linked by evidence.",
+                "An unimplemented requirement remains proposed; passing an unrelated test does not close it."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "prd",
+            "acceptance-criteria",
+            "product-traceability"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-stories",
+            "locator": "How to write a user story, Acceptance criteria and Planning with your user stories; link each desired outcome to supporting evidence."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-needs"
+          ],
+          "assignment": {
+            "id": "tpm-a05",
+            "title": "A bounded permission-aware lookup PRD",
+            "kind": "design",
+            "instructions": [
+              "Write a short PRD for a synthetic user who needs current permitted guidance, including non-goals such as generated answers if they are not implemented.",
+              "Specify acceptance for allowed access, cross-tenant denial, missing evidence and a withdrawn document.",
+              "Create a requirement-to-implementation-to-test table, using explicit proposed or unknown labels where no verified implementation exists."
+            ],
+            "deliverables": [
+              "A bounded PRD with failure and authorization criteria.",
+              "A traceability matrix separating implemented, proposed and unknown items."
+            ],
+            "acceptanceCriteria": [
+              "Every requirement has an observable acceptance check.",
+              "Non-goals and privacy/access boundaries are explicit.",
+              "No missing implementation or unrelated passing test is represented as verified requirement coverage."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q05-choice",
+                "kind": "single-choice",
+                "prompt": "A PRD says 'the search is fast and safe.' What is the most useful next change?",
+                "choices": [
+                  "Add more technology names",
+                  "Define a bounded latency workload and explicit denied-access cases",
+                  "Mark it done because the homepage loads"
+                ],
+                "answer": "Define a bounded latency workload and explicit denied-access cases",
+                "explanation": "Observable workload and boundary checks make the requirement testable. Technology labels or a loading homepage do not establish performance or authorization behavior."
+              },
+              {
+                "id": "tpm-q05-written",
+                "kind": "short-answer",
+                "prompt": "What should the traceability row say when a desired revocation control is not implemented?",
+                "answer": "Proposed or not implemented, with the missing behavior, owner and acceptance evidence needed to close it; do not substitute a link to an unrelated test.",
+                "explanation": "Traceability should reveal gaps rather than hide them. A learning brief can contain a target that the supplied reference does not yet cover."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which acceptance check covers a denied request?",
+            "Which row is still proposed and what would close it?"
+          ],
+          "prerequisites": [
+            "tpm-l02-segments-jobs",
+            "tpm-l03-product-system-map",
+            "security-l05-permissions"
+          ]
+        },
+        {
+          "id": "tpm-l06-prioritization-roadmap",
+          "title": "Prioritize with uncertainty, dependencies and opportunity cost",
+          "objectives": [
+            "Compare feasible work without treating a prioritization score as objective truth.",
+            "Explain how uncertainty and dependencies can reverse an apparent ranking."
+          ],
+          "topics": [
+            {
+              "title": "Prioritization inputs",
+              "details": [
+                "Reach, impact, confidence and effort must have stated meanings and comparable units.",
+                "Scores reflect assumptions; a confident-looking number does not validate demand or override safety prerequisites."
+              ]
+            },
+            {
+              "title": "Roadmaps",
+              "details": [
+                "A roadmap describes intended outcomes and sequencing, not a promise to complete every backlog item.",
+                "Prerequisites, operational risks and the option to defer constrain the feasible sequence."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "prioritization",
+            "roadmaps",
+            "sensitivity-analysis"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-roadmap",
+            "locator": "Roadmap principles: take iterations toward a vision, express value and objectives, distinguish roadmaps from backlogs, and revise collaboratively as evidence changes."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-technology"
+          ],
+          "assignment": {
+            "id": "tpm-a06",
+            "title": "A priority decision that can change",
+            "kind": "problem-set",
+            "instructions": [
+              "Compare three original hypothetical improvements: safer retry, lineage preview and a cosmetic dashboard; state assumed reach, impact, confidence and effort.",
+              "For one option use assumed reach 120, impact 2, confidence 0.5 and effort 4; compute reach times impact times confidence divided by effort, then vary confidence.",
+              "Draw dependencies and explain why a lower-scoring safety prerequisite or deferral may come before the numerically highest option."
+            ],
+            "deliverables": [
+              "A unit-labelled priority/sensitivity table.",
+              "An outcome roadmap with dependencies and a rejected alternative."
+            ],
+            "acceptanceCriteria": [
+              "The stated example score is 30 and all inputs are labelled hypothetical.",
+              "Changing assumptions is shown to affect the decision instead of presenting a score as validated demand.",
+              "The sequence respects dependencies and records opportunity cost and a credible defer option."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q06-choice",
+                "kind": "single-choice",
+                "prompt": "A feature has the highest assumed priority score but depends on an unimplemented safety control. What follows?",
+                "choices": [
+                  "Skip the safety control",
+                  "The score proves users demand immediate release",
+                  "Evaluate the prerequisite and feasible sequence before committing"
+                ],
+                "answer": "Evaluate the prerequisite and feasible sequence before committing",
+                "explanation": "A scoring heuristic ranks assumptions, not executable plans. Dependencies and safety constraints determine whether an option is feasible and acceptable."
+              },
+              {
+                "id": "tpm-q06-numeric",
+                "kind": "numeric",
+                "prompt": "Using reach 120, impact 2, confidence 0.5 and effort 4, enter reach times impact times confidence divided by effort.",
+                "answer": 30,
+                "numericTolerance": 0,
+                "explanation": "The weighted impact is 120 times 2 times 0.5, which is 120; dividing by effort 4 gives 30. This is an assumed planning score, not measured value."
+              },
+              {
+                "id": "tpm-q06-written",
+                "kind": "short-answer",
+                "prompt": "Explain why changing effort from days to hours in only one row invalidates a score comparison.",
+                "answer": "The denominators no longer share units, so one option's score changes due to representation rather than economics or difficulty. Normalize effort units before comparing.",
+                "explanation": "A ratio can be numerically computed with inconsistent units while becoming meaningless as a ranking device."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which assumption most changes the selected option?",
+            "What are you choosing not to do?"
+          ],
+          "prerequisites": [
+            "tpm-l05-prd-acceptance",
+            "finance-l15-npv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tpm-m04-research-measurement",
+      "title": "04. Instrumentation, usability and experimental design",
+      "stage": "intermediate",
+      "description": "Produce reproducible measurement and research plans without confusing synthetic examples with real participants.",
+      "prerequisites": [
+        "tpm-m03-scope-priorities"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "tpm-l07-instrumentation-funnels",
+          "title": "Implement a funnel with explicit event and cohort contracts",
+          "objectives": [
+            "Define event identity, grain and eligibility before calculating a funnel.",
+            "Detect duplicate, orphan and missing events using a runnable local analysis."
+          ],
+          "topics": [
+            {
+              "title": "Event contracts",
+              "details": [
+                "An event needs identity, occurrence/ingestion time, version and a documented actor/session grain.",
+                "Collect only synthetic identifiers and necessary fields; do not add analytics to the learning tracker or send private data to a service."
+              ]
+            },
+            {
+              "title": "Funnels",
+              "details": [
+                "A completion event without a valid eligible start cannot automatically join the start cohort.",
+                "Deduplication, ordering and windows change the denominator and require independently checked examples."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "product-instrumentation",
+            "funnels",
+            "event-contracts"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-metrics",
+            "locator": "Find data sources and decide what to measure; connect the service hypothesis to clearly defined measurements and validate what the data can answer."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-telemetry"
+          ],
+          "assignment": {
+            "id": "tpm-a07",
+            "title": "A local five-event funnel",
+            "kind": "coding",
+            "instructions": [
+              "Create five original synthetic events: actor A start twice with the same event ID, A finish, B start and C finish without a start.",
+              "Write a local SQL query or Python analysis that deduplicates event IDs and restricts completion to the eligible starting cohort.",
+              "Extend the fixture with out-of-order ingestion and an event outside the declared window; retain the hand-calculated cohort and query output."
+            ],
+            "deliverables": [
+              "A versioned synthetic event contract and executable local analysis.",
+              "Golden cohort results and duplicate/orphan/window regression cases."
+            ],
+            "acceptanceCriteria": [
+              "The base cohort has two distinct starters and one eligible finisher, giving 50 percent conversion.",
+              "The duplicate start and orphan finish do not inflate counts.",
+              "The window, event-time/ingestion-time rule and synthetic data boundary are explicit."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q07-choice",
+                "kind": "single-choice",
+                "prompt": "Actor C has a finish event but no eligible start. Under the declared starting-cohort funnel, how is C handled?",
+                "choices": [
+                  "Excluded from that completion numerator and investigated as an orphan",
+                  "Counted as a successful starter",
+                  "Used to infer a missing start without disclosure"
+                ],
+                "answer": "Excluded from that completion numerator and investigated as an orphan",
+                "explanation": "The cohort was defined by eligible starts. Adding an inferred start would change the data and denominator; the orphan remains visible for instrumentation diagnosis."
+              },
+              {
+                "id": "tpm-q07-numeric",
+                "kind": "numeric",
+                "prompt": "After deduplication the declared cohort has two starters and one eligible finisher. Enter conversion as a percentage number.",
+                "answer": 50,
+                "numericTolerance": 0,
+                "explanation": "One eligible completion among two starters is a fraction of 0.5, or 50 percent. Counting duplicate starts or orphan completions would use a different, invalid cohort."
+              },
+              {
+                "id": "tpm-q07-written",
+                "kind": "short-answer",
+                "prompt": "Why can an ingestion timestamp be inappropriate for ordering a user journey?",
+                "answer": "Events may arrive late or out of order. Define occurrence-time and eligibility/window rules, preserve ingestion time for diagnostics, and test delayed arrivals rather than assuming arrival order is journey order.",
+                "explanation": "Instrumentation transport behavior is not the same as user behavior. Mixing the clocks can reorder steps or exclude valid events without explanation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which malformed event would most distort this funnel?",
+            "Can another learner reproduce your numerator from raw events?"
+          ],
+          "prerequisites": [
+            "tpm-l04-outcome-metrics",
+            "foundation-lesson-08-sql-querying",
+            "data-l12"
+          ]
+        },
+        {
+          "id": "tpm-l08-usability-experiments",
+          "title": "Design neutral usability tasks and falsifiable experiments",
+          "objectives": [
+            "Write a usability protocol that does not reveal the intended answer.",
+            "Define a falsifiable hypothesis, comparison, assignment unit and guardrails."
+          ],
+          "topics": [
+            {
+              "title": "Usability observation",
+              "details": [
+                "Ask participants to accomplish a goal without naming the button or path you want them to use.",
+                "Consent, minimal data and accurate attribution matter; a self-walkthrough is useful but not independent user evidence."
+              ]
+            },
+            {
+              "title": "Experiment design",
+              "details": [
+                "Name the unit assigned to a variant and the outcome before looking at results.",
+                "Operational canary routing, usability observation and randomized product experiments answer different questions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "usability-research",
+            "experiment-design",
+            "research-ethics"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-usability",
+            "locator": "Plan sessions, Design the tasks and Run a session: neutral goal-based tasks, a discussion guide, consistent instructions and honest observation."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-consent",
+            "tpm-doc-srm"
+          ],
+          "assignment": {
+            "id": "tpm-a08",
+            "title": "An ethical hypothetical lineage-preview study",
+            "kind": "design",
+            "instructions": [
+              "Write two neutral tasks for finding an input row and explaining why it was rejected; do not instruct the participant to click a named control.",
+              "Perform a clearly labelled self-walkthrough with synthetic data or document a genuinely consented optional peer review, without fabricating quotes.",
+              "Predeclare a hypothetical experiment comparing two presentations: assignment unit, outcome, safety guardrail and a result that would refute the hypothesis."
+            ],
+            "deliverables": [
+              "A discussion/consent protocol and attributed observation note.",
+              "A falsifiable experiment brief with assignment and guardrails."
+            ],
+            "acceptanceCriteria": [
+              "Tasks name user goals without revealing the intended interface path.",
+              "Any self-evaluation or hypothetical participant remains labelled as such.",
+              "The experiment defines its assignment unit and a credible reject/defer outcome before results."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q08-choice",
+                "kind": "single-choice",
+                "prompt": "Which task is least leading for the proposed lineage preview?",
+                "choices": [
+                  "Click the blue Lineage button and read row 4",
+                  "Find the source of this rejected row and explain the rejection",
+                  "Confirm that the new panel is easy to use"
+                ],
+                "answer": "Find the source of this rejected row and explain the rejection",
+                "explanation": "The task specifies the user goal without disclosing the desired interaction or inviting agreement. The other prompts teach the route or bias the evaluation."
+              },
+              {
+                "id": "tpm-q08-written",
+                "kind": "short-answer",
+                "prompt": "What limitation must accompany a solo self-walkthrough?",
+                "answer": "The evaluator already understands the intended design and is not an independent representative user. Report it as self-evaluation that can find obvious issues, not validated customer usability.",
+                "explanation": "Transparent attribution preserves the value of a bounded walkthrough without converting it into evidence from nonexistent participants."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Could the task wording explain an apparent success?",
+            "What result would make you reject the hypothesis?"
+          ],
+          "prerequisites": [
+            "tpm-l01-problem-evidence",
+            "tpm-l07-instrumentation-funnels",
+            "foundation-lesson-17-probability-sampling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tpm-m05-platform-experiments",
+      "title": "05. Platform choices and experimental validity",
+      "stage": "advanced",
+      "description": "Evaluate API/platform alternatives and challenge the validity of attractive experiment results.",
+      "prerequisites": [
+        "tpm-m04-research-measurement"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "tpm-l09-platform-api-products",
+          "title": "Choose an API product boundary and a reversible build-buy path",
+          "objectives": [
+            "Compare build, reuse, buy and defer against a concrete workflow and constraints.",
+            "Include compatibility, ownership, migration and total cost in an API decision."
+          ],
+          "topics": [
+            {
+              "title": "Platform as a product",
+              "details": [
+                "Start with one developer or operator journey and a supported contract, not a universal platform.",
+                "Ownership, error behavior, quotas and deprecation affect the experience as much as endpoint count."
+              ]
+            },
+            {
+              "title": "Build versus buy",
+              "details": [
+                "Include integration, operation, switching and data-control costs rather than comparing only license prices.",
+                "Reversible experiments and exit criteria can reduce uncertainty without paid procurement or a production commitment."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "api-products",
+            "build-versus-buy",
+            "platform-strategy"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-technology",
+            "locator": "What to consider when choosing technology, Understand the landscape and Allow for evolution; consider reversibility, total ownership cost and control of data."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-roadmap"
+          ],
+          "assignment": {
+            "id": "tpm-a09",
+            "title": "A bounded data-recovery API decision",
+            "kind": "design",
+            "instructions": [
+              "Compare implementing one local recovery endpoint, reusing a local command and deferring the feature for an explicitly hypothetical operator need.",
+              "Specify versioning, errors, idempotency, quota and ownership expectations; mark any unsupported reference capability as a learner extension.",
+              "Write a reversible proof-of-concept and an exit criterion; do not purchase, provision or send private data to a vendor."
+            ],
+            "deliverables": [
+              "A bounded API contract and build/reuse/defer comparison.",
+              "An ownership/migration/exit decision record."
+            ],
+            "acceptanceCriteria": [
+              "The comparison uses one defined workflow and credible alternatives.",
+              "Operational and switching costs are labelled assumptions, not invented bills.",
+              "The decision states compatibility, error and ownership obligations and a condition for changing course."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q09-choice",
+                "kind": "single-choice",
+                "prompt": "Which consideration is missing from a comparison based only on license price?",
+                "choices": [
+                  "The product's logo color",
+                  "A guarantee that newest is best",
+                  "Integration, operation, switching cost and data control"
+                ],
+                "answer": "Integration, operation, switching cost and data control",
+                "explanation": "The price of acquiring software is only one component of ownership. Integration and exit constraints can dominate the real decision even when a license is inexpensive."
+              },
+              {
+                "id": "tpm-q09-written",
+                "kind": "short-answer",
+                "prompt": "Why is 'add an endpoint' insufficient as a platform-product scope?",
+                "answer": "It omits the supported user journey, contract, ownership, error/permission behavior, compatibility and operational obligations. Those define whether the endpoint can be used safely and maintained.",
+                "explanation": "A platform product is a supported experience and responsibility boundary, not merely an implementation surface."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What makes the decision reversible?",
+            "Who owns the API after the prototype?"
+          ],
+          "prerequisites": [
+            "tpm-l05-prd-acceptance",
+            "sde-l26-platform"
+          ]
+        },
+        {
+          "id": "tpm-l10-experiment-validity",
+          "title": "Diagnose invalid experiments before interpreting uplift",
+          "objectives": [
+            "Identify sample-ratio mismatch, contamination and selection problems.",
+            "Distinguish absolute percentage-point changes, relative uplift and causal claims."
+          ],
+          "topics": [
+            {
+              "title": "Validity gates",
+              "details": [
+                "A configured split can diverge from analyzed samples because of assignment, execution, logging or selection errors.",
+                "Diagnose sample-ratio mismatch before trusting effects; reweighting or dropping rows without a cause is not an automatic repair."
+              ]
+            },
+            {
+              "title": "Inference discipline",
+              "details": [
+                "Predeclare analysis, stopping and multiple-comparison handling; repeated peeking or subgroup searching changes the false-positive problem.",
+                "A canary or before/after comparison does not establish random assignment, comparable populations or causal product impact."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "experiment-validity",
+            "sample-ratio-mismatch",
+            "causal-claims"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-srm",
+            "locator": "How SRMs impact A/B tests, why they happen and diagnosis: trace assignment, execution, log processing and analysis before interpreting effects."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-release"
+          ],
+          "assignment": {
+            "id": "tpm-a10",
+            "title": "Audit a deliberately broken synthetic experiment",
+            "kind": "problem-set",
+            "instructions": [
+              "Start with a hypothetical 50/50 assignment of 1000 users but analyzed counts of 600 and 400; compute the Pearson two-cell discrepancy using expected counts of 500 each.",
+              "Compare conversion 20 of 200 versus 22 of 200: report the absolute percentage-point change and relative percentage change without claiming significance.",
+              "Create a fault tree for outcome-dependent logging, repeat users across variants, post-treatment filtering and repeated peeking; choose investigate/defer rather than inventing a corrected effect."
+            ],
+            "deliverables": [
+              "A unit-labelled allocation/uplift calculation.",
+              "A validity fault tree and predeclared analysis/stop policy."
+            ],
+            "acceptanceCriteria": [
+              "The allocation discrepancy is 40; it is not a p-value or a measured product effect.",
+              "Conversion changes from 10 to 11 percent: one percentage point absolute and 10 percent relative uplift.",
+              "The report withholds causal/ship claims until assignment, logging, selection and uncertainty are addressed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q10-choice",
+                "kind": "single-choice",
+                "prompt": "A synthetic test has unexplained sample-ratio mismatch and an attractive conversion estimate. What should happen first?",
+                "choices": [
+                  "Diagnose the mismatch and withhold the ship conclusion",
+                  "Ignore it because uplift is positive",
+                  "Remove inconvenient users until groups match"
+                ],
+                "answer": "Diagnose the mismatch and withhold the ship conclusion",
+                "explanation": "SRM warns that the analyzed samples may not represent the intended randomized comparison. A positive estimate cannot repair assignment, logging or selection bias."
+              },
+              {
+                "id": "tpm-q10-numeric",
+                "kind": "numeric",
+                "prompt": "Observed variant counts are 600 and 400; expected counts are 500 each. Sum each squared observed-minus-expected difference divided by its expected count.",
+                "answer": 40,
+                "numericTolerance": 0.000001,
+                "explanation": "Each count differs from its expectation by 100. Each contribution is 10000 divided by 500, or 20; the sum is 40. This statistic is not itself a p-value."
+              },
+              {
+                "id": "tpm-q10-written",
+                "kind": "short-answer",
+                "prompt": "Explain why a synthetic canary route does not establish a randomized product experiment.",
+                "answer": "Routing may be deterministic or operationally selected, and the populations, exposure, outcomes and analysis may not meet experimental assumptions. Canary health evidence should not be converted into causal product uplift.",
+                "explanation": "Operational rollout safety and causal product inference are distinct questions. The design and data must support the particular claim being made."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where could missing users have been selected by the outcome?",
+            "Are you reporting points, percent, a statistic or a p-value?"
+          ],
+          "prerequisites": [
+            "tpm-l08-usability-experiments",
+            "quant-l08-hypothesis-families"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tpm-m06-economics-risk",
+      "title": "06. Unit economics, risk and delivery sequencing",
+      "stage": "advanced",
+      "description": "Connect financial units and accountable risk decisions to feasible technical delivery.",
+      "prerequisites": [
+        "tpm-m05-platform-experiments"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "tpm-l11-unit-economics",
+          "title": "Calculate contribution and break-even without invented savings",
+          "objectives": [
+            "Separate fixed cost, variable cost, revenue and contribution margin.",
+            "Explain break-even, relevant-range and uncertainty limits using consistent units."
+          ],
+          "topics": [
+            {
+              "title": "Unit economics",
+              "details": [
+                "Contribution per unit is revenue less variable cost under a declared unit and accounting boundary.",
+                "Failure handling, support and operational work may be variable costs; ignoring them can make a comparison artificially attractive."
+              ]
+            },
+            {
+              "title": "Break-even and limits",
+              "details": [
+                "Fixed cost divided by positive contribution gives break-even units under the stated linear assumptions.",
+                "Zero or negative contribution does not yield a finite nonnegative sales volume that covers positive fixed cost. Hypothetical prices are not actual revenue or savings."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "unit-economics",
+            "contribution-margin",
+            "cost-quality-tradeoffs"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-book-economics",
+            "locator": "CVP assumptions and Basics of the Break-Even Point: distinguish fixed/variable costs, contribution, relevant range and break-even in units versus revenue."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-technology"
+          ],
+          "assignment": {
+            "id": "tpm-a11",
+            "title": "An original hypothetical service-economics model",
+            "kind": "problem-set",
+            "instructions": [
+              "Use an explicitly fictional service priced at 12 currency units per useful outcome, variable cost 8 per outcome and fixed cost 2400 per period.",
+              "Compute contribution and break-even units, then change variable cost to 12 and 13 and explain why naive division is not a viable break-even result.",
+              "Compare two local quality/cost options while including failed-request work and support assumptions; keep measured technical costs separate from hypothetical commercial prices."
+            ],
+            "deliverables": [
+              "A unit-labelled base/sensitivity table.",
+              "A quality-cost recommendation with assumptions and missing business evidence."
+            ],
+            "acceptanceCriteria": [
+              "Base contribution is 4 currency units per outcome and break-even is 600 outcomes per period.",
+              "Zero/negative contribution cases do not produce a claimed feasible break-even volume.",
+              "Prices, demand and financial effects remain explicitly hypothetical; no customer dollar savings are invented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q11-choice",
+                "kind": "single-choice",
+                "prompt": "Variable cost equals unit revenue while fixed cost is positive. Which conclusion is correct?",
+                "choices": [
+                  "Any sales volume immediately produces a profit",
+                  "There is no finite break-even volume under this model",
+                  "Break-even volume is zero"
+                ],
+                "answer": "There is no finite break-even volume under this model",
+                "explanation": "Each additional unit contributes zero toward positive fixed cost. Dividing by zero is undefined; calling it zero-volume break-even reverses the economics."
+              },
+              {
+                "id": "tpm-q11-numeric",
+                "kind": "numeric",
+                "prompt": "Unit revenue is 12, unit variable cost is 8 and period fixed cost is 2400 in the same currency. Enter break-even units for that period.",
+                "answer": 600,
+                "numericTolerance": 0,
+                "explanation": "Each unit contributes 4 toward fixed cost. Covering 2400 therefore requires 600 units; 2400 is a currency amount, not the requested unit count."
+              },
+              {
+                "id": "tpm-q11-written",
+                "kind": "short-answer",
+                "prompt": "Why does a cheaper inference request not necessarily reduce cost per useful outcome?",
+                "answer": "The cheaper configuration may fail more often, require retries/support or reduce quality. Count useful outcomes and all relevant work under the same workload before comparing the ratio.",
+                "explanation": "Optimizing one cost numerator while changing outcome quality or denominator can misrepresent the actual economic trade-off."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What is the unit being sold or delivered?",
+            "Which unmeasured cost could reverse your recommendation?"
+          ],
+          "prerequisites": [
+            "finance-l10-ratios",
+            "finance-l15-npv",
+            "tpm-l04-outcome-metrics"
+          ]
+        },
+        {
+          "id": "tpm-l12-risk-sequencing",
+          "title": "Sequence work around accountable risk and dependencies",
+          "objectives": [
+            "Turn risk concerns into owned requirements and explicit acceptance evidence.",
+            "Choose a feasible delivery sequence including rollback and exception review."
+          ],
+          "topics": [
+            {
+              "title": "Risk requirements",
+              "details": [
+                "Likelihood, impact, affected assets and uncertainty inform a risk decision; a generic 'secure' label does not close it.",
+                "Risk acceptance requires an accountable owner, scope, rationale and review condition rather than a blanket waiver."
+              ]
+            },
+            {
+              "title": "Delivery coordination",
+              "details": [
+                "A dependency graph reveals blocked options and the consequences of delaying prerequisites.",
+                "Include privacy, support, incident handling and rollback owners rather than treating release as the end of responsibility."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "product-risk",
+            "dependency-sequencing",
+            "cross-functional-delivery"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-technology",
+            "locator": "Choosing technologies that support change, security risk management, data control and a map of dependencies; identify ownership and constraints before committing."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-roadmap"
+          ],
+          "assignment": {
+            "id": "tpm-a12",
+            "title": "A recovery release with an explicit no-go risk",
+            "kind": "design",
+            "instructions": [
+              "Create a hypothetical release plan for replayable data with contract checks, row lineage, operator preview and recovery documentation as separate work items.",
+              "Add dependencies and an explicit risk that output Parquet alone cannot reproduce accepted-run history; require source and successful-run journal retention.",
+              "Write an accept/mitigate/defer decision with owners, evidence needed, rollback and an exception-review trigger; do not claim legal compliance from the exercise."
+            ],
+            "deliverables": [
+              "A dependency graph and acceptance ownership table.",
+              "A scoped risk/exception/rollback decision."
+            ],
+            "acceptanceCriteria": [
+              "The plan cannot schedule a dependent release before its safety prerequisite.",
+              "Every accepted exception has an owner, rationale, scope and review trigger.",
+              "The decision preserves actual recovery dependencies and distinguishes learning review from legal/security certification."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q12-choice",
+                "kind": "single-choice",
+                "prompt": "A release exception has no owner or review condition. What is the appropriate response?",
+                "choices": [
+                  "Treat it as permanent approval",
+                  "Hide it from the roadmap",
+                  "Keep it unresolved until accountable acceptance or mitigation is defined"
+                ],
+                "answer": "Keep it unresolved until accountable acceptance or mitigation is defined",
+                "explanation": "An exception is a continuing decision with consequences. Without ownership and review conditions it becomes an unbounded waiver rather than a controlled risk choice."
+              },
+              {
+                "id": "tpm-q12-written",
+                "kind": "short-answer",
+                "prompt": "Explain why recovery documentation may be a release dependency rather than optional post-launch polish.",
+                "answer": "If operators cannot identify required source/journal artifacts or safely restore them, a failure can leave the service unrecoverable. The release decision must account for that operational requirement.",
+                "explanation": "Delivery includes the ability to operate and recover the system. A successful happy-path demo does not satisfy that responsibility."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which dependency is a safety requirement rather than a preference?",
+            "Who can accept the remaining risk and when must it be revisited?"
+          ],
+          "prerequisites": [
+            "tpm-l06-prioritization-roadmap",
+            "security-l28-risk-register",
+            "data-l22"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tpm-m07-release-decisions",
+      "title": "07. Launch decisions and stakeholder responsibility",
+      "stage": "professional",
+      "description": "Make explicit go/defer/rollback decisions and communicate disagreements without inventing organizational experience.",
+      "prerequisites": [
+        "tpm-m06-economics-risk"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "tpm-l13-launch-rollback",
+          "title": "Predeclare launch, stop and rollback criteria",
+          "objectives": [
+            "Define release criteria against actual observable signals and supported rollback behavior.",
+            "Distinguish operational rollout evidence from long-term reliability or causal impact."
+          ],
+          "topics": [
+            {
+              "title": "Release decisions",
+              "details": [
+                "A criterion names the population, window, threshold, owner and action, not just 'monitor closely'.",
+                "A missing signal is an unknown, not a passing guardrail. Rollback itself needs a tested compatible path."
+              ]
+            },
+            {
+              "title": "Canary limitations",
+              "details": [
+                "A small rollout can reveal certain failures without proving long-term production availability.",
+                "Operational routing and a healthy canary do not establish random assignment or product outcome causality."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "launch-readiness",
+            "rollback",
+            "release-guardrails"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-release",
+            "locator": "Release Engineering Principles and Balancing Release Velocity and Reliability: reproducible artifacts, small changes, measured canary behavior and rollback decisions."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-metrics"
+          ],
+          "assignment": {
+            "id": "tpm-a13",
+            "title": "A synthetic release go/defer record",
+            "kind": "design",
+            "instructions": [
+              "Define a hypothetical release window with 200 eligible requests and a no-go threshold above 1 percent failed requests; include ownership and a missing-signal rule.",
+              "Evaluate a fixture with three failed requests and a separate fixture with absent telemetry.",
+              "Describe a tested or explicitly proposed rollback path and explain what this local window cannot prove about production reliability or customer benefit."
+            ],
+            "deliverables": [
+              "A release decision table with thresholds and actions.",
+              "A rollback/missing-signal review and limitation statement."
+            ],
+            "acceptanceCriteria": [
+              "Three failures among 200 eligible requests is 1.5 percent and triggers the stated no-go rule.",
+              "Absent telemetry is not treated as a successful guardrail.",
+              "Implemented versus proposed rollback and local versus production evidence are clearly separated."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q13-choice",
+                "kind": "single-choice",
+                "prompt": "The required failure-rate telemetry is absent during a release window. How should that guardrail be reported?",
+                "choices": [
+                  "Unknown; follow the predeclared missing-signal action",
+                  "Passed because no failures were observed",
+                  "Passed because the page still loads"
+                ],
+                "answer": "Unknown; follow the predeclared missing-signal action",
+                "explanation": "Missing observations do not establish an absence of failures. A defensible release process defines how missing evidence changes the decision."
+              },
+              {
+                "id": "tpm-q13-written",
+                "kind": "short-answer",
+                "prompt": "Why cannot a short local canary establish a monthly production SLO?",
+                "answer": "Its duration, environment, workload and failure exposure differ from the monthly production population. It can test bounded behavior but cannot establish that longer reliability claim.",
+                "explanation": "An operational observation must retain its measurement boundary; extrapolating it into a production guarantee discards the relevant uncertainty."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What happens if a signal disappears?",
+            "Can rollback restore compatible state as well as code?"
+          ],
+          "prerequisites": [
+            "tpm-l10-experiment-validity",
+            "tpm-l12-risk-sequencing",
+            "sde-l21-safe-release-iac"
+          ]
+        },
+        {
+          "id": "tpm-l14-stakeholder-decisions",
+          "title": "Negotiate a decision with explicit trade-offs and ownership",
+          "objectives": [
+            "Present a disagreement fairly and separate evidence from preference.",
+            "Assign decision rights, operational responsibility and conditions for revision."
+          ],
+          "topics": [
+            {
+              "title": "Stakeholder reasoning",
+              "details": [
+                "Technical, commercial, support and risk perspectives can optimize different outcomes.",
+                "Describe dissent accurately rather than inventing stakeholder quotes or implying actual PM employment."
+              ]
+            },
+            {
+              "title": "Accountable strategy",
+              "details": [
+                "An outcome strategy connects target users, a choice, expected mechanism and evidence needed.",
+                "A decision record names alternatives, ownership, unresolved risk and what would change the choice."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "stakeholder-communication",
+            "product-strategy",
+            "decision-records"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-roadmap",
+            "locator": "Develop roadmaps collaboratively around outcomes and review them as evidence changes; explain both what is selected and what is not being done."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-technology"
+          ],
+          "assignment": {
+            "id": "tpm-a14",
+            "title": "A hypothetical commerce scope negotiation",
+            "kind": "design",
+            "instructions": [
+              "Create an explicitly hypothetical disagreement: product wants partial refunds, engineering supports full refunds only, and operations needs reliable reconciliation.",
+              "Write a balanced decision record covering build, defer and narrower release, using actual reference limits and clearly hypothetical demand/cost assumptions.",
+              "Assign a decision owner, incident responsibility and a revision trigger; write separate short explanations for technical and nontechnical audiences."
+            ],
+            "deliverables": [
+              "A decision record with alternatives and accurately attributed assumptions.",
+              "Two audience-specific explanations and an ownership/revisit table."
+            ],
+            "acceptanceCriteria": [
+              "Partial refunds are not presented as implemented merely because stakeholders want them.",
+              "Each alternative has a genuine disadvantage and dissent is represented fairly.",
+              "Ownership and a concrete revision condition are explicit; no real negotiations or commercial outcomes are invented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q14-choice",
+                "kind": "single-choice",
+                "prompt": "A hypothetical stakeholder prefers a feature outside the implemented scope. Which response preserves accountability?",
+                "choices": [
+                  "Describe it as delivered to maintain enthusiasm",
+                  "State the gap and compare a narrower release, implementation or deferral",
+                  "Claim unanimous agreement without discussion"
+                ],
+                "answer": "State the gap and compare a narrower release, implementation or deferral",
+                "explanation": "A decision record must retain the difference between preference and capability. Honest alternatives allow stakeholders to choose with awareness of cost, risk and missing work."
+              },
+              {
+                "id": "tpm-q14-written",
+                "kind": "short-answer",
+                "prompt": "What makes a revision trigger more useful than 'revisit later'?",
+                "answer": "It identifies a specific observation, risk change, capability or evidence threshold and an owner responsible for reassessing the decision.",
+                "explanation": "A concrete trigger converts an indefinite promise into a reviewable decision process without pretending future outcomes are already known."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can the dissenting perspective recognize itself in your summary?",
+            "What evidence would change the chosen scope?"
+          ],
+          "prerequisites": [
+            "tpm-l09-platform-api-products",
+            "tpm-l11-unit-economics",
+            "tpm-l12-risk-sequencing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tpm-m08-outcome-review",
+      "title": "08. Post-launch learning and an honest three-project defense",
+      "stage": "professional",
+      "description": "Revise product decisions from reproducible evidence and defend the boundaries of a complete educational case study.",
+      "prerequisites": [
+        "tpm-m07-release-decisions"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "tpm-l15-postlaunch-roadmap",
+          "title": "Revise a roadmap without converting correlation into impact",
+          "objectives": [
+            "Analyze a synthetic post-launch-style dataset with stable metric definitions.",
+            "Revise a roadmap while retaining negative results, changed populations and uncertainty."
+          ],
+          "topics": [
+            {
+              "title": "Post-launch interpretation",
+              "details": [
+                "Before/after populations may differ in composition, exposure or instrumentation.",
+                "A percentage-point change describes arithmetic, not proof that a release caused it."
+              ]
+            },
+            {
+              "title": "Learning loops",
+              "details": [
+                "Keep the original hypothesis and decision record rather than rewriting the goal after seeing results.",
+                "Negative or inconclusive evidence can justify deferral, instrumentation repair or a changed priority."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "post-launch-analysis",
+            "roadmap-revision",
+            "evidence-governance"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-metrics",
+            "locator": "Combine measurement with research and iterate from both; define consistent purpose, hypotheses, population and data sources before interpreting a trend."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-roadmap",
+            "tpm-doc-srm"
+          ],
+          "assignment": {
+            "id": "tpm-a15",
+            "title": "A reproducible synthetic roadmap review",
+            "kind": "coding",
+            "instructions": [
+              "Analyze a synthetic before cohort with 8 successes among 80 eligible users and an after cohort with 12 among 100; retain raw counts and metric definitions.",
+              "Compute rates and absolute percentage-point change using a local script or SQL, then add a population-mix or logging-change counterexample.",
+              "Revise two roadmap priorities using the uncertainty and at least one negative result, without claiming that a release caused the observed change."
+            ],
+            "deliverables": [
+              "A reproducible cohort analysis and counterexample.",
+              "A revised roadmap linked to the original hypothesis and contrary evidence."
+            ],
+            "acceptanceCriteria": [
+              "The rates are 10 and 12 percent and the absolute change is two percentage points.",
+              "The write-up distinguishes descriptive change from causal impact and identifies a credible confounder.",
+              "The revised roadmap retains negative/inconclusive results rather than rewriting them as success."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q15-choice",
+                "kind": "single-choice",
+                "prompt": "A before/after metric improved while population mix also changed. What is justified?",
+                "choices": [
+                  "The release definitely caused the improvement",
+                  "The outcome proves customer adoption doubled",
+                  "Report the descriptive change and investigate the changed population"
+                ],
+                "answer": "Report the descriptive change and investigate the changed population",
+                "explanation": "A simultaneous composition change offers another explanation for the metric. Descriptive arithmetic remains valid, but a causal release claim needs a suitable design and evidence."
+              },
+              {
+                "id": "tpm-q15-numeric",
+                "kind": "numeric",
+                "prompt": "The rate changes from 8/80 to 12/100. Enter the absolute change in percentage points, not relative percent.",
+                "answer": 2,
+                "numericTolerance": 0,
+                "explanation": "The before rate is 10 percent and the after rate is 12 percent. Their absolute difference is two percentage points; the relative increase would instead be 20 percent."
+              },
+              {
+                "id": "tpm-q15-written",
+                "kind": "short-answer",
+                "prompt": "Give an evidence-based reason to prioritize instrumentation repair over a new feature after launch.",
+                "answer": "If changed logging or missing eligible users prevents valid outcome measurement, repairing that instrumentation may be necessary before comparing alternatives or claiming an improvement.",
+                "explanation": "Learning depends on valid evidence. A feature roadmap that ignores a broken measurement boundary can optimize misleading signals rather than user outcomes."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Did the population or metric definition change?",
+            "Which negative result changed your next decision?"
+          ],
+          "prerequisites": [
+            "tpm-l07-instrumentation-funnels",
+            "tpm-l10-experiment-validity",
+            "tpm-l14-stakeholder-decisions"
+          ]
+        },
+        {
+          "id": "tpm-l16-case-study-defense",
+          "title": "Defend three technical product cases without inflated claims",
+          "objectives": [
+            "Integrate discovery, requirements, measurement, economics and release decisions across three canonical projects.",
+            "Separate implemented reference behavior, hypothetical product assumptions and independent learner evidence."
+          ],
+          "topics": [
+            {
+              "title": "Case-study integrity",
+              "details": [
+                "The commerce, retrieval and replayable-data cases are the same shared projects used by other profiles, not relabelled extra applications.",
+                "Raw private source, receipts, personal resumes, employer data and participant information do not belong in public learning artifacts."
+              ]
+            },
+            {
+              "title": "Professional defense",
+              "details": [
+                "Defend a rejected alternative, a negative result and a remaining capability gap for each case.",
+                "Professional Practice is a learning level; an AI-assisted implementation or self-report is not certification, job readiness or independent mastery."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "product-capstone",
+            "portfolio-evidence",
+            "independent-readiness"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-roadmap",
+            "locator": "Roadmap objectives, shared understanding and evidence-driven revision; connect the three case decisions to actual constraints and clearly hypothetical outcome assumptions."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-stories",
+            "tpm-doc-metrics",
+            "tpm-doc-release"
+          ],
+          "assignment": {
+            "id": "tpm-a16",
+            "title": "One integrated three-project decision dossier",
+            "kind": "project",
+            "instructions": [
+              "Use the canonical commerce workflow, retrieval evaluation and replayable data projects; create one original hypothetical product case per project rather than inventing extra apps.",
+              "For each, connect a problem/segment hypothesis, bounded PRD, requirement evidence, instrumentation/analysis, economics assumptions and release/defer decision.",
+              "Personally explain a working behavior, make and test a bounded change, diagnose a failure and defend the remaining risks using local synthetic artifacts.",
+              "Record which claims are actual learner observations, reviewed reference capabilities, unreviewed/absent features or hypothetical product assumptions; do not copy private code or receipts into the tracker repository."
+            ],
+            "deliverables": [
+              "Three clearly hypothetical problem/segment/PRD case briefs with canonical project identities.",
+              "A requirement and capability coverage matrix including missing work.",
+              "Executable local synthetic instrumentation/analysis and unit-labelled economics.",
+              "A three-case release/roadmap decision dossier with rejected alternatives and negative results.",
+              "An independent learner explanation/change/debug/test record kept private."
+            ],
+            "acceptanceCriteria": [
+              "Exactly the three canonical PM project intents are used; shared projects are not counted as different applications.",
+              "Each PRD requirement has specific evidence or an explicit unimplemented/unknown label.",
+              "Synthetic personas, experiments, prices and outcomes are never described as real interviews, customers, adoption or revenue.",
+              "Every numerical statement is traceable to original input data, a reproducible calculation and its units.",
+              "Each case includes an adverse result, a credible rejected alternative and a justified release/defer decision.",
+              "Private source, receipts, resume data, employer/client information and secrets are absent from public artifacts.",
+              "The learner's own explanation, modification, diagnosis and tests are distinct from an agent-built reference or existing completion record."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "tpm-q16-choice",
+                "kind": "single-choice",
+                "prompt": "A reference project is tested and available, but the learner has not explained or changed it. Which readiness claim is honest?",
+                "choices": [
+                  "Reference available; independent learner readiness not yet demonstrated",
+                  "Learner professionally certified",
+                  "All learner gates completed automatically"
+                ],
+                "answer": "Reference available; independent learner readiness not yet demonstrated",
+                "explanation": "Implementation availability and individual competence are different evidence categories. Tests run by an agent or another reviewer do not demonstrate the learner's own understanding or ability to modify the system."
+              },
+              {
+                "id": "tpm-q16-written",
+                "kind": "short-answer",
+                "prompt": "How should a case study present a desired feature whose reference review is still pending?",
+                "answer": "Describe it as a learning target or unverified reference capability, avoid an implemented claim, and name the evidence needed. Any learner-built extension must be labelled and independently demonstrated.",
+                "explanation": "A pending review is an explicit uncertainty, not permission to infer capability from a project name or intended scope."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which claim would you remove if challenged for evidence?",
+            "Can you reproduce and explain one failure without relying on an agent's receipt?"
+          ],
+          "prerequisites": [
+            "tpm-l13-launch-rollback",
+            "tpm-l14-stakeholder-decisions",
+            "tpm-l15-postlaunch-roadmap"
+          ]
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "GOV.UK Service Manual: user research",
+      "url": "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+      "notes": "Methods and public-service examples, not a requirement to publish research or collect personal data."
+    },
+    {
+      "title": "Microsoft Research: experimental validity",
+      "url": "https://www.microsoft.com/en-us/research/articles/diagnosing-sample-ratio-mismatch-in-a-b-testing/",
+      "notes": "SRM diagnosis and limitations; original exercises do not copy experimental datasets."
+    },
+    {
+      "title": "OpenStax: managerial accounting",
+      "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-2-calculate-a-break-even-point-in-units-and-dollars",
+      "notes": "Contribution and break-even concepts, linked rather than rehosted."
+    },
+    {
+      "title": "Google SRE: canary releases",
+      "url": "https://sre.google/workbook/canarying-releases/",
+      "notes": "Operational release guidance, not proof of randomized product impact."
+    }
+  ],
+  "limitations": [
+    "Professional Practice is a learning stage, not a professional certification, employment claim, salary promise or independently verified mastery.",
+    "All required case studies use original synthetic data and explicitly hypothetical personas, discovery, experiments and economics. Never invent real users, interviews, adoption, revenue or causal impact.",
+    "Private GitHub references require authorized access; the tracker cannot grant it. No private source, raw receipts, personal resumes, employer/client material or secrets may be published.",
+    "Reference implementation availability, original build evidence and the learner's independent readiness remain separate; none automatically completes the others.",
+    "Core study is free and local. Videos are not fabricated: these new lessons are honestly reading-led, and the existing PDF inventory is unchanged.",
+    "Government, research and accounting sources provide contextual methods. They do not establish jurisdiction-specific legal compliance, professional assurance or current commercial facts.",
+    "Actual interviews, market validation, pricing in a real business and organizational leadership require real experience and evidence beyond these hypothetical learning cases."
+  ]
+}

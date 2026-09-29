@@ -164,6 +164,7 @@ export const trackSchema = z
               "A-rebuild",
               "B-build",
               "professional-synthetic-recreation",
+              "career-practice",
             ]),
             recommendedAfter: z.array(id),
             milestones: z.array(

@@ -20,7 +20,12 @@ import {
   trackMeta,
 } from "../content/catalog";
 import { addDays, dayKey, getStreak } from "../domain/progress";
-import type { ProgressState, Track } from "../domain/types";
+import {
+  ORIGINAL_EXTRA_TOPIC_IDS,
+  type ProgressState,
+  type Track,
+} from "../domain/types";
+import { projectTotals } from "../domain/careers";
 import type { LearningProps } from "./shared";
 import {
   ArrowLink,
@@ -34,7 +39,7 @@ import {
 export function Dashboard({ catalog, state }: LearningProps) {
   const lessons = coreLessons(catalog);
   const extraTracks = catalog.tracks.filter((track) =>
-    isExtraTopic(track.trackId),
+    ORIGINAL_EXTRA_TOPIC_IDS.some((id) => id === track.trackId),
   );
   const extraProgress = lessonCompletion(
     allLessons({ ...catalog, tracks: extraTracks }),
@@ -67,19 +72,8 @@ export function Dashboard({ catalog, state }: LearningProps) {
   const goals = Object.values(state.goals).filter(
     (goal) => !goal.deletedAt && !goal.completedAt,
   );
-  const projectGates = catalog.projects.reduce(
-    (sum, project) =>
-      sum +
-      project.milestones.filter((milestone) =>
-        state.projects[project.id]?.milestones.includes(milestone.id),
-      ).length,
-    0,
-  );
-  const finishedProjects = catalog.projects.filter((project) =>
-    project.milestones.every((milestone) =>
-      state.projects[project.id]?.milestones.includes(milestone.id),
-    ),
-  ).length;
+  const originalProjects = projectTotals(catalog, state, "original");
+  const careerProjects = projectTotals(catalog, state, "career");
   const activeProjects = catalog.projects.filter(
     (project) =>
       state.projects[project.id]?.evidence ||
@@ -303,6 +297,30 @@ export function Dashboard({ catalog, state }: LearningProps) {
         </p>
         <PathCards tracks={extraTracks} state={state} />
       </section>
+      <section
+        className="panel lesson-section section-block"
+        aria-labelledby="career-hub-heading"
+      >
+        <p className="eyebrow">CANONICAL LEARNING. INDEPENDENT EVIDENCE.</p>
+        <h2 id="career-hub-heading">Career Preparation</h2>
+        <p>
+          Six four-stage career maps connect your existing lessons and shared
+          projects. Explore evidence gaps and record your own explanation,
+          changes, debugging and tests, separately from reference implementation
+          status.
+        </p>
+        <div className="button-row">
+          <a className="button primary" href="#/careers">
+            Explore career preparation <ArrowRight size={16} />
+          </a>
+          <a
+            className="button secondary"
+            href="#/path/technical-product-management"
+          >
+            16 optional Technical PM lessons
+          </a>
+        </div>
+      </section>
       <section className="panel portfolio-progress">
         <span className="portfolio-icon">
           <FolderGit2 size={27} strokeWidth={1.5} />
@@ -311,16 +329,18 @@ export function Dashboard({ catalog, state }: LearningProps) {
           <p className="eyebrow">LEARNING, MADE TANGIBLE</p>
           <h2>Your portfolio, one evidence gate at a time.</h2>
           <p>
-            {finishedProjects} of {catalog.projects.length} projects complete ·{" "}
-            {projectGates} of{" "}
-            {catalog.projects.reduce(
-              (sum, project) => sum + project.milestones.length,
-              0,
-            )}{" "}
-            evidence gates recorded.
+            {originalProjects.completed} of {originalProjects.total} original
+            projects complete · {originalProjects.recorded} of{" "}
+            {originalProjects.gates} original build gates recorded.
             {activeProjects.length
               ? ` ${activeProjects.length} project${activeProjects.length === 1 ? "" : "s"} in your workspace.`
               : " Start with the prerequisites, then a small working slice."}
+          </p>
+          <p>
+            {careerProjects.completed} of {careerProjects.total} optional
+            career-practice projects complete · {careerProjects.recorded} of{" "}
+            {careerProjects.gates} additional build gates recorded. Independent
+            readiness is separate and never completes projects or lessons.
           </p>
         </div>
         <ArrowLink href="#/projects">Open project studio</ArrowLink>
