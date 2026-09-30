@@ -161,7 +161,9 @@
             "advanced-reading-4d089713c1e8",
             "advanced-reading-f0d828cc0baf",
             "advanced-reading-8aa5903e73f8",
-            "advanced-reading-24215d14d71f"
+            "advanced-reading-a517a609775d",
+            "advanced-reading-61bfbda75bb4",
+            "advanced-reading-1641d019036c"
           ],
           "assignment": {
             "id": "advanced-d5-foundation-05-feed-files-assignment",
@@ -247,6 +249,14 @@
                 "Network reads may split or combine frames. Length checks, byte order, field validation and sequence/gap policy must precede state mutation. Original synthetic messages can exercise the specification without redistributing licensed market feeds or connecting to an exchange.",
                 "Supported messages normalize correctly, malformed inputs fail without partial state changes and text FIX is not mislabelled binary. Unimplemented protocol messages remain explicit exclusions."
               ]
+            },
+            {
+              "title": "Pin message editions and separate transport framing",
+              "details": [
+                "Use the real official Nasdaq TotalView-ITCH 5.0 PDF: Architecture (p.3), Data Types/Message Formats (p.4), Add Order 1.3.1/1.3.2 (p.13), Executed 1.4.1/1.4.2 (p.14), Cancel/Delete/Replace 1.4.3-1.4.5 (pp.15-16). The fixture declares a supported message subset and reads exact byte widths/order and timestamp units from those tables, not from FIX or an unavailable support page.",
+                "OUCH 5.0 Order Entry Specification, updated October 2025, has its own Architecture/Data Types and inbound Enter/Replace/Cancel versus outbound messages. Its layouts and direction are not the ITCH common header. Use original synthetic fields; do not redistribute licensed market feeds.",
+                "For the stream fixture choose SoupBinTCP Version 3.00. Its two-byte big-endian length counts bytes after that field, including packet type; server sequenced type S wraps one higher-level message, while client unsequenced type U has a different direction. A 36-byte ITCH Add Order A payload therefore has Soup length 37 and total wire length 39. Keep the Soup S and ITCH A type bytes distinct."
+              ]
             }
           ],
           "estimatedMinutes": 360,
@@ -255,12 +265,14 @@
           ],
           "video": null,
           "reading": {
-            "resourceId": "advanced-reading-f0d828cc0baf",
-            "locator": "FIX Trading Community standards index: classic FIX tag-value framing, body length/checksum and versioned specifications. Read FAST plus the official Nasdaq ITCH/OUCH versioned specs for their distinct encodings."
+            "resourceId": "advanced-reading-a517a609775d",
+            "locator": "Nasdaq TotalView-ITCH5.0: Architecture (PDF p.3), Data Types/Message Formats (p.4), Add Order1.3.1/1.3.2 (p.13), Executed1.4.1/1.4.2 (p.14), Cancel/Delete/Replace1.4.3-1.4.5 (pp.15-16). Also read the linked OUCH5.0 October2025 sections1.1-1.2,2.1-2.3,3 and SoupBinTCP3.00 sections1.1,1.5,2.2.3,2.3.2. Payload fields and transport envelopes are different."
           },
           "supplementaryResourceIds": [
+            "advanced-reading-f0d828cc0baf",
             "advanced-reading-8aa5903e73f8",
-            "advanced-reading-24215d14d71f",
+            "advanced-reading-61bfbda75bb4",
+            "advanced-reading-1641d019036c",
             "advanced-reading-4414e131c177",
             "advanced-reading-9272f9fdc3d9",
             "advanced-reading-692241393bea",
@@ -278,7 +290,9 @@
               "Author small original valid/invalid fixtures for each of the four named protocols using their official versioned documentation. Implement bounded framing and normalized event outputs with an independent expected table.",
               "Parse original synthetic frames for each named protocol; exercise fragmentation, truncation, lengths, sequence gaps and invalid messages using bounded fuzz fixtures and explicit supported subsets.",
               "Split frames at every boundary, concatenate messages and test truncated/oversized/unknown message types. Instrument extraction allocations on an actual native runner where required.",
-              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result.",
+              "Record edition, message type, field offsets/widths, byte order and chosen transport in a fixture manifest. Build an original ITCH5.0 Add Order A payload from the official table, wrap it in a SoupBinTCP3.00 sequenced packet and hand-check length37/total39 before testing fragmentation and concatenation.",
+              "Build separate original OUCH5.0 Enter/Replace/Cancel fixtures from sections2.1-2.3 and a declared outbound subset from section3. Verify unsupported messages and framing errors fail explicitly; do not treat an ITCH decoder as an OUCH parser."
             ],
             "deliverables": [
               "Author small original valid/invalid fixtures for each of the four named protocols using their official versioned documentation. Implement bounded framing and normalized event outputs with an independent expected table.",
@@ -288,7 +302,8 @@
             "acceptanceCriteria": [
               "Supported messages normalize correctly, malformed inputs fail without partial state changes and text FIX is not mislabelled binary. Unimplemented protocol messages remain explicit exclusions.",
               "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
-              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded.",
+              "The fixture manifest identifies actual ITCH5.0, OUCH5.0 October2025 and SoupBinTCP3.00 sections. Independent byte/length expectations cover the separate transport/message types and reject truncation, unknown types and wrong-layout substitutions."
             ],
             "externalUrl": null,
             "questions": [
@@ -298,6 +313,13 @@
                 "prompt": "Are classic FIX and ITCH both necessarily binary wire formats?",
                 "answer": "No. Classic FIX is text/tag-value; ITCH uses a specified binary format.",
                 "explanation": "The implementation must name its protocol/version rather than generalizing from a finance-related acronym."
+              },
+              {
+                "id": "advanced-d5-intermediate-02-protocol-parsers-check-02",
+                "kind": "short-answer",
+                "prompt": "What SoupBinTCP length and total wire size wrap an original 36-byte ITCH Add Order payload in a sequenced packet?",
+                "answer": "The length is37 bytes: one Soup packet-type byte plus the36-byte payload. The complete wire packet is39 bytes including the two-byte length field.",
+                "explanation": "Soup's length excludes its own two-byte field, and the Soup packet type is separate from the ITCH message type. The official transport and payload specifications define different boundaries."
               }
             ]
           },
@@ -354,7 +376,9 @@
           "supplementaryResourceIds": [
             "advanced-reading-f0d828cc0baf",
             "advanced-reading-8aa5903e73f8",
-            "advanced-reading-24215d14d71f",
+            "advanced-reading-a517a609775d",
+            "advanced-reading-61bfbda75bb4",
+            "advanced-reading-1641d019036c",
             "advanced-reading-4414e131c177",
             "advanced-reading-9272f9fdc3d9",
             "advanced-reading-692241393bea",
@@ -1389,7 +1413,9 @@
             "advanced-reading-ccd855700914",
             "advanced-reading-f0d828cc0baf",
             "advanced-reading-8aa5903e73f8",
-            "advanced-reading-24215d14d71f"
+            "advanced-reading-a517a609775d",
+            "advanced-reading-61bfbda75bb4",
+            "advanced-reading-1641d019036c"
           ],
           "assignment": {
             "id": "advanced-d5-professional-02-hardware-feed-assignment",
@@ -1473,6 +1499,13 @@
                 "Tick-to-trade latency must name its start/end timestamps and included components. A sub-microsecond matcher does not establish the whole feed-to-order boundary. Event timestamps, process monotonic clocks and exchange/receipt clocks cannot be mixed without synchronization assumptions.",
                 "No order uses unavailable information or bypasses risk/halt policy, every output is traceable and timing claims include actual parser/queue/decision boundaries. No live exchange or broker action occurs."
               ]
+            },
+            {
+              "title": "Versioned feed/order and session boundaries",
+              "details": [
+                "Pin Nasdaq TotalView-ITCH5.0 payload sections and OUCH5.0 October2025 order-message sections separately. Declare the supported SoupBinTCP3.00 session envelope and its implied sequence handling if selected. Classic FIX uses its text/tag-value framing rather than the ITCH/OUCH binary layouts.",
+                "The paper gateway's acceptance trace identifies transport packet, decoded market event, decision/risk result and encoded order independently. A retired TechnicalSupport landing page is not a usable protocol specification, even if its HTTP response is 200."
+              ]
             }
           ],
           "estimatedMinutes": 360,
@@ -1481,12 +1514,14 @@
           ],
           "video": null,
           "reading": {
-            "resourceId": "advanced-reading-f0d828cc0baf",
-            "locator": "FIX standards: session/application responsibilities and order/message identity, paired with the chosen ITCH/OUCH specifications. Define the paper gateway's full causal timing boundary independently."
+            "resourceId": "advanced-reading-a517a609775d",
+            "locator": "Nasdaq TotalView-ITCH5.0 Architecture/Data Types/Message Formats and sections1.3-1.4 for supported book events. Pair OUCH5.0 October2025 inbound2.1-2.3/outbound3 and SoupBinTCP3.00 logical packets1.1,sequenced2.2.3,unsequenced2.3.2. Record protocol edition, supported message subset, framing, gap policy and the full paper-only tick-to-order clock boundary."
           },
           "supplementaryResourceIds": [
+            "advanced-reading-f0d828cc0baf",
             "advanced-reading-8aa5903e73f8",
-            "advanced-reading-24215d14d71f",
+            "advanced-reading-61bfbda75bb4",
+            "advanced-reading-1641d019036c",
             "advanced-reading-e6ef26241e98",
             "advanced-reading-aba849e22368",
             "advanced-reading-d144a10ff2ea",
@@ -1684,10 +1719,40 @@
       "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds. Link-only; no content is bundled and runtime access is not implied."
     },
     {
-      "id": "advanced-reading-24215d14d71f",
+      "id": "advanced-reading-a517a609775d",
       "kind": "documentation",
-      "title": "Page Not Available",
-      "url": "https://www.nasdaqtrader.com/Trader.aspx?id=TechnicalSupport",
+      "title": "Nasdaq TotalView-ITCH 5.0 specification",
+      "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf",
+      "provider": "www.nasdaqtrader.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-61bfbda75bb4",
+      "kind": "documentation",
+      "title": "Nasdaq OUCH 5.0 Order Entry Specification (October 2025)",
+      "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/TradingProducts/OUCH5.0.pdf",
+      "provider": "www.nasdaqtrader.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-1641d019036c",
+      "kind": "documentation",
+      "title": "Nasdaq SoupBinTCP Version 3.00",
+      "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/soupbintcp.pdf",
       "provider": "www.nasdaqtrader.com",
       "access": "free",
       "license": "External official/maintainer terms; link-only, no redistribution asserted.",
@@ -2043,7 +2108,17 @@
     },
     {
       "title": "Q-PROTOCOLS: official learning source",
-      "url": "https://www.nasdaqtrader.com/Trader.aspx?id=TechnicalSupport",
+      "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds."
+    },
+    {
+      "title": "Q-PROTOCOLS: official learning source",
+      "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/TradingProducts/OUCH5.0.pdf",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds."
+    },
+    {
+      "title": "Q-PROTOCOLS: official learning source",
+      "url": "https://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/soupbintcp.pdf",
       "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds."
     },
     {

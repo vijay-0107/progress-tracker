@@ -386,9 +386,9 @@ test("a pre-addition v2 guest record and new topic evidence survive reload and e
       .locator("strong"),
   ).toHaveText("1");
   await page.goto("./#/settings");
-  await expect(page.getByLabel("Primary learning focus")).toHaveValue("data");
+  await expect(page.getByLabel("Saved core-course focus")).toHaveValue("data");
   await expect(
-    page.getByLabel("Primary learning focus").locator("option"),
+    page.getByLabel("Saved core-course focus").locator("option"),
   ).toHaveCount(7);
   await expect(
     page.getByText(/Extra Topics are optional, opened independently/),

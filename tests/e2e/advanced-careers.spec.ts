@@ -27,6 +27,102 @@ async function state(page: Page) {
     : validateProgressState(JSON.parse(raw));
 }
 
+test("saved settings distinguish seven original core choices from six Career Paths", async ({
+  page,
+}) => {
+  await page.goto("./#/settings");
+  const focus = page.getByRole("combobox", {
+    name: "Saved core-course focus",
+    exact: true,
+  });
+  await expect(focus).toBeVisible();
+  await expect(focus.locator("option")).toHaveCount(7);
+  expect(
+    await focus
+      .locator("option")
+      .evaluateAll((items) => items.map((item) => item.getAttribute("value"))),
+  ).toEqual(["foundation", "data", "sde", "quant", "ai", "gate", "cat"]);
+  await expect(
+    page.getByText(/All six Career Paths have separate first-class navigation/),
+  ).toBeVisible();
+  await expect(page.getByText(/four career\s*paths/i)).toHaveCount(0);
+  await expect(focus).toHaveValue("foundation");
+});
+
+test("project preparation exposes exact replay, PIT, domain and packet-framing readings", async ({
+  page,
+}) => {
+  const media: string[] = [];
+  page.on("request", (request) => {
+    if (
+      /\.pdf(?:[?#]|$)|youtube(?:-nocookie)?\.com\/embed|api\.github\.com|github\.com\/vijay-0107\//.test(
+        request.url(),
+      )
+    )
+      media.push(request.url());
+  });
+  await page.goto("./#/project/advanced-target-03?stage=foundation");
+  const replay = page.locator('[data-exercise-id="advanced-ex-03-foundation"]');
+  await expect(
+    replay.locator(
+      'a[href="#/lesson/advanced-d1-advanced-04-workflow-replay"]',
+    ),
+  ).toBeVisible();
+  await expect(replay).toContainText("Deterministic constraints");
+  await expect(replay).toContainText("reserve-0/wait-1/receipt-2");
+  await replay
+    .getByText("Additional exact reading sections", { exact: true })
+    .click();
+  await expect(
+    replay.getByRole("link", {
+      name: "Temporal Go SDK: durable timers and versioning (opens in a new tab)",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await page.goto("./#/project/advanced-target-07?stage=foundation");
+  const pit = page.locator('[data-exercise-id="advanced-ex-07-foundation"]');
+  await expect(
+    pit.locator('a[href="#/lesson/quant-l10-availability-time"]'),
+  ).toBeVisible();
+  await expect(pit).toContainText(
+    "At prediction cutoff12 expect A=5 and B=missing",
+  );
+  await page.goto("./#/project/advanced-target-08?stage=foundation");
+  await expect(
+    page.locator('[data-exercise-id="advanced-ex-08-foundation"]'),
+  ).toContainText("canonical allowed.test authority");
+  await page.goto("./#/project/advanced-target-09?stage=foundation");
+  await expect(
+    page.locator('[data-exercise-id="advanced-ex-09-foundation"]'),
+  ).toContainText("peer-veth RX/XDP");
+  await page.goto("./#/project/advanced-target-19?stage=foundation");
+  const feed = page.locator('[data-exercise-id="advanced-ex-19-foundation"]');
+  await expect(
+    feed.getByRole("link", {
+      name: "Nasdaq TotalView-ITCH 5.0 specification (opens in a new tab)",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(feed).toContainText("1.3.1/1.3.2 Add Order");
+  await feed
+    .getByText("Additional exact reading sections", { exact: true })
+    .click();
+  await expect(
+    feed.getByRole("link", {
+      name: "Nasdaq SoupBinTCP Version 3.00 (opens in a new tab)",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(
+    feed.getByRole("link", {
+      name: "Nasdaq OUCH 5.0 Order Entry Specification (October 2025) (opens in a new tab)",
+      exact: true,
+    }),
+  ).toBeVisible();
+  expect(media).toEqual([]);
+  expect((await state(page)).projects).toEqual({});
+});
+
 test("dashboard and navigation expose six direct paths without hidden hub or progress writes", async ({
   page,
 }) => {

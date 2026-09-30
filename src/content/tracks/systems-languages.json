@@ -1650,8 +1650,15 @@
             {
               "title": "Failure boundaries and evidence",
               "details": [
-                "Maps and ring buffers connect kernel observations to user space with finite capacity. Event loss and backpressure require counters rather than silently disappearing evidence. XDP operates on packet data at a defined hook; every parser access needs bounds checks and policy scope must be restricted to an owned test interface.",
+                "Maps and ring buffers connect kernel observations to user space with finite capacity. Event loss and backpressure require counters rather than silently disappearing evidence. XDP executes at ingress when the receiving driver processes a packet; it is not an ordinary host-transmit hook. Every parser access needs bounds checks and policy scope must be restricted to an owned receiving interface.",
                 "Compilation, verifier/load, event observation and enforcement have separate results. All packet reads are bounded, losses are visible and no host policy or unrelated traffic is modified."
+              ]
+            },
+            {
+              "title": "Receiving-side enforcement of an outbound workload policy",
+              "details": [
+                "Use the explicit path workload-veth TX -> peer-veth RX/XDP -> owned destination. Record which network namespace/ifindex receives the workload's packet and where the XDP program is attached, then test both allowed and denied outbound traffic through that path.",
+                "xdp_md describes packet/receive context such as ingress_ifindex and rx_queue_index. Do not treat ordinary XDP current PID as the packet owner's identity. Process information comes from the declared syscall/socket/cgroup sensor; tc/cgroup egress, if selected instead, is a different hook."
               ]
             }
           ],
@@ -1668,7 +1675,9 @@
           "supplementaryResourceIds": [
             "advanced-reading-a6fc9959603a",
             "advanced-reading-0de8e70ea775",
-            "advanced-reading-ad663012c8b1"
+            "advanced-reading-ad663012c8b1",
+            "advanced-reading-47db22f4ad18",
+            "advanced-reading-a83c4e944665"
           ],
           "assignment": {
             "id": "systems-advanced-c-ebpf-assignment",
@@ -1698,6 +1707,13 @@
                 "prompt": "Does successful BPF compilation prove runtime enforcement?",
                 "answer": "No. Verifier acceptance, attachment and observed policy behavior are separate checks.",
                 "explanation": "A program may compile yet fail verification, attach to the wrong scope or lose events under load."
+              },
+              {
+                "id": "systems-advanced-c-ebpf-check-02",
+                "kind": "short-answer",
+                "prompt": "Where does XDP run in a workload-veth TX -> peer-veth RX/XDP fixture?",
+                "answer": "At the receiving peer-veth ingress; that placement can constrain the workload's outgoing traffic crossing the peer.",
+                "explanation": "The workload's outbound property is tested through a receiving boundary. A local-transmit tc/cgroup hook or unrelated ingress denial is not the same XDP attachment."
               }
             ]
           },
@@ -3236,6 +3252,36 @@
       "notes": "actual libbpf/CO-RE/verifier/maps/ring buffers, Tetragon tracing policies, XDP and bounded owned namespace/veth fixtures. Link-only; no content is bundled and runtime access is not implied."
     },
     {
+      "id": "advanced-reading-47db22f4ad18",
+      "kind": "documentation",
+      "title": "Official reading: docs.cilium.io/en/stable/reference-guides/bpf/progtypes/",
+      "url": "https://docs.cilium.io/en/stable/reference-guides/bpf/progtypes/",
+      "provider": "docs.cilium.io",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "actual libbpf/CO-RE/verifier/maps/ring buffers, Tetragon tracing policies, XDP and bounded owned namespace/veth fixtures. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-a83c4e944665",
+      "kind": "documentation",
+      "title": "Official reading: github.com/xdp-project/xdp-tutorial/blob/main/packet01-parsing/README.org",
+      "url": "https://github.com/xdp-project/xdp-tutorial/blob/main/packet01-parsing/README.org",
+      "provider": "github.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "actual libbpf/CO-RE/verifier/maps/ring buffers, Tetragon tracing policies, XDP and bounded owned namespace/veth fixtures. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
       "id": "advanced-reading-937eba573bc9",
       "kind": "documentation",
       "title": "pybind11 documentation",
@@ -3631,6 +3677,16 @@
     {
       "title": "S-BPF: official learning source",
       "url": "https://github.com/xdp-project/xdp-tutorial",
+      "notes": "actual libbpf/CO-RE/verifier/maps/ring buffers, Tetragon tracing policies, XDP and bounded owned namespace/veth fixtures."
+    },
+    {
+      "title": "S-BPF: official learning source",
+      "url": "https://docs.cilium.io/en/stable/reference-guides/bpf/progtypes/",
+      "notes": "actual libbpf/CO-RE/verifier/maps/ring buffers, Tetragon tracing policies, XDP and bounded owned namespace/veth fixtures."
+    },
+    {
+      "title": "S-BPF: official learning source",
+      "url": "https://github.com/xdp-project/xdp-tutorial/blob/main/packet01-parsing/README.org",
       "notes": "actual libbpf/CO-RE/verifier/maps/ring buffers, Tetragon tracing policies, XDP and bounded owned namespace/veth fixtures."
     },
     {

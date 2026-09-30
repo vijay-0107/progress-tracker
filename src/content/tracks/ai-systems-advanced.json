@@ -1493,7 +1493,7 @@
           "id": "advanced-d2-advanced-05-sandbox-runtimes",
           "title": "Separate Firecracker microVMs from gVisor sandboxing",
           "objectives": [
-            "Firecracker VM lifecycle and gVisor runtime isolation; neither is a universal safety proof.",
+            "Firecracker VM lifecycle and gVisor runtime isolation; neither is a universal safety proof. Strict outbound domain whitelists require a domain-aware DNS-pinned application proxy, not merely an IP allowlist or blanket network denial.",
             "Actual supported runtimes enforce the declared limits and remove prior-job state; no unsandboxed fallback occurs. Sub-50ms claims require measured timing for the named startup boundary."
           ],
           "topics": [
@@ -1501,7 +1501,7 @@
               "title": "Mechanism and representation",
               "details": [
                 "Firecracker runs microVMs using KVM with explicit guest/rootfs/device/network boundaries. gVisor interposes a userspace kernel model for supported workloads; it is not the same as a hardware VM. Each has compatibility, isolation and operational assumptions that require real runtime evidence.",
-                "Firecracker VM lifecycle and gVisor runtime isolation; neither is a universal safety proof."
+                "Firecracker VM lifecycle and gVisor runtime isolation; neither is a universal safety proof. Strict outbound domain whitelists require a domain-aware DNS-pinned application proxy, not merely an IP allowlist or blanket network denial."
               ]
             },
             {
@@ -1509,6 +1509,14 @@
               "details": [
                 "Disposable execution must reset state and enforce CPU, memory, disk and network budgets. A failure to establish isolation must reject the job, not execute untrusted code directly on the host. Cold boot, snapshot restore and warm-pool admission are different latency boundaries.",
                 "Actual supported runtimes enforce the declared limits and remove prior-job state; no unsandboxed fallback occurs. Sub-50ms claims require measured timing for the named startup boundary."
+              ]
+            },
+            {
+              "title": "Domain identity, DNS answers and actual connections are separate",
+              "details": [
+                "For this owned lab, the guest has no direct network bypass: requests travel through a per-job guest/vsock/application-proxy boundary to an explicitly permitted owned TLS origin. Canonicalize the requested domain/authority, resolve it under the declared policy, validate every selected address and pin that approved resolution to the connection. Re-resolution or redirects must not silently change the approved authority/address.",
+                "Validate the TLS peer's SAN/hostname against the approved domain, keep per-job identity/capacity state isolated and reject literal direct-IP destinations or unapproved resolution. A successful TCP connection or an IP firewall entry does not prove the domain policy. A localhost fixture bridge can test control logic but is not the actual guest/vsock/proxy execution path.",
+                "The positive case matters: allowed.test must actually reach the owned TLS fixture and return the expected body hash/size. A design that denies all traffic could pass negative tests while failing the requested capability. These benign tests require a separately authorized KVM/network environment and never authorize requests to unrelated services."
               ]
             }
           ],
@@ -1528,27 +1536,31 @@
             "advanced-reading-53a8bc9dab70",
             "advanced-reading-d7f34e4835b2",
             "advanced-reading-1e7ae9e78214",
-            "advanced-reading-dfd605d35b18"
+            "advanced-reading-dfd605d35b18",
+            "advanced-reading-7eb820e1e53b"
           ],
           "assignment": {
             "id": "advanced-d2-advanced-05-sandbox-runtimes-assignment",
             "title": "Separate Firecracker microVMs from gVisor sandboxing: original evidence lab",
             "kind": "lab",
             "instructions": [
-              "Use only bounded benign Python/Bash fixture programs in approved disposable Firecracker and gVisor environments. Record filesystem/reset, cgroup and default-deny egress policies before running.",
+              "Use only bounded benign Python/Bash fixture programs in approved disposable Firecracker and gVisor environments. Record filesystem/reset, cgroup and domain-aware outbound policies, including the owned DNS-pinned application proxy and an allowed-domain positive case, before running.",
               "Run bounded benign Python/Bash fixtures in disposable authorized runtimes, test state reset, cgroup/resource bounds and default-deny egress; never fall back to unsandboxed host execution.",
               "Exceed a small memory/time budget, attempt a write outside the declared workspace and rerun after reset. Test missing KVM/runtime setup as an explicit blocked outcome.",
-              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result.",
+              "Define only owned synthetic allowed.test and denied.test authorities with a scoped test resolver/CA. Through the actual guest -> vsock -> per-job proxy path, verify an allowed-domain response body/hash, then deny denied.test, a direct-IP request, an unapproved DNS answer/rebinding change and a redirect to another authority. Do not modify host-wide DNS/trust settings.",
+              "Record requested canonical domain, approved resolved address, selected connection peer, TLS SAN result and job identity separately. If real KVM/proxy execution is unavailable, retain the design/fixture work but leave that execution gate incomplete."
             ],
             "deliverables": [
-              "Use only bounded benign Python/Bash fixture programs in approved disposable Firecracker and gVisor environments. Record filesystem/reset, cgroup and default-deny egress policies before running.",
+              "Use only bounded benign Python/Bash fixture programs in approved disposable Firecracker and gVisor environments. Record filesystem/reset, cgroup and domain-aware outbound policies, including the owned DNS-pinned application proxy and an allowed-domain positive case, before running.",
               "Exceed a small memory/time budget, attempt a write outside the declared workspace and rerun after reset. Test missing KVM/runtime setup as an explicit blocked outcome.",
               "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
             ],
             "acceptanceCriteria": [
               "Actual supported runtimes enforce the declared limits and remove prior-job state; no unsandboxed fallback occurs. Sub-50ms claims require measured timing for the named startup boundary.",
               "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
-              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded.",
+              "An actual owned allowed-domain positive response and denied-domain/direct-IP/unapproved-resolution cases demonstrate the domain-aware boundary. Default-deny networking or an IP-only allowlist is not credited as the required domain whitelist."
             ],
             "externalUrl": null,
             "questions": [
@@ -1558,6 +1570,13 @@
                 "prompt": "Should missing KVM cause a sandbox API to execute the program as a normal host process?",
                 "answer": "No. It must fail closed or report an unavailable prerequisite.",
                 "explanation": "A host fallback removes the isolation boundary the caller requested."
+              },
+              {
+                "id": "advanced-d2-advanced-05-sandbox-runtimes-check-02",
+                "kind": "short-answer",
+                "prompt": "Does an IP allowlist by itself prove a strict outbound domain whitelist?",
+                "answer": "No. The domain/authority, approved DNS resolution, actual connection and TLS hostname binding must be enforced together, without a direct-address bypass.",
+                "explanation": "A hostname can resolve differently over time or be reached through another authority. A per-job DNS-pinned application proxy can bind those decisions; blanket denial alone does not prove the allowed capability."
               }
             ]
           },
@@ -2602,6 +2621,21 @@
       "notes": "namespaces, cgroups, seccomp, AppArmor and SELinux policies and failure handling; use approved disposable environments without weakening host security. Link-only; no content is bundled and runtime access is not implied."
     },
     {
+      "id": "advanced-reading-7eb820e1e53b",
+      "kind": "documentation",
+      "title": "Official reading: cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+      "provider": "cheatsheetseries.owasp.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "OWASP SSRF Prevention: Case 1 allowlisting, domain-name validation, DNS pinning and network-layer restrictions. Use an owned DNS-pinned per-job application proxy with canonical authority/TLS identity, allowed-domain positive and denied/direct-IP/unapproved-resolution cases. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
       "id": "advanced-reading-873fd3f84c5b",
       "kind": "documentation",
       "title": "Code Documentation - MLIR",
@@ -3223,6 +3257,11 @@
       "title": "S-LINUX: official learning source",
       "url": "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/using_selinux/index",
       "notes": "namespaces, cgroups, seccomp, AppArmor and SELinux policies and failure handling; use approved disposable environments without weakening host security."
+    },
+    {
+      "title": "S-DOMAIN-EGRESS: official learning source",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+      "notes": "OWASP SSRF Prevention: Case 1 allowlisting, domain-name validation, DNS pinning and network-layer restrictions. Use an owned DNS-pinned per-job application proxy with canonical authority/TLS identity, allowed-domain positive and denied/direct-IP/unapproved-resolution cases."
     },
     {
       "title": "A-COMPILERS: official learning source",

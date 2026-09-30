@@ -241,6 +241,7 @@ export interface CareerExercise {
   objective: string;
   lessonIds: string[];
   reading: CareerReading;
+  additionalReadings?: CareerReading[];
   concepts: string[];
   instructions: string[];
   deliverables: string[];

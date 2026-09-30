@@ -354,6 +354,16 @@ export function validateCatalog(catalog: Catalog): void {
     claim(track.trackId);
     track.resources.forEach((resource) => {
       claim(resource.id);
+      if (
+        isCareerCourse(track.trackId) &&
+        (/^(?:page not available|page not found|404(?: not found)?|access denied)$/i.test(
+          resource.title.trim(),
+        ) ||
+          new URL(resource.url).searchParams.get("id") === "http404")
+      )
+        throw new Error(
+          `Unavailable/error-page body cannot be a career reading: ${resource.id}`,
+        );
       resources.set(resource.id, resource);
     });
     track.modules.forEach((module) => {
@@ -513,14 +523,22 @@ export function validateCatalog(catalog: Catalog): void {
         throw new Error(
           `Unknown or empty advanced exercise preparation: ${exercise.id}`,
         );
-      const url = new URL(exercise.reading.url);
-      if (
-        url.protocol !== "https:" ||
-        url.username ||
-        url.password ||
-        exercise.reading.locator.length < 35
-      )
-        throw new Error(`Invalid advanced exercise reading: ${exercise.id}`);
+      for (const reading of [
+        exercise.reading,
+        ...(exercise.additionalReadings || []),
+      ]) {
+        const url = new URL(reading.url);
+        if (
+          url.protocol !== "https:" ||
+          url.username ||
+          url.password ||
+          reading.locator.length < 35 ||
+          /Locate the documented mechanism/i.test(reading.locator)
+        )
+          throw new Error(
+            `Invalid or nonspecific advanced exercise reading: ${exercise.id}`,
+          );
+      }
     }
     for (const gate of READINESS_GATES) {
       const id = `career-readiness-${packet.projectId}-${gate}`;

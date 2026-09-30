@@ -1018,7 +1018,7 @@
           "id": "advanced-d3-advanced-01-runtime-events",
           "title": "Connect libbpf/Tetragon events to bounded runtime enforcement",
           "objectives": [
-            "execve/connect/openat/ptrace event metadata, Cilium Tetragon policies, bounded gRPC/JSON event emission and XDP egress control.",
+            "execve/connect/openat/ptrace process events, Tetragon policies, gRPC/JSON delivery and XDP ingress on an owned peer-veth RX path to restrict outbound workload traffic; correct ifindex/direction and non-XDP process attribution.",
             "Verifier/load, observation, loss, delivery and enforcement results are separate. The report measures overhead only for real enabled hooks and leaves unsupported kernel tests pending."
           ],
           "topics": [
@@ -1026,14 +1026,21 @@
               "title": "Mechanism and representation",
               "details": [
                 "A runtime agent must distinguish observation from prevention. execve/connect/openat/ptrace hooks expose selected kernel events, while enforcement support depends on the hook, kernel and policy. A process-name pattern alone can misclassify legitimate work and should not be presented as proof of a threat.",
-                "execve/connect/openat/ptrace event metadata, Cilium Tetragon policies, bounded gRPC/JSON event emission and XDP egress control."
+                "execve/connect/openat/ptrace process events, Tetragon policies, gRPC/JSON delivery and XDP ingress on an owned peer-veth RX path to restrict outbound workload traffic; correct ifindex/direction and non-XDP process attribution."
               ]
             },
             {
               "title": "Failure boundaries and evidence",
               "details": [
-                "Finite maps/ring buffers and gRPC queues can lose or delay telemetry. XDP egress rules act on a specific owned interface and packet representation. Overhead needs a baseline and workload; an unloaded program or a userspace event replay cannot establish in-kernel cost.",
+                "Finite maps/ring buffers and gRPC queues can lose or delay telemetry. XDP is an ingress receive hook, not a generic local-transmit hook. To constrain this workload's outgoing traffic, attach it to the receiving peer of the owned veth pair: workload-veth TX -> peer-veth RX/XDP -> allowed destination. Record the namespace, ingress ifindex and direction. Overhead needs a baseline and actual enabled-hook workload.",
                 "Verifier/load, observation, loss, delivery and enforcement results are separate. The report measures overhead only for real enabled hooks and leaves unsupported kernel tests pending."
+              ]
+            },
+            {
+              "title": "Do not substitute the wrong hook or process context",
+              "details": [
+                "A receiving-side XDP decision can enforce the declared outbound workload policy only if that traffic actually crosses the identified peer ingress. An unrelated ingress denial does not prove the workload's outgoing path is constrained. Record both veth endpoints, their network namespaces/ifindexes and the actual packet path.",
+                "tc egress and cgroup egress are different attachment points with different context; label and test them separately if used. Ordinary XDP current-task/PID context is not reliable attribution of a packet's originating process. Obtain process identity from the declared syscall, socket or cgroup observations and explain the correlation boundary."
               ]
             }
           ],
@@ -1050,6 +1057,8 @@
             "advanced-reading-9b5bf1437230",
             "advanced-reading-a6fc9959603a",
             "advanced-reading-ad663012c8b1",
+            "advanced-reading-47db22f4ad18",
+            "advanced-reading-a83c4e944665",
             "advanced-reading-eb74c04d7d3a",
             "advanced-reading-30d5853db56a",
             "advanced-reading-f71a80190d73",
@@ -1063,20 +1072,21 @@
             "title": "Connect libbpf/Tetragon events to bounded runtime enforcement: original evidence lab",
             "kind": "lab",
             "instructions": [
-              "Observe benign owned process/file/network fixtures using actual libbpf and Tetragon paths on an approved Linux lab. Emit structured JSON events over gRPC and apply one scoped XDP egress predicate.",
+              "Observe benign owned process/file/network fixtures using actual libbpf and Tetragon paths on an approved Linux lab. Emit structured JSON events over gRPC. Draw workload-veth TX -> peer-veth RX/XDP, attach the packet predicate to that receiving ingress interface, and test the actual workload's allowed and denied outbound traffic.",
               "Use benign owned process/file/network fixtures in an authorized disposable Linux lab; separately record verifier/load, event loss, enforcement and measured CPU overhead. Never run a real reverse shell or host escape to fabricate evidence.",
               "Pressure event delivery, use a malformed/truncated packet and exercise a denied owned flow. Represent suspicious behavior with labelled benign metadata fixtures rather than running a real reverse shell or escape.",
               "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
             ],
             "deliverables": [
-              "Observe benign owned process/file/network fixtures using actual libbpf and Tetragon paths on an approved Linux lab. Emit structured JSON events over gRPC and apply one scoped XDP egress predicate.",
+              "Observe benign owned process/file/network fixtures using actual libbpf and Tetragon paths on an approved Linux lab. Emit structured JSON events over gRPC. Draw workload-veth TX -> peer-veth RX/XDP, attach the packet predicate to that receiving ingress interface, and test the actual workload's allowed and denied outbound traffic.",
               "Pressure event delivery, use a malformed/truncated packet and exercise a denied owned flow. Represent suspicious behavior with labelled benign metadata fixtures rather than running a real reverse shell or escape.",
               "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
             ],
             "acceptanceCriteria": [
               "Verifier/load, observation, loss, delivery and enforcement results are separate. The report measures overhead only for real enabled hooks and leaves unsupported kernel tests pending.",
               "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
-              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded.",
+              "The packet diagram and actual namespace/ifindex evidence identify the receiving XDP ingress hook. Both allowed and denied owned outbound workload flows are observed there; tc/cgroup egress or an unrelated receive test is not relabelled XDP."
             ],
             "externalUrl": null,
             "questions": [
@@ -1451,6 +1461,13 @@
                 "gVisor changes the workload's kernel interface through a userspace-kernel architecture with compatibility/performance trade-offs. Layering controls requires testing their interactions and failure behavior. If policy setup fails, running the workload anyway is not a safe fallback.",
                 "Allowed work succeeds and denied work fails at the documented boundary. Runtime results are distinguished from config review, with setup failure preventing unsandboxed execution."
               ]
+            },
+            {
+              "title": "Preserve the sandbox's domain-qualified network contract",
+              "details": [
+                "Namespaces, seccomp and an IP firewall do not independently enforce an outbound domain whitelist. For the agent-code execution target, direct network access is denied and an owned per-job application proxy validates a canonical domain, approved pinned resolution and TLS SAN/authority before connecting.",
+                "Test one real allowed-domain response plus denied-domain, direct-IP and unapproved-resolution cases through the declared guest/vsock/proxy path. Do not describe blanket denial, a host-only fixture bridge or an unexecuted KVM configuration as that runtime proof."
+              ]
             }
           ],
           "estimatedMinutes": 360,
@@ -1469,7 +1486,8 @@
             "advanced-reading-d7f34e4835b2",
             "advanced-reading-1e7ae9e78214",
             "advanced-reading-4c8579f5077d",
-            "advanced-reading-3024891b2e67"
+            "advanced-reading-3024891b2e67",
+            "advanced-reading-7eb820e1e53b"
           ],
           "assignment": {
             "id": "advanced-d3-advanced-05-linux-sandbox-assignment",
@@ -3025,6 +3043,16 @@
       "notes": "actual libbpf/CO-RE/verifier/maps/ring buffers, Tetragon tracing policies, XDP and bounded owned namespace/veth fixtures."
     },
     {
+      "title": "S-BPF: official learning source",
+      "url": "https://docs.cilium.io/en/stable/reference-guides/bpf/progtypes/",
+      "notes": "actual libbpf/CO-RE/verifier/maps/ring buffers, Tetragon tracing policies, XDP and bounded owned namespace/veth fixtures."
+    },
+    {
+      "title": "S-BPF: official learning source",
+      "url": "https://github.com/xdp-project/xdp-tutorial/blob/main/packet01-parsing/README.org",
+      "notes": "actual libbpf/CO-RE/verifier/maps/ring buffers, Tetragon tracing policies, XDP and bounded owned namespace/veth fixtures."
+    },
+    {
       "title": "B-RPC: official learning source",
       "url": "https://protobuf.dev/programming-guides/",
       "notes": "message evolution, unary/client/server/bidirectional streams, deadlines, status, cancellation and flow control."
@@ -3138,6 +3166,11 @@
       "title": "A-SANDBOX: official learning source",
       "url": "https://gvisor.dev/docs/",
       "notes": "Firecracker/KVM microVM lifecycle, jailer/snapshots/network; gVisor userspace-kernel boundary and limitations. Cold boot, restore and warm-pool admission are different measurements."
+    },
+    {
+      "title": "S-DOMAIN-EGRESS: official learning source",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+      "notes": "OWASP SSRF Prevention: Case 1 allowlisting, domain-name validation, DNS pinning and network-layer restrictions. Use an owned DNS-pinned per-job application proxy with canonical authority/TLS identity, allowed-domain positive and denied/direct-IP/unapproved-resolution cases."
     },
     {
       "title": "S-HARDWARE-CRYPTO: official learning source",

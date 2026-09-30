@@ -702,7 +702,8 @@
                 "sde-l10-durable-work",
                 "data-l19",
                 "advanced-d1-advanced-04-transactions-sagas",
-                "advanced-d1-advanced-04-leases-fencing"
+                "advanced-d1-advanced-04-leases-fencing",
+                "advanced-d1-advanced-04-workflow-replay"
               ],
               "capabilities": [
                 {
@@ -4792,17 +4793,21 @@
       ],
       "repository": "raft-kv-store",
       "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed bounded Rust consensus/storage reference; merge pending",
+      "referenceLabel": "Reviewed scoped reference",
       "coverage": [
-        "Original Rust Raft with custom LSM, WAL, memtables, SSTables, Bloom filters, tombstones, atomic compaction, snapshots and quorum reads.",
-        "True joint old/new majority handling supports live voter changes and recovery within a fixed persisted endpoint roster.",
-        "Independent review reproduced three voter/WAL-restart/manifest-publication bugs; corrections and a subsequent narrow review were accepted. Actual three/five-process CI histories, 37 normal cases, release benchmarking and repeated fault/election checks were reviewed."
+        "Actual Rust three/five-process tests, independent bounded history checks, repeated fault/election cases and native benchmarks passed after independently reviewed recovery and membership corrections.",
+        "Original Raft term/vote/log persistence, quorum-confirmed reads and current-term commit fencing.",
+        "True old/new dual-majority joint consensus and live voter changes, including a newly admitted leader with reduced availability.",
+        "Original bounded LSM memtables, sorted tables, Bloom filters, tombstones, snapshots and atomic manifest/compaction recovery.",
+        "Repeated snapshot/WAL and table-publication crash regressions preserve committed state and recoverable manifests.",
+        "The recorded release benchmark uses three actual Rust processes, three 192-operation trials and four clients. Raw latency tails are retained; no production SLA is asserted."
       ],
       "limitations": [
-        "Fixed persisted endpoint roster of at most nine nodes; dynamic voters are not arbitrary endpoint discovery.",
-        "The bounded state is limited to 512 KiB, with full-state Raft WAL records and cached whole SSTables. These complexity limits do not establish production LSM throughput.",
-        "Crash-fault local-process reference, not a multi-host, Byzantine, TLS, physical-power-loss or formally proved deployment.",
-        "Timeouts can leave an indeterminate outcome. There is no SLA or unaided learner-mastery claim, and all advanced-target-01 learner records remain unassessed.",
+        "Dynamic voters operate within a fixed persisted endpoint roster of at most nine IDs; this is not arbitrary endpoint discovery.",
+        "The implementation is bounded to 512 KiB logical state, a full-state Raft journal and cached whole-table LSM data.",
+        "Loopback process-fault evidence is not multi-host failure-domain, physical power-loss, Byzantine/TLS, or formal unbounded correctness proof.",
+        "Timeouts can be indeterminate; source review and tests do not establish unaided learner expertise.",
+        "Independent learner readiness is not established by this reference implementation.",
         "No prior readiness or short happy-path run proves distributed consistency."
       ]
     },
@@ -4837,11 +4842,19 @@
         "A token bucket is not a circuit breaker."
       ],
       "repository": "async-edge-proxy",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "accepted-local-reference",
+      "referenceLabel": "Reviewed bounded L7 functional reference; 200000-connection target pending",
+      "coverage": [
+        "Actual Rust/Tokio/Hyper streaming L7 proxy with HTTP/1, TLS and HTTP/2, real Tonic/Protobuf hot configuration, watch and rollback.",
+        "Weighted balancing and health checks, distinct token-bucket limiting and circuit breaking, deadlines, admission control, leases and draining.",
+        "Independent review reproduced six wire-lifecycle, preface, trailer, GOAWAY and TLS-overlap bugs; the owner fixed them and the same review was cleared.",
+        "Actual reviewed CI executed 30 Rust and 13 process cases, plus real 1000- and 10000-connection runs whose connections were kept and reverified with zero drops in those declared workloads."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "The 200000-connection target was NOT ATTEMPTED. Its preflight required 202048 file descriptors, above the environment's hard limit of 65536, with memory/time constraints also considered.",
+        "No resource-limit or host-policy bypass was performed. Passing the 1000/10000 workloads does not establish the unattempted 200000 target, a production capacity limit or an SLA.",
+        "Functional reference availability, pending high-load benchmark evidence and learner readiness are separate statuses.",
+        "All advanced-target-02 learner gates remain independently unassessed.",
         "200000 concurrent keep-alive connections requires actual appropriately provisioned measurement.",
         "A token bucket is not a circuit breaker."
       ]
@@ -5056,7 +5069,7 @@
       "requirementId": "requested-project-08",
       "domain": 2,
       "title": "Secure MicroVM-Sandboxed Agent Code Execution System",
-      "required": "Asynchronous Go control API, actual Firecracker/KVM pool, resettable root filesystem snapshots, bounded Python/Bash programs, CPU/memory/disk-I/O cgroups and strict egress allowlist/default-deny policy.",
+      "required": "Asynchronous Go control API, actual Firecracker/KVM pool, pristine root-filesystem snapshots, bounded Python/Bash jobs and CPU/memory/disk-I/O caps. Enforce strict outbound DOMAIN whitelists through a per-job DNS-pinned application proxy with canonical authority/TLS-SAN validation; reject denied domains, direct-IP bypass and unapproved resolution. A plain IP allowlist or blanket denial is not this domain policy.",
       "overlap": "No earlier project supplies a microVM boundary; an allowlisted function runner is not equivalent.",
       "skillGroups": [
         "advanced-d2-advanced-05",
@@ -5072,18 +5085,27 @@
       "executionGates": [
         "authorized Linux/KVM",
         "real microVM boot/restore/reset",
-        "benign owned-lab isolation/resource/egress tests"
+        "benign owned-lab isolation/resource/egress tests",
+        "actual guest/vsock/proxy-to-owned-TLS allowed-domain positive plus denied-domain, direct-IP and unapproved-resolution checks"
       ],
       "unverifiedTargets": [
         "Sub-50ms startup requires a named clock boundary and real runs.",
         "gVisor is a distinct taught runtime, not a claim that it is Firecracker or a hardware VM."
       ],
       "repository": "microvm-agent-sandbox",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "accepted-local-reference",
+      "referenceLabel": "Reviewed real-KVM functional reference; cold-start target not met",
+      "coverage": [
+        "Actual Linux CI exercised KVM/Firecracker, jailer, vsock, snapshots, pristine reset, a read-only base with guest copy-on-write state, resource caps, identity, cancellation and supervisor-crash cleanup.",
+        "The positive network path was verified from an actual guest helper through vsock and a per-job proxy to an owned TLS origin, including body hash/size, authority, certificate SAN and client isolation. The fixture bridge is excluded from the production design.",
+        "Reviewed evidence includes 41 Go cases, three Python cases and 39 actual VM lifecycle proofs; this is real runtime evidence, not a host-execution fallback or a mock.",
+        "The reported cold-start p95 was 422.77 ms. Restore was reported separately at 42.32 ms and warm admission at 5.86 ms; these are different timing boundaries."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Cold-start p95 of 422.77 ms FAILS the sub-50-ms cold target. Restore or warm-admission timings must not be substituted for a cold-start pass.",
+        "External Internet reachability, escape resistance or production certification, independent source PGP provenance and fleet-scale behavior are not established by the bounded reference.",
+        "Learners need an explicitly authorized compatible Linux/KVM environment for the actual microVM hands-on checks. Missing KVM must not trigger unsandboxed host execution.",
+        "Functional code availability, an unmet performance target and independent learner readiness remain separate. All advanced-target-08 learner gates remain unassessed.",
         "Sub-50ms startup requires a named clock boundary and real runs.",
         "gVisor is a distinct taught runtime, not a claim that it is Firecracker or a hardware VM."
       ]
@@ -5094,7 +5116,7 @@
       "requirementId": "requested-project-09",
       "domain": 3,
       "title": "eBPF-Powered Zero-Trust Runtime Security Agent",
-      "required": "C/libbpf and Go event agent for execve/connect/openat/ptrace, bounded detection of suspicious process/namespace/file events, actual XDP egress enforcement and structured JSON/gRPC SIEM delivery.",
+      "required": "C/libbpf and Go agent for execve/connect/openat/ptrace observations and bounded synthetic detection. Attach XDP at owned peer-veth RX ingress to constrain outbound workload traffic on workload-veth TX -> peer-veth RX/XDP; record namespace/ifindex/direction and allowed/denied outbound results. Use syscall/socket/cgroup observations for process context, not ordinary XDP current PID. Emit structured JSON/gRPC security events.",
       "overlap": "Earlier role/attribute policy service has no kernel data plane.",
       "skillGroups": [
         "advanced-d3-foundation-01",
@@ -5277,11 +5299,19 @@
         "Zero redundant copies is an architectural/storage claim to inspect, not no memory/network copies."
       ],
       "repository": "iceberg-clickhouse-lakehouse",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "accepted-local-reference",
+      "referenceLabel": "Reviewed bounded real-service lakehouse pilot; merge pending",
+      "coverage": [
+        "Actual Kafka cyclic microbatch ingestion into a REST Iceberg v2 catalog with MinIO/Parquet and native ClickHouse DataLakeCatalog queries, without a redundant MergeTree warehouse copy.",
+        "Atomic catalog data/offset checkpoint publication, deduplication, compare-and-set conflict handling and actual hard-exit/restart/schema-evolution checks.",
+        "Background DuckDB/PyIceberg compaction, manifest rewriting and metadata snapshot expiration. Reviewed evidence includes 51 CI cases and 34 mechanism checks, 24-to-1 active files, 23-to-1 manifests, 27 metadata snapshot expirations, retained queries/full oracle, lag checks and operator HTML preserving exact 64-bit identifiers."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "A single-node, one-broker 10000/10250-row real-service pilot, not petabyte scale or production SLO proof. Small warm measurements are workload-qualified.",
+        "No redundant warehouse copy does not mean no caches, buffers, retained snapshots or MVCC storage copies.",
+        "Snapshot expiration is metadata-only: no physical garbage collection is claimed. Orphan cleanup planning is DRY RUN, not application/deletion.",
+        "Writer/reference cooperation is app-managed, not support for arbitrary external mutation or uncoordinated catalog writers.",
+        "Reference acceptance grants no learner credit; all advanced-target-13 independent gates remain unassessed.",
         "Petabyte analytics and sub-second queries until observed at the declared scale.",
         "Zero redundant copies is an architectural/storage claim to inspect, not no memory/network copies."
       ]
@@ -5558,18 +5588,21 @@
       ],
       "repository": "walkforward-compute-grid",
       "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed bounded walk-forward process reference; merge pending",
+      "referenceLabel": "Reviewed scoped reference",
       "coverage": [
-        "Actual Python/SQLite-WAL coordination with authenticated HTTP worker processes, leases/generations, per-attempt fencing, speculative first-valid-winner compare-and-set and late-result audit.",
-        "Read-only versioned mmap data, causal ridge walk-forward evaluation, embargo, complete trial ledger, frozen held-out models, CLI, dashboard and export.",
-        "Reviewed fresh two-worker execution covered twelve search fits and three held-out tests, speculation, late fencing, replay and denied unauthenticated actions. An independent scalar oracle checked 2010 numeric points, all twelve fits and three held-outs and the validation-only selection.",
-        "Linux and Windows each executed the documented 70 real-process/fault cases. Small 512/2048-row benchmarks preserve the observed Windows two-worker slowdown instead of claiming universal speedup."
+        "Actual authenticated coordinator/worker processes, durable fault/retry cases and cross-platform tests passed. Parent independently checked a speculative winner, late-result fencing and 2,010 numerical points from the raw synthetic dataset.",
+        "SQLite-backed run/task/all-trial history, worker generations, leases, heartbeats, per-attempt fences and first-valid-result CAS.",
+        "Bounded speculative execution preserves late and conflicting submissions without overwriting an immutable winner.",
+        "Versioned read-only host-local mmap data and a registered causal ridge workload with chronological folds, embargo/purging and validation-only selection.",
+        "All candidate/seed trials, frozen holdout models, full numerical vectors and audit pages are available through CLI and dashboard exports.",
+        "A parent-controlled 12-search/three-holdout grid completed in about 2.17 seconds before the intentionally delayed original attempt returned at about 8.19 seconds; its late result was retained as stale."
       ],
       "limitations": [
-        "Same-host processes and local cache transfer, not a real WAN, fleet, high-availability or Byzantine-fault proof. A verified TLS non-loopback path is not an actual physical two-host exercise.",
-        "mmap maps a file in each process; it is not a globally shared Python object. PSS evidence is actual Linux-only evidence.",
-        "The small synthetic benchmark and model evaluation do not establish alpha, profitability, inferential guarantees or production scale.",
-        "All advanced-target-20 learner evidence gates remain independent and unassessed.",
+        "Same-host process and separate-local-cache tests are not actual two-physical-host TLS/WAN or fleet/HA evidence.",
+        "Authenticated workers are trusted, not Byzantine-proof computation providers.",
+        "mmap sharing is one file per host and one mapping per process, not a single global Python object; PSS was actually measured only where available on Linux.",
+        "A two-worker Windows workload was slower and remains reported. No universal speedup, real-market alpha, profit or independent-fold inferential guarantee is claimed.",
+        "Independent learner readiness is not established by this reference implementation.",
         "Multi-host scale and petabyte capacity are not established by local processes.",
         "Speculative retries cannot guarantee elimination of all stragglers."
       ]
@@ -5742,11 +5775,22 @@
         "No actual customer cloud savings or compliance certification."
       ],
       "repository": "finops-attribution-governance",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "accepted-local-reference",
+      "referenceLabel": "Reviewed scoped reference",
+      "coverage": [
+        "Actual Python/SQLite/CLI/API/browser workflows, 111 automated cases and 1,200 allocation-oracle cases passed. Parent reconciled every downloaded allocation against the original synthetic billing inputs.",
+        "Effective-dated infrastructure-cost rules, exact signed minor-unit allocation, deterministic rounding and explicit unattributed amounts.",
+        "UTC/end-exclusive filters and correctly deduplicated user/transaction denominators with reasoned unavailable metrics.",
+        "Strictly-greater-than-15-percent prior-complete-day anomalies, durable cooldown/recovery and a local-only notification outbox.",
+        "Original-manifest tag governance with expiring synthetic exceptions, executive views, full ledger exports and substantial finance/audit/product artifacts.",
+        "The original synthetic demonstration conserves 107 billing lines into 167 allocations totaling USD 5,232.62, with USD 195.01 explicitly unattributed."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "The demonstration intentionally contains four manifest errors and one waiver; it is not a passing production chargeback or admission-policy result.",
+        "Showback and local chargeback validation do not post to an ERP, transfer money or validate real invoices.",
+        "Approver identities, rules, data and outcomes are synthetic; no real billing, cloud enforcement, email delivery, savings or compliance certification is claimed.",
+        "This infrastructure FinOps model is distinct from the AI seat/token capacity-value model in target 22.",
+        "Independent learner readiness is not established by this reference implementation.",
         "No actual customer cloud savings or compliance certification."
       ]
     }

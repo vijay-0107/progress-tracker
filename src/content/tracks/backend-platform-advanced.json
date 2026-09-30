@@ -1665,6 +1665,126 @@
             "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
             "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
           }
+        },
+        {
+          "id": "advanced-d1-advanced-04-workflow-replay",
+          "title": "Replay deterministic workflow histories and durable timers",
+          "objectives": [
+            "Original deterministic Go workflow command/history replay, persisted activity results, durable timers, recorded inputs/clock, explicit version matching and at-least-once provider idempotency.",
+            "The uninterrupted and recovered workflow produce the same declared history-derived result. Replaying an already completed activity adds no provider call; the recovered timer fires at most once logically at its persisted deadline. The uncertain activity boundary may redeliver but the provider records one keyed effect. Command-order/input/version mismatches and unrecorded-context requests are explicit non-success outcomes, not skipped events or success-shaped defaults."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A durable workflow runtime re-executes orchestration code against recorded history; it does not simply run every side effect again. In this original bounded design, the workflow emits ordered commands with workflow/code version, command ID, kind, activity name and canonical input identity. During replay a history cursor matches each emitted command to its recorded schedule event. An ActivityCompleted event supplies the stored result to the workflow without calling the provider again. A missing matching completion means the activity is still pending or retryable, not silently successful.",
+                "Original deterministic Go workflow command/history replay, persisted activity results, durable timers, recorded inputs/clock, explicit version matching and at-least-once provider idempotency."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A durable timer records its ID and deadline when scheduled, then records TimerFired when the scheduler observes eligibility. Restart must recover the same deadline, not calculate a new delay from restart time. Workflow-visible time and external inputs come from recorded events through a guarded context; changing command order, input identity or an unsupported workflow version fails explicitly. The guard covers the declared context API, not arbitrary Go code as a sandbox. Direct wall-clock/network/random access is excluded from workflow logic and tested as a forbidden or command-mismatching input.",
+                "Workflow replay and activity delivery have different guarantees. If a provider effect occurs before ActivityCompleted is durably recorded, the runtime may deliver that activity again. A stable provider idempotency key and a fenced result commit are still required; replay alone does not create exactly-once external effects. Temporal's free maintainer documentation explains these concepts and its own APIs, but this lesson implements an original small Go history driver and does not claim Temporal compatibility.",
+                "The uninterrupted and recovered workflow produce the same declared history-derived result. Replaying an already completed activity adds no provider call; the recovered timer fires at most once logically at its persisted deadline. The uncertain activity boundary may redeliver but the provider records one keyed effect. Command-order/input/version mismatches and unrecorded-context requests are explicit non-success outcomes, not skipped events or success-shaped defaults."
+              ]
+            },
+            {
+              "title": "Original two-activity history, not an outbox rename",
+              "details": [
+                "The fixture event sequence is WorkflowStarted, ActivityScheduled(reserve-0), ActivityCompleted(reserve-0, reservation-R42), TimerScheduled(wait-1, t0+60000), TimerFired(wait-1), ActivityScheduled(receipt-2), ActivityCompleted(receipt-2). Include monotonically ordered event IDs and a declared code/history schema version.",
+                "An outbox atomically records work intent with a local transaction. It does not by itself reconstruct the workflow's program position, compare emitted commands with history, inject previously observed results or resume a persisted timer. Matcher command-log replay is a useful canonical prerequisite, not the complete workflow-runtime mechanism.",
+                "Use a controlled scheduler clock for reproducible timer boundary tests, and label those tests accordingly. An observed restart/timer recovery test is not evidence that a service actually operated for days. Pin an old workflow interpreter or use a deliberately tested version marker/migration; never silently reinterpret an in-flight history with incompatible code."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d1-advanced-04-workflow-replay",
+            "technology:go"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-e2ced29efca6",
+            "locator": "Temporal Workflow Definition: Deterministic constraints, Code changes can cause non-deterministic behavior, Intrinsic non-deterministic logic and Workflow versioning. Pair Events and Event History with Go Timers (workflow.NewTimer/Sleep) and Versioning/GetVersion sections. These concepts inform the original reserve-0/wait-1/receipt-2 Go history driver; it is not claimed to be Temporal."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-38f020db0f7c",
+            "advanced-reading-7d17cff13b17",
+            "advanced-reading-e2d706af90d7",
+            "advanced-reading-6772c859f6f8",
+            "advanced-reading-a5cdd62a9242",
+            "advanced-reading-ee9f4cc3345a"
+          ],
+          "assignment": {
+            "id": "advanced-d1-advanced-04-workflow-replay-assignment",
+            "title": "Replay deterministic workflow histories and durable timers: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Author workflow W1/version1 with recorded input order-77 and start time t0. Command reserve-0 schedules activity ReserveSyntheticStock and records result reservation-R42. Command wait-1 records a 60000-millisecond durable timer deadline t0+60000. After TimerFired, command receipt-2 schedules WriteSyntheticReceipt using reservation-R42. Store an original ordered JSON event history and an independent expected cursor/command/result table.",
+              "Trace and implement the original reserve-0/wait-1/receipt-2 history; restart before a persisted timer fires, suppress already completed provider effects, and reject reordered commands or unrecorded context inputs.",
+              "Restart after reserve-0 completion and before timer firing: replay must consume reservation-R42 without another reservation effect, preserve the original timer deadline and emit no receipt before firing. Then crash after the receipt provider effect but before recording completion; retry with the same provider key and distinguish two attempts from one effect. Reorder the activity and timer, alter a command's input, request an unrecorded clock/input and supply an unsupported version; each must fail visibly without executing a new unintended effect.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result.",
+              "Implement a small Go replay/advance function with no provider or wall-clock access during history consumption. A guarded recorded-input API must reject missing values; demonstrate a deliberately nondeterministic clock-dependent command mismatch and document that bypassing the API requires code review/static restrictions.",
+              "Run the actual owned Go/PostgreSQL fixture in an approved runtime, restart the worker and scheduler separately, and retain the provider call/effect counters, persisted timer/history rows and mismatch diagnostics. Keep unavailable runtime work incomplete."
+            ],
+            "deliverables": [
+              "Author workflow W1/version1 with recorded input order-77 and start time t0. Command reserve-0 schedules activity ReserveSyntheticStock and records result reservation-R42. Command wait-1 records a 60000-millisecond durable timer deadline t0+60000. After TimerFired, command receipt-2 schedules WriteSyntheticReceipt using reservation-R42. Store an original ordered JSON event history and an independent expected cursor/command/result table.",
+              "Restart after reserve-0 completion and before timer firing: replay must consume reservation-R42 without another reservation effect, preserve the original timer deadline and emit no receipt before firing. Then crash after the receipt provider effect but before recording completion; retry with the same provider key and distinguish two attempts from one effect. Reorder the activity and timer, alter a command's input, request an unrecorded clock/input and supply an unsupported version; each must fail visibly without executing a new unintended effect.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "The uninterrupted and recovered workflow produce the same declared history-derived result. Replaying an already completed activity adds no provider call; the recovered timer fires at most once logically at its persisted deadline. The uncertain activity boundary may redeliver but the provider records one keyed effect. Command-order/input/version mismatches and unrecorded-context requests are explicit non-success outcomes, not skipped events or success-shaped defaults.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded.",
+              "The original reserve-0/wait-1/receipt-2 history, persisted deadline and replay cursor are inspectable. A completed reserve result is reused without an effect; a receipt acknowledgement crash demonstrates at-least-once delivery plus provider idempotency rather than an exactly-once claim.",
+              "Changing command order, an input identity or an unsupported code/history version fails before executing mismatched work. Unrecorded clock/input access is rejected by the declared guard or exposed by the deterministic negative fixture, with guard limitations documented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d1-advanced-04-workflow-replay-check-01",
+                "kind": "short-answer",
+                "prompt": "Why can replay avoid repeating a completed activity while an activity still needs provider idempotency?",
+                "answer": "Replay consumes an already recorded completion result. If the effect happened before that completion was durably recorded, delivery can be retried and needs the same provider operation key.",
+                "explanation": "History reconstruction, task delivery and external effect commitment are separate boundaries. Stored results suppress re-execution only when the relevant completion is actually present and matched."
+              },
+              {
+                "id": "advanced-d1-advanced-04-workflow-replay-check-02",
+                "kind": "short-answer",
+                "prompt": "After a worker restarts 40000 milliseconds into a 60000-millisecond timer, should the workflow schedule another full 60000 milliseconds?",
+                "answer": "No. Recover the original persisted deadline and wait only until that deadline becomes eligible under the declared scheduler clock.",
+                "explanation": "Recomputing a fresh delay from restart time changes workflow meaning and can postpone work indefinitely under repeated restarts."
+              },
+              {
+                "id": "advanced-d1-advanced-04-workflow-replay-check-03",
+                "kind": "short-answer",
+                "prompt": "What should happen when version2 emits wait-1 before a history whose next scheduled command is reserve-0?",
+                "answer": "Reject the command/history mismatch or execute an explicitly supported versioned branch; do not skip or rewrite the recorded command.",
+                "explanation": "Deterministic command matching protects in-flight histories from incompatible code changes. It is not supplied merely by a PostgreSQL lock or an outbox row."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why can replay avoid repeating a completed activity while an activity still needs provider idempotency?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-foundation-go",
+            "systems-intermediate-go-sync-net",
+            "sde-l10-durable-work",
+            "quant-l15-command-log-replay"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
         }
       ]
     },
@@ -2746,6 +2866,66 @@
       "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries. Link-only; no content is bundled and runtime access is not implied."
     },
     {
+      "id": "advanced-reading-e2ced29efca6",
+      "kind": "documentation",
+      "title": "Official reading: docs.temporal.io/workflow-definition",
+      "url": "https://docs.temporal.io/workflow-definition",
+      "provider": "docs.temporal.io",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Temporal Workflow Definition: Deterministic constraints, non-deterministic change, intrinsic nondeterministic logic and versioning; Event History; Go durable timers/NewTimer/Sleep and GetVersion patching. Concept references for an original Go history driver, not a Temporal-compatibility claim. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-38f020db0f7c",
+      "kind": "documentation",
+      "title": "Official reading: docs.temporal.io/workflow-execution/event",
+      "url": "https://docs.temporal.io/workflow-execution/event",
+      "provider": "docs.temporal.io",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Temporal Workflow Definition: Deterministic constraints, non-deterministic change, intrinsic nondeterministic logic and versioning; Event History; Go durable timers/NewTimer/Sleep and GetVersion patching. Concept references for an original Go history driver, not a Temporal-compatibility claim. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-7d17cff13b17",
+      "kind": "documentation",
+      "title": "Official reading: docs.temporal.io/develop/go/workflows/timers",
+      "url": "https://docs.temporal.io/develop/go/workflows/timers",
+      "provider": "docs.temporal.io",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Temporal Workflow Definition: Deterministic constraints, non-deterministic change, intrinsic nondeterministic logic and versioning; Event History; Go durable timers/NewTimer/Sleep and GetVersion patching. Concept references for an original Go history driver, not a Temporal-compatibility claim. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-e2d706af90d7",
+      "kind": "documentation",
+      "title": "Official reading: docs.temporal.io/develop/go/workflows/versioning",
+      "url": "https://docs.temporal.io/develop/go/workflows/versioning",
+      "provider": "docs.temporal.io",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Temporal Workflow Definition: Deterministic constraints, non-deterministic change, intrinsic nondeterministic logic and versioning; Event History; Go durable timers/NewTimer/Sleep and GetVersion patching. Concept references for an original Go history driver, not a Temporal-compatibility claim. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
       "id": "advanced-reading-fb4812c08dd2",
       "kind": "documentation",
       "title": "Introduction - The Kubebuilder Book",
@@ -3117,6 +3297,26 @@
       "title": "B-CONSISTENCY: official learning source",
       "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/saga",
       "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-WORKFLOW: official learning source",
+      "url": "https://docs.temporal.io/workflow-definition",
+      "notes": "Temporal Workflow Definition: Deterministic constraints, non-deterministic change, intrinsic nondeterministic logic and versioning; Event History; Go durable timers/NewTimer/Sleep and GetVersion patching. Concept references for an original Go history driver, not a Temporal-compatibility claim."
+    },
+    {
+      "title": "B-WORKFLOW: official learning source",
+      "url": "https://docs.temporal.io/workflow-execution/event",
+      "notes": "Temporal Workflow Definition: Deterministic constraints, non-deterministic change, intrinsic nondeterministic logic and versioning; Event History; Go durable timers/NewTimer/Sleep and GetVersion patching. Concept references for an original Go history driver, not a Temporal-compatibility claim."
+    },
+    {
+      "title": "B-WORKFLOW: official learning source",
+      "url": "https://docs.temporal.io/develop/go/workflows/timers",
+      "notes": "Temporal Workflow Definition: Deterministic constraints, non-deterministic change, intrinsic nondeterministic logic and versioning; Event History; Go durable timers/NewTimer/Sleep and GetVersion patching. Concept references for an original Go history driver, not a Temporal-compatibility claim."
+    },
+    {
+      "title": "B-WORKFLOW: official learning source",
+      "url": "https://docs.temporal.io/develop/go/workflows/versioning",
+      "notes": "Temporal Workflow Definition: Deterministic constraints, non-deterministic change, intrinsic nondeterministic logic and versioning; Event History; Go durable timers/NewTimer/Sleep and GetVersion patching. Concept references for an original Go history driver, not a Temporal-compatibility claim."
     },
     {
       "title": "B-OPERATORS: official learning source",

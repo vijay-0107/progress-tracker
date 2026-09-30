@@ -30,10 +30,10 @@ The earlier curriculum had only **5 fully covered, 67 partially covered and 42
 missing groups** under this expanded request. These are content-audit findings,
 not a judgment of the learner or a claim that a reference is complete.
 
-Seven appended catalogs provide **137 original reading-led lessons**:
-24 shared systems/language units in eight modules and 113 domain units in 101
+Seven appended catalogs provide **138 original reading-led lessons**:
+24 shared systems/language units in eight modules and 114 domain units in 101
 modules. All **13 earlier catalogs / 371 lessons remain byte-identical**; the
-combined inventory is 20 catalogs, 231 modules and 508 lessons. Existing Python,
+combined inventory is 20 catalogs, 231 modules and 509 lessons. Existing Python,
 SQL and mathematical assignments remain canonical rather than being copied.
 There are 527 named-capability fragments with explicit teaching references; exact
 labels/digests protect the source contract, while actual explanations, original
@@ -55,6 +55,15 @@ checks and the freely published WG21 C++23 draft N4950. A C++23 mode flag alone
 does not establish library support. This adds neither a duplicate course nor
 market/compensation predictions, and leaves the 114-group/24-target identities intact.
 
+Project-specific preparation includes a separate original Go workflow-history/
+durable-timer replay unit, not an outbox renamed as replay. The streaming feature
+store directly reuses the unchanged canonical knowledge-time/as-of-join lesson
+and an entity/event/availability/cutoff fixture. Sandbox learning and target scope
+retain a DNS-pinned domain-aware outbound proxy with allowed and denied cases.
+XDP is taught as ingress: an owned workload-veth TX to peer-veth RX/XDP path can
+constrain workload outbound traffic; tc/cgroup egress and process attribution are
+separate mechanisms.
+
 Every new lesson has a usable free primary reading at a specific locator,
 explanatory topics, original practical work, failure cases and an explained
 self-check. Restricted/unavailable supplementary sources are **optional and
@@ -63,6 +72,10 @@ Free official overviews are not copies of paid standards. Model downloads,
 account-gated weights and license acceptance require separate review; public
 documentation does not authorize them. No new PDF is rehosted and the six existing
 licensed PDFs/registry/checksums are unchanged.
+All 96 project-packet readings also have explicit per-target section/API/version
+locators and additional official sources where needed. ITCH5.0, OUCH5.0
+(October2025) and SoupBinTCP3.00 point to body-verified official PDFs rather than
+the retired Nasdaq support route; they remain external links, not bundled books.
 
 Each path has **four separately numbered advanced targets**, not three earlier
 shared references relabelled as new projects. Targets use `advanced-target-01`

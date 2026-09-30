@@ -152,17 +152,17 @@ describe("exact six-domain advanced learning contract", () => {
     }
   });
 
-  it("appends seven complete courses and 137 original, substantive, four-stage units", () => {
+  it("appends seven complete courses and 138 original, substantive, four-stage units", () => {
     expect(courses.map((course) => course.trackId)).toEqual([
       ...CAREER_COURSE_IDS,
     ]);
-    expect(newLessons).toHaveLength(137);
+    expect(newLessons).toHaveLength(138);
     expect(courses.flatMap((course) => course.modules)).toHaveLength(109);
     expect(courses[0].modules).toHaveLength(8);
     expect(courses[0].modules.flatMap((module) => module.lessons)).toHaveLength(
       24,
     );
-    expect(allLessons(catalog)).toHaveLength(508);
+    expect(allLessons(catalog)).toHaveLength(509);
     const explanations = new Set<string>();
     const assignments = new Set<string>();
     for (const course of courses) {
@@ -204,8 +204,8 @@ describe("exact six-domain advanced learning contract", () => {
         expect(lesson.prerequisites?.length).toBeGreaterThan(0);
       }
     }
-    expect(explanations.size).toBe(137);
-    expect(assignments.size).toBe(137);
+    expect(explanations.size).toBe(138);
+    expect(assignments.size).toBe(138);
   });
 
   it("gives every required unit a free accessible primary at a precise locator", () => {

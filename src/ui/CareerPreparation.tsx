@@ -508,6 +508,21 @@ export function CareerReadiness(
             {exercise.reading.locator} Checked {exercise.reading.verifiedOn}.
             Free official reading; link only.
           </p>
+          {Boolean(exercise.additionalReadings?.length) && (
+            <details className="career-self-check">
+              <summary>Additional exact reading sections</summary>
+              <ul>
+                {exercise.additionalReadings?.map((reading) => (
+                  <li key={reading.url}>
+                    <External href={reading.url}>{reading.title}</External>
+                    <p className="small-text">
+                      {reading.locator} Checked {reading.verifiedOn}. Link only.
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
           <h4>Your bounded assignment</h4>
           <ol>
             {exercise.instructions.map((item) => (

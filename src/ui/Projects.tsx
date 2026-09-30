@@ -542,16 +542,20 @@ export function ProjectPage(
             )}
             <p className="quiet-note">
               Foundation progress is shared across all projects. The Fabric
-              recreation is counted once, even though it supports four paths.
+              recreation is counted once, even though it supports four original
+              technical courses.
             </p>
           </section>
           <section className="panel lesson-section">
             <h3>Implementation references</h3>
             <div className="source-links">
               {project.sources.map((source) => (
-                <External href={source.url} key={source.url}>
-                  {source.title}
-                </External>
+                <div key={source.url}>
+                  <External href={source.url}>{source.title}</External>
+                  {project.variant === "advanced-target" && source.notes && (
+                    <p className="small-text">{source.notes}</p>
+                  )}
+                </div>
               ))}
             </div>
           </section>

@@ -223,8 +223,8 @@ export function Roadmap({
                 ).length
               }{" "}
               of {foundation.modules.length} shared modules complete. One shared
-              set of lessons supports every career path, never four separate
-              copies.
+              set of lessons supports the paths without creating duplicate
+              lesson records for each one.
             </p>
           </div>
           <a className="button secondary small" href="#/path/foundation">
