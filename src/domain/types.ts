@@ -18,10 +18,24 @@ export const EXTRA_TOPIC_IDS = [
   ...ORIGINAL_EXTRA_TOPIC_IDS,
   "technical-product-management",
 ] as const;
-export const TRACK_IDS = [...CORE_TRACK_IDS, ...EXTRA_TOPIC_IDS] as const;
+export const CAREER_COURSE_IDS = [
+  "systems-languages",
+  "backend-platform-advanced",
+  "ai-systems-advanced",
+  "cloud-security-advanced",
+  "data-platform-advanced",
+  "quant-infrastructure-advanced",
+  "technical-pm-advanced",
+] as const;
+export const TRACK_IDS = [
+  ...CORE_TRACK_IDS,
+  ...EXTRA_TOPIC_IDS,
+  ...CAREER_COURSE_IDS,
+] as const;
 export type CoreTrackId = (typeof CORE_TRACK_IDS)[number];
 export type ExtraTopicId = (typeof EXTRA_TOPIC_IDS)[number];
 export type TrackId = (typeof TRACK_IDS)[number];
+export type CareerCourseId = (typeof CAREER_COURSE_IDS)[number];
 export const LEARNING_STAGES = [
   "foundation",
   "intermediate",
@@ -38,7 +52,7 @@ export interface Resource {
   title: string;
   url: string;
   provider: string;
-  access: "free" | "free-account" | "paid-optional";
+  access: "free" | "free-account" | "paid-optional" | "unverified-optional";
   license: string;
   licenseUrl: string | null;
   redistribution: "permitted" | "link-only";
@@ -49,6 +63,7 @@ export interface Resource {
   hostedBytes?: number;
   sha256?: string;
   embedUrl?: string;
+  availability?: "checked" | "access-limited";
 }
 
 export interface Question {
@@ -90,6 +105,11 @@ export interface Lesson {
   prerequisites?: string[];
   paperTags?: string[];
   optional?: boolean;
+  practiceEnvironment?: {
+    requirements: string[];
+    evidenceBoundary: string;
+    unavailableAction: string;
+  };
 }
 
 export interface Module {
@@ -124,7 +144,8 @@ export interface Project {
     | "A-rebuild"
     | "B-build"
     | "professional-synthetic-recreation"
-    | "career-practice";
+    | "career-practice"
+    | "advanced-target";
   summary: string;
   scope: string;
   prerequisites: string[];
@@ -235,6 +256,59 @@ export interface CareerProjectPacket {
   coverage: string[];
   limitations: string[];
   exercises: CareerExercise[];
+  referenceLabel?: string;
+}
+
+export interface AdvancedCapability {
+  id: string;
+  label: string;
+  lessonIds: string[];
+}
+
+export interface AdvancedSkillGroup {
+  id: string;
+  stage: Stage;
+  label: string;
+  requestedDescription: string;
+  lessonIds: string[];
+  capabilities: AdvancedCapability[];
+  priorCoverage: "full" | "partial" | "missing";
+  overlapNote: string;
+}
+
+export interface AdvancedCareerPath {
+  id: CareerProfileId;
+  number: number;
+  title: string;
+  summary: string;
+  courseId: CareerCourseId;
+  technologies: string[];
+  projectIds: [string, string, string, string];
+  stages: {
+    stage: Stage;
+    outcome: string;
+    evidence: string;
+    groups: AdvancedSkillGroup[];
+  }[];
+}
+
+export interface AdvancedTarget {
+  number: number;
+  id: string;
+  requirementId: string;
+  domain: number;
+  title: string;
+  repository: string;
+  required: string;
+  overlap: string;
+  skillGroups: string[];
+  stages: [string, string, string, string];
+  executionGates: string[];
+  unverifiedTargets: string[];
+  referenceStatus: "pending-parent-review" | "accepted-local-reference";
+  referenceLabel: string;
+  coverage: string[];
+  limitations: string[];
 }
 
 export interface ReviewState {

@@ -23,10 +23,17 @@ describe("curated catalog", () => {
     expect(catalog.tracks.map((track) => track.trackId)).toEqual([
       ...TRACK_IDS,
     ]);
-    expect(catalog.projects).toHaveLength(26);
+    expect(catalog.projects).toHaveLength(50);
     expect(
       catalog.projects.filter(
-        (project) => project.variant !== "career-practice",
+        (project) => project.variant !== "advanced-target",
+      ),
+    ).toHaveLength(26);
+    expect(
+      catalog.projects.filter(
+        (project) =>
+          project.variant !== "career-practice" &&
+          project.variant !== "advanced-target",
       ),
     ).toHaveLength(21);
     for (const lesson of allLessons(catalog)) {
@@ -55,7 +62,11 @@ describe("curated catalog", () => {
       );
     }
     for (const project of catalog.projects)
-      expect(project.prerequisites.length, project.title).toBeGreaterThan(0);
+      expect(
+        project.prerequisites.length +
+          (project.prerequisiteLessons?.length || 0),
+        project.title,
+      ).toBeGreaterThan(0);
   });
 
   it("rejects missing tracks instead of publishing placeholders", () => {

@@ -284,6 +284,8 @@ summary {
 }
 .nav-label {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .nav-dot {
   width: 7px;
@@ -999,6 +1001,37 @@ summary {
 }
 .career-card .arrow-link {
   margin-top: auto;
+}
+.technology-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.technology-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--green);
+  background: var(--soft);
+  overflow-wrap: anywhere;
+}
+.required-skill,
+.advanced-target-card,
+.capability-map {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.required-skill summary {
+  min-height: 44px;
+  padding: 10px 0;
+}
+.capability-map ul {
+  padding-left: 18px;
 }
 .career-filters {
   margin-top: 24px;

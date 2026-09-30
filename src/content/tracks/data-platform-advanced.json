@@ -1,0 +1,2904 @@
+{
+  "schemaVersion": 1,
+  "trackId": "data-platform-advanced",
+  "title": "Data Platform & Analytics Engineering",
+  "sourceCheckedOn": "2026-09-30",
+  "modules": [
+    {
+      "id": "advanced-d4-foundation-02",
+      "title": "Data Warehousing Foundations",
+      "stage": "foundation",
+      "description": "Star schema, snowflake schema, dimensional modeling (Facts, Dimensions), and normalization vs denormalization.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-foundation-02-warehouse-models",
+          "title": "Compare star and snowflake schemas without changing metric grain",
+          "objectives": [
+            "Star/snowflake design, facts/dimensions and normalization/denormalization trade-offs.",
+            "Both valid layouts return identical business results and history under the declared policy. The report explains update/query trade-offs and detects fanout rather than choosing a design by name."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A fact table represents one declared business event or snapshot grain; dimensions describe the entities and context used for analysis. Star schemas keep dimensions relatively denormalized, while snowflake schemas normalize selected dimension relationships. Neither design makes a many-to-many join safe by itself.",
+                "Star/snowflake design, facts/dimensions and normalization/denormalization trade-offs."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Normalization reduces certain update anomalies, while denormalization can simplify analytical access at a storage/maintenance cost. Historical dimension versions and unknown members need explicit rules so redesigning the layout does not silently rewrite past reports.",
+                "Both valid layouts return identical business results and history under the declared policy. The report explains update/query trade-offs and detects fanout rather than choosing a design by name."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "advanced-d4-foundation-02-warehouse-models"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "data-doc-star-schema",
+            "locator": "Microsoft star-schema guidance: fact/dimension tables, normalization/denormalization, slowly changing dimensions and relationship/grain implications; apply it to both original layouts."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-58e66999096d"
+          ],
+          "assignment": {
+            "id": "advanced-d4-foundation-02-warehouse-models-assignment",
+            "title": "Compare star and snowflake schemas without changing metric grain: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Model original sales for three shops and four products as both a star and a snowflake layout, with a product category hierarchy and one historical category change.",
+              "Transform the same original dimensional fixture into both layouts, preserve grain/history/metrics and explain update, fanout and query-cost differences using actual queries.",
+              "Add a duplicate dimension key and join two facts at incompatible grains. Reconcile six hand-calculated metrics before and after correcting the joins.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Model original sales for three shops and four products as both a star and a snowflake layout, with a product category hierarchy and one historical category change.",
+              "Add a duplicate dimension key and join two facts at incompatible grains. Reconcile six hand-calculated metrics before and after correcting the joins.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Both valid layouts return identical business results and history under the declared policy. The report explains update/query trade-offs and detects fanout rather than choosing a design by name.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-foundation-02-warehouse-models-check-01",
+                "kind": "short-answer",
+                "prompt": "Does a star schema automatically prevent double counting?",
+                "answer": "No. Fact grain and join cardinality still determine whether measures are duplicated.",
+                "explanation": "A well-labelled dimensional model can still contain an invalid many-to-many join."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does a star schema automatically prevent double counting?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l12",
+            "data-l13",
+            "gate-l26",
+            "gate-l28"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-foundation-03",
+      "title": "Relational Storage",
+      "stage": "foundation",
+      "description": "PostgreSQL internals, indexing strategies, and basic query optimization.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-foundation-03-postgres-internals",
+          "title": "Connect PostgreSQL MVCC, WAL and storage to observed plans",
+          "objectives": [
+            "PostgreSQL tuples/pages, MVCC visibility, WAL/recovery, statistics and index access paths.",
+            "The expected visible rows and query outputs are independently checked, plan changes are explained from observations and internal mechanisms are not inferred from timing alone."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "PostgreSQL MVCC lets transactions observe versions according to isolation and snapshot rules; a row's physical existence does not mean every transaction sees it. Indexes locate candidate tuples but visibility and heap/storage work still matter. Statistics guide plan estimates rather than guaranteeing exact row counts.",
+                "PostgreSQL tuples/pages, MVCC visibility, WAL/recovery, statistics and index access paths."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "WAL supports recovery of the declared durable state, while checkpointing and vacuum/storage maintenance serve different purposes. A logical application commit, durable acknowledgement and later cleanup must not be conflated.",
+                "The expected visible rows and query outputs are independently checked, plan changes are explained from observations and internal mechanisms are not inferred from timing alone."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "advanced-d4-foundation-03-postgres-internals"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-6772c859f6f8",
+            "locator": "PostgreSQL manual: concurrency control/MVCC, WAL reliability/recovery, indexes and EXPLAIN. Relate the actual visibility and buffer observations to those mechanisms."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-a5cdd62a9242",
+            "advanced-reading-ee9f4cc3345a"
+          ],
+          "assignment": {
+            "id": "advanced-d4-foundation-03-postgres-internals-assignment",
+            "title": "Connect PostgreSQL MVCC, WAL and storage to observed plans: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Use two owned PostgreSQL sessions to observe a concurrent update under a declared isolation level, then inspect plans/buffers for a selective lookup before and after an index.",
+              "Observe concurrent visibility and plan/buffer changes on an owned database, connect them to documented internals and preserve independently checked results.",
+              "Use a skewed data distribution, stale estimates and a rolled-back update. Relate observations to tuple visibility and WAL/recovery documentation without modifying a shared server.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Use two owned PostgreSQL sessions to observe a concurrent update under a declared isolation level, then inspect plans/buffers for a selective lookup before and after an index.",
+              "Use a skewed data distribution, stale estimates and a rolled-back update. Relate observations to tuple visibility and WAL/recovery documentation without modifying a shared server.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "The expected visible rows and query outputs are independently checked, plan changes are explained from observations and internal mechanisms are not inferred from timing alone.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-foundation-03-postgres-internals-check-01",
+                "kind": "short-answer",
+                "prompt": "Does finding an index entry guarantee its tuple is visible to every transaction?",
+                "answer": "No. Transaction visibility rules still apply to the referenced tuple version.",
+                "explanation": "Physical lookup and logical snapshot visibility are separate stages."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does finding an index entry guarantee its tuple is visible to every transaction?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l03",
+            "data-l04",
+            "sde-l06-concurrent-checkout",
+            "gate-l27",
+            "systems-intermediate-sql-depth"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-foundation-04",
+      "title": "Pipeline Basics",
+      "stage": "foundation",
+      "description": "Writing scheduled ETL jobs, orchestrating tasks using Cron or basic Airflow DAGs.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-foundation-04-scheduled-etl",
+          "title": "Schedule Cron and Airflow work with explicit data intervals",
+          "objectives": [
+            "Cron and Airflow scheduling, logical dates, catch-up, task dependencies and bounded retries.",
+            "All three intervals appear exactly once logically, failures are explicit and catch-up/overlap policy is documented. No permanent host scheduler or unrelated service is configured."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A wall-clock trigger, a job execution time and the logical data interval being processed are different. Cron evaluates schedule/time-zone rules; Airflow DAG scheduling and catch-up/backfill use their own logical-date semantics. A missed trigger is not automatically permission to skip the corresponding data.",
+                "Cron and Airflow scheduling, logical dates, catch-up, task dependencies and bounded retries."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "ETL tasks need stable business/run identity, dependency ordering and bounded retries. Overlapping executions can duplicate work unless publication is idempotent. The scheduler reporting success must not hide a stale or incomplete consumer dataset.",
+                "All three intervals appear exactly once logically, failures are explicit and catch-up/overlap policy is documented. No permanent host scheduler or unrelated service is configured."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "advanced-d4-foundation-04-scheduled-etl"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-1b4e9a9b9c56",
+            "locator": "Airflow Core Concepts: DAGs, DAG runs/logical dates, scheduling, catchup/backfill and task retries. Compare the linked crontab(5) schedule/time-zone rules."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-8b3246c391dc"
+          ],
+          "assignment": {
+            "id": "advanced-d4-foundation-04-scheduled-etl-assignment",
+            "title": "Schedule Cron and Airflow work with explicit data intervals: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Schedule an original three-interval ETL fixture through Cron and an actual supported Airflow DAG. Record each interval, attempt and published manifest.",
+              "Schedule a synthetic ETL job in both owned runtimes, inject a missed/overlapping run and demonstrate idempotent backfill; do not install a persistent host scheduler during curriculum import.",
+              "Miss one run, overlap two attempts and fail a dependency before publication. Backfill only the missing interval and compare with a clean rebuild.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Schedule an original three-interval ETL fixture through Cron and an actual supported Airflow DAG. Record each interval, attempt and published manifest.",
+              "Miss one run, overlap two attempts and fail a dependency before publication. Backfill only the missing interval and compare with a clean rebuild.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "All three intervals appear exactly once logically, failures are explicit and catch-up/overlap policy is documented. No permanent host scheduler or unrelated service is configured.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-foundation-04-scheduled-etl-check-01",
+                "kind": "short-answer",
+                "prompt": "Is the time a job starts necessarily the data interval it should process?",
+                "answer": "No. Execution time and logical data interval are separate contracts.",
+                "explanation": "Retries and backfills often execute later while retaining the original interval identity."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Is the time a job starts necessarily the data interval it should process?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l05",
+            "data-l08"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-foundation-05",
+      "title": "Storage Formats",
+      "stage": "foundation",
+      "description": "Parquet, ORC, Avro, and JSON serialization trade-offs.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-foundation-05-formats",
+          "title": "Round-trip Parquet, ORC, Avro and JSON deliberately",
+          "objectives": [
+            "Parquet/ORC columnar layout, Avro schema-oriented records and JSON trade-offs.",
+            "Supported round trips preserve values under explicit conventions; incompatible changes fail visibly and format/storage benefits are measured without claiming transactional guarantees."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Parquet and ORC organize columnar data for analytical access, while Avro emphasizes schema-described records and evolution. JSON is a text interchange format whose consumers still need a type/schema policy. File format alone does not supply table transactions or exactly-once ingestion.",
+                "Parquet/ORC columnar layout, Avro schema-oriented records and JSON trade-offs."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Decimal precision, timestamp units/time zones, nulls and nested fields can change meaning across readers. Projection/pruning benefits depend on actual layout and supported readers, not just a filename extension. Schema evolution needs compatibility tests against old and new consumers.",
+                "Supported round trips preserve values under explicit conventions; incompatible changes fail visibly and format/storage benefits are measured without claiming transactional guarantees."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "advanced-d4-foundation-05-formats"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-3f27ba342b19",
+            "locator": "Apache Parquet documentation: file format, types, encodings and metadata. Compare ORC and Avro schema/evolution plus RFC 8259 JSON rather than assuming identical representations."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-1b8567d2ef50",
+            "advanced-reading-163c679a0648",
+            "advanced-reading-4d089713c1e8"
+          ],
+          "assignment": {
+            "id": "advanced-d4-foundation-05-formats-assignment",
+            "title": "Round-trip Parquet, ORC, Avro and JSON deliberately: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Write twelve original records containing decimals, explicit UTC timestamps, nulls and nested values in all four formats. Read them with pinned actual libraries and compare to a hand-defined canonical representation.",
+              "Round-trip one original fixture through all four named formats, test schema evolution and precision/null/time behavior, and measure bytes/projection cost with pinned readers.",
+              "Add an optional field, alter a numeric precision and test a truncated file or incompatible reader schema. Measure bytes and a filtered projection separately from logical correctness.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Write twelve original records containing decimals, explicit UTC timestamps, nulls and nested values in all four formats. Read them with pinned actual libraries and compare to a hand-defined canonical representation.",
+              "Add an optional field, alter a numeric precision and test a truncated file or incompatible reader schema. Measure bytes and a filtered projection separately from logical correctness.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Supported round trips preserve values under explicit conventions; incompatible changes fail visibly and format/storage benefits are measured without claiming transactional guarantees.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-foundation-05-formats-check-01",
+                "kind": "short-answer",
+                "prompt": "Does writing a Parquet file make a dataset transactionally updated?",
+                "answer": "No. A file format does not by itself provide a table transaction protocol.",
+                "explanation": "Atomic publication, catalog/history and concurrent-reader behavior require additional design."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does writing a Parquet file make a dataset transactionally updated?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l06"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-intermediate-01",
+      "title": "Distributed Processing",
+      "stage": "intermediate",
+      "description": "Apache Spark (DataFrames, partitions, shuffle tuning, broadcast joins) or DuckDB for local analytics.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-intermediate-01-duckdb-spark",
+          "title": "Choose DuckDB or Spark from actual execution behavior",
+          "objectives": [
+            "DuckDB local execution and Spark distribution boundaries.",
+            "Both engines match the canonical result; observed execution scope and resource costs explain the choice, including cases with no speed improvement."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "DuckDB is an analytical engine that can execute local vectorized queries; Spark coordinates partitioned work through its driver/executor model. A local engine can be sufficient for a bounded workload, while a Spark API call does not prove work ran across multiple machines.",
+                "DuckDB local execution and Spark distribution boundaries."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Shuffle, broadcast, spill and partition pruning change physical work but must preserve SQL/null/multiplicity semantics. Comparing engines requires equivalent inputs/results, clear warm/cold conditions and resource limits rather than unrelated default configurations.",
+                "Both engines match the canonical result; observed execution scope and resource costs explain the choice, including cases with no speed improvement."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-intermediate-01-duckdb-spark",
+            "technology:sql"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-fdd90c1935a5",
+            "locator": "DuckDB documentation: SQL, EXPLAIN/profiling, memory/threads and larger-than-memory execution. Compare the existing Spark plans/partition/shuffle/broadcast guide."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-ed80a874c18d",
+            "data-doc-spark-tuning",
+            "advanced-reading-1d5d1cf0e160",
+            "data-doc-pg-plans"
+          ],
+          "assignment": {
+            "id": "advanced-d4-intermediate-01-duckdb-spark-assignment",
+            "title": "Choose DuckDB or Spark from actual execution behavior: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Run the same original grouped join in actual DuckDB and the existing Spark fixture. Compare plans, partition/broadcast decisions and bounded memory/spill behavior.",
+              "Reproduce a common query fixture in DuckDB and existing Spark work, inspect plans/spill/partition behavior and state when the local engine is sufficient without claiming distributed execution.",
+              "Introduce a skewed key and reduce memory limits. Compare a native expression with an accidentally materialized full dataset and keep correctness checks independent.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Run the same original grouped join in actual DuckDB and the existing Spark fixture. Compare plans, partition/broadcast decisions and bounded memory/spill behavior.",
+              "Introduce a skewed key and reduce memory limits. Compare a native expression with an accidentally materialized full dataset and keep correctness checks independent.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Both engines match the canonical result; observed execution scope and resource costs explain the choice, including cases with no speed improvement.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-intermediate-01-duckdb-spark-check-01",
+                "kind": "short-answer",
+                "prompt": "Does using Spark DataFrames prove the query ran on a multi-node cluster?",
+                "answer": "No. Spark can execute in local mode; the actual deployment and executor evidence determine scope.",
+                "explanation": "The same DataFrame API can run locally or on a cluster. Worker placement, host identity and observed execution establish scope, not the API name."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does using Spark DataFrames prove the query ran on a multi-node cluster?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l09",
+            "data-l10",
+            "data-l11"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-intermediate-02",
+      "title": "Modern Lakehouse Formats",
+      "stage": "intermediate",
+      "description": "Apache Iceberg, Delta Lake, or Apache Hudi (snapshots, schema evolution, partition transforms).",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-intermediate-02-table-formats",
+          "title": "Compare Iceberg, Delta Lake and Hudi table histories",
+          "objectives": [
+            "All three named open-table formats, snapshots, schema IDs/evolution and partition transforms.",
+            "Each tested table reconstructs the expected history; compatibility is recorded per feature/runtime, with no universal interchangeability or unrun-format claim."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "An open-table format coordinates data files with metadata describing table versions and changes. Iceberg, Delta Lake and Hudi expose different transaction/history/evolution features and reader compatibility. Object storage, table protocol, catalog and query engine remain separate layers.",
+                "All three named open-table formats, snapshots, schema IDs/evolution and partition transforms."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Snapshots and schema/partition evolution can preserve analytical access while changing physical layout. Retention and compaction policies must protect active references and recovery needs. A feature documented for one engine/version cannot be assumed available in another.",
+                "Each tested table reconstructs the expected history; compatibility is recorded per feature/runtime, with no universal interchangeability or unrun-format claim."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-intermediate-02-table-formats"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-6f61947457bc",
+            "locator": "Apache Iceberg docs: evolution, partitioning, reliability and table snapshots; compare Delta and Hudi versioned schema/history/reader support in their linked guides."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-8e5c2d4c63e9",
+            "advanced-reading-3d1bbbc992a0",
+            "advanced-reading-234dce6bb601",
+            "advanced-reading-bfcc8b6d52f4"
+          ],
+          "assignment": {
+            "id": "advanced-d4-intermediate-02-table-formats-assignment",
+            "title": "Compare Iceberg, Delta Lake and Hudi table histories: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Apply the same original insert/update/delete/add-column fixture to actual supported Iceberg, Delta and Hudi environments. Record table history, schema identities and partition-transform behavior.",
+              "Run the same bounded add/update/delete/evolve fixture in each supported owned runtime; compare histories and partition behavior and expose unsupported features rather than asserting interchangeability.",
+              "Attempt a breaking change and read an earlier version before cleanup. Test an unsupported reader/writer combination and keep its failure visible.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Apply the same original insert/update/delete/add-column fixture to actual supported Iceberg, Delta and Hudi environments. Record table history, schema identities and partition-transform behavior.",
+              "Attempt a breaking change and read an earlier version before cleanup. Test an unsupported reader/writer combination and keep its failure visible.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Each tested table reconstructs the expected history; compatibility is recorded per feature/runtime, with no universal interchangeability or unrun-format claim.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-intermediate-02-table-formats-check-01",
+                "kind": "short-answer",
+                "prompt": "Are Iceberg, Delta and Hudi features interchangeable because all are open table formats?",
+                "answer": "No. Their metadata protocols, engines and versioned support differ.",
+                "explanation": "A compatibility matrix needs documented and actually tested support for the specific feature."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Are Iceberg, Delta and Hudi features interchangeable because all are open table formats?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l07"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-intermediate-03",
+      "title": "Real-Time Streaming",
+      "stage": "intermediate",
+      "description": "Apache Kafka (topics, partitions, consumers, schema registry) and streaming analytics with Apache Flink basics.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-intermediate-03-kafka-flink",
+          "title": "Run Kafka, schema registry and Flink with recoverable state",
+          "objectives": [
+            "Kafka topics/partitions/consumers/schema registry and Flink source/state/window/sink flow.",
+            "Every event is accepted, duplicated, corrected or rejected with an auditable reason; schema and state recovery behave as specified. No data is silently dropped under a generic exactly-once label."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Kafka topic/partition positions describe transport order within their scope; business event identity and revision order may differ. A schema registry governs compatible message schemas but cannot verify every semantic quality rule.",
+                "Kafka topics/partitions/consumers/schema registry and Flink source/state/window/sink flow."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Flink operators maintain state under a checkpoint/recovery protocol. Event-time watermarks estimate progress under a chosen lateness policy; they are not a guarantee that no older event will arrive. Source, checkpoint and sink boundaries determine the actual delivery/correction guarantee.",
+                "Every event is accepted, duplicated, corrected or rejected with an auditable reason; schema and state recovery behave as specified. No data is silently dropped under a generic exactly-once label."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-intermediate-03-kafka-flink"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-c36dcc16cff0",
+            "locator": "Flink stable docs: DataStream state, event time/watermarks, checkpointing and Kafka connectors. Compare source positions, schema registry and sink guarantees explicitly."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-7f170ac8b9ff",
+            "advanced-reading-045f61c8083f",
+            "advanced-reading-7bc314a495ef",
+            "advanced-reading-2ed956f639da",
+            "advanced-reading-712f96b7754c"
+          ],
+          "assignment": {
+            "id": "advanced-d4-intermediate-03-kafka-flink-assignment",
+            "title": "Run Kafka, schema registry and Flink with recoverable state: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Use real owned Kafka, a supported registry and Flink to aggregate twenty original events into declared windows, preserving event and ingestion timestamps.",
+              "Run real broker/registry/Flink fixtures with out-of-order events, schema changes and checkpoint recovery; compare exactly to an independent event-time oracle.",
+              "Duplicate delivery, send an accepted-late and a beyond-policy event, evolve a schema and restart after a checkpoint. Compare to an independently computed event-time oracle.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Use real owned Kafka, a supported registry and Flink to aggregate twenty original events into declared windows, preserving event and ingestion timestamps.",
+              "Duplicate delivery, send an accepted-late and a beyond-policy event, evolve a schema and restart after a checkpoint. Compare to an independently computed event-time oracle.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Every event is accepted, duplicated, corrected or rejected with an auditable reason; schema and state recovery behave as specified. No data is silently dropped under a generic exactly-once label.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-intermediate-03-kafka-flink-check-01",
+                "kind": "short-answer",
+                "prompt": "Does a watermark prove that no earlier event can ever arrive?",
+                "answer": "No. It reflects the engine's progress/lateness policy, not a physical impossibility.",
+                "explanation": "Late arrivals still need an explicit correction, rejection or quarantine contract."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does a watermark prove that no earlier event can ever arrive?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l19",
+            "data-l20",
+            "data-l21"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-intermediate-04",
+      "title": "Analytical Databases",
+      "stage": "intermediate",
+      "description": "ClickHouse, Snowflake, BigQuery, or DuckDB configuration and query optimization.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-intermediate-04-local-analytics",
+          "title": "Configure and tune actual ClickHouse and DuckDB queries",
+          "objectives": [
+            "ClickHouse and DuckDB configuration, memory/thread/storage limits, plans and query tuning.",
+            "Both actual engines return the reference result or an explicit resource error; configuration, input size and measurement conditions are retained without universal performance claims."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "ClickHouse table engines/order keys and DuckDB execution/storage settings have different purposes. Memory/thread limits and spill behavior are part of the workload contract. A fast unbounded query is not necessarily safe or reproducible.",
+                "ClickHouse and DuckDB configuration, memory/thread/storage limits, plans and query tuning."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Predicate/projection pruning can reduce input work only when the engine/source can apply it correctly. Plans and observed rows/bytes are more informative than assuming an index or setting always helps. Outputs must match a simple reference before timing comparisons.",
+                "Both actual engines return the reference result or an explicit resource error; configuration, input size and measurement conditions are retained without universal performance claims."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-intermediate-04-local-analytics"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-1d5d1cf0e160",
+            "locator": "ClickHouse docs: table engines/order keys, query optimization, memory/resource settings and EXPLAIN. Repeat the bounded comparison using the linked DuckDB documentation."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-fdd90c1935a5",
+            "data-doc-pg-plans",
+            "advanced-reading-676bb75de02f",
+            "advanced-reading-a16479662f12",
+            "advanced-reading-d34672d877ee"
+          ],
+          "assignment": {
+            "id": "advanced-d4-intermediate-04-local-analytics-assignment",
+            "title": "Configure and tune actual ClickHouse and DuckDB queries: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Load the same original bounded event fixture into ClickHouse and DuckDB, configure explicit memory/thread limits and run selective, grouped and ordered queries.",
+              "Execute bounded real local/CI queries in both engines, test low-memory/invalid configuration and prove output equality before measuring.",
+              "Use low memory, a nonselective predicate and invalid configuration. Compare plan/result behavior and preserve the cases in which a proposed optimization is slower.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Load the same original bounded event fixture into ClickHouse and DuckDB, configure explicit memory/thread limits and run selective, grouped and ordered queries.",
+              "Use low memory, a nonselective predicate and invalid configuration. Compare plan/result behavior and preserve the cases in which a proposed optimization is slower.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Both actual engines return the reference result or an explicit resource error; configuration, input size and measurement conditions are retained without universal performance claims.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-intermediate-04-local-analytics-check-01",
+                "kind": "short-answer",
+                "prompt": "Does enabling more query threads always improve latency?",
+                "answer": "No. Contention, overhead and memory pressure can make the same workload slower.",
+                "explanation": "The decision needs actual equivalent-workload measurements under declared limits."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does enabling more query threads always improve latency?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "foundation-lesson-13-testing-debugging",
+            "foundation-lesson-14-reproducibility"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        },
+        {
+          "id": "advanced-d4-intermediate-04-managed-analytics",
+          "title": "Evaluate Snowflake and BigQuery plans and cost boundaries",
+          "objectives": [
+            "Snowflake warehouse/micro-partition and BigQuery partition/cluster/query-cost behavior.",
+            "The comparison identifies both platform-specific mechanisms and cost units. Offline/fixture analysis is labelled design evidence and does not close a real cloud-runtime gate."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Snowflake warehouses and micro-partition pruning govern a different execution/billing model from BigQuery's partitioning, clustering and query-cost controls. A SQL query that runs in DuckDB is not evidence that either managed engine was configured or executed.",
+                "Snowflake warehouse/micro-partition and BigQuery partition/cluster/query-cost behavior."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Free public documentation supports design and plan interpretation without provisioning an account. An actual managed-service experiment requires explicit account/cost authorization and must record the real query population, plan and billed/estimated usage separately.",
+                "The comparison identifies both platform-specific mechanisms and cost units. Offline/fixture analysis is labelled design evidence and does not close a real cloud-runtime gate."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-intermediate-04-managed-analytics",
+            "technology:sql"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-676bb75de02f",
+            "locator": "Snowflake Warehouses: warehouse size, lifecycle/concurrency and resource usage; compare micro-partition pruning and BigQuery partition/clustering/query-cost guidance. Public docs do not authorize account use."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-fdd90c1935a5",
+            "advanced-reading-1d5d1cf0e160",
+            "data-doc-pg-plans",
+            "advanced-reading-a16479662f12",
+            "advanced-reading-d34672d877ee"
+          ],
+          "assignment": {
+            "id": "advanced-d4-intermediate-04-managed-analytics-assignment",
+            "title": "Evaluate Snowflake and BigQuery plans and cost boundaries: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Write original equivalent analytical SQL for both platforms, identify partition/cluster/warehouse choices and analyze documented plan/cost examples with labelled assumptions. Prepare a bounded authorized-run checklist.",
+              "Analyze official documented plans and original SQL/cost fixtures; an actual authorized no-cost account run is a separate explicit environment gate, not replaced by DuckDB and marked complete.",
+              "Compare a partition-prunable filter with a transformed predicate that may defeat pruning, and include zero/missing usage data. Execute only separately authorized no-cost service cases.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Write original equivalent analytical SQL for both platforms, identify partition/cluster/warehouse choices and analyze documented plan/cost examples with labelled assumptions. Prepare a bounded authorized-run checklist.",
+              "Compare a partition-prunable filter with a transformed predicate that may defeat pruning, and include zero/missing usage data. Execute only separately authorized no-cost service cases.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "The comparison identifies both platform-specific mechanisms and cost units. Offline/fixture analysis is labelled design evidence and does not close a real cloud-runtime gate.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-intermediate-04-managed-analytics-check-01",
+                "kind": "short-answer",
+                "prompt": "Does a successful local SQL simulation prove a BigQuery job's bytes billed?",
+                "answer": "No. Managed execution and billing depend on the actual platform, data layout and job.",
+                "explanation": "Local parity can test query meaning, not provider usage or charges."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does a successful local SQL simulation prove a BigQuery job's bytes billed?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "foundation-lesson-13-testing-debugging",
+            "foundation-lesson-14-reproducibility"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-intermediate-05",
+      "title": "Data Transformation Frameworks",
+      "stage": "intermediate",
+      "description": "dbt (data build tool) modeling, testing, documentation, and continuous integration.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-intermediate-05-dbt",
+          "title": "Build dbt models, tests, documentation and CI artifacts",
+          "objectives": [
+            "dbt modeling, tests, documentation, artifacts and CI.",
+            "Clean models match hand-checked totals, seeded faults fail their intended checks and generated docs/manifest accurately describe the models. Broken contracts cannot be promoted."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "dbt models declare transformations and references; ref/source relationships support dependency graphs and selective builds. Tests inspect data or contracts under their defined scope, while documentation/manifest artifacts expose model and column metadata. A test file existing is not evidence that it ran.",
+                "dbt modeling, tests, documentation, artifacts and CI."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "CI selection based on state/changes must include affected dependencies and consumers as intended. A schema-compatible change can still alter a metric's meaning. Promotion should require actual model/test results and a reviewed migration/deprecation plan.",
+                "Clean models match hand-checked totals, seeded faults fail their intended checks and generated docs/manifest accurately describe the models. Broken contracts cannot be promoted."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-intermediate-05-dbt"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-a6b523c31c58",
+            "locator": "dbt Models: SQL models, ref/source dependencies and configuration. Pair with data tests, documentation and manifest/state artifacts for the actual CI exercise."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-82b18fc40b70",
+            "advanced-reading-6784639741e3"
+          ],
+          "assignment": {
+            "id": "advanced-d4-intermediate-05-dbt-assignment",
+            "title": "Build dbt models, tests, documentation and CI artifacts: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create three original dependent dbt models with sources, tests and column documentation in a supported local adapter. Generate the manifest/catalog and a change-aware CI command.",
+              "Build original dependent models, seed deliberate data/schema faults, generate docs/manifest and make an impacted-model CI run block publication while preserving unaffected outputs.",
+              "Seed a duplicate key, remove a required column and alter a metric meaning without changing its type. Inspect selected/affected models and publication status.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create three original dependent dbt models with sources, tests and column documentation in a supported local adapter. Generate the manifest/catalog and a change-aware CI command.",
+              "Seed a duplicate key, remove a required column and alter a metric meaning without changing its type. Inspect selected/affected models and publication status.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Clean models match hand-checked totals, seeded faults fail their intended checks and generated docs/manifest accurately describe the models. Broken contracts cannot be promoted.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-intermediate-05-dbt-check-01",
+                "kind": "short-answer",
+                "prompt": "Does a schema test detect every semantic metric change?",
+                "answer": "No. A column can retain its name/type while its business definition changes.",
+                "explanation": "Consumer expectations and explicit semantic tests must supplement structural contracts."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does a schema test detect every semantic metric change?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l16",
+            "data-l17",
+            "data-l18",
+            "data-l26"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-advanced-01",
+      "title": "Lakehouse Internals & Compaction",
+      "stage": "advanced",
+      "description": "Apache Iceberg REST Catalog management, table maintenance engines (compaction of small files, snapshot expiration, orphan file cleanup).",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-advanced-01-catalog-maintenance",
+          "title": "Maintain Iceberg REST tables without deleting live evidence",
+          "objectives": [
+            "Iceberg REST Catalog, MinIO/S3, manifests, small-file compaction, snapshot expiration and orphan reachability.",
+            "Compaction preserves data, protected snapshots/readers remain valid and cleanup never touches unknown or live objects. Real catalog/object-store integration is recorded separately from a maintenance script's configuration."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "The Iceberg REST catalog coordinates metadata operations; MinIO/S3 stores objects, while query engines consume table snapshots. A catalog commit and an object upload are distinct operations. Snapshot references and manifests determine which files remain logically live.",
+                "Iceberg REST Catalog, MinIO/S3, manifests, small-file compaction, snapshot expiration and orphan reachability."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Compaction rewrites files while preserving rows; snapshot expiration retires eligible history; orphan cleanup removes unreferenced objects under a carefully bounded policy. Age alone does not prove an object is orphaned, especially with concurrent writers/readers or retained branches.",
+                "Compaction preserves data, protected snapshots/readers remain valid and cleanup never touches unknown or live objects. Real catalog/object-store integration is recorded separately from a maintenance script's configuration."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-advanced-01-catalog-maintenance"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-8e5c2d4c63e9",
+            "locator": "Iceberg Maintenance: expire snapshots, remove orphan files, compact data files and rewrite manifests; preserve retained references and use the REST catalog specification separately."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-6f61947457bc",
+            "advanced-reading-3d1bbbc992a0",
+            "advanced-reading-234dce6bb601",
+            "advanced-reading-bfcc8b6d52f4",
+            "advanced-reading-556968a60f31",
+            "advanced-reading-9719f7f2368e"
+          ],
+          "assignment": {
+            "id": "advanced-d4-advanced-01-catalog-maintenance-assignment",
+            "title": "Maintain Iceberg REST tables without deleting live evidence: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an owned Iceberg REST/MinIO/Parquet fixture with several small files, two snapshots and one protected reference. Perform actual compaction/manifest rewrite and compare canonical query results.",
+              "Use real catalog/object-store/table integration, verify exact query parity after compaction and protect active readers/branches/retained snapshots from cleanup; scope deletion only to owned fixture objects.",
+              "Interrupt a write/publication, retain an old reader and add a deliberately unreferenced owned object. Test dry-run cleanup selection before any scoped deletion.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an owned Iceberg REST/MinIO/Parquet fixture with several small files, two snapshots and one protected reference. Perform actual compaction/manifest rewrite and compare canonical query results.",
+              "Interrupt a write/publication, retain an old reader and add a deliberately unreferenced owned object. Test dry-run cleanup selection before any scoped deletion.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Compaction preserves data, protected snapshots/readers remain valid and cleanup never touches unknown or live objects. Real catalog/object-store integration is recorded separately from a maintenance script's configuration.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-advanced-01-catalog-maintenance-check-01",
+                "kind": "short-answer",
+                "prompt": "Is every old object in a table prefix safe to delete?",
+                "answer": "No. Retained snapshots, active references or concurrent work may still need it.",
+                "explanation": "Cleanup requires verified reachability and retention policy, not an age-only guess."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Is every old object in a table prefix safe to delete?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "foundation-lesson-13-testing-debugging",
+            "foundation-lesson-14-reproducibility"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-advanced-02",
+      "title": "High-Throughput Ingestion Pipelines",
+      "stage": "advanced",
+      "description": "Ingesting millions of events per second with sub-second landing times into ClickHouse or DuckDB.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-advanced-02-ingestion",
+          "title": "Measure Kafka-to-analytics durable landing under failure",
+          "objectives": [
+            "Kafka-to-ClickHouse/DuckDB paths, batch/commit semantics and producer-to-durable-landing measurements.",
+            "Supported failures converge to the reference without hidden loss; rate and latency are calculated from actual samples. Large-scale targets remain unverified unless the corresponding workload is observed."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Producer send, broker acknowledgement, consumer processing and durable analytical landing are different boundaries. Batch size affects throughput, latency, memory and recovery cost. Backpressure should bound the whole pipeline rather than shift unbounded buffering to another service.",
+                "Kafka-to-ClickHouse/DuckDB paths, batch/commit semantics and producer-to-durable-landing measurements."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A sustained events-per-second claim needs a defined duration, record size, correctness/loss accounting and resource environment. Sub-second landing refers to an explicitly measured clock boundary. A tiny synthetic unit test cannot establish million-event scale.",
+                "Supported failures converge to the reference without hidden loss; rate and latency are calculated from actual samples. Large-scale targets remain unverified unless the corresponding workload is observed."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-advanced-02-ingestion"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-1d5d1cf0e160",
+            "locator": "ClickHouse ingestion documentation: insert batching, asynchronous inserts and engine/query behavior. Pair with Kafka consumer/offset and actual sink-commit contracts for measured landing."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-7f170ac8b9ff",
+            "advanced-reading-045f61c8083f",
+            "advanced-reading-7bc314a495ef",
+            "advanced-reading-2ed956f639da",
+            "advanced-reading-712f96b7754c",
+            "advanced-reading-fdd90c1935a5",
+            "data-doc-pg-plans",
+            "advanced-reading-8de8f872c85e",
+            "advanced-reading-a9c9428e53c4",
+            "advanced-reading-a04effa473fb"
+          ],
+          "assignment": {
+            "id": "advanced-d4-advanced-02-ingestion-assignment",
+            "title": "Measure Kafka-to-analytics durable landing under failure: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Run actual owned Kafka ingestion into ClickHouse and DuckDB with a fixed original event schema and independent final-result oracle. Record event creation, accepted transport and durable sink times.",
+              "Run a bounded real integration with failure/replay checks, state sustained rate and loss/lag explicitly, and retain millions-per-second/sub-second as unverified targets until the appropriate workload is observed.",
+              "Restart a consumer around commit/acknowledgement, saturate a bounded batch queue and send a malformed event. Retain duplicates, rejects and lag rather than dropping them from the denominator.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Run actual owned Kafka ingestion into ClickHouse and DuckDB with a fixed original event schema and independent final-result oracle. Record event creation, accepted transport and durable sink times.",
+              "Restart a consumer around commit/acknowledgement, saturate a bounded batch queue and send a malformed event. Retain duplicates, rejects and lag rather than dropping them from the denominator.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Supported failures converge to the reference without hidden loss; rate and latency are calculated from actual samples. Large-scale targets remain unverified unless the corresponding workload is observed.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-advanced-02-ingestion-check-01",
+                "kind": "short-answer",
+                "prompt": "Is broker acknowledgement the same as durable analytical landing?",
+                "answer": "No. The consumer and sink commit may still be pending or fail.",
+                "explanation": "The measurement boundary must include the actual stage whose latency is claimed."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Is broker acknowledgement the same as durable analytical landing?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "foundation-lesson-13-testing-debugging",
+            "foundation-lesson-14-reproducibility"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-advanced-03",
+      "title": "Data Lineage & AST Parsing",
+      "stage": "advanced",
+      "description": "Parsing complex SQL dialects using AST tools (like SQLGlot) to build column-level lineage and automated dependency DAGs.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-advanced-03-sql-ast-lineage",
+          "title": "Derive column lineage from real SQLGlot scopes",
+          "objectives": [
+            "SQLGlot scopes, aliases, CTEs, windows, stars, schema resolution and column-level DAG construction.",
+            "Supported edges and closures exactly match the independent oracle, ambiguity is preserved and the graph never substitutes row lineage for column-level parsing evidence."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "SQL lineage requires resolving columns through scopes, aliases, CTEs, joins and expressions. A star expansion depends on a known schema, and the same column spelling in two scopes can refer to different sources. SQLGlot parses dialect syntax, but the application must define its supported semantic model.",
+                "SQLGlot scopes, aliases, CTEs, windows, stars, schema resolution and column-level DAG construction."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Physical source-row provenance and declared dataset dependencies answer different questions from SQL-derived column transformations. Dynamic SQL or unresolved schema must produce an explicit unknown edge/scope, not an empty graph that implies no impact.",
+                "Supported edges and closures exactly match the independent oracle, ambiguity is preserved and the graph never substitutes row lineage for column-level parsing evidence."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-advanced-03-sql-ast-lineage",
+            "technology:sql"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-58582fcb0c8b",
+            "locator": "SQLGlot lineage API and examples: scope, schema, source resolution and column lineage nodes. Compare dbt manifest metadata and explicitly test unsupported/dynamic SQL."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-64936083195f",
+            "advanced-reading-c82ebc0e2a82",
+            "advanced-reading-a6b523c31c58",
+            "advanced-reading-82b18fc40b70",
+            "advanced-reading-6784639741e3"
+          ],
+          "assignment": {
+            "id": "advanced-d4-advanced-03-sql-ast-lineage-assignment",
+            "title": "Derive column lineage from real SQLGlot scopes: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Parse original multi-dialect SQL/dbt fixtures containing a CTE, alias, join, window and star expansion. Hand-author expected source-to-output column edges before running the extractor.",
+              "Parse actual original multi-dialect SQL/dbt fixtures, compare column edges to hand-authored expected graphs and return explicit unknowns for unsupported/dynamic SQL rather than inventing safe lineage.",
+              "Remove schema metadata, introduce an ambiguous column and use an unsupported dynamic construct. Compute downstream closure for two known changed columns and a cycle fixture.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Parse original multi-dialect SQL/dbt fixtures containing a CTE, alias, join, window and star expansion. Hand-author expected source-to-output column edges before running the extractor.",
+              "Remove schema metadata, introduce an ambiguous column and use an unsupported dynamic construct. Compute downstream closure for two known changed columns and a cycle fixture.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Supported edges and closures exactly match the independent oracle, ambiguity is preserved and the graph never substitutes row lineage for column-level parsing evidence.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-advanced-03-sql-ast-lineage-check-01",
+                "kind": "short-answer",
+                "prompt": "Can an unresolved SELECT star safely be treated as having no source columns?",
+                "answer": "No. Its expansion depends on schema information and must remain unresolved/unknown if unavailable.",
+                "explanation": "An empty dependency set would falsely suggest a change has no downstream effect."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can an unresolved SELECT star safely be treated as having no source columns?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-intermediate-sql-depth"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-advanced-04",
+      "title": "Data Contracts & Streaming Validation",
+      "stage": "advanced",
+      "description": "Schema enforcement at ingestion using Protobuf/JSON Schema, streaming dead-letter queues (DLQ), and automated anomaly detection.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-advanced-04-stream-contracts",
+          "title": "Enforce Protobuf/JSON Schema contracts with durable Kafka DLQs",
+          "objectives": [
+            "Protobuf/JSON Schema versions, compatibility, DLQ envelopes and durable recovery.",
+            "Every event has one accountable logical outcome, rejected records preserve reasons and recovery cannot silently skip accepted or invalid events. Both validators are actually exercised."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A schema validator checks a defined structural contract; it does not automatically validate freshness, business meaning or downstream suitability. Protobuf field evolution and JSON Schema validation have different representation/default rules and need their own tests.",
+                "Protobuf/JSON Schema versions, compatibility, DLQ envelopes and durable recovery."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A streaming DLQ must retain event identity, source position, schema version and rejection reason. Committing an offset before durable accepted/rejected handling can lose events; retrying after a sink commit can duplicate them without idempotent state.",
+                "Every event has one accountable logical outcome, rejected records preserve reasons and recovery cannot silently skip accepted or invalid events. Both validators are actually exercised."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-advanced-04-stream-contracts"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-78c70e747d80",
+            "locator": "JSON Schema step-by-step: types, required properties, arrays and schema composition; compare Protobuf evolution and Kafka DLQ/acknowledgement boundaries."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-7e08a618f097",
+            "advanced-reading-378333d1a78b",
+            "advanced-reading-f5f0bec59183",
+            "advanced-reading-8ef76b879289",
+            "advanced-reading-59eb15521025",
+            "advanced-reading-7f170ac8b9ff",
+            "advanced-reading-045f61c8083f",
+            "advanced-reading-7bc314a495ef",
+            "advanced-reading-2ed956f639da",
+            "advanced-reading-712f96b7754c"
+          ],
+          "assignment": {
+            "id": "advanced-d4-advanced-04-stream-contracts-assignment",
+            "title": "Enforce Protobuf/JSON Schema contracts with durable Kafka DLQs: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Run original valid/invalid/versioned events through both actual Protobuf and JSON Schema validators in a Kafka consumer. Define accepted-sink and DLQ durability/acknowledgement order.",
+              "Feed actual broker events through both validators, preserve rejected-event identity/reason and prove duplicate/restart handling without silent drops.",
+              "Crash before/after accepted or DLQ commit, replay a duplicate and evolve an optional versus required field. Keep source offsets distinct from business IDs.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Run original valid/invalid/versioned events through both actual Protobuf and JSON Schema validators in a Kafka consumer. Define accepted-sink and DLQ durability/acknowledgement order.",
+              "Crash before/after accepted or DLQ commit, replay a duplicate and evolve an optional versus required field. Keep source offsets distinct from business IDs.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Every event has one accountable logical outcome, rejected records preserve reasons and recovery cannot silently skip accepted or invalid events. Both validators are actually exercised.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-advanced-04-stream-contracts-check-01",
+                "kind": "short-answer",
+                "prompt": "Should a rejected event disappear after the consumer advances its offset?",
+                "answer": "No. Its rejection must be durably and inspectably recorded under the declared policy.",
+                "explanation": "A DLQ is part of correctness/recovery, not merely a log message that may be lost."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Should a rejected event disappear after the consumer advances its offset?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l16",
+            "data-l17",
+            "data-l20",
+            "ai-l25-monitoring"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        },
+        {
+          "id": "advanced-d4-advanced-04-online-profiles",
+          "title": "Validate t-digest drift profiles against exact references",
+          "objectives": [
+            "t-digest approximate quantiles, null rates, drift windows and alert suppression/ownership.",
+            "Counts/null denominators reconcile, approximation error is reported honestly and restart preserves the declared profile state. Drift alerts name owners and do not automatically claim downstream harm."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "t-digest approximates a distribution through compact weighted centroids; quantile accuracy depends on algorithm/configuration and data shape. Approximate quantiles need an explicit error metric and comparison population, especially in the tails. Merge/order behavior should be tested rather than assumed.",
+                "t-digest approximate quantiles, null rates, drift windows and alert suppression/ownership."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Null rate, distribution drift and proven data-quality harm are different signals. Windowing, warmup, baseline updates and alert suppression affect false positives. Durable profile checkpoints must be bound to input progress so replay does not double-count observations.",
+                "Counts/null denominators reconcile, approximation error is reported honestly and restart preserves the declared profile state. Drift alerts name owners and do not automatically claim downstream harm."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-advanced-04-online-profiles"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-59eb15521025",
+            "locator": "t-digest maintainer README and accuracy/implementation discussion: compact centroids, merging and quantile error. Establish independent exact references instead of assuming universal accuracy."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-7e08a618f097",
+            "advanced-reading-378333d1a78b",
+            "advanced-reading-f5f0bec59183",
+            "advanced-reading-78c70e747d80",
+            "advanced-reading-8ef76b879289",
+            "advanced-reading-7f170ac8b9ff",
+            "advanced-reading-045f61c8083f",
+            "advanced-reading-7bc314a495ef",
+            "advanced-reading-2ed956f639da",
+            "advanced-reading-712f96b7754c"
+          ],
+          "assignment": {
+            "id": "advanced-d4-advanced-04-online-profiles-assignment",
+            "title": "Validate t-digest drift profiles against exact references: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Profile an original stream with a stable segment, shifted segment, null burst and outlier tail. Compare t-digest quantiles to exact sorted values on bounded windows and define accepted error limits.",
+              "Compare running sketches to an exact bounded reference with explicit error limits; restore profile checkpoints and distinguish drift signals from demonstrated consumer harm.",
+              "Restart from a checkpoint, redeliver a segment and change merge order. Test empty/all-null windows and an alert threshold boundary.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Profile an original stream with a stable segment, shifted segment, null burst and outlier tail. Compare t-digest quantiles to exact sorted values on bounded windows and define accepted error limits.",
+              "Restart from a checkpoint, redeliver a segment and change merge order. Test empty/all-null windows and an alert threshold boundary.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Counts/null denominators reconcile, approximation error is reported honestly and restart preserves the declared profile state. Drift alerts name owners and do not automatically claim downstream harm.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-advanced-04-online-profiles-check-01",
+                "kind": "short-answer",
+                "prompt": "Is a t-digest quantile an exact order statistic for every stream?",
+                "answer": "No. It is an approximation whose error must be evaluated for the chosen configuration and data.",
+                "explanation": "The compact sketch trades storage/work for bounded, empirically assessed approximation behavior."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Is a t-digest quantile an exact order statistic for every stream?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l16",
+            "data-l17",
+            "data-l20",
+            "ai-l25-monitoring"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-advanced-05",
+      "title": "Query Federation Engines",
+      "stage": "advanced",
+      "description": "Building query federation layers with Apache Arrow and Arrow Flight across diverse storage backends.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-advanced-05-federation",
+          "title": "Execute bounded query federation over real Arrow Flight workers",
+          "objectives": [
+            "PostgreSQL/Parquet/CSV sources, planner contracts, Arrow batches/Flight endpoints and cancellation.",
+            "All supported results match the oracle, failures respect limits/deadlines and pushdown savings name the exact measured boundary. No universal zero-copy or production-SLA claim is inferred."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A federation coordinator translates a supported query into logical/physical operations over source-specific scans. Predicate/projection pushdown reduces transfer only if the source implements equivalent semantics; NULL, type and join behavior can prevent a safe rewrite.",
+                "PostgreSQL/Parquet/CSV sources, planner contracts, Arrow batches/Flight endpoints and cancellation."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Arrow columnar buffers can support efficient reuse within compatible consumers, while Flight transports record batches across actual RPC boundaries. Serialization, network stacks and PostgreSQL/DuckDB conversion may still copy. Separate worker processes on one host are real RPC, not proof of multi-host production architecture.",
+                "All supported results match the oracle, failures respect limits/deadlines and pushdown savings name the exact measured boundary. No universal zero-copy or production-SLA claim is inferred."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-advanced-05-federation"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-1cbcd2dc72bb",
+            "locator": "Arrow Flight protocol: descriptors, FlightInfo/endpoints, DoGet/DoPut, ordering and record-batch transport. Pair with columnar layout and actual source/planner semantics."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-4647e09ffeb5",
+            "advanced-reading-6b156d0a9b98",
+            "advanced-reading-fdd90c1935a5",
+            "advanced-reading-1d5d1cf0e160",
+            "data-doc-pg-plans",
+            "advanced-reading-6772c859f6f8",
+            "advanced-reading-a5cdd62a9242",
+            "advanced-reading-ee9f4cc3345a"
+          ],
+          "assignment": {
+            "id": "advanced-d4-advanced-05-federation-assignment",
+            "title": "Execute bounded query federation over real Arrow Flight workers: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Query original PostgreSQL, Parquet and CSV fixtures through separate actual Flight workers. Compare supported results with an independent all-data oracle and record requested/returned columns and rows.",
+              "Run separate real workers, compare results with a simple oracle and measure rows/columns/bytes avoided by pushdown; explain that network transport still involves serialization/buffers/copies.",
+              "Cancel a query, expire a ticket, lose a worker and submit unsupported SQL. Measure a selective query's actual TCP payload separately from disk IO or total runtime.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Query original PostgreSQL, Parquet and CSV fixtures through separate actual Flight workers. Compare supported results with an independent all-data oracle and record requested/returned columns and rows.",
+              "Cancel a query, expire a ticket, lose a worker and submit unsupported SQL. Measure a selective query's actual TCP payload separately from disk IO or total runtime.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "All supported results match the oracle, failures respect limits/deadlines and pushdown savings name the exact measured boundary. No universal zero-copy or production-SLA claim is inferred.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-advanced-05-federation-check-01",
+                "kind": "short-answer",
+                "prompt": "Does Arrow Flight eliminate every copy between a PostgreSQL source and a DuckDB result?",
+                "answer": "No. Buffer reuse is boundary-dependent and source/serialization/engine conversion can still copy.",
+                "explanation": "A transport/layout design must be measured and scoped rather than described as universally zero-copy."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does Arrow Flight eliminate every copy between a PostgreSQL source and a DuckDB result?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-intermediate-sql-depth"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-professional-01",
+      "title": "Petabyte-Scale Platform Architecture",
+      "stage": "professional",
+      "description": "Architecting multi-tenant, geo-distributed data lakehouses with strict regulatory compliance (GDPR, right-to-be-forgotten).",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-professional-01-geo-governance",
+          "title": "Design geo lakehouse tenancy, erasure and retained history",
+          "objectives": [
+            "Multi-tenant/geo lakehouse routing, residency, retention, erasure and backup/snapshot consequences.",
+            "Denied/revoked data cannot reappear in active results, every copy has an owner/lifecycle outcome and petabyte/geo deployment remains modelled unless actually exercised."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Multi-tenant geo data platforms must define identity, region placement, replication and access at every copy/serving boundary. Residency and sovereignty requirements can constrain storage, processing and support access differently. A region label on a diagram is not enforcement.",
+                "Multi-tenant/geo lakehouse routing, residency, retention, erasure and backup/snapshot consequences."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "GDPR/right-to-be-forgotten work must reconcile active data, caches, snapshots, derived outputs and backup retention with actual legal/policy obligations. A deletion ledger reapplied after restore can prevent resurrection, but pending physical expiry cannot be called immediate erasure.",
+                "Denied/revoked data cannot reappear in active results, every copy has an owner/lifecycle outcome and petabyte/geo deployment remains modelled unless actually exercised."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-professional-01-geo-governance"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-9290dc117255",
+            "locator": "EDPB Respect Individuals' Rights guide: information obligations, right of access, right to erasure and applicable restrictions. Pair with Iceberg snapshot/retention and PROV responsibility/copy tracking; no jurisdiction-specific compliance is certified."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-6f61947457bc",
+            "advanced-reading-8e5c2d4c63e9",
+            "advanced-reading-3d1bbbc992a0",
+            "advanced-reading-234dce6bb601",
+            "advanced-reading-bfcc8b6d52f4",
+            "advanced-reading-0fd94c568f1a",
+            "advanced-reading-79a626b42677",
+            "advanced-reading-cd0716506f0c",
+            "advanced-reading-1ef04a537e23",
+            "advanced-reading-b70dd85399ae",
+            "advanced-reading-27c5095f7133",
+            "advanced-reading-5faa5d087b61",
+            "security-doc-csf",
+            "advanced-reading-c0de58626d96",
+            "advanced-reading-bb8b5f89b846",
+            "advanced-reading-d39cd3ba0ef2",
+            "advanced-reading-7b9a3e66dbb9"
+          ],
+          "assignment": {
+            "id": "advanced-d4-professional-01-geo-governance-assignment",
+            "title": "Design geo lakehouse tenancy, erasure and retained history: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an original two-tenant/two-region data-flow and copy inventory, including one retained backup and a derived model input. Implement bounded logical serving/restore fixtures with a deletion ledger.",
+              "Design and test owned logical tenant/region/delete fixtures and reconcile all copies; present petabyte capacity as a model until observed and route jurisdiction-specific obligations to qualified review.",
+              "Restore a pre-deletion snapshot, route a request to the wrong logical region and introduce a missing copy owner. Keep legal applicability questions explicit.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an original two-tenant/two-region data-flow and copy inventory, including one retained backup and a derived model input. Implement bounded logical serving/restore fixtures with a deletion ledger.",
+              "Restore a pre-deletion snapshot, route a request to the wrong logical region and introduce a missing copy owner. Keep legal applicability questions explicit.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Denied/revoked data cannot reappear in active results, every copy has an owner/lifecycle outcome and petabyte/geo deployment remains modelled unless actually exercised.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-professional-01-geo-governance-check-01",
+                "kind": "short-answer",
+                "prompt": "Does excluding a row from current queries prove every backup copy has been physically erased?",
+                "answer": "No. Active exclusion and physical retention expiry are different lifecycle states.",
+                "explanation": "The report must account for each copy and its actual deletion or pending-retention outcome."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does excluding a row from current queries prove every backup copy has been physically erased?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l23",
+            "data-l24"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-professional-02",
+      "title": "Query Optimizer Engineering",
+      "stage": "professional",
+      "description": "Developing custom query optimization passes, partition pruning engines, and vectorized query execution pipelines.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-professional-02-optimizer",
+          "title": "Implement safe query rewrites, pruning and vectorized operators",
+          "objectives": [
+            "Typed logical/physical plans, equivalence-preserving rewrites, predicate/column/partition pruning and vectorized operators.",
+            "Every supported optimized result equals the naive oracle; unsafe rewrites are rejected and rows/columns/partitions skipped are observed. Performance is measured only after equivalence."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A logical rewrite needs a semantic precondition, not just an appealing smaller plan. Pushing a predicate across an outer join or changing NULL handling can alter results. Physical planning must preserve ordering/multiplicity contracts for the supported SQL subset.",
+                "Typed logical/physical plans, equivalence-preserving rewrites, predicate/column/partition pruning and vectorized operators."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Partition pruning requires metadata that proves a partition cannot contribute under the predicate. Vectorized operators process batches for locality/dispatch efficiency, but batch boundaries must not change aggregates or errors. Unsupported constructs should fail explicitly rather than produce a plausible partial result.",
+                "Every supported optimized result equals the naive oracle; unsafe rewrites are rejected and rows/columns/partitions skipped are observed. Performance is measured only after equivalence."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-professional-02-optimizer",
+            "technology:sql"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-fdd90c1935a5",
+            "locator": "DuckDB documentation: EXPLAIN, profiling and execution/internals overview; use the linked Arrow layout and PostgreSQL SQL semantics to justify each original rewrite/pruning precondition."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-1d5d1cf0e160",
+            "data-doc-pg-plans",
+            "advanced-reading-4647e09ffeb5",
+            "advanced-reading-1cbcd2dc72bb",
+            "advanced-reading-6b156d0a9b98"
+          ],
+          "assignment": {
+            "id": "advanced-d4-professional-02-optimizer-assignment",
+            "title": "Implement safe query rewrites, pruning and vectorized operators: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Implement a small typed planner with projection/predicate/partition pruning and a vectorized filter/aggregate path over original fixtures. Keep a deliberately naive independent evaluator.",
+              "Implement a bounded SQL subset with explicit unsupported errors, compare all optimized plans against a naive oracle including NULL/outer-join traps, and report vector batch/copy/memory behavior.",
+              "Use NULLs, duplicate join keys, boundary partition values, empty batches and an unsupported operation. Compare each optimization independently before enabling combinations.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Implement a small typed planner with projection/predicate/partition pruning and a vectorized filter/aggregate path over original fixtures. Keep a deliberately naive independent evaluator.",
+              "Use NULLs, duplicate join keys, boundary partition values, empty batches and an unsupported operation. Compare each optimization independently before enabling combinations.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Every supported optimized result equals the naive oracle; unsafe rewrites are rejected and rows/columns/partitions skipped are observed. Performance is measured only after equivalence.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-professional-02-optimizer-check-01",
+                "kind": "short-answer",
+                "prompt": "May every WHERE predicate be pushed below every join?",
+                "answer": "No. Outer-join, NULL and multiplicity semantics can make such a rewrite invalid.",
+                "explanation": "Each optimization needs explicit preconditions and counterexample tests."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "May every WHERE predicate be pushed below every join?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-intermediate-sql-depth"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-professional-03",
+      "title": "FinOps & Resource Allocation",
+      "stage": "professional",
+      "description": "Designing cost-governed multi-cluster compute topologies, auto-scaling query clusters, and cold-data tiered archiving.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-professional-03-cluster-finops",
+          "title": "Budget multi-cluster scaling and cold-data restoration",
+          "objectives": [
+            "Compute topology, budget/quota allocation, scale triggers/hysteresis and hot/warm/cold storage.",
+            "The policy respects caps without rapid oscillation, every cost allocation reconciles and restore limits are explicit. No hypothetical bill or capacity model becomes a savings/deployment claim."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Autoscaling reacts to observed demand but has startup delays, capacity ceilings and hysteresis requirements. A multi-cluster budget must account for shared/idle capacity, storage, egress and failure reserves. More clusters can increase cost and coordination rather than remove a bottleneck.",
+                "Compute topology, budget/quota allocation, scale triggers/hysteresis and hot/warm/cold storage."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Cold tiers trade current storage cost for retrieval delay, fees and operational constraints. Archiving does not remove retention/deletion obligations or guarantee a timely restore. Estimates, documented prices and actual bills must remain distinct.",
+                "The policy respects caps without rapid oscillation, every cost allocation reconciles and restore limits are explicit. No hypothetical bill or capacity model becomes a savings/deployment claim."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-professional-03-cluster-finops"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-bc774093b44e",
+            "locator": "FinOps Framework capabilities: allocation, forecasting/budgeting, workload optimization and unit economics; pair with object-store lifecycle/retrieval and cluster scaling semantics."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-c12650e91c19",
+            "advanced-reading-5c8ab94ac06f",
+            "advanced-reading-1fffce525fa0",
+            "advanced-reading-556968a60f31",
+            "advanced-reading-9719f7f2368e"
+          ],
+          "assignment": {
+            "id": "advanced-d4-professional-03-cluster-finops-assignment",
+            "title": "Budget multi-cluster scaling and cold-data restoration: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Apply a bounded scale policy to an original demand/cost trace with two query clusters and three data-temperature classes. Define budget caps, scale hysteresis and an archive/restore contract.",
+              "Evaluate original workload/cost traces, enforce budget/scale bounds in a controlled harness and demonstrate tiered restore semantics; estimates and modelled cloud costs remain distinct from observed bills.",
+              "Oscillate demand around a threshold, delay startup, exceed a budget and request a cold restore under a tight deadline. Use only owned local fixtures for execution.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Apply a bounded scale policy to an original demand/cost trace with two query clusters and three data-temperature classes. Define budget caps, scale hysteresis and an archive/restore contract.",
+              "Oscillate demand around a threshold, delay startup, exceed a budget and request a cold restore under a tight deadline. Use only owned local fixtures for execution.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "The policy respects caps without rapid oscillation, every cost allocation reconciles and restore limits are explicit. No hypothetical bill or capacity model becomes a savings/deployment claim.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-professional-03-cluster-finops-check-01",
+                "kind": "short-answer",
+                "prompt": "Does cold storage make archived data immediately available at the original query latency?",
+                "answer": "No. Retrieval time/cost and access constraints depend on the selected tier.",
+                "explanation": "The architecture must budget and test the restoration path separately."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does cold storage make archived data immediately available at the original query latency?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l28",
+            "sde-l24-load-cost",
+            "systems-professional-systems-design"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d4-professional-04",
+      "title": "Enterprise Data Strategy",
+      "stage": "professional",
+      "description": "Organization-wide data mesh architecture, cross-domain data product governance, and SLA-backed analytical platform management.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d4-professional-04-mesh-governance",
+          "title": "Govern cross-domain data products with measurable SLAs",
+          "objectives": [
+            "Domain data products, federated standards, analytical SLAs, ownership and change/deprecation policy.",
+            "Each product and obligation has an accountable owner, impact is correct and exceptions/deprecation remain visible. The dossier is educational design/local evidence, not claimed enterprise adoption."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Data mesh distributes product ownership while retaining interoperable standards and federated governance. It is not simply giving every team a database. Product contracts need owners, intended consumers, quality/retention rules and a process for breaking changes.",
+                "Domain data products, federated standards, analytical SLAs, ownership and change/deprecation policy."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "An SLA-backed analytical platform must connect consumer outcomes to measurable indicators and operational responsibility. Catalog presence or a successful pipeline exit does not establish freshness/correctness. Cross-domain disputes require explicit decision rights, evidence and migration/rollback policy.",
+                "Each product and obligation has an accountable owner, impact is correct and exceptions/deprecation remain visible. The dossier is educational design/local evidence, not claimed enterprise adoption."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d4-professional-04-mesh-governance"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-bb8b5f89b846",
+            "locator": "Data Mesh Principles: domain ownership, data as a product, self-serve platform and federated computational governance; pair with PROV and SRE service objectives."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-d39cd3ba0ef2",
+            "advanced-reading-7b9a3e66dbb9",
+            "tpm-doc-technology",
+            "advanced-reading-6c547d0b7e0e",
+            "advanced-reading-2bd699332b97",
+            "data-book-sre",
+            "advanced-reading-575c360c5197"
+          ],
+          "assignment": {
+            "id": "advanced-d4-professional-04-mesh-governance-assignment",
+            "title": "Govern cross-domain data products with measurable SLAs: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Define three original domain data products with contracts, ownership, consumer SLIs and a shared glossary. Build a dependency/impact view and an escalation decision record.",
+              "Create an original multi-domain contract/governance dossier with a breaking-change dispute, downstream impact, objective/error budget and escalation/rollback evidence; distinguish design from enterprise adoption.",
+              "Change a metric's meaning, miss an upstream delivery and dispute an exception. Trace affected consumers and choose release/defer/rollback using the declared evidence.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Define three original domain data products with contracts, ownership, consumer SLIs and a shared glossary. Build a dependency/impact view and an escalation decision record.",
+              "Change a metric's meaning, miss an upstream delivery and dispute an exception. Trace affected consumers and choose release/defer/rollback using the declared evidence.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Each product and obligation has an accountable owner, impact is correct and exceptions/deprecation remain visible. The dossier is educational design/local evidence, not claimed enterprise adoption.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d4-professional-04-mesh-governance-check-01",
+                "kind": "short-answer",
+                "prompt": "Does a catalog entry prove a data product met its freshness SLA?",
+                "answer": "No. The actual consumer-facing indicator and observation window must be measured.",
+                "explanation": "Metadata discoverability and operational attainment are separate properties."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does a catalog entry prove a data product met its freshness SLA?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l01",
+            "data-l18",
+            "data-l27",
+            "tpm-l12-risk-sequencing"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "advanced-reading-1b4e9a9b9c56",
+      "kind": "documentation",
+      "title": "Core Concepts — Airflow 3.3.2 Documentation",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/",
+      "provider": "airflow.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Cron schedule/time-zone semantics, Airflow logical dates/DAG dependencies/catch-up/backfill/retries and duplicate protection. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-8b3246c391dc",
+      "kind": "documentation",
+      "title": "crontab(5) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man5/crontab.5.html",
+      "provider": "man7.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Cron schedule/time-zone semantics, Airflow logical dates/DAG dependencies/catch-up/backfill/retries and duplicate protection. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-3f27ba342b19",
+      "kind": "documentation",
+      "title": "Documentation | Parquet",
+      "url": "https://parquet.apache.org/docs/",
+      "provider": "parquet.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-1b8567d2ef50",
+      "kind": "documentation",
+      "title": "Background",
+      "url": "https://orc.apache.org/docs/",
+      "provider": "orc.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-163c679a0648",
+      "kind": "documentation",
+      "title": "Documentation | Apache Avro",
+      "url": "https://avro.apache.org/docs/",
+      "provider": "avro.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-4d089713c1e8",
+      "kind": "documentation",
+      "title": "RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format | RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc8259",
+      "provider": "www.rfc-editor.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-ed80a874c18d",
+      "kind": "documentation",
+      "title": "Spark SQL and DataFrames - Spark 4.2.0 Documentation",
+      "url": "https://spark.apache.org/docs/latest/sql-programming-guide.html",
+      "provider": "spark.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "DataFrames, partitions, shuffles, broadcast joins, AQE and result-preserving plan comparisons. Reuse the substantive existing Spark labs. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-6f61947457bc",
+      "kind": "documentation",
+      "title": "Introduction - Apache Iceberg™",
+      "url": "https://iceberg.apache.org/docs/latest/",
+      "provider": "iceberg.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-8e5c2d4c63e9",
+      "kind": "documentation",
+      "title": "Maintenance - Apache Iceberg™",
+      "url": "https://iceberg.apache.org/docs/latest/maintenance/",
+      "provider": "iceberg.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-3d1bbbc992a0",
+      "kind": "documentation",
+      "title": "REST Catalog Spec - Apache Iceberg™",
+      "url": "https://iceberg.apache.org/rest-catalog-spec/",
+      "provider": "iceberg.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-234dce6bb601",
+      "kind": "documentation",
+      "title": "Welcome to the Delta Lake documentation | Delta Lake",
+      "url": "https://docs.delta.io/",
+      "provider": "docs.delta.io",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-bfcc8b6d52f4",
+      "kind": "documentation",
+      "title": "Overview | Apache Hudi",
+      "url": "https://hudi.apache.org/docs/overview/",
+      "provider": "hudi.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-c36dcc16cff0",
+      "kind": "documentation",
+      "title": "Apache Flink Documentation | Apache Flink",
+      "url": "https://nightlies.apache.org/flink/flink-docs-stable/",
+      "provider": "nightlies.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "operators/state, watermarks/windows, checkpoints/savepoints and Kafka source/sink recovery. Runtime/version/output mode must be explicit. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-676bb75de02f",
+      "kind": "documentation",
+      "title": "Virtual warehouses | Snowflake Documentation",
+      "url": "https://docs.snowflake.com/en/user-guide/warehouses",
+      "provider": "docs.snowflake.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Snowflake warehouses/micro-partitions, BigQuery partitions/clustering/query cost and platform-specific optimizations. Account/runtime work stays separately gated; do not promise paid-service credits. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-a16479662f12",
+      "kind": "documentation",
+      "title": "Micro-partitions & Data Clustering | Snowflake Documentation",
+      "url": "https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions",
+      "provider": "docs.snowflake.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Snowflake warehouses/micro-partitions, BigQuery partitions/clustering/query cost and platform-specific optimizations. Account/runtime work stays separately gated; do not promise paid-service credits. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-d34672d877ee",
+      "kind": "documentation",
+      "title": "Optimize query computation | BigQuery | Google Cloud Documentation",
+      "url": "https://cloud.google.com/bigquery/docs/best-practices-performance-compute",
+      "provider": "cloud.google.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Snowflake warehouses/micro-partitions, BigQuery partitions/clustering/query cost and platform-specific optimizations. Account/runtime work stays separately gated; do not promise paid-service credits. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-a6b523c31c58",
+      "kind": "documentation",
+      "title": "About dbt models | dbt Developer Hub",
+      "url": "https://docs.getdbt.com/docs/build/models",
+      "provider": "docs.getdbt.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "actual models/ref/source, tests/contracts, generated docs/manifests, state/selection and free local CI commands. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-82b18fc40b70",
+      "kind": "documentation",
+      "title": "Add data tests to your DAG | dbt Developer Hub",
+      "url": "https://docs.getdbt.com/docs/build/data-tests",
+      "provider": "docs.getdbt.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "actual models/ref/source, tests/contracts, generated docs/manifests, state/selection and free local CI commands. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-6784639741e3",
+      "kind": "documentation",
+      "title": "About dbt artifacts | dbt Developer Hub",
+      "url": "https://docs.getdbt.com/reference/artifacts/dbt-artifacts",
+      "provider": "docs.getdbt.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "actual models/ref/source, tests/contracts, generated docs/manifests, state/selection and free local CI commands. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-556968a60f31",
+      "kind": "documentation",
+      "title": "Amazon Simple Storage Service",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/",
+      "provider": "docs.aws.amazon.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "S3 object/version/list/lifecycle semantics and MinIO S3-compatible owned deployment. Confirm the selected community version's actual license, availability and no-paid setup before prescribing it; never assume every current enterprise edition is free. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-9719f7f2368e",
+      "kind": "documentation",
+      "title": "GitHub - minio/minio: MinIO is a high-performance, S3 compatible object store, open sourced under GNU AGPLv3 license. · GitHub",
+      "url": "https://github.com/minio/minio",
+      "provider": "github.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "S3 object/version/list/lifecycle semantics and MinIO S3-compatible owned deployment. Confirm the selected community version's actual license, availability and no-paid setup before prescribing it; never assume every current enterprise edition is free. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-64936083195f",
+      "kind": "documentation",
+      "title": "sqlglot API documentation",
+      "url": "https://sqlglot.com/sqlglot.html",
+      "provider": "sqlglot.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "dialect parsing, scope/schema/alias/CTE/window/star resolution, column edges and conservative impact closure. This is not physical source-row lineage. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-58582fcb0c8b",
+      "kind": "documentation",
+      "title": "sqlglot.lineage API documentation",
+      "url": "https://sqlglot.com/sqlglot/lineage.html",
+      "provider": "sqlglot.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "dialect parsing, scope/schema/alias/CTE/window/star resolution, column edges and conservative impact closure. This is not physical source-row lineage. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-c82ebc0e2a82",
+      "kind": "documentation",
+      "title": "Manifest JSON file | dbt Developer Hub",
+      "url": "https://docs.getdbt.com/reference/artifacts/manifest-json",
+      "provider": "docs.getdbt.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "dialect parsing, scope/schema/alias/CTE/window/star resolution, column edges and conservative impact closure. This is not physical source-row lineage. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-78c70e747d80",
+      "kind": "documentation",
+      "title": "Creating your first schema",
+      "url": "https://json-schema.org/learn/getting-started-step-by-step",
+      "provider": "json-schema.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "exact schema/version validation, DLQ identity/reason, t-digest error/merge/state behavior, distribution/null monitoring and bounded anomaly alerts. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-8ef76b879289",
+      "kind": "documentation",
+      "title": "Language Guide (proto 3) | Protocol Buffers Documentation",
+      "url": "https://protobuf.dev/programming-guides/proto3/",
+      "provider": "protobuf.dev",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "exact schema/version validation, DLQ identity/reason, t-digest error/merge/state behavior, distribution/null monitoring and bounded anomaly alerts. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-59eb15521025",
+      "kind": "documentation",
+      "title": "GitHub - tdunning/t-digest: A new data structure for accurate on-line accumulation of rank-based statistics such as quantiles and trimmed means · GitHub",
+      "url": "https://github.com/tdunning/t-digest",
+      "provider": "github.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "exact schema/version validation, DLQ identity/reason, t-digest error/merge/state behavior, distribution/null monitoring and bounded anomaly alerts. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-4647e09ffeb5",
+      "kind": "documentation",
+      "title": "Arrow Columnar Format — Apache Arrow v25.0.1",
+      "url": "https://arrow.apache.org/docs/format/Columnar.html",
+      "provider": "arrow.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "columnar buffers, record batches, Flight descriptors/endpoints/DoGet/DoPut, ordering/cancellation and worker transport. Zero-copy-friendly layouts do not eliminate all cross-network copying. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-1cbcd2dc72bb",
+      "kind": "documentation",
+      "title": "Arrow Flight RPC — Apache Arrow v25.0.1",
+      "url": "https://arrow.apache.org/docs/format/Flight.html",
+      "provider": "arrow.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "columnar buffers, record batches, Flight descriptors/endpoints/DoGet/DoPut, ordering/cancellation and worker transport. Zero-copy-friendly layouts do not eliminate all cross-network copying. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-6b156d0a9b98",
+      "kind": "documentation",
+      "title": "Arrow Flight RPC — Apache Arrow v25.0.1",
+      "url": "https://arrow.apache.org/docs/python/flight.html",
+      "provider": "arrow.apache.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "columnar buffers, record batches, Flight descriptors/endpoints/DoGet/DoPut, ordering/cancellation and worker transport. Zero-copy-friendly layouts do not eliminate all cross-network copying. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-bb8b5f89b846",
+      "kind": "documentation",
+      "title": "Data Mesh Principles and Logical Architecture",
+      "url": "https://martinfowler.com/articles/data-mesh-principles.html",
+      "provider": "martinfowler.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "author-published data-mesh principles, data product ownership/lineage, federated governance and explicit SLA/SLO evidence; apply privacy/deletion from S-REGULATION. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-d39cd3ba0ef2",
+      "kind": "documentation",
+      "title": "PROV-Overview",
+      "url": "https://www.w3.org/TR/prov-overview/",
+      "provider": "www.w3.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "author-published data-mesh principles, data product ownership/lineage, federated governance and explicit SLA/SLO evidence; apply privacy/deletion from S-REGULATION. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-7b9a3e66dbb9",
+      "kind": "documentation",
+      "title": "Google SRE - Defining slo: service level objective meaning",
+      "url": "https://sre.google/sre-book/service-level-objectives/",
+      "provider": "sre.google",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "author-published data-mesh principles, data product ownership/lineage, federated governance and explicit SLA/SLO evidence; apply privacy/deletion from S-REGULATION. Link-only; no content is bundled and runtime access is not implied."
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "D-MODELING: official learning source",
+      "url": "https://learn.microsoft.com/en-us/power-bi/guidance/star-schema",
+      "notes": "facts/dimensions/grain/history and star/snowflake/normalization trade-offs. Reuse the existing normalization and dimensional-model assignments; add the explicit comparative assessment."
+    },
+    {
+      "title": "D-MODELING: official learning source",
+      "url": "https://www.postgresql.org/docs/current/ddl.html",
+      "notes": "facts/dimensions/grain/history and star/snowflake/normalization trade-offs. Reuse the existing normalization and dimensional-model assignments; add the explicit comparative assessment."
+    },
+    {
+      "title": "B-SQL: official learning source",
+      "url": "https://www.postgresql.org/docs/current/",
+      "notes": "window queries/CTEs, EXPLAIN ANALYZE, indexes/MVCC/WAL, advisory versus row locks, optimistic updates, prepared transactions, pool modes and exhaustion diagnostics."
+    },
+    {
+      "title": "B-SQL: official learning source",
+      "url": "https://www.pgbouncer.org/config.html",
+      "notes": "window queries/CTEs, EXPLAIN ANALYZE, indexes/MVCC/WAL, advisory versus row locks, optimistic updates, prepared transactions, pool modes and exhaustion diagnostics."
+    },
+    {
+      "title": "B-SQL: official learning source",
+      "url": "https://github.com/brettwooldridge/HikariCP",
+      "notes": "window queries/CTEs, EXPLAIN ANALYZE, indexes/MVCC/WAL, advisory versus row locks, optimistic updates, prepared transactions, pool modes and exhaustion diagnostics."
+    },
+    {
+      "title": "D-ORCHESTRATION: official learning source",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/",
+      "notes": "Cron schedule/time-zone semantics, Airflow logical dates/DAG dependencies/catch-up/backfill/retries and duplicate protection."
+    },
+    {
+      "title": "D-ORCHESTRATION: official learning source",
+      "url": "https://man7.org/linux/man-pages/man5/crontab.5.html",
+      "notes": "Cron schedule/time-zone semantics, Airflow logical dates/DAG dependencies/catch-up/backfill/retries and duplicate protection."
+    },
+    {
+      "title": "D-FORMATS: official learning source",
+      "url": "https://parquet.apache.org/docs/",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility."
+    },
+    {
+      "title": "D-FORMATS: official learning source",
+      "url": "https://orc.apache.org/docs/",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility."
+    },
+    {
+      "title": "D-FORMATS: official learning source",
+      "url": "https://avro.apache.org/docs/",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility."
+    },
+    {
+      "title": "D-FORMATS: official learning source",
+      "url": "https://www.rfc-editor.org/rfc/rfc8259",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility."
+    },
+    {
+      "title": "D-SPARK: official learning source",
+      "url": "https://spark.apache.org/docs/latest/sql-programming-guide.html",
+      "notes": "DataFrames, partitions, shuffles, broadcast joins, AQE and result-preserving plan comparisons. Reuse the substantive existing Spark labs."
+    },
+    {
+      "title": "D-SPARK: official learning source",
+      "url": "https://spark.apache.org/docs/latest/sql-performance-tuning.html",
+      "notes": "DataFrames, partitions, shuffles, broadcast joins, AQE and result-preserving plan comparisons. Reuse the substantive existing Spark labs."
+    },
+    {
+      "title": "D-QUERY: official learning source",
+      "url": "https://duckdb.org/docs/stable/",
+      "notes": "actual DuckDB/ClickHouse configuration and query plans, pushdown, vectorized execution, partitions/pruning and memory/thread limits."
+    },
+    {
+      "title": "D-QUERY: official learning source",
+      "url": "https://clickhouse.com/docs/",
+      "notes": "actual DuckDB/ClickHouse configuration and query plans, pushdown, vectorized execution, partitions/pruning and memory/thread limits."
+    },
+    {
+      "title": "D-QUERY: official learning source",
+      "url": "https://www.postgresql.org/docs/current/using-explain.html",
+      "notes": "actual DuckDB/ClickHouse configuration and query plans, pushdown, vectorized execution, partitions/pruning and memory/thread limits."
+    },
+    {
+      "title": "D-LAKEHOUSE: official learning source",
+      "url": "https://iceberg.apache.org/docs/latest/",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety."
+    },
+    {
+      "title": "D-LAKEHOUSE: official learning source",
+      "url": "https://iceberg.apache.org/docs/latest/maintenance/",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety."
+    },
+    {
+      "title": "D-LAKEHOUSE: official learning source",
+      "url": "https://iceberg.apache.org/rest-catalog-spec/",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety."
+    },
+    {
+      "title": "D-LAKEHOUSE: official learning source",
+      "url": "https://docs.delta.io/",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety."
+    },
+    {
+      "title": "D-LAKEHOUSE: official learning source",
+      "url": "https://hudi.apache.org/docs/overview/",
+      "notes": "Iceberg/Delta/Hudi snapshots/evolution/partition transforms, Iceberg REST catalog/manifests, compaction/expiration/orphan cleanup and reader/reference safety."
+    },
+    {
+      "title": "B-BROKERS: official learning source",
+      "url": "https://kafka.apache.org/documentation/",
+      "notes": "publish/subscribe fanout and Google Cloud Pub/Sub delivery contracts; Kafka topics/partitions/groups/offsets and transaction boundaries; RabbitMQ exchanges/queues/acks/DLX; Debezium snapshot/log positions; schema-registry evolution. These are separate broker concepts, not interchangeable labels. Any Pub/Sub emulator or unconfigured cloud runtime remains explicitly distinguished from actual cloud execution."
+    },
+    {
+      "title": "B-BROKERS: official learning source",
+      "url": "https://www.rabbitmq.com/docs",
+      "notes": "publish/subscribe fanout and Google Cloud Pub/Sub delivery contracts; Kafka topics/partitions/groups/offsets and transaction boundaries; RabbitMQ exchanges/queues/acks/DLX; Debezium snapshot/log positions; schema-registry evolution. These are separate broker concepts, not interchangeable labels. Any Pub/Sub emulator or unconfigured cloud runtime remains explicitly distinguished from actual cloud execution."
+    },
+    {
+      "title": "B-BROKERS: official learning source",
+      "url": "https://debezium.io/documentation/reference/3.3/connectors/postgresql.html",
+      "notes": "publish/subscribe fanout and Google Cloud Pub/Sub delivery contracts; Kafka topics/partitions/groups/offsets and transaction boundaries; RabbitMQ exchanges/queues/acks/DLX; Debezium snapshot/log positions; schema-registry evolution. These are separate broker concepts, not interchangeable labels. Any Pub/Sub emulator or unconfigured cloud runtime remains explicitly distinguished from actual cloud execution."
+    },
+    {
+      "title": "B-BROKERS: official learning source",
+      "url": "https://www.apicur.io/registry/docs/",
+      "notes": "publish/subscribe fanout and Google Cloud Pub/Sub delivery contracts; Kafka topics/partitions/groups/offsets and transaction boundaries; RabbitMQ exchanges/queues/acks/DLX; Debezium snapshot/log positions; schema-registry evolution. These are separate broker concepts, not interchangeable labels. Any Pub/Sub emulator or unconfigured cloud runtime remains explicitly distinguished from actual cloud execution."
+    },
+    {
+      "title": "B-BROKERS: official learning source",
+      "url": "https://cloud.google.com/pubsub/docs/overview",
+      "notes": "publish/subscribe fanout and Google Cloud Pub/Sub delivery contracts; Kafka topics/partitions/groups/offsets and transaction boundaries; RabbitMQ exchanges/queues/acks/DLX; Debezium snapshot/log positions; schema-registry evolution. These are separate broker concepts, not interchangeable labels. Any Pub/Sub emulator or unconfigured cloud runtime remains explicitly distinguished from actual cloud execution."
+    },
+    {
+      "title": "D-FLINK: official learning source",
+      "url": "https://nightlies.apache.org/flink/flink-docs-stable/",
+      "notes": "operators/state, watermarks/windows, checkpoints/savepoints and Kafka source/sink recovery. Runtime/version/output mode must be explicit."
+    },
+    {
+      "title": "D-MANAGED: official learning source",
+      "url": "https://docs.snowflake.com/en/user-guide/warehouses",
+      "notes": "Snowflake warehouses/micro-partitions, BigQuery partitions/clustering/query cost and platform-specific optimizations. Account/runtime work stays separately gated; do not promise paid-service credits."
+    },
+    {
+      "title": "D-MANAGED: official learning source",
+      "url": "https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions",
+      "notes": "Snowflake warehouses/micro-partitions, BigQuery partitions/clustering/query cost and platform-specific optimizations. Account/runtime work stays separately gated; do not promise paid-service credits."
+    },
+    {
+      "title": "D-MANAGED: official learning source",
+      "url": "https://cloud.google.com/bigquery/docs/best-practices-performance-compute",
+      "notes": "Snowflake warehouses/micro-partitions, BigQuery partitions/clustering/query cost and platform-specific optimizations. Account/runtime work stays separately gated; do not promise paid-service credits."
+    },
+    {
+      "title": "D-DBT: official learning source",
+      "url": "https://docs.getdbt.com/docs/build/models",
+      "notes": "actual models/ref/source, tests/contracts, generated docs/manifests, state/selection and free local CI commands."
+    },
+    {
+      "title": "D-DBT: official learning source",
+      "url": "https://docs.getdbt.com/docs/build/data-tests",
+      "notes": "actual models/ref/source, tests/contracts, generated docs/manifests, state/selection and free local CI commands."
+    },
+    {
+      "title": "D-DBT: official learning source",
+      "url": "https://docs.getdbt.com/reference/artifacts/dbt-artifacts",
+      "notes": "actual models/ref/source, tests/contracts, generated docs/manifests, state/selection and free local CI commands."
+    },
+    {
+      "title": "D-OBJECTS: official learning source",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/",
+      "notes": "S3 object/version/list/lifecycle semantics and MinIO S3-compatible owned deployment. Confirm the selected community version's actual license, availability and no-paid setup before prescribing it; never assume every current enterprise edition is free."
+    },
+    {
+      "title": "D-OBJECTS: official learning source",
+      "url": "https://github.com/minio/minio",
+      "notes": "S3 object/version/list/lifecycle semantics and MinIO S3-compatible owned deployment. Confirm the selected community version's actual license, availability and no-paid setup before prescribing it; never assume every current enterprise edition is free."
+    },
+    {
+      "title": "B-TELEMETRY: official learning source",
+      "url": "https://opentelemetry.io/docs/",
+      "notes": "actual SDK instrumentation/context propagation/exporters, counters/gauges/histograms, cardinality, redaction and metric units."
+    },
+    {
+      "title": "B-TELEMETRY: official learning source",
+      "url": "https://prometheus.io/docs/practices/instrumentation/",
+      "notes": "actual SDK instrumentation/context propagation/exporters, counters/gauges/histograms, cardinality, redaction and metric units."
+    },
+    {
+      "title": "B-TELEMETRY: official learning source",
+      "url": "https://prometheus.io/docs/practices/histograms/",
+      "notes": "actual SDK instrumentation/context propagation/exporters, counters/gauges/histograms, cardinality, redaction and metric units."
+    },
+    {
+      "title": "D-LINEAGE: official learning source",
+      "url": "https://sqlglot.com/sqlglot.html",
+      "notes": "dialect parsing, scope/schema/alias/CTE/window/star resolution, column edges and conservative impact closure. This is not physical source-row lineage."
+    },
+    {
+      "title": "D-LINEAGE: official learning source",
+      "url": "https://sqlglot.com/sqlglot/lineage.html",
+      "notes": "dialect parsing, scope/schema/alias/CTE/window/star resolution, column edges and conservative impact closure. This is not physical source-row lineage."
+    },
+    {
+      "title": "D-LINEAGE: official learning source",
+      "url": "https://docs.getdbt.com/reference/artifacts/manifest-json",
+      "notes": "dialect parsing, scope/schema/alias/CTE/window/star resolution, column edges and conservative impact closure. This is not physical source-row lineage."
+    },
+    {
+      "title": "B-RPC: official learning source",
+      "url": "https://protobuf.dev/programming-guides/",
+      "notes": "message evolution, unary/client/server/bidirectional streams, deadlines, status, cancellation and flow control."
+    },
+    {
+      "title": "B-RPC: official learning source",
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+      "notes": "message evolution, unary/client/server/bidirectional streams, deadlines, status, cancellation and flow control."
+    },
+    {
+      "title": "B-RPC: official learning source",
+      "url": "https://grpc.io/docs/languages/go/",
+      "notes": "message evolution, unary/client/server/bidirectional streams, deadlines, status, cancellation and flow control."
+    },
+    {
+      "title": "D-CONTRACTS: official learning source",
+      "url": "https://json-schema.org/learn/getting-started-step-by-step",
+      "notes": "exact schema/version validation, DLQ identity/reason, t-digest error/merge/state behavior, distribution/null monitoring and bounded anomaly alerts."
+    },
+    {
+      "title": "D-CONTRACTS: official learning source",
+      "url": "https://protobuf.dev/programming-guides/proto3/",
+      "notes": "exact schema/version validation, DLQ identity/reason, t-digest error/merge/state behavior, distribution/null monitoring and bounded anomaly alerts."
+    },
+    {
+      "title": "D-CONTRACTS: official learning source",
+      "url": "https://github.com/tdunning/t-digest",
+      "notes": "exact schema/version validation, DLQ identity/reason, t-digest error/merge/state behavior, distribution/null monitoring and bounded anomaly alerts."
+    },
+    {
+      "title": "D-ARROW: official learning source",
+      "url": "https://arrow.apache.org/docs/format/Columnar.html",
+      "notes": "columnar buffers, record batches, Flight descriptors/endpoints/DoGet/DoPut, ordering/cancellation and worker transport. Zero-copy-friendly layouts do not eliminate all cross-network copying."
+    },
+    {
+      "title": "D-ARROW: official learning source",
+      "url": "https://arrow.apache.org/docs/format/Flight.html",
+      "notes": "columnar buffers, record batches, Flight descriptors/endpoints/DoGet/DoPut, ordering/cancellation and worker transport. Zero-copy-friendly layouts do not eliminate all cross-network copying."
+    },
+    {
+      "title": "D-ARROW: official learning source",
+      "url": "https://arrow.apache.org/docs/python/flight.html",
+      "notes": "columnar buffers, record batches, Flight descriptors/endpoints/DoGet/DoPut, ordering/cancellation and worker transport. Zero-copy-friendly layouts do not eliminate all cross-network copying."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.iso.org/standard/27001",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.fedramp.gov/",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/security/index.html",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.nist.gov/cyberframework",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.edpb.europa.eu/sme/be-compliant/respect-individuals-rights_en",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "D-GOVERNANCE: official learning source",
+      "url": "https://martinfowler.com/articles/data-mesh-principles.html",
+      "notes": "author-published data-mesh principles, data product ownership/lineage, federated governance and explicit SLA/SLO evidence; apply privacy/deletion from S-REGULATION."
+    },
+    {
+      "title": "D-GOVERNANCE: official learning source",
+      "url": "https://www.w3.org/TR/prov-overview/",
+      "notes": "author-published data-mesh principles, data product ownership/lineage, federated governance and explicit SLA/SLO evidence; apply privacy/deletion from S-REGULATION."
+    },
+    {
+      "title": "D-GOVERNANCE: official learning source",
+      "url": "https://sre.google/sre-book/service-level-objectives/",
+      "notes": "author-published data-mesh principles, data product ownership/lineage, federated governance and explicit SLA/SLO evidence; apply privacy/deletion from S-REGULATION."
+    },
+    {
+      "title": "P-FINOPS: official learning source",
+      "url": "https://www.finops.org/framework/",
+      "notes": "allocation, unit economics, forecasting/budgets, anomaly management, workload optimization, showback/chargeback and normalized cost usage. Official framework reading is not proof of actual savings."
+    },
+    {
+      "title": "P-FINOPS: official learning source",
+      "url": "https://focus.finops.org/",
+      "notes": "allocation, unit economics, forecasting/budgets, anomaly management, workload optimization, showback/chargeback and normalized cost usage. Official framework reading is not proof of actual savings."
+    },
+    {
+      "title": "B-K8S: official learning source",
+      "url": "https://kubernetes.io/docs/concepts/",
+      "notes": "Deployments, StatefulSets, Services, ConfigMaps, Secrets, probes/resource limits, Helm templates/values/upgrades and cluster prerequisites."
+    },
+    {
+      "title": "B-K8S: official learning source",
+      "url": "https://helm.sh/docs/",
+      "notes": "Deployments, StatefulSets, Services, ConfigMaps, Secrets, probes/resource limits, Helm templates/values/upgrades and cluster prerequisites."
+    },
+    {
+      "title": "P-PLATFORM: official learning source",
+      "url": "https://www.gov.uk/service-manual/technology/choosing-technology-an-introduction",
+      "notes": "platform-as-product/IDP, developer journey, API standards/deprecation, build/buy/reuse and reversible architectural decisions."
+    },
+    {
+      "title": "B-OPS: official learning source",
+      "url": "https://sre.google/workbook/table-of-contents/",
+      "notes": "SLI/SLO/error budgets, capacity, overload, release/incident response, distributed failure and CAP/PACELC trade-offs. The retrieved 2010 author-published CAP/PACELC discussion is historical theory context, not a current vendor capability claim."
+    },
+    {
+      "title": "P-PLATFORM: official learning source",
+      "url": "https://backstage.io/docs/overview/what-is-backstage/",
+      "notes": "platform-as-product/IDP, developer journey, API standards/deprecation, build/buy/reuse and reversible architectural decisions."
+    },
+    {
+      "title": "B-OPS: official learning source",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "notes": "SLI/SLO/error budgets, capacity, overload, release/incident response, distributed failure and CAP/PACELC trade-offs. The retrieved 2010 author-published CAP/PACELC discussion is historical theory context, not a current vendor capability claim."
+    },
+    {
+      "title": "B-OPS: official learning source",
+      "url": "https://dbmsmusings.blogspot.com/2010/04/problems-with-cap-and-yahoos-little.html",
+      "notes": "SLI/SLO/error budgets, capacity, overload, release/incident response, distributed failure and CAP/PACELC trade-offs. The retrieved 2010 author-published CAP/PACELC discussion is historical theory context, not a current vendor capability claim."
+    }
+  ],
+  "limitations": [
+    "Required learning within the selected Career Path; separate from the original seven core totals. Professional Practice describes a learning level, not certification or guaranteed employment.",
+    "Reading/design, simulations, compilation, actual runtime integration and target-hardware benchmarks are separate. Missing environments leave their hands-on gates incomplete; no paid provisioning or host-policy bypass is required or authorized.",
+    "All work uses original synthetic, owned and authorized fixtures. Quant work is paper-only; security work is defensive and isolated. Hypothetical PM participants, prices and outcomes are never presented as observed facts.",
+    "Readings are official/maintainer links, not rehosted protected content. Source availability checks are not runtime verification; access-limited sources are labelled."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Explain the language, representation and system boundary using hand-checkable original fixtures.",
+      "evidence": "Retain an independent expected-result table, explicit invalid-input behavior and the actual prerequisites for execution."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Implement and compare the named tools or protocols while preserving data, identity and lifecycle invariants.",
+      "evidence": "Retain actual supported-runtime integration, a bounded change and positive/negative regressions; unsupported environments remain visible."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Diagnose failure, concurrency, resource and compatibility behavior at the actual mechanism boundary.",
+      "evidence": "Reproduce an original fault, repair its cause and compare against an independent oracle without substituting a simpler stack."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Defend operational, architectural and measurement decisions with evidence whose scope is explicit.",
+      "evidence": "Produce an owned release/incident/benchmark or decision dossier, including negative results, alternatives, actual versus modelled scale and pending hardware."
+    }
+  ]
+}

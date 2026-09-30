@@ -32,12 +32,18 @@ export const resourceSchema = z
     title: text,
     url,
     provider: text,
-    access: z.enum(["free", "free-account", "paid-optional"]),
+    access: z.enum([
+      "free",
+      "free-account",
+      "paid-optional",
+      "unverified-optional",
+    ]),
     license: text,
     licenseUrl: url.nullable(),
     redistribution: z.enum(["permitted", "link-only"]),
     downloadUrl: secureUrl.nullable(),
     verifiedOn: date,
+    availability: z.enum(["checked", "access-limited"]).optional(),
     notes: z.string(),
     hostedPath: z
       .string()
@@ -129,6 +135,13 @@ export const lessonSchema = z
     prerequisites: z.array(id).default([]),
     paperTags: z.array(text).default([]),
     optional: z.boolean().default(false),
+    practiceEnvironment: z
+      .object({
+        requirements: strings,
+        evidenceBoundary: text,
+        unavailableAction: text,
+      })
+      .optional(),
   })
   .passthrough();
 
@@ -165,6 +178,7 @@ export const trackSchema = z
               "B-build",
               "professional-synthetic-recreation",
               "career-practice",
+              "advanced-target",
             ]),
             recommendedAfter: z.array(id),
             milestones: z.array(

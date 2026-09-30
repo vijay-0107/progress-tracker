@@ -104,7 +104,7 @@ test("all six profiles expose four stages and canonical evidence without writes 
   ).toBeVisible();
   const before = await guest(page);
   for (const profile of careerProfiles) {
-    await page.goto(`./#/career/${profile.id}`);
+    await page.goto(`./#/career/${profile.id}?view=earlier`);
     await expect(
       page.getByRole("heading", { name: profile.title, exact: true }),
     ).toBeVisible();
@@ -139,7 +139,7 @@ test("all six profiles expose four stages and canonical evidence without writes 
   expect(await guest(page)).toEqual(before);
   expect(requests).toEqual([]);
   expect(errors).toEqual([]);
-  await page.goto("./#/career/not-a-profile");
+  await page.goto("./#/career/not-a-profile?view=earlier");
   await expect(
     page.getByRole("heading", { name: "Career profile not found" }),
   ).toBeVisible();
@@ -149,7 +149,7 @@ test("all six profiles expose four stages and canonical evidence without writes 
   ).toBeVisible();
   await page.goto("./#/search?q=commerce-workflow-engine");
   await expect(page.locator(".search-result")).toHaveCount(1);
-  await page.goto("./#/projects?career=security");
+  await page.goto("./#/projects?career=security&view=earlier");
   await expect(page.locator(".project-card")).toHaveCount(3);
 });
 
@@ -214,7 +214,7 @@ test("per-gate readiness requires meaningful evidence and stays out of lesson/bu
     ).toBeDisabled();
   }
   for (const id of ["backend", "technical-pm"]) {
-    await page.goto(`./#/career/${id}`);
+    await page.goto(`./#/career/${id}?view=earlier`);
     await expect(
       page
         .getByRole("region", { name: "Three career projects" })
@@ -365,7 +365,7 @@ test("PM lesson evidence persists alongside old records and separate optional to
   await expect(
     page.getByRole("region", { name: "Extra Topics" }),
   ).toContainText("0 / 124 extra lessons complete");
-  await page.goto("./#/careers");
+  await page.goto("./#/preparation");
   await expect(
     page.getByRole("region", {
       name: "New optional curriculum: Technical Product Management",
@@ -422,11 +422,11 @@ for (const width of [320, 390]) {
     page,
   }, testInfo) => {
     await page.setViewportSize({ width, height: 844 });
-    await page.goto("./#/careers");
+    await page.goto("./#/preparation");
     await page.getByRole("button", { name: "Open navigation" }).click();
     const drawer = page.getByRole("dialog", { name: "Learning navigation" });
     await drawer
-      .getByRole("link", { name: "Career Preparation", exact: true })
+      .getByRole("link", { name: "Earlier preparation maps", exact: true })
       .click();
     await expect(drawer).not.toBeVisible();
     await page

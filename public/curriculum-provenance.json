@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.29.1",
+  "version": "2026.09.30.1",
   "description": "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery.",
   "complete": true,
   "tracks": [
@@ -112,6 +112,69 @@
       "lessons": 16,
       "originalSha256": "a4230acbed43edf6e3bf05b756d40ed804d12617c3c329814580e8c2a60e9cb2",
       "packagedSha256": "20d0f5652239f874fa551a99c39a476e7bba753a5c4b51303eb429791380a30b"
+    },
+    {
+      "trackId": "systems-languages",
+      "group": "career",
+      "sourceCheckedOn": "2026-09-30",
+      "modules": 8,
+      "lessons": 24,
+      "originalSha256": "bca9521936a2b9026159b451bc63af4f18c5fc5c5bc1030ad4b757e53aad1df1",
+      "packagedSha256": "bca9521936a2b9026159b451bc63af4f18c5fc5c5bc1030ad4b757e53aad1df1"
+    },
+    {
+      "trackId": "backend-platform-advanced",
+      "group": "career",
+      "sourceCheckedOn": "2026-09-30",
+      "modules": 17,
+      "lessons": 22,
+      "originalSha256": "193ac25383877bccb60fc720e7b15767404b643be06899dd078466e4d26d281f",
+      "packagedSha256": "193ac25383877bccb60fc720e7b15767404b643be06899dd078466e4d26d281f"
+    },
+    {
+      "trackId": "ai-systems-advanced",
+      "group": "career",
+      "sourceCheckedOn": "2026-09-30",
+      "modules": 17,
+      "lessons": 20,
+      "originalSha256": "c6721074f883a246d3f5f56266c5fbd18c12952d33dc26cd44e807e9460dbb6d",
+      "packagedSha256": "c6721074f883a246d3f5f56266c5fbd18c12952d33dc26cd44e807e9460dbb6d"
+    },
+    {
+      "trackId": "cloud-security-advanced",
+      "group": "career",
+      "sourceCheckedOn": "2026-09-30",
+      "modules": 18,
+      "lessons": 19,
+      "originalSha256": "2e797b10f40f108145ca1d0859b30dc0fbe305de2f65f3746a9ddb77acd5ef7a",
+      "packagedSha256": "2e797b10f40f108145ca1d0859b30dc0fbe305de2f65f3746a9ddb77acd5ef7a"
+    },
+    {
+      "trackId": "data-platform-advanced",
+      "group": "career",
+      "sourceCheckedOn": "2026-09-30",
+      "modules": 18,
+      "lessons": 20,
+      "originalSha256": "251d10d7e9df82df72e25675677c8e3b9fb3df6d2e92dae558b612f9ae02d60f",
+      "packagedSha256": "251d10d7e9df82df72e25675677c8e3b9fb3df6d2e92dae558b612f9ae02d60f"
+    },
+    {
+      "trackId": "quant-infrastructure-advanced",
+      "group": "career",
+      "sourceCheckedOn": "2026-09-30",
+      "modules": 15,
+      "lessons": 16,
+      "originalSha256": "09ecd7de58c8fa6066b0f285de417bdc404d3550d8ab20073881c2831a16bd35",
+      "packagedSha256": "09ecd7de58c8fa6066b0f285de417bdc404d3550d8ab20073881c2831a16bd35"
+    },
+    {
+      "trackId": "technical-pm-advanced",
+      "group": "career",
+      "sourceCheckedOn": "2026-09-30",
+      "modules": 16,
+      "lessons": 16,
+      "originalSha256": "cdd2cedef11a61adef829e26bccce10ab3c94e0e4b88ed421d47f1be8fa176e9",
+      "packagedSha256": "cdd2cedef11a61adef829e26bccce10ab3c94e0e4b88ed421d47f1be8fa176e9"
     }
   ]
 }

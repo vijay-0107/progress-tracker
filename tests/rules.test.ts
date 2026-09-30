@@ -30,10 +30,14 @@ import {
   type Firestore,
 } from "firebase/firestore";
 import type { LessonProgress, SyncRecord } from "../src/domain/types";
-import { EXTRA_TOPIC_IDS } from "../src/domain/types";
+import { EXTRA_TOPIC_IDS, CAREER_COURSE_IDS } from "../src/domain/types";
 import { READINESS_GATES } from "../src/domain/types";
 import { careerPackets } from "../src/content/career-exercises";
 import { careerProjects } from "../src/content/career-projects";
+import {
+  advancedPackets,
+  advancedProjects,
+} from "../src/content/advanced-projects";
 import { saveReadiness } from "../src/domain/careers";
 import { trackSchema } from "../src/content/schema";
 import {
@@ -194,7 +198,7 @@ describe.skipIf(!process.env.FIRESTORE_EMULATOR_HOST)(
       setLogLevel("error");
     });
 
-    it.each(EXTRA_TOPIC_IDS)(
+    it.each([...EXTRA_TOPIC_IDS, ...CAREER_COURSE_IDS])(
       "syncs %s lesson evidence with the unchanged rules and rejects other UIDs",
       async (trackId) => {
         const track = trackSchema.parse(
@@ -211,9 +215,13 @@ describe.skipIf(!process.env.FIRESTORE_EMULATOR_HOST)(
             .filter((question) => question.kind !== "short-answer")
             .map((question) => [question.id, String(question.answer)]),
         );
+        const initial = createProgress("uid:alice", T0);
+        const assessed = Object.keys(answers).length
+          ? assessLesson(initial, lesson, answers, T0)
+          : initial;
         const state = completeLesson(
           updateLesson(
-            assessLesson(createProgress("uid:alice", T0), lesson, answers, T0),
+            assessed,
             lesson.id,
             {
               note: "Synthetic owner-only topic notes.",
@@ -240,7 +248,7 @@ describe.skipIf(!process.env.FIRESTORE_EMULATOR_HOST)(
       },
     );
 
-    it.each(careerProjects)(
+    it.each([...careerProjects, ...advancedProjects])(
       "syncs the new $id build without broadening ownership",
       async (project) => {
         const data = {
@@ -294,7 +302,7 @@ describe.skipIf(!process.env.FIRESTORE_EMULATOR_HOST)(
     });
 
     it("keeps optional topic IDs out of the unchanged core settings and goal contract", async () => {
-      for (const trackId of EXTRA_TOPIC_IDS) {
+      for (const trackId of [...EXTRA_TOPIC_IDS, ...CAREER_COURSE_IDS]) {
         const settings = fixture("settings");
         const goal = fixture("goals");
         await assertFails(
@@ -306,6 +314,36 @@ describe.skipIf(!process.env.FIRESTORE_EMULATOR_HOST)(
         await assertFails(
           setDoc(reference(alice, goal), { ...goal.data, trackId }),
         );
+      }
+    });
+
+    it("stores all 96 advanced readiness records without broadening UID rules or completing builds", async () => {
+      let state = createProgress("uid:alice", T0);
+      for (const packet of advancedPackets)
+        for (const gate of READINESS_GATES)
+          state = saveReadiness(
+            state,
+            "uid:alice",
+            packet.projectId,
+            gate,
+            `My independent ${gate} evidence for ${packet.title}: original expected fixture, actual declared runtime result and a retained failure/correction.`,
+            true,
+            true,
+            T0,
+          );
+      expect(Object.keys(state.projects)).toHaveLength(96);
+      expect(Object.keys(state.activity)).toHaveLength(96);
+      expect(state.lessons).toEqual({});
+      for (const packet of advancedPackets)
+        expect(state.projects[packet.projectId]).toBeUndefined();
+      for (const record of recordsFromState(state)) {
+        await assertSucceeds(setDoc(reference(alice, record), record.data));
+        expect(
+          (await assertSucceeds(getDoc(reference(alice, record)))).data(),
+        ).toEqual(record.data);
+        await assertFails(getDoc(reference(bob, record)));
+        await assertFails(getDoc(reference(anonymous, record)));
+        await assertFails(setDoc(reference(bob, record), record.data));
       }
     });
 

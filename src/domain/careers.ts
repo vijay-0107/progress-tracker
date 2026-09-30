@@ -10,6 +10,7 @@ import type {
 } from "./types";
 import { LEARNING_STAGES, READINESS_GATES } from "./types";
 import { careerPackets } from "../content/career-exercises";
+import { advancedPackets } from "../content/advanced-projects";
 import { careerProfiles } from "../content/careers";
 import { allLessons, findLesson } from "../content/catalog";
 import { recordActivity } from "./progress";
@@ -36,6 +37,7 @@ export const readinessRecordId = (projectId: string, gate: ReadinessGate) =>
   `career-readiness-${projectId}-${gate}`;
 export const readinessMilestoneId = (projectId: string, gate: ReadinessGate) =>
   `${readinessRecordId(projectId, gate)}-recorded`;
+export const allCareerPackets = [...careerPackets, ...advancedPackets];
 
 export function findCareer(id: string): CareerProfile | undefined {
   return careerProfiles.find((profile) => profile.id === id);
@@ -43,7 +45,7 @@ export function findCareer(id: string): CareerProfile | undefined {
 export function findCareerPacket(
   projectId: string,
 ): CareerProjectPacket | undefined {
-  return careerPackets.find((packet) => packet.projectId === projectId);
+  return allCareerPackets.find((packet) => packet.projectId === projectId);
 }
 export function readinessRecorded(
   state: ProgressState,
@@ -67,7 +69,7 @@ export function readinessCount(
   ).length;
 }
 export function isReadinessEntity(id: string): boolean {
-  return careerPackets.some((packet) =>
+  return allCareerPackets.some((packet) =>
     READINESS_GATES.some(
       (gate) => readinessRecordId(packet.projectId, gate) === id,
     ),
@@ -225,11 +227,18 @@ export function competencyEvidence(
 export function projectTotals(
   catalog: Catalog,
   state: ProgressState,
-  group: "original" | "career",
+  group: "original" | "career" | "advanced",
 ) {
-  const projects = catalog.projects.filter(
-    (project) =>
-      (project.variant === "career-practice") === (group === "career"),
+  const projects = catalog.projects.filter((project) =>
+    group === "advanced"
+      ? project.variant === "advanced-target"
+      : group === "career"
+        ? project.variant === "career-practice"
+        : [
+            "A-rebuild",
+            "B-build",
+            "professional-synthetic-recreation",
+          ].includes(project.variant),
   );
   return {
     total: projects.length,

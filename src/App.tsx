@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { getCatalog, trackMeta } from "./content/catalog";
 import { careerProfiles } from "./content/careers";
+import { advancedPaths, findAdvancedPath } from "./content/advanced-careers";
 import {
   CORE_TRACK_IDS,
   ORIGINAL_EXTRA_TOPIC_IDS,
@@ -58,6 +59,16 @@ const ProjectPage = lazy(() =>
 const CareerHub = lazy(() =>
   import("./ui/CareerPreparation").then((module) => ({
     default: module.CareerHub,
+  })),
+);
+const CareerPaths = lazy(() =>
+  import("./ui/CareerPaths").then((module) => ({
+    default: module.CareerPaths,
+  })),
+);
+const CareerPathPage = lazy(() =>
+  import("./ui/CareerPaths").then((module) => ({
+    default: module.CareerPathPage,
   })),
 );
 const CareerProfilePage = lazy(() =>
@@ -111,6 +122,7 @@ function useRoute() {
     id: segments[1] || "",
     query: parameters.get("q") || "",
     career: parameters.get("career") || "",
+    earlier: parameters.get("view") === "earlier",
     stage: LEARNING_STAGES.some((stage) => stage === requestedStage)
       ? (requestedStage as Stage)
       : ("all" as const),
@@ -166,8 +178,8 @@ export default function App() {
   useEffect(() => {
     drawer.current?.close();
     main.current?.focus({ preventScroll: true });
-    document.title = `Progress | ${route.page === "path" && TRACK_IDS.includes(route.id as TrackId) ? trackMeta[route.id as TrackId].label : route.page === "career" ? careerProfiles.find((profile) => profile.id === route.id)?.title || "Career profile" : route.page === "careers" ? "Career Preparation" : route.page === "dashboard" ? "Your learning workspace" : route.page.charAt(0).toUpperCase() + route.page.slice(1)}`;
-  }, [route.hash, route.id, route.page]);
+    document.title = `Progress | ${route.page === "path" && TRACK_IDS.includes(route.id as TrackId) ? trackMeta[route.id as TrackId].label : route.page === "career" ? (route.earlier ? careerProfiles.find((profile) => profile.id === route.id)?.title : findAdvancedPath(route.id)?.title) || "Career path" : route.page === "careers" ? "Career Paths" : route.page === "preparation" ? "Career Preparation" : route.page === "dashboard" ? "Your learning workspace" : route.page.charAt(0).toUpperCase() + route.page.slice(1)}`;
+  }, [route.hash, route.id, route.page, route.earlier]);
 
   let page: ReactNode;
   if (["dashboard", "home", "analytics"].includes(route.page))
@@ -190,11 +202,28 @@ export default function App() {
         paper={route.paper}
       />
     );
-  else if (route.page === "careers") page = <CareerHub {...props} />;
+  else if (route.page === "careers") page = <CareerPaths {...props} />;
+  else if (route.page === "preparation") page = <CareerHub {...props} />;
   else if (route.page === "career")
-    page = <CareerProfilePage key={route.id} {...props} id={route.id} />;
+    page = route.earlier ? (
+      <CareerProfilePage key={route.id} {...props} id={route.id} />
+    ) : (
+      <CareerPathPage
+        key={route.id}
+        {...props}
+        id={route.id}
+        selectedStage={route.stage}
+      />
+    );
   else if (route.page === "projects")
-    page = <Projects key={route.career} {...props} careerId={route.career} />;
+    page = (
+      <Projects
+        key={`${route.career}:${route.earlier}`}
+        {...props}
+        careerId={route.career}
+        earlier={route.earlier}
+      />
+    );
   else if (route.page === "project")
     page = (
       <ProjectPage
@@ -247,7 +276,9 @@ export default function App() {
     route.page === "path"
       ? `path/${route.id}`
       : route.page === "career"
-        ? "careers"
+        ? route.earlier
+          ? "preparation"
+          : `career/${route.id}`
         : route.page;
   const syncLabel = !workspace.user
     ? "Saved on this browser"
@@ -459,8 +490,26 @@ function Navigation({
       </a>
       <nav aria-label="Primary navigation">
         {nav("dashboard", "My workspace", <LayoutDashboard size={17} />)}
-        <p className="nav-section-label">YOUR LEARNING PATHS</p>
-        {CORE_TRACK_IDS.map((id) =>
+        <p className="nav-section-label">START HERE</p>
+        {nav(
+          "path/foundation",
+          "Common Foundation",
+          <Sprout size={17} />,
+          "START",
+        )}
+        {nav(
+          "path/systems-languages",
+          "Shared Systems & Languages",
+          <BookOpen size={17} />,
+        )}
+        <p className="nav-section-label">CAREER PATHS</p>
+        {advancedPaths.map((path) =>
+          nav(`career/${path.id}`, path.title, <span className="nav-dot" />),
+        )}
+        <p className="nav-section-label">ORIGINAL COURSES</p>
+        {CORE_TRACK_IDS.filter(
+          (id) => !["foundation", "gate", "cat"].includes(id),
+        ).map((id) =>
           nav(
             `path/${id}`,
             id === "foundation"
@@ -484,16 +533,22 @@ function Navigation({
             id === "foundation" ? "START" : undefined,
           ),
         )}
+        {nav(
+          "path/technical-product-management",
+          "Original Technical PM course",
+          <span className="nav-dot" />,
+        )}
+        {nav(
+          "preparation",
+          "Earlier preparation maps",
+          <GraduationCap size={17} />,
+        )}
+        <p className="nav-section-label">EXAM PREPARATION</p>
+        {nav("path/gate", "GATE Preparation", <GraduationCap size={17} />)}
+        {nav("path/cat", "CAT Preparation", <GraduationCap size={17} />)}
         <p className="nav-section-label">EXTRA TOPICS</p>
         {ORIGINAL_EXTRA_TOPIC_IDS.map((id) =>
           nav(`path/${id}`, trackMeta[id].label, <span className="nav-dot" />),
-        )}
-        <p className="nav-section-label">CAREER PREPARATION</p>
-        {nav("careers", "Career Preparation", <GraduationCap size={17} />)}
-        {nav(
-          "path/technical-product-management",
-          "Technical Product Management",
-          <span className="nav-dot" />,
         )}
         <p className="nav-section-label">PUT IT INTO PRACTICE</p>
         {nav(

@@ -1,0 +1,353 @@
+import { expect, test, type Page } from "@playwright/test";
+import fs from "node:fs";
+import { careerPackets } from "../../src/content/career-exercises";
+import { createProgress, recordActivity } from "../../src/domain/progress";
+import { progressStorageKey } from "../../src/domain/storage";
+import { validateProgressState } from "../../src/domain/validation";
+import { READINESS_GATES } from "../../src/domain/types";
+
+const key = progressStorageKey("guest");
+const advancedPaths = [
+  { id: "backend", title: "Backend & Platform Software Engineering" },
+  { id: "ai-systems", title: "AI Infrastructure & ML Systems Engineering" },
+  { id: "security", title: "Product & Cloud Security Engineering" },
+  { id: "data-platform", title: "Data Platform & Analytics Engineering" },
+  {
+    id: "quant-developer",
+    title: "Quantitative Development & Research Infrastructure",
+  },
+  { id: "technical-pm", title: "Technical Product Management (TPM)" },
+];
+const readinessRecordId = (projectId: string, gate: string) =>
+  `career-readiness-${projectId}-${gate}`;
+async function state(page: Page) {
+  const raw = await page.evaluate((key) => localStorage.getItem(key), key);
+  return raw === null
+    ? createProgress("guest", "2026-09-20T10:00:00.000Z")
+    : validateProgressState(JSON.parse(raw));
+}
+
+test("dashboard and navigation expose six direct paths without hidden hub or progress writes", async ({
+  page,
+}) => {
+  const requests: string[] = [];
+  const errors: string[] = [];
+  page.on("request", (request) => {
+    if (
+      /\.pdf(?:[?#]|$)|youtube(?:-nocookie)?\.com\/embed|api\.github\.com|github\.com\/vijay-0107\//.test(
+        request.url(),
+      )
+    )
+      requests.push(request.url());
+  });
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.goto("./");
+  const before = await state(page);
+  const cards = page.getByRole("region", {
+    name: "Six Career Paths",
+    exact: true,
+  });
+  await expect(cards.locator("[data-career-path]")).toHaveCount(6);
+  for (const path of advancedPaths) {
+    await expect(
+      cards.getByRole("link", { name: path.title, exact: true }),
+    ).toHaveAttribute("href", `#/career/${path.id}`);
+    await expect(
+      cards.locator(`[data-career-path="${path.id}"]`),
+    ).toContainText("4 advanced targets");
+  }
+  const mobile = await page
+    .getByRole("button", { name: "Open navigation" })
+    .isVisible();
+  if (mobile)
+    await page.getByRole("button", { name: "Open navigation" }).click();
+  const navigation = mobile
+    ? page
+        .getByRole("dialog", { name: "Learning navigation" })
+        .getByRole("navigation", { name: "Primary navigation" })
+    : page
+        .locator(".app-layout > .sidebar")
+        .getByRole("navigation", { name: "Primary navigation" });
+  for (const path of advancedPaths)
+    await expect(
+      navigation.getByRole("link", { name: path.title, exact: true }),
+    ).toHaveAttribute("href", `#/career/${path.id}`);
+  await navigation
+    .getByRole("link", { name: advancedPaths[0].title, exact: true })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: advancedPaths[0].title, exact: true }),
+  ).toBeVisible();
+  if (mobile) await expect(page.getByRole("dialog")).not.toBeVisible();
+  expect(await state(page)).toEqual(before);
+  expect(requests).toEqual([]);
+  expect(errors).toEqual([]);
+});
+
+test("each exact path exposes 5/5/5/4 requirements and four numbered advanced targets", async ({
+  page,
+}) => {
+  const labels = [
+    "Beginner",
+    "Intermediate",
+    "Advanced",
+    "Professional Practice",
+  ];
+  await page.goto("./#/careers");
+  const before = await state(page);
+  for (const path of advancedPaths) {
+    await page.goto(`./#/career/${path.id}`);
+    await expect(page).toHaveTitle(`Progress | ${path.title}`);
+    await expect(
+      page
+        .getByRole("region", { name: "Four advanced targets" })
+        .locator("[data-target-number]"),
+    ).toHaveCount(4);
+    await expect(
+      page
+        .getByRole("region", { name: "Required project languages" })
+        .getByRole("link")
+        .first(),
+    ).toBeVisible();
+    for (const [index, label] of labels.entries()) {
+      await page
+        .getByRole("region", { name: "Required career stages" })
+        .getByRole("button", { name: `Show ${label}`, exact: true })
+        .click();
+      await expect(
+        page
+          .getByRole("region", { name: "Exact required skill groups" })
+          .locator("[data-skill-group]"),
+      ).toHaveCount(index === 3 ? 4 : 5);
+    }
+    await page.getByLabel("Missing lesson evidence only").check();
+    expect((await state(page)).settings).toEqual(before.settings);
+  }
+  expect(await state(page)).toEqual(before);
+  await page.goto("./#/career/not-a-path");
+  await expect(
+    page.getByRole("heading", { name: "Career path not found" }),
+  ).toBeVisible();
+  await page.goto("./#/projects?career=security");
+  await expect(page.locator(".project-card")).toHaveCount(4);
+  await expect(page.locator(".project-card").first()).toContainText(
+    "ADVANCED / NEW TARGET",
+  );
+});
+
+test("language searches open substantive lessons and keep the two Tritons distinct", async ({
+  page,
+}) => {
+  const examples = [
+    ["Rust", "systems-foundation-rust"],
+    ["Go", "systems-foundation-go"],
+    ["C++", "systems-foundation-cpp-memory"],
+    ["C", "systems-foundation-c-posix"],
+    ["Python", "systems-foundation-python-depth"],
+    ["SQL", "systems-intermediate-sql-depth"],
+    ["Bash", "systems-foundation-c-posix"],
+    ["Java", "systems-foundation-java"],
+    ["CUDA", "systems-advanced-cuda"],
+    ["Triton DSL", "systems-advanced-triton"],
+    ["Triton Inference Server", "advanced-d2-foundation-03-serving-runtimes"],
+  ];
+  for (const [query, id] of examples) {
+    await page.goto(`./#/search?q=${encodeURIComponent(query)}`);
+    await expect(
+      page.locator(`.search-result[href="#/lesson/${id}"]`),
+    ).toBeVisible();
+  }
+  await page.goto("./#/lesson/systems-advanced-triton");
+  await expect(
+    page.getByRole("region", { name: "Practice environment and evidence" }),
+  ).toContainText("NVIDIA");
+  await expect(
+    page.getByRole("region", { name: "Practice environment and evidence" }),
+  ).toContainText("unchecked");
+  await expect(page.locator("iframe")).toHaveCount(0);
+  expect((await state(page)).projects).toEqual({});
+  expect((await state(page)).activity).toEqual({});
+});
+
+test("old readiness never carries into P17 and new gate evidence survives reload and export", async ({
+  page,
+}) => {
+  let old = createProgress("guest", "2026-09-20T10:00:00.000Z");
+  old.settings.primaryTrack = "quant";
+  for (const packet of careerPackets)
+    for (const gate of READINESS_GATES) {
+      const id = readinessRecordId(packet.projectId, gate);
+      const at = "2026-09-29T10:00:00.000Z";
+      old = recordActivity(
+        {
+          ...old,
+          updatedAt: at,
+          projects: {
+            ...old.projects,
+            [id]: {
+              id,
+              updatedAt: at,
+              milestones: [`${id}-recorded`],
+              evidence: `Earlier ${gate} evidence for ${packet.projectId}: original bounded fixture, independent predicted result and observed regression retained.`,
+            },
+          },
+        },
+        {
+          id: `project:readiness:${id}`,
+          at,
+          updatedAt: at,
+          timezone: old.settings.timezone,
+          kind: "project",
+          entityId: id,
+          minutes: 0,
+          detail: "Earlier self-reported independent practice fixture.",
+        },
+        at,
+      );
+    }
+  await page.goto("./");
+  await page.evaluate(({ key, value }) => localStorage.setItem(key, value), {
+    key,
+    value: JSON.stringify(old),
+  });
+  await page.goto("./#/project/advanced-target-17");
+  await page.reload();
+  const region = page.getByRole("region", {
+    name: "Career exercises and independent readiness",
+  });
+  await expect(region).toContainText(
+    "0/4 independent readiness gates recorded",
+  );
+  const editor = page.locator('[data-readiness-gate="explain"]');
+  await editor
+    .getByLabel("Evidence for Explain", { exact: true })
+    .fill(
+      "My new advanced explanation identifies the typed execution allocation boundary and separately predicts FIFO/capacity rejection on an original fixture.",
+    );
+  await editor
+    .getByRole("button", { name: "Save Explain evidence", exact: true })
+    .click();
+  expect(Object.keys((await state(page)).activity)).toHaveLength(40);
+  await page.reload();
+  await expect(
+    editor.getByLabel("Evidence for Explain", { exact: true }),
+  ).toHaveValue(/My new advanced explanation/);
+  await expect(editor.getByRole("checkbox")).toHaveCount(3);
+  for (const checkbox of await editor.getByRole("checkbox").all())
+    await checkbox.check();
+  await editor
+    .getByRole("button", { name: "Record Explain readiness", exact: true })
+    .click();
+  await expect(editor).toContainText(
+    "Independent practice recorded (self-reported).",
+  );
+  const saved = await state(page);
+  expect(saved.projects["advanced-target-17"]).toBeUndefined();
+  expect(saved.lessons).toEqual({});
+  expect(saved.settings).toEqual(old.settings);
+  for (const [id, record] of Object.entries(old.projects))
+    expect(saved.projects[id]).toEqual(record);
+  expect(
+    saved.projects[readinessRecordId("advanced-target-17", "explain")],
+  ).toBeDefined();
+  await page.reload();
+  await expect(
+    editor.getByLabel("Evidence for Explain", { exact: true }),
+  ).toHaveValue(/My new advanced explanation/);
+  await page.goto("./#/dashboard");
+  await expect(page.locator(".portfolio-progress")).toContainText(
+    "0 of 24 advanced targets complete",
+  );
+  await expect(page.locator(".portfolio-progress")).toContainText(
+    "0 of 96 new build gates",
+  );
+  await page.goto("./#/settings");
+  const downloading = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export my learning data" }).click();
+  const filename = await (await downloading).path();
+  expect(
+    validateProgressState(JSON.parse(fs.readFileSync(filename!, "utf8"))),
+  ).toEqual(saved);
+});
+
+for (const width of [320, 390]) {
+  test(`${width}px advanced paths, native lessons and evidence remain readable and usable`, async ({
+    page,
+  }, testInfo) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto("./");
+    await expect(
+      page
+        .getByRole("region", { name: "Six Career Paths", exact: true })
+        .locator("[data-career-path]"),
+    ).toHaveCount(6);
+    await page.getByRole("button", { name: "Open navigation" }).click();
+    const drawer = page.getByRole("dialog", { name: "Learning navigation" });
+    for (const path of advancedPaths) {
+      const link = drawer.getByRole("link", { name: path.title, exact: true });
+      await link.scrollIntoViewIfNeeded();
+      const box = await link.boundingBox();
+      expect(box!.height).toBeGreaterThanOrEqual(44);
+      expect(box!.width).toBeGreaterThanOrEqual(44);
+    }
+    await drawer
+      .getByRole("link", { name: advancedPaths[1].title, exact: true })
+      .click();
+    await expect(drawer).not.toBeVisible();
+    await page
+      .getByLabel("Required stage", { exact: true })
+      .selectOption("advanced");
+    await page
+      .getByLabel("Find a required skill", { exact: true })
+      .fill("Triton");
+    await expect(page.locator("[data-skill-group]")).toHaveCount(1);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.goto("./#/lesson/systems-advanced-cuda");
+    await expect(
+      page.getByRole("heading", {
+        name: "Write and verify CUDA kernels before claiming acceleration",
+      }),
+    ).toBeVisible();
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.getByRole("tab", { name: "Assignment", exact: true }).click();
+    await expect(
+      page
+        .getByText(
+          "All required positive and negative/failure cases were actually exercised",
+          { exact: false },
+        )
+        .first(),
+    ).toBeVisible();
+    await page.goto("./#/project/advanced-target-14?stage=foundation");
+    const editor = page.locator('[data-readiness-gate="explain"]');
+    await editor
+      .getByLabel("Evidence for Explain", { exact: true })
+      .fill(
+        "My independent Flight explanation separates buffer reuse from serialization and names the actual same-host multi-process measurement boundary.",
+      );
+    await editor
+      .getByRole("button", { name: "Save Explain evidence", exact: true })
+      .click();
+    await page.reload();
+    await expect(
+      editor.getByLabel("Evidence for Explain", { exact: true }),
+    ).toHaveValue(/My independent Flight explanation/);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.screenshot({
+      path: testInfo.outputPath(`advanced-path-${width}.png`),
+      fullPage: true,
+    });
+  });
+}

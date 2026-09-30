@@ -1,0 +1,2365 @@
+{
+  "schemaVersion": 1,
+  "trackId": "technical-pm-advanced",
+  "title": "Technical Product Management (TPM)",
+  "sourceCheckedOn": "2026-09-30",
+  "modules": [
+    {
+      "id": "advanced-d6-foundation-01",
+      "title": "Core Foundations",
+      "stage": "foundation",
+      "description": "Agile/Scrum lifecycles, user story authoring, acceptance criteria definition, and backlog refinement.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-foundation-01-scrum-refinement",
+          "title": "Refine testable stories through an Agile/Scrum cycle",
+          "objectives": [
+            "Agile principles, Scrum accountabilities/events/artifacts, story slicing and refinement.",
+            "Stories have observable outcomes, the goal respects prerequisites and each event/artifact has the correct purpose. Hypothetical team decisions remain labelled as such."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Agile values guide adaptation and collaboration; Scrum defines specific accountabilities, events and artifacts. A backlog item is not ready merely because it has a title or estimate. Refinement clarifies the user outcome, scope, dependencies and evidence needed to accept the work.",
+                "Agile principles, Scrum accountabilities/events/artifacts, story slicing and refinement."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Acceptance criteria describe observable behavior, including denied/empty/failure cases. Sprint planning chooses a coherent goal under capacity/uncertainty; review and retrospective examine product results and working practices respectively. A fictional exercise is not evidence of managing a real team.",
+                "Stories have observable outcomes, the goal respects prerequisites and each event/artifact has the correct purpose. Hypothetical team decisions remain labelled as such."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "advanced-d6-foundation-01-scrum-refinement"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-d5ac2c381c4c",
+            "locator": "The Scrum Guide: accountabilities, events, artifacts and commitments, especially Sprint Planning, Product Backlog refinement, Sprint Review and Sprint Retrospective."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-84ded56d8aa9",
+            "tpm-doc-needs",
+            "tpm-doc-stories",
+            "tpm-doc-discovery"
+          ],
+          "assignment": {
+            "id": "advanced-d6-foundation-01-scrum-refinement-assignment",
+            "title": "Refine testable stories through an Agile/Scrum cycle: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an original six-item backlog for a synthetic developer platform, refine two ambiguous stories and define a sprint goal with explicit acceptance and non-goals.",
+              "Create an original synthetic backlog, refine ambiguous stories into observable acceptance and run a documented simulated planning/review/retrospective cycle without claiming real team participation.",
+              "Introduce a dependency blocker and a failed acceptance check. Conduct separate written planning, review and retrospective passes without inventing participant feedback.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an original six-item backlog for a synthetic developer platform, refine two ambiguous stories and define a sprint goal with explicit acceptance and non-goals.",
+              "Introduce a dependency blocker and a failed acceptance check. Conduct separate written planning, review and retrospective passes without inventing participant feedback.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Stories have observable outcomes, the goal respects prerequisites and each event/artifact has the correct purpose. Hypothetical team decisions remain labelled as such.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-foundation-01-scrum-refinement-check-01",
+                "kind": "short-answer",
+                "prompt": "Are a sprint review and a retrospective the same activity?",
+                "answer": "No. A review inspects product outcomes and adaptation; a retrospective examines how the team worked and can improve.",
+                "explanation": "Conflating them hides either product evidence or process learning."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Are a sprint review and a retrospective the same activity?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l05-prd-acceptance",
+            "tpm-l06-prioritization-roadmap"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-foundation-04",
+      "title": "Basic Analytics",
+      "stage": "foundation",
+      "description": "Tracking product adoption, cohort analysis, and funnel analysis using tools like PostHog, Mixpanel, or Google Analytics.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-foundation-04-analytics-tools",
+          "title": "Map adoption, cohorts and funnels across three analytics tools",
+          "objectives": [
+            "PostHog, Mixpanel and Google Analytics event identity, sessions/users, adoption/cohort/funnel definitions.",
+            "The local golden populations/rates are correct, each tool's semantic differences are explicit and no private data is sent to an analytics service."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Adoption requires an eligible population and a meaningful usage outcome, not merely total event count. A funnel's identity, order, time window and deduplication rules determine its denominator. Cohorts can differ because of instrumentation or population changes rather than product effects.",
+                "PostHog, Mixpanel and Google Analytics event identity, sessions/users, adoption/cohort/funnel definitions."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "PostHog, Mixpanel and Google Analytics expose different event/session/user and reporting semantics. Learning their interfaces does not authorize adding analytics to this tracker or uploading private learner data. Account-dependent execution must be distinguished from documented fixture analysis.",
+                "The local golden populations/rates are correct, each tool's semantic differences are explicit and no private data is sent to an analytics service."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "advanced-d6-foundation-04-analytics-tools"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-f725afa2f475",
+            "locator": "PostHog Product Analytics: events, funnels, retention/cohorts and person/group identity. Compare Mixpanel and Google Analytics semantics using the same original golden event population."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-f539f92defed",
+            "advanced-reading-bd1d07a0dd8c",
+            "tpm-doc-metrics"
+          ],
+          "assignment": {
+            "id": "advanced-d6-foundation-04-analytics-tools-assignment",
+            "title": "Map adoption, cohorts and funnels across three analytics tools: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an original twelve-event synthetic dataset with duplicate starts, an orphan completion and two cohorts. Map the exact contract into PostHog, Mixpanel and Google Analytics reporting concepts and an independent local query.",
+              "Map one original event contract and golden cohort to each tool's documented semantics; use approved local/sandbox practice where available, with account-dependent execution gated and never send private learner data.",
+              "Change identity/session mapping and the completion window. Use only approved local/sandbox practice; retain unavailable account-specific steps rather than fabricating screenshots or results.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an original twelve-event synthetic dataset with duplicate starts, an orphan completion and two cohorts. Map the exact contract into PostHog, Mixpanel and Google Analytics reporting concepts and an independent local query.",
+              "Change identity/session mapping and the completion window. Use only approved local/sandbox practice; retain unavailable account-specific steps rather than fabricating screenshots or results.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "The local golden populations/rates are correct, each tool's semantic differences are explicit and no private data is sent to an analytics service.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-foundation-04-analytics-tools-check-01",
+                "kind": "short-answer",
+                "prompt": "Can two tools' funnel percentages be compared without checking their identity/window rules?",
+                "answer": "No. Different populations and ordering/session semantics can change the denominator and outcome.",
+                "explanation": "Metric compatibility must be established before interpreting a difference as product behavior."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can two tools' funnel percentages be compared without checking their identity/window rules?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l07-instrumentation-funnels",
+            "tpm-l15-postlaunch-roadmap"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-foundation-05",
+      "title": "Stakeholder Coordination",
+      "stage": "foundation",
+      "description": "Sprint planning, cross-functional standups, and roadmap visualization (Jira, Linear).",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-foundation-05-coordination-tools",
+          "title": "Coordinate Jira/Linear work with clear decision ownership",
+          "objectives": [
+            "Planning/standup/decision responsibilities, Jira and Linear issue/workflow/roadmap semantics.",
+            "Both tool mappings preserve meaning, blocked work cannot be represented as accepted and the decision/escalation path is explicit. No fictitious workplace participation is claimed."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A standup surfaces progress, blockers and coordination needs; it is not a replacement for a decision record or a commitment to every backlog item. Sprint plans and roadmaps operate at different levels: a roadmap expresses intended outcomes and sequencing, not an immutable delivery promise.",
+                "Planning/standup/decision responsibilities, Jira and Linear issue/workflow/roadmap semantics."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Jira and Linear model issues, workflows, projects/cycles and roadmaps differently. Tool state should reflect actual decisions and dependencies. A moved card does not establish implementation, acceptance or stakeholder agreement.",
+                "Both tool mappings preserve meaning, blocked work cannot be represented as accepted and the decision/escalation path is explicit. No fictitious workplace participation is claimed."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "advanced-d6-foundation-05-coordination-tools"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-039476e405fe",
+            "locator": "Atlassian Scrum-with-Jira tutorial: backlog, sprint planning, work tracking and review; map the same original dependency/roadmap meaning through the linked Linear docs."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-84ded56d8aa9",
+            "advanced-reading-d5ac2c381c4c",
+            "advanced-reading-442415c19df9",
+            "tpm-doc-roadmap"
+          ],
+          "assignment": {
+            "id": "advanced-d6-foundation-05-coordination-tools-assignment",
+            "title": "Coordinate Jira/Linear work with clear decision ownership: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Author an original backlog/import fixture and represent the same dependencies in Jira and Linear concepts. Produce a roadmap view and a blocker/decision ownership matrix without requiring paid accounts.",
+              "Create original importable issue/backlog fixtures and two roadmap views, simulate a blocker/decision escalation, and label any tool-account activity unavailable instead of inventing meeting or user evidence.",
+              "Block a safety prerequisite, change a priority and simulate a cross-functional disagreement. Keep hypothetical meeting notes distinct from actual consented feedback.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Author an original backlog/import fixture and represent the same dependencies in Jira and Linear concepts. Produce a roadmap view and a blocker/decision ownership matrix without requiring paid accounts.",
+              "Block a safety prerequisite, change a priority and simulate a cross-functional disagreement. Keep hypothetical meeting notes distinct from actual consented feedback.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Both tool mappings preserve meaning, blocked work cannot be represented as accepted and the decision/escalation path is explicit. No fictitious workplace participation is claimed.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-foundation-05-coordination-tools-check-01",
+                "kind": "short-answer",
+                "prompt": "Does moving an issue to Done prove its acceptance criteria passed?",
+                "answer": "No. Workflow status must be backed by the defined implementation/test evidence.",
+                "explanation": "A tool label is a coordination signal, not independent verification."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does moving an issue to Done prove its acceptance criteria passed?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l06-prioritization-roadmap",
+            "tpm-l14-stakeholder-decisions"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-intermediate-02",
+      "title": "System Architecture Comprehension",
+      "stage": "intermediate",
+      "description": "Evaluating synchronous vs asynchronous communication, microservices vs monoliths, and caching strategies.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-intermediate-02-architecture-decisions",
+          "title": "Compare monoliths, microservices, sync, async and caches",
+          "objectives": [
+            "Communication/deployment boundaries, ownership/consistency, failure amplification and cache choices.",
+            "The memo explains concrete benefits/costs, preserves correctness and includes a credible simpler alternative. No technology choice is justified solely by prestige or diagram size."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A deployment boundary introduces network, versioning and operational failure modes; microservices are not automatically more scalable or maintainable than a bounded monolith. Synchronous calls make some immediate results simple but couple latency/availability, while asynchronous work needs durable identity, visibility and recovery.",
+                "Communication/deployment boundaries, ownership/consistency, failure amplification and cache choices."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Caching reduces repeated work under a consistency policy, not by making stale data authoritative. A product promise must reflect the architecture's actual commit/effect boundary and failure behavior, including timeouts and unknown outcomes.",
+                "The memo explains concrete benefits/costs, preserves correctness and includes a credible simpler alternative. No technology choice is justified solely by prestige or diagram size."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-intermediate-02-architecture-decisions"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-technology",
+            "locator": "GOV.UK choosing technology: understand the landscape, prototypes, total ownership cost, control of data and allowing evolution. Evaluate concrete sync/async and deployment alternatives."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-6c547d0b7e0e",
+            "advanced-reading-2bd699332b97",
+            "advanced-reading-58987ace2263",
+            "advanced-reading-04e61008899e",
+            "advanced-reading-05947525b814",
+            "advanced-reading-34253c33cf99",
+            "advanced-reading-213c84bc0fea",
+            "data-book-sre",
+            "advanced-reading-575c360c5197"
+          ],
+          "assignment": {
+            "id": "advanced-d6-intermediate-02-architecture-decisions-assignment",
+            "title": "Compare monoliths, microservices, sync, async and caches: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Compare three original designs for the same order/report workload: a modular monolith, synchronous services and an asynchronous workflow. Define user outcomes and correctness invariants before choosing.",
+              "Compare three original architectures for the same workload and invariants, estimate latency/operational cost, test one failure path and defend a deliberately simpler rejected/selected design.",
+              "Fail a dependency, delay an event and serve a stale cache entry. Estimate costs with explicit assumptions and execute one bounded prototype failure path.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Compare three original designs for the same order/report workload: a modular monolith, synchronous services and an asynchronous workflow. Define user outcomes and correctness invariants before choosing.",
+              "Fail a dependency, delay an event and serve a stale cache entry. Estimate costs with explicit assumptions and execute one bounded prototype failure path.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "The memo explains concrete benefits/costs, preserves correctness and includes a credible simpler alternative. No technology choice is justified solely by prestige or diagram size.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-intermediate-02-architecture-decisions-check-01",
+                "kind": "short-answer",
+                "prompt": "Does splitting a monolith into services remove distributed failure complexity?",
+                "answer": "No. It introduces network, consistency and operational boundaries that need explicit handling.",
+                "explanation": "The choice should address a demonstrated need and its trade-offs."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does splitting a monolith into services remove distributed failure complexity?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "sde-l08-domain-services",
+            "sde-l10-durable-work",
+            "sde-l11-bounded-failure",
+            "tpm-l03-product-system-map"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-intermediate-03",
+      "title": "Metrics & Experimentation",
+      "stage": "intermediate",
+      "description": "Setting up A/B testing frameworks, statistical significance calculation, North Star metrics, and operational guardrail metrics.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-intermediate-03-ab-framework",
+          "title": "Build a valid A/B measurement and pause framework",
+          "objectives": [
+            "Assignment units, North Star/input/guardrail hierarchy, significance intervals/tests, SRM and sequential/multiple-testing cautions.",
+            "Validity failures stop causal/ship conclusions, calculations and units reconcile and the plan records stopping/multiple-comparison rules. Synthetic outcomes are not claimed as observed productivity gains."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "An experiment defines assignment unit, eligible population, hypothesis and analysis before results. North Star metrics summarize a desired outcome, while input and guardrail metrics constrain how it is pursued. Randomization, exposure and analyzed samples must remain connected.",
+                "Assignment units, North Star/input/guardrail hierarchy, significance intervals/tests, SRM and sequential/multiple-testing cautions."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Significance tests/intervals depend on assumptions and repeated-testing policy. Sample-ratio mismatch, contamination and outcome-dependent logging can invalidate the comparison before any uplift is interpreted. A canary or before/after chart does not automatically establish causal impact.",
+                "Validity failures stop causal/ship conclusions, calculations and units reconcile and the plan records stopping/multiple-comparison rules. Synthetic outcomes are not claimed as observed productivity gains."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-intermediate-03-ab-framework"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-srm",
+            "locator": "Microsoft Research SRM article: assignment, execution, logging and analysis causes and diagnosis before effect interpretation; pair with the NIST statistical handbook for actual inference."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-7a5bcae2aa18",
+            "advanced-reading-618636787b8c",
+            "advanced-reading-f725afa2f475",
+            "advanced-reading-f539f92defed",
+            "advanced-reading-bd1d07a0dd8c",
+            "tpm-doc-metrics",
+            "advanced-reading-5b12a53ff387",
+            "quant-book-think-stats",
+            "advanced-reading-a2eddeee1a21",
+            "advanced-reading-82e2eb8bd80e",
+            "quant-book-zivot",
+            "advanced-reading-c10038a22d81"
+          ],
+          "assignment": {
+            "id": "advanced-d6-intermediate-03-ab-framework-assignment",
+            "title": "Build a valid A/B measurement and pause framework: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Implement deterministic assignment for 1000 synthetic eligible users and define a North Star outcome, quality/latency guardrails and a predeclared significance/interval analysis checked by an independent calculation.",
+              "Implement deterministic synthetic assignment and an independent analysis oracle, inject contamination/missingness and test pause/stop rules; never turn simulated or observational results into causal productivity claims.",
+              "Introduce a 600/400 analyzed split after 50/50 assignment, repeated users across variants and missing negative outcomes. Test automated pause rules before effect interpretation.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Implement deterministic assignment for 1000 synthetic eligible users and define a North Star outcome, quality/latency guardrails and a predeclared significance/interval analysis checked by an independent calculation.",
+              "Introduce a 600/400 analyzed split after 50/50 assignment, repeated users across variants and missing negative outcomes. Test automated pause rules before effect interpretation.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Validity failures stop causal/ship conclusions, calculations and units reconcile and the plan records stopping/multiple-comparison rules. Synthetic outcomes are not claimed as observed productivity gains.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-intermediate-03-ab-framework-check-01",
+                "kind": "short-answer",
+                "prompt": "Should a significant-looking effect override an unexplained sample-ratio mismatch?",
+                "answer": "No. The assignment/exposure/logging validity problem must be diagnosed first.",
+                "explanation": "A precise statistic on a biased or corrupted population does not restore causal validity."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Should a significant-looking effect override an unexplained sample-ratio mismatch?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l04-outcome-metrics",
+            "tpm-l08-usability-experiments",
+            "tpm-l10-experiment-validity",
+            "gate-l13"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-intermediate-04",
+      "title": "Cloud Economics & FinOps",
+      "stage": "intermediate",
+      "description": "Understanding cloud billing models (EC2 instances, egress bandwidth, database IOPS), calculating cost per API call.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-intermediate-04-cloud-cost-model",
+          "title": "Calculate EC2, egress, IOPS and API unit costs",
+          "objectives": [
+            "EC2 instance-hours, storage/IOPS, egress, utilization/idle cost and cost per useful/attempted API call.",
+            "Units and periods are consistent, shared/unallocated costs remain visible and undefined rates are explicit. Documented prices, hypothetical rates and observed bills are separately labelled."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Instance-hours, storage capacity, database IOPS and network egress are different billing units. A rate must be paired with the matching usage/time boundary and dated pricing assumptions. Shared and idle capacity must be allocated or retained explicitly rather than disappearing from per-feature costs.",
+                "EC2 instance-hours, storage/IOPS, egress, utilization/idle cost and cost per useful/attempted API call."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Cost per attempted call differs from cost per successful useful outcome. Failed work, retries and support can change the denominator and variable cost. A local CPU benchmark does not become an actual EC2 bill by multiplication without an explicit hypothetical model.",
+                "Units and periods are consistent, shared/unallocated costs remain visible and undefined rates are explicit. Documented prices, hypothetical rates and observed bills are separately labelled."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-intermediate-04-cloud-cost-model"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-1e924d360fbb",
+            "locator": "EC2 pricing: instance usage and pricing assumptions; pair with RDS IOPS/storage and S3 transfer/storage units. Keep hypothetical rates and actual bills explicitly separate."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-bc774093b44e",
+            "advanced-reading-c12650e91c19",
+            "advanced-reading-88ead64194e0",
+            "advanced-reading-8e8411661837",
+            "advanced-reading-0cf968e686c5"
+          ],
+          "assignment": {
+            "id": "advanced-d6-intermediate-04-cloud-cost-model-assignment",
+            "title": "Calculate EC2, egress, IOPS and API unit costs: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an original synthetic ledger of instance-hours, storage, IOPS and egress for two API features with shared idle capacity. Calculate per-call and per-useful-outcome costs independently.",
+              "Reconcile a synthetic billing ledger to requests and idle/shared allocations; reject invalid units/denominators and distinguish dated documented prices, hypothetical rates and actual expenditure.",
+              "Use a zero outcome denominator, missing tag, changed rate unit and retry burst. Reconcile every allocation to the original total.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an original synthetic ledger of instance-hours, storage, IOPS and egress for two API features with shared idle capacity. Calculate per-call and per-useful-outcome costs independently.",
+              "Use a zero outcome denominator, missing tag, changed rate unit and retry burst. Reconcile every allocation to the original total.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Units and periods are consistent, shared/unallocated costs remain visible and undefined rates are explicit. Documented prices, hypothetical rates and observed bills are separately labelled.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-intermediate-04-cloud-cost-model-check-01",
+                "kind": "short-answer",
+                "prompt": "Can failed requests be omitted when calculating the cost of a useful API outcome?",
+                "answer": "Not if they consumed resources within the declared cost boundary.",
+                "explanation": "The numerator must include relevant work, while the denominator counts the specified successful outcome population."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can failed requests be omitted when calculating the cost of a useful API outcome?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l11-unit-economics",
+            "data-l28",
+            "sde-l24-load-cost"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-intermediate-05",
+      "title": "Prioritization Frameworks",
+      "stage": "intermediate",
+      "description": "Applying RICE, MoSCoW, and Kano models to complex engineering tasks (balancing technical debt vs new features).",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-intermediate-05-prioritization",
+          "title": "Use RICE, MoSCoW and Kano without pretending scores are truth",
+          "objectives": [
+            "RICE, MoSCoW and Kano applied to comparable engineering alternatives.",
+            "Each framework is used according to its purpose, contradictions are explained and safety/dependency work is not silently deprioritized by a number. No fictional customer research is claimed."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "RICE combines reach, impact, confidence and effort under explicitly comparable assumptions. MoSCoW classifies must/should/could/will-not scope with genuine constraints. Kano considers different relationships between feature presence and satisfaction; it is not another arithmetic ranking formula.",
+                "RICE, MoSCoW and Kano applied to comparable engineering alternatives."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Technical debt, security prerequisites and obligations can constrain feasible choices independently of an attractive feature score. Frameworks organize reasoning, but they do not validate invented demand. A good decision preserves uncertainty, dissent and a condition for revisiting the ranking.",
+                "Each framework is used according to its purpose, contradictions are explained and safety/dependency work is not silently deprioritized by a number. No fictional customer research is claimed."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-intermediate-05-prioritization"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-08bacedc5540",
+            "locator": "Intercom RICE explanation: reach, impact, confidence and effort; compare the linked official DSDM MoSCoW guidance and Kano source instead of treating them as the same scoring model."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-56e07625b599",
+            "advanced-reading-0b3feddec3a0",
+            "tpm-doc-needs",
+            "tpm-doc-stories",
+            "tpm-doc-discovery"
+          ],
+          "assignment": {
+            "id": "advanced-d6-intermediate-05-prioritization-assignment",
+            "title": "Use RICE, MoSCoW and Kano without pretending scores are truth: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Apply all three frameworks to the same original six-item backlog containing a reliability fix, technical debt and new features. Reuse the existing hand-checked RICE calculation and add sensitivity cases.",
+              "Apply all three frameworks to one original backlog with technical debt, compliance and new features; explain contradictory rankings and a decision that overrides a score with evidence rather than fabricated demand.",
+              "Reduce confidence in the top-scoring feature, introduce a mandatory dependency and challenge a Kano classification with disconfirming hypothetical evidence.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Apply all three frameworks to the same original six-item backlog containing a reliability fix, technical debt and new features. Reuse the existing hand-checked RICE calculation and add sensitivity cases.",
+              "Reduce confidence in the top-scoring feature, introduce a mandatory dependency and challenge a Kano classification with disconfirming hypothetical evidence.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Each framework is used according to its purpose, contradictions are explained and safety/dependency work is not silently deprioritized by a number. No fictional customer research is claimed.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-intermediate-05-prioritization-check-01",
+                "kind": "short-answer",
+                "prompt": "Must the highest RICE score always be implemented first?",
+                "answer": "No. Feasibility, dependencies, obligations and uncertainty can change the decision.",
+                "explanation": "The score summarizes assumptions; it does not override validated constraints or create evidence of demand."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Must the highest RICE score always be implemented first?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l06-prioritization-roadmap"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-advanced-01",
+      "title": "Architectural Trade-Off Analysis",
+      "stage": "advanced",
+      "description": "Writing formal trade-off memos (e.g., gRPC vs REST, Build vs Buy decisions, multi-tenant vs single-tenant isolation).",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-advanced-01-tradeoff-memos",
+          "title": "Write REST/gRPC/GraphQL and build-buy isolation trade-offs",
+          "objectives": [
+            "gRPC versus REST, GraphQL client cases, build/buy and single/multi-tenant isolation.",
+            "The PRD/architecture/prototype tests trace to one another, compatibility failures are visible and hypothetical personas/costs are not described as real customer outcomes."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "REST, gRPC and GraphQL offer different client, schema, streaming, tooling and operational trade-offs. A protocol choice needs concrete use cases and compatibility constraints, not a universal winner. A working prototype can test some assumptions without proving enterprise adoption.",
+                "gRPC versus REST, GraphQL client cases, build/buy and single/multi-tenant isolation."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Build/buy/reuse decisions include integration, operation, migration and exit costs. Single-tenant and multi-tenant deployments change isolation, customization and utilization trade-offs. Cost projections and hypothetical user needs must remain visibly separate from observed prototype behavior.",
+                "The PRD/architecture/prototype tests trace to one another, compatibility failures are visible and hypothetical personas/costs are not described as real customer outcomes."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-advanced-01-tradeoff-memos"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-doc-openapi",
+            "locator": "OpenAPI 3.1.1: Paths/Operations, Responses and Schema Objects; compare actual gRPC core concepts and GraphQL use cases with the GOV.UK build/reuse/buy decision guidance."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-c916c37047af",
+            "advanced-reading-cadaa6343ad2",
+            "advanced-reading-7e08a618f097",
+            "advanced-reading-378333d1a78b",
+            "advanced-reading-f5f0bec59183",
+            "tpm-doc-technology",
+            "advanced-reading-6c547d0b7e0e",
+            "advanced-reading-2bd699332b97"
+          ],
+          "assignment": {
+            "id": "advanced-d6-advanced-01-tradeoff-memos-assignment",
+            "title": "Write REST/gRPC/GraphQL and build-buy isolation trade-offs: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Write an original API-estate modernization memo comparing all three protocols, build/buy options and tenant deployment models. Link one choice to a working bounded gateway schema/rate-limit prototype.",
+              "Produce a decision memo backed by a bounded actual gateway prototype, compatibility tests and original cost assumptions; state which requirements each alternative cannot meet.",
+              "Add an old client, a denied tenant request and a price/usage sensitivity case. Preserve a credible rejected alternative and explicit deprecation/exit criteria.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Write an original API-estate modernization memo comparing all three protocols, build/buy options and tenant deployment models. Link one choice to a working bounded gateway schema/rate-limit prototype.",
+              "Add an old client, a denied tenant request and a price/usage sensitivity case. Preserve a credible rejected alternative and explicit deprecation/exit criteria.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "The PRD/architecture/prototype tests trace to one another, compatibility failures are visible and hypothetical personas/costs are not described as real customer outcomes.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-advanced-01-tradeoff-memos-check-01",
+                "kind": "short-answer",
+                "prompt": "Can one successful gateway prototype prove the chosen architecture is best for every client?",
+                "answer": "No. It tests a bounded use case and selected assumptions.",
+                "explanation": "The decision must retain client-specific constraints, alternatives and untested operational scope."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can one successful gateway prototype prove the chosen architecture is best for every client?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l09-platform-api-products",
+            "sde-l12-tenant-threat-model",
+            "tpm-l14-stakeholder-decisions"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-advanced-02",
+      "title": "Developer Platform Product Strategy",
+      "stage": "advanced",
+      "description": "Defining developer experience (DevEx) metrics (Time-to-First-Hello-World, SDK adoption, API error rates).",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-advanced-02-devex",
+          "title": "Define Time-to-First-Hello-World, SDK adoption and API errors",
+          "objectives": [
+            "DevEx journey instrumentation, time-to-first-success, SDK eligible population, API errors and developer-tool adoption safeguards.",
+            "All denominators and clocks are reproducible, failed/abandoned cases remain visible and no employee-level surveillance or invented adoption claim is introduced."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Time-to-First-Hello-World needs a start event, successful end event and eligible developer population. SDK adoption needs a meaningful usage definition rather than package downloads alone. API error rates need a request population, classification and window, including client/server distinctions.",
+                "DevEx journey instrumentation, time-to-first-success, SDK eligible population, API errors and developer-tool adoption safeguards."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Developer productivity and quality are not interchangeable with raw activity. PR-cycle/lead-time metrics can shift with work mix, tooling and logging changes. A genuine self-walkthrough is useful but is not independent user research, and a 500-engineer scenario remains synthetic.",
+                "All denominators and clocks are reproducible, failed/abandoned cases remain visible and no employee-level surveillance or invented adoption claim is introduced."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-advanced-02-devex"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-68b13dcfd663",
+            "locator": "DORA metric guidance: deployment frequency, lead time, recovery and change failure measures with population/context limitations; pair with explicit first-success, SDK and API-error definitions."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-545f52852306",
+            "advanced-reading-618636787b8c",
+            "advanced-reading-f725afa2f475",
+            "advanced-reading-f539f92defed",
+            "advanced-reading-bd1d07a0dd8c",
+            "tpm-doc-metrics"
+          ],
+          "assignment": {
+            "id": "advanced-d6-advanced-02-devex-assignment",
+            "title": "Define Time-to-First-Hello-World, SDK adoption and API errors: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Instrument an original bounded developer onboarding journey and calculate time-to-first-success, eligible SDK use and API error rates from explicit synthetic or genuinely observed local traces.",
+              "Run a genuine self-walkthrough or clearly consented optional review, calculate metrics from original traces and distinguish self-evaluation, hypothetical 500-plus engineer scenarios and real observed adoption.",
+              "Include an abandoned journey, duplicate event, changed cohort and missing error log. Compare a self-walkthrough with a clearly labelled hypothetical broader rollout.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Instrument an original bounded developer onboarding journey and calculate time-to-first-success, eligible SDK use and API error rates from explicit synthetic or genuinely observed local traces.",
+              "Include an abandoned journey, duplicate event, changed cohort and missing error log. Compare a self-walkthrough with a clearly labelled hypothetical broader rollout.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "All denominators and clocks are reproducible, failed/abandoned cases remain visible and no employee-level surveillance or invented adoption claim is introduced.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-advanced-02-devex-check-01",
+                "kind": "short-answer",
+                "prompt": "Are SDK download counts sufficient to establish active SDK adoption?",
+                "answer": "No. Downloads may include bots, repeats or unused installations.",
+                "explanation": "Adoption needs a declared eligible population and meaningful observed use."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Are SDK download counts sufficient to establish active SDK adoption?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "sde-l26-platform",
+            "tpm-l04-outcome-metrics",
+            "tpm-l07-instrumentation-funnels"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-advanced-03",
+      "title": "Enterprise Platform Modernization",
+      "stage": "advanced",
+      "description": "Scoping multi-year legacy migration roadmaps with phased ring cutovers and rollback strategies.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-advanced-03-migration-rings",
+          "title": "Plan rings 0-3 with dependency-safe rollback and recovery",
+          "objectives": [
+            "Legacy dependency graph, phase/ring eligibility, coexistence/deprecation and reversible cutover.",
+            "Unsafe ring orders are rejected, rollout waits for explicit criteria and the rehearsal preserves declared data/compatibility invariants. Cloud deployment and zero-downtime claims remain pending unless actually exercised."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A migration ring limits exposure, but its ordering must respect service/data dependencies and compatibility. Coexistence and deprecation can require expand/contract changes; reverting code alone may not undo transformed data. Multi-year strategy describes a horizon, not a fabricated delivery estimate.",
+                "Legacy dependency graph, phase/ring eligibility, coexistence/deprecation and reversible cutover."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "RTO and RPO are objectives with different units/meanings: recovery duration and recoverable data boundary. Actual rehearsal measurements must be compared to those objectives without being presented as proof of real multi-cloud zero downtime.",
+                "Unsafe ring orders are rejected, rollout waits for explicit criteria and the rehearsal preserves declared data/compatibility invariants. Cloud deployment and zero-downtime claims remain pending unless actually exercised."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-advanced-03-migration-rings"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-c5714dc0b530",
+            "locator": "Azure Architecture Strangler Fig pattern: coexistence, facade, migration considerations and applicability; pair with SRE canarying/rollback and independently measured RTO/RPO."
+          },
+          "supplementaryResourceIds": [
+            "tpm-doc-release",
+            "advanced-reading-a119cadd9c60",
+            "data-book-sre",
+            "advanced-reading-6c547d0b7e0e",
+            "advanced-reading-575c360c5197"
+          ],
+          "assignment": {
+            "id": "advanced-d6-advanced-03-migration-rings-assignment",
+            "title": "Plan rings 0-3 with dependency-safe rollback and recovery: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an original dependency graph and four-ring migration plan for six synthetic services, with compatibility/deprecation rules and a working owned local cutover/rollback rehearsal.",
+              "Build an original four-ring plan and executable local rehearsal, reject cyclic/unsafe dependencies and show rollback/RTO/RPO observations; do not claim an actual enterprise or multi-cloud migration.",
+              "Introduce a dependency cycle, missing readiness telemetry and a failed data check at ring two. Decide rollback/defer and record measured recovery boundaries.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an original dependency graph and four-ring migration plan for six synthetic services, with compatibility/deprecation rules and a working owned local cutover/rollback rehearsal.",
+              "Introduce a dependency cycle, missing readiness telemetry and a failed data check at ring two. Decide rollback/defer and record measured recovery boundaries.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Unsafe ring orders are rejected, rollout waits for explicit criteria and the rehearsal preserves declared data/compatibility invariants. Cloud deployment and zero-downtime claims remain pending unless actually exercised.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-advanced-03-migration-rings-check-01",
+                "kind": "short-answer",
+                "prompt": "Does reverting the application binary necessarily reverse a database migration?",
+                "answer": "No. Data/schema changes may need a separate compatible rollback or forward repair.",
+                "explanation": "Release and data recovery boundaries must be planned and tested independently."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does reverting the application binary necessarily reverse a database migration?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "sde-l21-safe-release-iac",
+            "tpm-l12-risk-sequencing",
+            "tpm-l13-launch-rollback"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-advanced-04",
+      "title": "AI/Data Product Management",
+      "stage": "advanced",
+      "description": "Formulating evaluation benchmarks for ML models (precision/recall, token costs, latency budgets, human-in-the-loop workflows).",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-advanced-04-ai-product-evaluation",
+          "title": "Connect model quality, token costs and human review to rollout",
+          "objectives": [
+            "Precision/recall trade-offs, token and prompt-cache costs, TTFT/full-latency budgets and human-in-the-loop review.",
+            "All numerical claims trace to inputs/units and independent calculations, guardrails can stop rollout and hypothetical hours/savings never become observed causal ROI."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Precision/recall depend on the labelled population and decision threshold; latency budgets and token costs describe different operational constraints. Prompt-cache hit rates can alter cost/latency but require an actual eligible request/key model. A single average hides quality or access-control failures in critical slices.",
+                "Precision/recall trade-offs, token and prompt-cache costs, TTFT/full-latency budgets and human-in-the-loop review."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Human-in-the-loop workflows need decision rights, uncertainty presentation and escalation rather than a nominal approval button. Coding-assistant ROI models should distinguish measured tool behavior, projected engineering hours and causal productivity evidence.",
+                "All numerical claims trace to inputs/units and independent calculations, guardrails can stop rollout and hypothetical hours/savings never become observed causal ROI."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-advanced-04-ai-product-evaluation"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-srm",
+            "locator": "SRM diagnosis and validity gates in the Microsoft Research article; pair with NIST inference, actual model evaluation and FinOps token/cache unit-cost inputs for the original rollout framework."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-7a5bcae2aa18",
+            "advanced-reading-618636787b8c",
+            "advanced-reading-bc774093b44e",
+            "advanced-reading-c12650e91c19",
+            "advanced-reading-b9174393a70d",
+            "advanced-reading-3270eb54ce32",
+            "advanced-reading-808ae302fdbd",
+            "advanced-reading-c678f61aafad",
+            "advanced-reading-54dbc1541342",
+            "advanced-reading-2d55532c044d"
+          ],
+          "assignment": {
+            "id": "advanced-d6-advanced-04-ai-product-evaluation-assignment",
+            "title": "Connect model quality, token costs and human review to rollout: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an original model evaluation set and a 500-plus-engineer synthetic coding-assistant scenario with token/cache/cost assumptions. Reconcile a spreadsheet and an independent script, and define human review/quality/latency pause rules.",
+              "Build a versioned original benchmark and 500-plus-engineer synthetic cost scenario, reconcile spreadsheet/script results and pause on quality/latency guardrails without claiming causal time savings.",
+              "Lower cache hit rate, add a quality regression and introduce sample contamination or missing labels. Preserve negative results and scope all actual local model measurements.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an original model evaluation set and a 500-plus-engineer synthetic coding-assistant scenario with token/cache/cost assumptions. Reconcile a spreadsheet and an independent script, and define human review/quality/latency pause rules.",
+              "Lower cache hit rate, add a quality regression and introduce sample contamination or missing labels. Preserve negative results and scope all actual local model measurements.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "All numerical claims trace to inputs/units and independent calculations, guardrails can stop rollout and hypothetical hours/savings never become observed causal ROI.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-advanced-04-ai-product-evaluation-check-01",
+                "kind": "short-answer",
+                "prompt": "Does a projected reduction in token cost prove developers became more productive?",
+                "answer": "No. Cost, task quality, adoption and causal productivity are different outcomes.",
+                "explanation": "A financial scenario can guide an experiment but cannot replace real valid outcome evidence."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does a projected reduction in token cost prove developers became more productive?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "ai-l06-calibration",
+            "ai-l26-eval-harness",
+            "ai-l19-agent-state",
+            "tpm-l08-usability-experiments",
+            "tpm-l11-unit-economics"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent.",
+              "Public documentation is not permission to download gated model weights, accept a license or connect an account. Review model licenses and obtain separate approval for account-gated artifacts; original small models remain explicitly scoped alternatives."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-advanced-05",
+      "title": "Regulatory & Compliance Scoping",
+      "stage": "advanced",
+      "description": "Embedding compliance requirements (SOC2, GDPR, data sovereignty) directly into technical product definitions.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-advanced-05-compliance-prd",
+          "title": "Write SOC2, GDPR and sovereignty requirements into a PRD",
+          "objectives": [
+            "SOC2 trust-service objectives, GDPR rights/lifecycle and regional data/processing sovereignty.",
+            "Every requirement has an observable check or a visible unresolved interpretation; deletion/residency/control scope is explicit and no proposed control is marked implemented."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A compliance concern must become a scoped product/control requirement with applicability, ownership and evidence. SOC2 reporting objectives, GDPR data rights/lifecycle and sovereignty constraints are different sources of obligations. A broad 'compliant' nonfunctional requirement is not testable.",
+                "SOC2 trust-service objectives, GDPR rights/lifecycle and regional data/processing sovereignty."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Regional storage, processing, access and retention can have different constraints. Product decisions need explicit unresolved legal interpretations and exception review. Educational original mappings must not claim certification or reproduce protected standards.",
+                "Every requirement has an observable check or a visible unresolved interpretation; deletion/residency/control scope is explicit and no proposed control is marked implemented."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-advanced-05-compliance-prd"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-9290dc117255",
+            "locator": "EDPB Respect Individuals' Rights guide: transparent information, access, erasure and handling requests. Pair with free SOC2/ISO overview and NIST Govern/Organizational Profiles to write specific product/control requirements without claiming certification."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-0fd94c568f1a",
+            "advanced-reading-79a626b42677",
+            "advanced-reading-cd0716506f0c",
+            "advanced-reading-1ef04a537e23",
+            "advanced-reading-b70dd85399ae",
+            "advanced-reading-27c5095f7133",
+            "advanced-reading-5faa5d087b61",
+            "security-doc-csf",
+            "advanced-reading-c0de58626d96",
+            "tpm-doc-needs",
+            "tpm-doc-stories",
+            "tpm-doc-discovery"
+          ],
+          "assignment": {
+            "id": "advanced-d6-advanced-05-compliance-prd-assignment",
+            "title": "Write SOC2, GDPR and sovereignty requirements into a PRD: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an original fictional API product PRD with personal-data inventory, regional processing/storage flows, retention/erasure and control evidence linked to the three named topics.",
+              "Translate an original fictional product scenario into testable requirements, exceptions/owners and regional data-flow constraints; mark legal interpretations/unverified controls and avoid claiming certified compliance.",
+              "Add an export, a cross-region support workflow and a restore from an older backup. Update acceptance, owners and legal-review questions before accepting the feature.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an original fictional API product PRD with personal-data inventory, regional processing/storage flows, retention/erasure and control evidence linked to the three named topics.",
+              "Add an export, a cross-region support workflow and a restore from an older backup. Update acceptance, owners and legal-review questions before accepting the feature.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Every requirement has an observable check or a visible unresolved interpretation; deletion/residency/control scope is explicit and no proposed control is marked implemented.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-advanced-05-compliance-prd-check-01",
+                "kind": "short-answer",
+                "prompt": "Is writing 'GDPR compliant' an adequate acceptance criterion?",
+                "answer": "No. Applicability and specific data/control behaviors need explicit requirements and evidence.",
+                "explanation": "A label neither defines the required behavior nor proves the legal/operational outcome."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Is writing 'GDPR compliant' an adequate acceptance criterion?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "data-l24",
+            "tpm-l05-prd-acceptance",
+            "tpm-l12-risk-sequencing",
+            "security-l30-assurance-review"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-professional-01",
+      "title": "Portfolio Technical Vision",
+      "stage": "professional",
+      "description": "Defining multi-year infrastructure technology strategies aligned directly with company balance sheet goals.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-professional-01-portfolio-vision",
+          "title": "Tie infrastructure strategy to balance-sheet and cash constraints",
+          "objectives": [
+            "Strategic horizons, asset/expense/cash-flow trade-offs, technical debt and uncertainty-based investment decisions.",
+            "Financial identities and units reconcile, assumptions and rejected alternatives remain visible and the strategy does not invent real revenue, savings or delivery dates."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A portfolio strategy links technical choices to desired outcomes, resource constraints and alternatives. Capitalized assets, operating expense and cash timing differ; treating every spend as the same period's profit effect can distort a decision. Use fictional assumptions, not unsupported company forecasts.",
+                "Strategic horizons, asset/expense/cash-flow trade-offs, technical debt and uncertainty-based investment decisions."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Long-horizon choices need uncertainty, dependency and exit criteria rather than a fixed promise that every initiative will finish. Technical debt, reliability reserves and migration risk can change the feasible sequence even when a feature's projected revenue looks attractive.",
+                "Financial identities and units reconcile, assumptions and rejected alternatives remain visible and the strategy does not invent real revenue, savings or delivery dates."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-professional-01-portfolio-vision"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-roadmap",
+            "locator": "GOV.UK roadmap guidance: outcome vision, dependencies, collaborative revision and roadmaps versus backlogs; pair with OpenStax financial statements and FinOps resource decisions."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-bc774093b44e",
+            "advanced-reading-5006571f39ff",
+            "advanced-reading-c12650e91c19",
+            "tpm-book-economics",
+            "advanced-reading-e30656a8a552"
+          ],
+          "assignment": {
+            "id": "advanced-d6-professional-01-portfolio-vision-assignment",
+            "title": "Tie infrastructure strategy to balance-sheet and cash constraints: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an original fictional three-initiative infrastructure portfolio with an opening balance-sheet/cash model, compute/storage costs, risk reserves and alternative investment sequences.",
+              "Create an original fictional infrastructure portfolio with balance-sheet/cash-flow constraints and contrary scenarios; defend sequence/exit criteria without predicting real company returns or giving delivery-time estimates.",
+              "Apply a demand downside, delayed benefit and higher migration cost. Reconcile statement/cash effects and explicitly expose any financing/resource shortfall.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an original fictional three-initiative infrastructure portfolio with an opening balance-sheet/cash model, compute/storage costs, risk reserves and alternative investment sequences.",
+              "Apply a demand downside, delayed benefit and higher migration cost. Reconcile statement/cash effects and explicitly expose any financing/resource shortfall.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Financial identities and units reconcile, assumptions and rejected alternatives remain visible and the strategy does not invent real revenue, savings or delivery dates.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-professional-01-portfolio-vision-check-01",
+                "kind": "short-answer",
+                "prompt": "Is an equipment purchase always identical to its full cost appearing immediately as operating expense?",
+                "answer": "No. Cash flow and accounting recognition can differ under the applicable assumptions.",
+                "explanation": "A portfolio model must distinguish cash, assets, depreciation and expenses rather than collapsing them into one number."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Is an equipment purchase always identical to its full cost appearing immediately as operating expense?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l14-stakeholder-decisions",
+            "tpm-l15-postlaunch-roadmap",
+            "finance-l08-accounting",
+            "finance-l20-integrated-model"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-professional-02",
+      "title": "Cross-Functional Executive Influence",
+      "stage": "professional",
+      "description": "Aligning VP-level engineering, finance, security, and sales stakeholders around major technical platform transitions.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-professional-02-executive-decisions",
+          "title": "Align engineering, finance, security and sales decision rights",
+          "objectives": [
+            "VP-level stakeholder objectives, evidence, escalation, decision rights and communications matrix.",
+            "All four perspectives are represented fairly, ownership/escalation is explicit and both audiences receive consistent facts. No actual stakeholder participation or commercial result is fabricated."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Executive stakeholders can rationally optimize different outcomes: reliability/maintainability, cash/unit economics, risk/obligations and customer commitments. Fair representation of disagreement requires evidence and assumptions, not invented quotes or implied real negotiations.",
+                "VP-level stakeholder objectives, evidence, escalation, decision rights and communications matrix."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A decision record names the accountable decision maker, alternatives, dissent, operational owners and revision triggers. Audience-specific communication changes emphasis without changing facts. A status dashboard must preserve uncertainty instead of turning an untested claim green.",
+                "All four perspectives are represented fairly, ownership/escalation is explicit and both audiences receive consistent facts. No actual stakeholder participation or commercial result is fabricated."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-professional-02-executive-decisions"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-roadmap",
+            "locator": "GOV.UK developing a roadmap: shared understanding, value/outcomes and collaborative review; apply it to explicit engineering/finance/security/sales decision rights and evidence."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-bc774093b44e",
+            "advanced-reading-5006571f39ff",
+            "advanced-reading-039476e405fe",
+            "advanced-reading-442415c19df9"
+          ],
+          "assignment": {
+            "id": "advanced-d6-professional-02-executive-decisions-assignment",
+            "title": "Align engineering, finance, security and sales decision rights: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an explicitly hypothetical VP-level platform-transition disagreement spanning engineering, finance, security and sales. Write an executive memo, technical runbook outline and communications/decision matrix.",
+              "Write original executive and technical decision artifacts for the same migration/FinOps dispute, include dissent and a reversible decision, and label all stakeholders/negotiations hypothetical.",
+              "Introduce a security blocker, revised cost assumption and a sales-requested deadline unsupported by evidence. Choose a narrower/deferred/reversible option with a clear revisit condition.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an explicitly hypothetical VP-level platform-transition disagreement spanning engineering, finance, security and sales. Write an executive memo, technical runbook outline and communications/decision matrix.",
+              "Introduce a security blocker, revised cost assumption and a sales-requested deadline unsupported by evidence. Choose a narrower/deferred/reversible option with a clear revisit condition.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "All four perspectives are represented fairly, ownership/escalation is explicit and both audiences receive consistent facts. No actual stakeholder participation or commercial result is fabricated.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-professional-02-executive-decisions-check-01",
+                "kind": "short-answer",
+                "prompt": "Can the executive summary omit an unresolved safety blocker because the technical appendix mentions it?",
+                "answer": "No. Material uncertainty must remain visible at the decision boundary.",
+                "explanation": "Audience adaptation should not change the facts or hide a condition required for approval."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can the executive summary omit an unresolved safety blocker because the technical appendix mentions it?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l14-stakeholder-decisions",
+            "security-l27-tabletop"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-professional-03",
+      "title": "Enterprise Pricing & Unit Economics",
+      "stage": "professional",
+      "description": "Creating usage-based pricing models for internal platforms or external cloud APIs based on compute and storage consumption.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-professional-03-usage-pricing",
+          "title": "Reconcile usage pricing, showback and shared-cloud attribution",
+          "objectives": [
+            "Compute/storage metering, showback/chargeback, tiered API pricing and cost-per-transaction/active-user denominators.",
+            "All allocated plus unallocated amounts reconcile, meters/denominators are explicit and undefined cases are surfaced. Commercial prices and customer savings remain hypothetical unless genuinely observed."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Usage-based pricing starts with a meter and accounting boundary: compute time, storage volume, requests and useful outcomes are different units. Pricing tiers and discounts need deterministic rounding and period rules. Shared idle capacity must be allocated or shown as unallocated rather than disappearing.",
+                "Compute/storage metering, showback/chargeback, tiered API pricing and cost-per-transaction/active-user denominators."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Showback reports cost responsibility, while chargeback applies an internal transfer/payment policy. Neither guarantees savings. Cost per Transaction and Cost per Active User require eligible denominators; zero or invalid populations must not yield a plausible-looking number.",
+                "All allocated plus unallocated amounts reconcile, meters/denominators are explicit and undefined cases are surfaced. Commercial prices and customer savings remain hypothetical unless genuinely observed."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-professional-03-usage-pricing"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-e30656a8a552",
+            "locator": "FinOps Unit Economics capability: units, cost/value measures and business context. Pair with OpenStax contribution/break-even assumptions and actual meter/allocation reconciliation."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-bc774093b44e",
+            "advanced-reading-c12650e91c19",
+            "advanced-reading-1e924d360fbb",
+            "advanced-reading-88ead64194e0",
+            "advanced-reading-8e8411661837",
+            "advanced-reading-0cf968e686c5",
+            "tpm-book-economics"
+          ],
+          "assignment": {
+            "id": "advanced-d6-professional-03-usage-pricing-assignment",
+            "title": "Reconcile usage pricing, showback and shared-cloud attribution: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Implement an original synthetic two-feature/two-business-unit allocation ledger with compute/storage usage, shared costs and a tiered API price. Compare spreadsheet, SQL/script and dashboard results.",
+              "Implement a synthetic usage/allocation model that conserves total cost under deterministic rounding, handles refunds/missing denominators and reconciles dashboard/spreadsheet/script values without claiming customer savings.",
+              "Test missing tags, a refund/negative adjustment, zero active users and exactly-on-boundary tier usage. Verify deterministic rounding conserves the original total.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Implement an original synthetic two-feature/two-business-unit allocation ledger with compute/storage usage, shared costs and a tiered API price. Compare spreadsheet, SQL/script and dashboard results.",
+              "Test missing tags, a refund/negative adjustment, zero active users and exactly-on-boundary tier usage. Verify deterministic rounding conserves the original total.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "All allocated plus unallocated amounts reconcile, meters/denominators are explicit and undefined cases are surfaced. Commercial prices and customer savings remain hypothetical unless genuinely observed.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-professional-03-usage-pricing-check-01",
+                "kind": "short-answer",
+                "prompt": "May an allocation model silently drop untagged shared cost to improve unit economics?",
+                "answer": "No. It must allocate under an explicit rule or retain a visible unallocated bucket.",
+                "explanation": "Conservation of total cost is necessary for an honest attribution model."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "May an allocation model silently drop untagged shared cost to improve unit economics?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l11-unit-economics",
+            "data-l28"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d6-professional-04",
+      "title": "Organizational Change Management",
+      "stage": "professional",
+      "description": "Leading company-wide migrations to new platforms, API governance standards, and engineering practices with minimal friction.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d6-professional-04-change-governance",
+          "title": "Coordinate platform adoption, deprecation and governance changes",
+          "objectives": [
+            "Platform/API migration cohorts, standards exceptions, enablement/support, adoption feedback and rollback communications.",
+            "Compatibility and exception obligations remain traceable, the exact anomaly boundary behaves correctly and adoption/organizational outcomes are never invented from local rehearsal."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Organizational change includes migration cohorts, enablement/support, incentives and compatibility obligations, not just announcing a new platform. API and tagging standards need a bounded exception/deprecation process so real constraints can be handled without permanent hidden bypasses.",
+                "Platform/API migration cohorts, standards exceptions, enablement/support, adoption feedback and rollback communications."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Adoption metrics and feedback should distinguish actual use, self-walkthroughs and hypothetical scenarios. A ring's technical health does not prove every consumer can migrate. Rollback and client/executive communication need owners and triggers before a rollout starts.",
+                "Compatibility and exception obligations remain traceable, the exact anomaly boundary behaves correctly and adoption/organizational outcomes are never invented from local rehearsal."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d6-professional-04-change-governance"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "tpm-doc-release",
+            "locator": "SRE Workbook Canarying Releases: release engineering principles, evaluation populations and balancing release velocity/reliability; connect consumer migration and communications to actual criteria."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-c5714dc0b530",
+            "advanced-reading-a119cadd9c60",
+            "advanced-reading-039476e405fe",
+            "advanced-reading-442415c19df9",
+            "tpm-doc-roadmap",
+            "tpm-doc-technology",
+            "advanced-reading-6c547d0b7e0e",
+            "advanced-reading-2bd699332b97"
+          ],
+          "assignment": {
+            "id": "advanced-d6-professional-04-change-governance-assignment",
+            "title": "Coordinate platform adoption, deprecation and governance changes: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Connect an original rings 0-3 migration, API/tagging policy and adoption/communications plan. Prepare consumer guidance, an executive status view and a support/escalation runbook.",
+              "Connect an original ring migration, tagging/API policy and adoption measurement plan; rehearse resistance/blocked consumers and update communications with observed local evidence, never fabricated organizational outcomes.",
+              "Block a legacy consumer, expire a standards exception and cross a strict greater-than-15-percent synthetic spend-anomaly threshold. Test exactly 15 percent separately and revise the rollout honestly.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Connect an original rings 0-3 migration, API/tagging policy and adoption/communications plan. Prepare consumer guidance, an executive status view and a support/escalation runbook.",
+              "Block a legacy consumer, expire a standards exception and cross a strict greater-than-15-percent synthetic spend-anomaly threshold. Test exactly 15 percent separately and revise the rollout honestly.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Compatibility and exception obligations remain traceable, the exact anomaly boundary behaves correctly and adoption/organizational outcomes are never invented from local rehearsal.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d6-professional-04-change-governance-check-01",
+                "kind": "short-answer",
+                "prompt": "Should exactly 15 percent above baseline trigger a policy defined as greater than 15 percent?",
+                "answer": "No. Equality does not satisfy a strict greater-than comparison.",
+                "explanation": "The implementation and communication must preserve the specified boundary, including zero/missing-baseline cases."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Should exactly 15 percent above baseline trigger a policy defined as greater than 15 percent?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "tpm-l06-prioritization-roadmap",
+            "tpm-l12-risk-sequencing",
+            "tpm-l13-launch-rollback",
+            "tpm-l15-postlaunch-roadmap"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Cloud/account-dependent actions require separate explicit authorization; documentation and original local fixtures do not prove a live provider integration."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "advanced-reading-84ded56d8aa9",
+      "kind": "documentation",
+      "title": "Manifesto for Agile Software Development",
+      "url": "https://agilemanifesto.org/",
+      "provider": "agilemanifesto.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Agile principles, Scrum roles/events/artifacts, backlog refinement and sprint planning/review/retrospective. Use an original fictional workflow, not invented employment/team participation. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-d5ac2c381c4c",
+      "kind": "documentation",
+      "title": "Scrum Guide | Scrum Guides",
+      "url": "https://scrumguides.org/scrum-guide.html",
+      "provider": "scrumguides.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Agile principles, Scrum roles/events/artifacts, backlog refinement and sprint planning/review/retrospective. Use an original fictional workflow, not invented employment/team participation. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-f725afa2f475",
+      "kind": "documentation",
+      "title": "Official reading: posthog.com/docs/product-analytics",
+      "url": "https://posthog.com/docs/product-analytics",
+      "provider": "posthog.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "all three named platforms' event/adoption/cohort/funnel semantics, identity/eligibility and reporting limits. No tracker analytics integration or export of real learner data. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-f539f92defed",
+      "kind": "documentation",
+      "title": "Funnels - Mixpanel",
+      "url": "https://docs.mixpanel.com/docs/reports/funnels",
+      "provider": "docs.mixpanel.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "all three named platforms' event/adoption/cohort/funnel semantics, identity/eligibility and reporting limits. No tracker analytics integration or export of real learner data. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-bd1d07a0dd8c",
+      "kind": "documentation",
+      "title": "Analytics Help",
+      "url": "https://support.google.com/analytics/",
+      "provider": "support.google.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "all three named platforms' event/adoption/cohort/funnel semantics, identity/eligibility and reporting limits. No tracker analytics integration or export of real learner data. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-039476e405fe",
+      "kind": "documentation",
+      "title": "Learn scrum with Jira Tutorial | Agile",
+      "url": "https://www.atlassian.com/agile/tutorials/how-to-do-scrum-with-jira",
+      "provider": "www.atlassian.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Jira and Linear workflow/roadmap concepts, planning, dependencies, standup blockers, decision rights and audience-specific communications. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-442415c19df9",
+      "kind": "documentation",
+      "title": "Linear Docs",
+      "url": "https://linear.app/docs",
+      "provider": "linear.app",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Jira and Linear workflow/roadmap concepts, planning, dependencies, standup blockers, decision rights and audience-specific communications. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-7a5bcae2aa18",
+      "kind": "documentation",
+      "title": "NIST/SEMATECH e-Handbook of Statistical Methods",
+      "url": "https://www.itl.nist.gov/div898/handbook/",
+      "provider": "www.itl.nist.gov",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "assignment/SRM/contamination, actual statistical inference/intervals, North Star and guardrails, predeclared analysis/stopping and limits of causal claims. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-618636787b8c",
+      "kind": "documentation",
+      "title": "Measuring success - Service Manual - GOV.UK",
+      "url": "https://www.gov.uk/service-manual/measuring-success",
+      "provider": "www.gov.uk",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "assignment/SRM/contamination, actual statistical inference/intervals, North Star and guardrails, predeclared analysis/stopping and limits of causal claims. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-1e924d360fbb",
+      "kind": "documentation",
+      "title": "Amazon EC2 – Secure and resizable compute capacity – AWS",
+      "url": "https://aws.amazon.com/ec2/pricing/",
+      "provider": "aws.amazon.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "EC2 instance-hours, database IOPS, egress/storage, dated price units, namespace/resource tags and cost attribution; no provisioning, billing or account modifications. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-88ead64194e0",
+      "kind": "documentation",
+      "title": "Managed Relational Database - Amazon RDS Pricing - Amazon Web Services",
+      "url": "https://aws.amazon.com/rds/pricing/",
+      "provider": "aws.amazon.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "EC2 instance-hours, database IOPS, egress/storage, dated price units, namespace/resource tags and cost attribution; no provisioning, billing or account modifications. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-8e8411661837",
+      "kind": "documentation",
+      "title": "S3 Pricing",
+      "url": "https://aws.amazon.com/s3/pricing/",
+      "provider": "aws.amazon.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "EC2 instance-hours, database IOPS, egress/storage, dated price units, namespace/resource tags and cost attribution; no provisioning, billing or account modifications. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-0cf968e686c5",
+      "kind": "documentation",
+      "title": "Labels and Selectors | Kubernetes",
+      "url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/",
+      "provider": "kubernetes.io",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "EC2 instance-hours, database IOPS, egress/storage, dated price units, namespace/resource tags and cost attribution; no provisioning, billing or account modifications. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-08bacedc5540",
+      "kind": "documentation",
+      "title": "RICE Prioritization Framework for Product Managers [+Examples]",
+      "url": "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/",
+      "provider": "www.intercom.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "RICE, MoSCoW and Kano with source/version/free-access checks before publication. Author original explanations and comparisons; do not copy protected paper text. Preserve the existing genuine RICE calculation as overlap. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-56e07625b599",
+      "kind": "documentation",
+      "title": "What is MoSCoW Prioritization? - Agile Business Consortium",
+      "url": "https://www.agilebusiness.org/dsdm-project-framework/moscow-prioritisation.html",
+      "provider": "www.agilebusiness.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "RICE, MoSCoW and Kano with source/version/free-access checks before publication. Author original explanations and comparisons; do not copy protected paper text. Preserve the existing genuine RICE calculation as overlap. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-0b3feddec3a0",
+      "kind": "documentation",
+      "title": "Attractive Quality and Must-Be Quality",
+      "url": "https://www.jstage.jst.go.jp/article/quality/14/2/14_KJ00002952366/_article",
+      "provider": "www.jstage.jst.go.jp",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "RICE, MoSCoW and Kano with source/version/free-access checks before publication. Author original explanations and comparisons; do not copy protected paper text. Preserve the existing genuine RICE calculation as overlap. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-68b13dcfd663",
+      "kind": "documentation",
+      "title": "DORA | DORA’s software delivery performance metrics",
+      "url": "https://dora.dev/guides/dora-metrics-four-keys/",
+      "provider": "dora.dev",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "developer feedback/flow/cognitive-load and delivery measurements, time-to-first-success, SDK adoption and API errors. Distinguish individual monitoring from aggregate voluntary hypothetical analysis. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-545f52852306",
+      "kind": "documentation",
+      "title": "Official reading: queue.acm.org/detail.cfm?id=3595878",
+      "url": "https://queue.acm.org/detail.cfm?id=3595878",
+      "provider": "queue.acm.org",
+      "access": "unverified-optional",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "access-limited",
+      "notes": "developer feedback/flow/cognitive-load and delivery measurements, time-to-first-success, SDK adoption and API errors. Distinguish individual monitoring from aggregate voluntary hypothetical analysis. Link-only; no content is bundled and runtime access is not implied. Automated source access was limited; use the official link and other linked readings. This is not a claim that the full text was retrieved."
+    },
+    {
+      "id": "advanced-reading-c5714dc0b530",
+      "kind": "documentation",
+      "title": "Strangler Fig Pattern - Azure Architecture Center | Microsoft Learn",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig",
+      "provider": "learn.microsoft.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "coexistence/dependency migration, rings 0-3, rollback, RTO/RPO, evidence thresholds and communications; local rehearsal is not observed multi-cloud zero downtime. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-a119cadd9c60",
+      "kind": "documentation",
+      "title": "Google SRE - Incident Response with Google's Strategies",
+      "url": "https://sre.google/sre-book/emergency-response/",
+      "provider": "sre.google",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "coexistence/dependency migration, rings 0-3, rollback, RTO/RPO, evidence thresholds and communications; local rehearsal is not observed multi-cloud zero downtime. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-5006571f39ff",
+      "kind": "documentation",
+      "title": "OpenStax",
+      "url": "https://openstax.org/details/books/principles-financial-accounting",
+      "provider": "openstax.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "multi-year strategic horizons without invented delivery estimates, portfolio alternatives, balance-sheet/cash-flow constraints and executive decision rights. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-e30656a8a552",
+      "kind": "documentation",
+      "title": "Capability: Unit Economics",
+      "url": "https://www.finops.org/framework/capabilities/unit-economics/",
+      "provider": "www.finops.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "contribution/break-even relevant-range limits, usage units, compute/storage pricing and sensitivity; keep hypothetical assumptions separate from observed cost and causal benefit. Link-only; no content is bundled and runtime access is not implied."
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "P-AGILE: official learning source",
+      "url": "https://agilemanifesto.org/",
+      "notes": "Agile principles, Scrum roles/events/artifacts, backlog refinement and sprint planning/review/retrospective. Use an original fictional workflow, not invented employment/team participation."
+    },
+    {
+      "title": "P-AGILE: official learning source",
+      "url": "https://scrumguides.org/scrum-guide.html",
+      "notes": "Agile principles, Scrum roles/events/artifacts, backlog refinement and sprint planning/review/retrospective. Use an original fictional workflow, not invented employment/team participation."
+    },
+    {
+      "title": "P-DISCOVERY: official learning source",
+      "url": "https://www.gov.uk/service-manual/user-research/start-by-learning-user-needs",
+      "notes": "needs/evidence, stories/acceptance, bounded PRDs/non-goals and ethical hypothetical discovery."
+    },
+    {
+      "title": "P-DISCOVERY: official learning source",
+      "url": "https://www.gov.uk/service-manual/agile-delivery/writing-user-stories",
+      "notes": "needs/evidence, stories/acceptance, bounded PRDs/non-goals and ethical hypothetical discovery."
+    },
+    {
+      "title": "P-DISCOVERY: official learning source",
+      "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works",
+      "notes": "needs/evidence, stories/acceptance, bounded PRDs/non-goals and ethical hypothetical discovery."
+    },
+    {
+      "title": "P-ANALYTICS: official learning source",
+      "url": "https://posthog.com/docs/product-analytics",
+      "notes": "all three named platforms' event/adoption/cohort/funnel semantics, identity/eligibility and reporting limits. No tracker analytics integration or export of real learner data."
+    },
+    {
+      "title": "P-ANALYTICS: official learning source",
+      "url": "https://docs.mixpanel.com/docs/reports/funnels",
+      "notes": "all three named platforms' event/adoption/cohort/funnel semantics, identity/eligibility and reporting limits. No tracker analytics integration or export of real learner data."
+    },
+    {
+      "title": "P-ANALYTICS: official learning source",
+      "url": "https://support.google.com/analytics/",
+      "notes": "all three named platforms' event/adoption/cohort/funnel semantics, identity/eligibility and reporting limits. No tracker analytics integration or export of real learner data."
+    },
+    {
+      "title": "P-ANALYTICS: official learning source",
+      "url": "https://www.gov.uk/service-manual/measuring-success/how-to-set-performance-metrics-for-your-service",
+      "notes": "all three named platforms' event/adoption/cohort/funnel semantics, identity/eligibility and reporting limits. No tracker analytics integration or export of real learner data."
+    },
+    {
+      "title": "P-COORDINATION: official learning source",
+      "url": "https://www.atlassian.com/agile/tutorials/how-to-do-scrum-with-jira",
+      "notes": "Jira and Linear workflow/roadmap concepts, planning, dependencies, standup blockers, decision rights and audience-specific communications."
+    },
+    {
+      "title": "P-COORDINATION: official learning source",
+      "url": "https://linear.app/docs",
+      "notes": "Jira and Linear workflow/roadmap concepts, planning, dependencies, standup blockers, decision rights and audience-specific communications."
+    },
+    {
+      "title": "P-COORDINATION: official learning source",
+      "url": "https://www.gov.uk/service-manual/agile-delivery/developing-a-roadmap",
+      "notes": "Jira and Linear workflow/roadmap concepts, planning, dependencies, standup blockers, decision rights and audience-specific communications."
+    },
+    {
+      "title": "P-PLATFORM: official learning source",
+      "url": "https://www.gov.uk/service-manual/technology/choosing-technology-an-introduction",
+      "notes": "platform-as-product/IDP, developer journey, API standards/deprecation, build/buy/reuse and reversible architectural decisions."
+    },
+    {
+      "title": "P-PLATFORM: official learning source",
+      "url": "https://sre.google/workbook/table-of-contents/",
+      "notes": "platform-as-product/IDP, developer journey, API standards/deprecation, build/buy/reuse and reversible architectural decisions."
+    },
+    {
+      "title": "P-PLATFORM: official learning source",
+      "url": "https://backstage.io/docs/overview/what-is-backstage/",
+      "notes": "platform-as-product/IDP, developer journey, API standards/deprecation, build/buy/reuse and reversible architectural decisions."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://www.postgresql.org/docs/current/sql-prepare-transaction.html",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://etcd.io/docs/",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://redis.io/docs/latest/develop/use/patterns/distributed-locks/",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://debezium.io/documentation/reference/3.3/transformations/outbox-event-router.html",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/saga",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-OPS: official learning source",
+      "url": "https://sre.google/sre-book/table-of-contents/",
+      "notes": "SLI/SLO/error budgets, capacity, overload, release/incident response, distributed failure and CAP/PACELC trade-offs. The retrieved 2010 author-published CAP/PACELC discussion is historical theory context, not a current vendor capability claim."
+    },
+    {
+      "title": "B-OPS: official learning source",
+      "url": "https://dbmsmusings.blogspot.com/2010/04/problems-with-cap-and-yahoos-little.html",
+      "notes": "SLI/SLO/error budgets, capacity, overload, release/incident response, distributed failure and CAP/PACELC trade-offs. The retrieved 2010 author-published CAP/PACELC discussion is historical theory context, not a current vendor capability claim."
+    },
+    {
+      "title": "P-EXPERIMENTS: official learning source",
+      "url": "https://www.microsoft.com/en-us/research/articles/diagnosing-sample-ratio-mismatch-in-a-b-testing/",
+      "notes": "assignment/SRM/contamination, actual statistical inference/intervals, North Star and guardrails, predeclared analysis/stopping and limits of causal claims."
+    },
+    {
+      "title": "P-EXPERIMENTS: official learning source",
+      "url": "https://www.itl.nist.gov/div898/handbook/",
+      "notes": "assignment/SRM/contamination, actual statistical inference/intervals, North Star and guardrails, predeclared analysis/stopping and limits of causal claims."
+    },
+    {
+      "title": "P-EXPERIMENTS: official learning source",
+      "url": "https://www.gov.uk/service-manual/measuring-success",
+      "notes": "assignment/SRM/contamination, actual statistical inference/intervals, North Star and guardrails, predeclared analysis/stopping and limits of causal claims."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://www.probabilitycourse.com/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://allendowney.github.io/ThinkStats/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://faculty.washington.edu/ezivot/econ424/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://fncbook.com/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://bookdown.org/compfinezbook/introFinRbook/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://cran.r-project.org/web/packages/PerformanceAnalytics/index.html",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "P-FINOPS: official learning source",
+      "url": "https://www.finops.org/framework/",
+      "notes": "allocation, unit economics, forecasting/budgets, anomaly management, workload optimization, showback/chargeback and normalized cost usage. Official framework reading is not proof of actual savings."
+    },
+    {
+      "title": "P-FINOPS: official learning source",
+      "url": "https://focus.finops.org/",
+      "notes": "allocation, unit economics, forecasting/budgets, anomaly management, workload optimization, showback/chargeback and normalized cost usage. Official framework reading is not proof of actual savings."
+    },
+    {
+      "title": "P-CLOUD-COST: official learning source",
+      "url": "https://aws.amazon.com/ec2/pricing/",
+      "notes": "EC2 instance-hours, database IOPS, egress/storage, dated price units, namespace/resource tags and cost attribution; no provisioning, billing or account modifications."
+    },
+    {
+      "title": "P-CLOUD-COST: official learning source",
+      "url": "https://aws.amazon.com/rds/pricing/",
+      "notes": "EC2 instance-hours, database IOPS, egress/storage, dated price units, namespace/resource tags and cost attribution; no provisioning, billing or account modifications."
+    },
+    {
+      "title": "P-CLOUD-COST: official learning source",
+      "url": "https://aws.amazon.com/s3/pricing/",
+      "notes": "EC2 instance-hours, database IOPS, egress/storage, dated price units, namespace/resource tags and cost attribution; no provisioning, billing or account modifications."
+    },
+    {
+      "title": "P-CLOUD-COST: official learning source",
+      "url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/",
+      "notes": "EC2 instance-hours, database IOPS, egress/storage, dated price units, namespace/resource tags and cost attribution; no provisioning, billing or account modifications."
+    },
+    {
+      "title": "P-PRIORITIZATION: official learning source",
+      "url": "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/",
+      "notes": "RICE, MoSCoW and Kano with source/version/free-access checks before publication. Author original explanations and comparisons; do not copy protected paper text. Preserve the existing genuine RICE calculation as overlap."
+    },
+    {
+      "title": "P-PRIORITIZATION: official learning source",
+      "url": "https://www.agilebusiness.org/dsdm-project-framework/moscow-prioritisation.html",
+      "notes": "RICE, MoSCoW and Kano with source/version/free-access checks before publication. Author original explanations and comparisons; do not copy protected paper text. Preserve the existing genuine RICE calculation as overlap."
+    },
+    {
+      "title": "P-PRIORITIZATION: official learning source",
+      "url": "https://www.jstage.jst.go.jp/article/quality/14/2/14_KJ00002952366/_article",
+      "notes": "RICE, MoSCoW and Kano with source/version/free-access checks before publication. Author original explanations and comparisons; do not copy protected paper text. Preserve the existing genuine RICE calculation as overlap."
+    },
+    {
+      "title": "B-API: official learning source",
+      "url": "https://spec.openapis.org/oas/v3.1.1.html",
+      "notes": "schema/status/error/version contracts; Swagger/OpenAPI terminology; GraphQL client/query trade-offs. Retain the actual existing OpenAPI assignment."
+    },
+    {
+      "title": "B-API: official learning source",
+      "url": "https://swagger.io/docs/specification/",
+      "notes": "schema/status/error/version contracts; Swagger/OpenAPI terminology; GraphQL client/query trade-offs. Retain the actual existing OpenAPI assignment."
+    },
+    {
+      "title": "B-API: official learning source",
+      "url": "https://graphql.org/learn/",
+      "notes": "schema/status/error/version contracts; Swagger/OpenAPI terminology; GraphQL client/query trade-offs. Retain the actual existing OpenAPI assignment."
+    },
+    {
+      "title": "B-RPC: official learning source",
+      "url": "https://protobuf.dev/programming-guides/",
+      "notes": "message evolution, unary/client/server/bidirectional streams, deadlines, status, cancellation and flow control."
+    },
+    {
+      "title": "B-RPC: official learning source",
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+      "notes": "message evolution, unary/client/server/bidirectional streams, deadlines, status, cancellation and flow control."
+    },
+    {
+      "title": "B-RPC: official learning source",
+      "url": "https://grpc.io/docs/languages/go/",
+      "notes": "message evolution, unary/client/server/bidirectional streams, deadlines, status, cancellation and flow control."
+    },
+    {
+      "title": "P-DEVEX: official learning source",
+      "url": "https://dora.dev/guides/dora-metrics-four-keys/",
+      "notes": "developer feedback/flow/cognitive-load and delivery measurements, time-to-first-success, SDK adoption and API errors. Distinguish individual monitoring from aggregate voluntary hypothetical analysis."
+    },
+    {
+      "title": "P-DEVEX: official learning source",
+      "url": "https://queue.acm.org/detail.cfm?id=3595878",
+      "notes": "developer feedback/flow/cognitive-load and delivery measurements, time-to-first-success, SDK adoption and API errors. Distinguish individual monitoring from aggregate voluntary hypothetical analysis."
+    },
+    {
+      "title": "P-MIGRATION: official learning source",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig",
+      "notes": "coexistence/dependency migration, rings 0-3, rollback, RTO/RPO, evidence thresholds and communications; local rehearsal is not observed multi-cloud zero downtime."
+    },
+    {
+      "title": "P-MIGRATION: official learning source",
+      "url": "https://sre.google/workbook/canarying-releases/",
+      "notes": "coexistence/dependency migration, rings 0-3, rollback, RTO/RPO, evidence thresholds and communications; local rehearsal is not observed multi-cloud zero downtime."
+    },
+    {
+      "title": "P-MIGRATION: official learning source",
+      "url": "https://sre.google/sre-book/emergency-response/",
+      "notes": "coexistence/dependency migration, rings 0-3, rollback, RTO/RPO, evidence thresholds and communications; local rehearsal is not observed multi-cloud zero downtime."
+    },
+    {
+      "title": "A-ENGINES: official learning source",
+      "url": "https://docs.vllm.ai/",
+      "notes": "each engine's architecture/model/hardware support, batching, token streams, metrics and cancellation; TGI is currently maintenance-mode according to its official overview."
+    },
+    {
+      "title": "A-ENGINES: official learning source",
+      "url": "https://nvidia.github.io/TensorRT-LLM/",
+      "notes": "each engine's architecture/model/hardware support, batching, token streams, metrics and cancellation; TGI is currently maintenance-mode according to its official overview."
+    },
+    {
+      "title": "A-ENGINES: official learning source",
+      "url": "https://huggingface.co/docs/text-generation-inference/en/index",
+      "notes": "each engine's architecture/model/hardware support, batching, token streams, metrics and cancellation; TGI is currently maintenance-mode according to its official overview."
+    },
+    {
+      "title": "A-GOVERNANCE: official learning source",
+      "url": "https://genai.owasp.org/llm-top-10/",
+      "notes": "benign defensive LLM threat tests, data isolation, model identity/attestation and accountable governance. No finite fixture suite is a universal jailbreak defense."
+    },
+    {
+      "title": "A-GOVERNANCE: official learning source",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "notes": "benign defensive LLM threat tests, data isolation, model identity/attestation and accountable governance. No finite fixture suite is a universal jailbreak defense."
+    },
+    {
+      "title": "A-GOVERNANCE: official learning source",
+      "url": "https://docs.sigstore.dev/",
+      "notes": "benign defensive LLM threat tests, data isolation, model identity/attestation and accountable governance. No finite fixture suite is a universal jailbreak defense."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.iso.org/standard/27001",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.fedramp.gov/",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/security/index.html",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://csrc.nist.gov/pubs/sp/800/66/r2/final",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.nist.gov/cyberframework",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "S-REGULATION: official learning source",
+      "url": "https://www.edpb.europa.eu/sme/be-compliant/respect-individuals-rights_en",
+      "notes": "free official SOC2/ISO27001 overview, FedRAMP, HIPAA and GDPR applicability/rights, plus publicly available NIST control/evidence guidance. **Do not redistribute paid ISO standards or pretend free summaries are the complete standard.** Original mappings are educational and need qualified legal/audit review for real compliance claims."
+    },
+    {
+      "title": "P-STRATEGY: official learning source",
+      "url": "https://openstax.org/details/books/principles-financial-accounting",
+      "notes": "multi-year strategic horizons without invented delivery estimates, portfolio alternatives, balance-sheet/cash-flow constraints and executive decision rights."
+    },
+    {
+      "title": "P-ECONOMICS: official learning source",
+      "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-2-calculate-a-break-even-point-in-units-and-dollars",
+      "notes": "contribution/break-even relevant-range limits, usage units, compute/storage pricing and sensitivity; keep hypothetical assumptions separate from observed cost and causal benefit."
+    },
+    {
+      "title": "P-ECONOMICS: official learning source",
+      "url": "https://www.finops.org/framework/capabilities/unit-economics/",
+      "notes": "contribution/break-even relevant-range limits, usage units, compute/storage pricing and sensitivity; keep hypothetical assumptions separate from observed cost and causal benefit."
+    }
+  ],
+  "limitations": [
+    "Required learning within the selected Career Path; separate from the original seven core totals. Professional Practice describes a learning level, not certification or guaranteed employment.",
+    "Reading/design, simulations, compilation, actual runtime integration and target-hardware benchmarks are separate. Missing environments leave their hands-on gates incomplete; no paid provisioning or host-policy bypass is required or authorized.",
+    "All work uses original synthetic, owned and authorized fixtures. Quant work is paper-only; security work is defensive and isolated. Hypothetical PM participants, prices and outcomes are never presented as observed facts.",
+    "Readings are official/maintainer links, not rehosted protected content. Source availability checks are not runtime verification; access-limited sources are labelled."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Explain the language, representation and system boundary using hand-checkable original fixtures.",
+      "evidence": "Retain an independent expected-result table, explicit invalid-input behavior and the actual prerequisites for execution."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Implement and compare the named tools or protocols while preserving data, identity and lifecycle invariants.",
+      "evidence": "Retain actual supported-runtime integration, a bounded change and positive/negative regressions; unsupported environments remain visible."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Diagnose failure, concurrency, resource and compatibility behavior at the actual mechanism boundary.",
+      "evidence": "Reproduce an original fault, repair its cause and compare against an independent oracle without substituting a simpler stack."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Defend operational, architectural and measurement decisions with evidence whose scope is explicit.",
+      "evidence": "Produce an owned release/incident/benchmark or decision dossier, including negative results, alternatives, actual versus modelled scale and pending hardware."
+    }
+  ]
+}

@@ -1,7 +1,10 @@
 # Progress: a personal learning workspace
 
-A responsive, local-first learning platform for **Common Foundation, Data, SDE,
-Quant, AI, GATE (CS/IT and DA), and CAT (VARC, DILR and QA)**. It combines curated
+A responsive, local-first learning platform with **six first-class Career Paths**:
+Backend & Platform, AI Infrastructure & ML Systems, Product & Cloud Security,
+Data Platform & Analytics, Quant Development & Research Infrastructure, and
+Technical Product Management. **Common Foundation, the original Data/SDE/Quant/AI
+courses, GATE (CS/IT and DA), and CAT (VARC, DILR and QA)** remain accessible. It combines curated
 lesson roadmaps, official resources, practical assignments, original self-checks,
 project evidence, private notes and deliberate review.
 
@@ -13,7 +16,85 @@ The Common Foundation is the shared starting point, **not** a concatenation of
 four advanced career tracks. Lesson IDs are canonical: a foundation completion
 satisfies the same prerequisite everywhere without being counted four times.
 
-## Career Preparation: six maps, not six duplicate curricula
+## Career Paths: exact skills, substantive learning, distinct advanced targets
+
+Curriculum **2026.09.30.1** puts six direct role cards and individual navigation
+links on the dashboard/sidebar/mobile drawer. Original courses, exams, the five
+Extra Topics and earlier preparation maps are labelled separately rather than
+being presented as substitutes for the six paths. Profile navigation never changes
+the saved seven-core focus or goal categories.
+
+The current contract preserves **114 exact skill-group descriptions**: each role
+has **5 Beginner, 5 Intermediate, 5 Advanced and 4 Professional Practice groups**.
+The earlier curriculum had only **5 fully covered, 67 partially covered and 42
+missing groups** under this expanded request. These are content-audit findings,
+not a judgment of the learner or a claim that a reference is complete.
+
+Seven appended catalogs provide **137 original reading-led lessons**:
+24 shared systems/language units in eight modules and 113 domain units in 101
+modules. All **13 earlier catalogs / 371 lessons remain byte-identical**; the
+combined inventory is 20 catalogs, 231 modules and 508 lessons. Existing Python,
+SQL and mathematical assignments remain canonical rather than being copied.
+There are 527 named-capability fragments with explicit teaching references; exact
+labels/digests protect the source contract, while actual explanations, original
+fixtures, failure exercises and acceptance criteria provide the learning depth.
+
+Rust ownership/lifetimes/Arc/Mutex/Tokio, Go goroutines/channels/net, modern C++
+memory/moves/atomics/SPSC, C/POSIX/eBPF, Python arrays/tensors/processes, SQL,
+Java AST/JDBC, Bash, CUDA and **both distinct Tritons** are discoverable through
+required lessons and language links. NVIDIA Triton Inference Server is not the
+Triton programming DSL. Requested TorchScript material is legacy compatibility
+learning with modern export comparison; TGI's official documentation identifies
+maintenance mode. A matching title or optional-specialization note is not coverage.
+
+Every new lesson has a usable free primary reading at a specific locator,
+explanatory topics, original practical work, failure cases and an explained
+self-check. Restricted/unavailable supplementary sources are **optional and
+unverified**, never required primary readings or labelled verified-free content.
+Free official overviews are not copies of paid standards. Model downloads,
+account-gated weights and license acceptance require separate review; public
+documentation does not authorize them. No new PDF is rehosted and the six existing
+licensed PDFs/registry/checksums are unchanged.
+
+Each path has **four separately numbered advanced targets**, not three earlier
+shared references relabelled as new projects. Targets use `advanced-target-01`
+through `advanced-target-24`, with **96 new build gates, 96 original staged
+exercises and 96 separate independent readiness records**. Original inventories
+remain **21 projects / 84 gates**, plus **5 earlier practice projects / 20 gates**
+and **40 earlier readiness records**. Combined build inventory is 50 projects /
+200 gates; the 136 readiness records are not additional projects and do not enter
+build/lesson completion totals.
+
+P17 substantially extends the existing paper-exchange repository but retains
+fresh advanced identities. Its older C++17/Python behavior and readiness are not
+silently upgraded to C++20 fixed-capacity/SPSC/latency claims. Similarly, SQLite
+commerce is not a generic PostgreSQL deterministic workflow runtime, file-based
+point-in-time queries are not a streaming feature store, batch quarantine is not
+Kafka/t-digest, and physical row lineage is not SQL-AST column lineage. The four
+new PM portfolios are distinct topics, not copies of the earlier hypothetical cases.
+
+Reference availability, scoped review, actual runtime integration, measured
+benchmarks, learner build evidence and independent readiness stay separate.
+Only reviewed capabilities appear as reference coverage; other references remain
+pending. Private links are opt-in with no GitHub API/token integration, prefetch
+or automatic source download. No reference or test result seeds a learner record.
+
+GPU/multi-GPU, KVM, privileged BPF/XDP, TPM/HSM, FPGA, specialized NIC and
+high-load work has explicit environment gates. Reading and drafts remain
+available without that hardware; unexecuted required work cannot complete the
+hands-on assignment. CPU models, simulations and compilation are not substituted
+for actual target-runtime evidence. No host-policy bypass, paid provisioning,
+real trading or unrelated-system testing is authorized.
+
+Performance numbers remain targets unless a reviewed reference names actual
+hardware, workload, clocks and exclusions. Token buckets are not circuit breakers;
+leases need fencing; static reachability is not observed execution; Arrow Flight
+does not eliminate every copy; alignment does not eliminate every cache miss;
+classic FIX is text; timestamp preservation is not zero wall-clock jitter; and a
+simulated 24-hour gate is not an observed 24-hour soak. There are no guaranteed
+employment, compensation, market-longevity, investment-return or compliance claims.
+
+## Earlier Career Preparation: preserved narrower maps
 
 Curriculum **2026.09.29.1** adds a Career Preparation hub and six profiles:
 Backend/Platform, AI/ML Systems, Product/Cloud Security, Data Platform,

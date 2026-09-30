@@ -72,7 +72,9 @@ export function CareerHub({ catalog, state }: LearningProps) {
             <article className="panel career-card" key={profile.id}>
               <span className="subtle-pill">Four preparation stages</span>
               <h2>
-                <a href={`#/career/${profile.id}`}>{profile.title}</a>
+                <a href={`#/career/${profile.id}?view=earlier`}>
+                  {profile.title}
+                </a>
               </h2>
               <p>{profile.summary}</p>
               <ProgressBar
@@ -87,7 +89,10 @@ export function CareerHub({ catalog, state }: LearningProps) {
                 {ready}/12 independent readiness gates recorded across three
                 shared projects
               </p>
-              <a className="arrow-link" href={`#/career/${profile.id}`}>
+              <a
+                className="arrow-link"
+                href={`#/career/${profile.id}?view=earlier`}
+              >
                 Explore preparation <ArrowRight size={16} />
               </a>
             </article>
@@ -131,7 +136,7 @@ export function CareerProfilePage(props: LearningProps & { id: string }) {
     return (
       <EmptyState
         title="Career profile not found"
-        action={<a href="#/careers">Open Career Preparation</a>}
+        action={<a href="#/preparation">Open Career Preparation</a>}
       >
         Your existing learning records have not changed.
       </EmptyState>
@@ -145,7 +150,7 @@ export function CareerProfilePage(props: LearningProps & { id: string }) {
   return (
     <>
       <div className="breadcrumb">
-        <a href="#/careers">
+        <a href="#/preparation">
           <ArrowLeft size={14} />
           Career Preparation
         </a>
@@ -156,6 +161,11 @@ export function CareerProfilePage(props: LearningProps & { id: string }) {
         description={profile.summary}
       />
       <div className="notice info">
+        <p>
+          This is the preserved earlier preparation scope, not the complete
+          advanced requirements.{" "}
+          <a href={`#/career/${id}`}>Open the current Career Path</a>.
+        </p>
         <p>
           <strong>
             {progress.completed}/{progress.total} unique mapped lessons
@@ -404,9 +414,10 @@ export function CareerReadiness(
       <section className="panel lesson-section">
         <h3>Reference implementation: {packet.title}</h3>
         <span className="subtle-pill">
-          {packet.referenceStatus === "accepted-local-reference"
-            ? "Reviewed local reference"
-            : "Reference review pending"}
+          {packet.referenceLabel ||
+            (packet.referenceStatus === "accepted-local-reference"
+              ? "Reviewed local reference"
+              : "Reference review pending")}
         </span>
         {packet.coverage.length > 0 && (
           <>

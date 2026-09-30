@@ -1,0 +1,2305 @@
+{
+  "schemaVersion": 1,
+  "trackId": "quant-infrastructure-advanced",
+  "title": "Quantitative Development & Research Infrastructure",
+  "sourceCheckedOn": "2026-09-30",
+  "modules": [
+    {
+      "id": "advanced-d5-foundation-04",
+      "title": "System Basics",
+      "stage": "foundation",
+      "description": "Multi-threading concepts, socket programming, CPU pinning, and basic POSIX APIs.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-foundation-04-affinity-sockets",
+          "title": "Observe POSIX thread affinity without changing host policy",
+          "objectives": [
+            "POSIX threads/sockets and per-process affinity versus host/kernel configuration.",
+            "Message correctness is unchanged, scope is limited to owned processes and observations distinguish affinity from exclusive CPU ownership or guaranteed latency."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Thread scheduling, socket I/O and process affinity are distinct mechanisms. Affinity restricts eligible CPUs but does not reserve a core or guarantee deterministic latency. Other work, interrupts and shared caches can still affect execution.",
+                "POSIX threads/sockets and per-process affinity versus host/kernel configuration."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A framed socket protocol must handle partial reads/writes and shutdown regardless of where its threads run. Process-local affinity experiments are different from host boot isolation or real-time scheduler changes, which need an explicitly authorized disposable environment.",
+                "Message correctness is unchanged, scope is limited to owned processes and observations distinguish affinity from exclusive CPU ownership or guaranteed latency."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "advanced-d5-foundation-04-affinity-sockets"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-99da8b78e467",
+            "locator": "Linux man pages: sched_setaffinity(2), pthreads(7), socket(7), read(2) and write(2). Distinguish process-local affinity from host isolation and real-time policy."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-2b78aabcefc7",
+            "advanced-reading-36e98d91b4ff",
+            "advanced-reading-e7fb43794830",
+            "advanced-reading-ac793417e9c3",
+            "advanced-reading-d8b85216c089",
+            "advanced-reading-e6ef26241e98",
+            "advanced-reading-aba849e22368",
+            "advanced-reading-d144a10ff2ea",
+            "advanced-reading-08d67a9f8836"
+          ],
+          "assignment": {
+            "id": "advanced-d5-foundation-04-affinity-sockets-assignment",
+            "title": "Observe POSIX thread affinity without changing host policy: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Run an original framed loopback workload with two worker threads and record actual scheduling/affinity where permitted. Compare an unpinned and process-locally pinned configuration without altering boot settings.",
+              "Compare framed socket and worker behavior with documented process-local affinity on an authorized runner, measure scheduler effects and do not change host boot parameters or security policy.",
+              "Fragment messages, disconnect mid-frame and oversubscribe the allowed CPU set. Retain all timing variation and invalid-affinity errors.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Run an original framed loopback workload with two worker threads and record actual scheduling/affinity where permitted. Compare an unpinned and process-locally pinned configuration without altering boot settings.",
+              "Fragment messages, disconnect mid-frame and oversubscribe the allowed CPU set. Retain all timing variation and invalid-affinity errors.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Message correctness is unchanged, scope is limited to owned processes and observations distinguish affinity from exclusive CPU ownership or guaranteed latency.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-foundation-04-affinity-sockets-check-01",
+                "kind": "short-answer",
+                "prompt": "Does pinning a thread to one CPU reserve that CPU exclusively?",
+                "answer": "No. Other processes, interrupts and shared-resource contention can still affect it.",
+                "explanation": "Affinity is a scheduling eligibility constraint, not a universal isolation guarantee."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does pinning a thread to one CPU reserve that CPU exclusively?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "gate-l39",
+            "gate-l43",
+            "systems-foundation-c-posix",
+            "systems-intermediate-cpp-atomics"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-foundation-05",
+      "title": "Data Handling",
+      "stage": "foundation",
+      "description": "Manipulating time-series data, handling millisecond timestamps, and loading large CSV/Parquet market feeds.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-foundation-05-feed-files",
+          "title": "Preserve tick time units while loading CSV and Parquet",
+          "objectives": [
+            "Timestamp units/rounding, CSV/Parquet schema and chunked/lazy market-data loading.",
+            "Timestamps retain exact intended units, invalid rows are quarantined with reasons and no data is invented. Large-file claims identify actual bytes/rows and memory measurements."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A timestamp needs a unit, timezone/epoch and meaning such as exchange event time or local receipt time. Converting milliseconds to a coarser unit can destroy ordering information; equal timestamps still require a stable tie-breaker. An event time is not the time the observer could use the information.",
+                "Timestamp units/rounding, CSV/Parquet schema and chunked/lazy market-data loading."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Chunked/lazy CSV/Parquet reading can bound memory only when downstream transformations also stream or remain bounded. Schema inference may change integer widths/null behavior across files, so a market-data contract should pin representation and preserve original provenance.",
+                "Timestamps retain exact intended units, invalid rows are quarantined with reasons and no data is invented. Large-file claims identify actual bytes/rows and memory measurements."
+              ]
+            }
+          ],
+          "estimatedMinutes": 240,
+          "canonicalConceptTags": [
+            "advanced-d5-foundation-05-feed-files"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-7e4968ffa708",
+            "locator": "Pandas User Guide: time series/date functionality, time-zone handling, resampling and IO tools for CSV/Parquet; compare Polars lazy scans and exact integer timestamp policies."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-64e32ea9f946",
+            "advanced-reading-b07e0f8cc39f",
+            "advanced-reading-f5f13ea5a416",
+            "advanced-reading-3f27ba342b19",
+            "advanced-reading-1b8567d2ef50",
+            "advanced-reading-163c679a0648",
+            "advanced-reading-4d089713c1e8",
+            "advanced-reading-f0d828cc0baf",
+            "advanced-reading-8aa5903e73f8",
+            "advanced-reading-24215d14d71f"
+          ],
+          "assignment": {
+            "id": "advanced-d5-foundation-05-feed-files-assignment",
+            "title": "Preserve tick time units while loading CSV and Parquet: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Generate an original multi-file tick fixture with explicit millisecond and higher-resolution integer timestamps, duplicates and one malformed record. Load through bounded Pandas/Polars or Arrow paths and round-trip Parquet.",
+              "Generate an original bounded tick fixture, preserve timestamp integers and ordering through Parquet, exercise malformed/truncated files and report peak memory versus the declared input size.",
+              "Truncate a file, change a timestamp unit and include out-of-order equal-time events. Compare canonical values/order and peak memory against declared input size.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Generate an original multi-file tick fixture with explicit millisecond and higher-resolution integer timestamps, duplicates and one malformed record. Load through bounded Pandas/Polars or Arrow paths and round-trip Parquet.",
+              "Truncate a file, change a timestamp unit and include out-of-order equal-time events. Compare canonical values/order and peak memory against declared input size.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Timestamps retain exact intended units, invalid rows are quarantined with reasons and no data is invented. Large-file claims identify actual bytes/rows and memory measurements.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-foundation-05-feed-files-check-01",
+                "kind": "short-answer",
+                "prompt": "Does converting all timestamps to seconds preserve a millisecond event ordering contract?",
+                "answer": "Not necessarily; distinct events can collapse to the same coarse timestamp.",
+                "explanation": "Precision and stable tie-breaking must follow the intended data semantics."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does converting all timestamps to seconds preserve a millisecond event ordering contract?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "algorithmic-l02-bars-calendars",
+            "quant-l10-availability-time",
+            "data-l06",
+            "systems-foundation-arrays-frames"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-intermediate-02",
+      "title": "Financial Data Protocols",
+      "stage": "intermediate",
+      "description": "Parsing binary financial protocols (FIX, FAST, ITCH, OUCH) and WebSocket market data feeds.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-intermediate-02-protocol-parsers",
+          "title": "Parse versioned FIX, FAST, ITCH and OUCH fixtures",
+          "objectives": [
+            "Classic text FIX framing/checksum, FAST encoding, versioned binary ITCH and OUCH messages.",
+            "Supported messages normalize correctly, malformed inputs fail without partial state changes and text FIX is not mislabelled binary. Unimplemented protocol messages remain explicit exclusions."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Classic FIX is text/tag-value framing with explicit message-length/checksum conventions; it is not generally a binary protocol. FAST specifies encoding/compression concepts, while ITCH and OUCH define versioned exchange messages with different roles. A parser must identify the exact supported version and message subset.",
+                "Classic text FIX framing/checksum, FAST encoding, versioned binary ITCH and OUCH messages."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Network reads may split or combine frames. Length checks, byte order, field validation and sequence/gap policy must precede state mutation. Original synthetic messages can exercise the specification without redistributing licensed market feeds or connecting to an exchange.",
+                "Supported messages normalize correctly, malformed inputs fail without partial state changes and text FIX is not mislabelled binary. Unimplemented protocol messages remain explicit exclusions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-intermediate-02-protocol-parsers"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-f0d828cc0baf",
+            "locator": "FIX Trading Community standards index: classic FIX tag-value framing, body length/checksum and versioned specifications. Read FAST plus the official Nasdaq ITCH/OUCH versioned specs for their distinct encodings."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-8aa5903e73f8",
+            "advanced-reading-24215d14d71f",
+            "advanced-reading-4414e131c177",
+            "advanced-reading-9272f9fdc3d9",
+            "advanced-reading-692241393bea",
+            "advanced-reading-e593c606c957",
+            "advanced-reading-5fb81ccf2887",
+            "advanced-reading-19b1c63f6292",
+            "advanced-reading-6d091ad3b5c7",
+            "advanced-reading-f47a21cc6a1c"
+          ],
+          "assignment": {
+            "id": "advanced-d5-intermediate-02-protocol-parsers-assignment",
+            "title": "Parse versioned FIX, FAST, ITCH and OUCH fixtures: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Author small original valid/invalid fixtures for each of the four named protocols using their official versioned documentation. Implement bounded framing and normalized event outputs with an independent expected table.",
+              "Parse original synthetic frames for each named protocol; exercise fragmentation, truncation, lengths, sequence gaps and invalid messages using bounded fuzz fixtures and explicit supported subsets.",
+              "Split frames at every boundary, concatenate messages and test truncated/oversized/unknown message types. Instrument extraction allocations on an actual native runner where required.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Author small original valid/invalid fixtures for each of the four named protocols using their official versioned documentation. Implement bounded framing and normalized event outputs with an independent expected table.",
+              "Split frames at every boundary, concatenate messages and test truncated/oversized/unknown message types. Instrument extraction allocations on an actual native runner where required.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Supported messages normalize correctly, malformed inputs fail without partial state changes and text FIX is not mislabelled binary. Unimplemented protocol messages remain explicit exclusions.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-intermediate-02-protocol-parsers-check-01",
+                "kind": "short-answer",
+                "prompt": "Are classic FIX and ITCH both necessarily binary wire formats?",
+                "answer": "No. Classic FIX is text/tag-value; ITCH uses a specified binary format.",
+                "explanation": "The implementation must name its protocol/version rather than generalizing from a finance-related acronym."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Are classic FIX and ITCH both necessarily binary wire formats?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-foundation-cpp-values"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        },
+        {
+          "id": "advanced-d5-intermediate-02-websocket-feed",
+          "title": "Recover an owned WebSocket feed without inventing missing events",
+          "objectives": [
+            "WebSocket market event framing, reconnect/gap detection and snapshot-versus-increment semantics.",
+            "Final state matches an independent oracle or remains visibly unavailable pending recovery. No live exchange/broker connection or real trading action is used."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "WebSocket frames transport messages over a connection but do not define market sequence, snapshot or recovery semantics. Application heartbeats, sequence IDs and subscription state must be specified separately. Reconnecting a socket does not prove the consumer has a complete book.",
+                "WebSocket market event framing, reconnect/gap detection and snapshot-versus-increment semantics."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A feed snapshot provides a state boundary and incremental events advance it under an ordering policy. A detected gap may require replay or resnapshot; silently continuing can produce a plausible but wrong state.",
+                "Final state matches an independent oracle or remains visibly unavailable pending recovery. No live exchange/broker connection or real trading action is used."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-intermediate-02-websocket-feed"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-6d091ad3b5c7",
+            "locator": "RFC 6455: opening handshake, data framing, control frames and connection closure. Application sequence/snapshot/replay semantics must be authored and tested separately."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-f0d828cc0baf",
+            "advanced-reading-8aa5903e73f8",
+            "advanced-reading-24215d14d71f",
+            "advanced-reading-4414e131c177",
+            "advanced-reading-9272f9fdc3d9",
+            "advanced-reading-692241393bea",
+            "advanced-reading-e593c606c957",
+            "advanced-reading-5fb81ccf2887",
+            "advanced-reading-19b1c63f6292",
+            "advanced-reading-f47a21cc6a1c"
+          ],
+          "assignment": {
+            "id": "advanced-d5-intermediate-02-websocket-feed-assignment",
+            "title": "Recover an owned WebSocket feed without inventing missing events: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create a loopback synthetic WebSocket feed with a snapshot and ten numbered increments. Define the consumer's duplicate, gap and reconnect policies before implementation.",
+              "Use a loopback synthetic feed, interrupt/reconnect and reconcile sequence gaps without connecting an exchange or live broker.",
+              "Drop an increment, duplicate another and disconnect after acknowledgement. Resume from an explicitly supported replay/snapshot boundary rather than assuming continuity.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create a loopback synthetic WebSocket feed with a snapshot and ten numbered increments. Define the consumer's duplicate, gap and reconnect policies before implementation.",
+              "Drop an increment, duplicate another and disconnect after acknowledgement. Resume from an explicitly supported replay/snapshot boundary rather than assuming continuity.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Final state matches an independent oracle or remains visibly unavailable pending recovery. No live exchange/broker connection or real trading action is used.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-intermediate-02-websocket-feed-check-01",
+                "kind": "short-answer",
+                "prompt": "Does reconnecting a feed socket repair a missing market event automatically?",
+                "answer": "No. The application needs an explicit sequence/replay/snapshot recovery protocol.",
+                "explanation": "Connection health and completeness of market state are different properties."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does reconnecting a feed socket repair a missing market event automatically?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-foundation-cpp-values"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-intermediate-03",
+      "title": "Backtesting Infrastructure",
+      "stage": "intermediate",
+      "description": "Building vectorized backtesters in Python/Polars or C++, simulating transaction costs, slippage, and market impact.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-intermediate-03-hybrid-backtest",
+          "title": "Keep vectorized screening and native execution causally equivalent",
+          "objectives": [
+            "Vectorized screening versus event-driven fills, native bindings and fair performance comparison.",
+            "Signals and fills use only eligible information, cash/positions reconcile and costs are disjoint. Any measured speed comparison uses identical semantics and disclosed native conversion boundaries."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Vectorized screening can rapidly compute candidate signals, while event-driven execution models order eligibility, fills and state transitions. They answer related but different questions; a vectorized return series is not automatically an executable fill history.",
+                "Vectorized screening versus event-driven fills, native bindings and fair performance comparison."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Polars/Python and a C++/pybind11 core must share timestamp, missing-data, transaction-cost and accounting conventions. A fair benchmark includes equivalent work and conversion costs. A 100x target is not established by comparing a simple native loop to a more feature-rich Python pipeline.",
+                "Signals and fills use only eligible information, cash/positions reconcile and costs are disjoint. Any measured speed comparison uses identical semantics and disclosed native conversion boundaries."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-intermediate-03-hybrid-backtest",
+            "technology:c++",
+            "technology:python"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-4bd0c6173645",
+            "locator": "QuantConnect reality-model documentation: fill, fee, slippage, buying-power and capacity model boundaries. Use original independent fixtures and actual native/Polars comparisons, not provider backtest claims."
+          },
+          "supplementaryResourceIds": [
+            "algorithmic-doc-splits",
+            "advanced-reading-4f038eb85040",
+            "advanced-reading-937eba573bc9",
+            "advanced-reading-64e32ea9f946",
+            "advanced-reading-7e4968ffa708",
+            "advanced-reading-b07e0f8cc39f",
+            "advanced-reading-f5f13ea5a416"
+          ],
+          "assignment": {
+            "id": "advanced-d5-intermediate-03-hybrid-backtest-assignment",
+            "title": "Keep vectorized screening and native execution causally equivalent: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Implement an original fixed signal/schedule through Polars screening and an actual bounded C++ event engine with Python bindings. Compare to a simple independent chronological reference.",
+              "Compare Polars/Python screening and a bounded C++ event engine against a simple oracle, reconcile cost/slippage/impact components and measure the claimed 100x only if equivalent actual workloads support it.",
+              "Introduce a future-data leak, double-count a fee and exercise a partial-fill case. Retain a zero-trade scenario and all rejected/unfilled orders.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Implement an original fixed signal/schedule through Polars screening and an actual bounded C++ event engine with Python bindings. Compare to a simple independent chronological reference.",
+              "Introduce a future-data leak, double-count a fee and exercise a partial-fill case. Retain a zero-trade scenario and all rejected/unfilled orders.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Signals and fills use only eligible information, cash/positions reconcile and costs are disjoint. Any measured speed comparison uses identical semantics and disclosed native conversion boundaries.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-intermediate-03-hybrid-backtest-check-01",
+                "kind": "short-answer",
+                "prompt": "Can a fast vectorized signal calculation establish realistic execution performance?",
+                "answer": "No. It omits order, fill, latency and accounting behavior unless those are explicitly modelled.",
+                "explanation": "Screening speed and execution-fidelity evidence must be reported separately."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can a fast vectorized signal calculation establish realistic execution performance?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "quant-l18-causal-backtest-clock",
+            "quant-l19-execution-costs",
+            "algorithmic-l07-event-clock",
+            "algorithmic-l08-cost-capacity",
+            "systems-foundation-arrays-frames",
+            "systems-advanced-native-ml-bindings"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-intermediate-04",
+      "title": "Risk Metrics",
+      "stage": "intermediate",
+      "description": "Calculating Sharpe, Sortino, Calmar ratios, Maximum Drawdown, Value at Risk (VaR), and beta/alpha calculations.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-intermediate-04-risk-statistics",
+          "title": "Define Sharpe, Sortino, Calmar, drawdown, VaR, beta and alpha",
+          "objectives": [
+            "All seven requested risk measures, annualization, downside threshold, drawdown windows and regression assumptions.",
+            "Every metric matches its declared oracle/convention, undefined cases are not infinite success scores and no synthetic risk report becomes an investment or profitability claim."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "For this lab, periodic Sharpe is mean excess return divided by sample standard deviation of excess returns. Sortino uses mean return minus the declared target, divided by the square root of the mean squared negative deviations from that target across all periods. Calmar uses a declared annualized geometric return divided by the absolute maximum drawdown. State frequency and risk-free/target inputs; annualization assumptions are not automatic and zero denominators remain undefined.",
+                "All seven requested risk measures, annualization, downside threshold, drawdown windows and regression assumptions."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Drawdown at a time is equity divided by its preceding running peak, minus one; take the most negative value under the stated window. VaR is the specified nearest-rank quantile of losses, not a worst-case bound. Beta is sample covariance with benchmark excess returns divided by their sample variance; alpha is mean portfolio excess return minus beta times mean benchmark excess return. Use the same observations/frequency throughout, and treat invalid equity paths or zero benchmark variance explicitly.",
+                "Every metric matches its declared oracle/convention, undefined cases are not infinite success scores and no synthetic risk report becomes an investment or profitability claim."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-intermediate-04-risk-statistics"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-c10038a22d81",
+            "locator": "CRAN PerformanceAnalytics reference manual, freely linked under Documentation: SharpeRatio, SortinoRatio, CalmarRatio, Drawdowns, VaR, CAPM.beta and CAPM.alpha. Compare conventions with the original worksheet and the linked Zivot text; implementation may remain Python/C++."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-5b12a53ff387",
+            "quant-book-think-stats",
+            "advanced-reading-a2eddeee1a21",
+            "advanced-reading-82e2eb8bd80e",
+            "quant-book-zivot",
+            "algorithmic-doc-splits",
+            "advanced-reading-4bd0c6173645",
+            "advanced-reading-4f038eb85040"
+          ],
+          "assignment": {
+            "id": "advanced-d5-intermediate-04-risk-statistics-assignment",
+            "title": "Define Sharpe, Sortino, Calmar, drawdown, VaR, beta and alpha: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Author a twelve-period portfolio/benchmark/risk-free fixture and hand-check each requested metric on a smaller subset. Implement an independent calculation and record all conventions and units.",
+              "Hand-check original return/benchmark fixtures including flat/no-trade/negative-equity and near-zero denominator cases; compare an independent implementation and report undefined values instead of fabricated infinite success.",
+              "Test flat returns, no trades, negative/zero equity where relevant, zero downside deviation and a changed benchmark/frequency. Keep undefined results explicit.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Author a twelve-period portfolio/benchmark/risk-free fixture and hand-check each requested metric on a smaller subset. Implement an independent calculation and record all conventions and units.",
+              "Test flat returns, no trades, negative/zero equity where relevant, zero downside deviation and a changed benchmark/frequency. Keep undefined results explicit.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Every metric matches its declared oracle/convention, undefined cases are not infinite success scores and no synthetic risk report becomes an investment or profitability claim.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-intermediate-04-risk-statistics-check-01",
+                "kind": "short-answer",
+                "prompt": "Is VaR the maximum loss a portfolio can experience?",
+                "answer": "No. It is a specified loss quantile under the selected data/model and horizon.",
+                "explanation": "Losses beyond the quantile and risks outside the model remain possible."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Is VaR the maximum loss a portfolio can experience?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "quant-l24-tail-risk-stress",
+            "quant-l23-constraints-exposures",
+            "algorithmic-l12-report"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-intermediate-05",
+      "title": "Performance Profiling",
+      "stage": "intermediate",
+      "description": "Identifying CPU hotspots and memory bottlenecks using perf, valgrind, and cachegrind.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-intermediate-05-profilers",
+          "title": "Find native hotspots with actual perf, Valgrind and Cachegrind",
+          "objectives": [
+            "Profile symbolization, sampling/instrumentation effects and memory/cache findings.",
+            "Findings identify actual functions/resources and their scope; memory defects are fixed rather than dismissed as speed trade-offs. Unsupported tools remain not run."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "perf sampling/counters, Valgrind memory checking and Cachegrind instrumentation reveal different properties. A tool invocation that is unavailable or permission-denied has not produced the intended evidence. Instrumented timings must not be treated as the uninstrumented production path.",
+                "Profile symbolization, sampling/instrumentation effects and memory/cache findings."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A useful diagnosis connects an observed hotspot or memory finding to a reproducible workload and a semantics-preserving change. Profiling only easy insertions can miss cancellation, depth and allocation behavior important to a matching engine.",
+                "Findings identify actual functions/resources and their scope; memory defects are fixed rather than dismissed as speed trade-offs. Unsupported tools remain not run."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-intermediate-05-profilers"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-aba849e22368",
+            "locator": "Valgrind User Manual: Memcheck errors/options and execution limitations; pair with Cachegrind's simulated cache/branch measurements and perf sampling/counters."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-e6ef26241e98",
+            "advanced-reading-d144a10ff2ea",
+            "advanced-reading-08d67a9f8836"
+          ],
+          "assignment": {
+            "id": "advanced-d5-intermediate-05-profilers-assignment",
+            "title": "Find native hotspots with actual perf, Valgrind and Cachegrind: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Profile an owned native fixture with three operation mixes and a deliberately bounded allocation/layout inefficiency. Retain actual outputs from all three requested tools where supported.",
+              "Run all three tools on a bounded owned native fixture where permitted, reproduce a planted hotspot/leak/layout problem and retain each tool's observations and overhead separately.",
+              "Correct one issue at a time, compare outputs to an independent oracle and include a workload where the change does not help. Preserve permission errors instead of changing host perf policy.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Profile an owned native fixture with three operation mixes and a deliberately bounded allocation/layout inefficiency. Retain actual outputs from all three requested tools where supported.",
+              "Correct one issue at a time, compare outputs to an independent oracle and include a workload where the change does not help. Preserve permission errors instead of changing host perf policy.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Findings identify actual functions/resources and their scope; memory defects are fixed rather than dismissed as speed trade-offs. Unsupported tools remain not run.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-intermediate-05-profilers-check-01",
+                "kind": "short-answer",
+                "prompt": "Can a denied perf invocation be replaced by a guessed counter value?",
+                "answer": "No. The measurement is unavailable and must be reported that way.",
+                "explanation": "A performance claim needs actual observations from a supported authorized environment."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can a denied perf invocation be replaced by a guessed counter value?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-professional-native-performance"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-advanced-01",
+      "title": "Ultra-Low-Latency Order Book Design",
+      "stage": "advanced",
+      "description": "Developing deterministic Limit Order Books (LOB) with sub-microsecond insertion, cancellation, and execution times.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-advanced-01-native-lob",
+          "title": "Extend a correct LOB with bounded C++20 hot-path storage",
+          "objectives": [
+            "Extend the existing P17 paper-exchange reference with a new fixed-capacity native core, preserving price/FIFO semantics.",
+            "All outcomes match the oracle, rejected capacity operations are atomic and zero-allocation claims have actual counters. Operation-specific latency reports include hardware, raw samples, maxima and exclusions."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Price/FIFO matching, quantity conservation and explicit rejects define behavior before optimization. A fixed-capacity arena/index can bound allocation but must preflight operations so a capacity failure cannot leave partially mutated book/receipt state.",
+                "Extend the existing P17 paper-exchange reference with a new fixed-capacity native core, preserving price/FIFO semantics."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A native typed execute benchmark covers only its named boundary. Parsing, queues, networking and persistence can add costs outside it. p99 below one microsecond on one measured machine is not a worst-case, cross-machine or production HFT guarantee.",
+                "All outcomes match the oracle, rejected capacity operations are atomic and zero-allocation claims have actual counters. Operation-specific latency reports include hardware, raw samples, maxima and exclusions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-advanced-01-native-lob",
+            "technology:c++"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-8117f6cdcbd0",
+            "locator": "C++ Core Guidelines: R resource management, CP concurrency and Per performance rules; apply them to the independently specified price/FIFO matching and rejection-atomicity contract."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-b41d38fef74c",
+            "advanced-reading-86ecc9e4bbc9",
+            "advanced-reading-c87a158eed67",
+            "trading-doc-markets",
+            "trading-doc-futures",
+            "advanced-reading-45c180407754",
+            "advanced-reading-e6ef26241e98",
+            "advanced-reading-aba849e22368",
+            "advanced-reading-d144a10ff2ea",
+            "advanced-reading-08d67a9f8836"
+          ],
+          "assignment": {
+            "id": "advanced-d5-advanced-01-native-lob-assignment",
+            "title": "Extend a correct LOB with bounded C++20 hot-path storage: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Use the preserved independent paper-exchange oracle to verify a C++20 fixed-capacity L3 matcher across insertion, cancellation and matching at multiple book depths. Instrument allocations around the declared typed operation.",
+              "Differentially test all operation mixes against the preserved oracle, instrument allocations across an explicitly defined critical path and benchmark insertion/cancellation/execution separately; leave thresholds unmet when not observed.",
+              "Exhaust each bounded pool/index, replay a full-width ID and test a FIFO/partial-fill counterexample. Run supported sanitizers and retain slower-machine/outlier results.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Use the preserved independent paper-exchange oracle to verify a C++20 fixed-capacity L3 matcher across insertion, cancellation and matching at multiple book depths. Instrument allocations around the declared typed operation.",
+              "Exhaust each bounded pool/index, replay a full-width ID and test a FIFO/partial-fill counterexample. Run supported sanitizers and retain slower-machine/outlier results.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "All outcomes match the oracle, rejected capacity operations are atomic and zero-allocation claims have actual counters. Operation-specific latency reports include hardware, raw samples, maxima and exclusions.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-advanced-01-native-lob-check-01",
+                "kind": "short-answer",
+                "prompt": "Does zero allocation inside typed execute prove end-to-end JSON requests allocate nothing?",
+                "answer": "No. Parsing, queueing, receipts or other surrounding work may allocate outside that boundary.",
+                "explanation": "Allocation claims must name and instrument the exact included path."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does zero allocation inside typed execute prove end-to-end JSON requests allocate nothing?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "quant-l13-order-book-semantics",
+            "quant-l14-reference-matcher",
+            "quant-l16-differential-testing",
+            "quant-l25-cpp-engine-lane",
+            "systems-advanced-cpp-spsc-arenas",
+            "systems-professional-native-performance"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-advanced-02",
+      "title": "Mechanical Sympathy",
+      "stage": "advanced",
+      "description": "CPU cache-line alignment (preventing false sharing), branch prediction optimization ([[likely]]/[[unlikely]]), and custom pre-allocated memory pools.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-advanced-02-layout-experiments",
+          "title": "Test cache alignment, branch hints and pools as hypotheses",
+          "objectives": [
+            "Compare cache-aligned hot state, branch hints and memory-pool lifetime under realistic command mixes.",
+            "State and outputs remain equal, exhaustion is safe and reported conclusions are limited to measured environments. No claim of eliminating all cache misses is made."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Separating producer/consumer hot indices can reduce false sharing, while contiguous data may improve locality for some traversals. The cache hierarchy still has compulsory, capacity and conflict misses. [[likely]]/[[unlikely]] communicate an expectation, not a guaranteed branch outcome or faster program.",
+                "Compare cache-aligned hot state, branch hints and memory-pool lifetime under realistic command mixes."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Preallocated memory pools exchange flexible allocation for bounded capacity and explicit object lifetime. Reuse must not expose stale IDs or live objects. Every optimization should preserve the same matching/state semantics and be measured under more than one input distribution.",
+                "State and outputs remain equal, exhaustion is safe and reported conclusions are limited to measured environments. No claim of eliminating all cache misses is made."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-advanced-02-layout-experiments"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-d144a10ff2ea",
+            "locator": "Cachegrind manual: simulation overview, cache/branch statistics, options and interpretation limits. Pair with C++ alignment/branch-hint and atomic memory-order references."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-8117f6cdcbd0",
+            "advanced-reading-b41d38fef74c",
+            "advanced-reading-86ecc9e4bbc9",
+            "advanced-reading-c87a158eed67",
+            "advanced-reading-e6ef26241e98",
+            "advanced-reading-aba849e22368",
+            "advanced-reading-08d67a9f8836"
+          ],
+          "assignment": {
+            "id": "advanced-d5-advanced-02-layout-experiments-assignment",
+            "title": "Test cache alignment, branch hints and pools as hypotheses: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Compare aligned versus adjacent counters, hinted versus unhinted branches and ordinary versus pooled storage on the same original native command traces.",
+              "Use allocation/counter evidence and matched outputs; demonstrate a case where a hint/layout change does not help and never claim elimination of all cache misses.",
+              "Reverse the predicted hot branch, saturate the pool and vary cancellation/depth mixes. Retain actual counters, allocation observations and cases that get slower.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Compare aligned versus adjacent counters, hinted versus unhinted branches and ordinary versus pooled storage on the same original native command traces.",
+              "Reverse the predicted hot branch, saturate the pool and vary cancellation/depth mixes. Retain actual counters, allocation observations and cases that get slower.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "State and outputs remain equal, exhaustion is safe and reported conclusions are limited to measured environments. No claim of eliminating all cache misses is made.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-advanced-02-layout-experiments-check-01",
+                "kind": "short-answer",
+                "prompt": "Can a branch hint guarantee the hinted branch is cheap?",
+                "answer": "No. Actual input distribution, generated code and hardware determine the result.",
+                "explanation": "Hints are optimization hypotheses that require correctness-preserving measurements."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can a branch hint guarantee the hinted branch is cheap?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-advanced-cpp-spsc-arenas",
+            "systems-professional-native-performance"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-advanced-03",
+      "title": "Event-Driven Execution Simulation",
+      "stage": "advanced",
+      "description": "Building tick-level backtesting engines that realistically simulate queue position, exchange latency jitter, and adverse selection.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-advanced-03-execution-fidelity",
+          "title": "Model tick queues, latency jitter and adverse selection explicitly",
+          "objectives": [
+            "Price-time queue position, latency distributions, partial fills and adverse-selection hypotheses.",
+            "No fill precedes eligibility or exceeds allowed quantity; assumptions and sensitivity are explicit. Synthetic results are not presented as profitable real-market execution."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A hypothetical order's fill depends on arrival time, queue position and eligible liquidity. Historical depth cannot reveal every counterfactual queue event, so the simulator must label its assumptions. Price/size movement during latency can select systematically worse fills rather than merely add symmetric noise.",
+                "Price-time queue position, latency distributions, partial fills and adverse-selection hypotheses."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A seeded jitter model makes the computation reproducible, not realistic by assertion. Partial fills, cancel races and adverse-selection scenarios need independent state/accounting checks. Tuning assumptions solely to improve reported returns invalidates the comparison.",
+                "No fill precedes eligibility or exceeds allowed quantity; assumptions and sensitivity are explicit. Synthetic results are not presented as profitable real-market execution."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-advanced-03-execution-fidelity"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-4bd0c6173645",
+            "locator": "Reality-model documentation: fill/slippage/fee and capacity assumptions. Compare those assumptions to original tick/queue/latency traces rather than treating historical quotes as guaranteed fills."
+          },
+          "supplementaryResourceIds": [
+            "algorithmic-doc-splits",
+            "advanced-reading-4f038eb85040",
+            "trading-doc-markets",
+            "trading-doc-futures",
+            "advanced-reading-45c180407754"
+          ],
+          "assignment": {
+            "id": "advanced-d5-advanced-03-execution-fidelity-assignment",
+            "title": "Model tick queues, latency jitter and adverse selection explicitly: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Create an original tick/order sequence with known queue-ahead quantity, a partial fill and a price move during a sampled delay. Compare two predeclared queue/jitter models using the same seeds.",
+              "Run original tick/order traces with a deterministic seed, reconcile inventory/cash and show how queue/jitter assumptions change fills; synthetic fidelity is not evidence of profitable trading.",
+              "Cancel while a fill is in flight, remove available liquidity and reverse an event-time tie. Reconcile every order quantity, cash movement and position.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Create an original tick/order sequence with known queue-ahead quantity, a partial fill and a price move during a sampled delay. Compare two predeclared queue/jitter models using the same seeds.",
+              "Cancel while a fill is in flight, remove available liquidity and reverse an event-time tie. Reconcile every order quantity, cash movement and position.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "No fill precedes eligibility or exceeds allowed quantity; assumptions and sensitivity are explicit. Synthetic results are not presented as profitable real-market execution.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-advanced-03-execution-fidelity-check-01",
+                "kind": "short-answer",
+                "prompt": "Does a fixed random seed prove a latency model is realistic?",
+                "answer": "No. It provides reproducibility under the chosen assumptions.",
+                "explanation": "Model validity needs independent evidence; deterministic repetition can reproduce an unrealistic model perfectly."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does a fixed random seed prove a latency model is realistic?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "quant-l19-execution-costs",
+            "algorithmic-l07-event-clock",
+            "algorithmic-l09-fill-failures"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-advanced-04",
+      "title": "Distributed Research Computing",
+      "stage": "advanced",
+      "description": "Distributing large-scale parameter sweeps across multi-node clusters with shared-memory data caching.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-advanced-04-research-grid",
+          "title": "Schedule distributed sweeps with mmap and fenced results",
+          "objectives": [
+            "Durable leases/heartbeats, speculative re-execution, mmap read sharing and deterministic trial identities.",
+            "Every trial has one authoritative reproducible result or explicit failure, all attempts remain auditable and local-process scope is not called a multi-host cluster."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A task attempt is not the same as a research trial. Retries/speculation can create multiple attempts for one stable trial identity, so only an authorized result should commit. Heartbeats and leases detect suspected failure but do not stop a stale worker from returning later.",
+                "Durable leases/heartbeats, speculative re-execution, mmap read sharing and deterministic trial identities."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Read-only mmap can let processes share file-backed pages on one host without duplicating every input array. It does not by itself share memory across machines or prove no physical duplication. Data hashes, fold identity and code/configuration must travel with every trial.",
+                "Every trial has one authoritative reproducible result or explicit failure, all attempts remain auditable and local-process scope is not called a multi-host cluster."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-advanced-04-research-grid"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-ec1bdbed2191",
+            "locator": "Python mmap reference: access modes, mapping lifetime, close/flush and platform constraints; pair with multiprocessing lifecycle and fenced trial-result commit semantics."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-46da2dec76cb",
+            "advanced-reading-32bb7a7ae00e",
+            "advanced-reading-98aeb027e426",
+            "ai-doc-cross-validation",
+            "advanced-reading-58987ace2263",
+            "advanced-reading-04e61008899e",
+            "advanced-reading-05947525b814",
+            "advanced-reading-34253c33cf99",
+            "advanced-reading-213c84bc0fea"
+          ],
+          "assignment": {
+            "id": "advanced-d5-advanced-04-research-grid-assignment",
+            "title": "Schedule distributed sweeps with mmap and fenced results: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Run a coordinator and three real worker processes over an original mmap dataset and a small parameter grid. Compare all results with a serial trial/fold oracle.",
+              "Run multiple real worker processes, inject slow/dead workers and reject stale duplicate commits; prove fold/data-hash provenance and distinguish local processes from an actually exercised multi-host cluster.",
+              "Delay one worker, terminate another and resume a stale attempt after reassignment. Reject duplicate/stale result commits and inspect actual mapping/memory evidence.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Run a coordinator and three real worker processes over an original mmap dataset and a small parameter grid. Compare all results with a serial trial/fold oracle.",
+              "Delay one worker, terminate another and resume a stale attempt after reassignment. Reject duplicate/stale result commits and inspect actual mapping/memory evidence.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Every trial has one authoritative reproducible result or explicit failure, all attempts remain auditable and local-process scope is not called a multi-host cluster.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-advanced-04-research-grid-check-01",
+                "kind": "short-answer",
+                "prompt": "Does mmap automatically share the same memory pages across different hosts?",
+                "answer": "No. File-backed page sharing is a host-local mechanism under the operating system's behavior.",
+                "explanation": "A distributed data/cache protocol needs additional transport and consistency design."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does mmap automatically share the same memory pages across different hosts?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-intermediate-python-workers"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-advanced-05",
+      "title": "Linux Kernel Tuning",
+      "stage": "advanced",
+      "description": "Isolating CPU cores (isolcpus), configuring real-time thread priorities (SCHED_FIFO), and kernel-bypass networking concepts.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-advanced-05-kernel-controls",
+          "title": "Evaluate isolcpus, SCHED_FIFO and kernel-bypass prerequisites safely",
+          "objectives": [
+            "CPU isolation, scheduling policy/priority, IRQ/NUMA interactions and kernel-bypass prerequisites.",
+            "The report distinguishes affinity, isolation, real-time priority and bypass, with design/simulation/runtime status explicit. No unsafe host modification is a prerequisite for studying the content."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "isolcpus and related kernel configuration influence CPU scheduling/isolation, while SCHED_FIFO changes real-time scheduling priority/behavior. Misconfigured real-time work can starve other tasks. Process affinity is not equivalent to boot-time isolation, IRQ placement or complete NUMA/cache isolation.",
+                "CPU isolation, scheduling policy/priority, IRQ/NUMA interactions and kernel-bypass prerequisites."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Kernel-bypass networking moves parts of packet processing into userspace/device-specific paths with its own queue/buffer/resource requirements. These controls need an approved disposable environment and a recovery/watchdog plan; documentation or trace simulation is not actual tuned-host evidence.",
+                "The report distinguishes affinity, isolation, real-time priority and bypass, with design/simulation/runtime status explicit. No unsafe host modification is a prerequisite for studying the content."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-advanced-05-kernel-controls"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-a2e278b653b6",
+            "locator": "sched(7): scheduling policies, SCHED_FIFO priorities, limits and safety considerations; compare kernel-parameters isolcpus and sched_setaffinity before any separately approved runtime change."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-44be29b28239",
+            "advanced-reading-ffa206fce712",
+            "advanced-reading-56beacfdacfd",
+            "advanced-reading-0b9466f3ddb5"
+          ],
+          "assignment": {
+            "id": "advanced-d5-advanced-05-kernel-controls-assignment",
+            "title": "Evaluate isolcpus, SCHED_FIFO and kernel-bypass prerequisites safely: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Annotate official isolcpus and SCHED_FIFO configuration/scheduling examples and create an original bounded scheduling/interrupt model. State required privileges, rollback and starvation risks before any runtime change.",
+              "Interpret official configuration and original scheduling traces; any real kernel/priority change requires an explicitly approved disposable environment and bounded watchdog. Never alter the current host, boot flags or App Control.",
+              "Evaluate a high-priority non-yielding task and a failed watchdog in a safe model. Execute real settings only when a separate authorized disposable host exists; never alter this host's boot or security policy.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Annotate official isolcpus and SCHED_FIFO configuration/scheduling examples and create an original bounded scheduling/interrupt model. State required privileges, rollback and starvation risks before any runtime change.",
+              "Evaluate a high-priority non-yielding task and a failed watchdog in a safe model. Execute real settings only when a separate authorized disposable host exists; never alter this host's boot or security policy.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "The report distinguishes affinity, isolation, real-time priority and bypass, with design/simulation/runtime status explicit. No unsafe host modification is a prerequisite for studying the content.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-advanced-05-kernel-controls-check-01",
+                "kind": "short-answer",
+                "prompt": "Does SCHED_FIFO automatically provide safe low latency for the whole machine?",
+                "answer": "No. An incorrectly bounded high-priority task can starve other work.",
+                "explanation": "Real-time policy requires workload bounds, recovery and system-level validation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does SCHED_FIFO automatically provide safe low latency for the whole machine?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "foundation-lesson-13-testing-debugging",
+            "foundation-lesson-14-reproducibility"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Kernel/BPF/XDP/MAC/real-time/NIC work requires an authorized disposable compatible Linux environment; do not alter this host's security or boot settings."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-professional-01",
+      "title": "Kernel-Bypass Hardware Networking",
+      "stage": "professional",
+      "description": "Working with Solarflare OpenOnload, DPDK, and zero-copy user-space network drivers.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-professional-01-bypass-drivers",
+          "title": "Compare OpenOnload and DPDK buffer/queue ownership",
+          "objectives": [
+            "Solarflare/AMD OpenOnload and DPDK userspace networking, NIC queues, DMA and buffer lifecycle.",
+            "No buffer is reused while still owned by another stage, failures are explicit and specialized-hardware claims require real evidence. Unavailable NIC/runtime gates remain pending."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Solarflare/AMD OpenOnload accelerates supported socket/network paths under specific hardware/kernel assumptions. DPDK exposes userspace poll-mode packet processing and explicit queues/buffers. Ordinary sockets, virtual adapters and specialized NIC runs establish different capabilities.",
+                "Solarflare/AMD OpenOnload and DPDK userspace networking, NIC queues, DMA and buffer lifecycle."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "DMA and buffer reuse need ownership and completion rules; zero-copy-friendly paths do not remove all copying or synchronization. Hugepages, NIC binding and privileged configuration must never be applied to an unrelated host as a curriculum shortcut.",
+                "No buffer is reused while still owned by another stage, failures are explicit and specialized-hardware claims require real evidence. Unavailable NIC/runtime gates remain pending."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-professional-01-bypass-drivers"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-0b9466f3ddb5",
+            "locator": "DPDK Guides: Getting Started, poll-mode drivers, memory/buffer management and supported NIC prerequisites. Compare OpenOnload's actual supported socket/driver path separately."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-56beacfdacfd"
+          ],
+          "assignment": {
+            "id": "advanced-d5-professional-01-bypass-drivers-assignment",
+            "title": "Compare OpenOnload and DPDK buffer/queue ownership: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Draw the control/data path for an original packet-processing workload in OpenOnload and DPDK. Exercise only supported owned virtual/real adapters on an approved environment and compare a socket baseline.",
+              "Compare control/data paths and test supported virtual/real adapters in an approved isolated environment; keep special NIC/kernel permissions and actual latency claims visibly pending rather than substituting ordinary sockets.",
+              "Exhaust a bounded buffer pool, lose an expected completion and test an unsupported adapter. Record actual queue, device and driver versions.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Draw the control/data path for an original packet-processing workload in OpenOnload and DPDK. Exercise only supported owned virtual/real adapters on an approved environment and compare a socket baseline.",
+              "Exhaust a bounded buffer pool, lose an expected completion and test an unsupported adapter. Record actual queue, device and driver versions.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "No buffer is reused while still owned by another stage, failures are explicit and specialized-hardware claims require real evidence. Unavailable NIC/runtime gates remain pending.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-professional-01-bypass-drivers-check-01",
+                "kind": "short-answer",
+                "prompt": "Does a virtual-adapter DPDK test prove latency on a specialized physical NIC?",
+                "answer": "No. It verifies the exercised software path, not the untested hardware data plane.",
+                "explanation": "Device, driver and workload differences must remain part of the evidence scope."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does a virtual-adapter DPDK test prove latency on a specialized physical NIC?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "foundation-lesson-13-testing-debugging",
+            "foundation-lesson-14-reproducibility"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Kernel/BPF/XDP/MAC/real-time/NIC work requires an authorized disposable compatible Linux environment; do not alter this host's security or boot settings."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-professional-02",
+      "title": "FPGA / Hardware Acceleration",
+      "stage": "professional",
+      "description": "Offloading market data feed-handlers and order parsing to FPGA/ASIC hardware.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-professional-02-hardware-feed",
+          "title": "Design FPGA/ASIC feed parsing with independent vectors",
+          "objectives": [
+            "FPGA/ASIC feed framing/parser pipelines, throughput/latency/resource trade-offs and host handoff.",
+            "Supported frames match the oracle without lost/duplicated outputs, reset behavior is defined and no physical latency/throughput claim is made from simulation alone."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A hardware parser is a clocked/dataflow implementation with explicit width, state and backpressure. Throughput per cycle, pipeline latency and host-interface cost are different. Unsupported frame lengths or malformed fields need a bounded reject path rather than undefined downstream signals.",
+                "FPGA/ASIC feed framing/parser pipelines, throughput/latency/resource trade-offs and host handoff."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "HDL simulation checks a model, synthesis estimates/maps resources and timing, and physical-board tests observe the deployed design. None of these stages should be silently substituted for another. ASIC/FPGA offload also needs host/device ownership and protocol-version compatibility.",
+                "Supported frames match the oracle without lost/duplicated outputs, reset behavior is defined and no physical latency/throughput claim is made from simulation alone."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-professional-02-hardware-feed"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-ed787caf9c17",
+            "locator": "Verilator User's Guide: examples, simulation, warnings, tracing and supported constructs; compare Yosys synthesis and physical FPGA timing/resource evidence as separate stages."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-f3b2d4589cc0",
+            "advanced-reading-7a78cb814b54",
+            "advanced-reading-ccd855700914",
+            "advanced-reading-f0d828cc0baf",
+            "advanced-reading-8aa5903e73f8",
+            "advanced-reading-24215d14d71f"
+          ],
+          "assignment": {
+            "id": "advanced-d5-professional-02-hardware-feed-assignment",
+            "title": "Design FPGA/ASIC feed parsing with independent vectors: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Author a bounded original HDL/dataflow parser for a named synthetic feed subset and compare outputs to a separate software oracle. Include backpressure and a host handoff specification.",
+              "Author a bounded original HDL/dataflow parser with software-oracle test vectors; separate simulation/synthesis reports from physical board timing and retain the actual-board gate when unavailable.",
+              "Test every frame boundary, malformed lengths, reset during a frame and downstream not-ready cycles. Retain simulation/synthesis and actual-board results separately.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Author a bounded original HDL/dataflow parser for a named synthetic feed subset and compare outputs to a separate software oracle. Include backpressure and a host handoff specification.",
+              "Test every frame boundary, malformed lengths, reset during a frame and downstream not-ready cycles. Retain simulation/synthesis and actual-board results separately.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Supported frames match the oracle without lost/duplicated outputs, reset behavior is defined and no physical latency/throughput claim is made from simulation alone.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-professional-02-hardware-feed-check-01",
+                "kind": "short-answer",
+                "prompt": "Does a successful HDL simulation prove timing closure on a physical FPGA?",
+                "answer": "No. Synthesis, placement/routing constraints and board execution add separate validation stages.",
+                "explanation": "Functional model correctness and physical timing are different properties."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does a successful HDL simulation prove timing closure on a physical FPGA?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "foundation-lesson-13-testing-debugging",
+            "foundation-lesson-14-reproducibility"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Physical TPM/HSM/FPGA evidence requires the actual approved device. Simulator/software-token/HDL results must be labelled separately."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-professional-03",
+      "title": "Production Trading Gateway Architecture",
+      "stage": "professional",
+      "description": "Direct market data feed handlers and exchange order execution gateways running with sub-microsecond tick-to-trade latencies.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-professional-03-gateway",
+          "title": "Measure a paper-only native tick-to-order gateway",
+          "objectives": [
+            "ITCH/FIX/FAST/OUCH ingestion/order routing boundaries, paper-only native gateway and tick-to-trade clocks.",
+            "No order uses unavailable information or bypasses risk/halt policy, every output is traceable and timing claims include actual parser/queue/decision boundaries. No live exchange or broker action occurs."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "A trading gateway connects feed parsing, decision/risk logic and order-protocol output under a defined sequence/clock contract. Direct feed/order interfaces introduce gap recovery, duplicate identity and halt responsibilities beyond matching logic. All curriculum execution remains disconnected and paper-only.",
+                "ITCH/FIX/FAST/OUCH ingestion/order routing boundaries, paper-only native gateway and tick-to-trade clocks."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "Tick-to-trade latency must name its start/end timestamps and included components. A sub-microsecond matcher does not establish the whole feed-to-order boundary. Event timestamps, process monotonic clocks and exchange/receipt clocks cannot be mixed without synchronization assumptions.",
+                "No order uses unavailable information or bypasses risk/halt policy, every output is traceable and timing claims include actual parser/queue/decision boundaries. No live exchange or broker action occurs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-professional-03-gateway"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-f0d828cc0baf",
+            "locator": "FIX standards: session/application responsibilities and order/message identity, paired with the chosen ITCH/OUCH specifications. Define the paper gateway's full causal timing boundary independently."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-8aa5903e73f8",
+            "advanced-reading-24215d14d71f",
+            "advanced-reading-e6ef26241e98",
+            "advanced-reading-aba849e22368",
+            "advanced-reading-d144a10ff2ea",
+            "advanced-reading-08d67a9f8836",
+            "advanced-reading-56beacfdacfd",
+            "advanced-reading-0b9466f3ddb5"
+          ],
+          "assignment": {
+            "id": "advanced-d5-professional-03-gateway-assignment",
+            "title": "Measure a paper-only native tick-to-order gateway: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Connect an owned synthetic ITCH/FIX-style feed, bounded decision/risk stage and paper exchange/order encoder. Record a full causal timeline for each original event/order.",
+              "Exercise owned synthetic feed and exchange simulators with gap/duplicate/halt controls and timestamp provenance; explicitly prohibit live orders and report sub-microsecond results only if the full declared boundary is actually measured.",
+              "Inject a sequence gap, duplicate order, stale feed and a halt condition. Compare actual full-boundary timing with isolated matcher timing and retain all rejects.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Connect an owned synthetic ITCH/FIX-style feed, bounded decision/risk stage and paper exchange/order encoder. Record a full causal timeline for each original event/order.",
+              "Inject a sequence gap, duplicate order, stale feed and a halt condition. Compare actual full-boundary timing with isolated matcher timing and retain all rejects.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "No order uses unavailable information or bypasses risk/halt policy, every output is traceable and timing claims include actual parser/queue/decision boundaries. No live exchange or broker action occurs.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-professional-03-gateway-check-01",
+                "kind": "short-answer",
+                "prompt": "Can a matcher microbenchmark be labelled full tick-to-trade latency?",
+                "answer": "No. Feed parsing, queueing, decisions, risk and encoding may lie outside that measurement.",
+                "explanation": "Only an actual end-to-end timing boundary supports the corresponding gateway claim."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Can a matcher microbenchmark be labelled full tick-to-trade latency?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "systems-professional-native-performance"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Kernel/BPF/XDP/MAC/real-time/NIC work requires an authorized disposable compatible Linux environment; do not alter this host's security or boot settings."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "advanced-d5-professional-04",
+      "title": "Research Infrastructure Strategy",
+      "stage": "professional",
+      "description": "Designing petabyte-scale tick data platforms, continuous walk-forward model evaluation pipelines, and portfolio risk management engines.",
+      "prerequisites": [],
+      "paperTags": [],
+      "optional": false,
+      "lessons": [
+        {
+          "id": "advanced-d5-professional-04-research-platform",
+          "title": "Govern continuous walk-forward research and portfolio risk",
+          "objectives": [
+            "Tick platform partition/version/retention strategy, continuous walk-forward orchestration and risk-service contracts.",
+            "Frozen earlier knowledge remains unchanged, final evaluation is protected and all trials/risk calculations reconcile. Actual execution, scale models and untested production requirements stay distinct."
+          ],
+          "topics": [
+            {
+              "title": "Mechanism and representation",
+              "details": [
+                "Walk-forward evaluation repeatedly trains on past information and evaluates on later blocks under a declared selection protocol. Label horizons, feature transforms and repeated trial selection can leak information even when row timestamps look chronological. A complete trial ledger retains rejected and negative results.",
+                "Tick platform partition/version/retention strategy, continuous walk-forward orchestration and risk-service contracts."
+              ]
+            },
+            {
+              "title": "Failure boundaries and evidence",
+              "details": [
+                "A tick-data platform needs immutable versions, retention/correction policy and access/cost governance. Petabyte capacity is an architecture/model claim until exercised. Risk engines must preserve units, horizon and model limitations rather than turning synthetic summaries into investment assurances.",
+                "Frozen earlier knowledge remains unchanged, final evaluation is protected and all trials/risk calculations reconcile. Actual execution, scale models and untested production requirements stay distinct."
+              ]
+            }
+          ],
+          "estimatedMinutes": 360,
+          "canonicalConceptTags": [
+            "advanced-d5-professional-04-research-platform"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ai-doc-cross-validation",
+            "locator": "scikit-learn cross-validation guide: time-series splits and evaluation assumptions; add explicit label-horizon purging, complete trial ledgers and versioned knowledge-time data."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-ec1bdbed2191",
+            "advanced-reading-98aeb027e426",
+            "algorithmic-doc-splits",
+            "advanced-reading-4bd0c6173645",
+            "advanced-reading-4f038eb85040",
+            "advanced-reading-bb8b5f89b846",
+            "advanced-reading-d39cd3ba0ef2",
+            "advanced-reading-7b9a3e66dbb9"
+          ],
+          "assignment": {
+            "id": "advanced-d5-professional-04-research-platform-assignment",
+            "title": "Govern continuous walk-forward research and portfolio risk: original evidence lab",
+            "kind": "lab",
+            "instructions": [
+              "Connect the real bounded research scheduler to original chronological folds and an independent portfolio-risk oracle. Record dataset/code/parameter hashes and all trial outcomes; create a separate large-scale storage/cost model.",
+              "Connect a bounded real scheduler to fold/risk oracles, retain all trials and rejected models, and defend a petabyte capacity/cost model without presenting it as deployed scale or investment performance.",
+              "Append a future correction, contaminate a training transform and repeat a parameter search after seeing holdout results. Verify leakage detection and retain adverse outcomes.",
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+            ],
+            "deliverables": [
+              "Connect the real bounded research scheduler to original chronological folds and an independent portfolio-risk oracle. Record dataset/code/parameter hashes and all trial outcomes; create a separate large-scale storage/cost model.",
+              "Append a future correction, contaminate a training transform and repeat a parameter search after seeing holdout results. Verify leakage detection and retain adverse outcomes.",
+              "A reproducible evidence pack with independent expected results, observed outputs, environment identity and a scoped conclusion."
+            ],
+            "acceptanceCriteria": [
+              "Frozen earlier knowledge remains unchanged, final evaluation is protected and all trials/risk calculations reconcile. Actual execution, scale models and untested production requirements stay distinct.",
+              "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "advanced-d5-professional-04-research-platform-check-01",
+                "kind": "short-answer",
+                "prompt": "Does chronological row order alone prevent research leakage?",
+                "answer": "No. Labels, transforms, revisions and model selection can still use future or holdout information.",
+                "explanation": "The full information and decision protocol must respect the evaluation boundary."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Does chronological row order alone prevent research leakage?",
+            "Explain one concrete failure boundary from this lab and the observation that would disprove your conclusion."
+          ],
+          "prerequisites": [
+            "quant-l12-reproducible-snapshots",
+            "algorithmic-l10-walk-forward",
+            "quant-l22-portfolio-covariance",
+            "quant-l24-tail-risk-stress",
+            "systems-professional-systems-design"
+          ],
+          "paperTags": [],
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Use only original synthetic data and explicitly owned fixtures. No real trading, third-party probing, host-policy change or paid provisioning.",
+              "Execute the named language/tools on an already approved compatible local or CI runtime; record any missing prerequisite instead of claiming another stack is equivalent."
+            ],
+            "evidenceBoundary": "Reading/design, simulation, compilation, actual integration and target-hardware/benchmark execution are separate evidence. Only observed work supports an execution claim.",
+            "unavailableAction": "Study the explanation, predict fixtures and save notes/evidence drafts now. Leave any required unexecuted hands-on acceptance unchecked; do not substitute a CPU/mock path and mark the requested runtime complete."
+          }
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "advanced-reading-f0d828cc0baf",
+      "kind": "documentation",
+      "title": "Standards – FIX Trading Community",
+      "url": "https://www.fixtrading.org/standards/",
+      "provider": "www.fixtrading.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-8aa5903e73f8",
+      "kind": "documentation",
+      "title": "FAST – FIX Trading Community",
+      "url": "https://www.fixtrading.org/fast/",
+      "provider": "www.fixtrading.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-24215d14d71f",
+      "kind": "documentation",
+      "title": "Page Not Available",
+      "url": "https://www.nasdaqtrader.com/Trader.aspx?id=TechnicalSupport",
+      "provider": "www.nasdaqtrader.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-4bd0c6173645",
+      "kind": "documentation",
+      "title": "Reality Modeling - QuantConnect.com",
+      "url": "https://www.quantconnect.com/docs/v2/writing-algorithms/reality-modeling",
+      "provider": "www.quantconnect.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "chronological split/gap limitations, explicit label-horizon purging, fee/fill/slippage/impact models and vectorized processing. Provider docs are comparative readings, not a requirement to create a trading account. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-4f038eb85040",
+      "kind": "documentation",
+      "title": "Polars — DataFrames for the new era",
+      "url": "https://pola.rs/",
+      "provider": "pola.rs",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "chronological split/gap limitations, explicit label-horizon purging, fee/fill/slippage/impact models and vectorized processing. Provider docs are comparative readings, not a requirement to create a trading account. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-5b12a53ff387",
+      "kind": "documentation",
+      "title": "Probability, Statistics & Random Processes | Free Textbook | Course",
+      "url": "https://www.probabilitycourse.com/",
+      "provider": "www.probabilitycourse.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-a2eddeee1a21",
+      "kind": "documentation",
+      "title": "Index of /ezivot/econ424",
+      "url": "https://faculty.washington.edu/ezivot/econ424/",
+      "provider": "faculty.washington.edu",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-82e2eb8bd80e",
+      "kind": "documentation",
+      "title": "Fundamentals of Numerical Computation",
+      "url": "https://fncbook.com/",
+      "provider": "fncbook.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-c10038a22d81",
+      "kind": "documentation",
+      "title": "Official reading: cran.r-project.org/web/packages/PerformanceAnalytics/index.html",
+      "url": "https://cran.r-project.org/web/packages/PerformanceAnalytics/index.html",
+      "provider": "cran.r-project.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-45c180407754",
+      "kind": "documentation",
+      "title": "Home new | NSE Clearing Limited",
+      "url": "https://www.nseclearing.in/",
+      "provider": "www.nseclearing.in",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "orders/book/depth, cash/equity/futures/margin and official current settlement rules. Retain jurisdiction/date labels and original paper-only fixtures; no broker connection or investment recommendation. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-44be29b28239",
+      "kind": "documentation",
+      "title": "The kernel’s command-line parameters — The Linux Kernel documentation",
+      "url": "https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html",
+      "provider": "www.kernel.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "isolcpus, SCHED_FIFO, affinity, starvation/watchdog and NUMA/IRQ caveats. Default route is documented analysis until a disposable environment is authorized. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-a2e278b653b6",
+      "kind": "documentation",
+      "title": "sched(7) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man7/sched.7.html",
+      "provider": "man7.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "isolcpus, SCHED_FIFO, affinity, starvation/watchdog and NUMA/IRQ caveats. Default route is documented analysis until a disposable environment is authorized. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-ffa206fce712",
+      "kind": "documentation",
+      "title": "sched_setaffinity(2) - Linux manual page",
+      "url": "https://man7.org/linux/man-pages/man2/sched_setaffinity.2.html",
+      "provider": "man7.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "isolcpus, SCHED_FIFO, affinity, starvation/watchdog and NUMA/IRQ caveats. Default route is documented analysis until a disposable environment is authorized. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-56beacfdacfd",
+      "kind": "documentation",
+      "title": "GitHub - Xilinx-CNS/onload: OpenOnload high performance user-level network stack · GitHub",
+      "url": "https://github.com/Xilinx-CNS/onload",
+      "provider": "github.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Solarflare/AMD OpenOnload, DPDK poll-mode drivers, queue/buffer/DMA ownership, hugepage/NIC prerequisites and physical versus virtual testing. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-0b9466f3ddb5",
+      "kind": "documentation",
+      "title": "DPDK documentation — Data Plane Development Kit 26.07.0 documentation",
+      "url": "https://doc.dpdk.org/guides/",
+      "provider": "doc.dpdk.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "Solarflare/AMD OpenOnload, DPDK poll-mode drivers, queue/buffer/DMA ownership, hugepage/NIC prerequisites and physical versus virtual testing. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-f3b2d4589cc0",
+      "kind": "documentation",
+      "title": "AMD Technical Information Portal",
+      "url": "https://docs.amd.com/",
+      "provider": "docs.amd.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "FPGA/ASIC parser/dataflow concepts, original HDL simulation, synthesis/resource/timing and host interface. Simulation/synthesis is not a physical-board benchmark or permission to buy hardware. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-7a78cb814b54",
+      "kind": "documentation",
+      "title": "YosysHQ Yosys 0.69-dev documentation",
+      "url": "https://yosyshq.readthedocs.io/projects/yosys/en/latest/",
+      "provider": "yosyshq.readthedocs.io",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "FPGA/ASIC parser/dataflow concepts, original HDL simulation, synthesis/resource/timing and host interface. Simulation/synthesis is not a physical-board benchmark or permission to buy hardware. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-ccd855700914",
+      "kind": "documentation",
+      "title": "Official reading: docs.verilator.org/en/latest/",
+      "url": "https://docs.verilator.org/en/latest/",
+      "provider": "docs.verilator.org",
+      "access": "unverified-optional",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "access-limited",
+      "notes": "FPGA/ASIC parser/dataflow concepts, original HDL simulation, synthesis/resource/timing and host interface. Simulation/synthesis is not a physical-board benchmark or permission to buy hardware. Link-only; no content is bundled and runtime access is not implied. Automated source access was limited; use the official link and other linked readings. This is not a claim that the full text was retrieved."
+    },
+    {
+      "id": "advanced-reading-ed787caf9c17",
+      "kind": "documentation",
+      "title": "Official reading: verilator.org/guide/latest/",
+      "url": "https://verilator.org/guide/latest/",
+      "provider": "verilator.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "FPGA/ASIC parser/dataflow concepts, original HDL simulation, synthesis/resource/timing and host interface. Simulation/synthesis is not a physical-board benchmark or permission to buy hardware. Link-only; no content is bundled and runtime access is not implied."
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "L-POSIX: official learning source",
+      "url": "https://pubs.opengroup.org/onlinepubs/9799919799/",
+      "notes": "fork/exec/wait/signals, descriptors/pipe/close, sockets, epoll, affinity and owned-process diagnosis. Teach requested netstat while explaining maintained alternatives such as ss."
+    },
+    {
+      "title": "L-POSIX: official learning source",
+      "url": "https://man7.org/linux/man-pages/",
+      "notes": "fork/exec/wait/signals, descriptors/pipe/close, sockets, epoll, affinity and owned-process diagnosis. Teach requested netstat while explaining maintained alternatives such as ss."
+    },
+    {
+      "title": "L-POSIX: official learning source",
+      "url": "https://strace.io/",
+      "notes": "fork/exec/wait/signals, descriptors/pipe/close, sockets, epoll, affinity and owned-process diagnosis. Teach requested netstat while explaining maintained alternatives such as ss."
+    },
+    {
+      "title": "L-POSIX: official learning source",
+      "url": "https://github.com/lsof-org/lsof",
+      "notes": "fork/exec/wait/signals, descriptors/pipe/close, sockets, epoll, affinity and owned-process diagnosis. Teach requested netstat while explaining maintained alternatives such as ss."
+    },
+    {
+      "title": "L-POSIX: official learning source",
+      "url": "https://curl.se/docs/",
+      "notes": "fork/exec/wait/signals, descriptors/pipe/close, sockets, epoll, affinity and owned-process diagnosis. Teach requested netstat while explaining maintained alternatives such as ss."
+    },
+    {
+      "title": "L-POSIX: official learning source",
+      "url": "https://net-tools.sourceforge.io/",
+      "notes": "fork/exec/wait/signals, descriptors/pipe/close, sockets, epoll, affinity and owned-process diagnosis. Teach requested netstat while explaining maintained alternatives such as ss."
+    },
+    {
+      "title": "Q-PROFILE: official learning source",
+      "url": "https://perfwiki.github.io/main/",
+      "notes": "perf counters/symbols/overhead, Valgrind memory checks, Cachegrind and cache/branch hardware interpretation. No privileged perf settings are changed without approval."
+    },
+    {
+      "title": "Q-PROFILE: official learning source",
+      "url": "https://valgrind.org/docs/manual/manual.html",
+      "notes": "perf counters/symbols/overhead, Valgrind memory checks, Cachegrind and cache/branch hardware interpretation. No privileged perf settings are changed without approval."
+    },
+    {
+      "title": "Q-PROFILE: official learning source",
+      "url": "https://valgrind.org/docs/manual/cg-manual.html",
+      "notes": "perf counters/symbols/overhead, Valgrind memory checks, Cachegrind and cache/branch hardware interpretation. No privileged perf settings are changed without approval."
+    },
+    {
+      "title": "Q-PROFILE: official learning source",
+      "url": "https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html",
+      "notes": "perf counters/symbols/overhead, Valgrind memory checks, Cachegrind and cache/branch hardware interpretation. No privileged perf settings are changed without approval."
+    },
+    {
+      "title": "L-PYDATA: official learning source",
+      "url": "https://numpy.org/doc/stable/user/",
+      "notes": "arrays/broadcasting/views, timestamp/null semantics, Polars expressions/lazy execution, CSV/Parquet scanning and labelled plotting."
+    },
+    {
+      "title": "L-PYDATA: official learning source",
+      "url": "https://pandas.pydata.org/docs/user_guide/",
+      "notes": "arrays/broadcasting/views, timestamp/null semantics, Polars expressions/lazy execution, CSV/Parquet scanning and labelled plotting."
+    },
+    {
+      "title": "L-PYDATA: official learning source",
+      "url": "https://docs.pola.rs/user-guide/",
+      "notes": "arrays/broadcasting/views, timestamp/null semantics, Polars expressions/lazy execution, CSV/Parquet scanning and labelled plotting."
+    },
+    {
+      "title": "L-PYDATA: official learning source",
+      "url": "https://matplotlib.org/stable/users/index.html",
+      "notes": "arrays/broadcasting/views, timestamp/null semantics, Polars expressions/lazy execution, CSV/Parquet scanning and labelled plotting."
+    },
+    {
+      "title": "D-FORMATS: official learning source",
+      "url": "https://parquet.apache.org/docs/",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility."
+    },
+    {
+      "title": "D-FORMATS: official learning source",
+      "url": "https://orc.apache.org/docs/",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility."
+    },
+    {
+      "title": "D-FORMATS: official learning source",
+      "url": "https://avro.apache.org/docs/",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility."
+    },
+    {
+      "title": "D-FORMATS: official learning source",
+      "url": "https://www.rfc-editor.org/rfc/rfc8259",
+      "notes": "all four requested formats, schemas/types/encoding, precision/time/null behavior and evolution/reader compatibility."
+    },
+    {
+      "title": "Q-PROTOCOLS: official learning source",
+      "url": "https://www.fixtrading.org/standards/",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds."
+    },
+    {
+      "title": "Q-PROTOCOLS: official learning source",
+      "url": "https://www.fixtrading.org/fast/",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds."
+    },
+    {
+      "title": "Q-PROTOCOLS: official learning source",
+      "url": "https://www.nasdaqtrader.com/Trader.aspx?id=TechnicalSupport",
+      "notes": "classic text FIX versus FAST encoding, official versioned ITCH and OUCH specs and protocol framing. Check permitted free access/version at authoring time; synthesize original messages and never redistribute licensed market feeds."
+    },
+    {
+      "title": "B-NET: official learning source",
+      "url": "https://www.rfc-editor.org/rfc/rfc9293",
+      "notes": "TCP handshake/byte stream versus UDP, DNS resolution, HTTP semantics/1.1/2, WebSocket framing and SSE ordering/reconnection."
+    },
+    {
+      "title": "B-NET: official learning source",
+      "url": "https://www.rfc-editor.org/rfc/rfc768",
+      "notes": "TCP handshake/byte stream versus UDP, DNS resolution, HTTP semantics/1.1/2, WebSocket framing and SSE ordering/reconnection."
+    },
+    {
+      "title": "B-NET: official learning source",
+      "url": "https://www.rfc-editor.org/rfc/rfc1034",
+      "notes": "TCP handshake/byte stream versus UDP, DNS resolution, HTTP semantics/1.1/2, WebSocket framing and SSE ordering/reconnection."
+    },
+    {
+      "title": "B-NET: official learning source",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110",
+      "notes": "TCP handshake/byte stream versus UDP, DNS resolution, HTTP semantics/1.1/2, WebSocket framing and SSE ordering/reconnection."
+    },
+    {
+      "title": "B-NET: official learning source",
+      "url": "https://www.rfc-editor.org/rfc/rfc9112",
+      "notes": "TCP handshake/byte stream versus UDP, DNS resolution, HTTP semantics/1.1/2, WebSocket framing and SSE ordering/reconnection."
+    },
+    {
+      "title": "B-NET: official learning source",
+      "url": "https://www.rfc-editor.org/rfc/rfc9113",
+      "notes": "TCP handshake/byte stream versus UDP, DNS resolution, HTTP semantics/1.1/2, WebSocket framing and SSE ordering/reconnection."
+    },
+    {
+      "title": "B-NET: official learning source",
+      "url": "https://www.rfc-editor.org/rfc/rfc6455",
+      "notes": "TCP handshake/byte stream versus UDP, DNS resolution, HTTP semantics/1.1/2, WebSocket framing and SSE ordering/reconnection."
+    },
+    {
+      "title": "B-NET: official learning source",
+      "url": "https://html.spec.whatwg.org/multipage/server-sent-events.html",
+      "notes": "TCP handshake/byte stream versus UDP, DNS resolution, HTTP semantics/1.1/2, WebSocket framing and SSE ordering/reconnection."
+    },
+    {
+      "title": "Q-BACKTEST: official learning source",
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html",
+      "notes": "chronological split/gap limitations, explicit label-horizon purging, fee/fill/slippage/impact models and vectorized processing. Provider docs are comparative readings, not a requirement to create a trading account."
+    },
+    {
+      "title": "Q-BACKTEST: official learning source",
+      "url": "https://www.quantconnect.com/docs/v2/writing-algorithms/reality-modeling",
+      "notes": "chronological split/gap limitations, explicit label-horizon purging, fee/fill/slippage/impact models and vectorized processing. Provider docs are comparative readings, not a requirement to create a trading account."
+    },
+    {
+      "title": "Q-BACKTEST: official learning source",
+      "url": "https://pola.rs/",
+      "notes": "chronological split/gap limitations, explicit label-horizon purging, fee/fill/slippage/impact models and vectorized processing. Provider docs are comparative readings, not a requirement to create a trading account."
+    },
+    {
+      "title": "Q-BINDINGS: official learning source",
+      "url": "https://pybind11.readthedocs.io/en/stable/",
+      "notes": "C++/Python type/buffer ownership, GIL/release/lifetimes, NumPy interoperability and build/runtime compatibility; use actual native parity tests."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://www.probabilitycourse.com/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://allendowney.github.io/ThinkStats/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://faculty.washington.edu/ezivot/econ424/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://fncbook.com/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://bookdown.org/compfinezbook/introFinRbook/",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "Q-MATH: official learning source",
+      "url": "https://cran.r-project.org/web/packages/PerformanceAnalytics/index.html",
+      "notes": "discrete distributions/random walks/simulation, matrix least squares and independently specified financial risk conventions. Existing lawful readings and assessed numerical work remain canonical."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://en.cppreference.com/w/cpp/language/raii",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://en.cppreference.com/w/cpp/language/move_constructor",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://en.cppreference.com/w/cpp/atomic/memory_order",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "Q-MARKETS: official learning source",
+      "url": "https://zerodha.com/varsity/module/introduction-to-stock-markets/",
+      "notes": "orders/book/depth, cash/equity/futures/margin and official current settlement rules. Retain jurisdiction/date labels and original paper-only fixtures; no broker connection or investment recommendation."
+    },
+    {
+      "title": "Q-MARKETS: official learning source",
+      "url": "https://zerodha.com/varsity/module/futures-trading/",
+      "notes": "orders/book/depth, cash/equity/futures/margin and official current settlement rules. Retain jurisdiction/date labels and original paper-only fixtures; no broker connection or investment recommendation."
+    },
+    {
+      "title": "Q-MARKETS: official learning source",
+      "url": "https://www.nseclearing.in/",
+      "notes": "orders/book/depth, cash/equity/futures/margin and official current settlement rules. Retain jurisdiction/date labels and original paper-only fixtures; no broker connection or investment recommendation."
+    },
+    {
+      "title": "L-PYTHON: official learning source",
+      "url": "https://docs.python.org/3/tutorial/classes.html",
+      "notes": "classes, iterators/generators, annotations versus validation, spawn/process cleanup, queues/shared memory and mmap. Existing foundation functions/modules/SQL stay canonical prerequisites."
+    },
+    {
+      "title": "L-PYTHON: official learning source",
+      "url": "https://docs.python.org/3/library/typing.html",
+      "notes": "classes, iterators/generators, annotations versus validation, spawn/process cleanup, queues/shared memory and mmap. Existing foundation functions/modules/SQL stay canonical prerequisites."
+    },
+    {
+      "title": "Q-COMPUTE: official learning source",
+      "url": "https://docs.python.org/3/library/multiprocessing.html",
+      "notes": "shared mapped datasets, real worker processes, lifecycle/recovery and walk-forward split/trial integrity. Lease/fencing mechanisms are in B-CONSISTENCY."
+    },
+    {
+      "title": "Q-COMPUTE: official learning source",
+      "url": "https://docs.python.org/3/library/mmap.html",
+      "notes": "shared mapped datasets, real worker processes, lifecycle/recovery and walk-forward split/trial integrity. Lease/fencing mechanisms are in B-CONSISTENCY."
+    },
+    {
+      "title": "Q-COMPUTE: official learning source",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+      "notes": "shared mapped datasets, real worker processes, lifecycle/recovery and walk-forward split/trial integrity. Lease/fencing mechanisms are in B-CONSISTENCY."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://www.postgresql.org/docs/current/sql-prepare-transaction.html",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://etcd.io/docs/",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://redis.io/docs/latest/develop/use/patterns/distributed-locks/",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://debezium.io/documentation/reference/3.3/transformations/outbox-event-router.html",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "B-CONSISTENCY: official learning source",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/saga",
+      "notes": "2PC in-doubt state, Saga compensation, lease/fencing assumptions, Redlock limitations and transactional outbox/CDC boundaries."
+    },
+    {
+      "title": "Q-KERNEL: official learning source",
+      "url": "https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html",
+      "notes": "isolcpus, SCHED_FIFO, affinity, starvation/watchdog and NUMA/IRQ caveats. Default route is documented analysis until a disposable environment is authorized."
+    },
+    {
+      "title": "Q-KERNEL: official learning source",
+      "url": "https://man7.org/linux/man-pages/man7/sched.7.html",
+      "notes": "isolcpus, SCHED_FIFO, affinity, starvation/watchdog and NUMA/IRQ caveats. Default route is documented analysis until a disposable environment is authorized."
+    },
+    {
+      "title": "Q-KERNEL: official learning source",
+      "url": "https://man7.org/linux/man-pages/man2/sched_setaffinity.2.html",
+      "notes": "isolcpus, SCHED_FIFO, affinity, starvation/watchdog and NUMA/IRQ caveats. Default route is documented analysis until a disposable environment is authorized."
+    },
+    {
+      "title": "Q-BYPASS: official learning source",
+      "url": "https://github.com/Xilinx-CNS/onload",
+      "notes": "Solarflare/AMD OpenOnload, DPDK poll-mode drivers, queue/buffer/DMA ownership, hugepage/NIC prerequisites and physical versus virtual testing."
+    },
+    {
+      "title": "Q-BYPASS: official learning source",
+      "url": "https://doc.dpdk.org/guides/",
+      "notes": "Solarflare/AMD OpenOnload, DPDK poll-mode drivers, queue/buffer/DMA ownership, hugepage/NIC prerequisites and physical versus virtual testing."
+    },
+    {
+      "title": "Q-HARDWARE: official learning source",
+      "url": "https://docs.amd.com/",
+      "notes": "FPGA/ASIC parser/dataflow concepts, original HDL simulation, synthesis/resource/timing and host interface. Simulation/synthesis is not a physical-board benchmark or permission to buy hardware."
+    },
+    {
+      "title": "Q-HARDWARE: official learning source",
+      "url": "https://yosyshq.readthedocs.io/projects/yosys/en/latest/",
+      "notes": "FPGA/ASIC parser/dataflow concepts, original HDL simulation, synthesis/resource/timing and host interface. Simulation/synthesis is not a physical-board benchmark or permission to buy hardware."
+    },
+    {
+      "title": "Q-HARDWARE: official learning source",
+      "url": "https://docs.verilator.org/en/latest/",
+      "notes": "FPGA/ASIC parser/dataflow concepts, original HDL simulation, synthesis/resource/timing and host interface. Simulation/synthesis is not a physical-board benchmark or permission to buy hardware."
+    },
+    {
+      "title": "Q-HARDWARE: official learning source",
+      "url": "https://verilator.org/guide/latest/",
+      "notes": "FPGA/ASIC parser/dataflow concepts, original HDL simulation, synthesis/resource/timing and host interface. Simulation/synthesis is not a physical-board benchmark or permission to buy hardware."
+    },
+    {
+      "title": "D-GOVERNANCE: official learning source",
+      "url": "https://martinfowler.com/articles/data-mesh-principles.html",
+      "notes": "author-published data-mesh principles, data product ownership/lineage, federated governance and explicit SLA/SLO evidence; apply privacy/deletion from S-REGULATION."
+    },
+    {
+      "title": "D-GOVERNANCE: official learning source",
+      "url": "https://www.w3.org/TR/prov-overview/",
+      "notes": "author-published data-mesh principles, data product ownership/lineage, federated governance and explicit SLA/SLO evidence; apply privacy/deletion from S-REGULATION."
+    },
+    {
+      "title": "D-GOVERNANCE: official learning source",
+      "url": "https://sre.google/sre-book/service-level-objectives/",
+      "notes": "author-published data-mesh principles, data product ownership/lineage, federated governance and explicit SLA/SLO evidence; apply privacy/deletion from S-REGULATION."
+    }
+  ],
+  "limitations": [
+    "Required learning within the selected Career Path; separate from the original seven core totals. Professional Practice describes a learning level, not certification or guaranteed employment.",
+    "Reading/design, simulations, compilation, actual runtime integration and target-hardware benchmarks are separate. Missing environments leave their hands-on gates incomplete; no paid provisioning or host-policy bypass is required or authorized.",
+    "All work uses original synthetic, owned and authorized fixtures. Quant work is paper-only; security work is defensive and isolated. Hypothetical PM participants, prices and outcomes are never presented as observed facts.",
+    "Readings are official/maintainer links, not rehosted protected content. Source availability checks are not runtime verification; access-limited sources are labelled."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Explain the language, representation and system boundary using hand-checkable original fixtures.",
+      "evidence": "Retain an independent expected-result table, explicit invalid-input behavior and the actual prerequisites for execution."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Implement and compare the named tools or protocols while preserving data, identity and lifecycle invariants.",
+      "evidence": "Retain actual supported-runtime integration, a bounded change and positive/negative regressions; unsupported environments remain visible."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Diagnose failure, concurrency, resource and compatibility behavior at the actual mechanism boundary.",
+      "evidence": "Reproduce an original fault, repair its cause and compare against an independent oracle without substituting a simpler stack."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Defend operational, architectural and measurement decisions with evidence whose scope is explicit.",
+      "evidence": "Produce an owned release/incident/benchmark or decision dossier, including negative results, alternatives, actual versus modelled scale and pending hardware."
+    }
+  ]
+}

@@ -8,12 +8,20 @@ import type {
   Track,
   TrackId,
 } from "../domain/types";
-import { EXTRA_TOPIC_IDS, LEARNING_STAGES, TRACK_IDS } from "../domain/types";
+import {
+  CORE_TRACK_IDS,
+  CAREER_COURSE_IDS,
+  EXTRA_TOPIC_IDS,
+  LEARNING_STAGES,
+  TRACK_IDS,
+} from "../domain/types";
 import { trackSchema } from "./schema";
 import { projects } from "./projects";
 import { careerProjects } from "./career-projects";
 import { careerProfiles } from "./careers";
 import { careerPackets } from "./career-exercises";
+import { advancedProjects, advancedPackets } from "./advanced-projects";
+import { advancedVersion, validateAdvancedCareers } from "./advanced-careers";
 import { CAREER_PROFILE_IDS, READINESS_GATES } from "../domain/types";
 import hostedBooks from "./hosted-books.json";
 import verifiedEmbeds from "./verified-embeds.json";
@@ -133,15 +141,77 @@ export const trackMeta: Record<
     color: "#397780",
     code: "C1",
   },
+  "systems-languages": {
+    label: "Shared Systems & Languages",
+    short: "Systems",
+    description:
+      "Required Rust, Go, C++, C, Python, SQL, Java, Bash and GPU depth with explicit environment gates.",
+    color: "#236b50",
+    code: "S",
+  },
+  "backend-platform-advanced": {
+    label: "Backend & Platform: required learning",
+    short: "Backend",
+    description:
+      "From native languages and protocols to consensus, proxies and platform operation.",
+    color: "#7858a6",
+    code: "C1",
+  },
+  "ai-systems-advanced": {
+    label: "AI Infrastructure & ML Systems: required learning",
+    short: "AI Systems",
+    description:
+      "Models, serving runtimes, CUDA/Triton kernels and honestly gated distributed hardware.",
+    color: "#ab5365",
+    code: "C2",
+  },
+  "cloud-security-advanced": {
+    label: "Product & Cloud Security: required learning",
+    short: "Cloud Security",
+    description:
+      "Identity, policy, kernel boundaries, conservative analysis and accountable assurance.",
+    color: "#865442",
+    code: "C3",
+  },
+  "data-platform-advanced": {
+    label: "Data Platform & Analytics: required learning",
+    short: "Data Platform",
+    description:
+      "Open tables, real streaming, query federation, SQL lineage and data governance.",
+    color: "#2563a6",
+    code: "C4",
+  },
+  "quant-infrastructure-advanced": {
+    label: "Quant Development & Research: required learning",
+    short: "Quant Systems",
+    description:
+      "Native queues, paper-only feeds/execution and measured research infrastructure.",
+    color: "#ae7430",
+    code: "C5",
+  },
+  "technical-pm-advanced": {
+    label: "Technical Product Management: required learning",
+    short: "Technical PM",
+    description:
+      "Product contracts, experiments, FinOps, migration and executive decisions.",
+    color: "#397780",
+    code: "C6",
+  },
 };
 
 export const CAREER_TRACKS: TrackId[] = ["data", "sde", "quant", "ai"];
 export function isExtraTopic(id: TrackId): boolean {
   return EXTRA_TOPIC_IDS.some((topic) => topic === id);
 }
+export function isCoreTrack(id: TrackId): boolean {
+  return CORE_TRACK_IDS.some((core) => core === id);
+}
+export function isCareerCourse(id: TrackId): boolean {
+  return CAREER_COURSE_IDS.some((course) => course === id);
+}
 
 export function stageLabel(stage: Stage, trackId: TrackId): string {
-  if (isExtraTopic(trackId)) {
+  if (isExtraTopic(trackId) || isCareerCourse(trackId)) {
     if (stage === "foundation") return "Beginner";
     if (stage === "professional") return "Professional Practice";
   }
@@ -215,7 +285,11 @@ export function buildCatalog(rawTracks: unknown[]): Catalog {
   tracks.sort(
     (a, b) => TRACK_IDS.indexOf(a.trackId) - TRACK_IDS.indexOf(b.trackId),
   );
-  const mappedProjects = [...projects, ...careerProjects].map((project) => {
+  const mappedProjects = [
+    ...projects,
+    ...careerProjects,
+    ...advancedProjects,
+  ].map((project) => {
     const mappings = tracks
       .flatMap((track) => track.projectMappings)
       .filter(
@@ -244,7 +318,7 @@ export function buildCatalog(rawTracks: unknown[]): Catalog {
     };
   });
   const catalog: Catalog = {
-    version: "2026.09.29.1",
+    version: advancedVersion,
     tracks,
     projects: mappedProjects,
   };
@@ -289,7 +363,7 @@ export function validateCatalog(catalog: Catalog): void {
   });
   for (const track of catalog.tracks) {
     if (
-      isExtraTopic(track.trackId) &&
+      (isExtraTopic(track.trackId) || isCareerCourse(track.trackId)) &&
       (track.stageOutcomes?.map((item) => item.stage).join(",") !==
         LEARNING_STAGES.join(",") ||
         LEARNING_STAGES.some(
@@ -317,17 +391,32 @@ export function validateCatalog(catalog: Catalog): void {
         if (
           lesson.video
             ? resources.get(lesson.video.resourceId)?.kind !== "video"
-            : !isExtraTopic(track.trackId)
+            : isCoreTrack(track.trackId)
         )
           throw new Error(`${lesson.id} needs a known lecture/video`);
         const readingKind = resources.get(lesson.reading.resourceId)?.kind;
         if (
           readingKind !== "book" &&
-          !(isExtraTopic(track.trackId) && readingKind === "documentation")
+          !(
+            (isExtraTopic(track.trackId) || isCareerCourse(track.trackId)) &&
+            readingKind === "documentation"
+          )
         )
           throw new Error(
             `${lesson.id} needs a known book or official reading`,
           );
+        if (isCareerCourse(track.trackId)) {
+          const reading = resources.get(lesson.reading.resourceId);
+          if (
+            reading?.access !== "free" ||
+            reading.availability === "access-limited" ||
+            lesson.reading.locator.length < 60 ||
+            !lesson.practiceEnvironment
+          )
+            throw new Error(
+              `${lesson.id} needs an accessible free primary reading, a precise locator and explicit practice environment.`,
+            );
+        }
         for (const resourceId of lesson.supplementaryResourceIds) {
           if (!resources.has(resourceId))
             throw new Error(
@@ -397,6 +486,50 @@ export function validateCatalog(catalog: Catalog): void {
     project.milestones.forEach((milestone) => claim(milestone.id));
   });
   validateCareers(catalog, claim);
+  validateAdvancedCareers(catalog, claim);
+  const lessonIds = new Set(allLessons(catalog).map((lesson) => lesson.id));
+  const advancedRepositories = new Set<string>();
+  for (const packet of advancedPackets) {
+    if (
+      advancedRepositories.has(packet.repository) ||
+      (careerPackets.some((old) => old.repository === packet.repository) &&
+        !(
+          packet.projectId === "advanced-target-17" &&
+          packet.repository === "paper-exchange-engine"
+        )) ||
+      packet.exercises.map((exercise) => exercise.stage).join() !==
+        LEARNING_STAGES.join()
+    )
+      throw new Error(
+        `Invalid advanced packet scope or ordered exercises: ${packet.projectId}`,
+      );
+    advancedRepositories.add(packet.repository);
+    for (const exercise of packet.exercises) {
+      claim(exercise.id);
+      if (
+        !exercise.lessonIds.length ||
+        exercise.lessonIds.some((id) => !lessonIds.has(id))
+      )
+        throw new Error(
+          `Unknown or empty advanced exercise preparation: ${exercise.id}`,
+        );
+      const url = new URL(exercise.reading.url);
+      if (
+        url.protocol !== "https:" ||
+        url.username ||
+        url.password ||
+        exercise.reading.locator.length < 35
+      )
+        throw new Error(`Invalid advanced exercise reading: ${exercise.id}`);
+    }
+    for (const gate of READINESS_GATES) {
+      const id = `career-readiness-${packet.projectId}-${gate}`;
+      if (id.length > 160)
+        throw new Error("Advanced readiness ID exceeds the deployed contract");
+      claim(id);
+      claim(`${id}-recorded`);
+    }
+  }
 }
 
 function validateCareers(catalog: Catalog, claim: (id: string) => void) {
@@ -516,7 +649,7 @@ export function allLessons(catalog: Catalog): Lesson[] {
 export function coreLessons(catalog: Catalog): Lesson[] {
   return allLessons({
     ...catalog,
-    tracks: catalog.tracks.filter((track) => !isExtraTopic(track.trackId)),
+    tracks: catalog.tracks.filter((track) => isCoreTrack(track.trackId)),
   });
 }
 

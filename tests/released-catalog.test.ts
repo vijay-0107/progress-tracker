@@ -24,6 +24,8 @@ const trackHashes: Record<string, string> = {
     "4c0337240f758936e3f7dd5720be0504c2e81c0f5ef0de1f891057a5d2344816",
   "ethical-hacking":
     "af227927253cc81412057f35deaf26acc1c779cba78f0cbd7f1d8fe2361384a8",
+  "technical-product-management":
+    "20d0f5652239f874fa551a99c39a476e7bba753a5c4b51303eb429791380a30b",
 };
 const projectHashes: Record<string, string> = {
   "data-shopping-mall-operations":
@@ -141,7 +143,7 @@ const prerequisites: Record<string, string[]> = {
 };
 
 describe("released catalog remains append-only", () => {
-  it("preserves every byte of all twelve released tracks", () => {
+  it("preserves every byte of all thirteen released tracks", () => {
     for (const [id, hash] of Object.entries(trackHashes)) {
       const bytes = fs.readFileSync(
         path.resolve("src", "content", "tracks", `${id}.json`),
