@@ -86,6 +86,19 @@ const contract = z
     sourceSha256: z.literal(ADVANCED_SOURCE_SHA256),
     paths: z.array(pathSchema).length(6),
     targets: z.array(targetSchema).length(24),
+    comparisonTechnologies: z
+      .array(
+        z
+          .object({
+            id,
+            label: text,
+            sourceContext: text,
+            lessonIds: ids,
+            scopeNote: text,
+          })
+          .strict(),
+      )
+      .min(1),
   })
   .strict()
   .parse(raw);
@@ -93,6 +106,7 @@ const contract = z
 export const advancedVersion = contract.version;
 export const advancedPaths: AdvancedCareerPath[] = contract.paths;
 export const advancedTargets: AdvancedTarget[] = contract.targets;
+export const comparisonTechnologies = contract.comparisonTechnologies;
 export const advancedGroups = advancedPaths.flatMap((path) =>
   path.stages.flatMap((stage) => stage.groups),
 );
@@ -200,6 +214,16 @@ export function validateAdvancedCareers(
   const groups = new Set<string>();
   const projects = new Set(catalog.projects.map((project) => project.id));
   const targetIds = new Set(advancedTargets.map((target) => target.id));
+  for (const context of comparisonTechnologies) {
+    claim(context.id);
+    if (
+      new Set(context.lessonIds).size !== context.lessonIds.length ||
+      context.lessonIds.some((id) => !lessons.has(id))
+    )
+      throw new Error(
+        `Invalid comparison-table technology context: ${context.id}`,
+      );
+  }
   if (
     advancedPaths.map((path) => path.id).join() !== CAREER_PROFILE_IDS.join() ||
     advancedGroups.length !== 114 ||

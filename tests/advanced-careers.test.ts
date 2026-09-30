@@ -19,6 +19,7 @@ import {
   advancedPaths,
   advancedTargets,
   advancedProjectLanguageLessons,
+  comparisonTechnologies,
 } from "../src/content/advanced-careers";
 import {
   advancedPackets,
@@ -190,7 +191,7 @@ describe("exact six-domain advanced learning contract", () => {
         expect(
           lesson.assignment.acceptanceCriteria.length,
         ).toBeGreaterThanOrEqual(3);
-        expect(lesson.assignment.questions).toHaveLength(1);
+        expect(lesson.assignment.questions.length).toBeGreaterThanOrEqual(1);
         expect(
           lesson.assignment.questions[0].explanation.length,
         ).toBeGreaterThan(60);
@@ -230,6 +231,36 @@ describe("exact six-domain advanced learning contract", () => {
       .find((item) => item.id === lesson.reading.resourceId)!;
     resource.availability = "access-limited";
     expect(() => validateCatalog(altered)).toThrow(/accessible free primary/);
+  });
+
+  it("retains factual C++23 comparison-table coverage without changing the 114-group contract", () => {
+    expect(comparisonTechnologies).toHaveLength(1);
+    const comparison = comparisonTechnologies[0];
+    expect(comparison.sourceContext).toMatch(/comparison table.*C\+\+20\/23/i);
+    expect(comparison.scopeNote).toMatch(/does not publish hiring-demand/i);
+    expect(comparison.lessonIds).toEqual([
+      "systems-foundation-cpp-values",
+      "systems-professional-runtime-contracts",
+    ]);
+    const values = findLesson(catalog, comparison.lessonIds[0])!.lesson;
+    expect(values.canonicalConceptTags).toContain("technology:c++23");
+    expect(
+      values.topics.map((topic) => topic.details.join(" ")).join(" "),
+    ).toMatch(/__cpp_lib_expected.*202202L/);
+    expect(values.assignment.instructions.join(" ")).toMatch(
+      /C\+\+17, C\+\+20 and C\+\+23/,
+    );
+    expect(
+      values.assignment.questions.some((question) =>
+        question.prompt.includes("-std=c++23"),
+      ),
+    ).toBe(true);
+    expect(findResource(catalog, values.reading.resourceId).url).toContain(
+      "/2023/n4950.pdf",
+    );
+    expect(values.reading.locator).toContain("[version.syn]");
+    expect(advancedGroups).toHaveLength(114);
+    expect(advancedTargets).toHaveLength(24);
   });
 
   it("maps every named capability to registered teaching without conflating the two Tritons", () => {

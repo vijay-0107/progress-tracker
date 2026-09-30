@@ -138,10 +138,20 @@ test("each exact path exposes 5/5/5/4 requirements and four numbered advanced ta
 test("language searches open substantive lessons and keep the two Tritons distinct", async ({
   page,
 }) => {
+  const mediaRequests: string[] = [];
+  page.on("request", (request) => {
+    if (
+      /\.pdf(?:[?#]|$)|youtube(?:-nocookie)?\.com\/embed|api\.github\.com|github\.com\/vijay-0107\//.test(
+        request.url(),
+      )
+    )
+      mediaRequests.push(request.url());
+  });
   const examples = [
     ["Rust", "systems-foundation-rust"],
     ["Go", "systems-foundation-go"],
     ["C++", "systems-foundation-cpp-memory"],
+    ["C++23", "systems-foundation-cpp-values"],
     ["C", "systems-foundation-c-posix"],
     ["Python", "systems-foundation-python-depth"],
     ["SQL", "systems-intermediate-sql-depth"],
@@ -164,7 +174,15 @@ test("language searches open substantive lessons and keep the two Tritons distin
   await expect(
     page.getByRole("region", { name: "Practice environment and evidence" }),
   ).toContainText("unchecked");
-  await expect(page.locator("iframe")).toHaveCount(0);
+  const frames = page.locator("iframe");
+  if (process.env.E2E_EMULATORS === "true") {
+    for (const frame of await frames.all())
+      await expect(frame).toHaveAttribute(
+        "src",
+        /^http:\/\/127\.0\.0\.1:9099\/emulator\/auth\/iframe(?:\?|$)/,
+      );
+  } else await expect(frames).toHaveCount(0);
+  expect(mediaRequests).toEqual([]);
   expect((await state(page)).projects).toEqual({});
   expect((await state(page)).activity).toEqual({});
 });

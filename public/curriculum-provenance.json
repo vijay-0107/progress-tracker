@@ -119,8 +119,8 @@
       "sourceCheckedOn": "2026-09-30",
       "modules": 8,
       "lessons": 24,
-      "originalSha256": "bca9521936a2b9026159b451bc63af4f18c5fc5c5bc1030ad4b757e53aad1df1",
-      "packagedSha256": "bca9521936a2b9026159b451bc63af4f18c5fc5c5bc1030ad4b757e53aad1df1"
+      "originalSha256": "89629e0f7592c8598fae168debaed084224da3202c6db6002f8b9091d0181a68",
+      "packagedSha256": "89629e0f7592c8598fae168debaed084224da3202c6db6002f8b9091d0181a68"
     },
     {
       "trackId": "backend-platform-advanced",
@@ -128,8 +128,8 @@
       "sourceCheckedOn": "2026-09-30",
       "modules": 17,
       "lessons": 22,
-      "originalSha256": "193ac25383877bccb60fc720e7b15767404b643be06899dd078466e4d26d281f",
-      "packagedSha256": "193ac25383877bccb60fc720e7b15767404b643be06899dd078466e4d26d281f"
+      "originalSha256": "6269869987c7c5d314d9753845cbb147f59b1c7198ba55c85724cb1c834e6d00",
+      "packagedSha256": "6269869987c7c5d314d9753845cbb147f59b1c7198ba55c85724cb1c834e6d00"
     },
     {
       "trackId": "ai-systems-advanced",
@@ -137,8 +137,8 @@
       "sourceCheckedOn": "2026-09-30",
       "modules": 17,
       "lessons": 20,
-      "originalSha256": "c6721074f883a246d3f5f56266c5fbd18c12952d33dc26cd44e807e9460dbb6d",
-      "packagedSha256": "c6721074f883a246d3f5f56266c5fbd18c12952d33dc26cd44e807e9460dbb6d"
+      "originalSha256": "2138f41c3a47cac17b73b1e87684ea8ab2ee221e3d3987d03130cc57b385420f",
+      "packagedSha256": "2138f41c3a47cac17b73b1e87684ea8ab2ee221e3d3987d03130cc57b385420f"
     },
     {
       "trackId": "cloud-security-advanced",
@@ -164,8 +164,8 @@
       "sourceCheckedOn": "2026-09-30",
       "modules": 15,
       "lessons": 16,
-      "originalSha256": "09ecd7de58c8fa6066b0f285de417bdc404d3550d8ab20073881c2831a16bd35",
-      "packagedSha256": "09ecd7de58c8fa6066b0f285de417bdc404d3550d8ab20073881c2831a16bd35"
+      "originalSha256": "9bc72c12dbbc2b487ecdda0ee9f04888aaa584b5b72153f13395167746240716",
+      "packagedSha256": "9bc72c12dbbc2b487ecdda0ee9f04888aaa584b5b72153f13395167746240716"
     },
     {
       "trackId": "technical-pm-advanced",

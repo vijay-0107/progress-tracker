@@ -47,6 +47,14 @@ Triton programming DSL. Requested TorchScript material is legacy compatibility
 learning with modern export comparison; TGI's official documentation identifies
 maintenance mode. A matching title or optional-specialization note is not coverage.
 
+The comparison table's factual **C++20/23** technology mention is retained through
+the existing C++ values and runtime-contract units, alongside the detailed
+**C++17/20** requirements. An actual compiler/library feature matrix compares
+`std::optional`, `std::span` and `std::expected`, using guarded header/feature-test
+checks and the freely published WG21 C++23 draft N4950. A C++23 mode flag alone
+does not establish library support. This adds neither a duplicate course nor
+market/compensation predictions, and leaves the 114-group/24-target identities intact.
+
 Every new lesson has a usable free primary reading at a specific locator,
 explanatory topics, original practical work, failure cases and an explained
 self-check. Restricted/unavailable supplementary sources are **optional and

@@ -448,6 +448,10 @@
             "advanced-reading-b41d38fef74c",
             "advanced-reading-86ecc9e4bbc9",
             "advanced-reading-c87a158eed67",
+            "advanced-reading-4bc9a44d4f53",
+            "advanced-reading-df55eab4b13b",
+            "advanced-reading-fe47b3eddf3e",
+            "advanced-reading-8a762c1e8fa7",
             "advanced-reading-f4441b18e618",
             "advanced-reading-f5da16fb25f5",
             "advanced-reading-984618ef8f70",
@@ -2978,6 +2982,26 @@
     {
       "title": "L-CPP: official learning source",
       "url": "https://en.cppreference.com/w/cpp/atomic/memory_order",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://en.cppreference.com/w/cpp/feature_test",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://en.cppreference.com/w/cpp/utility/expected",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html",
       "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
     },
     {

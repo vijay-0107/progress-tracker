@@ -5,6 +5,7 @@ import {
   advancedLessons,
   advancedTargets,
   advancedProjectLanguageLessons,
+  comparisonTechnologies,
   findAdvancedPath,
 } from "../content/advanced-careers";
 import { lessonCompletion } from "../content/catalog";
@@ -44,6 +45,26 @@ export function CareerPaths(props: LearningProps) {
         </p>
       </div>
       <CareerPathCards {...props} />
+      <section
+        className="panel lesson-section section-block"
+        aria-label="Version and technology context"
+      >
+        <h2>Version and technology context</h2>
+        {comparisonTechnologies.map((context) => (
+          <div key={context.id}>
+            <h3>{context.label}</h3>
+            <p>{context.sourceContext}</p>
+            <p>{context.scopeNote}</p>
+            <ul>
+              {context.lessonIds.map((id) => (
+                <li key={id}>
+                  <PathLink id={id}>{lessonTitle(props.catalog, id)}</PathLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
       <section className="panel lesson-section section-block">
         <h2>Your earlier learning is preserved</h2>
         <p>

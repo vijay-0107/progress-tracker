@@ -3202,7 +3202,7 @@
       "title": "Quantitative Development & Research Infrastructure",
       "summary": "Nineteen exact skill groups in four stages, with required language depth and four distinct advanced targets. Shared lessons retain one canonical record; reference results never grant your readiness.",
       "courseId": "quant-infrastructure-advanced",
-      "technologies": ["C++", "Python", "C", "Bash", "Polars", "SPSC"],
+      "technologies": ["C++", "C++23", "Python", "C", "Bash", "Polars", "SPSC"],
       "projectIds": [
         "advanced-target-17",
         "advanced-target-18",
@@ -4791,11 +4791,18 @@
         "No prior readiness or short happy-path run proves distributed consistency."
       ],
       "repository": "raft-kv-store",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "accepted-local-reference",
+      "referenceLabel": "Reviewed bounded Rust consensus/storage reference; merge pending",
+      "coverage": [
+        "Original Rust Raft with custom LSM, WAL, memtables, SSTables, Bloom filters, tombstones, atomic compaction, snapshots and quorum reads.",
+        "True joint old/new majority handling supports live voter changes and recovery within a fixed persisted endpoint roster.",
+        "Independent review reproduced three voter/WAL-restart/manifest-publication bugs; corrections and a subsequent narrow review were accepted. Actual three/five-process CI histories, 37 normal cases, release benchmarking and repeated fault/election checks were reviewed."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Fixed persisted endpoint roster of at most nine nodes; dynamic voters are not arbitrary endpoint discovery.",
+        "The bounded state is limited to 512 KiB, with full-state Raft WAL records and cached whole SSTables. These complexity limits do not establish production LSM throughput.",
+        "Crash-fault local-process reference, not a multi-host, Byzantine, TLS, physical-power-loss or formally proved deployment.",
+        "Timeouts can leave an indeterminate outcome. There is no SLA or unaided learner-mastery claim, and all advanced-target-01 learner records remain unassessed.",
         "No prior readiness or short happy-path run proves distributed consistency."
       ]
     },
@@ -5550,11 +5557,19 @@
         "Speculative retries cannot guarantee elimination of all stragglers."
       ],
       "repository": "walkforward-compute-grid",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "accepted-local-reference",
+      "referenceLabel": "Reviewed bounded walk-forward process reference; merge pending",
+      "coverage": [
+        "Actual Python/SQLite-WAL coordination with authenticated HTTP worker processes, leases/generations, per-attempt fencing, speculative first-valid-winner compare-and-set and late-result audit.",
+        "Read-only versioned mmap data, causal ridge walk-forward evaluation, embargo, complete trial ledger, frozen held-out models, CLI, dashboard and export.",
+        "Reviewed fresh two-worker execution covered twelve search fits and three held-out tests, speculation, late fencing, replay and denied unauthenticated actions. An independent scalar oracle checked 2010 numeric points, all twelve fits and three held-outs and the validation-only selection.",
+        "Linux and Windows each executed the documented 70 real-process/fault cases. Small 512/2048-row benchmarks preserve the observed Windows two-worker slowdown instead of claiming universal speedup."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Same-host processes and local cache transfer, not a real WAN, fleet, high-availability or Byzantine-fault proof. A verified TLS non-loopback path is not an actual physical two-host exercise.",
+        "mmap maps a file in each process; it is not a globally shared Python object. PSS evidence is actual Linux-only evidence.",
+        "The small synthetic benchmark and model evaluation do not establish alpha, profitability, inferential guarantees or production scale.",
+        "All advanced-target-20 learner evidence gates remain independent and unassessed.",
         "Multi-host scale and petabyte capacity are not established by local processes.",
         "Speculative retries cannot guarantee elimination of all stragglers."
       ]
@@ -5734,6 +5749,18 @@
         "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
         "No actual customer cloud savings or compliance certification."
       ]
+    }
+  ],
+  "comparisonTechnologies": [
+    {
+      "id": "advanced-context-cpp-versions",
+      "label": "Modern C++17/20/23 version and feature comparison",
+      "sourceContext": "Final comparison table: Quantitative Development and Research Infrastructure, Primary Tech Stack C++20/23 (technology/version mention only).",
+      "lessonIds": [
+        "systems-foundation-cpp-values",
+        "systems-professional-runtime-contracts"
+      ],
+      "scopeNote": "This retains factual version coverage alongside the detailed C++17/20 groups. It does not publish hiring-demand, compensation or career-longevity predictions as facts."
     }
   ]
 }

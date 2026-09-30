@@ -8,7 +8,7 @@
       "id": "systems-foundation-native",
       "title": "Native languages and owned resources",
       "stage": "foundation",
-      "description": "Required shared depth: Own memory and release it exactly once in C++17/20; Choose STL containers and reason about moves and invalidation; Build a Go system tool with explicit errors and goroutine ownership; Use Rust ownership, borrowing and Result without hidden defaults; Trace C ownership through POSIX processes, descriptors and signals; Manage Java exceptions, resources and JDBC boundaries",
+      "description": "Required shared depth: Own memory and release it exactly once in C++17/20; Compare C++17/20/23 values, moves and feature availability; Build a Go system tool with explicit errors and goroutine ownership; Use Rust ownership, borrowing and Result without hidden defaults; Trace C ownership through POSIX processes, descriptors and signals; Manage Java exceptions, resources and JDBC boundaries",
       "prerequisites": [],
       "paperTags": [],
       "optional": false,
@@ -51,6 +51,10 @@
             "advanced-reading-b41d38fef74c",
             "advanced-reading-86ecc9e4bbc9",
             "advanced-reading-c87a158eed67",
+            "advanced-reading-4bc9a44d4f53",
+            "advanced-reading-df55eab4b13b",
+            "advanced-reading-fe47b3eddf3e",
+            "advanced-reading-8a762c1e8fa7",
             "advanced-reading-b77a40d3e082",
             "advanced-reading-76fb728f68aa"
           ],
@@ -106,9 +110,9 @@
         },
         {
           "id": "systems-foundation-cpp-values",
-          "title": "Choose STL containers and reason about moves and invalidation",
+          "title": "Compare C++17/20/23 values, moves and feature availability",
           "objectives": [
-            "STL containers/iterators, structs/classes, value semantics, moves and copy elision, C++17 versus C++20 feature boundaries.",
+            "STL containers/iterators, structs/classes, value semantics, moves and copy elision, C++17 versus C++20 feature boundaries. Explicit C++23 version/feature-gating comparison from the request's final technology table, alongside C++17 and C++20; no market or compensation forecast.",
             "Values and ordering follow the selected container contract; counter observations are reported rather than assumed. No invalidated reference is used, and moved-from values are not treated as their old contents."
           ],
           "topics": [
@@ -116,7 +120,7 @@
               "title": "Mechanism and representation",
               "details": [
                 "Value semantics mean each object controls its own observable state. Moving can transfer resources but does not promise zero work, and the source remains valid under its type's documented contract. std::move is a cast enabling overload selection; it does not itself move bytes or invoke a constructor.",
-                "STL containers/iterators, structs/classes, value semantics, moves and copy elision, C++17 versus C++20 feature boundaries."
+                "STL containers/iterators, structs/classes, value semantics, moves and copy elision, C++17 versus C++20 feature boundaries. Explicit C++23 version/feature-gating comparison from the request's final technology table, alongside C++17 and C++20; no market or compensation forecast."
               ]
             },
             {
@@ -125,32 +129,47 @@
                 "Contiguous vector storage helps traversal but reallocation can invalidate pointers, references and iterators. Node-based containers have different invalidation and locality costs. C++17 copy elision and C++20 facilities do not remove the obligation to measure the actual copy, move and allocation boundaries.",
                 "Values and ordering follow the selected container contract; counter observations are reported rather than assumed. No invalidated reference is used, and moved-from values are not treated as their old contents."
               ]
+            },
+            {
+              "title": "C++17/20/23 language modes versus library features",
+              "details": [
+                "C++17 std::optional represents presence or absence; C++20 std::span is a non-owning view whose referenced storage must remain valid; C++23 std::expected<T,E> represents a value or an explicit error. These are different contracts, not automatic substitutions for one another.",
+                "A -std=c++23 flag selects a language mode, not guaranteed implementation of every C++23 library facility. Record compiler and standard-library versions, inspect __cplusplus (and the documented MSVC language-mode reporting where relevant), test header availability and use the corresponding library feature-test macros. Basic std::expected support is identified by __cpp_lib_expected at least 202202L; later interfaces such as monadic operations have their own feature level.",
+                "Use <version> where available or the appropriate feature header to obtain library macros, guarding unsupported headers. An executed probe that reports unsupported is evidence about that toolchain; a probe that never ran is not. Never hide an unavailable expected implementation behind a success-shaped optional or integer fallback."
+              ]
             }
           ],
           "estimatedMinutes": 240,
           "canonicalConceptTags": [
             "systems-foundation-cpp-values",
-            "technology:c++"
+            "technology:c++",
+            "technology:c++23"
           ],
           "video": null,
           "reading": {
-            "resourceId": "advanced-reading-86ecc9e4bbc9",
-            "locator": "Move constructors: syntax, explanation, implicitly declared/deleted move constructors and notes on moved-from state; compare container invalidation in the linked guidelines."
+            "resourceId": "advanced-reading-fe47b3eddf3e",
+            "locator": "WG21 N4950, the freely published C++23 working draft: [cpp.predefined], [version.syn], [class.copy.ctor], [class.copy.elision], [views.span] and [expected]. Compare C++17/20/23 feature-test macros and the linked expected proposal; this is a pinned draft, not the paid ISO publication or a claim of complete toolchain support."
           },
           "supplementaryResourceIds": [
             "advanced-reading-8117f6cdcbd0",
             "advanced-reading-b41d38fef74c",
-            "advanced-reading-c87a158eed67"
+            "advanced-reading-86ecc9e4bbc9",
+            "advanced-reading-c87a158eed67",
+            "advanced-reading-4bc9a44d4f53",
+            "advanced-reading-df55eab4b13b",
+            "advanced-reading-8a762c1e8fa7"
           ],
           "assignment": {
             "id": "systems-foundation-cpp-values-assignment",
-            "title": "Choose STL containers and reason about moves and invalidation: original evidence lab",
+            "title": "Compare C++17/20/23 values, moves and feature availability: original evidence lab",
             "kind": "lab",
             "instructions": [
               "Instrument a Record type with copy/move counters and compare push_back, emplace_back, reserve and a node container on eight original records. Preserve an independent expected iteration order and value table.",
               "Instrument copy/move/allocation counts of a fixed fixture, preserve observable results and explain iterator invalidation and moved-from object rules.",
               "Grow a vector past its reserved capacity and explain invalidated handles without dereferencing them. Exercise move construction and move assignment, including an empty object.",
-              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result.",
+              "Compile one original guarded feature probe in C++17, C++20 and C++23 modes on an approved native toolchain. Record actual compiler/library identity, language-mode value, header availability and __cpp_lib_optional, __cpp_lib_span and __cpp_lib_expected values when defined.",
+              "Where the corresponding feature is supported, exercise an empty/present optional, a span over an owned buffer without extending its lifetime, and an expected<int, ParseError> parser with valid and invalid input. Keep unsupported and not-run rows distinct and retain their diagnostics."
             ],
             "deliverables": [
               "Instrument a Record type with copy/move counters and compare push_back, emplace_back, reserve and a node container on eight original records. Preserve an independent expected iteration order and value table.",
@@ -160,7 +179,8 @@
             "acceptanceCriteria": [
               "Values and ordering follow the selected container contract; counter observations are reported rather than assumed. No invalidated reference is used, and moved-from values are not treated as their old contents.",
               "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
-              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded.",
+              "The C++17/20/23 feature matrix uses actual probes or explicitly unrun rows; the language flag alone is never credited as library support. Supported expected parsing preserves its error alternative and does not return a fake successful default."
             ],
             "externalUrl": null,
             "questions": [
@@ -170,6 +190,13 @@
                 "prompt": "Does std::move by itself transfer ownership?",
                 "answer": "No. It changes the expression category so an appropriate move operation can be selected.",
                 "explanation": "The selected constructor or assignment operation defines the transfer and the source object's postcondition."
+              },
+              {
+                "id": "systems-foundation-cpp-values-check-02",
+                "kind": "short-answer",
+                "prompt": "Does -std=c++23 by itself prove std::expected is available in the selected standard library?",
+                "answer": "No. Language mode, compiler implementation and library support are distinct; check the relevant header and feature-test macro, then compile the actual operation.",
+                "explanation": "Feature-test macros describe specific implemented facilities. A successful flag parse or a different compiler's result cannot establish support in the selected toolchain."
               }
             ]
           },
@@ -1064,6 +1091,10 @@
             "advanced-reading-8117f6cdcbd0",
             "advanced-reading-b41d38fef74c",
             "advanced-reading-86ecc9e4bbc9",
+            "advanced-reading-4bc9a44d4f53",
+            "advanced-reading-df55eab4b13b",
+            "advanced-reading-fe47b3eddf3e",
+            "advanced-reading-8a762c1e8fa7",
             "advanced-reading-e6ef26241e98",
             "advanced-reading-aba849e22368",
             "advanced-reading-d144a10ff2ea",
@@ -1543,6 +1574,10 @@
             "advanced-reading-8117f6cdcbd0",
             "advanced-reading-b41d38fef74c",
             "advanced-reading-86ecc9e4bbc9",
+            "advanced-reading-4bc9a44d4f53",
+            "advanced-reading-df55eab4b13b",
+            "advanced-reading-fe47b3eddf3e",
+            "advanced-reading-8a762c1e8fa7",
             "advanced-reading-e6ef26241e98",
             "advanced-reading-aba849e22368",
             "advanced-reading-d144a10ff2ea",
@@ -1736,6 +1771,10 @@
             "advanced-reading-b41d38fef74c",
             "advanced-reading-86ecc9e4bbc9",
             "advanced-reading-c87a158eed67",
+            "advanced-reading-4bc9a44d4f53",
+            "advanced-reading-df55eab4b13b",
+            "advanced-reading-fe47b3eddf3e",
+            "advanced-reading-8a762c1e8fa7",
             "advanced-reading-f4441b18e618",
             "advanced-reading-f5da16fb25f5",
             "advanced-reading-984618ef8f70",
@@ -2023,7 +2062,11 @@
             "advanced-reading-8117f6cdcbd0",
             "advanced-reading-b41d38fef74c",
             "advanced-reading-86ecc9e4bbc9",
-            "advanced-reading-c87a158eed67"
+            "advanced-reading-c87a158eed67",
+            "advanced-reading-4bc9a44d4f53",
+            "advanced-reading-df55eab4b13b",
+            "advanced-reading-fe47b3eddf3e",
+            "advanced-reading-8a762c1e8fa7"
           ],
           "assignment": {
             "id": "systems-professional-native-performance-assignment",
@@ -2079,7 +2122,7 @@
           "id": "systems-professional-runtime-contracts",
           "title": "Defend cross-language compatibility and native execution evidence",
           "objectives": [
-            "Cross-language ABI/versioning, reproducibility, native safety, explicit prerequisites and environment-sensitive execution evidence.",
+            "Cross-language ABI/versioning, reproducibility, native safety, explicit prerequisites and environment-sensitive execution evidence. Carry the C++17/20/23 feature matrix into release/ABI decisions; distinguish a language version, a library feature and an actually tested interface.",
             "Supported round trips preserve exact values and errors; incompatible combinations fail before unsafe interpretation. Every claimed runtime row has an actual command/environment result and no private credentials."
           ],
           "topics": [
@@ -2087,7 +2130,7 @@
               "title": "Mechanism and representation",
               "details": [
                 "Source compatibility, binary ABI compatibility and serialized protocol compatibility are separate contracts. A library can compile while its data layout, exception behavior or dependency ABI breaks a consumer. Version pinning records an environment; it does not prove that the recorded combination was executed.",
-                "Cross-language ABI/versioning, reproducibility, native safety, explicit prerequisites and environment-sensitive execution evidence."
+                "Cross-language ABI/versioning, reproducibility, native safety, explicit prerequisites and environment-sensitive execution evidence. Carry the C++17/20/23 feature matrix into release/ABI decisions; distinguish a language version, a library feature and an actually tested interface."
               ]
             },
             {
@@ -2095,6 +2138,13 @@
               "details": [
                 "Rust, Go, C++, Java and Python expose different ownership, scheduler and error models. An integration boundary should normalize expected failures without suppressing unknown ones. A simulation, static check, compilation, local run and target-hardware run each support different claims and must not share a misleading completed label.",
                 "Supported round trips preserve exact values and errors; incompatible combinations fail before unsafe interpretation. Every claimed runtime row has an actual command/environment result and no private credentials."
+              ]
+            },
+            {
+              "title": "Releasing across C++17/20/23 toolchains",
+              "details": [
+                "A consumer's C++ language-mode flag does not establish ABI compatibility with a library built elsewhere. Record compiler family/version, standard-library implementation/version, build flags and the actual exported/serialized boundary.",
+                "For the comparison table's C++23 mention, include the std::expected feature probe from the native-values lesson. Unsupported feature combinations must fail configuration or use a separately named, tested compatibility API; they cannot be relabelled as a successful C++23 run."
               ]
             }
           ],
@@ -2130,6 +2180,10 @@
             "advanced-reading-b41d38fef74c",
             "advanced-reading-86ecc9e4bbc9",
             "advanced-reading-c87a158eed67",
+            "advanced-reading-4bc9a44d4f53",
+            "advanced-reading-df55eab4b13b",
+            "advanced-reading-fe47b3eddf3e",
+            "advanced-reading-8a762c1e8fa7",
             "advanced-reading-c29e1b313657",
             "advanced-reading-0155ac619422",
             "advanced-reading-367cacbd4ead",
@@ -2143,7 +2197,8 @@
               "Build a matrix for one original cross-language record containing an integer ID, optional value and UTF-8 text. State encoding, width, ownership, error and version assumptions for each language boundary actually used.",
               "Defend a Python/Rust/Go/C++/Java boundary matrix; exercise failure and compatibility fixtures in real available runtimes and keep blocked runtime rows visible.",
               "Exercise an incompatible schema/version, malformed Unicode or wrong integer width and a missing native library. Keep unknown runtimes explicitly not run rather than substituting Python.",
-              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result."
+              "Before execution, record expected outcomes and the owned environment. Retain the actual command/configuration, positive and negative results, corrected regression and unresolved limitations. Never invent a runtime, benchmark or participant result.",
+              "Add C++17, C++20 and C++23 rows to the compatibility dossier using the native-values probe. Exercise one supported cross-version boundary and one deliberately incompatible feature/build combination, keeping compile failure, runtime failure and not-run status distinct."
             ],
             "deliverables": [
               "Build a matrix for one original cross-language record containing an integer ID, optional value and UTF-8 text. State encoding, width, ownership, error and version assumptions for each language boundary actually used.",
@@ -2153,7 +2208,8 @@
             "acceptanceCriteria": [
               "Supported round trips preserve exact values and errors; incompatible combinations fail before unsafe interpretation. Every claimed runtime row has an actual command/environment result and no private credentials.",
               "All required positive and negative/failure cases were actually exercised; valid behavior matches an independent oracle after the correction. If required execution is unavailable, this criterion is not met.",
-              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded."
+              "Required named-runtime or hardware operations have actual evidence. Unexecuted required work cannot complete this assignment; a simulation is not a substitute, and private credentials/source are excluded.",
+              "The release dossier identifies the exact C++17/20/23 compiler/library feature support and ABI assumptions. No mode flag, configuration file or alternate-language simulation is accepted as proof of the unavailable native interface."
             ],
             "externalUrl": null,
             "questions": [
@@ -2345,6 +2401,66 @@
       "title": "std::memory_order - cppreference.com",
       "url": "https://en.cppreference.com/w/cpp/atomic/memory_order",
       "provider": "en.cppreference.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-4bc9a44d4f53",
+      "kind": "documentation",
+      "title": "Official reading: en.cppreference.com/w/cpp/feature_test",
+      "url": "https://en.cppreference.com/w/cpp/feature_test",
+      "provider": "en.cppreference.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-df55eab4b13b",
+      "kind": "documentation",
+      "title": "Official reading: en.cppreference.com/w/cpp/utility/expected",
+      "url": "https://en.cppreference.com/w/cpp/utility/expected",
+      "provider": "en.cppreference.com",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-fe47b3eddf3e",
+      "kind": "documentation",
+      "title": "Official reading: www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf",
+      "url": "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf",
+      "provider": "www.open-std.org",
+      "access": "free",
+      "license": "External official/maintainer terms; link-only, no redistribution asserted.",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-09-30",
+      "availability": "checked",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "advanced-reading-8a762c1e8fa7",
+      "kind": "documentation",
+      "title": "Official reading: www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html",
+      "url": "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html",
+      "provider": "www.open-std.org",
       "access": "free",
       "license": "External official/maintainer terms; link-only, no redistribution asserted.",
       "licenseUrl": null,
@@ -3230,6 +3346,26 @@
     {
       "title": "L-CPP: official learning source",
       "url": "https://en.cppreference.com/w/cpp/atomic/memory_order",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://en.cppreference.com/w/cpp/feature_test",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://en.cppreference.com/w/cpp/utility/expected",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf",
+      "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
+    },
+    {
+      "title": "L-CPP: official learning source",
+      "url": "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p0323r12.html",
       "notes": "resource ownership/lifetimes, R/CP/Per rules, containers/iterators, C++17/20 features, move semantics, `std::atomic`, alignment and branch hints. cppreference is a free community reference, not the paid ISO standard."
     },
     {

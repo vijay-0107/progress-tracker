@@ -258,6 +258,7 @@ export function SearchPage({
     "rust",
     "go",
     "c++",
+    "c++23",
     "c",
     "python",
     "sql",
