@@ -357,15 +357,19 @@ describe("exact six-domain advanced learning contract", () => {
       "firebase.json":
         "8364b8f59c828606829cf512c81eb78b4d932d67211a156f2cf570e454cffb6c",
       "firebase-config.js":
-        "b3107e9df75d6c38c25ae798d4245af7ad480aa691fdbe28daa8af5e66fd8293",
+        "eb2e920d70e42c7788977dad5c20e786a65135464dc9a1bc5018146bad88424b",
     };
-    for (const [name, hash] of Object.entries(hashes))
-      expect(
-        createHash("sha256")
-          .update(fs.readFileSync(path.resolve(...name.split("/"))))
-          .digest("hex"),
-        name,
-      ).toBe(hash);
+    for (const [name, hash] of Object.entries(hashes)) {
+      const bytes = fs.readFileSync(path.resolve(...name.split("/")));
+      // This legacy root JS file uses platform checkout EOLs; its Git content is unchanged.
+      const content =
+        name === "firebase-config.js"
+          ? Buffer.from(bytes.toString("utf8").replace(/\r\n/g, "\n"))
+          : bytes;
+      expect(createHash("sha256").update(content).digest("hex"), name).toBe(
+        hash,
+      );
+    }
   });
 });
 
