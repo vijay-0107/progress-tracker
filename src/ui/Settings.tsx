@@ -395,7 +395,7 @@ export function Settings({ workspace }: { workspace: Workspace }) {
                 </label>
               </div>
               <label className="field-label">
-                Primary learning focus
+                Saved core-course focus
                 <select
                   value={primaryTrack}
                   onChange={(event) =>
@@ -410,8 +410,11 @@ export function Settings({ workspace }: { workspace: Workspace }) {
                 </select>
               </label>
               <p className="quiet-note">
-                The Common Foundation still comes first for the four career
-                paths. Extra Topics are optional, opened independently from the
+                This saved focus selects recommendations from the original core
+                courses and exams only. All six Career Paths have separate
+                first-class navigation; opening one does not change these seven
+                stored choices. Common Foundation remains the shared starting
+                point. Extra Topics are optional, opened independently from the
                 navigation, and never replace this saved core focus. No exam
                 date or career outcome is assumed.
               </p>

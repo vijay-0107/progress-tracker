@@ -9,6 +9,7 @@ import {
   findLesson,
   findResource,
   isExtraTopic,
+  isCoreTrack,
   lessonCompletion,
   moduleComplete,
   recommendedLessons,
@@ -132,21 +133,23 @@ describe("optional Extra Topics content contract", () => {
   });
 
   it("appends five complete topics without changing the released core inventory", () => {
-    expect(catalog.version).toBe("2026.09.29.1");
+    expect(catalog.version).toBe("2026.09.30.1");
     expect(
       catalog.tracks
-        .filter((track) => !isExtraTopic(track.trackId))
+        .filter((track) => isCoreTrack(track.trackId))
         .map((track) => track.trackId),
     ).toEqual([...CORE_TRACK_IDS]);
     expect(coreLessons(catalog)).toHaveLength(231);
     expect(
       catalog.tracks
-        .filter((track) => !isExtraTopic(track.trackId))
+        .filter((track) => isCoreTrack(track.trackId))
         .flatMap((track) => track.modules),
     ).toHaveLength(66);
     expect(
       catalog.projects.filter(
-        (project) => project.variant !== "career-practice",
+        (project) =>
+          project.variant !== "career-practice" &&
+          project.variant !== "advanced-target",
       ),
     ).toHaveLength(21);
     expect(extras.map((track) => track.trackId)).toEqual([
@@ -168,7 +171,9 @@ describe("optional Extra Topics content contract", () => {
       allLessons({
         ...catalog,
         tracks: catalog.tracks.filter(
-          (track) => track.trackId !== "technical-product-management",
+          (track) =>
+            isCoreTrack(track.trackId) ||
+            ORIGINAL_EXTRA_TOPIC_IDS.some((id) => id === track.trackId),
         ),
       }),
     ).toHaveLength(355);
@@ -291,8 +296,8 @@ describe("optional Extra Topics content contract", () => {
   it("reuses canonical shared lesson and hosted-book IDs instead of cloning them", () => {
     const shared = extras.flatMap((track) =>
       requiredLessons(track).flatMap((lesson) =>
-        (lesson.prerequisites || []).filter(
-          (id) => !isExtraTopic(findLesson(catalog, id)!.track.trackId),
+        (lesson.prerequisites || []).filter((id) =>
+          isCoreTrack(findLesson(catalog, id)!.track.trackId),
         ),
       ),
     );
@@ -408,7 +413,7 @@ describe("core and optional progress separation", () => {
   it("preserves common-first and exam-specific recommendations for every saved core focus", () => {
     const previousCatalog = {
       ...catalog,
-      tracks: catalog.tracks.filter((track) => !isExtraTopic(track.trackId)),
+      tracks: catalog.tracks.filter((track) => isCoreTrack(track.trackId)),
     };
     for (const primaryTrack of CORE_TRACK_IDS) {
       const state = createProgress("guest", T0);
@@ -418,7 +423,7 @@ describe("core and optional progress separation", () => {
       );
       expect(
         recommendedLessons(catalog, state).every(
-          (item) => item && !isExtraTopic(item.track.trackId),
+          (item) => item && isCoreTrack(item.track.trackId),
         ),
       ).toBe(true);
     }

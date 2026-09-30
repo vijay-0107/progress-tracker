@@ -17,6 +17,7 @@ import {
 import { recordActivity } from "../domain/progress";
 import type { Project, ProjectProgress, TrackId, Stage } from "../domain/types";
 import { careerProfiles } from "../content/careers";
+import { advancedPaths, findAdvancedPath } from "../content/advanced-careers";
 import { findCareer, findCareerPacket } from "../domain/careers";
 import { CareerReadiness } from "./CareerPreparation";
 import type { LearningProps } from "./shared";
@@ -29,9 +30,11 @@ import {
 } from "./shared";
 
 function projectBlocked(project: Project, props: LearningProps) {
-  const foundation = props.catalog.tracks.find(
-    (track) => track.trackId === "foundation",
-  )!.modules;
+  const foundation =
+    project.variant === "advanced-target"
+      ? []
+      : props.catalog.tracks.find((track) => track.trackId === "foundation")!
+          .modules;
   return [
     ...new Map(
       [
@@ -52,7 +55,9 @@ function projectLessonRequirements(project: Project, props: LearningProps) {
     );
 }
 
-export function Projects(props: LearningProps & { careerId?: string }) {
+export function Projects(
+  props: LearningProps & { careerId?: string; earlier?: boolean },
+) {
   const { catalog, state } = props;
   const [track, setTrack] = useState<TrackId | "all">("all");
   const [variant, setVariant] = useState("all");
@@ -60,11 +65,15 @@ export function Projects(props: LearningProps & { careerId?: string }) {
     findCareer(props.careerId || "")?.id || "all",
   );
   const profile = findCareer(career);
+  const path = findAdvancedPath(career);
+  const selectedProjects = props.earlier
+    ? profile?.projectIds
+    : path?.projectIds;
   const visible = catalog.projects.filter(
     (project) =>
       (track === "all" || project.tracks.includes(track)) &&
       (variant === "all" || project.variant === variant) &&
-      (!profile || profile.projectIds.includes(project.id)),
+      (!selectedProjects || selectedProjects.includes(project.id)),
   );
   return (
     <>
@@ -74,6 +83,9 @@ export function Projects(props: LearningProps & { careerId?: string }) {
         description="A portfolio is not a list of tools. It is a collection of things you can run, test, explain and improve."
       />
       <div className="project-summary">
+        <span>
+          <strong>24</strong> distinct advanced career targets
+        </span>
         <span>
           <strong>8</strong> college reconstructions
         </span>
@@ -112,7 +124,7 @@ export function Projects(props: LearningProps & { careerId?: string }) {
               setTrack(event.target.value as TrackId | "all")
             }
           >
-            <option value="all">All career paths</option>
+            <option value="all">All course associations</option>
             {[
               ...new Set(catalog.projects.flatMap((project) => project.tracks)),
             ].map((id) => (
@@ -123,13 +135,15 @@ export function Projects(props: LearningProps & { careerId?: string }) {
           </select>
         </label>
         <label>
-          Career preparation profile
+          {props.earlier ? "Earlier preparation profile" : "Career Path"}
           <select
             value={career}
             onChange={(event) => setCareer(event.target.value)}
           >
-            <option value="all">All preparation profiles</option>
-            {careerProfiles.map((item) => (
+            <option value="all">
+              {props.earlier ? "All earlier profiles" : "All Career Paths"}
+            </option>
+            {(props.earlier ? careerProfiles : advancedPaths).map((item) => (
               <option key={item.id} value={item.id}>
                 {item.title}
               </option>
@@ -145,6 +159,9 @@ export function Projects(props: LearningProps & { careerId?: string }) {
             <option value="all">All project types</option>
             <option value="A-rebuild">A · Reconstruction</option>
             <option value="B-build">B · Advanced build</option>
+            <option value="advanced-target">
+              Advanced career target · New evidence
+            </option>
             <option value="career-practice">
               Career practice · Additional build
             </option>
@@ -171,9 +188,11 @@ export function Projects(props: LearningProps & { careerId?: string }) {
                     ? "A / RECONSTRUCT"
                     : project.variant === "B-build"
                       ? "B / BUILD NEXT"
-                      : project.variant === "career-practice"
-                        ? "CAREER / PRACTICE"
-                        : "SHARED / SYNTHETIC"}
+                      : project.variant === "advanced-target"
+                        ? "ADVANCED / NEW TARGET"
+                        : project.variant === "career-practice"
+                          ? "CAREER / PRACTICE"
+                          : "SHARED / SYNTHETIC"}
                 </span>
                 <FolderGit2 size={22} />
               </div>
@@ -232,6 +251,7 @@ export function ProjectPage(
     evidence: "",
   };
   const [evidence, setEvidence] = useState(saved.evidence);
+  const [acknowledged, setAcknowledged] = useState<string[]>([]);
   if (!project)
     return (
       <EmptyState title="Project not found">
@@ -241,6 +261,21 @@ export function ProjectPage(
   const blocked = projectBlocked(project, props);
   const missingLessons = projectLessonRequirements(project, props);
   const change = (milestoneId?: string) => {
+    const milestone = project.milestones.find(
+      (item) => item.id === milestoneId,
+    );
+    if (
+      milestone &&
+      project.variant === "advanced-target" &&
+      !milestone.acceptanceCriteria.every((_, index) =>
+        acknowledged.includes(`${milestone.id}-${index}`),
+      )
+    ) {
+      notify(
+        "Acknowledge every advanced acceptance check using your own actual evidence. Missing required execution or targets remain incomplete.",
+      );
+      return;
+    }
     if (milestoneId && evidence.trim().length < 30) {
       notify(
         "Add meaningful project evidence (at least 30 characters) before recording a gate.",
@@ -299,9 +334,11 @@ export function ProjectPage(
             ? "A / RECONSTRUCTION"
             : project.variant === "B-build"
               ? "B / FUTURE BUILD"
-              : project.variant === "career-practice"
-                ? "ADDITIONAL CAREER PRACTICE BUILD"
-                : "ONE SHARED SYNTHETIC RECREATION"
+              : project.variant === "advanced-target"
+                ? "ADVANCED CAREER TARGET / NEW EVIDENCE"
+                : project.variant === "career-practice"
+                  ? "ADDITIONAL CAREER PRACTICE BUILD"
+                  : "ONE SHARED SYNTHETIC RECREATION"
         }
         title={project.title}
         description={project.summary}
@@ -377,18 +414,54 @@ export function ProjectPage(
                       ))}
                     </ul>
                     <h4>Acceptance checks</h4>
-                    <ul>
-                      {milestone.acceptanceCriteria.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
+                    {project.variant === "advanced-target" ? (
+                      <div className="rubric-list">
+                        {milestone.acceptanceCriteria.map(
+                          (item, criterionIndex) => {
+                            const key = `${milestone.id}-${criterionIndex}`;
+                            return (
+                              <label className="check-label" key={key}>
+                                <input
+                                  type="checkbox"
+                                  checked={done || acknowledged.includes(key)}
+                                  disabled={done}
+                                  onChange={(event) =>
+                                    setAcknowledged(
+                                      event.target.checked
+                                        ? [...acknowledged, key]
+                                        : acknowledged.filter(
+                                            (value) => value !== key,
+                                          ),
+                                    )
+                                  }
+                                />
+                                {item}
+                              </label>
+                            );
+                          },
+                        )}
+                      </div>
+                    ) : (
+                      <ul>
+                        {milestone.acceptanceCriteria.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
                     <button
                       className="button primary"
                       disabled={
                         done ||
                         !priorDone ||
                         blocked.length > 0 ||
-                        missingLessons.length > 0
+                        missingLessons.length > 0 ||
+                        (project.variant === "advanced-target" &&
+                          !milestone.acceptanceCriteria.every(
+                            (_, criterionIndex) =>
+                              acknowledged.includes(
+                                `${milestone.id}-${criterionIndex}`,
+                              ),
+                          ))
                       }
                       onClick={() => change(milestone.id)}
                     >
@@ -469,16 +542,20 @@ export function ProjectPage(
             )}
             <p className="quiet-note">
               Foundation progress is shared across all projects. The Fabric
-              recreation is counted once, even though it supports four paths.
+              recreation is counted once, even though it supports four original
+              technical courses.
             </p>
           </section>
           <section className="panel lesson-section">
             <h3>Implementation references</h3>
             <div className="source-links">
               {project.sources.map((source) => (
-                <External href={source.url} key={source.url}>
-                  {source.title}
-                </External>
+                <div key={source.url}>
+                  <External href={source.url}>{source.title}</External>
+                  {project.variant === "advanced-target" && source.notes && (
+                    <p className="small-text">{source.notes}</p>
+                  )}
+                </div>
               ))}
             </div>
           </section>

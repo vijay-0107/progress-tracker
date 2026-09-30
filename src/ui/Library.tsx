@@ -13,9 +13,15 @@ import {
   stageLabel,
   trackMeta,
 } from "../content/catalog";
-import { CORE_TRACK_IDS, EXTRA_TOPIC_IDS, type TrackId } from "../domain/types";
+import {
+  CORE_TRACK_IDS,
+  CAREER_COURSE_IDS,
+  EXTRA_TOPIC_IDS,
+  type TrackId,
+} from "../domain/types";
 import { careerProfiles } from "../content/careers";
-import { careerPackets } from "../content/career-exercises";
+import { allCareerPackets } from "../domain/careers";
+import { advancedPaths } from "../content/advanced-careers";
 import type { LearningProps } from "./shared";
 import {
   EmptyState,
@@ -28,7 +34,7 @@ import {
 export function Library({ catalog }: LearningProps) {
   const [query, setQuery] = useState("");
   const [track, setTrack] = useState<TrackId | "all">("all");
-  const [kind, setKind] = useState("book");
+  const [kind, setKind] = useState("reading");
   const referenced = new Set(
     catalog.tracks
       .filter((item) => item.trackId === track)
@@ -51,7 +57,10 @@ export function Library({ catalog }: LearningProps) {
         (track === "all" ||
           resource.trackId === track ||
           referenced.has(resource.id)) &&
-        (kind === "all" || resource.kind === kind) &&
+        (kind === "all" ||
+          resource.kind === kind ||
+          (kind === "reading" &&
+            ["book", "documentation"].includes(resource.kind))) &&
         `${resource.title} ${resource.provider} ${resource.notes}`
           .toLowerCase()
           .includes(query.toLowerCase()),
@@ -97,7 +106,8 @@ export function Library({ catalog }: LearningProps) {
             value={kind}
             onChange={(event) => setKind(event.target.value)}
           >
-            <option value="book">Books & readings</option>
+            <option value="reading">Books & official readings</option>
+            <option value="book">Books</option>
             <option value="video">Lectures & videos</option>
             <option value="documentation">Documentation</option>
             <option value="practice">Practice</option>
@@ -113,8 +123,15 @@ export function Library({ catalog }: LearningProps) {
             }
           >
             <option value="all">Every path</option>
-            <optgroup label="Core learning paths">
+            <optgroup label="Original core courses & exams">
               {CORE_TRACK_IDS.map((id) => (
+                <option value={id} key={id}>
+                  {trackMeta[id].label}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Career learning & shared systems">
+              {CAREER_COURSE_IDS.map((id) => (
                 <option value={id} key={id}>
                   {trackMeta[id].label}
                 </option>
@@ -153,10 +170,21 @@ export function Library({ catalog }: LearningProps) {
               <p className="muted">{resource.provider}</p>
               <p className="resource-license">{resource.license}</p>
               <div className="inline-meta">
-                <span>{resource.access}</span>
+                <span>
+                  {resource.access === "unverified-optional"
+                    ? "Optional reference · access not established"
+                    : resource.access}
+                </span>
                 <span>Checked {resource.verifiedOn}</span>
               </div>
               <p className="small-text">{resource.notes}</p>
+              {resource.availability === "access-limited" && (
+                <p className="notice warning">
+                  Automated access to this official source was limited. The link
+                  is not a claim that its full text was retrieved; use the other
+                  linked readings as well.
+                </p>
+              )}
               <div className="button-row">
                 {resource.hostedPath ? (
                   <a
@@ -217,20 +245,49 @@ export function SearchPage({
   query,
 }: LearningProps & { query: string }) {
   const normalized = query.trim().toLowerCase();
+  const aliases: Record<string, string> = {
+    cpp: "c++",
+    golang: "go",
+    "c++17": "c++",
+    "c++20": "c++",
+  };
+  const technology = Object.hasOwn(aliases, normalized)
+    ? aliases[normalized]
+    : normalized;
+  const technologyQuery = [
+    "rust",
+    "go",
+    "c++",
+    "c++23",
+    "c",
+    "python",
+    "sql",
+    "bash",
+    "java",
+    "cuda",
+    "triton dsl",
+    "triton inference server",
+  ].includes(technology);
   const lessons = normalized
     ? catalog.tracks.flatMap((track) =>
         track.modules.flatMap((module) =>
           module.lessons.filter((lesson) =>
-            `${trackMeta[track.trackId].label} ${track.title} ${module.title} ${stageLabel(module.stage, track.trackId)} ${lesson.title} ${lesson.objectives.join(" ")} ${lesson.topics.map((topic) => `${topic.title} ${topic.details.join(" ")}`).join(" ")}`
-              .toLowerCase()
-              .includes(normalized),
+            technologyQuery
+              ? lesson.canonicalConceptTags.some((tag) =>
+                  [technology, `technology:${technology}`].includes(
+                    tag.toLowerCase(),
+                  ),
+                )
+              : `${trackMeta[track.trackId].label} ${track.title} ${module.title} ${stageLabel(module.stage, track.trackId)} ${lesson.title} ${lesson.objectives.join(" ")} ${lesson.topics.map((topic) => `${topic.title} ${topic.details.join(" ")}`).join(" ")}`
+                  .toLowerCase()
+                  .includes(normalized),
           ),
         ),
       )
     : [];
   const projects = normalized
     ? catalog.projects.filter((project) =>
-        `${project.title} ${project.summary} ${project.scope} ${careerPackets.find((packet) => packet.projectId === project.id)?.title || ""} ${careerPackets.find((packet) => packet.projectId === project.id)?.repository || ""}`
+        `${project.title} ${project.summary} ${project.scope} ${allCareerPackets.find((packet) => packet.projectId === project.id)?.title || ""} ${allCareerPackets.find((packet) => packet.projectId === project.id)?.repository || ""}`
           .toLowerCase()
           .includes(normalized),
       )
@@ -242,6 +299,15 @@ export function SearchPage({
           .includes(normalized),
       )
     : [];
+  const paths = normalized
+    ? advancedPaths.filter((path) =>
+        technologyQuery
+          ? path.technologies.some((item) => item.toLowerCase() === technology)
+          : `${path.title} ${path.technologies.join(" ")} ${path.stages.flatMap((stage) => stage.groups.map((group) => group.requestedDescription)).join(" ")}`
+              .toLowerCase()
+              .includes(normalized),
+      )
+    : [];
   return (
     <>
       <PageHeading
@@ -251,15 +317,31 @@ export function SearchPage({
             ? `Results for "${query}"`
             : "What would you like to learn?"
         }
-        description={`${lessons.length} lessons, ${projects.length} projects and ${careers.length} career profiles. Canonical records are shared wherever you find them.`}
+        description={`${lessons.length} lessons, ${projects.length} projects, ${paths.length} Career Paths and ${careers.length} earlier profiles. Canonical records are shared wherever you find them.`}
       />
+      {paths.map((path) => (
+        <a
+          className="panel search-result"
+          href={`#/career/${path.id}`}
+          key={`path-${path.id}`}
+        >
+          <span className="stage-badge">
+            Career Path · 19 required groups · 4 advanced targets
+          </span>
+          <h2>{path.title}</h2>
+          <p>{path.summary}</p>
+          <span className="arrow-link">
+            Open required learning <ArrowRight size={16} />
+          </span>
+        </a>
+      ))}
       {careers.map((profile) => (
         <a
           className="panel search-result"
-          href={`#/career/${profile.id}`}
+          href={`#/career/${profile.id}?view=earlier`}
           key={profile.id}
         >
-          <span className="stage-badge">Career Preparation</span>
+          <span className="stage-badge">Earlier Career Preparation</span>
           <h2>{profile.title}</h2>
           <p>{profile.summary}</p>
           <span className="arrow-link">
@@ -303,11 +385,15 @@ export function SearchPage({
           </span>
         </a>
       ))}
-      {normalized && !lessons.length && !projects.length && !careers.length && (
-        <EmptyState title="No match, but plenty to explore">
-          Try a broader concept like SQL, probability, testing or reading.
-        </EmptyState>
-      )}
+      {normalized &&
+        !lessons.length &&
+        !projects.length &&
+        !careers.length &&
+        !paths.length && (
+          <EmptyState title="No match, but plenty to explore">
+            Try a broader concept like SQL, probability, testing or reading.
+          </EmptyState>
+        )}
     </>
   );
 }

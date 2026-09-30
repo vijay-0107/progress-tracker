@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Save } from "lucide-react";
 import { careerProfiles } from "../content/careers";
 import { careerPackets } from "../content/career-exercises";
+import { ReferenceStatus } from "./ReferenceStatus";
 import { lessonCompletion, requiredLessons } from "../content/catalog";
 import {
   careerLessons,
@@ -72,7 +73,9 @@ export function CareerHub({ catalog, state }: LearningProps) {
             <article className="panel career-card" key={profile.id}>
               <span className="subtle-pill">Four preparation stages</span>
               <h2>
-                <a href={`#/career/${profile.id}`}>{profile.title}</a>
+                <a href={`#/career/${profile.id}?view=earlier`}>
+                  {profile.title}
+                </a>
               </h2>
               <p>{profile.summary}</p>
               <ProgressBar
@@ -87,7 +90,10 @@ export function CareerHub({ catalog, state }: LearningProps) {
                 {ready}/12 independent readiness gates recorded across three
                 shared projects
               </p>
-              <a className="arrow-link" href={`#/career/${profile.id}`}>
+              <a
+                className="arrow-link"
+                href={`#/career/${profile.id}?view=earlier`}
+              >
                 Explore preparation <ArrowRight size={16} />
               </a>
             </article>
@@ -131,7 +137,7 @@ export function CareerProfilePage(props: LearningProps & { id: string }) {
     return (
       <EmptyState
         title="Career profile not found"
-        action={<a href="#/careers">Open Career Preparation</a>}
+        action={<a href="#/preparation">Open Career Preparation</a>}
       >
         Your existing learning records have not changed.
       </EmptyState>
@@ -145,7 +151,7 @@ export function CareerProfilePage(props: LearningProps & { id: string }) {
   return (
     <>
       <div className="breadcrumb">
-        <a href="#/careers">
+        <a href="#/preparation">
           <ArrowLeft size={14} />
           Career Preparation
         </a>
@@ -156,6 +162,11 @@ export function CareerProfilePage(props: LearningProps & { id: string }) {
         description={profile.summary}
       />
       <div className="notice info">
+        <p>
+          This is the preserved earlier preparation scope, not the complete
+          advanced requirements.{" "}
+          <a href={`#/career/${id}`}>Open the current Career Path</a>.
+        </p>
         <p>
           <strong>
             {progress.completed}/{progress.total} unique mapped lessons
@@ -404,13 +415,21 @@ export function CareerReadiness(
       <section className="panel lesson-section">
         <h3>Reference implementation: {packet.title}</h3>
         <span className="subtle-pill">
-          {packet.referenceStatus === "accepted-local-reference"
-            ? "Reviewed local reference"
-            : "Reference review pending"}
+          {packet.referenceLabel ||
+            (packet.referenceStatus === "accepted-local-reference"
+              ? "Reviewed local reference"
+              : "Reference review pending")}
         </span>
+        {packet.availability && (
+          <ReferenceStatus availability={packet.availability} />
+        )}
         {packet.coverage.length > 0 && (
           <>
-            <h4>Covered capabilities</h4>
+            <h4>
+              {packet.availability
+                ? "Reviewed portions, not full-target completion"
+                : "Covered capabilities"}
+            </h4>
             <ul>
               {packet.coverage.map((item) => (
                 <li key={item}>{item}</li>
@@ -424,9 +443,22 @@ export function CareerReadiness(
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <External href={`https://github.com/vijay-0107/${packet.repository}`}>
-          Private GitHub repository: {packet.repository}
+        <External
+          href={
+            packet.availability?.codeUrl ||
+            `https://github.com/vijay-0107/${packet.repository}`
+          }
+        >
+          {packet.availability?.codeLabel ||
+            `Private GitHub repository: ${packet.repository}`}
         </External>
+        {packet.availability?.followUpUrl && (
+          <div className="section-block">
+            <External href={packet.availability.followUpUrl}>
+              {packet.availability.followUpLabel}
+            </External>
+          </div>
+        )}
         <p className="quiet-note">
           Requires an authorized GitHub account. Tracker sign-in does not grant
           repository access. Nothing is fetched until you choose to open the
@@ -497,6 +529,21 @@ export function CareerReadiness(
             {exercise.reading.locator} Checked {exercise.reading.verifiedOn}.
             Free official reading; link only.
           </p>
+          {Boolean(exercise.additionalReadings?.length) && (
+            <details className="career-self-check">
+              <summary>Additional exact reading sections</summary>
+              <ul>
+                {exercise.additionalReadings?.map((reading) => (
+                  <li key={reading.url}>
+                    <External href={reading.url}>{reading.title}</External>
+                    <p className="small-text">
+                      {reading.locator} Checked {reading.verifiedOn}. Link only.
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
           <h4>Your bounded assignment</h4>
           <ol>
             {exercise.instructions.map((item) => (

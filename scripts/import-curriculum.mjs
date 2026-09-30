@@ -18,7 +18,16 @@ const extraTopics = [
   "ethical-hacking",
   "technical-product-management",
 ];
-const allTracks = [...coreTracks, ...extraTopics];
+const careerCourses = [
+  "systems-languages",
+  "backend-platform-advanced",
+  "ai-systems-advanced",
+  "cloud-security-advanced",
+  "data-platform-advanced",
+  "quant-infrastructure-advanced",
+  "technical-pm-advanced",
+];
+const allTracks = [...coreTracks, ...extraTopics, ...careerCourses];
 const selectedIndex = process.argv.indexOf("--track");
 const tracks =
   selectedIndex === -1 ? coreTracks : [process.argv[selectedIndex + 1]];
@@ -190,7 +199,11 @@ const provenance = new Map(
 for (const { track, data, originalSha256, packagedSha256 } of inputs) {
   provenance.set(track, {
     trackId: track,
-    group: extraTopics.includes(track) ? "extra" : "core",
+    group: careerCourses.includes(track)
+      ? "career"
+      : extraTopics.includes(track)
+        ? "extra"
+        : "core",
     sourceCheckedOn: data.sourceCheckedOn,
     modules: data.modules.length,
     lessons: data.modules.reduce(
@@ -206,7 +219,7 @@ await writeFile(
   provenancePath,
   JSON.stringify(
     {
-      version: "2026.09.29.1",
+      version: "2026.09.30.1",
       description:
         "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery.",
       complete: allTracks.every((track) => provenance.has(track)),

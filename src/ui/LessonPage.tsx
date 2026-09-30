@@ -17,6 +17,7 @@ import {
   findLesson,
   findResource,
   isExtraTopic,
+  isCareerCourse,
   resourceEmbed,
   stageLabel,
   unmetRequirements,
@@ -198,6 +199,9 @@ export function LessonPage({
             {isExtraTopic(track.trackId) && (
               <span className="subtle-pill">Optional topic</span>
             )}
+            {isCareerCourse(track.trackId) && (
+              <span className="subtle-pill">Required career learning</span>
+            )}
             <span>
               <Clock3 size={14} />
               {minutesLabel(lesson.estimatedMinutes)} estimated
@@ -226,8 +230,25 @@ export function LessonPage({
           {saved.bookmarked ? "Bookmarked" : "Bookmark"}
         </button>
       </header>
-      {isExtraTopic(track.trackId) && (
+      {(isExtraTopic(track.trackId) || isCareerCourse(track.trackId)) && (
         <p className="notice info">{track.limitations[0]}</p>
+      )}
+      {lesson.practiceEnvironment && (
+        <section
+          className="notice info"
+          aria-label="Practice environment and evidence"
+        >
+          <strong>
+            Study now. Claim only the execution you actually perform.
+          </strong>
+          <ul>
+            {lesson.practiceEnvironment.requirements.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p>{lesson.practiceEnvironment.evidenceBoundary}</p>
+          <p>{lesson.practiceEnvironment.unavailableAction}</p>
+        </section>
       )}
       {blocked.length > 0 && (
         <details className="notice info">

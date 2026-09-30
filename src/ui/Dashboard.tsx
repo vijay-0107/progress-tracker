@@ -13,6 +13,7 @@ import {
   allLessons,
   coreLessons,
   isExtraTopic,
+  isCoreTrack,
   lessonCompletion,
   moduleComplete,
   recommendedLessons,
@@ -35,6 +36,7 @@ import {
   ProgressBar,
   TrackBadge,
 } from "./shared";
+import { CareerPathCards } from "./CareerPathCards";
 
 export function Dashboard({ catalog, state }: LearningProps) {
   const lessons = coreLessons(catalog);
@@ -74,6 +76,7 @@ export function Dashboard({ catalog, state }: LearningProps) {
   );
   const originalProjects = projectTotals(catalog, state, "original");
   const careerProjects = projectTotals(catalog, state, "career");
+  const advancedProjects = projectTotals(catalog, state, "advanced");
   const activeProjects = catalog.projects.filter(
     (project) =>
       state.projects[project.id]?.evidence ||
@@ -140,6 +143,7 @@ export function Dashboard({ catalog, state }: LearningProps) {
         />
       </section>
 
+      <CareerPathCards catalog={catalog} state={state} />
       <div className="dashboard-columns">
         <section className="panel continue-panel">
           <div className="section-title">
@@ -265,16 +269,14 @@ export function Dashboard({ catalog, state }: LearningProps) {
         <div className="section-title">
           <div>
             <p className="eyebrow">ONE FOUNDATION. MANY DIRECTIONS.</p>
-            <h2>Your learning paths</h2>
+            <h2>Original courses and exam preparation</h2>
           </div>
           <span className="muted small-text">
             Choose depth, not everything at once
           </span>
         </div>
         <PathCards
-          tracks={catalog.tracks.filter(
-            (track) => !isExtraTopic(track.trackId),
-          )}
+          tracks={catalog.tracks.filter((track) => isCoreTrack(track.trackId))}
           state={state}
         />
       </section>
@@ -302,15 +304,16 @@ export function Dashboard({ catalog, state }: LearningProps) {
         aria-labelledby="career-hub-heading"
       >
         <p className="eyebrow">CANONICAL LEARNING. INDEPENDENT EVIDENCE.</p>
-        <h2 id="career-hub-heading">Career Preparation</h2>
+        <h2 id="career-hub-heading">Earlier Career Preparation</h2>
         <p>
-          Six four-stage career maps connect your existing lessons and shared
-          projects. Explore evidence gaps and record your own explanation,
-          changes, debugging and tests, separately from reference implementation
-          status.
+          The earlier six four-stage preparation maps connect your existing
+          lessons and shared projects. Explore evidence gaps and record your own
+          explanation, changes, debugging and tests, separately from reference
+          implementation status. Their narrower scope is preserved; the current
+          Career Paths above contain the complete advanced requirements.
         </p>
         <div className="button-row">
-          <a className="button primary" href="#/careers">
+          <a className="button primary" href="#/preparation">
             Explore career preparation <ArrowRight size={16} />
           </a>
           <a
@@ -341,6 +344,13 @@ export function Dashboard({ catalog, state }: LearningProps) {
             career-practice projects complete · {careerProjects.recorded} of{" "}
             {careerProjects.gates} additional build gates recorded. Independent
             readiness is separate and never completes projects or lessons.
+          </p>
+          <p>
+            {advancedProjects.completed} of {advancedProjects.total} advanced
+            targets complete · {advancedProjects.recorded} of{" "}
+            {advancedProjects.gates} new build gates recorded. Earlier evidence
+            and reviewed reference results never complete the expanded
+            requirements.
           </p>
         </div>
         <ArrowLink href="#/projects">Open project studio</ArrowLink>

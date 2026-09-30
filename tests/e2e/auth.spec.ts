@@ -17,9 +17,10 @@ const foundation = JSON.parse(
 ) as Track;
 const lesson = foundation.modules[0].lessons[0];
 const password = "emulator-only-Example-2468";
+const appBase = `http://127.0.0.1:${Number(process.env.E2E_PORT || "5199")}/progress-tracker/`;
 
 async function authenticate(page: Page, email: string, register = false) {
-  await page.goto("http://127.0.0.1:5178/progress-tracker/#/settings");
+  await page.goto(`${appBase}#/settings`);
   await expect(
     page.getByText("Local emulator mode.", { exact: false }),
   ).toBeVisible();
@@ -40,9 +41,7 @@ async function authenticate(page: Page, email: string, register = false) {
 }
 
 async function openNotes(page: Page) {
-  await page.goto(
-    `http://127.0.0.1:5178/progress-tracker/#/lesson/${lesson.id}`,
-  );
+  await page.goto(`${appBase}#/lesson/${lesson.id}`);
   await page.getByRole("tab", { name: "Your notes" }).click();
 }
 
@@ -64,9 +63,7 @@ test("readiness keeps per-gate evidence private during live owner switches and p
   const alice = `readiness-alice-${suffix}@example.test`;
   const bob = `readiness-bob-${suffix}@example.test`;
   const openReadiness = async (target: Page) => {
-    await target.goto(
-      "http://127.0.0.1:5178/progress-tracker/#/project/sde-order-orchestrator",
-    );
+    await target.goto(`${appBase}#/project/sde-order-orchestrator`);
     await expect(
       target.getByRole("region", {
         name: "Career exercises and independent readiness",
@@ -106,7 +103,7 @@ test("readiness keeps per-gate evidence private during live owner switches and p
   const accountTab = await context.newPage();
   const remoteContext = await browser.newContext();
   try {
-    await accountTab.goto("http://127.0.0.1:5178/progress-tracker/#/settings");
+    await accountTab.goto(`${appBase}#/settings`);
     await expect(
       accountTab.getByRole("button", { name: "Sign out", exact: true }),
     ).toBeVisible();
@@ -243,16 +240,14 @@ test("Auth emulator isolates guest, Alice and Bob; fresh context reloads real Fi
   const context = await browser.newContext();
   try {
     const fresh = await context.newPage();
-    await fresh.goto("http://127.0.0.1:5178/progress-tracker/#/settings");
+    await fresh.goto(`${appBase}#/settings`);
     await fresh.getByLabel("Email address").fill(alice);
     await fresh.getByLabel("Password", { exact: true }).fill(password);
     await fresh.getByRole("button", { name: "Sign in with email" }).click();
     await expect(
       fresh.getByText("Sync status: synced", { exact: true }),
     ).toBeVisible({ timeout: 20000 });
-    await fresh.goto(
-      `http://127.0.0.1:5178/progress-tracker/#/lesson/${lesson.id}`,
-    );
+    await fresh.goto(`${appBase}#/lesson/${lesson.id}`);
     await fresh.getByRole("tab", { name: "Your notes" }).click();
     await expect(fresh.getByLabel("Lesson notes")).toHaveValue(
       "Alice private learning evidence, synchronized only with Alice's UID.",
@@ -289,7 +284,7 @@ test("offline changes survive reload and conflicts require an explicit version c
     await second.getByRole("button", { name: "Save notes" }).click();
     await saveNote(page, "A newer online version made on the other device.");
     await secondContext.setOffline(false);
-    await second.goto("http://127.0.0.1:5178/progress-tracker/#/settings");
+    await second.goto(`${appBase}#/settings`);
     await second
       .getByRole("button", { name: "Retry sync", exact: true })
       .last()

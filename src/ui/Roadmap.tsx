@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import {
   CAREER_TRACKS,
+  isCareerCourse,
   eligibleLessons,
   isExtraTopic,
   lessonCompletion,
@@ -47,6 +48,7 @@ export function Roadmap({
   )!;
   const meta = trackMeta[trackId];
   const extra = isExtraTopic(trackId);
+  const career = isCareerCourse(trackId);
   const eligibleModules = track.modules.filter(
     (module) => eligibleLessons(module, paper).length > 0,
   );
@@ -76,11 +78,13 @@ export function Roadmap({
     <>
       <PageHeading
         eyebrow={
-          extra
-            ? "EXTRA TOPICS / OPTIONAL TRACK"
-            : trackId === "foundation"
-              ? "YOUR SHARED STARTING POINT"
-              : `LEARNING PATH ${meta.code}`
+          career
+            ? "CAREER PATH / REQUIRED SYSTEMS AND DOMAIN DEPTH"
+            : extra
+              ? "EXTRA TOPICS / OPTIONAL TRACK"
+              : trackId === "foundation"
+                ? "YOUR SHARED STARTING POINT"
+                : `LEARNING PATH ${meta.code}`
         }
         title={meta.label}
         description={meta.description}
@@ -139,20 +143,33 @@ export function Roadmap({
           />
         </div>
       </div>
-      {extra && (
+      {(extra || career) && (
         <>
           <div className="notice info">
             <div>
-              <strong>Optional learning, with its own progress</strong>
+              <strong>
+                {career
+                  ? "Required Career Path learning, with separate progress"
+                  : "Optional learning, with its own progress"}
+              </strong>
               <p>
                 Your core path, goals and totals are unchanged. Professional
                 Practice is a learning level, not a professional certification,
                 qualification or promise of trading profitability.
               </p>
               <p>{track.limitations[0]}</p>
+              {trackId === "systems-languages" && (
+                <p>
+                  Follow the explicit mappings in your selected Career Path.
+                  Shared lessons keep one record; not every shared unit is
+                  required by every role.
+                </p>
+              )}
             </div>
           </div>
-          <section aria-label="Topic stages">
+          <section
+            aria-label={career ? "Career course stages" : "Topic stages"}
+          >
             <h2>Beginner to Professional Practice</h2>
             <div className="stage-cards">
               {track.stageOutcomes?.map((outcome) => {
@@ -206,8 +223,8 @@ export function Roadmap({
                 ).length
               }{" "}
               of {foundation.modules.length} shared modules complete. One shared
-              set of lessons supports every career path, never four separate
-              copies.
+              set of lessons supports the paths without creating duplicate
+              lesson records for each one.
             </p>
           </div>
           <a className="button secondary small" href="#/path/foundation">

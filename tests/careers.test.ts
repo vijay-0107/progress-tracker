@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   allLessons,
   coreLessons,
+  isCareerCourse,
   findLesson,
   getCatalog,
   lessonCompletion,
@@ -172,14 +173,21 @@ describe("six career maps and append-only inventory", () => {
     }
   });
   it("adds exactly 16 optional lessons and five projects without redefining old totals", () => {
-    expect(catalog.tracks).toHaveLength(13);
-    expect(allLessons(catalog)).toHaveLength(371);
+    const earlierTracks = catalog.tracks.filter(
+      (track) => !isCareerCourse(track.trackId),
+    );
+    expect(earlierTracks).toHaveLength(13);
+    expect(allLessons({ ...catalog, tracks: earlierTracks })).toHaveLength(371);
     expect(coreLessons(catalog)).toHaveLength(231);
     expect(careerProjects).toHaveLength(5);
     expect(
       careerProjects.flatMap((project) => project.milestones),
     ).toHaveLength(20);
-    expect(catalog.projects).toHaveLength(26);
+    expect(
+      catalog.projects.filter(
+        (project) => project.variant !== "advanced-target",
+      ),
+    ).toHaveLength(26);
     const state = createProgress("guest", T0);
     expect(projectTotals(catalog, state, "original")).toEqual({
       total: 21,
