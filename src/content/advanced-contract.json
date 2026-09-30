@@ -4792,8 +4792,8 @@
         "No prior readiness or short happy-path run proves distributed consistency."
       ],
       "repository": "raft-kv-store",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed scoped reference",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded Rust consensus/storage scope",
       "coverage": [
         "Actual Rust three/five-process tests, independent bounded history checks, repeated fault/election cases and native benchmarks passed after independently reviewed recovery and membership corrections.",
         "Original Raft term/vote/log persistence, quorum-confirmed reads and current-term commit fencing.",
@@ -4807,9 +4807,20 @@
         "The implementation is bounded to 512 KiB logical state, a full-state Raft journal and cached whole-table LSM data.",
         "Loopback process-fault evidence is not multi-host failure-domain, physical power-loss, Byzantine/TLS, or formal unbounded correctness proof.",
         "Timeouts can be indeterminate; source review and tests do not establish unaided learner expertise.",
-        "Independent learner readiness is not established by this reference implementation.",
-        "No prior readiness or short happy-path run proves distributed consistency."
-      ]
+        "No prior readiness or short happy-path run proves distributed consistency.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Bounded local crash-fault reference: fixed roster <=9, 512 KiB state, full-state WAL and cached SSTables. No arbitrary endpoint discovery, production LSM throughput, multi-host/TLS/Byzantine or formal-proof guarantee.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/raft-kv-store",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 2,
@@ -4842,8 +4853,8 @@
         "A token bucket is not a circuit breaker."
       ],
       "repository": "async-edge-proxy",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed bounded L7 functional reference; 200000-connection target pending",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded L7 scope; 200000-connection target open",
       "coverage": [
         "Actual Rust/Tokio/Hyper streaming L7 proxy with HTTP/1, TLS and HTTP/2, real Tonic/Protobuf hot configuration, watch and rollback.",
         "Weighted balancing and health checks, distinct token-bucket limiting and circuit breaking, deadlines, admission control, leases and draining.",
@@ -4856,8 +4867,20 @@
         "Functional reference availability, pending high-load benchmark evidence and learner readiness are separate statuses.",
         "All advanced-target-02 learner gates remain independently unassessed.",
         "200000 concurrent keep-alive connections requires actual appropriately provisioned measurement.",
-        "A token bucket is not a circuit breaker."
-      ]
+        "A token bucket is not a circuit breaker.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "200000 connections NOT ATTEMPTED: required 202048 descriptors exceed the 65536 hard limit, with memory/time preflight limits. Real 1000/10000 zero-drop runs do not close the 200000/SLA target.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/async-edge-proxy",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 3,
@@ -4889,14 +4912,34 @@
         "At-least-once activity delivery does not by itself prevent duplicate external effects."
       ],
       "repository": "durable-workflow-runtime",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed workflow software; publication held",
+      "coverage": [
+        "Actual original Go/PostgreSQL typed workflow/activity registry with append-only history, persisted results, timers, signals, sequential child joins and four partitioned SKIP LOCKED work-claim paths.",
+        "Migration advisory locking is separate from row-lock-based work claiming. Worker heartbeats, generation fences, bounded retry, dead-letter and manual retry behavior were exercised.",
+        "A recovered runtime panic was actually reproduced as a false replay/completion risk: the pre-fix run reported 50 failing new regression cases. The sticky-FIRST-violation correction now has 123 passing cases, actual PostgreSQL/API409 and worker Nondeterministic results, and no extra effects."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Publication is HELD and the code remains an open unmerged draft; the reviewed implementation is located in the explicitly authorized private PR, not root main's seed.",
+        "Pure-workflow hashing assumes trusted developers. Nondeterminism enforcement covers observable command/terminal contracts, not arbitrary Go purity or a general sandbox proof.",
+        "External activity calls are at least once and require provider idempotency; this is not distributed exactly-once execution.",
+        "Seven-day clock-injected tests and an actual two-second restart are not observed days-long operation or multi-host PostgreSQL high availability.",
+        "All advanced-target-03 learner evidence gates remain unassessed. Software-scope acceptance grants no learner credit and does not close the owner scanner-triage gate.",
         "A short simulated-clock test is not observed days-long operation.",
-        "At-least-once activity delivery does not by itself prevent duplicate external effects."
-      ]
+        "At-least-once activity delivery does not by itself prevent duplicate external effects.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": true,
+        "targetQualification": "Software mechanism reviewed, but PUBLICATION HELD: open draft/security-scanner owner triage. Seven-day clock injection plus a real two-second restart are not days-long service or PG HA; observable determinism is not arbitrary Go purity or distributed exactly-once.",
+        "publication": "unmerged-draft",
+        "verification": "owner-triage-required",
+        "publicationNote": "OPEN DRAFT / UNMERGED. Actual reviewed code is in the opt-in private PR; root main is seed-only. Software verification passed, but a security-scanner check requires repository-owner triage. This is NOT all-checks green; no new OAuth grant or automatic dismissal is authorized.",
+        "codeUrl": "https://github.com/vijay-0107/durable-workflow-runtime/pull/1",
+        "codeLabel": "Private unmerged implementation PR (main is seed-only)"
+      }
     },
     {
       "number": 4,
@@ -4927,14 +4970,34 @@
         "A 24-hour gate unit test is not a completed 24-hour soak."
       ],
       "repository": "schema-migration-gateway",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed same-database migration scope; real soak unverified",
+      "coverage": [
+        "Actual Rust/sqlparser AST and typed-parameter HTTP/JSON SQL gateway with an explicit limited mapping, atomic dual writes and idempotency inside ONE PostgreSQL database.",
+        "Actual retained REPEATABLE READ asynchronous shadow comparison, epoch draining, backpressure/error handling, an uncertain-outcome restart journal and guarded 10/50/100 routing stages with rollback.",
+        "Reviewed PostgreSQL 17.6 CI exercised 16 test entrypoints, ten contract groups and CLI evidence. A real four-client 30.290-second concurrent-index run reported zero errors and differences, while the short-window cutover was correctly refused.",
+        "Strict below-0.001-percent integer-boundary checks and complete 24-hour/gap/sample/freshness decision logic were verified using explicitly labelled clock injection."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "The REAL 24-hour outcome is UNVERIFIED. A short real run or passing injected-clock gate is not an observed 24-hour soak and does not establish a zero-downtime guarantee.",
+        "The interface is an HTTP/JSON SQL gateway, not PostgreSQL wire-protocol or transparent ORM compatibility.",
+        "Atomicity covers schemas inside the SAME database, not distributed cross-database transactions. Supported SQL/mapping and uncertainty/recovery limits remain explicit.",
+        "All advanced-target-04 independent learner evidence gates remain unassessed; reference acceptance does not grant learner credit.",
         "Strict discrepancy below 0.001 percent over an observed 24 hours before 100-percent read cutover.",
-        "A 24-hour gate unit test is not a completed 24-hour soak."
-      ]
+        "A 24-hour gate unit test is not a completed 24-hour soak.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "REAL 24-hour soak/outcome UNVERIFIED. The short real run correctly refused cutover; injected-clock <0.001%/window tests are not observed zero downtime. Atomicity is within ONE PG database; HTTP/JSON gateway is not PG-wire/ORM transparency.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/schema-migration-gateway",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 5,
@@ -4973,15 +5036,38 @@
         "CPU reference math or scheduler tests do not satisfy GPU execution."
       ],
       "repository": "paged-llm-inference",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-partial-reference",
+      "referenceLabel": "PARTIAL CPU/compile artifacts; GPU project open",
+      "coverage": [
+        "Actual trained Apache-2.0 Maykeye TinyLLama CPU FP32 paged/dense/reference parity, 16 actual CLI-generated tokens and two host CPU processes were verified.",
+        "The CPU test suite reports 156 cases plus 19 EXPLICIT SKIPS: 17 GPU and two native-ABI cases.",
+        "Real CUDA kernel compilation and host-ABI evidence exist, but they do not establish device execution, GPU parity or a public HTTP serving path.",
+        "The default path is CPU; an explicitly requested CUDA path fails without an available device rather than silently falling back."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "GPU runtime/parity, VRAM fragmentation below four percent and the three-to-four-times throughput target remain OPEN.",
+        "Multi-node/tensor parallelism, NCCL, Llama3 support and automatic prefix copy-on-write are not implemented.",
+        "No HTTP public path is implemented.",
+        "This is a partial reviewed code artifact, not a fully completed GPU or distributed LLM project.",
+        "CPU inference, two host processes, compilation and skipped device tests must not be presented as real GPU/fleet evidence.",
+        "The code remains an unmerged private draft with publication held; root main contains only a seed.",
+        "No learner credit is granted; advanced-target-05 gates remain independently unassessed.",
         "VRAM fragmentation under 4 percent.",
         "3-4x throughput versus equivalent measured static batching.",
-        "CPU reference math or scheduler tests do not satisfy GPU execution."
-      ]
+        "CPU reference math or scheduler tests do not satisfy GPU execution.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "partial-cpu",
+        "publicationHold": true,
+        "targetQualification": "PARTIAL CPU/compile artifacts only. GPU runtime/parity, VRAM <4% and 3-4x throughput remain OPEN; 19 tests are explicitly skipped. No HTTP, multi-node/tensor/NCCL/Llama3/automatic-prefix-COW implementation or GPU-completion claim.",
+        "publication": "unmerged-draft",
+        "verification": "cpu-checks-passed-hardware-open",
+        "publicationNote": "OPEN DRAFT / UNMERGED. Actual reviewed code is in the opt-in private PR; root main is seed-only. Passing CPU/compilation checks and explicit skips do NOT verify the outstanding GPU/fleet runtime or original targets. Publication remains held.",
+        "codeUrl": "https://github.com/vijay-0107/paged-llm-inference/pull/1",
+        "codeLabel": "Private unmerged implementation PR (main is seed-only)"
+      }
     },
     {
       "number": 6,
@@ -5014,15 +5100,37 @@
         "Tensor-core utilization must use an actually supported metric, not an invented NVML field."
       ],
       "repository": "heterogeneous-inference-router",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-partial-reference",
+      "referenceLabel": "PARTIAL CPU router artifacts; real GPU/fleet scope open",
+      "coverage": [
+        "Actual asynchronous CPU worker/router behavior covers EDF, admission, registry, precision consent, timeout fencing and UI, with 142 CPU cases and five independently verified API/UI workflows.",
+        "The model is an original UNTRAINED 4-16-3 classifier, NOT an LLM.",
+        "INT8/INT4 weights are quantized representations evaluated through CPU FP32 dequantized arithmetic, not native integer acceleration.",
+        "Ranks are POLICY labels, not measured accuracy. TTFT and ITL remain null because LLM token-timing behavior is not established."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Actual GPU runtime, NVML/GPM device telemetry, heterogeneous fleet behavior and SLA evidence remain OPEN.",
+        "hardwareUnavailable remains true; no tensor-utilization value, zero latency or guaranteed latency is invented.",
+        "This is a partial reviewed CPU code artifact, not a completed GPU fleet or LLM routing project.",
+        "The code remains an unmerged private draft with publication held; root main contains only a seed.",
+        "Stopping parent QA is not an implementation-completion or publication decision.",
+        "No learner credit is granted; advanced-target-06 gates remain independently unassessed.",
         "No universal SLA guarantee is inferred from the project title.",
         "H100/A100/L4 performance remains unverified without those devices.",
-        "Tensor-core utilization must use an actually supported metric, not an invented NVML field."
-      ]
+        "Tensor-core utilization must use an actually supported metric, not an invented NVML field.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "partial-cpu",
+        "publicationHold": true,
+        "targetQualification": "PARTIAL CPU router only: original UNTRAINED 4-16-3 classifier, NOT an LLM. INT8/4 weights use FP32 dequantized arithmetic, ranks are POLICY labels, TTFT/ITL null. hardwareUnavailable=true; real GPU/NVML/GPM/fleet/SLA remains OPEN.",
+        "publication": "unmerged-draft",
+        "verification": "cpu-checks-passed-hardware-open",
+        "publicationNote": "OPEN DRAFT / UNMERGED. Actual reviewed code is in the opt-in private PR; root main is seed-only. Passing CPU/compilation checks and explicit skips do NOT verify the outstanding GPU/fleet runtime or original targets. Publication remains held.",
+        "codeUrl": "https://github.com/vijay-0107/heterogeneous-inference-router/pull/1",
+        "codeLabel": "Private unmerged implementation PR (main is seed-only)"
+      }
     },
     {
       "number": 7,
@@ -5054,14 +5162,35 @@
         "Redis selected; Dragonfly is not falsely claimed tested."
       ],
       "repository": "streaming-feature-store",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed real feature pipeline; HTTP p99 target missed",
+      "coverage": [
+        "Actual SQL/PostgreSQL -> Debezium -> Kafka -> immutable Arrow/Parquet on S3-compatible MinIO plus Redis, with one catalog compare-and-set visibility authority.",
+        "Source LSN/transaction/revision fences, durable offsets and recovery/failure windows, schema evolution and an isolated v2 backfill were exercised.",
+        "Reviewed evidence includes 57 unit cases, 13 actual five-service integration cases and 150 temporal-oracle cases; historical before-update features remained available after deletion under the declared recorded-clock semantics.",
+        "The final authenticated HTTP p99 was 15.795 ms. Redis-only lookup was separately measured at 0.986 ms, and freshness at approximately 0.3 seconds."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Availability is the consumer-acceptance/ingestion clock durably recorded by this pipeline, NOT instrumented first HTTP response or publication-visibility time. Do not claim exact equivalence to every historical online response.",
+        "Future-effective rows are rejected. This is a one-partition, single-host bounded pipeline; microbatch behavior does not establish atomicity for arbitrarily large SQL transactions.",
+        "Production tenant authentication is not claimed.",
+        "Authenticated HTTP p99 15.795 ms MISSES the sub-5-ms target. Redis-only 0.986 ms is not API latency, and freshness is a separate measurement.",
+        "Reference availability does not grant learner credit. All advanced-target-07 independent evidence gates remain unassessed.",
         "Sub-5ms real-time inference feature lookup until observed.",
-        "Redis selected; Dragonfly is not falsely claimed tested."
-      ]
+        "Redis selected; Dragonfly is not falsely claimed tested.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "HTTP p99 15.795 ms MISSES <5 ms; Redis-only 0.986 ms and freshness ~0.3 s are separate. Availability is recorded consumer ingestion/acceptance, NOT first HTTP/publication visibility or exact historical online-response equivalence.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/streaming-feature-store",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 8,
@@ -5093,8 +5222,8 @@
         "gVisor is a distinct taught runtime, not a claim that it is Firecracker or a hardware VM."
       ],
       "repository": "microvm-agent-sandbox",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed real-KVM functional reference; cold-start target not met",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed owned KVM scope; cold-start target failed",
       "coverage": [
         "Actual Linux CI exercised KVM/Firecracker, jailer, vsock, snapshots, pristine reset, a read-only base with guest copy-on-write state, resource caps, identity, cancellation and supervisor-crash cleanup.",
         "The positive network path was verified from an actual guest helper through vsock and a per-job proxy to an owned TLS origin, including body hash/size, authority, certificate SAN and client isolation. The fixture bridge is excluded from the production design.",
@@ -5107,8 +5236,20 @@
         "Learners need an explicitly authorized compatible Linux/KVM environment for the actual microVM hands-on checks. Missing KVM must not trigger unsandboxed host execution.",
         "Functional code availability, an unmet performance target and independent learner readiness remain separate. All advanced-target-08 learner gates remain unassessed.",
         "Sub-50ms startup requires a named clock boundary and real runs.",
-        "gVisor is a distinct taught runtime, not a claim that it is Firecracker or a hardware VM."
-      ]
+        "gVisor is a distinct taught runtime, not a claim that it is Firecracker or a hardware VM.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Cold p95 422.77 ms FAILS <50 ms. Restore 42.32 ms and warm 5.86 ms are different boundaries, not a cold pass. Actual owned KVM/TLS proof is bounded; Internet/escape certification/source PGP/fleet proof is not established.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/microvm-agent-sandbox",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 9,
@@ -5140,14 +5281,35 @@
         "No live reverse shell, host escape or unrelated-system probing is needed or authorized."
       ],
       "repository": "ebpf-runtime-guard",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "EXPERIMENTAL owned-lab mechanisms; overhead/delivery targets failed",
+      "coverage": [
+        "Actual CO-RE C/libbpf and Go/BTF kernel hooks with preselected cgroup/PID scoping, bounded maps/ring buffers, structured Protobuf/gRPC batches and counters were exercised in real Linux CI.",
+        "Telemetry loss latches an unhealthy HTTP503 state; policy reload, scoping and cleanup were actually tested rather than represented by mocks.",
+        "Actual owned-veth XDP allowed/drop UDP verdicts were verified at receiving peer ingress for the workload's outgoing path.",
+        "Measured median relative CPU overhead was 174.61 percent and telemetry loss was 9.55 percent under the declared experimental workload."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Acceptance covers ONLY experimental owned-lab mechanisms. The requested under-1-percent CPU overhead and lossless-delivery targets are substantively NOT MET; this is not production readiness.",
+        "Syscall-entry events observe attempts, not completed writes or execution prevention. Synthetic detection heuristics are not actual escape tests or complete attack coverage.",
+        "XDP is ingress at the peer for the scoped outgoing workload path, not general host egress. UDP verdicts were actually tested; TCP was only compiled/verifier-checked. Fragments, VLAN and IPv6 are outside the filter scope.",
+        "No remote TLS or exactly-once delivery guarantee is established.",
+        "All advanced-target-09 independent learner evidence gates remain unassessed. Experimental reference acceptance grants no learner credit.",
         "Sub-1-percent CPU overhead requires an observed baseline and workload.",
-        "No live reverse shell, host escape or unrelated-system probing is needed or authorized."
-      ]
+        "No live reverse shell, host escape or unrelated-system probing is needed or authorized.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "experimental-owned-lab",
+        "publicationHold": false,
+        "targetQualification": "EXPERIMENTAL OWNED-LAB mechanisms only. Median relative CPU 174.61% and telemetry loss 9.55% FAIL <1%/lossless targets. Entry events observe attempts; actual XDP UDP verdicts do not prove TCP, fragments, VLAN, IPv6 or general host egress.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/ebpf-runtime-guard",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 10,
@@ -5179,14 +5341,33 @@
         "No real cloud credential integration is claimed without explicit configuration and evidence."
       ],
       "repository": "workload-identity-broker",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed software identity scope; publication held",
+      "coverage": [
+        "Actual Go SPIFFE Workload API, live Kubernetes TokenReview, SOFTWARE swtpm activation/quote and CSR binding, exact 900-second SVID validity, rotation and real PostgreSQL ephemeral leases were exercised.",
+        "Reviewed evidence includes 72 unit and 21 integration cases covering three reproduced fixes: revocation commits denial with durable audit-pending state, fully attested short-token renewal deferral bounded by live expiry, and one absolute lease deadline."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Publication is HELD: the reviewed code remains an unmerged draft, while root main contains only the seed. An opt-in private PR link may identify the actual implementation; do not label it merged or all-checks green.",
+        "Physical TPM, manufacturer EK trust and node co-location are UNVERIFIED. SOFTWARE swtpm results do not establish those hardware properties.",
+        "Cloud STS is NOT IMPLEMENTED. Exact validity timestamps are not an observed 15-minute wall-clock soak, and instant revocation of externally cached certificates is not established.",
+        "The historical scanner incident requires OWNER triage; no automatic dismissal, acceptance closure or new OAuth grant is authorized.",
+        "All advanced-target-10 independent learner gates remain unassessed; software-scope acceptance grants no learner credit.",
         "Physical TPM/HSM attestation cannot be inferred from mock quotes.",
-        "No real cloud credential integration is claimed without explicit configuration and evidence."
-      ]
+        "No real cloud credential integration is claimed without explicit configuration and evidence.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": true,
+        "targetQualification": "Software scope reviewed, PUBLICATION HELD in an open draft. SOFTWARE swtpm is not physical TPM/manufacturer-EK/co-location proof; cloud STS NOT IMPLEMENTED. 900-second validity is not a wall-clock soak or instant external cached-certificate revocation.",
+        "publication": "unmerged-draft",
+        "verification": "owner-triage-required",
+        "publicationNote": "OPEN DRAFT / UNMERGED. Actual reviewed code is in the opt-in private PR; root main is seed-only. Software verification passed, but a security-scanner check requires repository-owner triage. This is NOT all-checks green; no new OAuth grant or automatic dismissal is authorized.",
+        "codeUrl": "https://github.com/vijay-0107/workload-identity-broker/pull/1",
+        "codeLabel": "Private unmerged implementation PR (main is seed-only)"
+      }
     },
     {
       "number": 11,
@@ -5213,8 +5394,8 @@
         "Unknown conditions remain unknown, not safe."
       ],
       "repository": "cloud-iam-path-analyzer",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed scoped reference",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded snapshot IAM scope",
       "coverage": [
         "Actual Windows/Linux tests, browser workflows and a guarded synthetic-only GitHub draft-PR creation/cleanup were verified; parent API/UI checks exercised both cloud models and unknown-premise refusal.",
         "Bounded offline AWS/GCP permission composition with explicit deny, boundary, SCP, trust, context and hierarchy evidence.",
@@ -5228,10 +5409,21 @@
         "BLOCKED_IN_MODEL is not SAFE or an enterprise security certification; unknown residual paths veto proposals.",
         "Least-change selection is optimal only within the bounded candidate/edit search, not a global least-privilege solution.",
         "No complete AWS IAM/GCP semantic coverage, real-world exploitability or production-scale performance is claimed.",
-        "Independent learner readiness is not established by this reference implementation.",
         "Comprehensive enterprise IAM semantics are not inferred from a bounded subset.",
-        "Unknown conditions remain unknown, not safe."
-      ]
+        "Unknown conditions remain unknown, not safe.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Finite supplied-snapshot IAM model. BLOCKED_IN_MODEL is not SAFE; unknown residual routes veto proposals. No cloud attack/apply, comprehensive enterprise semantics, global optimality or enterprise-scale claim.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/cloud-iam-path-analyzer",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 12,
@@ -5258,14 +5450,34 @@
         "Static reachability never proves actual runtime execution."
       ],
       "repository": "appsec-reachability-lab",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded static reachability scope",
+      "coverage": [
+        "Actual Linux execution of all three real frontends: Python ast, native Go AST and Java TreeSitter. Reviewed evidence includes 297 cases with zero skips and 35 expected corpus outcomes: 33 complete reports plus two explicit ambiguous-root errors.",
+        "Eleven independently reproduced false-exclusion issues were fixed and cleared by the same reviewer. Immutable AST declaration identity, global canonical collision anchoring and supported binding/control-flow joins preserve uncertainty rather than hiding unknowns behind a budget.",
+        "Bounded call-graph/SCC-DAG analysis, OSV/CycloneDX inputs, three-valued triage and CLI/HTML/JSON/SARIF reports were exercised. Independent review inspected anchored report and unknown/error UI behavior.",
+        "One actual owned synthetic pull-request annotation was posted, read back and deleted through the CLI adapter; this is not an upsert/idempotent-update claim."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Finite static subset with explicit trusted closed-world leaf assumptions; not full Go type-package or Java classpath resolution, whole-language soundness or proof of runtime vulnerability execution.",
+        "Ambiguous-root failures remain explicit errors, and unknown paths are retained rather than budget-suppressed or called safe.",
+        "Enterprise 70-percent false-positive reduction is unverified. Perfect-looking metrics on a small synthetic fixture are not enterprise accuracy.",
+        "All advanced-target-12 independent learner gates remain unassessed. Reference acceptance is separate from learner work and from broader implementation or benchmark guarantees.",
         "Up to 70-percent false-positive reduction remains a measurement target.",
-        "Static reachability never proves actual runtime execution."
-      ]
+        "Static reachability never proves actual runtime execution.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Finite STATIC subset and trusted closed-world assumptions, not whole-language soundness or runtime vulnerability execution. Ambiguous roots remain errors and unknowns are retained; enterprise 70% reduction is UNVERIFIED.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/appsec-reachability-lab",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 13,
@@ -5299,8 +5511,8 @@
         "Zero redundant copies is an architectural/storage claim to inspect, not no memory/network copies."
       ],
       "repository": "iceberg-clickhouse-lakehouse",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed bounded real-service lakehouse pilot; merge pending",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded real-service lakehouse pilot",
       "coverage": [
         "Actual Kafka cyclic microbatch ingestion into a REST Iceberg v2 catalog with MinIO/Parquet and native ClickHouse DataLakeCatalog queries, without a redundant MergeTree warehouse copy.",
         "Atomic catalog data/offset checkpoint publication, deduplication, compare-and-set conflict handling and actual hard-exit/restart/schema-evolution checks.",
@@ -5313,8 +5525,20 @@
         "Writer/reference cooperation is app-managed, not support for arbitrary external mutation or uncoordinated catalog writers.",
         "Reference acceptance grants no learner credit; all advanced-target-13 independent gates remain unassessed.",
         "Petabyte analytics and sub-second queries until observed at the declared scale.",
-        "Zero redundant copies is an architectural/storage claim to inspect, not no memory/network copies."
-      ]
+        "Zero redundant copies is an architectural/storage claim to inspect, not no memory/network copies.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Single-node/one-broker 10000/10250-row service pilot, NOT petabyte/SLO proof. Snapshot expiration is metadata-only, physical GC is NOT performed and orphan planning is DRY RUN; cooperative app-managed writers/references only.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/iceberg-clickhouse-lakehouse",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 14,
@@ -5344,8 +5568,8 @@
         "Arrow Flight does not eliminate every network copy."
       ],
       "repository": "arrow-query-federation",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed scoped reference",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded same-host query federation scope",
       "coverage": [
         "Actual PostgreSQL 16.10 and three separate Arrow Flight worker processes in Linux CI; 178 automated cases passed without skips.",
         "Original bounded SQL binding, logical planning, worker placement and physical execution planning.",
@@ -5359,9 +5583,20 @@
         "Same-host, multiple-process demonstration; no multi-host deployment, TLS service, global consistent snapshot or production SLA claim.",
         "Arrow receive-buffer reuse does not eliminate network serialization, PostgreSQL conversion or DuckDB copying.",
         "TCP payload reduction is not a measurement of disk I/O avoided; CSV still reads and parses row text.",
-        "Independent learner readiness is not established by this reference implementation.",
-        "Arrow Flight does not eliminate every network copy."
-      ]
+        "Arrow Flight does not eliminate every network copy.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Same-host real multi-process Flight RPC and a fixed supported SQL/schema subset. Measured TCP payload reduction is not disk-I/O or production speedup; not universal zero-copy, distributed shuffle, global snapshot, TLS or multi-host SLA.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/arrow-query-federation",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 15,
@@ -5387,13 +5622,34 @@
         "No million-events/second or sub-second claim without a measured workload."
       ],
       "repository": "stream-contract-profiler",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded Kafka profiler; scale/latency targets missed",
+      "coverage": [
+        "Actual signed/versioned JSON Schema and compiled Proto3 optional-presence contracts, raw provenance and bounded exact DLQ outcomes on a real Kafka pipeline.",
+        "Transactional accepted/DLQ/state/profile/alert publication with source offsets, fenced partition ownership, recovery, rewind and rollout behavior were exercised.",
+        "Persisted online t-digest profiles, frozen windows, heuristic drift rules and actual operator UI/replay were reviewed through 118 unit cases and 11 real Kafka/Chromium cases against both baseline and optimized implementations.",
+        "A reproduced pause/resume-churn issue was corrected with a scoped six-line change. A paired same-hardware workload improved from 100.58 to 1183.78 events per second, an observed 11.77x relative improvement under that declared comparison."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
-        "No million-events/second or sub-second claim without a measured workload."
-      ]
+        "The million-events-per-second and sub-second p99 targets are NOT MET. Observed p99 was 2.134 seconds; the workload was 3000 events per repetition and 18000 paired total, not million-event volume.",
+        "The relative optimization result is not a universal capacity or latency guarantee and must not replace the unmet absolute targets.",
+        "Alerts are Kafka/local only: no email, Slack or webhook delivery is claimed.",
+        "Window alerts are heuristic, not causal/statistical proof, and do not retroactively quarantine already accepted data.",
+        "All advanced-target-15 independent learner gates remain unassessed; functional reference acceptance and benchmark observations grant no learner credit.",
+        "No million-events/second or sub-second claim without a measured workload.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Million events/s and sub-second p99 NOT MET: p99 2.134 s; 3000/repetition and 18000 paired total. Same-hardware 11.77x is a RELATIVE improvement, not absolute target success. Kafka/local heuristic alerts are not causal proof or retroactive quarantine.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/stream-contract-profiler",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 16,
@@ -5421,13 +5677,34 @@
       ],
       "unverifiedTargets": ["Thousands-of-model scalability until observed."],
       "repository": "column-lineage-impact",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded static column-lineage scope",
+      "coverage": [
+        "Actual SQLGlot AST/Scope analysis for supported PostgreSQL, BigQuery and Snowflake syntax plus bounded dbt input, with logical column identity, transformed/control edges, source provenance, SCC analysis and upstream/downstream traversal.",
+        "Rename/type/remove/definition blast-radius analysis includes table, dashboard and ML contracts. Removed columns use the union of old and new graphs; absent baseline information is UNKNOWN rather than SAFE.",
+        "Default-dry-run owned Git baseline/head Checks/comment payloads and a working offline DAG UI were exercised. Reviewed evidence includes 132 current Linux CI cases and a full synthetic 1000-model oracle with 4004 nodes and 11000 exact edges, including a control-filter -> rowset -> COUNT example.",
+        "A real 390-pixel mobile overflow was reproduced and corrected with four scoped CSS rules and actual regressions, without clipping the SVG or discarding nodes; the final CI rendering was verified."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
-        "Thousands-of-model scalability until observed."
-      ]
+        "Membership markers are logical graph constructs, not physical source rows. Static lineage does not execute queries or establish runtime path coverage.",
+        "Dynamic SQL, ambiguous resolution, unknown inputs and cycles are not guessed into exact safe conclusions.",
+        "Live GitHub posting remains UNVERIFIED; default behavior is a dry-run payload, not a claim that a live Check/comment was posted.",
+        "The declared synthetic model/graph workload is not a universal scalability or enterprise-coverage guarantee.",
+        "All advanced-target-16 learner evidence gates remain independent and unassessed; reference acceptance grants no learner credit.",
+        "Thousands-of-model scalability until observed.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Logical column/control membership is NOT physical row provenance or query/runtime execution. Unknown/dynamic/ambiguous/cycle cases stay qualified; live GitHub posting is UNVERIFIED/default dry run.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/column-lineage-impact",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 17,
@@ -5462,8 +5739,8 @@
         "Earlier build/readiness records do not satisfy any advanced gate automatically."
       ],
       "repository": "paper-exchange-engine",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed scoped reference",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed measured typed-native matching scope",
       "coverage": [
         "Actual C++20 release, ASan/UBSan, TSan, independent oracle and concurrency checks executed successfully in Linux CI; earlier C++17/Python behavior is retained.",
         "Separately named fixed-capacity L3 price/FIFO core with aligned arenas, intrusive AVL price levels, exact identifier matching and explicit capacity failures.",
@@ -5478,11 +5755,22 @@
         "No universal, worst-case or cross-machine latency guarantee, no 100x claim, no cache-miss elimination claim.",
         "Single-owner engine and exactly one producer/one consumer per queue; bounded lifetime receipts and trade events.",
         "The C++20 engine is not silently substituted into the earlier durable Python/C++17 CLI or user journals.",
-        "Independent learner readiness is not established by this reference implementation.",
         "Sub-microsecond execution until actual measurement.",
         "Alignment reduces some false sharing/misses, not all cache misses.",
-        "Earlier build/readiness records do not satisfy any advanced gate automatically."
-      ]
+        "Earlier build/readiness records do not satisfy any advanced gate automatically.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Measured typed C++20 core only: zero allocations and per-operation p99 <1 microsecond in the declared final Xeon runs. Earlier EPYC miss and >1-microsecond maxima remain; not end-to-end parsing/queue/fsync, worst-case or cross-machine HFT guarantees.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/paper-exchange-engine",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 18,
@@ -5514,14 +5802,34 @@
         "Synthetic backtests never establish profitable or deployable trading."
       ],
       "repository": "execution-backtest-engine",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded native backtesting scope; 100x target missed",
+      "coverage": [
+        "Actual C++20/pybind execution with an independent Python reference, plus Python NumPy/Polars idealized screening and event-driven quote/tape, latency/jitter, queue, cancellation, fill and cost models.",
+        "Recorded walk-forward/held-out evaluation discipline and a working native HTML report were reviewed.",
+        "Actual evidence includes 188 Linux native cases with zero skips and 1007 release/ASAN scenarios. Independent review recomputed 1080 fills/cash/position results, 5001 equity samples and seven risk statistics."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "Single synthetic instrument with exogenous two-level depth. Queue, impact and adverse-selection behavior are approximations, not calibrated full-L3 execution or permanent market impact.",
+        "The holdout lock is process-local, not a fraud-proof or organization-wide preregistration control.",
+        "The fair paired public-API 100x speedup gate is NOT MET. Kernel-only measurements or selecting a best run must not be substituted for that comparison.",
+        "Risk null, stale-data and capital conventions remain part of the stated model. No actual-market alpha, profit, HFT or production-performance claim follows.",
+        "All advanced-target-18 learner evidence gates remain independent and unassessed; reference acceptance grants no learner credit.",
         "100x speedup until observed.",
-        "Synthetic backtests never establish profitable or deployable trading."
-      ]
+        "Synthetic backtests never establish profitable or deployable trading.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Fair paired PUBLIC-API 100x gate NOT MET; no kernel-only or best-run substitution. One synthetic instrument/exogenous two-level depth and uncalibrated queue/impact/adverse models; process-local holdout is not fraud-proof or actual alpha/profit/HFT.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/execution-backtest-engine",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 19,
@@ -5553,14 +5861,34 @@
         "Zero event timestamp skew does not imply zero wall-clock scheduler jitter."
       ],
       "repository": "market-feed-replay",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded feed/archive scope; timing target missed",
+      "coverage": [
+        "Actual C++20 decoder/C ABI and real Arrow/Parquet archive with a clocked observer, supporting declared ITCH5 binary and FIX4.4 SOH-delimited TEXT subsets and bounded normalization.",
+        "The native feed/pop/finish region has zero heap allocation only after creation; archive, language-boundary and surrounding operations are not included in that claim.",
+        "Atomic checksummed partition manifests, resume and replay speeds 0.5/1/10 were exercised. Reviewed CI evidence reports 105 cases with zero skips plus ASAN/UBSAN and fuzz checks.",
+        "Independent review reproduced an empty-replay false timing pass. Metric version2 now retains NULL/unmeasured outcomes for no-event or one-event jitter cases instead of fabricating a one-millisecond pass or hiding clock-loop costs."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
+        "The one-millisecond p99 target is NOT MET. Record timestamp fidelity does not establish zero delivery jitter, and a predecoded paced microbenchmark does not measure the archive I/O path.",
+        "NVMe evidence is OS-reported local Windows Parquet behavior only, not Linux hardware evidence, physical-device attestation or native Windows execution proof.",
+        "ITCH file ordinals do not establish transport-loss detection. Full FIX session/feed behavior, broker integration, HFT performance and profitability are not claimed.",
+        "All advanced-target-19 independent learner gates remain unassessed. Generated or reviewed reference code does not prove learner readiness.",
         "NVMe behavior requires identified actual NVMe hardware.",
-        "Zero event timestamp skew does not imply zero wall-clock scheduler jitter."
-      ]
+        "Zero event timestamp skew does not imply zero wall-clock scheduler jitter.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "1 ms p99 target NOT MET. Empty/one-event jitter is NULL/unmeasured, timestamps are not delivery jitter and predecoded pacing is not archive I/O. Zero heap is native feed/pop/finish after create only; file ordinals are not transport-loss detection.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/market-feed-replay",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 20,
@@ -5587,8 +5915,8 @@
         "Speculative retries cannot guarantee elimination of all stragglers."
       ],
       "repository": "walkforward-compute-grid",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed scoped reference",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed bounded real-process research grid",
       "coverage": [
         "Actual authenticated coordinator/worker processes, durable fault/retry cases and cross-platform tests passed. Parent independently checked a speculative winner, late-result fencing and 2,010 numerical points from the raw synthetic dataset.",
         "SQLite-backed run/task/all-trial history, worker generations, leases, heartbeats, per-attempt fences and first-valid-result CAS.",
@@ -5602,10 +5930,21 @@
         "Authenticated workers are trusted, not Byzantine-proof computation providers.",
         "mmap sharing is one file per host and one mapping per process, not a single global Python object; PSS was actually measured only where available on Linux.",
         "A two-worker Windows workload was slower and remains reported. No universal speedup, real-market alpha, profit or independent-fold inferential guarantee is claimed.",
-        "Independent learner readiness is not established by this reference implementation.",
         "Multi-host scale and petabyte capacity are not established by local processes.",
-        "Speculative retries cannot guarantee elimination of all stragglers."
-      ]
+        "Speculative retries cannot guarantee elimination of all stragglers.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Same-host real worker processes/local cache, not physical multi-host/WAN/fleet/HA proof. Small 512/2048-row results retain Windows slowdown; mmap is per-process and PSS is Linux-only. No alpha/profit/inferential guarantee.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/walkforward-compute-grid",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 21,
@@ -5637,10 +5976,10 @@
         "No actual enterprise migration, interviews or customer adoption is claimed."
       ],
       "repository": "api-platform-modernization",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed scoped reference",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed local gateway and hypothetical product scope",
       "coverage": [
-        "Actual Go compile/race/HTTP tests, 14 CLI/restart checks and seven Chromium checks passed, with review of the implementation and substantive product artifacts.",
+        "Actual Go compile/race/HTTP tests, 14 CLI/restart checks and seven Chromium checks passed, with independent review of the implementation and substantive product artifacts.",
         "Versioned REST contracts, strict schemas, generated local credentials, client/admin separation and scoped developer telemetry.",
         "Fractional token buckets and persisted revision-guarded hot reload preserve consumed tokens and reject invalid or stale policy changes.",
         "Real HTTP calls to an original synthetic backend and explicit asynchronous admission versus observed completion.",
@@ -5652,9 +5991,20 @@
         "REST is implemented; gRPC and GraphQL are compared in product artifacts, not claimed as deployed protocols.",
         "No enterprise migration, production SLA, customer adoption, actual vendor pricing, realized ROI, compliance certification or human onboarding claim.",
         "Product personas, cost assumptions and future rollout decisions are explicitly hypothetical.",
-        "Independent learner readiness is not established by this reference implementation.",
-        "No actual enterprise migration, interviews or customer adoption is claimed."
-      ]
+        "No actual enterprise migration, interviews or customer adoption is claimed.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Working REST gateway and hypothetical product artifacts, not an enterprise rollout. Events are bounded/volatile and buckets reset after restart; gRPC/GraphQL are compared, not implemented. No actual adoption/vendor quote/ROI/SLA/compliance claim.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/api-platform-modernization",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 22,
@@ -5687,8 +6037,8 @@
         "No causal ROI or adoption claim without a real authorized study."
       ],
       "repository": "developer-ai-economics",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed scoped reference",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed synthetic finance/experiment scope",
       "coverage": [
         "Cross-platform core tests, actual Chromium workflows and 1,378 LibreOffice-calculated formula cells were checked against independent oracles; the parent also exercised the live local API and UI.",
         "Decimal seat/token/cache/operations economics with explicit period and currency conventions, zero-denominator handling and preserved negative capacity value.",
@@ -5702,10 +6052,21 @@
         "The local tool does not enforce organizational preregistration or automatically change a real deployment.",
         "CSV may normalize equivalent timestamp and number spellings, changing a raw representation fingerprint while preserving validated metrics and decisions.",
         "No actual employee data, external model calls, billing integration or compliance certification is claimed.",
-        "Independent learner readiness is not established by this reference implementation.",
         "Projected engineering-hour savings are not observed productivity.",
-        "No causal ROI or adoption claim without a real authorized study."
-      ]
+        "No causal ROI or adoption claim without a real authorized study.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Hypothetical costs/capacity value and synthetic experiments, not actual cash savings/adoption/causal ROI or organizational preregistration. GO is not automatic launch; fixed-horizon/independent-team/quality assumptions remain explicit.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/developer-ai-economics",
+        "codeLabel": "Private merged implementation repository"
+      }
     },
     {
       "number": 23,
@@ -5737,13 +6098,38 @@
         "Local rehearsal does not prove real multi-cloud zero downtime."
       ],
       "repository": "cloud-migration-playbook",
-      "referenceStatus": "pending-parent-review",
-      "referenceLabel": "Reference review pending",
-      "coverage": [],
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "QUALIFICATION BLOCKED; publication and follow-up held",
+      "coverage": [
+        "Substantial hypothetical on-premise/AWS-or-Azure/disaster-recovery blueprint plus an actual local three-process HTTP/SQLite cutover rehearsal.",
+        "Typed five-logical-component dependency graph with SCC/risk-path analysis, immutable plan/head identities, one-use approvals, four rollout rings, evidence gates, a local writer barrier and verified rollback.",
+        "Raw request, RTO/RPO, audit and report-UI evidence were reviewed across healthy/completed, outage/rolled-back and lag/BLOCKED scenarios. The lag scenario blocked an unsafe fallback missing 52 records.",
+        "Earlier pre-merge independent metric/hash/audit checks, 61 CI cases and actual mobile checks passed, and the three independently reviewed rehearsals remain actual evidence. The controlled outage recovery measurement was 2.294 seconds; these observations do not override the newer failed main CI."
+      ],
       "limitations": [
-        "Implementation/runtime review is pending. Repository availability does not establish any completed capability.",
-        "Local rehearsal does not prove real multi-cloud zero downtime."
-      ]
+        "QUALIFICATION BLOCKED: latest main and corrective verification failed. A healthy-prior-ring clock-uncertainty BOUND of114.561ms exceeded the100ms guard; it is not actual clock skew. The run stopped before the mandatory latency-fault positive coverage, which remains UNEXERCISED.",
+        "The single diagnostic did not reproduce the pathology or establish its cause. No further retries, waivers, runtime fix or current all-green acceptance closure is claimed.",
+        "Healthy-run RTO is UNMEASURED/null, not zero. The controlled-outage 2.294-second result is a local observation, not a production guarantee.",
+        "Zero loss on a retained target in the lag fixture does not mean the separate rollback candidate is safe.",
+        "Roles, costs and readiness-planning weights are hypothetical; local actor approval is not enterprise authentication.",
+        "Local routing is not DNS migration, and SQLite is not cloud CDC, high availability or distributed fencing.",
+        "Production remains NO-GO until real environment evidence exists. All advanced-target-23 learner gates remain unassessed; reference acceptance grants no learner credit.",
+        "Local rehearsal does not prove real multi-cloud zero downtime.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": true,
+        "targetQualification": "QUALIFICATION BLOCKED / PUBLICATION HELD: latest main and corrective qualification failed. Clock-uncertainty BOUND 114.561 ms exceeded its 100 ms guard (not actual clock skew), aborting before mandatory latency-fault positive coverage, which is UNEXERCISED. No cause/fix/waiver is inferred; production stays NO-GO.",
+        "publication": "follow-up-pending",
+        "verification": "qualification-blocked",
+        "publicationNote": "Merged baseline exists, but its latest recorded main CI FAILED. The corrective private PR remains unmerged and pending owner review. Its observed checks are not all passing; no verification closure is claimed.",
+        "codeUrl": "https://github.com/vijay-0107/cloud-migration-playbook",
+        "codeLabel": "Private merged baseline (latest verification failed)",
+        "followUpUrl": "https://github.com/vijay-0107/cloud-migration-playbook/pull/2",
+        "followUpLabel": "Private corrective follow-up PR (unmerged; verification not closed)"
+      }
     },
     {
       "number": 24,
@@ -5775,8 +6161,8 @@
         "No actual customer cloud savings or compliance certification."
       ],
       "repository": "finops-attribution-governance",
-      "referenceStatus": "accepted-local-reference",
-      "referenceLabel": "Reviewed scoped reference",
+      "referenceStatus": "reviewed-scoped-reference",
+      "referenceLabel": "Reviewed synthetic infrastructure FinOps scope",
       "coverage": [
         "Actual Python/SQLite/CLI/API/browser workflows, 111 automated cases and 1,200 allocation-oracle cases passed. Parent reconciled every downloaded allocation against the original synthetic billing inputs.",
         "Effective-dated infrastructure-cost rules, exact signed minor-unit allocation, deterministic rounding and explicit unattributed amounts.",
@@ -5790,9 +6176,20 @@
         "Showback and local chargeback validation do not post to an ERP, transfer money or validate real invoices.",
         "Approver identities, rules, data and outcomes are synthetic; no real billing, cloud enforcement, email delivery, savings or compliance certification is claimed.",
         "This infrastructure FinOps model is distinct from the AI seat/token capacity-value model in target 22.",
-        "Independent learner readiness is not established by this reference implementation.",
-        "No actual customer cloud savings or compliance certification."
-      ]
+        "No actual customer cloud savings or compliance certification.",
+        "This dated source-evidence snapshot does not grant learner completion, independent readiness, certification or a full-spec performance guarantee."
+      ],
+      "availability": {
+        "snapshotOn": "2026-09-30",
+        "reviewScope": "scoped-software",
+        "publicationHold": false,
+        "targetQualification": "Synthetic infrastructure FinOps, not real bills/cloud enforcement/email/ERP/savings/compliance. Four intentional policy errors and one waiver remain visible: accepted reference code is not passing chargeback or learner readiness.",
+        "publication": "merged",
+        "verification": "recorded-main-ci-passed",
+        "publicationNote": "Merged implementation is available in the private repository. The latest recorded main GitHub Actions run passed at this snapshot; that is not proof that every original hardware, performance or production requirement passed.",
+        "codeUrl": "https://github.com/vijay-0107/finops-attribution-governance",
+        "codeLabel": "Private merged implementation repository"
+      }
     }
   ],
   "comparisonTechnologies": [

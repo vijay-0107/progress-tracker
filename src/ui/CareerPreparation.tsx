@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Save } from "lucide-react";
 import { careerProfiles } from "../content/careers";
 import { careerPackets } from "../content/career-exercises";
+import { ReferenceStatus } from "./ReferenceStatus";
 import { lessonCompletion, requiredLessons } from "../content/catalog";
 import {
   careerLessons,
@@ -419,9 +420,16 @@ export function CareerReadiness(
               ? "Reviewed local reference"
               : "Reference review pending")}
         </span>
+        {packet.availability && (
+          <ReferenceStatus availability={packet.availability} />
+        )}
         {packet.coverage.length > 0 && (
           <>
-            <h4>Covered capabilities</h4>
+            <h4>
+              {packet.availability
+                ? "Reviewed portions, not full-target completion"
+                : "Covered capabilities"}
+            </h4>
             <ul>
               {packet.coverage.map((item) => (
                 <li key={item}>{item}</li>
@@ -435,9 +443,22 @@ export function CareerReadiness(
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <External href={`https://github.com/vijay-0107/${packet.repository}`}>
-          Private GitHub repository: {packet.repository}
+        <External
+          href={
+            packet.availability?.codeUrl ||
+            `https://github.com/vijay-0107/${packet.repository}`
+          }
+        >
+          {packet.availability?.codeLabel ||
+            `Private GitHub repository: ${packet.repository}`}
         </External>
+        {packet.availability?.followUpUrl && (
+          <div className="section-block">
+            <External href={packet.availability.followUpUrl}>
+              {packet.availability.followUpLabel}
+            </External>
+          </div>
+        )}
         <p className="quiet-note">
           Requires an authorized GitHub account. Tracker sign-in does not grant
           repository access. Nothing is fetched until you choose to open the

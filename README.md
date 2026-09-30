@@ -100,6 +100,21 @@ Only reviewed capabilities appear as reference coverage; other references remain
 pending. Private links are opt-in with no GitHub API/token integration, prefetch
 or automatic source download. No reference or test result seeds a learner record.
 
+The dated **2026-09-30 reference evidence snapshot** covers all 24 targets without
+claiming all original specifications passed. It separates scoped software,
+partial CPU artifacts and experimental owned-lab mechanisms from publication and
+benchmark status. P03/P05/P06/P10 are explicitly unmerged private drafts with
+actual implementation-PR links instead of seed-only main being presented as
+delivered code. P03/P10 require repository-owner scanner triage; P05/P06 still
+require authorized GPU/fleet work. P23 keeps its failed latest-main verification
+and corrective-follow-up hold even though earlier local evidence exists.
+Its final qualification is blocked: a clock-uncertainty bound exceeding the guard
+is not an actual clock-skew measurement, and the mandatory latency-fault positive
+path was not exercised. No retry, waiver or diagnostic result silently closes it.
+Measured misses, unattempted loads, hardware gaps and synthetic/model boundaries
+are prominent beside reference availability. A passed recorded CI run is not
+full-spec completion, and no source status changes personal readiness.
+
 GPU/multi-GPU, KVM, privileged BPF/XDP, TPM/HSM, FPGA, specialized NIC and
 high-load work has explicit environment gates. Reading and drafts remain
 available without that hardware; unexecuted required work cannot complete the

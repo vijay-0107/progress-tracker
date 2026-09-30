@@ -74,10 +74,43 @@ const targetSchema = z
     referenceStatus: z.enum([
       "pending-parent-review",
       "accepted-local-reference",
+      "reviewed-scoped-reference",
+      "reviewed-partial-reference",
     ]),
     referenceLabel: text,
     coverage: z.array(text),
     limitations: z.array(text).min(1),
+    availability: z
+      .object({
+        snapshotOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+        reviewScope: z.enum([
+          "scoped-software",
+          "partial-cpu",
+          "experimental-owned-lab",
+        ]),
+        publication: z.enum([
+          "merged",
+          "awaiting-merge",
+          "unmerged-draft",
+          "follow-up-pending",
+        ]),
+        publicationHold: z.boolean(),
+        verification: z.enum([
+          "recorded-main-ci-passed",
+          "owner-triage-required",
+          "cpu-checks-passed-hardware-open",
+          "failed-main-follow-up-pending",
+          "qualification-blocked",
+          "not-observed",
+        ]),
+        publicationNote: text,
+        targetQualification: text,
+        codeUrl: z.string().url(),
+        codeLabel: text,
+        followUpUrl: z.string().url().optional(),
+        followUpLabel: text.optional(),
+      })
+      .strict(),
   })
   .strict();
 const contract = z
@@ -289,11 +322,58 @@ export function validateAdvancedCareers(
       target.skillGroups.some((id) => !groups.has(id)) ||
       (target.referenceStatus === "pending-parent-review" &&
         target.coverage.length > 0) ||
-      (target.referenceStatus === "accepted-local-reference" &&
+      (target.referenceStatus !== "pending-parent-review" &&
         !target.coverage.length)
     )
       throw new Error(
         `Invalid advanced target identity, scope or reference claims: ${target.id}`,
+      );
+    const availability = target.availability;
+    const repositoryPath = `/vijay-0107/${target.repository}`;
+    for (const value of [availability.codeUrl, availability.followUpUrl].filter(
+      (value): value is string => Boolean(value),
+    )) {
+      const url = new URL(value);
+      if (
+        url.origin !== "https://github.com" ||
+        url.username ||
+        url.password ||
+        url.search ||
+        url.hash ||
+        !(
+          url.pathname === repositoryPath ||
+          new RegExp(`^${repositoryPath}/pull/[1-9][0-9]*$`).test(url.pathname)
+        )
+      )
+        throw new Error(`Invalid opt-in private code locator: ${target.id}`);
+    }
+    if (
+      availability.publication === "unmerged-draft" &&
+      (!availability.publicationHold ||
+        !availability.codeUrl.includes("/pull/"))
+    )
+      throw new Error(
+        `An unmerged held reference must link its actual private PR: ${target.id}`,
+      );
+    if (
+      availability.reviewScope === "partial-cpu" &&
+      (target.referenceStatus !== "reviewed-partial-reference" ||
+        !availability.publicationHold)
+    )
+      throw new Error(
+        `Partial CPU artifacts must remain explicitly partial and held: ${target.id}`,
+      );
+    if (
+      ["failed-main-follow-up-pending", "qualification-blocked"].includes(
+        availability.verification,
+      ) &&
+      (!availability.publicationHold ||
+        availability.publication !== "follow-up-pending" ||
+        !availability.followUpUrl ||
+        !availability.followUpLabel)
+    )
+      throw new Error(
+        `Failed latest verification requires a held follow-up state: ${target.id}`,
       );
     if (
       !advancedProjectLanguageLessons(target.id).length ||

@@ -23,6 +23,7 @@ import {
   type LearningProps,
 } from "./shared";
 import { CareerPathCards, TechnologyLinks } from "./CareerPathCards";
+import { ReferenceStatus } from "./ReferenceStatus";
 
 export function CareerPaths(props: LearningProps) {
   return (
@@ -371,6 +372,7 @@ export function CareerPathPage(
                 <p>
                   <strong>{target.referenceLabel}</strong>
                 </p>
+                <ReferenceStatus availability={target.availability} compact />
                 <p>{target.limitations[0]}</p>
                 <a className="button secondary small" href={`#/project/${id}`}>
                   Requirements and practice <ArrowRight size={14} />

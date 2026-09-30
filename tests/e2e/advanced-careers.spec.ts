@@ -27,6 +27,110 @@ async function state(page: Page) {
     : validateProgressState(JSON.parse(raw));
 }
 
+test("held draft references show actual opt-in code PRs and partial CPU scope without learner credit", async ({
+  page,
+}) => {
+  const requests: string[] = [];
+  page.on("request", (request) => {
+    if (/api\.github\.com|github\.com\/vijay-0107\//.test(request.url()))
+      requests.push(request.url());
+  });
+  const drafts = [
+    [3, "durable-workflow-runtime"],
+    [5, "paged-llm-inference"],
+    [6, "heterogeneous-inference-router"],
+    [10, "workload-identity-broker"],
+  ] as const;
+  for (const [number, repo] of drafts) {
+    const id = `advanced-target-${String(number).padStart(2, "0")}`;
+    await page.goto(`./#/project/${id}`);
+    const availability = page.getByRole("region", {
+      name: "Dated reference availability",
+      exact: true,
+    });
+    await expect(availability).toHaveAttribute(
+      "data-publication-state",
+      "unmerged-draft",
+    );
+    await expect(availability).toContainText("PUBLICATION HELD");
+    await expect(availability).toContainText("Evidence snapshot 2026-09-30");
+    const exerciseRegion = page.getByRole("region", {
+      name: "Career exercises and independent readiness",
+    });
+    await expect(
+      exerciseRegion.locator(
+        `a[href="https://github.com/vijay-0107/${repo}/pull/1"]`,
+      ),
+    ).toBeVisible();
+    await expect(
+      exerciseRegion.locator(`a[href="https://github.com/vijay-0107/${repo}"]`),
+    ).toHaveCount(0);
+    await expect(exerciseRegion).toContainText(
+      "0/4 independent readiness gates recorded",
+    );
+    if (number === 5 || number === 6) {
+      await expect(availability).toHaveAttribute(
+        "data-reference-scope",
+        "partial-cpu",
+      );
+      await expect(availability).toContainText(
+        "PARTIAL CPU/reference artifacts only",
+      );
+    }
+    if (number === 6) {
+      await expect(availability).toContainText("NOT an LLM");
+      await expect(availability).toContainText("TTFT/ITL null");
+      await expect(availability).toContainText("hardwareUnavailable=true");
+    }
+  }
+  expect(requests).toEqual([]);
+  expect((await state(page)).projects).toEqual({});
+  expect((await state(page)).lessons).toEqual({});
+  expect((await state(page)).activity).toEqual({});
+});
+
+test("failed follow-up and unmet benchmark status remain prominent on reviewed references", async ({
+  page,
+}) => {
+  await page.goto("./#/project/advanced-target-23");
+  const availability = page.getByRole("region", {
+    name: "Dated reference availability",
+    exact: true,
+  });
+  await expect(availability).toHaveAttribute(
+    "data-publication-state",
+    "follow-up-pending",
+  );
+  await expect(availability).toContainText("PUBLICATION HELD");
+  await expect(availability).toContainText("latest recorded main CI FAILED");
+  await expect(availability).toContainText("checks are not all passing");
+  await expect(availability).toContainText("NO-GO");
+  await expect(
+    page.locator(
+      'a[href="https://github.com/vijay-0107/cloud-migration-playbook/pull/2"]',
+    ),
+  ).toBeVisible();
+  for (const [number, text] of [
+    [2, "200000 connections NOT ATTEMPTED"],
+    [7, "15.795 ms MISSES"],
+    [8, "422.77 ms FAILS"],
+    [9, "174.61%"],
+    [18, "100x gate NOT MET"],
+    [19, "1 ms p99 target NOT MET"],
+  ] as const) {
+    await page.goto(
+      `./#/project/advanced-target-${String(number).padStart(2, "0")}`,
+    );
+    await expect(
+      page.getByRole("region", {
+        name: "Dated reference availability",
+        exact: true,
+      }),
+    ).toContainText(text);
+  }
+  expect((await state(page)).projects).toEqual({});
+});
+
 test("saved settings distinguish seven original core choices from six Career Paths", async ({
   page,
 }) => {

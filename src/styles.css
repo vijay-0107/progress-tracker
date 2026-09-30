@@ -1030,6 +1030,25 @@ summary {
   min-height: 44px;
   padding: 10px 0;
 }
+.reference-status {
+  min-width: 0;
+  margin: 14px 0;
+  overflow-wrap: anywhere;
+}
+.reference-status p {
+  margin: 8px 0;
+}
+.reference-hold {
+  color: var(--danger);
+}
+.reference-qualification {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--amber);
+  border-radius: 8px;
+  background: var(--soft);
+  font-size: 0.85rem;
+}
 .capability-map ul {
   padding-left: 18px;
 }

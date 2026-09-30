@@ -273,6 +273,7 @@ export const advancedPackets: CareerProjectPacket[] = advancedTargets.map(
       title: target.title,
       referenceStatus: target.referenceStatus,
       referenceLabel: target.referenceLabel,
+      availability: target.availability,
       coverage: target.coverage,
       limitations: [
         ...target.limitations,

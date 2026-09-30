@@ -253,11 +253,37 @@ export interface CareerProjectPacket {
   repository: string;
   projectId: string;
   title: string;
-  referenceStatus: "pending-parent-review" | "accepted-local-reference";
+  referenceStatus:
+    | "pending-parent-review"
+    | "accepted-local-reference"
+    | "reviewed-scoped-reference"
+    | "reviewed-partial-reference";
   coverage: string[];
   limitations: string[];
   exercises: CareerExercise[];
   referenceLabel?: string;
+  availability?: ReferenceAvailability;
+}
+
+export interface ReferenceAvailability {
+  snapshotOn: string;
+  reviewScope: "scoped-software" | "partial-cpu" | "experimental-owned-lab";
+  publication:
+    "merged" | "awaiting-merge" | "unmerged-draft" | "follow-up-pending";
+  publicationHold: boolean;
+  verification:
+    | "recorded-main-ci-passed"
+    | "owner-triage-required"
+    | "cpu-checks-passed-hardware-open"
+    | "failed-main-follow-up-pending"
+    | "qualification-blocked"
+    | "not-observed";
+  publicationNote: string;
+  targetQualification: string;
+  codeUrl: string;
+  codeLabel: string;
+  followUpUrl?: string;
+  followUpLabel?: string;
 }
 
 export interface AdvancedCapability {
@@ -306,10 +332,15 @@ export interface AdvancedTarget {
   stages: [string, string, string, string];
   executionGates: string[];
   unverifiedTargets: string[];
-  referenceStatus: "pending-parent-review" | "accepted-local-reference";
+  referenceStatus:
+    | "pending-parent-review"
+    | "accepted-local-reference"
+    | "reviewed-scoped-reference"
+    | "reviewed-partial-reference";
   referenceLabel: string;
   coverage: string[];
   limitations: string[];
+  availability: ReferenceAvailability;
 }
 
 export interface ReviewState {
