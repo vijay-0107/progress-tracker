@@ -20,6 +20,7 @@ import { careerProfiles } from "../content/careers";
 import { advancedPaths, findAdvancedPath } from "../content/advanced-careers";
 import { findCareer, findCareerPacket } from "../domain/careers";
 import { CareerReadiness } from "./CareerPreparation";
+import { ProjectResumeNotes } from "./ProjectResumeNotes";
 import type { LearningProps } from "./shared";
 import {
   EmptyState,
@@ -31,7 +32,7 @@ import {
 
 function projectBlocked(project: Project, props: LearningProps) {
   const foundation =
-    project.variant === "advanced-target"
+    project.variant === "advanced-target" || project.variant === "resume-target"
       ? []
       : props.catalog.tracks.find((track) => track.trackId === "foundation")!
           .modules;
@@ -83,6 +84,16 @@ export function Projects(
         description="A portfolio is not a list of tools. It is a collection of things you can run, test, explain and improve."
       />
       <div className="project-summary">
+        <span>
+          <strong>
+            {
+              catalog.projects.filter(
+                (project) => project.variant === "resume-target",
+              ).length
+            }
+          </strong>{" "}
+          resume projects
+        </span>
         <span>
           <strong>24</strong> distinct advanced career targets
         </span>
@@ -157,6 +168,7 @@ export function Projects(
             onChange={(event) => setVariant(event.target.value)}
           >
             <option value="all">All project types</option>
+            <option value="resume-target">Resume project · 2026 resumes</option>
             <option value="A-rebuild">A · Reconstruction</option>
             <option value="B-build">B · Advanced build</option>
             <option value="advanced-target">
@@ -188,11 +200,13 @@ export function Projects(
                     ? "A / RECONSTRUCT"
                     : project.variant === "B-build"
                       ? "B / BUILD NEXT"
-                      : project.variant === "advanced-target"
-                        ? "ADVANCED / NEW TARGET"
-                        : project.variant === "career-practice"
-                          ? "CAREER / PRACTICE"
-                          : "SHARED / SYNTHETIC"}
+                      : project.variant === "resume-target"
+                        ? "RESUME / BUILD NEXT"
+                        : project.variant === "advanced-target"
+                          ? "ADVANCED / NEW TARGET"
+                          : project.variant === "career-practice"
+                            ? "CAREER / PRACTICE"
+                            : "SHARED / SYNTHETIC"}
                 </span>
                 <FolderGit2 size={22} />
               </div>
@@ -334,11 +348,13 @@ export function ProjectPage(
             ? "A / RECONSTRUCTION"
             : project.variant === "B-build"
               ? "B / FUTURE BUILD"
-              : project.variant === "advanced-target"
-                ? "ADVANCED CAREER TARGET / NEW EVIDENCE"
-                : project.variant === "career-practice"
-                  ? "ADDITIONAL CAREER PRACTICE BUILD"
-                  : "ONE SHARED SYNTHETIC RECREATION"
+              : project.variant === "resume-target"
+                ? "RESUME PROJECT / BUILD BEFORE YOU APPLY"
+                : project.variant === "advanced-target"
+                  ? "ADVANCED CAREER TARGET / NEW EVIDENCE"
+                  : project.variant === "career-practice"
+                    ? "ADDITIONAL CAREER PRACTICE BUILD"
+                    : "ONE SHARED SYNTHETIC RECREATION"
         }
         title={project.title}
         description={project.summary}
@@ -367,6 +383,10 @@ export function ProjectPage(
       />
       <div className="project-detail-grid">
         <div>
+          {project.variant === "resume-target" ||
+          project.id === "sde-transaction-safe-commerce" ? (
+            <ProjectResumeNotes projectId={project.id} />
+          ) : null}
           <section className="panel lesson-section">
             <h2>A bounded, honest scope</h2>
             <p>{project.scope}</p>

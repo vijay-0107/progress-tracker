@@ -9,6 +9,7 @@ import {
   findResource,
   getCatalog,
   isCareerCourse,
+  isSkillTrack,
   lessonCompletion,
   validateCatalog,
 } from "../src/content/catalog";
@@ -162,7 +163,12 @@ describe("exact six-domain advanced learning contract", () => {
     expect(courses[0].modules.flatMap((module) => module.lessons)).toHaveLength(
       24,
     );
-    expect(allLessons(catalog)).toHaveLength(509);
+    expect(
+      allLessons({
+        ...catalog,
+        tracks: catalog.tracks.filter((track) => !isSkillTrack(track.trackId)),
+      }),
+    ).toHaveLength(509);
     const explanations = new Set<string>();
     const assignments = new Set<string>();
     for (const course of courses) {
@@ -330,13 +336,17 @@ describe("exact six-domain advanced learning contract", () => {
   it("reuses canonical lessons once and keeps all earlier content and preferences separate", () => {
     expect(coreLessons(catalog)).toHaveLength(231);
     expect(
-      catalog.tracks.filter((track) => !isCareerCourse(track.trackId)),
+      catalog.tracks.filter(
+        (track) =>
+          !isCareerCourse(track.trackId) && !isSkillTrack(track.trackId),
+      ),
     ).toHaveLength(13);
     expect(
       allLessons({
         ...catalog,
         tracks: catalog.tracks.filter(
-          (track) => !isCareerCourse(track.trackId),
+          (track) =>
+            !isCareerCourse(track.trackId) && !isSkillTrack(track.trackId),
         ),
       }),
     ).toHaveLength(371);

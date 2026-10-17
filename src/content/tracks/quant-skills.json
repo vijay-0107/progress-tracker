@@ -1,0 +1,1863 @@
+{
+  "schemaVersion": 1,
+  "trackId": "quant-skills",
+  "title": "Quantitative Development: Skill Builder",
+  "sourceCheckedOn": "2026-10-17",
+  "resources": [
+    {
+      "id": "sk-quant-learncpp",
+      "kind": "documentation",
+      "title": "LearnCpp.com",
+      "url": "https://www.learncpp.com/",
+      "provider": "LearnCpp.com",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free, thorough beginner-to-advanced modern C++ tutorial."
+    },
+    {
+      "id": "sk-quant-cppref",
+      "kind": "documentation",
+      "title": "cppreference.com: C++ reference",
+      "url": "https://en.cppreference.com/w/cpp",
+      "provider": "cppreference.com contributors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "The standard reference for the language and library."
+    },
+    {
+      "id": "sk-quant-cmake",
+      "kind": "documentation",
+      "title": "CMake tutorial",
+      "url": "https://cmake.org/cmake/help/latest/guide/tutorial/index.html",
+      "provider": "Kitware",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Step-by-step guide to building C++ projects with CMake."
+    },
+    {
+      "id": "sk-quant-statsmodels-tsa",
+      "kind": "documentation",
+      "title": "statsmodels: time series analysis",
+      "url": "https://www.statsmodels.org/stable/tsa.html",
+      "provider": "statsmodels developers",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "ARMA/ARIMA, stationarity tests and cointegration."
+    },
+    {
+      "id": "sk-quant-quantlib",
+      "kind": "documentation",
+      "title": "QuantLib documentation",
+      "url": "https://www.quantlib.org/docs.shtml",
+      "provider": "QuantLib contributors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Open-source pricing library; use it to cross-check your pricers."
+    },
+    {
+      "id": "sk-quant-svi",
+      "kind": "documentation",
+      "title": "Gatheral and Jacquier: Arbitrage-free SVI volatility surfaces (arXiv)",
+      "url": "https://arxiv.org/abs/1204.0646",
+      "provider": "arXiv",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "The standard reference for SVI parameterisation and no-arbitrage conditions."
+    },
+    {
+      "id": "sk-quant-memory",
+      "kind": "book",
+      "title": "Ulrich Drepper: What Every Programmer Should Know About Memory",
+      "url": "https://people.freebsd.org/~lstewart/articles/cpumemory.pdf",
+      "provider": "Ulrich Drepper (hosted copy)",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free classic on caches and memory performance; read sections 2-3 and 6."
+    },
+    {
+      "id": "sk-quant-queues",
+      "kind": "documentation",
+      "title": "1024cores: lock-free queue algorithms",
+      "url": "https://www.1024cores.net/home/lock-free-algorithms/queues",
+      "provider": "Dmitry Vyukov",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Producer-consumer queue designs including bounded SPSC."
+    },
+    {
+      "id": "sk-quant-gbench",
+      "kind": "documentation",
+      "title": "Google Benchmark user guide",
+      "url": "https://github.com/google/benchmark/blob/main/docs/user_guide.md",
+      "provider": "Google",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Microbenchmarking C++ code correctly."
+    },
+    {
+      "id": "sk-quant-brainstellar",
+      "kind": "practice",
+      "title": "Brainstellar: quant interview puzzles",
+      "url": "https://brainstellar.com/",
+      "provider": "Brainstellar",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free probability and logic puzzles graded by difficulty."
+    }
+  ],
+  "modules": [
+    {
+      "id": "sk-quant-m01-markets",
+      "title": "01. Markets, instruments and order books",
+      "stage": "foundation",
+      "description": "How exchanges work: instruments, order types, the limit order book, market makers, and how prices become returns.",
+      "prerequisites": [
+        "fe-m10-math"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-quant-l01-instruments-order-types-and-the-limit-order-book",
+          "title": "Instruments, order types and the limit order book",
+          "objectives": [
+            "Describe equities, futures and options and what each contract means.",
+            "Explain limit, market, IOC and stop orders and price-time priority matching.",
+            "Read an order book: bid, ask, spread, depth and market impact."
+          ],
+          "topics": [
+            {
+              "title": "Instruments",
+              "details": [
+                "A share is ownership; a future is an agreement to trade later at a set price; a call option is the right (not obligation) to buy at a strike before expiry.",
+                "In India, NSE lists equities and very active index options (NIFTY, BANKNIFTY)."
+              ]
+            },
+            {
+              "title": "Orders and matching",
+              "details": [
+                "A limit order rests at a price; a market order takes the best available prices. The exchange matches by price, then time (first in, first out)."
+              ]
+            },
+            {
+              "title": "Order book",
+              "details": [
+                "Best bid and best ask define the spread; depth shows quantity at each level. Large orders walk the book and move the price (impact).",
+                "Market makers quote both sides and earn the spread while managing inventory risk."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-quant.instruments-order-types-and-the-limit-order-book"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-financial-math",
+            "locator": "Lecture 1 'Introduction, Financial Terms and Concepts'."
+          },
+          "reading": {
+            "resourceId": "quant-book-finance",
+            "locator": "OpenStax Principles of Finance: chapter 'Stocks and Stock Valuation' (sections on how stock markets work) and chapter on 'Derivatives' introduction."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-quant-a01-instruments-order-types-and-the-limit-order-book",
+            "title": "Simulate a tiny order book",
+            "kind": "coding",
+            "instructions": [
+              "Write a Python order book supporting limit, market and cancel with price-time priority.",
+              "Feed it 20 hand-made orders; write the expected trades by hand first, then compare.",
+              "Compute spread and depth after each order."
+            ],
+            "deliverables": [
+              "Code, hand-computed expected trades and comparison."
+            ],
+            "acceptanceCriteria": [
+              "Trades match your hand-computed expectations exactly."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l01-instruments-order-types-and-the-limit-order-book-check-01",
+                "kind": "short-answer",
+                "prompt": "What is the bid-ask spread?",
+                "answer": "The gap between the best ask and the best bid.",
+                "explanation": "A cost of trading immediately."
+              },
+              {
+                "id": "sk-quant-l01-instruments-order-types-and-the-limit-order-book-check-02",
+                "kind": "short-answer",
+                "prompt": "How are two orders at the same price prioritised?",
+                "answer": "By time: the earlier order fills first.",
+                "explanation": "Price-time priority."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain a call option in one sentence.",
+            "Why do large market orders move prices?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l02-prices-returns-compounding-and-corporate-actions",
+          "title": "Prices, returns, compounding and corporate actions",
+          "objectives": [
+            "Compute simple and log returns and annualise them correctly.",
+            "Adjust prices for splits and dividends before computing returns.",
+            "Load and clean daily price data for many stocks."
+          ],
+          "topics": [
+            {
+              "title": "Returns",
+              "details": [
+                "Simple return r = P1/P0 - 1; log return = ln(P1/P0). Log returns add over time; simple returns aggregate across assets.",
+                "Annualise daily volatility by multiplying by sqrt(252)."
+              ]
+            },
+            {
+              "title": "Adjustments",
+              "details": [
+                "A 2-for-1 split halves the price without a loss; use adjusted prices or you will see fake crashes."
+              ]
+            },
+            {
+              "title": "Data hygiene",
+              "details": [
+                "Check missing days, stale prices, outliers and survivorship (delisted stocks disappear from today's lists)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "sk-quant.prices-returns-compounding-and-corporate-actions"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-zivot",
+            "locator": "Zivot's Introduction to Computational Finance: chapter 1 'Return Calculations' (simple, continuously compounded, multi-period and portfolio returns)."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-quant-a02-prices-returns-compounding-and-corporate-actions",
+            "title": "Return toolkit",
+            "kind": "problem-set",
+            "instructions": [
+              "Download daily data for 10 NSE stocks from a public source and adjust for splits/dividends.",
+              "Compute daily simple and log returns, annualised mean and volatility, and a correlation matrix.",
+              "Show one example where unadjusted prices give a wrong return."
+            ],
+            "deliverables": [
+              "Notebook and data-cleaning notes."
+            ],
+            "acceptanceCriteria": [
+              "Annualisation uses sqrt(252) for volatility.",
+              "The split example is explained."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l02-prices-returns-compounding-and-corporate-actions-check-01",
+                "kind": "short-answer",
+                "prompt": "Which returns add up over time?",
+                "answer": "Log returns.",
+                "explanation": "Simple returns compound multiplicatively."
+              },
+              {
+                "id": "sk-quant-l02-prices-returns-compounding-and-corporate-actions-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you annualise daily volatility?",
+                "answer": "Multiply by the square root of 252 trading days.",
+                "explanation": "Variance scales with time."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Simple vs log return?",
+            "What is survivorship bias?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-quant-m02-prob-stats",
+      "title": "02. Probability and statistics for quants",
+      "stage": "foundation",
+      "description": "The statistics behind every quant decision: distributions, estimation, hypothesis tests, regression and their traps in financial data.",
+      "prerequisites": [
+        "fe-m10-math"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-quant-l03-distributions-expectation-variance-and-fat-tails",
+          "title": "Distributions, expectation, variance and fat tails",
+          "objectives": [
+            "Fit normal and Student-t distributions to returns and compare tails.",
+            "Compute covariance and correlation and explain diversification.",
+            "Explain why expectation and variance are not enough for risk."
+          ],
+          "topics": [
+            {
+              "title": "Distributions",
+              "details": [
+                "Daily returns have fat tails: extreme moves happen far more often than a normal model predicts. Check with QQ-plots and kurtosis."
+              ]
+            },
+            {
+              "title": "Covariance",
+              "details": [
+                "Portfolio variance = w'Σw; low or negative correlation reduces risk. Correlations rise in crises, when diversification is needed most."
+              ]
+            },
+            {
+              "title": "Beyond variance",
+              "details": [
+                "Skew and tail risk matter: two strategies with the same volatility can have very different worst days."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-quant.distributions-expectation-variance-and-fat-tails"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-probability",
+            "locator": "Lectures on continuous random variables and the normal distribution."
+          },
+          "reading": {
+            "resourceId": "quant-book-think-stats",
+            "locator": "Think Stats 3e: chapters on distributions, modelling distributions (including normal and lognormal) and relationships between variables (covariance and correlation)."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-5b12a53ff387"
+          ],
+          "assignment": {
+            "id": "sk-quant-a03-distributions-expectation-variance-and-fat-tails",
+            "title": "Tails in real data",
+            "kind": "problem-set",
+            "instructions": [
+              "Fit normal and t distributions to NIFTY daily returns; plot QQ-plots.",
+              "Count days beyond 4 standard deviations versus what the normal model predicts.",
+              "Compute a two-asset portfolio's volatility for several correlations."
+            ],
+            "deliverables": [
+              "Notebook with plots and commentary."
+            ],
+            "acceptanceCriteria": [
+              "The tail comparison is quantified.",
+              "Portfolio volatility formula is verified by simulation."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l03-distributions-expectation-variance-and-fat-tails-check-01",
+                "kind": "short-answer",
+                "prompt": "What does 'fat tails' mean?",
+                "answer": "Extreme outcomes occur more often than a normal distribution predicts.",
+                "explanation": "Visible in QQ-plots and high kurtosis."
+              },
+              {
+                "id": "sk-quant-l03-distributions-expectation-variance-and-fat-tails-check-02",
+                "kind": "short-answer",
+                "prompt": "How does correlation affect portfolio risk?",
+                "answer": "Lower correlation reduces portfolio volatility.",
+                "explanation": "Diversification benefit."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write the two-asset portfolio variance formula.",
+            "Why do correlations matter in crises?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l04-estimation-hypothesis-tests-regression-and-multi",
+          "title": "Estimation, hypothesis tests, regression and multiple testing",
+          "objectives": [
+            "Estimate a mean with a confidence interval and bootstrap it.",
+            "Run t-tests and regressions and interpret p-values correctly.",
+            "Explain multiple testing and how it creates fake strategies."
+          ],
+          "topics": [
+            {
+              "title": "Estimation",
+              "details": [
+                "Sample means of returns are very noisy; a 1-year Sharpe estimate has a wide confidence interval."
+              ]
+            },
+            {
+              "title": "Tests and regression",
+              "details": [
+                "A p-value is the chance of data this extreme if there were no effect, not the chance the effect is real. OLS regression estimates beta to the market."
+              ]
+            },
+            {
+              "title": "Multiple testing",
+              "details": [
+                "Test 100 random strategies and about 5 look 'significant' at 5%. Adjust (Bonferroni, false discovery rate) and keep a holdout."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-quant.estimation-hypothesis-tests-regression-and-multi"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-think-stats",
+            "locator": "Think Stats 3e: chapters on estimation, hypothesis testing and linear least squares/regression."
+          },
+          "supplementaryResourceIds": [
+            "quant-doc-bonferroni"
+          ],
+          "assignment": {
+            "id": "sk-quant-a04-estimation-hypothesis-tests-regression-and-multi",
+            "title": "Fool yourself on purpose",
+            "kind": "problem-set",
+            "instructions": [
+              "Generate 200 random 'strategies' (random signals) on real price data; find the best Sharpe.",
+              "Show how its out-of-sample performance collapses.",
+              "Apply a Bonferroni or FDR correction and explain the result.",
+              "Regress a stock's returns on NIFTY returns and interpret beta and R-squared."
+            ],
+            "deliverables": [
+              "Notebook and a one-page explanation."
+            ],
+            "acceptanceCriteria": [
+              "The multiple-testing trap is demonstrated with numbers."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l04-estimation-hypothesis-tests-regression-and-multi-check-01",
+                "kind": "short-answer",
+                "prompt": "What is a p-value?",
+                "answer": "The probability of results at least this extreme if the null hypothesis is true.",
+                "explanation": "It is not the probability the effect is real."
+              },
+              {
+                "id": "sk-quant-l04-estimation-hypothesis-tests-regression-and-multi-check-02",
+                "kind": "short-answer",
+                "prompt": "Why do random strategies look good in backtests?",
+                "answer": "Testing many of them makes some succeed by chance.",
+                "explanation": "Multiple testing."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Interpret beta = 1.2.",
+            "How do you protect against data snooping?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-quant-m03-cpp",
+      "title": "03. Modern C++ for performance",
+      "stage": "intermediate",
+      "description": "C++ is the language of low-latency trading systems and pricing libraries. Learn modern C++ safely: ownership, the standard library, templates and tooling.",
+      "prerequisites": [
+        "fe-m05-clean-code",
+        "fe-m11-os-concurrency"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-quant-l05-values-references-raii-and-smart-pointers",
+          "title": "Values, references, RAII and smart pointers",
+          "objectives": [
+            "Compile and run C++20 programs with warnings and sanitizers on.",
+            "Explain values, references, pointers and object lifetime.",
+            "Manage resources with RAII, unique_ptr and shared_ptr instead of new/delete."
+          ],
+          "topics": [
+            {
+              "title": "Basics",
+              "details": [
+                "`g++ -std=c++20 -Wall -Wextra -O2 -fsanitize=address,undefined main.cpp` catches many bugs early.",
+                "References are aliases; pointers can be null; prefer references and values."
+              ]
+            },
+            {
+              "title": "Lifetime and RAII",
+              "details": [
+                "An object's destructor runs when it goes out of scope; RAII ties resources (memory, files, locks) to object lifetime so they are always released."
+              ]
+            },
+            {
+              "title": "Smart pointers",
+              "details": [
+                "unique_ptr: single owner, zero overhead; shared_ptr: shared ownership with a reference count. Raw `new`/`delete` in application code is a code smell."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-quant.values-references-raii-and-smart-pointers"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-quant-learncpp",
+            "locator": "LearnCpp.com: chapters 0-2 (setup and basics), 12 (references and pointers), 15 (classes and destructors) and 22 (move semantics and smart pointers)."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-b41d38fef74c",
+            "advanced-reading-8117f6cdcbd0"
+          ],
+          "assignment": {
+            "id": "sk-quant-a05-values-references-raii-and-smart-pointers",
+            "title": "Resource-safe order store",
+            "kind": "coding",
+            "instructions": [
+              "Write a C++20 OrderStore class that owns orders through unique_ptr and looks them up by ID.",
+              "Write a RAII ScopedTimer that prints elapsed time when destroyed.",
+              "Compile with sanitizers and fix every finding; write a short note on each bug."
+            ],
+            "deliverables": [
+              "Code, build commands and sanitizer notes."
+            ],
+            "acceptanceCriteria": [
+              "Builds with zero warnings and sanitizer findings.",
+              "No raw new/delete."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l05-values-references-raii-and-smart-pointers-check-01",
+                "kind": "short-answer",
+                "prompt": "What is RAII?",
+                "answer": "Tying a resource's lifetime to an object so its destructor releases it.",
+                "explanation": "Prevents leaks even when exceptions occur."
+              },
+              {
+                "id": "sk-quant-l05-values-references-raii-and-smart-pointers-check-02",
+                "kind": "short-answer",
+                "prompt": "When use unique_ptr vs shared_ptr?",
+                "answer": "unique_ptr for a single owner; shared_ptr only when ownership is truly shared.",
+                "explanation": "unique_ptr is cheaper."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Reference vs pointer?",
+            "Which compiler flags do you always use?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l06-standard-library-containers-algorithms-and-compl",
+          "title": "Standard library containers, algorithms and complexity",
+          "objectives": [
+            "Choose vector, array, unordered_map, map and deque by access pattern.",
+            "Use standard algorithms and ranges instead of hand-written loops.",
+            "Measure the effect of memory layout on speed."
+          ],
+          "topics": [
+            {
+              "title": "Containers",
+              "details": [
+                "vector is the default (contiguous, cache-friendly); unordered_map for O(1) average lookup; map for ordered keys (O(log n)); reserve() to avoid reallocations."
+              ]
+            },
+            {
+              "title": "Algorithms",
+              "details": [
+                "std::sort, std::lower_bound, std::accumulate, std::ranges::find_if: clearer and often faster than loops."
+              ]
+            },
+            {
+              "title": "Layout",
+              "details": [
+                "Linked structures scatter memory and cause cache misses; contiguous arrays are usually faster even with worse big-O for small n."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-quant.standard-library-containers-algorithms-and-compl"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-quant-cppref",
+            "locator": "cppreference: 'Containers library' overview page (complexity table) and 'Algorithms library' overview; then std::vector and std::unordered_map pages."
+          },
+          "supplementaryResourceIds": [
+            "sk-quant-learncpp"
+          ],
+          "assignment": {
+            "id": "sk-quant-a06-standard-library-containers-algorithms-and-compl",
+            "title": "Container shoot-out",
+            "kind": "coding",
+            "instructions": [
+              "Benchmark lookups and iteration for vector (sorted + binary search), map and unordered_map at sizes 100, 10,000 and 1,000,000.",
+              "Benchmark summing a vector versus a std::list of the same numbers.",
+              "Explain the results with cache behaviour."
+            ],
+            "deliverables": [
+              "Benchmark code, results table and explanation."
+            ],
+            "acceptanceCriteria": [
+              "Benchmarks use -O2 and repeat runs; results are explained."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l06-standard-library-containers-algorithms-and-compl-check-01",
+                "kind": "short-answer",
+                "prompt": "Default C++ container?",
+                "answer": "std::vector.",
+                "explanation": "Contiguous memory is cache-friendly."
+              },
+              {
+                "id": "sk-quant-l06-standard-library-containers-algorithms-and-compl-check-02",
+                "kind": "short-answer",
+                "prompt": "Why can a list be slower than a vector for iteration?",
+                "answer": "List nodes are scattered in memory, causing cache misses.",
+                "explanation": "Big-O is the same, constants differ."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When would you choose std::map?",
+            "What does reserve() do?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l07-move-semantics-templates-cmake-and-unit-testing",
+          "title": "Move semantics, templates, CMake and unit testing",
+          "objectives": [
+            "Explain copy versus move and write move-friendly classes.",
+            "Write simple function and class templates.",
+            "Build a multi-file project with CMake and GoogleTest, and run it in CI."
+          ],
+          "topics": [
+            {
+              "title": "Moves",
+              "details": [
+                "Moving transfers resources instead of copying (e.g. a vector's buffer); `std::move` casts to allow it. Follow the rule of zero where possible."
+              ]
+            },
+            {
+              "title": "Templates",
+              "details": [
+                "Templates generate code per type at compile time: `template <typename T> T clamp(T v, T lo, T hi)`. C++20 concepts constrain them with readable errors."
+              ]
+            },
+            {
+              "title": "Build and test",
+              "details": [
+                "CMake describes targets and dependencies; FetchContent pulls GoogleTest; `ctest` runs tests; GitHub Actions builds on every push."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-quant.move-semantics-templates-cmake-and-unit-testing"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-quant-cmake",
+            "locator": "CMake Tutorial steps 1-5 (basic project, libraries, usage requirements, generator expressions, installing and testing)."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-86ecc9e4bbc9",
+            "sk-quant-learncpp"
+          ],
+          "assignment": {
+            "id": "sk-quant-a07-move-semantics-templates-cmake-and-unit-testing",
+            "title": "Pricing library skeleton",
+            "kind": "coding",
+            "instructions": [
+              "Create a CMake project with a library `pricing`, an executable and a GoogleTest suite.",
+              "Add a templated statistics helper (mean/variance) with tests for double and float.",
+              "Add a GitHub Actions workflow building with sanitizers and running ctest."
+            ],
+            "deliverables": [
+              "Repository with CI passing."
+            ],
+            "acceptanceCriteria": [
+              "CI builds and tests on every push."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l07-move-semantics-templates-cmake-and-unit-testing-check-01",
+                "kind": "short-answer",
+                "prompt": "What does std::move actually do?",
+                "answer": "Casts an object to an rvalue so a move constructor/assignment can be chosen.",
+                "explanation": "It does not move anything by itself."
+              },
+              {
+                "id": "sk-quant-l07-move-semantics-templates-cmake-and-unit-testing-check-02",
+                "kind": "short-answer",
+                "prompt": "What is the rule of zero?",
+                "answer": "Let members manage resources so the class needs no custom copy/move/destructor.",
+                "explanation": "Simplest and safest."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Copy vs move?",
+            "Why use concepts with templates?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-quant-m04-time-series",
+      "title": "04. Time series analysis",
+      "stage": "intermediate",
+      "description": "Model data that arrives over time: stationarity, autocorrelation, ARMA basics, and cointegration for pairs trading.",
+      "prerequisites": [
+        "sk-quant-m02-prob-stats"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-quant-l08-stationarity-autocorrelation-and-arma-basics",
+          "title": "Stationarity, autocorrelation and ARMA basics",
+          "objectives": [
+            "Test for stationarity (ADF) and transform series to make them stationary.",
+            "Read ACF/PACF plots.",
+            "Fit a simple ARMA model and evaluate forecasts out of sample."
+          ],
+          "topics": [
+            {
+              "title": "Stationarity",
+              "details": [
+                "Prices wander (non-stationary); returns are closer to stationary. Many models assume stationarity, so difference or use returns."
+              ]
+            },
+            {
+              "title": "Autocorrelation",
+              "details": [
+                "ACF shows correlation with past values; significant spikes suggest predictability (rare in liquid asset returns, common in volatility)."
+              ]
+            },
+            {
+              "title": "Forecasting",
+              "details": [
+                "Fit on the past, forecast forward, compare with a naive baseline (yesterday's value); always evaluate out of sample with time-ordered splits."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-quant.stationarity-autocorrelation-and-arma-basics"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-fpp3",
+            "locator": "Forecasting: Principles and Practice: chapter 9 'ARIMA models' sections 9.1 (stationarity and differencing) through 9.5, and chapter 5.8 'Evaluating point forecast accuracy'."
+          },
+          "supplementaryResourceIds": [
+            "sk-quant-statsmodels-tsa",
+            "algorithmic-doc-splits"
+          ],
+          "assignment": {
+            "id": "sk-quant-a08-stationarity-autocorrelation-and-arma-basics",
+            "title": "Forecast honestly",
+            "kind": "problem-set",
+            "instructions": [
+              "Run ADF tests on NIFTY prices and returns; plot ACF/PACF of returns and squared returns.",
+              "Fit an ARMA model on returns with a time-based split and compare to a naive forecast.",
+              "Write what the squared-return ACF tells you about volatility."
+            ],
+            "deliverables": [
+              "Notebook and findings."
+            ],
+            "acceptanceCriteria": [
+              "Forecasts are evaluated only on later data than training."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l08-stationarity-autocorrelation-and-arma-basics-check-01",
+                "kind": "short-answer",
+                "prompt": "Are stock prices usually stationary?",
+                "answer": "No; returns are much closer to stationary.",
+                "explanation": "Prices trend and wander."
+              },
+              {
+                "id": "sk-quant-l08-stationarity-autocorrelation-and-arma-basics-check-02",
+                "kind": "short-answer",
+                "prompt": "What baseline should a forecast beat?",
+                "answer": "A naive forecast such as the last observed value.",
+                "explanation": "Otherwise it adds nothing."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain the ADF test result.",
+            "What does volatility clustering look like in an ACF?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l09-cointegration-and-pairs-trading",
+          "title": "Cointegration and pairs trading",
+          "objectives": [
+            "Explain cointegration versus correlation.",
+            "Test pairs with Engle-Granger and estimate the hedge ratio.",
+            "Build z-score entry/exit rules and check the half-life of mean reversion."
+          ],
+          "topics": [
+            {
+              "title": "Concept",
+              "details": [
+                "Two prices can each wander but move together so their spread is stationary: that is cointegration. Correlated returns are not enough."
+              ]
+            },
+            {
+              "title": "Testing",
+              "details": [
+                "Regress one price on the other to get the hedge ratio; test the residual spread for stationarity; beware multiple testing across many pairs."
+              ]
+            },
+            {
+              "title": "Trading rules",
+              "details": [
+                "Enter when the spread's z-score exceeds about 2, exit near 0; estimate half-life to set holding periods; include costs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-quant.cointegration-and-pairs-trading"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-quant-statsmodels-tsa",
+            "locator": "statsmodels time series docs: the 'coint' and 'adfuller' function pages and the overview of stattools."
+          },
+          "supplementaryResourceIds": [
+            "quant-book-zivot"
+          ],
+          "assignment": {
+            "id": "sk-quant-a09-cointegration-and-pairs-trading",
+            "title": "Find and test a pair",
+            "kind": "problem-set",
+            "instructions": [
+              "Test 20 candidate pairs of related NSE stocks (same sector) on a training period; correct for multiple testing.",
+              "For the best pair, compute hedge ratio, spread z-score and half-life.",
+              "Check whether cointegration holds in the following period."
+            ],
+            "deliverables": [
+              "Notebook with tests, plots and out-of-period check."
+            ],
+            "acceptanceCriteria": [
+              "The out-of-period result is reported honestly."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l09-cointegration-and-pairs-trading-check-01",
+                "kind": "short-answer",
+                "prompt": "Correlation vs cointegration?",
+                "answer": "Correlation is about co-movement of returns; cointegration means a combination of prices is stationary.",
+                "explanation": "Pairs trading needs cointegration."
+              },
+              {
+                "id": "sk-quant-l09-cointegration-and-pairs-trading-check-02",
+                "kind": "short-answer",
+                "prompt": "What does the half-life of a spread tell you?",
+                "answer": "How quickly it tends to revert halfway to its mean.",
+                "explanation": "Guides holding period."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why test pairs only within sectors?",
+            "How can cointegration break?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-quant-m05-backtesting",
+      "title": "05. Backtesting methodology",
+      "stage": "intermediate",
+      "description": "Test strategies the way professional researchers do: event-driven simulation, realistic costs, and protection against bias and overfitting.",
+      "prerequisites": [
+        "sk-quant-m01-markets",
+        "sk-quant-m04-time-series"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-quant-l10-event-driven-backtesters-transaction-costs-and-s",
+          "title": "Event-driven backtesters, transaction costs and slippage",
+          "objectives": [
+            "Design an event-driven backtester (data -> signal -> order -> fill -> portfolio).",
+            "Model brokerage, taxes, exchange fees and slippage for Indian markets.",
+            "Reconcile cash, positions and trades every day."
+          ],
+          "topics": [
+            {
+              "title": "Design",
+              "details": [
+                "Process events in time order so a strategy can only see past data; vectorised backtests are fast but make look-ahead mistakes easy."
+              ]
+            },
+            {
+              "title": "Costs",
+              "details": [
+                "Include brokerage, STT, exchange charges, GST, stamp duty and slippage; many strategies disappear after costs."
+              ]
+            },
+            {
+              "title": "Accounting",
+              "details": [
+                "Cash + market value of positions must equal portfolio value; reconcile against the trade log daily."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-quant.event-driven-backtesters-transaction-costs-and-s"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "algorithmic-doc-realism",
+            "locator": "QuantConnect 'Reality Modeling' key concepts: fees, slippage, fills and their effects on backtests."
+          },
+          "supplementaryResourceIds": [
+            "algorithmic-doc-research"
+          ],
+          "assignment": {
+            "id": "sk-quant-a10-event-driven-backtesters-transaction-costs-and-s",
+            "title": "Minimal event-driven backtester",
+            "kind": "coding",
+            "instructions": [
+              "Implement data feed, strategy, broker (fills with slippage), portfolio and cost model classes in Python.",
+              "Run a moving-average crossover on daily data for 5 NSE stocks.",
+              "Show results with and without costs and a daily reconciliation check."
+            ],
+            "deliverables": [
+              "Code, tests and results table."
+            ],
+            "acceptanceCriteria": [
+              "Reconciliation passes every day.",
+              "Results are shown before and after costs."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l10-event-driven-backtesters-transaction-costs-and-s-check-01",
+                "kind": "short-answer",
+                "prompt": "Why are event-driven backtests safer than vectorised ones?",
+                "answer": "They process data in time order, preventing look-ahead.",
+                "explanation": "Vectorised code can accidentally use future data."
+              },
+              {
+                "id": "sk-quant-l10-event-driven-backtesters-transaction-costs-and-s-check-02",
+                "kind": "short-answer",
+                "prompt": "Name three costs to model in Indian equity trading.",
+                "answer": "Brokerage, STT and exchange transaction charges (also GST, stamp duty, slippage).",
+                "explanation": "Costs often erase thin edges."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Draw the backtester event flow.",
+            "How do you model slippage simply?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l11-bias-overfitting-and-walk-forward-validation",
+          "title": "Bias, overfitting and walk-forward validation",
+          "objectives": [
+            "Identify look-ahead, survivorship and selection bias.",
+            "Use walk-forward validation and a final untouched holdout.",
+            "Report deflated, honest performance metrics."
+          ],
+          "topics": [
+            {
+              "title": "Biases",
+              "details": [
+                "Look-ahead (using information before it was available), survivorship (only today's listed stocks), selection (reporting the best of many tries)."
+              ]
+            },
+            {
+              "title": "Walk-forward",
+              "details": [
+                "Optimise parameters on a window, trade the next window, roll forward; keep a final period you never touch until the end."
+              ]
+            },
+            {
+              "title": "Reporting",
+              "details": [
+                "Report number of variants tried, out-of-sample results, costs and drawdowns, not just the best Sharpe."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-quant.bias-overfitting-and-walk-forward-validation"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "algorithmic-doc-research",
+            "locator": "QuantConnect Research Guide: sections on overfitting, look-ahead bias, survivorship bias and out-of-sample testing."
+          },
+          "supplementaryResourceIds": [
+            "quant-doc-bonferroni"
+          ],
+          "assignment": {
+            "id": "sk-quant-a11-bias-overfitting-and-walk-forward-validation",
+            "title": "Bias audit",
+            "kind": "coding",
+            "instructions": [
+              "Add a walk-forward loop to your backtester.",
+              "Write tests that fail if future data is used (shift data and confirm past signals do not change).",
+              "Rerun the strategy with a point-in-time universe and report the difference survivorship made."
+            ],
+            "deliverables": [
+              "Code, tests and a bias audit report."
+            ],
+            "acceptanceCriteria": [
+              "The look-ahead test exists and passes.",
+              "Out-of-sample results are reported even if worse."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l11-bias-overfitting-and-walk-forward-validation-check-01",
+                "kind": "short-answer",
+                "prompt": "What is survivorship bias?",
+                "answer": "Testing only on assets that still exist today, ignoring delisted ones.",
+                "explanation": "Makes results look better."
+              },
+              {
+                "id": "sk-quant-l11-bias-overfitting-and-walk-forward-validation-check-02",
+                "kind": "short-answer",
+                "prompt": "Why keep an untouched holdout?",
+                "answer": "To get one unbiased estimate after all tuning is done.",
+                "explanation": "Every look at it leaks information."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Describe walk-forward validation.",
+            "What do you report besides Sharpe?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-quant-m06-derivatives",
+      "title": "06. Derivatives pricing",
+      "stage": "advanced",
+      "description": "Price options with Black-Scholes, binomial trees and Monte Carlo, compute Greeks, and build implied volatility surfaces.",
+      "prerequisites": [
+        "sk-quant-m02-prob-stats",
+        "sk-quant-m03-cpp"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-quant-l12-black-scholes-greeks-and-put-call-parity",
+          "title": "Black-Scholes, Greeks and put-call parity",
+          "objectives": [
+            "State the Black-Scholes assumptions and price European options.",
+            "Compute and interpret delta, gamma, vega, theta and rho.",
+            "Check prices with put-call parity."
+          ],
+          "topics": [
+            {
+              "title": "Model",
+              "details": [
+                "Assumes lognormal prices with constant volatility and rate, no arbitrage and continuous hedging; gives closed-form prices for European options."
+              ]
+            },
+            {
+              "title": "Greeks",
+              "details": [
+                "Delta: price sensitivity to the underlying (hedge ratio). Gamma: how delta changes. Vega: sensitivity to volatility. Theta: time decay."
+              ]
+            },
+            {
+              "title": "Parity",
+              "details": [
+                "C - P = S - K e^(-rT) for European options without dividends; violations signal data errors or arbitrage."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-quant.black-scholes-greeks-and-put-call-parity"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-options",
+            "locator": "MIT 15.401 Options lectures I-III."
+          },
+          "reading": {
+            "resourceId": "quant-book-finance",
+            "locator": "OpenStax Principles of Finance: derivatives chapter sections on options and option pricing."
+          },
+          "supplementaryResourceIds": [
+            "sk-quant-quantlib"
+          ],
+          "assignment": {
+            "id": "sk-quant-a12-black-scholes-greeks-and-put-call-parity",
+            "title": "Black-Scholes in C++ and Python",
+            "kind": "coding",
+            "instructions": [
+              "Implement Black-Scholes prices and Greeks in C++ and expose to Python (pybind11) or write in both languages.",
+              "Verify against QuantLib on a grid of strikes and expiries.",
+              "Check put-call parity on cleaned NIFTY option quotes."
+            ],
+            "deliverables": [
+              "Code, tests against QuantLib and parity check."
+            ],
+            "acceptanceCriteria": [
+              "Prices match QuantLib within a small tolerance.",
+              "Greeks are checked by finite differences."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l12-black-scholes-greeks-and-put-call-parity-check-01",
+                "kind": "short-answer",
+                "prompt": "What does delta measure?",
+                "answer": "How much the option price changes for a small change in the underlying.",
+                "explanation": "It is also the hedge ratio."
+              },
+              {
+                "id": "sk-quant-l12-black-scholes-greeks-and-put-call-parity-check-02",
+                "kind": "short-answer",
+                "prompt": "State put-call parity.",
+                "answer": "C - P = S - K e^(-rT).",
+                "explanation": "For European options without dividends."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "List the Black-Scholes assumptions.",
+            "Why is theta usually negative for long options?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l13-binomial-trees-and-monte-carlo-with-variance-red",
+          "title": "Binomial trees and Monte Carlo with variance reduction",
+          "objectives": [
+            "Price European and American options with a CRR binomial tree.",
+            "Price options by Monte Carlo and report standard errors.",
+            "Reduce Monte Carlo error with antithetic and control variates."
+          ],
+          "topics": [
+            {
+              "title": "Trees",
+              "details": [
+                "Step the price up or down with risk-neutral probabilities; work backwards from expiry; check early exercise at each node for American options."
+              ]
+            },
+            {
+              "title": "Monte Carlo",
+              "details": [
+                "Simulate many price paths, average discounted payoffs; error shrinks with 1/sqrt(N), so 4x paths halve the error."
+              ]
+            },
+            {
+              "title": "Variance reduction",
+              "details": [
+                "Antithetic variates pair each path with its mirror; control variates use a related option with a known price to cancel noise."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-quant.binomial-trees-and-monte-carlo-with-variance-red"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-financial-math",
+            "locator": "Lectures on stochastic processes and Black-Scholes (Ito calculus lectures)."
+          },
+          "reading": {
+            "resourceId": "quant-book-zivot",
+            "locator": "Zivot: the chapters on estimator properties and the bootstrap, where Monte Carlo simulation and standard errors of simulated estimates are introduced."
+          },
+          "supplementaryResourceIds": [
+            "sk-quant-quantlib"
+          ],
+          "assignment": {
+            "id": "sk-quant-a13-binomial-trees-and-monte-carlo-with-variance-red",
+            "title": "Three pricers, one answer",
+            "kind": "coding",
+            "instructions": [
+              "Price the same European call with Black-Scholes, a binomial tree (show convergence as steps grow) and Monte Carlo.",
+              "Add antithetic and control variates; compare standard errors at equal path counts.",
+              "Price an American put with the tree and explain the early-exercise premium."
+            ],
+            "deliverables": [
+              "Code, convergence plots and error table."
+            ],
+            "acceptanceCriteria": [
+              "All three methods agree within reported error.",
+              "Variance reduction is measured."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l13-binomial-trees-and-monte-carlo-with-variance-red-check-01",
+                "kind": "short-answer",
+                "prompt": "How does Monte Carlo error scale with paths?",
+                "answer": "With 1 over the square root of the number of paths.",
+                "explanation": "4x paths halves error."
+              },
+              {
+                "id": "sk-quant-l13-binomial-trees-and-monte-carlo-with-variance-red-check-02",
+                "kind": "short-answer",
+                "prompt": "Why can American options be worth more than European?",
+                "answer": "They can be exercised early.",
+                "explanation": "Valuable for puts when deep in the money."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain backward induction.",
+            "How do control variates work?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l14-implied-volatility-the-volatility-smile-and-svi",
+          "title": "Implied volatility, the volatility smile and SVI surfaces",
+          "objectives": [
+            "Solve for implied volatility with a robust root finder (see the rootfinding chapter of Fundamentals of Numerical Computation).",
+            "Explain the volatility smile/skew and term structure.",
+            "Fit an SVI curve per expiry and check for arbitrage."
+          ],
+          "topics": [
+            {
+              "title": "Implied vol",
+              "details": [
+                "The volatility that makes Black-Scholes match the market price; solve with Brent's method within bounds; skip quotes with no bid."
+              ]
+            },
+            {
+              "title": "Smile and skew",
+              "details": [
+                "Index options usually show higher implied vol for low strikes (skew): the market prices crash risk."
+              ]
+            },
+            {
+              "title": "SVI",
+              "details": [
+                "SVI parameterises total implied variance per expiry with five parameters; check butterfly (no negative densities) and calendar (variance grows with time) conditions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-quant.implied-volatility-the-volatility-smile-and-svi"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-quant-svi",
+            "locator": "Gatheral and Jacquier: sections 2-3 (SVI parameterisation and no-arbitrage conditions)."
+          },
+          "supplementaryResourceIds": [
+            "sk-quant-quantlib",
+            "quant-book-fnc"
+          ],
+          "assignment": {
+            "id": "sk-quant-a14-implied-volatility-the-volatility-smile-and-svi",
+            "title": "Build a NIFTY vol surface",
+            "kind": "coding",
+            "instructions": [
+              "Clean end-of-day NIFTY option quotes for three expiries; compute implied vols.",
+              "Fit SVI per expiry; plot the smile and the 3D surface.",
+              "Run butterfly and calendar arbitrage checks and report any violations."
+            ],
+            "deliverables": [
+              "Notebook, plots and arbitrage report."
+            ],
+            "acceptanceCriteria": [
+              "The fitted surface passes checks or violations are explained."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l14-implied-volatility-the-volatility-smile-and-svi-check-01",
+                "kind": "short-answer",
+                "prompt": "What is implied volatility?",
+                "answer": "The volatility input that makes the model price equal the market price.",
+                "explanation": "The market's view of future volatility."
+              },
+              {
+                "id": "sk-quant-l14-implied-volatility-the-volatility-smile-and-svi-check-02",
+                "kind": "short-answer",
+                "prompt": "What does index skew reflect?",
+                "answer": "Higher demand for downside protection (crash risk).",
+                "explanation": "Low-strike puts are priced richer."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain calendar arbitrage.",
+            "Why use Brent's method for implied vol?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-quant-m07-low-latency",
+      "title": "07. Low-latency engineering",
+      "stage": "advanced",
+      "description": "Why some code is 100x faster than equivalent code: CPU caches, memory allocation, lock-free queues, and measuring it properly.",
+      "prerequisites": [
+        "sk-quant-m03-cpp"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-quant-l15-cpu-caches-memory-layout-and-allocation",
+          "title": "CPU caches, memory layout and allocation",
+          "objectives": [
+            "Explain cache lines, the cache hierarchy and false sharing.",
+            "Design data layouts (structure of arrays, preallocated pools) for speed.",
+            "Profile with perf to find cache misses and hotspots."
+          ],
+          "topics": [
+            {
+              "title": "Caches",
+              "details": [
+                "L1 ~1 ns, L2 ~4 ns, L3 ~10-20 ns, main memory ~100 ns. Data moves in 64-byte cache lines; sequential access is fastest."
+              ]
+            },
+            {
+              "title": "Layout and allocation",
+              "details": [
+                "Avoid pointer chasing; keep hot fields together; preallocate object pools so the hot path never calls malloc."
+              ]
+            },
+            {
+              "title": "Measuring",
+              "details": [
+                "`perf stat -e cache-misses,instructions` and `perf record`/`perf report`; benchmark with warm-up and many repetitions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-quant.cpu-caches-memory-layout-and-allocation"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-performance",
+            "locator": "MIT 6.172 lecture on caches/cache-efficient algorithms (as linked)."
+          },
+          "reading": {
+            "resourceId": "sk-quant-memory",
+            "locator": "What Every Programmer Should Know About Memory: section 3 'CPU Caches' (3.1-3.3) and section 6 'What Programmers Can Do' (6.1-6.2)."
+          },
+          "supplementaryResourceIds": [
+            "sk-quant-gbench"
+          ],
+          "assignment": {
+            "id": "sk-quant-a15-cpu-caches-memory-layout-and-allocation",
+            "title": "Measure the memory wall",
+            "kind": "lab",
+            "instructions": [
+              "Benchmark summing an array with sequential versus random access at sizes from 16 KB to 1 GB; plot ns per element.",
+              "Create false sharing between two threads and fix it with alignas(64).",
+              "Profile one of your programs with perf and fix a hotspot."
+            ],
+            "deliverables": [
+              "Benchmarks, plots, perf output and fixes."
+            ],
+            "acceptanceCriteria": [
+              "Cache-size boundaries are visible in the plot.",
+              "False sharing fix is measured."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l15-cpu-caches-memory-layout-and-allocation-check-01",
+                "kind": "short-answer",
+                "prompt": "How big is a typical cache line?",
+                "answer": "64 bytes.",
+                "explanation": "Data moves between memory and cache in lines."
+              },
+              {
+                "id": "sk-quant-l15-cpu-caches-memory-layout-and-allocation-check-02",
+                "kind": "short-answer",
+                "prompt": "What is false sharing?",
+                "answer": "Threads writing different variables on the same cache line, forcing it to bounce between cores.",
+                "explanation": "Fix with padding/alignment."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "List latency numbers for L1, L3 and RAM.",
+            "Why avoid malloc in the hot path?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l16-atomics-memory-ordering-and-lock-free-spsc-queue",
+          "title": "Atomics, memory ordering and lock-free SPSC queues",
+          "objectives": [
+            "Explain atomics and acquire/release ordering.",
+            "Implement a bounded single-producer single-consumer ring buffer.",
+            "Test concurrent code with ThreadSanitizer and measure latency percentiles."
+          ],
+          "topics": [
+            {
+              "title": "Atomics",
+              "details": [
+                "std::atomic operations are indivisible; memory_order_release on a write and acquire on the matching read guarantee the data written before is visible."
+              ]
+            },
+            {
+              "title": "SPSC queue",
+              "details": [
+                "With one producer and one consumer, a ring buffer with atomic head and tail indices needs no locks; pad indices to separate cache lines."
+              ]
+            },
+            {
+              "title": "Testing",
+              "details": [
+                "Run under -fsanitize=thread; stress test with billions of items; report p50/p99/p99.9 latency, not just averages."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-quant.atomics-memory-ordering-and-lock-free-spsc-queue"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-c87a158eed67",
+            "locator": "cppreference std::memory_order: read the explanation of relaxed, release-acquire and sequentially consistent ordering with the examples."
+          },
+          "supplementaryResourceIds": [
+            "sk-quant-queues",
+            "sk-quant-gbench"
+          ],
+          "assignment": {
+            "id": "sk-quant-a16-atomics-memory-ordering-and-lock-free-spsc-queue",
+            "title": "SPSC ring buffer",
+            "kind": "coding",
+            "instructions": [
+              "Implement a bounded SPSC queue with acquire/release atomics and cache-line padding.",
+              "Compare throughput and latency percentiles with a mutex-protected std::queue.",
+              "Run 1 billion transfers under TSan (smaller count is fine) and verify order and completeness."
+            ],
+            "deliverables": [
+              "Code, tests and benchmark results."
+            ],
+            "acceptanceCriteria": [
+              "No TSan reports; every item arrives once and in order."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l16-atomics-memory-ordering-and-lock-free-spsc-queue-check-01",
+                "kind": "short-answer",
+                "prompt": "What does release-acquire ordering guarantee?",
+                "answer": "Writes before the release are visible to the thread that acquires the same atomic.",
+                "explanation": "Used to publish data safely."
+              },
+              {
+                "id": "sk-quant-l16-atomics-memory-ordering-and-lock-free-spsc-queue-check-02",
+                "kind": "short-answer",
+                "prompt": "Why report p99 latency, not just the mean?",
+                "answer": "Rare slow events matter in trading and are hidden by averages.",
+                "explanation": "Tail latency."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain why SPSC can be lock-free simply.",
+            "What does TSan detect?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-quant-m08-risk-portfolio",
+      "title": "08. Risk and portfolio construction",
+      "stage": "professional",
+      "description": "Measure risk the way risk managers do and build portfolios: Sharpe, drawdown, VaR, expected shortfall and mean-variance optimisation.",
+      "prerequisites": [
+        "sk-quant-m02-prob-stats",
+        "sk-quant-m05-backtesting"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-quant-l17-risk-metrics-sharpe-drawdown-var-and-expected-sh",
+          "title": "Risk metrics: Sharpe, drawdown, VaR and expected shortfall",
+          "objectives": [
+            "Compute Sharpe, Sortino, maximum drawdown and Calmar from returns.",
+            "Estimate VaR and expected shortfall historically and parametrically.",
+            "Backtest VaR by counting breaches."
+          ],
+          "topics": [
+            {
+              "title": "Performance",
+              "details": [
+                "Sharpe = (mean excess return / volatility) x sqrt(252) for daily data; drawdown is the fall from a previous peak."
+              ]
+            },
+            {
+              "title": "Tail risk",
+              "details": [
+                "95% 1-day VaR: a loss exceeded on about 5% of days. Expected shortfall: the average loss on those worst days (more informative)."
+              ]
+            },
+            {
+              "title": "Validation",
+              "details": [
+                "Count VaR breaches over time; far more than expected means the model underestimates risk."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-quant.risk-metrics-sharpe-drawdown-var-and-expected-sh"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-zivot",
+            "locator": "Zivot: chapters on descriptive statistics for returns and risk measures (value-at-risk) in the computational finance text."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-quant-a17-risk-metrics-sharpe-drawdown-var-and-expected-sh",
+            "title": "Risk report",
+            "kind": "problem-set",
+            "instructions": [
+              "For your backtested strategy and NIFTY, compute Sharpe, Sortino, max drawdown, VaR and ES.",
+              "Backtest historical VaR by counting breaches.",
+              "Write a one-page risk report a portfolio manager could read."
+            ],
+            "deliverables": [
+              "Notebook and the report."
+            ],
+            "acceptanceCriteria": [
+              "Metrics are computed from daily data with correct annualisation."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l17-risk-metrics-sharpe-drawdown-var-and-expected-sh-check-01",
+                "kind": "short-answer",
+                "prompt": "What is maximum drawdown?",
+                "answer": "The largest peak-to-trough fall in portfolio value.",
+                "explanation": "Measures worst experienced loss."
+              },
+              {
+                "id": "sk-quant-l17-risk-metrics-sharpe-drawdown-var-and-expected-sh-check-02",
+                "kind": "short-answer",
+                "prompt": "Why prefer expected shortfall over VaR?",
+                "answer": "It measures how bad losses are beyond the VaR threshold.",
+                "explanation": "VaR ignores tail severity."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Compute annualised Sharpe from daily numbers.",
+            "How do you test a VaR model?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-quant-l18-portfolio-construction-and-mean-variance-optimis",
+          "title": "Portfolio construction and mean-variance optimisation",
+          "objectives": [
+            "Compute the efficient frontier for a set of assets.",
+            "Explain why naive optimisation is unstable and how to regularise it.",
+            "Compare equal-weight, minimum-variance and risk-parity portfolios out of sample."
+          ],
+          "topics": [
+            {
+              "title": "Markowitz",
+              "details": [
+                "Minimise variance for a target return; the result is very sensitive to estimated expected returns."
+              ]
+            },
+            {
+              "title": "Stability",
+              "details": [
+                "Use shrinkage covariance, constraints (no shorting, weight caps) or simpler rules; equal weight is a strong baseline."
+              ]
+            },
+            {
+              "title": "Comparison",
+              "details": [
+                "Rebalance monthly in a walk-forward test and compare risk-adjusted returns after costs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-quant.portfolio-construction-and-mean-variance-optimis"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "quant-book-zivot",
+            "locator": "Zivot: chapters on portfolio theory (Markowitz) and the efficient frontier."
+          },
+          "supplementaryResourceIds": [
+            "quant-video-mit-financial-math"
+          ],
+          "assignment": {
+            "id": "sk-quant-a18-portfolio-construction-and-mean-variance-optimis",
+            "title": "Three portfolios",
+            "kind": "problem-set",
+            "instructions": [
+              "Using 10-20 NSE stocks, build equal-weight, minimum-variance (with shrinkage) and risk-parity portfolios.",
+              "Walk-forward with monthly rebalancing and costs; compare metrics."
+            ],
+            "deliverables": [
+              "Notebook and comparison table."
+            ],
+            "acceptanceCriteria": [
+              "Comparison is out of sample and includes costs."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l18-portfolio-construction-and-mean-variance-optimis-check-01",
+                "kind": "short-answer",
+                "prompt": "Why is mean-variance optimisation unstable?",
+                "answer": "It is very sensitive to noisy expected-return estimates.",
+                "explanation": "Small input changes cause big weight changes."
+              },
+              {
+                "id": "sk-quant-l18-portfolio-construction-and-mean-variance-optimis-check-02",
+                "kind": "short-answer",
+                "prompt": "Why is equal weight a good baseline?",
+                "answer": "It needs no estimates and is hard to beat out of sample.",
+                "explanation": "Estimation error is avoided."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What is the efficient frontier?",
+            "Explain risk parity."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-quant-m09-quant-interviews",
+      "title": "09. Quant interview preparation",
+      "stage": "professional",
+      "description": "Quant developer and researcher interviews mix probability puzzles, mental maths, market-making games, coding and C++ questions.",
+      "prerequisites": [
+        "sk-quant-m02-prob-stats",
+        "fe-m04-dsa-interviews"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-quant-l19-probability-puzzles-expected-value-mental-maths",
+          "title": "Probability puzzles, expected value, mental maths and market making",
+          "objectives": [
+            "Solve classic probability and expected-value puzzles quickly and explain them.",
+            "Do fast mental arithmetic and estimation.",
+            "Play a market-making game: quote a spread, update on information, manage inventory."
+          ],
+          "topics": [
+            {
+              "title": "Puzzles",
+              "details": [
+                "Conditioning, symmetry, linearity of expectation and recursion solve most puzzles (e.g. expected flips to get HH = 6)."
+              ]
+            },
+            {
+              "title": "Mental maths",
+              "details": [
+                "Practise multiplication, fractions and percentages under time pressure; estimate before computing."
+              ]
+            },
+            {
+              "title": "Market making",
+              "details": [
+                "Quote a bid and ask around your fair value; widen when uncertain; shift quotes as you accumulate inventory or learn information."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-quant.probability-puzzles-expected-value-mental-maths"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-5b12a53ff387",
+            "locator": "probabilitycourse.com: review conditional probability, expectation and linearity of expectation examples; then attempt the end-of-chapter problems."
+          },
+          "supplementaryResourceIds": [
+            "sk-quant-brainstellar"
+          ],
+          "assignment": {
+            "id": "sk-quant-a19-probability-puzzles-expected-value-mental-maths",
+            "title": "Interview drill",
+            "kind": "problem-set",
+            "instructions": [
+              "Solve 30 puzzles on Brainstellar (10 easy, 15 medium, 5 hard); log time and approach.",
+              "Do 10 minutes of mental maths drills on 10 days and record scores.",
+              "Play a market-making game with a friend (e.g. guessing the sum of cards) and write what you learned."
+            ],
+            "deliverables": [
+              "Puzzle log, drill scores and game notes."
+            ],
+            "acceptanceCriteria": [
+              "Each puzzle has a written explanation, not just the answer."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-quant-l19-probability-puzzles-expected-value-mental-maths-check-01",
+                "kind": "short-answer",
+                "prompt": "Expected number of fair coin flips to get two heads in a row?",
+                "answer": "6.",
+                "explanation": "Set up recursion on states."
+              },
+              {
+                "id": "sk-quant-l19-probability-puzzles-expected-value-mental-maths-check-02",
+                "kind": "short-answer",
+                "prompt": "What should a market maker do when unsure of fair value?",
+                "answer": "Quote a wider spread.",
+                "explanation": "Protects against adverse selection."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain linearity of expectation with an example.",
+            "How do you adjust quotes when long inventory?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "MIT 18.S096 Topics in Mathematics with Applications in Finance",
+      "url": "https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/"
+    }
+  ],
+  "limitations": [
+    "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
+    "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
+    "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises.",
+    "Paper-only: no live broker connections or real orders. Backtest results are research evidence, not investment advice or proof of profitable trading."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Explain markets, order books, returns and the probability/statistics quants use daily.",
+      "evidence": "Worked notebooks computing returns, distributions and hypothesis tests on real public price data."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Write modern, tested C++ and analyse time series and backtests honestly.",
+      "evidence": "A CMake C++ project with tests, plus a backtest with costs and walk-forward validation."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Price options with several methods, build volatility surfaces and engineer low-latency code.",
+      "evidence": "Pricers cross-checked with QuantLib and benchmarked lock-free components."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Measure risk and construct portfolios, and pass quant interviews.",
+      "evidence": "A risk report on a paper portfolio and a log of solved interview problems."
+    }
+  ]
+}

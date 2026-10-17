@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  ArrowLeft,
   ArrowRight,
   BookOpen,
   ChevronDown,
@@ -11,10 +12,13 @@ import {
   isCareerCourse,
   eligibleLessons,
   isExtraTopic,
+  isSkillTrack,
   lessonCompletion,
   moduleComplete,
   requiredLessons,
+  skillBuildersFor,
   stageLabel,
+  trackHome,
   trackMeta,
   unmetRequirements,
   unmetLessonRequirements,
@@ -31,6 +35,7 @@ import {
   StatusIcon,
 } from "./shared";
 import { Guidance } from "./Guidance";
+import { SkillBuilders } from "./SkillBuilder";
 
 export function Roadmap({
   catalog,
@@ -49,6 +54,8 @@ export function Roadmap({
   const meta = trackMeta[trackId];
   const extra = isExtraTopic(trackId);
   const career = isCareerCourse(trackId);
+  const skill = isSkillTrack(trackId);
+  const home = trackHome(trackId);
   const eligibleModules = track.modules.filter(
     (module) => eligibleLessons(module, paper).length > 0,
   );
@@ -76,15 +83,29 @@ export function Roadmap({
   );
   return (
     <>
+      {skill && home.href !== `#/path/${trackId}` && (
+        <div className="breadcrumb">
+          <a href={home.href}>
+            <ArrowLeft size={14} />
+            {home.label}
+          </a>
+          <span>/</span>
+          <span>Skill builder</span>
+        </div>
+      )}
       <PageHeading
         eyebrow={
-          career
-            ? "CAREER PATH / REQUIRED SYSTEMS AND DOMAIN DEPTH"
-            : extra
-              ? "EXTRA TOPICS / OPTIONAL TRACK"
-              : trackId === "foundation"
-                ? "YOUR SHARED STARTING POINT"
-                : `LEARNING PATH ${meta.code}`
+          trackId === "cloud-devops"
+            ? "CAREER SECTION / BEGINNER TO PROFESSIONAL"
+            : skill
+              ? "SKILL BUILDER / BEGINNER TO PROFESSIONAL"
+              : career
+                ? "CAREER PATH / REQUIRED SYSTEMS AND DOMAIN DEPTH"
+                : extra
+                  ? "EXTRA TOPICS / OPTIONAL TRACK"
+                  : trackId === "foundation"
+                    ? "YOUR SHARED STARTING POINT"
+                    : `LEARNING PATH ${meta.code}`
         }
         title={meta.label}
         description={meta.description}
@@ -143,19 +164,21 @@ export function Roadmap({
           />
         </div>
       </div>
-      {(extra || career) && (
+      {(extra || career || (skill && track.stageOutcomes)) && (
         <>
           <div className="notice info">
             <div>
               <strong>
-                {career
-                  ? "Required Career Path learning, with separate progress"
-                  : "Optional learning, with its own progress"}
+                {skill
+                  ? "Written for a complete beginner, with its own progress"
+                  : career
+                    ? "Required Career Path learning, with separate progress"
+                    : "Optional learning, with its own progress"}
               </strong>
               <p>
-                Your core path, goals and totals are unchanged. Professional
-                Practice is a learning level, not a professional certification,
-                qualification or promise of trading profitability.
+                {skill
+                  ? "Each lesson explains the idea in plain words, points to one official reading, gives a hands-on assignment and ends with short self-check questions. Professional Practice is a learning level, not a certification."
+                  : "Your core path, goals and totals are unchanged. Professional Practice is a learning level, not a professional certification, qualification or promise of trading profitability."}
               </p>
               <p>{track.limitations[0]}</p>
               {trackId === "systems-languages" && (
@@ -247,6 +270,10 @@ export function Roadmap({
               : "Select the paper you intend to take. Shared mathematics is reused; paper-specific topics stay clearly labelled."}
           </p>
         </div>
+      )}
+      <SkillBuilders catalog={catalog} state={state} sectionId={trackId} />
+      {skillBuildersFor(catalog, trackId).length > 0 && (
+        <h2 className="section-heading">{meta.label}: course modules</h2>
       )}
       <div className="filter-bar">
         <label className="search-input">

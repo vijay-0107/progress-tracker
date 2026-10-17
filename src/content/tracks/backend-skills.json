@@ -1,0 +1,1859 @@
+{
+  "schemaVersion": 1,
+  "trackId": "backend-skills",
+  "title": "Backend Engineering: Skill Builder",
+  "sourceCheckedOn": "2026-10-17",
+  "resources": [
+    {
+      "id": "sk-be-dev-java",
+      "kind": "documentation",
+      "title": "dev.java: Learn Java",
+      "url": "https://dev.java/learn/",
+      "provider": "Oracle",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Official, modern Java tutorials from language basics to records and the collections framework."
+    },
+    {
+      "id": "sk-be-junit",
+      "kind": "documentation",
+      "title": "JUnit 5 user guide",
+      "url": "https://junit.org/junit5/docs/current/user-guide/",
+      "provider": "JUnit team",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Writing and running tests on the JVM."
+    },
+    {
+      "id": "sk-be-maven",
+      "kind": "documentation",
+      "title": "Maven in 5 minutes / getting started",
+      "url": "https://maven.apache.org/guides/getting-started/index.html",
+      "provider": "Apache Software Foundation",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Project structure, dependencies and the build lifecycle."
+    },
+    {
+      "id": "sk-be-spring-rest",
+      "kind": "documentation",
+      "title": "Spring guide: Building a RESTful Web Service",
+      "url": "https://spring.io/guides/gs/rest-service/",
+      "provider": "Broadcom / Spring team",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Your first Spring Boot REST endpoint."
+    },
+    {
+      "id": "sk-be-spring-jpa",
+      "kind": "documentation",
+      "title": "Spring guide: Accessing Data with JPA",
+      "url": "https://spring.io/guides/gs/accessing-data-jpa/",
+      "provider": "Broadcom / Spring team",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Entities, repositories and queries with Spring Data JPA."
+    },
+    {
+      "id": "sk-be-spring-boot",
+      "kind": "documentation",
+      "title": "Spring Boot reference documentation",
+      "url": "https://docs.spring.io/spring-boot/index.html",
+      "provider": "Broadcom / Spring team",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Configuration, profiles, actuator and testing."
+    },
+    {
+      "id": "sk-be-testcontainers",
+      "kind": "documentation",
+      "title": "Testcontainers for Java",
+      "url": "https://java.testcontainers.org/",
+      "provider": "Testcontainers / Docker",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Real databases and brokers in throwaway containers for tests."
+    },
+    {
+      "id": "sk-be-go-web",
+      "kind": "documentation",
+      "title": "Go: Writing Web Applications",
+      "url": "https://go.dev/doc/articles/wiki/",
+      "provider": "The Go Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Building an HTTP application with net/http."
+    },
+    {
+      "id": "sk-be-caching",
+      "kind": "documentation",
+      "title": "AWS whitepaper: Database Caching Strategies Using Redis",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/welcome.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Cache-aside, write-through, TTLs and eviction explained."
+    },
+    {
+      "id": "sk-be-outbox",
+      "kind": "documentation",
+      "title": "Pattern: Transactional outbox",
+      "url": "https://microservices.io/patterns/data/transactional-outbox.html",
+      "provider": "Chris Richardson (microservices.io)",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Publishing events reliably with database transactions."
+    },
+    {
+      "id": "sk-be-idempotency",
+      "kind": "documentation",
+      "title": "Stripe API: Idempotent requests",
+      "url": "https://docs.stripe.com/api/idempotent_requests",
+      "provider": "Stripe",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "A production example of idempotency keys for safe retries."
+    },
+    {
+      "id": "sk-be-k6",
+      "kind": "documentation",
+      "title": "Grafana k6 documentation",
+      "url": "https://grafana.com/docs/k6/latest/",
+      "provider": "Grafana Labs",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Scripting load tests, thresholds and results."
+    },
+    {
+      "id": "sk-be-retries",
+      "kind": "documentation",
+      "title": "Amazon Builders' Library: Timeouts, retries and backoff with jitter",
+      "url": "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/",
+      "provider": "Amazon",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "How large systems avoid retry storms."
+    },
+    {
+      "id": "sk-be-grafana",
+      "kind": "documentation",
+      "title": "Grafana documentation",
+      "url": "https://grafana.com/docs/grafana/latest/",
+      "provider": "Grafana Labs",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Dashboards and alerting on Prometheus data."
+    }
+  ],
+  "modules": [
+    {
+      "id": "sk-be-m01-java",
+      "title": "01. Java fundamentals",
+      "stage": "foundation",
+      "description": "Java runs a large share of backend systems in banks, e-commerce and product companies. Learn the language, collections, exceptions, builds and tests.",
+      "prerequisites": [
+        "fe-m05-clean-code"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l01-java-syntax-classes-records-interfaces-and-colle",
+          "title": "Java syntax, classes, records, interfaces and collections",
+          "objectives": [
+            "Install a JDK (21 LTS) and compile and run programs.",
+            "Write classes, records, interfaces and enums.",
+            "Use List, Map, Set and the streams API."
+          ],
+          "topics": [
+            {
+              "title": "Language basics",
+              "details": [
+                "Static typing, `var` for local inference, classes with constructors and methods, access modifiers (private by default in practice)."
+              ]
+            },
+            {
+              "title": "Modern Java",
+              "details": [
+                "Records for immutable data (`record Money(BigDecimal amount, String currency)`), sealed interfaces, switch expressions and pattern matching."
+              ]
+            },
+            {
+              "title": "Collections and streams",
+              "details": [
+                "ArrayList, HashMap, HashSet; `orders.stream().filter(Order::paid).mapToLong(Order::total).sum()`; never use double for money, use BigDecimal or long minor units."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-be.java-syntax-classes-records-interfaces-and-colle"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-dev-java",
+            "locator": "dev.java Learn: 'Getting Started with Java', 'Language Basics', 'Classes and Objects', 'Records', 'Interfaces' and 'The Collections Framework'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-be-a01-java-syntax-classes-records-interfaces-and-colle",
+            "title": "Banking domain in Java",
+            "kind": "coding",
+            "instructions": [
+              "Model Account, Money (record) and Transfer with rules: no negative balances, same currency only.",
+              "Use collections and streams to compute statements per account.",
+              "Throw specific exceptions for rule violations."
+            ],
+            "deliverables": [
+              "Java project with README."
+            ],
+            "acceptanceCriteria": [
+              "Money uses BigDecimal or long minor units, never double.",
+              "Rule violations raise clear exceptions."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l01-java-syntax-classes-records-interfaces-and-colle-check-01",
+                "kind": "short-answer",
+                "prompt": "Why not use double for money?",
+                "answer": "Binary floating point cannot represent many decimal amounts exactly.",
+                "explanation": "Use BigDecimal or integer minor units."
+              },
+              {
+                "id": "sk-be-l01-java-syntax-classes-records-interfaces-and-colle-check-02",
+                "kind": "short-answer",
+                "prompt": "What is a Java record?",
+                "answer": "A concise immutable data class with generated equals, hashCode and toString.",
+                "explanation": "Ideal for value objects."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Interface vs abstract class?",
+            "Write a stream that groups orders by customer."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-be-l02-exceptions-maven-gradle-builds-and-junit-testing",
+          "title": "Exceptions, Maven/Gradle builds and JUnit testing",
+          "objectives": [
+            "Use checked and unchecked exceptions appropriately.",
+            "Structure a Maven or Gradle project with dependencies.",
+            "Write JUnit 5 tests including parameterised tests."
+          ],
+          "topics": [
+            {
+              "title": "Exceptions",
+              "details": [
+                "Checked exceptions must be declared; unchecked (RuntimeException) are for programming errors. Never swallow exceptions silently; add context."
+              ]
+            },
+            {
+              "title": "Builds",
+              "details": [
+                "Maven: pom.xml, src/main/java, src/test/java, `mvn test`, `mvn package`; Gradle is an alternative with build.gradle."
+              ]
+            },
+            {
+              "title": "Testing",
+              "details": [
+                "`@Test`, assertions, `@ParameterizedTest` for many cases, AssertJ for readable assertions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-be.exceptions-maven-gradle-builds-and-junit-testing"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-junit",
+            "locator": "JUnit 5 user guide: 'Overview', 'Writing Tests' (annotations, assertions, display names) and 'Parameterized Tests'."
+          },
+          "supplementaryResourceIds": [
+            "sk-be-maven"
+          ],
+          "assignment": {
+            "id": "sk-be-a02-exceptions-maven-gradle-builds-and-junit-testing",
+            "title": "Test the banking domain",
+            "kind": "coding",
+            "instructions": [
+              "Convert your project to Maven or Gradle.",
+              "Write 20+ JUnit tests including parameterised tests for transfer rules.",
+              "Add GitHub Actions running the tests."
+            ],
+            "deliverables": [
+              "Project with tests and CI."
+            ],
+            "acceptanceCriteria": [
+              "CI passes; tests cover every rule including failure paths."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l02-exceptions-maven-gradle-builds-and-junit-testing-check-01",
+                "kind": "short-answer",
+                "prompt": "Checked vs unchecked exceptions?",
+                "answer": "Checked must be declared or handled; unchecked (RuntimeException) need not.",
+                "explanation": "Use unchecked for programming errors."
+              },
+              {
+                "id": "sk-be-l02-exceptions-maven-gradle-builds-and-junit-testing-check-02",
+                "kind": "short-answer",
+                "prompt": "Maven test sources folder?",
+                "answer": "src/test/java.",
+                "explanation": "Kept separate from main code."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When would you create a custom exception?",
+            "Write a parameterised test outline."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m02-spring-boot",
+      "title": "02. Spring Boot services",
+      "stage": "foundation",
+      "description": "The most common Java backend framework. Build REST APIs with dependency injection, validation, persistence and integration tests.",
+      "prerequisites": [
+        "sk-be-m01-java",
+        "fe-m07-networks-web"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l03-rest-controllers-dependency-injection-and-config",
+          "title": "REST controllers, dependency injection and configuration",
+          "objectives": [
+            "Create a Spring Boot app and expose REST endpoints.",
+            "Explain dependency injection and bean lifecycles.",
+            "Use configuration properties, profiles and actuator health checks."
+          ],
+          "topics": [
+            {
+              "title": "Controllers",
+              "details": [
+                "`@RestController` with `@GetMapping`/`@PostMapping`; request bodies map to records; `@Valid` with constraints returns 400 on bad input."
+              ]
+            },
+            {
+              "title": "Dependency injection",
+              "details": [
+                "Spring creates beans and injects them through constructors, so classes depend on interfaces and tests can supply fakes."
+              ]
+            },
+            {
+              "title": "Configuration",
+              "details": [
+                "application.yml, profiles (dev/test/prod), environment variables for secrets; actuator exposes /health and metrics."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-be.rest-controllers-dependency-injection-and-config"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-spring-rest",
+            "locator": "Spring guide 'Building a RESTful Web Service' in full, then the Spring Boot reference sections on 'Externalized Configuration' and 'Profiles'."
+          },
+          "supplementaryResourceIds": [
+            "sk-be-spring-boot"
+          ],
+          "assignment": {
+            "id": "sk-be-a03-rest-controllers-dependency-injection-and-config",
+            "title": "Accounts API",
+            "kind": "coding",
+            "instructions": [
+              "Build a Spring Boot accounts API (create account, get account, list) with validation and a global error handler.",
+              "Use constructor injection and an in-memory repository behind an interface.",
+              "Add actuator health and a dev profile."
+            ],
+            "deliverables": [
+              "Spring Boot project with README."
+            ],
+            "acceptanceCriteria": [
+              "Bad input returns 400 with a consistent error body."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l03-rest-controllers-dependency-injection-and-config-check-01",
+                "kind": "short-answer",
+                "prompt": "Why constructor injection?",
+                "answer": "Dependencies are explicit, final and easy to replace in tests.",
+                "explanation": "Field injection hides them."
+              },
+              {
+                "id": "sk-be-l03-rest-controllers-dependency-injection-and-config-check-02",
+                "kind": "short-answer",
+                "prompt": "Where should secrets come from in Spring Boot?",
+                "answer": "Environment variables or a secret manager, not committed config files.",
+                "explanation": "Profiles separate environments."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain a Spring bean.",
+            "How do profiles work?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-be-l04-persistence-with-jpa-transactions-and-testcontai",
+          "title": "Persistence with JPA, transactions and Testcontainers",
+          "objectives": [
+            "Map entities and repositories with Spring Data JPA.",
+            "Use @Transactional correctly and avoid N+1 queries.",
+            "Run integration tests against real PostgreSQL with Testcontainers."
+          ],
+          "topics": [
+            {
+              "title": "JPA",
+              "details": [
+                "Entities map to tables; repositories give CRUD; use migrations (Flyway/Liquibase) instead of auto-DDL in real projects."
+              ]
+            },
+            {
+              "title": "Transactions",
+              "details": [
+                "@Transactional on service methods makes their database work atomic; it only works on public methods called through the Spring proxy."
+              ]
+            },
+            {
+              "title": "Performance and tests",
+              "details": [
+                "Loading a list then touching lazy relations per row causes N+1 queries; use fetch joins. Testcontainers starts PostgreSQL in Docker for tests."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-be.persistence-with-jpa-transactions-and-testcontai"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-spring-jpa",
+            "locator": "Spring guide 'Accessing Data with JPA', then the Testcontainers 'Quickstart' for JUnit 5."
+          },
+          "supplementaryResourceIds": [
+            "sk-be-testcontainers",
+            "sde-book-postgresql"
+          ],
+          "assignment": {
+            "id": "sk-be-a04-persistence-with-jpa-transactions-and-testcontai",
+            "title": "Persistent transfers",
+            "kind": "coding",
+            "instructions": [
+              "Persist accounts and transfers in PostgreSQL with Flyway migrations.",
+              "Implement a transactional transfer service; prove a failure mid-transfer rolls back.",
+              "Write Testcontainers integration tests and fix an N+1 query you introduce on purpose."
+            ],
+            "deliverables": [
+              "Project with migrations and integration tests."
+            ],
+            "acceptanceCriteria": [
+              "Rollback test passes against real PostgreSQL.",
+              "Query count drops after fixing N+1."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l04-persistence-with-jpa-transactions-and-testcontai-check-01",
+                "kind": "short-answer",
+                "prompt": "What is the N+1 query problem?",
+                "answer": "Loading N rows and then running one extra query per row for related data.",
+                "explanation": "Fix with joins or fetch joins."
+              },
+              {
+                "id": "sk-be-l04-persistence-with-jpa-transactions-and-testcontai-check-02",
+                "kind": "short-answer",
+                "prompt": "Why test with a real database instead of an in-memory fake?",
+                "answer": "Real SQL, constraints and locking behaviour differ from fakes.",
+                "explanation": "Testcontainers makes it easy."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When does @Transactional not apply?",
+            "Why use migrations?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m03-go-services",
+      "title": "03. Building HTTP services in Go",
+      "stage": "intermediate",
+      "description": "Go's standard library is enough to build fast, production-grade HTTP services. Learn handlers, middleware, graceful shutdown and database access.",
+      "prerequisites": [
+        "sk-sde-m01-go"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l05-net-http-middleware-json-databases-and-graceful",
+          "title": "net/http, middleware, JSON, databases and graceful shutdown",
+          "objectives": [
+            "Write handlers with net/http and route with the standard ServeMux patterns.",
+            "Add middleware for logging, request IDs and timeouts.",
+            "Access PostgreSQL with pgx and shut down gracefully."
+          ],
+          "topics": [
+            {
+              "title": "Handlers",
+              "details": [
+                "A handler writes a response for a request; decode JSON with limits (http.MaxBytesReader) and validate; return proper status codes."
+              ]
+            },
+            {
+              "title": "Middleware",
+              "details": [
+                "Wrap handlers to add logging, request IDs, auth and per-request timeouts with context."
+              ]
+            },
+            {
+              "title": "Production basics",
+              "details": [
+                "Set server read/write timeouts; use a connection pool (pgxpool); on SIGTERM stop accepting requests and finish in-flight ones (Server.Shutdown)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-be.net-http-middleware-json-databases-and-graceful"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-go-web",
+            "locator": "Go article 'Writing Web Applications' in full; then Effective Go's section on concurrency for request handling."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-effective-go"
+          ],
+          "assignment": {
+            "id": "sk-be-a05-net-http-middleware-json-databases-and-graceful",
+            "title": "Jobs API in Go",
+            "kind": "coding",
+            "instructions": [
+              "Build a Go HTTP API to create and query jobs stored in PostgreSQL (pgx).",
+              "Add logging and request-ID middleware, request timeouts and graceful shutdown.",
+              "Write handler tests with httptest and integration tests with a containerised database."
+            ],
+            "deliverables": [
+              "Go service with tests and Dockerfile."
+            ],
+            "acceptanceCriteria": [
+              "Graceful shutdown finishes in-flight requests in a test.",
+              "Oversized bodies are rejected."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l05-net-http-middleware-json-databases-and-graceful-check-01",
+                "kind": "short-answer",
+                "prompt": "Why set server timeouts in Go?",
+                "answer": "Without them slow clients can hold connections forever.",
+                "explanation": "ReadTimeout/WriteTimeout protect the server."
+              },
+              {
+                "id": "sk-be-l05-net-http-middleware-json-databases-and-graceful-check-02",
+                "kind": "short-answer",
+                "prompt": "What does graceful shutdown do?",
+                "answer": "Stops accepting new requests and lets in-flight requests finish.",
+                "explanation": "Prevents dropped requests during deploys."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a logging middleware signature.",
+            "How do you pass a request ID through calls?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m04-postgres-backend",
+      "title": "04. PostgreSQL for backend engineers",
+      "stage": "intermediate",
+      "description": "Correctness under concurrency: isolation levels, locking strategies, indexes for real queries and safe schema migrations.",
+      "prerequisites": [
+        "fe-m06-sql-practice"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l06-isolation-levels-row-locks-optimistic-locking-an",
+          "title": "Isolation levels, row locks, optimistic locking and deadlocks",
+          "objectives": [
+            "Explain read committed, repeatable read and serializable in PostgreSQL.",
+            "Choose pessimistic (SELECT FOR UPDATE) or optimistic (version column) locking.",
+            "Diagnose and avoid deadlocks."
+          ],
+          "topics": [
+            {
+              "title": "Isolation",
+              "details": [
+                "PostgreSQL defaults to read committed; repeatable read uses a snapshot; serializable detects anomalies and aborts one transaction, so clients must retry."
+              ]
+            },
+            {
+              "title": "Locking strategies",
+              "details": [
+                "Pessimistic: lock rows you will update. Optimistic: `UPDATE ... SET version = version + 1 WHERE id = ? AND version = ?` and retry if zero rows changed."
+              ]
+            },
+            {
+              "title": "Deadlocks",
+              "details": [
+                "Lock rows in a consistent order (e.g. by account ID) and keep transactions short."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-be.isolation-levels-row-locks-optimistic-locking-an"
+          ],
+          "video": {
+            "resourceId": "sde-video-cmu",
+            "locator": "CMU 15-445 lectures on concurrency control (two-phase locking and MVCC)."
+          },
+          "reading": {
+            "resourceId": "sde-book-postgresql",
+            "locator": "PostgreSQL manual chapter 13 'Concurrency Control': 13.2 'Transaction Isolation' and 13.3 'Explicit Locking' (row-level locks and deadlocks)."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-be-a06-isolation-levels-row-locks-optimistic-locking-an",
+            "title": "Concurrent transfers lab",
+            "kind": "lab",
+            "instructions": [
+              "Write a test that runs 1,000 concurrent transfers between 10 accounts and checks the total balance is unchanged.",
+              "Implement pessimistic and optimistic versions; compare throughput and retry counts.",
+              "Create a deadlock, then fix it with consistent lock ordering."
+            ],
+            "deliverables": [
+              "Code, results table and deadlock notes."
+            ],
+            "acceptanceCriteria": [
+              "Total balance is preserved in both versions.",
+              "Deadlock is reproduced and fixed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l06-isolation-levels-row-locks-optimistic-locking-an-check-01",
+                "kind": "short-answer",
+                "prompt": "What must clients do under SERIALIZABLE isolation?",
+                "answer": "Retry transactions that fail with serialization errors.",
+                "explanation": "PostgreSQL aborts one of the conflicting transactions."
+              },
+              {
+                "id": "sk-be-l06-isolation-levels-row-locks-optimistic-locking-an-check-02",
+                "kind": "short-answer",
+                "prompt": "How does optimistic locking detect conflicts?",
+                "answer": "A version column that must match when updating.",
+                "explanation": "Zero updated rows means someone else changed it."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Pessimistic vs optimistic: when each?",
+            "How do you prevent deadlocks?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-be-l07-indexes-for-real-queries-explain-and-zero-downti",
+          "title": "Indexes for real queries, EXPLAIN and zero-downtime migrations",
+          "objectives": [
+            "Design composite and partial indexes for actual query patterns.",
+            "Use EXPLAIN (ANALYZE, BUFFERS) to verify plans.",
+            "Run schema migrations without downtime."
+          ],
+          "topics": [
+            {
+              "title": "Indexes",
+              "details": [
+                "Composite index order matters: (customer_id, created_at) serves 'orders for a customer, newest first'. Partial indexes cover hot subsets (WHERE status = 'pending')."
+              ]
+            },
+            {
+              "title": "Plans",
+              "details": [
+                "Compare estimated and actual rows; watch for sequential scans on big tables and sorts spilling to disk."
+              ]
+            },
+            {
+              "title": "Safe migrations",
+              "details": [
+                "Add nullable columns first, backfill in batches, then add constraints; `CREATE INDEX CONCURRENTLY` avoids blocking writes; expand-and-contract for renames."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-be.indexes-for-real-queries-explain-and-zero-downti"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-postgresql",
+            "locator": "PostgreSQL manual: chapter 11 'Indexes' (multicolumn, partial and index-only scans) and 14.1 'Using EXPLAIN'; CREATE INDEX reference section 'Building Indexes Concurrently'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-be-a07-indexes-for-real-queries-explain-and-zero-downti",
+            "title": "Index a slow endpoint",
+            "kind": "lab",
+            "instructions": [
+              "Load 5 million orders; find the slowest endpoint query with EXPLAIN ANALYZE.",
+              "Add the right composite or partial index and measure.",
+              "Write an expand-and-contract migration plan to rename a column with no downtime."
+            ],
+            "deliverables": [
+              "Plans before/after, timings and migration plan."
+            ],
+            "acceptanceCriteria": [
+              "Measured speed-up with the plan change shown."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l07-indexes-for-real-queries-explain-and-zero-downti-check-01",
+                "kind": "short-answer",
+                "prompt": "Why does column order matter in a composite index?",
+                "answer": "The index is sorted by the first column, then the next.",
+                "explanation": "Queries must use the leading columns."
+              },
+              {
+                "id": "sk-be-l07-indexes-for-real-queries-explain-and-zero-downti-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you add an index without blocking writes?",
+                "answer": "CREATE INDEX CONCURRENTLY.",
+                "explanation": "Takes longer but avoids long locks."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Design an index for 'pending jobs ordered by run_at'.",
+            "Explain expand-and-contract."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m05-redis-caching",
+      "title": "05. Caching with Redis",
+      "stage": "intermediate",
+      "description": "Make reads fast without serving wrong data: cache-aside, TTLs, invalidation, stampedes and Redis data structures.",
+      "prerequisites": [
+        "sk-be-m04-postgres-backend"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l08-cache-aside-ttls-invalidation-stampedes-and-rate",
+          "title": "Cache-aside, TTLs, invalidation, stampedes and rate limiting",
+          "objectives": [
+            "Implement cache-aside with TTLs and invalidation on writes.",
+            "Prevent cache stampedes and handle Redis being down.",
+            "Use Redis data structures for counters, leaderboards and rate limits."
+          ],
+          "topics": [
+            {
+              "title": "Patterns",
+              "details": [
+                "Cache-aside: read cache, on miss read DB and set cache with TTL; on write update DB then delete the cache key."
+              ]
+            },
+            {
+              "title": "Failure modes",
+              "details": [
+                "Stampede: many requests miss at once and hit the DB; use request coalescing or jittered TTLs. If Redis is down, fall back to the DB with protection."
+              ]
+            },
+            {
+              "title": "Structures",
+              "details": [
+                "Strings with INCR for counters, sorted sets for leaderboards, hashes for objects; token-bucket rate limiting with a Lua script for atomicity."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-be.cache-aside-ttls-invalidation-stampedes-and-rate"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-caching",
+            "locator": "Database Caching Strategies Using Redis: 'Caching patterns' (cache-aside, write-through), 'Cache validity' and 'Evictions'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-c41ab21bca74"
+          ],
+          "assignment": {
+            "id": "sk-be-a08-cache-aside-ttls-invalidation-stampedes-and-rate",
+            "title": "Cache a product API",
+            "kind": "coding",
+            "instructions": [
+              "Add cache-aside to your Spring Boot or Go service for a product lookup.",
+              "Load-test with and without the cache; simulate a stampede and fix it.",
+              "Add a Redis token-bucket rate limiter returning 429 with Retry-After."
+            ],
+            "deliverables": [
+              "Code, measurements and notes."
+            ],
+            "acceptanceCriteria": [
+              "Writes invalidate the cache (test proves no stale reads after update).",
+              "Rate limiter is atomic under concurrency."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l08-cache-aside-ttls-invalidation-stampedes-and-rate-check-01",
+                "kind": "short-answer",
+                "prompt": "In cache-aside, what happens on a write?",
+                "answer": "Update the database, then delete the cache entry.",
+                "explanation": "The next read repopulates it."
+              },
+              {
+                "id": "sk-be-l08-cache-aside-ttls-invalidation-stampedes-and-rate-check-02",
+                "kind": "short-answer",
+                "prompt": "What is a cache stampede?",
+                "answer": "Many requests miss simultaneously and overload the database.",
+                "explanation": "Coalesce requests or jitter TTLs."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When should you not cache?",
+            "Explain token bucket."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m06-messaging",
+      "title": "06. Event-driven services with Kafka",
+      "stage": "intermediate",
+      "description": "Decouple services with events: publishing, consuming, ordering, retries, dead-letter topics and schema evolution.",
+      "prerequisites": [
+        "sk-be-m02-spring-boot"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l09-producers-consumers-retries-dead-letter-topics-a",
+          "title": "Producers, consumers, retries, dead-letter topics and event schemas",
+          "objectives": [
+            "Publish and consume events from a Spring Boot or Go service.",
+            "Handle retries, poison messages and dead-letter topics.",
+            "Version event schemas safely."
+          ],
+          "topics": [
+            {
+              "title": "Basics for services",
+              "details": [
+                "Key events by entity ID for per-entity ordering; consumers in a group share partitions; commit offsets after successful processing."
+              ]
+            },
+            {
+              "title": "Failures",
+              "details": [
+                "Consumers must be idempotent (events can arrive twice). Retry transient errors with backoff; send messages that keep failing to a dead-letter topic with the error."
+              ]
+            },
+            {
+              "title": "Schemas",
+              "details": [
+                "Define events with explicit schemas (JSON Schema, Avro, Protobuf); only add optional fields; include event ID, type, version and time."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-be.producers-consumers-retries-dead-letter-topics-a"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-data-kafka-intro",
+            "locator": "Kafka 'Introduction' in full, then the main documentation's 'Design' section on message delivery semantics."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-7f170ac8b9ff"
+          ],
+          "assignment": {
+            "id": "sk-be-a09-producers-consumers-retries-dead-letter-topics-a",
+            "title": "Order events",
+            "kind": "coding",
+            "instructions": [
+              "Publish OrderPlaced events from your service; build a separate notification consumer.",
+              "Make the consumer idempotent with a processed-events table.",
+              "Add retries with backoff and a dead-letter topic; demonstrate with a poison message."
+            ],
+            "deliverables": [
+              "Two services, compose file and a failure demo."
+            ],
+            "acceptanceCriteria": [
+              "Duplicate events cause no duplicate notifications.",
+              "Poison messages land in the DLT."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l09-producers-consumers-retries-dead-letter-topics-a-check-01",
+                "kind": "short-answer",
+                "prompt": "Why must Kafka consumers be idempotent?",
+                "answer": "Events can be delivered more than once.",
+                "explanation": "At-least-once delivery is the common default."
+              },
+              {
+                "id": "sk-be-l09-producers-consumers-retries-dead-letter-topics-a-check-02",
+                "kind": "short-answer",
+                "prompt": "What is a dead-letter topic for?",
+                "answer": "Holding messages that keep failing so they do not block processing.",
+                "explanation": "They can be inspected and replayed."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How do you keep per-order event ordering?",
+            "What fields does every event need?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m07-reliable-transactions",
+      "title": "07. Reliable distributed transactions",
+      "stage": "advanced",
+      "description": "Money and orders must never be lost or duplicated. Learn idempotency keys, the transactional outbox and sagas.",
+      "prerequisites": [
+        "sk-be-m04-postgres-backend",
+        "sk-be-m06-messaging",
+        "sk-sde-m06-distributed-systems"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l10-idempotency-keys-and-double-entry-ledgers",
+          "title": "Idempotency keys and double-entry ledgers",
+          "objectives": [
+            "Implement idempotency keys for POST endpoints.",
+            "Model money movement with double-entry accounting.",
+            "Prove no money is created or lost under retries and concurrency."
+          ],
+          "topics": [
+            {
+              "title": "Idempotency keys",
+              "details": [
+                "The client sends a unique key; the server stores the key with the request hash and response; a repeat returns the stored response; a different body with the same key is rejected."
+              ]
+            },
+            {
+              "title": "Double entry",
+              "details": [
+                "Every transfer writes balanced postings (debit one account, credit another); the sum of all postings is always zero, so errors are detectable."
+              ]
+            },
+            {
+              "title": "Verification",
+              "details": [
+                "Randomised tests with retries and concurrency, then reconcile balances from postings."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-be.idempotency-keys-and-double-entry-ledgers"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-idempotency",
+            "locator": "Stripe 'Idempotent requests' page in full; then design your own storage table for keys."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-cosmic"
+          ],
+          "assignment": {
+            "id": "sk-be-a10-idempotency-keys-and-double-entry-ledgers",
+            "title": "Ledger core",
+            "kind": "coding",
+            "instructions": [
+              "Build a transfer endpoint backed by journal entries and postings with an idempotency-key table.",
+              "Run 100,000 randomised transfers with injected retries and duplicate requests.",
+              "Reconcile: every entry sums to zero and balances equal postings."
+            ],
+            "deliverables": [
+              "Code, tests and reconciliation output."
+            ],
+            "acceptanceCriteria": [
+              "Zero drift across all runs.",
+              "Same key + different body returns 409."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l10-idempotency-keys-and-double-entry-ledgers-check-01",
+                "kind": "short-answer",
+                "prompt": "What does an idempotency key let a client do?",
+                "answer": "Safely retry a request without duplicating its effect.",
+                "explanation": "The server returns the original result."
+              },
+              {
+                "id": "sk-be-l10-idempotency-keys-and-double-entry-ledgers-check-02",
+                "kind": "short-answer",
+                "prompt": "Invariant of double-entry accounting?",
+                "answer": "Debits and credits of every entry sum to zero.",
+                "explanation": "Makes errors detectable."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Design the idempotency table.",
+            "Why store the request hash?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-be-l11-the-transactional-outbox-and-sagas",
+          "title": "The transactional outbox and sagas",
+          "objectives": [
+            "Explain the dual-write problem.",
+            "Implement a transactional outbox with a relay to Kafka.",
+            "Coordinate multi-service workflows with sagas and compensations."
+          ],
+          "topics": [
+            {
+              "title": "Dual writes",
+              "details": [
+                "Writing to the database and publishing an event separately can leave them inconsistent if the process crashes in between."
+              ]
+            },
+            {
+              "title": "Outbox",
+              "details": [
+                "Insert the event into an outbox table in the same transaction as the business change; a relay publishes outbox rows and marks them sent (at least once)."
+              ]
+            },
+            {
+              "title": "Sagas",
+              "details": [
+                "A long workflow is a sequence of local transactions; if a later step fails, run compensating actions (refund, release stock). Orchestrated or choreographed."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-be.the-transactional-outbox-and-sagas"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-outbox",
+            "locator": "microservices.io 'Transactional outbox' pattern page; then the 'Saga' pattern page linked from it."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-213c84bc0fea"
+          ],
+          "assignment": {
+            "id": "sk-be-a11-the-transactional-outbox-and-sagas",
+            "title": "Outbox and a saga",
+            "kind": "coding",
+            "instructions": [
+              "Add an outbox table and relay to your ledger; kill the app between commit and publish and show the event is still delivered.",
+              "Implement an order saga (reserve stock -> charge -> confirm) with compensations on failure."
+            ],
+            "deliverables": [
+              "Code, crash test and saga failure demo."
+            ],
+            "acceptanceCriteria": [
+              "No lost events after crashes.",
+              "Failed charges trigger stock release."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l11-the-transactional-outbox-and-sagas-check-01",
+                "kind": "short-answer",
+                "prompt": "What problem does the outbox pattern solve?",
+                "answer": "Keeping database changes and published events consistent without distributed transactions.",
+                "explanation": "Both are written in one local transaction."
+              },
+              {
+                "id": "sk-be-l11-the-transactional-outbox-and-sagas-check-02",
+                "kind": "short-answer",
+                "prompt": "What is a compensating action?",
+                "answer": "An action that semantically undoes a completed saga step, such as a refund.",
+                "explanation": "Used when a later step fails."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Draw the outbox flow.",
+            "Orchestration vs choreography?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m08-background-jobs",
+      "title": "08. Background jobs and scheduling",
+      "stage": "advanced",
+      "description": "Run work outside the request path: job queues in PostgreSQL, retries with backoff, dead letters, cron schedules and leader election.",
+      "prerequisites": [
+        "sk-be-m03-go-services",
+        "sk-be-m04-postgres-backend"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l12-job-queues-with-skip-locked-retries-dead-letters",
+          "title": "Job queues with SKIP LOCKED, retries, dead letters and leader election",
+          "objectives": [
+            "Build a job queue on PostgreSQL with SELECT ... FOR UPDATE SKIP LOCKED.",
+            "Implement retries with exponential backoff and jitter, and dead-lettering.",
+            "Run cron schedules exactly once with a single leader using advisory locks."
+          ],
+          "topics": [
+            {
+              "title": "Queue",
+              "details": [
+                "Workers claim jobs with `SELECT ... FOR UPDATE SKIP LOCKED LIMIT n`, so no two workers take the same job; leases with heartbeats recover jobs from crashed workers."
+              ]
+            },
+            {
+              "title": "Retries",
+              "details": [
+                "Backoff = base x 2^attempt with random jitter; after max attempts mark the job dead with the last error."
+              ]
+            },
+            {
+              "title": "Scheduling",
+              "details": [
+                "Only the leader enqueues cron runs; `pg_try_advisory_lock` elects a leader; a unique constraint on (schedule, run_time) prevents duplicates even if two leaders overlap."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-be.job-queues-with-skip-locked-retries-dead-letters"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-postgresql",
+            "locator": "PostgreSQL manual: SELECT reference section 'The Locking Clause' (SKIP LOCKED) and 13.3.5 'Advisory Locks'."
+          },
+          "supplementaryResourceIds": [
+            "sk-be-retries"
+          ],
+          "assignment": {
+            "id": "sk-be-a12-job-queues-with-skip-locked-retries-dead-letters",
+            "title": "Go job scheduler",
+            "kind": "coding",
+            "instructions": [
+              "Build a Go scheduler with an API, workers using SKIP LOCKED, leases and retries with jitter.",
+              "Add cron schedules with advisory-lock leader election and a uniqueness guard.",
+              "Fault tests: kill workers and the leader; prove no job is lost or run twice by the scheduler."
+            ],
+            "deliverables": [
+              "Code, fault-test results and dashboard plan."
+            ],
+            "acceptanceCriteria": [
+              "Two scheduler replicas never enqueue the same cron run twice."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l12-job-queues-with-skip-locked-retries-dead-letters-check-01",
+                "kind": "short-answer",
+                "prompt": "What does SKIP LOCKED do?",
+                "answer": "Skips rows locked by other transactions instead of waiting.",
+                "explanation": "Lets many workers pull jobs concurrently."
+              },
+              {
+                "id": "sk-be-l12-job-queues-with-skip-locked-retries-dead-letters-check-02",
+                "kind": "short-answer",
+                "prompt": "Why add jitter to retry backoff?",
+                "answer": "To avoid many clients retrying at the same moment.",
+                "explanation": "Prevents retry storms."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain job leases.",
+            "How does the uniqueness guard back up leader election?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m09-observability",
+      "title": "09. Observability: metrics, logs and traces",
+      "stage": "advanced",
+      "description": "Know what your service is doing in production: structured logs, Prometheus metrics, OpenTelemetry traces, dashboards and alerts.",
+      "prerequisites": [
+        "sk-be-m02-spring-boot"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l13-metrics-with-prometheus-structured-logs-and-trac",
+          "title": "Metrics with Prometheus, structured logs and traces with OpenTelemetry",
+          "objectives": [
+            "Instrument RED metrics (rate, errors, duration) with histograms.",
+            "Write structured JSON logs with request and trace IDs.",
+            "Trace a request across services with OpenTelemetry."
+          ],
+          "topics": [
+            {
+              "title": "Metrics",
+              "details": [
+                "Counters for requests and errors, histograms for latency (so you can compute p95/p99), gauges for queue depth; avoid high-cardinality labels like user IDs."
+              ]
+            },
+            {
+              "title": "Logs",
+              "details": [
+                "Structured JSON with level, message, request_id, trace_id; never log secrets or personal data."
+              ]
+            },
+            {
+              "title": "Traces",
+              "details": [
+                "A trace is a tree of spans showing where time went across services; propagate context in HTTP headers."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-be.metrics-with-prometheus-structured-logs-and-trac"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-a9c9428e53c4",
+            "locator": "Prometheus 'Instrumentation' best practices page in full, then 'Histograms and summaries'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-8de8f872c85e",
+            "advanced-reading-a04effa473fb"
+          ],
+          "assignment": {
+            "id": "sk-be-a13-metrics-with-prometheus-structured-logs-and-trac",
+            "title": "Instrument two services",
+            "kind": "coding",
+            "instructions": [
+              "Add Prometheus metrics (RED + business metrics) and structured logs to two of your services.",
+              "Add OpenTelemetry tracing across a call between them; view traces in Jaeger or Grafana Tempo.",
+              "Find a deliberately slow database call using the trace."
+            ],
+            "deliverables": [
+              "Instrumented code, compose stack and screenshots."
+            ],
+            "acceptanceCriteria": [
+              "p95 latency is computed from histograms.",
+              "One trace spans both services."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l13-metrics-with-prometheus-structured-logs-and-trac-check-01",
+                "kind": "short-answer",
+                "prompt": "Why use histograms for latency?",
+                "answer": "They let you compute percentiles like p95 and p99 across instances.",
+                "explanation": "Averages hide tail latency."
+              },
+              {
+                "id": "sk-be-l13-metrics-with-prometheus-structured-logs-and-trac-check-02",
+                "kind": "short-answer",
+                "prompt": "Why avoid user IDs as metric labels?",
+                "answer": "High cardinality explodes storage and query cost.",
+                "explanation": "Put them in logs or traces instead."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What are RED metrics?",
+            "Logs vs metrics vs traces?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-be-l14-dashboards-slos-and-alerting-that-people-trust",
+          "title": "Dashboards, SLOs and alerting that people trust",
+          "objectives": [
+            "Define SLIs and SLOs and compute an error budget.",
+            "Build Grafana dashboards for a service.",
+            "Write symptom-based alerts with runbooks."
+          ],
+          "topics": [
+            {
+              "title": "SLOs",
+              "details": [
+                "SLI: measured indicator (fraction of requests under 300 ms). SLO: target (99.5% over 30 days). Error budget: the allowed 0.5%."
+              ]
+            },
+            {
+              "title": "Dashboards",
+              "details": [
+                "Top row: traffic, errors, latency, saturation; then dependencies; link to logs and traces."
+              ]
+            },
+            {
+              "title": "Alerts",
+              "details": [
+                "Alert on user-visible symptoms and fast error-budget burn, not every CPU spike; every alert has an owner and a runbook."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "sk-be.dashboards-slos-and-alerting-that-people-trust"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-7b9a3e66dbb9",
+            "locator": "Google SRE book chapter 4 'Service Level Objectives' in full."
+          },
+          "supplementaryResourceIds": [
+            "sk-be-grafana",
+            "data-book-sre"
+          ],
+          "assignment": {
+            "id": "sk-be-a14-dashboards-slos-and-alerting-that-people-trust",
+            "title": "SLO for your API",
+            "kind": "lab",
+            "instructions": [
+              "Define two SLIs and SLOs for one service; build a Grafana dashboard.",
+              "Write a burn-rate alert in Prometheus and a runbook for it.",
+              "Trigger it with injected errors and follow the runbook."
+            ],
+            "deliverables": [
+              "Dashboard JSON, alert rules, runbook and drill notes."
+            ],
+            "acceptanceCriteria": [
+              "The alert fires on injected errors and the runbook resolves it."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l14-dashboards-slos-and-alerting-that-people-trust-check-01",
+                "kind": "short-answer",
+                "prompt": "What is an error budget?",
+                "answer": "The amount of unreliability an SLO allows, e.g. 0.5% of requests.",
+                "explanation": "Spending it guides release pace."
+              },
+              {
+                "id": "sk-be-l14-dashboards-slos-and-alerting-that-people-trust-check-02",
+                "kind": "short-answer",
+                "prompt": "What should alerts be based on?",
+                "answer": "User-visible symptoms and SLO burn.",
+                "explanation": "Cause-based alerts are noisy."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write an SLO for login.",
+            "What goes in a runbook?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m10-load-testing",
+      "title": "10. Performance and load testing",
+      "stage": "professional",
+      "description": "Prove how much traffic your service handles: realistic load tests, latency percentiles, bottleneck hunting and capacity planning.",
+      "prerequisites": [
+        "sk-be-m09-observability"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l15-load-testing-with-k6-percentiles-and-finding-bot",
+          "title": "Load testing with k6, percentiles and finding bottlenecks",
+          "objectives": [
+            "Write k6 scripts with realistic traffic and thresholds.",
+            "Interpret throughput and p50/p95/p99 latency.",
+            "Find and fix the bottleneck (database, locks, pool size, CPU)."
+          ],
+          "topics": [
+            {
+              "title": "Workload",
+              "details": [
+                "Model realistic mixes (80% reads, 20% writes), think time and data; ramp up gradually; run long enough to see steady state."
+              ]
+            },
+            {
+              "title": "Reading results",
+              "details": [
+                "Throughput plateaus while latency rises when you hit a bottleneck; check pool waits, slow queries, lock waits and CPU."
+              ]
+            },
+            {
+              "title": "Capacity",
+              "details": [
+                "Record the knee point, then plan capacity with headroom (e.g. 2x expected peak)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-be.load-testing-with-k6-percentiles-and-finding-bot"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-k6",
+            "locator": "k6 docs: 'Get started' (write and run your first test), 'Thresholds', 'Scenarios' and 'Results output'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-be-a15-load-testing-with-k6-percentiles-and-finding-bot",
+            "title": "Find the knee",
+            "kind": "lab",
+            "instructions": [
+              "Write a k6 test for your ledger API with a realistic mix and thresholds (p95 < 200 ms, errors < 1%).",
+              "Ramp until thresholds fail; identify the bottleneck with your metrics and traces.",
+              "Fix one bottleneck and re-run; report before/after."
+            ],
+            "deliverables": [
+              "k6 scripts, results and bottleneck analysis."
+            ],
+            "acceptanceCriteria": [
+              "Reported numbers name the hardware and configuration."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l15-load-testing-with-k6-percentiles-and-finding-bot-check-01",
+                "kind": "short-answer",
+                "prompt": "What signals a bottleneck in a load test?",
+                "answer": "Throughput stops rising while latency climbs.",
+                "explanation": "The knee of the curve."
+              },
+              {
+                "id": "sk-be-l15-load-testing-with-k6-percentiles-and-finding-bot-check-02",
+                "kind": "short-answer",
+                "prompt": "Why test with realistic traffic mixes?",
+                "answer": "Bottlenecks depend on the mix of reads and writes.",
+                "explanation": "Synthetic single-endpoint tests mislead."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain p99.",
+            "How much headroom would you plan for?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m11-api-security-resilience",
+      "title": "11. API security and resilience",
+      "stage": "professional",
+      "description": "Protect and harden APIs: OAuth2/JWT, authorisation checks, rate limiting, timeouts, retries, circuit breakers and graceful degradation.",
+      "prerequisites": [
+        "fe-m13-security-basics",
+        "sk-be-m02-spring-boot"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l16-oauth-2-0-jwt-and-authorisation-done-right",
+          "title": "OAuth 2.0, JWT and authorisation done right",
+          "objectives": [
+            "Explain OAuth 2.0 flows and OpenID Connect at a practical level.",
+            "Validate JWTs correctly (signature, issuer, audience, expiry).",
+            "Enforce object-level authorisation on every endpoint."
+          ],
+          "topics": [
+            {
+              "title": "OAuth/OIDC",
+              "details": [
+                "OAuth 2.0 delegates access with tokens; OIDC adds identity (ID token). Use the authorization code flow with PKCE for user apps; client credentials for service-to-service."
+              ]
+            },
+            {
+              "title": "JWT",
+              "details": [
+                "Verify the signature with the issuer's keys, check iss, aud, exp; never accept 'alg: none'; keep tokens short-lived."
+              ]
+            },
+            {
+              "title": "Authorisation",
+              "details": [
+                "Check that the caller may access this specific object on every request (prevents broken object-level authorisation, the top API risk)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-be.oauth-2-0-jwt-and-authorisation-done-right"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-c6d28c211360",
+            "locator": "OWASP Cheat Sheet Series: 'JSON Web Token for Java Cheat Sheet' and 'Authorization Cheat Sheet'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-9c8f86060b94",
+            "advanced-reading-7bb6aaba0f31"
+          ],
+          "assignment": {
+            "id": "sk-be-a16-oauth-2-0-jwt-and-authorisation-done-right",
+            "title": "Secure the accounts API",
+            "kind": "coding",
+            "instructions": [
+              "Protect your Spring Boot API as an OAuth2 resource server using a local Keycloak (Docker) issuer.",
+              "Enforce that users can access only their own accounts; write tests for cross-user access.",
+              "Test expired, wrong-audience and tampered tokens."
+            ],
+            "deliverables": [
+              "Secured service, Keycloak setup and tests."
+            ],
+            "acceptanceCriteria": [
+              "All negative token tests are rejected with 401/403."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l16-oauth-2-0-jwt-and-authorisation-done-right-check-01",
+                "kind": "short-answer",
+                "prompt": "Which OAuth flow for a web or mobile user app?",
+                "answer": "Authorization code with PKCE.",
+                "explanation": "Implicit flow is deprecated."
+              },
+              {
+                "id": "sk-be-l16-oauth-2-0-jwt-and-authorisation-done-right-check-02",
+                "kind": "short-answer",
+                "prompt": "What must you verify on a JWT?",
+                "answer": "Signature, issuer, audience and expiry.",
+                "explanation": "And reject unexpected algorithms."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain broken object-level authorisation.",
+            "OAuth vs OIDC?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-be-l17-timeouts-retries-circuit-breakers-and-graceful-d",
+          "title": "Timeouts, retries, circuit breakers and graceful degradation",
+          "objectives": [
+            "Set timeouts on every remote call and budget them across a request.",
+            "Retry safely with backoff and jitter, only for idempotent operations.",
+            "Use circuit breakers, bulkheads and fallbacks to contain failures."
+          ],
+          "topics": [
+            {
+              "title": "Timeouts",
+              "details": [
+                "A call without a timeout can hang threads forever; set per-call timeouts smaller than the caller's overall deadline."
+              ]
+            },
+            {
+              "title": "Retries",
+              "details": [
+                "Retry only transient failures, with capped exponential backoff and jitter, and only idempotent operations (or with idempotency keys)."
+              ]
+            },
+            {
+              "title": "Containment",
+              "details": [
+                "Circuit breakers stop calling a failing dependency for a while; bulkheads isolate thread pools; fallbacks serve cached or partial data."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-be.timeouts-retries-circuit-breakers-and-graceful-d"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-be-retries",
+            "locator": "Amazon Builders' Library 'Timeouts, retries and backoff with jitter' in full."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-be-a17-timeouts-retries-circuit-breakers-and-graceful-d",
+            "title": "Chaos on a dependency",
+            "kind": "lab",
+            "instructions": [
+              "Put a slow/failing fake dependency behind your service (toxiproxy or a test server).",
+              "Add timeouts, retries with jitter and a circuit breaker (Resilience4j or your own in Go).",
+              "Show latency and error rates with and without protections during the failure."
+            ],
+            "deliverables": [
+              "Code, chaos setup and comparison."
+            ],
+            "acceptanceCriteria": [
+              "With protections, the service stays responsive during dependency failure."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l17-timeouts-retries-circuit-breakers-and-graceful-d-check-01",
+                "kind": "short-answer",
+                "prompt": "Why add jitter to retries?",
+                "answer": "To spread retries out and avoid synchronized retry storms.",
+                "explanation": "Synchronized retries overload recovering services."
+              },
+              {
+                "id": "sk-be-l17-timeouts-retries-circuit-breakers-and-graceful-d-check-02",
+                "kind": "short-answer",
+                "prompt": "What does a circuit breaker do?",
+                "answer": "Stops calling a failing dependency for a period and fails fast.",
+                "explanation": "Gives it time to recover."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain timeout budgets.",
+            "When not to retry?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-be-m12-backend-design",
+      "title": "12. Backend system design",
+      "stage": "professional",
+      "description": "Put it all together: design a backend system end to end and defend the choices, as in senior backend interviews.",
+      "prerequisites": [
+        "sk-be-m07-reliable-transactions",
+        "sk-be-m09-observability",
+        "sk-sde-m09-system-design-interviews"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-be-l18-designing-a-payments-platform-end-to-end",
+          "title": "Designing a payments platform end to end",
+          "objectives": [
+            "Design APIs, data model, consistency, messaging and failure handling for payments.",
+            "Explain how the design prevents double charges and lost money.",
+            "Plan observability, security and capacity for it."
+          ],
+          "topics": [
+            {
+              "title": "Core flows",
+              "details": [
+                "Create payment intent (idempotent), authorise with a provider, capture, refund; ledger entries for every money movement; reconciliation with provider reports daily."
+              ]
+            },
+            {
+              "title": "Consistency",
+              "details": [
+                "Strong consistency inside the ledger database; events via outbox; sagas for multi-step flows; webhooks from providers handled idempotently."
+              ]
+            },
+            {
+              "title": "Operations",
+              "details": [
+                "SLOs on authorisation latency and success rate, alerts on reconciliation mismatches, PCI scope minimised by never storing card numbers."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-be.designing-a-payments-platform-end-to-end"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-sd-primer",
+            "locator": "System Design Primer: revisit 'Consistency patterns', 'Availability patterns' and 'Asynchronism' with payments in mind; then apply the interview framework."
+          },
+          "supplementaryResourceIds": [
+            "sk-be-idempotency",
+            "sk-be-outbox"
+          ],
+          "assignment": {
+            "id": "sk-be-a18-designing-a-payments-platform-end-to-end",
+            "title": "Payments design doc",
+            "kind": "design",
+            "instructions": [
+              "Write a 4-page design doc for a payments platform for an Indian e-commerce company (UPI and cards via a provider).",
+              "Include API, data model, sequence diagrams for pay and refund, failure scenarios and reconciliation.",
+              "Present it in a 20-minute mock design interview."
+            ],
+            "deliverables": [
+              "Design document and mock feedback."
+            ],
+            "acceptanceCriteria": [
+              "Every failure scenario names the mechanism that prevents money loss or duplication."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-be-l18-designing-a-payments-platform-end-to-end-check-01",
+                "kind": "short-answer",
+                "prompt": "How do you prevent double charges when a client retries?",
+                "answer": "Idempotency keys on payment creation.",
+                "explanation": "The provider call is also made idempotent."
+              },
+              {
+                "id": "sk-be-l18-designing-a-payments-platform-end-to-end-check-02",
+                "kind": "short-answer",
+                "prompt": "Why reconcile with provider reports?",
+                "answer": "To detect mismatches between your ledger and actual money movements.",
+                "explanation": "Catches bugs and provider issues."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Walk through a refund failure.",
+            "What reduces PCI scope?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "Spring guides",
+      "url": "https://spring.io/guides"
+    },
+    {
+      "title": "Amazon Builders' Library",
+      "url": "https://aws.amazon.com/builders-library/"
+    }
+  ],
+  "limitations": [
+    "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
+    "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
+    "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Build tested REST services in Java with Spring Boot.",
+      "evidence": "A Spring Boot service with JPA, validation and JUnit/Testcontainers tests."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Use PostgreSQL, Redis and Kafka correctly from Go and Java services.",
+      "evidence": "Services with correct locking, caching and messaging, proven by concurrency tests."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Make distributed workflows reliable and observable.",
+      "evidence": "Idempotent APIs, an outbox relay, a job scheduler and dashboards with alerts."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Design, secure and load-test backend systems for real traffic.",
+      "evidence": "Load test reports, security tests and a written backend system design."
+    }
+  ]
+}

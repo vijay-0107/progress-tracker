@@ -1,6 +1,6 @@
 {
   "version": "2026.09.30.1",
-  "description": "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery.",
+  "description": "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery. Skill builders are original beginner-to-professional curricula that link to official documentation and are shown inside their existing sections.",
   "complete": true,
   "tracks": [
     {
@@ -175,6 +175,78 @@
       "lessons": 16,
       "originalSha256": "cdd2cedef11a61adef829e26bccce10ab3c94e0e4b88ed421d47f1be8fa176e9",
       "packagedSha256": "cdd2cedef11a61adef829e26bccce10ab3c94e0e4b88ed421d47f1be8fa176e9"
+    },
+    {
+      "trackId": "foundation-essentials",
+      "group": "skill",
+      "sourceCheckedOn": "2026-10-17",
+      "modules": 14,
+      "lessons": 33,
+      "originalSha256": "b6180e3a1c8e98e0b74a0dc66d306f396f243c9bcaa1a2e268a0d596c95fa27e",
+      "packagedSha256": "b6180e3a1c8e98e0b74a0dc66d306f396f243c9bcaa1a2e268a0d596c95fa27e"
+    },
+    {
+      "trackId": "sde-skills",
+      "group": "skill",
+      "sourceCheckedOn": "2026-10-17",
+      "modules": 11,
+      "lessons": 19,
+      "originalSha256": "cade92cb42621d5306a23bb479adb6108ad2f5aee76c132a79c3087bd1a0c407",
+      "packagedSha256": "cade92cb42621d5306a23bb479adb6108ad2f5aee76c132a79c3087bd1a0c407"
+    },
+    {
+      "trackId": "backend-skills",
+      "group": "skill",
+      "sourceCheckedOn": "2026-10-17",
+      "modules": 12,
+      "lessons": 18,
+      "originalSha256": "2c1d12752eab628bfa90ff885b21feef837b6aeed07632d20e8df66402a2dba2",
+      "packagedSha256": "2c1d12752eab628bfa90ff885b21feef837b6aeed07632d20e8df66402a2dba2"
+    },
+    {
+      "trackId": "ai-skills",
+      "group": "skill",
+      "sourceCheckedOn": "2026-10-17",
+      "modules": 10,
+      "lessons": 20,
+      "originalSha256": "fda0ce0d4d3cd1419710a8ed909bc5d86afc7caac0ab4967428cad11a7177a78",
+      "packagedSha256": "fda0ce0d4d3cd1419710a8ed909bc5d86afc7caac0ab4967428cad11a7177a78"
+    },
+    {
+      "trackId": "data-skills",
+      "group": "skill",
+      "sourceCheckedOn": "2026-10-17",
+      "modules": 11,
+      "lessons": 18,
+      "originalSha256": "58bb31db6d664b89156540580c5d2b9e59d2c881b8ada6c294c91b144c44e0ee",
+      "packagedSha256": "58bb31db6d664b89156540580c5d2b9e59d2c881b8ada6c294c91b144c44e0ee"
+    },
+    {
+      "trackId": "quant-skills",
+      "group": "skill",
+      "sourceCheckedOn": "2026-10-17",
+      "modules": 9,
+      "lessons": 19,
+      "originalSha256": "191c0582c414dff1f93e491df64d9df816c899bb555c2e2eefb9e685c7bf81c5",
+      "packagedSha256": "191c0582c414dff1f93e491df64d9df816c899bb555c2e2eefb9e685c7bf81c5"
+    },
+    {
+      "trackId": "security-skills",
+      "group": "skill",
+      "sourceCheckedOn": "2026-10-17",
+      "modules": 11,
+      "lessons": 20,
+      "originalSha256": "7dadadad5cc72492fa83a0e0b4d1c2bdede0a5997be63d2e9888b0666b1ba866",
+      "packagedSha256": "7dadadad5cc72492fa83a0e0b4d1c2bdede0a5997be63d2e9888b0666b1ba866"
+    },
+    {
+      "trackId": "cloud-devops",
+      "group": "skill",
+      "sourceCheckedOn": "2026-10-17",
+      "modules": 11,
+      "lessons": 19,
+      "originalSha256": "a71c3dfef8bed675142db64f650a320644fe71e7027b58843927cc7588f50709",
+      "packagedSha256": "a71c3dfef8bed675142db64f650a320644fe71e7027b58843927cc7588f50709"
     }
   ]
 }

@@ -1,0 +1,2037 @@
+{
+  "schemaVersion": 1,
+  "trackId": "cloud-devops",
+  "title": "Cloud & DevOps Infrastructure",
+  "sourceCheckedOn": "2026-10-17",
+  "resources": [
+    {
+      "id": "sk-cloud-ec2",
+      "kind": "documentation",
+      "title": "Amazon EC2 user guide",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Instances, AMIs, instance types, storage, key pairs and security groups."
+    },
+    {
+      "id": "sk-cloud-lambda",
+      "kind": "documentation",
+      "title": "AWS Lambda developer guide",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Serverless functions, triggers, permissions and limits."
+    },
+    {
+      "id": "sk-cloud-rds",
+      "kind": "documentation",
+      "title": "Amazon RDS user guide",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Managed relational databases, Multi-AZ, backups and read replicas."
+    },
+    {
+      "id": "sk-cloud-cloudwatch",
+      "kind": "documentation",
+      "title": "Amazon CloudWatch user guide",
+      "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Metrics, logs, alarms and dashboards for AWS resources."
+    },
+    {
+      "id": "sk-cloud-wellarchitected",
+      "kind": "documentation",
+      "title": "AWS Well-Architected Framework",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Six pillars for reviewing cloud architectures."
+    },
+    {
+      "id": "sk-cloud-dr",
+      "kind": "documentation",
+      "title": "Disaster Recovery of Workloads on AWS (whitepaper)",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "RTO/RPO and the backup-restore, pilot light, warm standby and multi-site strategies."
+    },
+    {
+      "id": "sk-cloud-fis",
+      "kind": "documentation",
+      "title": "AWS Fault Injection Service user guide",
+      "url": "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Controlled chaos experiments with stop conditions."
+    },
+    {
+      "id": "sk-cloud-tf-tutorial",
+      "kind": "documentation",
+      "title": "Terraform: Get Started - AWS tutorials",
+      "url": "https://developer.hashicorp.com/terraform/tutorials/aws-get-started",
+      "provider": "HashiCorp",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Hands-on tutorials: install, build, change, destroy, variables, outputs and remote state."
+    },
+    {
+      "id": "sk-cloud-k8s-basics",
+      "kind": "documentation",
+      "title": "Kubernetes Basics tutorial",
+      "url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+      "provider": "The Kubernetes Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Create a cluster, deploy, explore, expose, scale and update an app."
+    },
+    {
+      "id": "sk-cloud-kind",
+      "kind": "documentation",
+      "title": "kind quick start",
+      "url": "https://kind.sigs.k8s.io/docs/user/quick-start/",
+      "provider": "Kubernetes SIGs",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Run local Kubernetes clusters in Docker for free."
+    },
+    {
+      "id": "sk-cloud-hpa",
+      "kind": "documentation",
+      "title": "Kubernetes Horizontal Pod Autoscaling",
+      "url": "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/",
+      "provider": "The Kubernetes Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "How the HPA computes replica counts from metrics."
+    },
+    {
+      "id": "sk-cloud-keda",
+      "kind": "documentation",
+      "title": "KEDA documentation",
+      "url": "https://keda.sh/docs/latest/",
+      "provider": "KEDA Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Event-driven autoscaling for Kubernetes, including scale to zero."
+    },
+    {
+      "id": "sk-cloud-karpenter",
+      "kind": "documentation",
+      "title": "Karpenter documentation",
+      "url": "https://karpenter.sh/docs/",
+      "provider": "Karpenter Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Just-in-time node provisioning for Kubernetes on AWS."
+    },
+    {
+      "id": "sk-cloud-argocd",
+      "kind": "documentation",
+      "title": "Argo CD documentation",
+      "url": "https://argo-cd.readthedocs.io/en/stable/",
+      "provider": "Argo Project",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Declarative GitOps continuous delivery for Kubernetes."
+    },
+    {
+      "id": "sk-cloud-prometheus",
+      "kind": "documentation",
+      "title": "Prometheus overview and getting started",
+      "url": "https://prometheus.io/docs/introduction/overview/",
+      "provider": "Prometheus Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Metrics collection, PromQL and alerting."
+    },
+    {
+      "id": "sk-cloud-grafana",
+      "kind": "documentation",
+      "title": "Grafana documentation",
+      "url": "https://grafana.com/docs/grafana/latest/",
+      "provider": "Grafana Labs",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Dashboards, data sources and alerting."
+    },
+    {
+      "id": "sk-cloud-systemd",
+      "kind": "documentation",
+      "title": "systemd.service manual page",
+      "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html",
+      "provider": "freedesktop.org",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Service unit configuration: ExecStart, Restart, users and dependencies."
+    },
+    {
+      "id": "sk-cloud-kserve",
+      "kind": "documentation",
+      "title": "KServe documentation",
+      "url": "https://kserve.github.io/website/",
+      "provider": "KServe Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Model serving on Kubernetes with autoscaling and canary rollouts."
+    },
+    {
+      "id": "sk-cloud-k8s-gpu",
+      "kind": "documentation",
+      "title": "Kubernetes: Schedule GPUs",
+      "url": "https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/",
+      "provider": "The Kubernetes Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Device plugins and requesting GPUs in pod specs."
+    },
+    {
+      "id": "sk-cloud-saa",
+      "kind": "documentation",
+      "title": "AWS Certified Solutions Architect - Associate",
+      "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Exam guide, domains and free preparation resources."
+    },
+    {
+      "id": "sk-cloud-cka",
+      "kind": "documentation",
+      "title": "Certified Kubernetes Administrator (CKA)",
+      "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/",
+      "provider": "The Linux Foundation",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Hands-on exam domains and competencies."
+    }
+  ],
+  "modules": [
+    {
+      "id": "sk-cloud-m01-aws-core",
+      "title": "01. AWS core services",
+      "stage": "foundation",
+      "description": "The AWS services almost every job uses: IAM, EC2, VPC, S3, RDS, Lambda and CloudWatch. You learn what each is for, how they connect and how to avoid surprise bills.",
+      "prerequisites": [
+        "fe-m09-cloud-basics"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l01-iam-ec2-and-vpc-identities-servers-and-networks",
+          "title": "IAM, EC2 and VPC: identities, servers and networks",
+          "objectives": [
+            "Set up a safe AWS account: MFA on root, an admin user via IAM Identity Center, a billing alarm.",
+            "Launch, connect to and stop an EC2 instance; pick an instance type.",
+            "Build a VPC with public and private subnets, route tables, an internet gateway and security groups."
+          ],
+          "topics": [
+            {
+              "title": "Account safety",
+              "details": [
+                "Never use root day to day; enable MFA; create a budget alarm at a small amount; use one region while learning."
+              ]
+            },
+            {
+              "title": "EC2",
+              "details": [
+                "An instance is a virtual machine from an AMI with a type (CPU/RAM), storage (EBS), a key pair or SSM access, and security groups. Stopped instances still pay for storage."
+              ]
+            },
+            {
+              "title": "VPC",
+              "details": [
+                "A VPC is your private network (CIDR such as 10.0.0.0/16) split into subnets per availability zone. Public subnets route to an internet gateway; private subnets use a NAT gateway (costs money) or VPC endpoints."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-cloud.iam-ec2-and-vpc-identities-servers-and-networks"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-ec2",
+            "locator": "EC2 user guide: 'What is Amazon EC2?', 'Instance types' overview and 'Get started with Amazon EC2' tutorial."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-372a6fcf1e13",
+            "security-doc-iam"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a01-iam-ec2-and-vpc-identities-servers-and-networks",
+            "title": "Your first network and server",
+            "kind": "lab",
+            "instructions": [
+              "Secure the account (root MFA, admin via Identity Center, budget alarm).",
+              "In the console, build a VPC with two public and two private subnets across two AZs.",
+              "Launch a small instance in a public subnet, install nginx, open only port 80 and SSH/SSM from your IP; then terminate it."
+            ],
+            "deliverables": [
+              "Screenshots, a network diagram and notes on each component."
+            ],
+            "acceptanceCriteria": [
+              "The web page loads; SSH is not open to the world.",
+              "Everything is terminated afterwards."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l01-iam-ec2-and-vpc-identities-servers-and-networks-check-01",
+                "kind": "short-answer",
+                "prompt": "What makes a subnet public?",
+                "answer": "Its route table sends 0.0.0.0/0 to an internet gateway.",
+                "explanation": "Instances also need public IPs."
+              },
+              {
+                "id": "sk-cloud-l01-iam-ec2-and-vpc-identities-servers-and-networks-check-02",
+                "kind": "short-answer",
+                "prompt": "Why spread subnets across availability zones?",
+                "answer": "So one data-centre failure does not take the whole app down.",
+                "explanation": "High availability basics."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain a VPC to a friend.",
+            "What still costs money after stopping an instance?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-cloud-l02-s3-rds-lambda-and-cloudwatch-storage-databases-s",
+          "title": "S3, RDS, Lambda and CloudWatch: storage, databases, serverless and monitoring",
+          "objectives": [
+            "Store objects in S3 with lifecycle rules and versioning.",
+            "Run a managed PostgreSQL in RDS in a private subnet with backups.",
+            "Write a Lambda function triggered by S3 and monitor it in CloudWatch with an alarm."
+          ],
+          "topics": [
+            {
+              "title": "S3",
+              "details": [
+                "Buckets hold objects addressed by keys; storage classes trade price for access speed; lifecycle rules move or delete old objects automatically."
+              ]
+            },
+            {
+              "title": "RDS",
+              "details": [
+                "AWS runs the database: patches, backups, Multi-AZ failover, read replicas. Keep it private; connect from app servers only."
+              ]
+            },
+            {
+              "title": "Lambda and CloudWatch",
+              "details": [
+                "Lambda runs code on events with no servers to manage; you pay per request and duration. CloudWatch collects metrics and logs; alarms notify you."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-cloud.s3-rds-lambda-and-cloudwatch-storage-databases-s"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-lambda",
+            "locator": "Lambda developer guide: 'What is AWS Lambda?', 'Create your first function' and 'Using Lambda with Amazon S3' tutorial."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-556968a60f31",
+            "sk-cloud-rds",
+            "sk-cloud-cloudwatch"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a02-s3-rds-lambda-and-cloudwatch-storage-databases-s",
+            "title": "Thumbnail pipeline",
+            "kind": "lab",
+            "instructions": [
+              "Create an S3 bucket; upload of an image triggers a Lambda that writes a thumbnail to another prefix.",
+              "Log metadata to a small RDS PostgreSQL (or DynamoDB for zero cost) in a private subnet.",
+              "Create a CloudWatch alarm on Lambda errors that emails you; then delete everything."
+            ],
+            "deliverables": [
+              "Code, architecture diagram, alarm screenshot."
+            ],
+            "acceptanceCriteria": [
+              "Uploading an image produces a thumbnail.",
+              "A forced error triggers the alarm."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l02-s3-rds-lambda-and-cloudwatch-storage-databases-s-check-01",
+                "kind": "short-answer",
+                "prompt": "When is Lambda a good fit?",
+                "answer": "Short, event-driven tasks with variable traffic.",
+                "explanation": "Long-running or steady heavy jobs fit containers better."
+              },
+              {
+                "id": "sk-cloud-l02-s3-rds-lambda-and-cloudwatch-storage-databases-s-check-02",
+                "kind": "short-answer",
+                "prompt": "What does Multi-AZ RDS give you?",
+                "answer": "A standby in another AZ with automatic failover.",
+                "explanation": "Read replicas are for scaling reads."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Choose S3 storage classes for logs.",
+            "What would you alarm on for a web API?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m02-linux-admin",
+      "title": "02. Linux server administration",
+      "stage": "foundation",
+      "description": "Run real servers: users and permissions, packages, services with systemd, logs, disks, networking and troubleshooting.",
+      "prerequisites": [
+        "fe-m02-linux-bash",
+        "sk-cloud-m01-aws-core"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l03-users-services-logs-disks-and-troubleshooting-on",
+          "title": "Users, services, logs, disks and troubleshooting on a Linux server",
+          "objectives": [
+            "Manage users, groups, sudo and SSH keys securely.",
+            "Run an app as a systemd service with restarts and logs in journald.",
+            "Troubleshoot CPU, memory, disk and network problems with standard tools."
+          ],
+          "topics": [
+            {
+              "title": "Access",
+              "details": [
+                "Create a non-root user with sudo; key-based SSH only; disable password login; keep packages patched (apt/dnf)."
+              ]
+            },
+            {
+              "title": "Services",
+              "details": [
+                "A systemd unit sets ExecStart, User, Restart=on-failure and dependencies; `systemctl` starts and enables it; `journalctl -u` shows logs."
+              ]
+            },
+            {
+              "title": "Troubleshooting",
+              "details": [
+                "top/htop for CPU, free for memory, df/du for disk, ss for ports, curl and dig for connectivity, dmesg for kernel errors. Check the simple things first."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-cloud.users-services-logs-disks-and-troubleshooting-on"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-systemd",
+            "locator": "systemd.service man page: Description, the [Service] options ExecStart, Restart, User and the Examples section."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-99da8b78e467"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a03-users-services-logs-disks-and-troubleshooting-on",
+            "title": "Run a service properly",
+            "kind": "lab",
+            "instructions": [
+              "On an EC2 instance or local VM, create a deploy user, harden SSH and enable automatic security updates.",
+              "Run a small Python or Go API as a systemd service behind nginx; kill the process and show systemd restarts it.",
+              "Fill the disk with a test file and practise finding and fixing it; write a troubleshooting runbook."
+            ],
+            "deliverables": [
+              "Unit file, nginx config, runbook."
+            ],
+            "acceptanceCriteria": [
+              "Service restarts automatically.",
+              "Runbook covers CPU, memory, disk and network."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l03-users-services-logs-disks-and-troubleshooting-on-check-01",
+                "kind": "short-answer",
+                "prompt": "Which command shows logs of a systemd service?",
+                "answer": "journalctl -u <service>.",
+                "explanation": "Add -f to follow."
+              },
+              {
+                "id": "sk-cloud-l03-users-services-logs-disks-and-troubleshooting-on-check-02",
+                "kind": "short-answer",
+                "prompt": "Which tool lists listening ports?",
+                "answer": "ss -tlnp (or netstat).",
+                "explanation": "Find what is bound where."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a minimal unit file from memory.",
+            "Your site is down: what do you check first?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m03-terraform",
+      "title": "03. Infrastructure as code with Terraform",
+      "stage": "foundation",
+      "description": "Stop clicking in consoles. Describe infrastructure in code, review it in pull requests and recreate it reliably.",
+      "prerequisites": [
+        "sk-cloud-m01-aws-core"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l04-terraform-basics-providers-resources-variables-p",
+          "title": "Terraform basics: providers, resources, variables, plan and apply",
+          "objectives": [
+            "Write Terraform for AWS resources and run init, plan, apply and destroy.",
+            "Use variables, outputs, locals and data sources.",
+            "Read a plan carefully before applying."
+          ],
+          "topics": [
+            {
+              "title": "Workflow",
+              "details": [
+                "`terraform init` downloads providers; `plan` shows changes; `apply` makes them; `destroy` removes everything. Always read the plan."
+              ]
+            },
+            {
+              "title": "Language",
+              "details": [
+                "Resources create things; data sources read existing things; variables are inputs; outputs are results; locals are named expressions."
+              ]
+            },
+            {
+              "title": "State",
+              "details": [
+                "Terraform remembers what it created in a state file; never edit it by hand; keep it out of Git because it can contain secrets."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-cloud.terraform-basics-providers-resources-variables-p"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-tf-tutorial",
+            "locator": "Complete the 'Get Started - AWS' tutorials in order: install, build, change, destroy, define input variables, query data with outputs."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-9f4901164fe8"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a04-terraform-basics-providers-resources-variables-p",
+            "title": "Rebuild your network in code",
+            "kind": "coding",
+            "instructions": [
+              "Recreate the VPC, subnets, security groups and an EC2 web server from the AWS lesson in Terraform.",
+              "Make region, CIDR and instance type variables; output the public URL.",
+              "Destroy and re-create it twice to prove it is repeatable."
+            ],
+            "deliverables": [
+              "Terraform code in Git with a README."
+            ],
+            "acceptanceCriteria": [
+              "`terraform apply` from scratch works with no manual steps."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l04-terraform-basics-providers-resources-variables-p-check-01",
+                "kind": "short-answer",
+                "prompt": "What does `terraform plan` do?",
+                "answer": "Shows what would change without changing anything.",
+                "explanation": "Review it before apply."
+              },
+              {
+                "id": "sk-cloud-l04-terraform-basics-providers-resources-variables-p-check-02",
+                "kind": "short-answer",
+                "prompt": "Why not commit the state file?",
+                "answer": "It can contain secrets and conflicts between people.",
+                "explanation": "Use remote state."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Resource vs data source?",
+            "What happens if you delete a resource from code?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-cloud-l05-modules-remote-state-workspaces-and-terraform-in",
+          "title": "Modules, remote state, workspaces and Terraform in CI",
+          "objectives": [
+            "Write reusable modules with clear inputs and outputs.",
+            "Store state remotely with locking.",
+            "Run fmt, validate, plan and security scans in CI with apply after approval."
+          ],
+          "topics": [
+            {
+              "title": "Modules",
+              "details": [
+                "A module is a folder of Terraform you call with inputs; keep them small (network, database, service) and version them."
+              ]
+            },
+            {
+              "title": "Remote state",
+              "details": [
+                "An S3 backend with locking lets a team share state safely; separate state per environment (dev, prod)."
+              ]
+            },
+            {
+              "title": "CI",
+              "details": [
+                "On pull request: fmt, validate, tflint, checkov, plan posted as a comment. On merge: apply with approval. Use OIDC instead of stored cloud keys."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-cloud.modules-remote-state-workspaces-and-terraform-in"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-9f4901164fe8",
+            "locator": "Terraform docs: 'Modules' overview, 'Backend configuration' and the S3 backend page."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-322d31448100",
+            "advanced-reading-37d7e9014437"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a05-modules-remote-state-workspaces-and-terraform-in",
+            "title": "Team-ready Terraform",
+            "kind": "lab",
+            "instructions": [
+              "Split your code into network and service modules with dev and prod environments.",
+              "Move state to S3 with locking.",
+              "Add a GitHub Actions pipeline using OIDC to AWS: plan on PR, apply on merge after manual approval."
+            ],
+            "deliverables": [
+              "Repository with modules, environments and workflow."
+            ],
+            "acceptanceCriteria": [
+              "PRs show a plan; no long-lived AWS keys are stored in GitHub."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l05-modules-remote-state-workspaces-and-terraform-in-check-01",
+                "kind": "short-answer",
+                "prompt": "Why use state locking?",
+                "answer": "To stop two people applying at the same time and corrupting state.",
+                "explanation": "Remote backends provide it."
+              },
+              {
+                "id": "sk-cloud-l05-modules-remote-state-workspaces-and-terraform-in-check-02",
+                "kind": "short-answer",
+                "prompt": "Why OIDC from CI to AWS?",
+                "answer": "Short-lived credentials instead of long-lived secret keys.",
+                "explanation": "Less to leak."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How do you structure environments?",
+            "Which checks run before apply?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m04-kubernetes",
+      "title": "04. Kubernetes fundamentals",
+      "stage": "intermediate",
+      "description": "Learn Kubernetes step by step on a free local cluster: pods, deployments, services, configuration, storage and debugging, then EKS.",
+      "prerequisites": [
+        "fe-m08-containers",
+        "sk-cloud-m02-linux-admin"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l06-clusters-pods-deployments-and-services",
+          "title": "Clusters, pods, deployments and services",
+          "objectives": [
+            "Explain the control plane, nodes and kubectl.",
+            "Run apps with Deployments and expose them with Services.",
+            "Perform rolling updates and rollbacks."
+          ],
+          "topics": [
+            {
+              "title": "Architecture",
+              "details": [
+                "The API server stores desired state in etcd; the scheduler places pods on nodes; controllers keep reality matching your YAML; kubelet runs containers on each node."
+              ]
+            },
+            {
+              "title": "Workloads",
+              "details": [
+                "A Pod is one or more containers; a Deployment manages replicas and updates; labels and selectors connect things."
+              ]
+            },
+            {
+              "title": "Networking",
+              "details": [
+                "A Service gives a stable name and IP: ClusterIP inside, NodePort/LoadBalancer outside; Ingress routes HTTP by host and path."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-cloud.clusters-pods-deployments-and-services"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-k8s-basics",
+            "locator": "Kubernetes Basics tutorial modules 1-6 in order (create cluster, deploy, explore, expose, scale, update)."
+          },
+          "supplementaryResourceIds": [
+            "sk-cloud-kind",
+            "advanced-reading-5c8ab94ac06f"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a06-clusters-pods-deployments-and-services",
+            "title": "Deploy your API",
+            "kind": "lab",
+            "instructions": [
+              "Install kind and kubectl; create a cluster.",
+              "Deploy one of your containerised APIs with 3 replicas and a Service; reach it with port-forward.",
+              "Roll out a new version, then roll back; record `kubectl rollout history`."
+            ],
+            "deliverables": [
+              "Manifests and command log."
+            ],
+            "acceptanceCriteria": [
+              "Rolling update has no downtime; rollback works."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l06-clusters-pods-deployments-and-services-check-01",
+                "kind": "short-answer",
+                "prompt": "What does a Deployment do?",
+                "answer": "Keeps a desired number of pod replicas running and manages updates.",
+                "explanation": "Uses ReplicaSets underneath."
+              },
+              {
+                "id": "sk-cloud-l06-clusters-pods-deployments-and-services-check-02",
+                "kind": "short-answer",
+                "prompt": "Why use a Service instead of pod IPs?",
+                "answer": "Pods are replaced and get new IPs; the Service is stable.",
+                "explanation": "Load-balances across pods."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain what happens after `kubectl apply`.",
+            "ClusterIP vs LoadBalancer?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-cloud-l07-configuration-storage-health-checks-and-resource",
+          "title": "Configuration, storage, health checks and resources",
+          "objectives": [
+            "Configure apps with ConfigMaps and Secrets.",
+            "Add readiness and liveness probes and resource requests/limits.",
+            "Use PersistentVolumeClaims and StatefulSets for stateful apps."
+          ],
+          "topics": [
+            {
+              "title": "Config",
+              "details": [
+                "ConfigMaps for settings, Secrets for sensitive values, mounted as files or env vars; never bake config into images."
+              ]
+            },
+            {
+              "title": "Health and resources",
+              "details": [
+                "Readiness decides if a pod receives traffic; liveness restarts stuck pods. Requests reserve CPU/memory for scheduling; memory limits kill pods that exceed them."
+              ]
+            },
+            {
+              "title": "Storage",
+              "details": [
+                "PVCs request storage from a StorageClass; StatefulSets give stable names and volumes for databases."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-cloud.configuration-storage-health-checks-and-resource"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-5c8ab94ac06f",
+            "locator": "Kubernetes Concepts: 'Configuration' (ConfigMaps, Secrets, resource management for pods) and 'Storage' (persistent volumes)."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-1a2d717974c7"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a07-configuration-storage-health-checks-and-resource",
+            "title": "Production-ready manifests",
+            "kind": "lab",
+            "instructions": [
+              "Add ConfigMap, Secret, probes and resource requests/limits to your API.",
+              "Run PostgreSQL as a StatefulSet with a PVC; show data survives pod deletion.",
+              "Break the readiness probe on purpose and observe traffic stops reaching that pod."
+            ],
+            "deliverables": [
+              "Manifests and observations."
+            ],
+            "acceptanceCriteria": [
+              "Data persists across pod restarts.",
+              "Failing readiness removes the pod from the Service."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l07-configuration-storage-health-checks-and-resource-check-01",
+                "kind": "short-answer",
+                "prompt": "Readiness vs liveness probe?",
+                "answer": "Readiness controls traffic; liveness restarts the container.",
+                "explanation": "Do not make liveness depend on dependencies."
+              },
+              {
+                "id": "sk-cloud-l07-configuration-storage-health-checks-and-resource-check-02",
+                "kind": "short-answer",
+                "prompt": "What happens when a pod exceeds its memory limit?",
+                "answer": "It is killed (OOMKilled) and restarted.",
+                "explanation": "Set limits from measurements."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How do requests affect scheduling?",
+            "When use a StatefulSet?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-cloud-l08-debugging-kubernetes-and-moving-to-eks",
+          "title": "Debugging Kubernetes and moving to EKS",
+          "objectives": [
+            "Debug CrashLoopBackOff, ImagePullBackOff, Pending and networking issues.",
+            "Create an EKS cluster with Terraform and connect kubectl.",
+            "Expose services with an ingress/load balancer controller."
+          ],
+          "topics": [
+            {
+              "title": "Debugging",
+              "details": [
+                "`kubectl describe` shows events; `logs --previous` shows the crash; `get events` sorted by time; `exec` and ephemeral debug containers for network checks."
+              ]
+            },
+            {
+              "title": "EKS",
+              "details": [
+                "AWS runs the control plane; you choose managed node groups or Fargate; IAM roles for service accounts (IRSA/Pod Identity) give pods AWS permissions."
+              ]
+            },
+            {
+              "title": "Cost",
+              "details": [
+                "An EKS cluster and its nodes cost money hourly; create, test and destroy in one sitting."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-cloud.debugging-kubernetes-and-moving-to-eks"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-5c8ab94ac06f",
+            "locator": "Kubernetes docs: 'Troubleshooting Applications' (debug pods, debug services) under Tasks > Monitoring, Logging, and Debugging."
+          },
+          "supplementaryResourceIds": [
+            "sk-cloud-ec2"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a08-debugging-kubernetes-and-moving-to-eks",
+            "title": "Break-fix and EKS",
+            "kind": "lab",
+            "instructions": [
+              "Create five broken deployments (bad image, crash, missing secret, no resources, wrong selector) and fix each, noting the clue.",
+              "Create a small EKS cluster with Terraform, deploy your API, expose it, then destroy the cluster."
+            ],
+            "deliverables": [
+              "Break-fix notes, Terraform code, screenshots."
+            ],
+            "acceptanceCriteria": [
+              "Each failure has symptom, clue and fix.",
+              "EKS is destroyed afterwards."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l08-debugging-kubernetes-and-moving-to-eks-check-01",
+                "kind": "short-answer",
+                "prompt": "A pod is Pending. Common causes?",
+                "answer": "Not enough CPU/memory on nodes, unsatisfiable selectors/taints, or unbound volumes.",
+                "explanation": "Check describe events."
+              },
+              {
+                "id": "sk-cloud-l08-debugging-kubernetes-and-moving-to-eks-check-02",
+                "kind": "short-answer",
+                "prompt": "How do pods get AWS permissions safely on EKS?",
+                "answer": "IAM roles for service accounts (IRSA) or EKS Pod Identity.",
+                "explanation": "No keys in pods."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What does CrashLoopBackOff mean?",
+            "What do you pay for in EKS?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m05-helm-cicd",
+      "title": "05. Helm and CI/CD pipelines",
+      "stage": "intermediate",
+      "description": "Package Kubernetes apps with Helm and build pipelines that test, scan, build and deploy automatically.",
+      "prerequisites": [
+        "sk-cloud-m04-kubernetes"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l09-helm-charts-templates-values-and-releases",
+          "title": "Helm charts: templates, values and releases",
+          "objectives": [
+            "Create a chart with templates and values per environment.",
+            "Install, upgrade and roll back releases.",
+            "Lint and test charts."
+          ],
+          "topics": [
+            {
+              "title": "Charts",
+              "details": [
+                "Chart.yaml, templates/ and values.yaml; templates use Go templating to fill values; keep logic simple."
+              ]
+            },
+            {
+              "title": "Releases",
+              "details": [
+                "`helm upgrade --install` applies a chart; `helm rollback` returns to a previous revision; values-dev.yaml and values-prod.yaml separate environments."
+              ]
+            },
+            {
+              "title": "Quality",
+              "details": [
+                "`helm lint`, `helm template` to see rendered YAML, and chart tests."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-cloud.helm-charts-templates-values-and-releases"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-1fffce525fa0",
+            "locator": "Helm docs: 'Quickstart Guide', 'Using Helm' and the Chart Template Guide 'Getting Started' and 'Values Files'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-cloud-a09-helm-charts-templates-values-and-releases",
+            "title": "Chart your API",
+            "kind": "coding",
+            "instructions": [
+              "Turn your API manifests into a Helm chart with dev and prod values.",
+              "Install, upgrade with a new image tag, and roll back.",
+              "Add `helm lint` and a template render check to CI."
+            ],
+            "deliverables": [
+              "Chart in Git and command log."
+            ],
+            "acceptanceCriteria": [
+              "Chart renders cleanly for both environments."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l09-helm-charts-templates-values-and-releases-check-01",
+                "kind": "short-answer",
+                "prompt": "What does `helm rollback` do?",
+                "answer": "Restores a release to an earlier revision.",
+                "explanation": "Helm stores release history."
+              },
+              {
+                "id": "sk-cloud-l09-helm-charts-templates-values-and-releases-check-02",
+                "kind": "short-answer",
+                "prompt": "Why separate values files?",
+                "answer": "Same chart, different settings per environment.",
+                "explanation": "Avoid copy-pasted manifests."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What belongs in values vs templates?",
+            "How do you preview rendered YAML?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-cloud-l10-ci-cd-with-github-actions-test-scan-build-push-a",
+          "title": "CI/CD with GitHub Actions: test, scan, build, push and deploy",
+          "objectives": [
+            "Build a pipeline: lint, test, security scan, build image, push to a registry.",
+            "Use caching, matrix builds and environments with approvals.",
+            "Deploy with progressive strategies (rolling, blue-green, canary)."
+          ],
+          "topics": [
+            {
+              "title": "Pipeline stages",
+              "details": [
+                "Fast feedback first (lint, unit tests), then image build tagged with the Git SHA, scan with Trivy, push to ECR/GHCR."
+              ]
+            },
+            {
+              "title": "Security",
+              "details": [
+                "Least-privilege GITHUB_TOKEN permissions, OIDC to clouds, pinned action versions, protected branches."
+              ]
+            },
+            {
+              "title": "Release strategies",
+              "details": [
+                "Rolling replaces pods gradually; blue-green switches traffic between two versions; canary sends a small percentage first and watches metrics."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-cloud.ci-cd-with-github-actions-test-scan-build-push-a"
+          ],
+          "video": {
+            "resourceId": "sde-video-ci",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-322d31448100",
+            "locator": "GitHub Actions docs: 'Understanding GitHub Actions', 'Workflow syntax', 'Caching dependencies' and 'Using environments for deployment'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-cloud-a10-ci-cd-with-github-actions-test-scan-build-push-a",
+            "title": "Full pipeline",
+            "kind": "lab",
+            "instructions": [
+              "Create a workflow that lints, tests, scans and builds your API image, tagging it with the commit SHA.",
+              "Deploy to a kind cluster in CI (or to EKS) with Helm, and run a smoke test.",
+              "Write how you would add a canary step."
+            ],
+            "deliverables": [
+              "Workflow file and successful run links."
+            ],
+            "acceptanceCriteria": [
+              "A failing test or high-severity vulnerability stops the pipeline."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l10-ci-cd-with-github-actions-test-scan-build-push-a-check-01",
+                "kind": "short-answer",
+                "prompt": "Why tag images with the commit SHA?",
+                "answer": "Every deployment maps exactly to source code.",
+                "explanation": "`latest` is ambiguous."
+              },
+              {
+                "id": "sk-cloud-l10-ci-cd-with-github-actions-test-scan-build-push-a-check-02",
+                "kind": "short-answer",
+                "prompt": "What is a canary release?",
+                "answer": "Sending a small share of traffic to the new version first.",
+                "explanation": "Roll back if metrics worsen."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Order the pipeline stages and justify.",
+            "How do you secure a pipeline?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m06-gitops",
+      "title": "06. GitOps with Argo CD",
+      "stage": "intermediate",
+      "description": "Let Git be the source of truth for what runs in your clusters, with automatic sync, drift detection and easy rollbacks.",
+      "prerequisites": [
+        "sk-cloud-m05-helm-cicd"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l11-argo-cd-applications-sync-drift-and-promotion-be",
+          "title": "Argo CD: applications, sync, drift and promotion between environments",
+          "objectives": [
+            "Install Argo CD and deploy apps from a Git repository.",
+            "Use auto-sync, self-heal and pruning; detect drift.",
+            "Promote releases from dev to prod through pull requests."
+          ],
+          "topics": [
+            {
+              "title": "GitOps idea",
+              "details": [
+                "CI builds images; a Git commit updates the desired version; Argo CD pulls and applies it. Rollback = revert the commit."
+              ]
+            },
+            {
+              "title": "Argo CD",
+              "details": [
+                "Application resources point to a repo path and cluster; sync status shows differences; self-heal undoes manual changes."
+              ]
+            },
+            {
+              "title": "Promotion",
+              "details": [
+                "Separate folders or branches per environment; a PR changing the prod image tag is the approval record."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-cloud.argo-cd-applications-sync-drift-and-promotion-be"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-argocd",
+            "locator": "Argo CD docs: 'Overview', 'Getting Started' and user guide pages 'Automated Sync Policy' and 'Sync Options'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-cloud-a11-argo-cd-applications-sync-drift-and-promotion-be",
+            "title": "GitOps loop",
+            "kind": "lab",
+            "instructions": [
+              "Install Argo CD in kind; create a config repo with dev and prod overlays for your Helm chart.",
+              "Make CI update the dev image tag automatically; promote to prod by PR.",
+              "Change a replica count by hand with kubectl and watch Argo CD revert it."
+            ],
+            "deliverables": [
+              "Config repo, screenshots and notes."
+            ],
+            "acceptanceCriteria": [
+              "Manual drift is reverted.",
+              "Rollback works by reverting a commit."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l11-argo-cd-applications-sync-drift-and-promotion-be-check-01",
+                "kind": "short-answer",
+                "prompt": "What is drift?",
+                "answer": "Differences between what is running and what Git declares.",
+                "explanation": "Self-heal fixes it."
+              },
+              {
+                "id": "sk-cloud-l11-argo-cd-applications-sync-drift-and-promotion-be-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you roll back in GitOps?",
+                "answer": "Revert the commit that changed the desired state.",
+                "explanation": "Git history is the audit log."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Push-based CD vs GitOps pull?",
+            "Where do secrets go in GitOps?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m07-autoscaling-finops",
+      "title": "07. Autoscaling and cloud cost (FinOps)",
+      "stage": "advanced",
+      "description": "Scale pods and nodes automatically with demand, and keep cloud bills under control with measurement and right-sizing.",
+      "prerequisites": [
+        "sk-cloud-m04-kubernetes"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l12-hpa-keda-and-karpenter-scaling-pods-and-nodes",
+          "title": "HPA, KEDA and Karpenter: scaling pods and nodes",
+          "objectives": [
+            "Configure the Horizontal Pod Autoscaler on CPU and custom metrics.",
+            "Scale on queue length (and to zero) with KEDA.",
+            "Explain node autoscaling with Karpenter or Cluster Autoscaler."
+          ],
+          "topics": [
+            {
+              "title": "HPA",
+              "details": [
+                "Replicas = ceil(current replicas x current metric / target). Needs metrics-server and correct resource requests."
+              ]
+            },
+            {
+              "title": "KEDA",
+              "details": [
+                "Scalers read external sources (SQS, Kafka, Prometheus) and drive the HPA, including scaling to zero when idle."
+              ]
+            },
+            {
+              "title": "Nodes",
+              "details": [
+                "When pods are Pending for lack of capacity, Karpenter launches right-sized nodes and consolidates empty ones; spot instances save money with interruption handling."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-cloud.hpa-keda-and-karpenter-scaling-pods-and-nodes"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-hpa",
+            "locator": "Kubernetes 'Horizontal Pod Autoscaling' page in full, including the algorithm details."
+          },
+          "supplementaryResourceIds": [
+            "sk-cloud-keda",
+            "sk-cloud-karpenter"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a12-hpa-keda-and-karpenter-scaling-pods-and-nodes",
+            "title": "Load-driven scaling",
+            "kind": "lab",
+            "instructions": [
+              "Load-test your API with k6 and configure an HPA; graph replicas against load.",
+              "Add a queue worker scaled by KEDA from a Redis or RabbitMQ queue, including scale-to-zero.",
+              "Write how Karpenter would add nodes on EKS, including spot handling."
+            ],
+            "deliverables": [
+              "Manifests, graphs and notes."
+            ],
+            "acceptanceCriteria": [
+              "Replicas rise and fall with load.",
+              "Workers scale to zero when idle."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l12-hpa-keda-and-karpenter-scaling-pods-and-nodes-check-01",
+                "kind": "short-answer",
+                "prompt": "Why does HPA need resource requests?",
+                "answer": "CPU utilisation is calculated as a percentage of requests.",
+                "explanation": "No requests, no CPU-based scaling."
+              },
+              {
+                "id": "sk-cloud-l12-hpa-keda-and-karpenter-scaling-pods-and-nodes-check-02",
+                "kind": "short-answer",
+                "prompt": "What can KEDA do that basic HPA cannot?",
+                "answer": "Scale on external event sources and down to zero.",
+                "explanation": "E.g. queue length."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Compute replicas: 4 pods at 90% CPU, target 60%.",
+            "Pod vs node autoscaling?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-cloud-l13-finops-tagging-cost-visibility-right-sizing-and",
+          "title": "FinOps: tagging, cost visibility, right-sizing and commitments",
+          "objectives": [
+            "Tag resources so costs map to teams and services.",
+            "Find waste: idle resources, oversized instances, unattached storage.",
+            "Compare on-demand, spot, Savings Plans and reserved capacity."
+          ],
+          "topics": [
+            {
+              "title": "Visibility",
+              "details": [
+                "Cost allocation tags, AWS Cost Explorer and budgets; Kubernetes costs per namespace with tools like OpenCost."
+              ]
+            },
+            {
+              "title": "Optimisation",
+              "details": [
+                "Right-size from utilisation data, schedule dev environments off at night, delete orphaned volumes and snapshots, use lifecycle rules."
+              ]
+            },
+            {
+              "title": "Pricing models",
+              "details": [
+                "Spot is cheapest but can be interrupted; Savings Plans discount steady usage for a commitment; on-demand is flexible but most expensive."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "sk-cloud.finops-tagging-cost-visibility-right-sizing-and"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-bc774093b44e",
+            "locator": "FinOps Framework overview: principles, phases (Inform, Optimize, Operate) and capabilities list."
+          },
+          "supplementaryResourceIds": [
+            "sk-cloud-wellarchitected"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a13-finops-tagging-cost-visibility-right-sizing-and",
+            "title": "Cost report",
+            "kind": "design",
+            "instructions": [
+              "Tag every resource in your Terraform with owner, env and service.",
+              "Produce a cost report for your labs (Cost Explorer or estimates from the pricing calculator).",
+              "List five optimisations with estimated savings and risks."
+            ],
+            "deliverables": [
+              "Tagged Terraform and a one-page cost report."
+            ],
+            "acceptanceCriteria": [
+              "Every resource is tagged.",
+              "Savings estimates show the calculation."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l13-finops-tagging-cost-visibility-right-sizing-and-check-01",
+                "kind": "short-answer",
+                "prompt": "When are spot instances a bad fit?",
+                "answer": "For workloads that cannot tolerate sudden interruption.",
+                "explanation": "Use for stateless or batch work."
+              },
+              {
+                "id": "sk-cloud-l13-finops-tagging-cost-visibility-right-sizing-and-check-02",
+                "kind": "short-answer",
+                "prompt": "Why tag resources?",
+                "answer": "To attribute costs and ownership.",
+                "explanation": "Untagged spend is unmanageable."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Name three sources of cloud waste.",
+            "Savings Plan vs spot?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m08-observability-sre",
+      "title": "08. Observability and SRE practices",
+      "stage": "advanced",
+      "description": "Know what your systems are doing: metrics, logs and traces, dashboards, SLOs and alerts that wake people only when users are affected.",
+      "prerequisites": [
+        "sk-cloud-m04-kubernetes"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l14-metrics-logs-and-traces-with-prometheus-grafana",
+          "title": "Metrics, logs and traces with Prometheus, Grafana and OpenTelemetry",
+          "objectives": [
+            "Instrument a service with OpenTelemetry and expose Prometheus metrics.",
+            "Write PromQL for rate, error ratio and latency percentiles.",
+            "Build a Grafana dashboard using the RED and USE methods."
+          ],
+          "topics": [
+            {
+              "title": "Three signals",
+              "details": [
+                "Metrics show trends cheaply; logs explain individual events; traces follow one request across services. Correlate them with trace IDs."
+              ]
+            },
+            {
+              "title": "PromQL",
+              "details": [
+                "rate(http_requests_total[5m]); error ratio = errors / total; histogram_quantile(0.99, ...) for p99 latency."
+              ]
+            },
+            {
+              "title": "Dashboards",
+              "details": [
+                "RED for services (rate, errors, duration); USE for resources (utilisation, saturation, errors)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-cloud.metrics-logs-and-traces-with-prometheus-grafana"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-prometheus",
+            "locator": "Prometheus docs: 'Overview', 'First steps', then 'Querying basics' and the practices pages on instrumentation and histograms."
+          },
+          "supplementaryResourceIds": [
+            "sk-cloud-grafana",
+            "advanced-reading-8de8f872c85e",
+            "advanced-reading-a9c9428e53c4",
+            "advanced-reading-a04effa473fb"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a14-metrics-logs-and-traces-with-prometheus-grafana",
+            "title": "Observable service",
+            "kind": "lab",
+            "instructions": [
+              "Install kube-prometheus-stack in kind.",
+              "Instrument your API with OpenTelemetry; export metrics and traces.",
+              "Build a RED dashboard and find the slowest endpoint from traces."
+            ],
+            "deliverables": [
+              "Dashboard JSON, code changes and findings."
+            ],
+            "acceptanceCriteria": [
+              "Dashboard shows rate, errors and p99 latency per endpoint."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l14-metrics-logs-and-traces-with-prometheus-grafana-check-01",
+                "kind": "short-answer",
+                "prompt": "What does RED stand for?",
+                "answer": "Rate, Errors, Duration.",
+                "explanation": "For request-driven services."
+              },
+              {
+                "id": "sk-cloud-l14-metrics-logs-and-traces-with-prometheus-grafana-check-02",
+                "kind": "short-answer",
+                "prompt": "Why use histograms for latency?",
+                "answer": "They allow percentile calculation across instances.",
+                "explanation": "Averages hide slow requests."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write PromQL for error ratio.",
+            "When are traces better than logs?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-cloud-l15-slos-error-budgets-alerting-and-on-call",
+          "title": "SLOs, error budgets, alerting and on-call",
+          "objectives": [
+            "Define SLIs and SLOs from user experience.",
+            "Use error budgets to balance reliability and speed.",
+            "Write burn-rate alerts and on-call runbooks."
+          ],
+          "topics": [
+            {
+              "title": "SLOs",
+              "details": [
+                "SLI: good events / total events (e.g. requests under 300 ms). SLO: target such as 99.9% over 30 days."
+              ]
+            },
+            {
+              "title": "Error budget",
+              "details": [
+                "1 - SLO is how much failure is allowed; spending it fast pauses risky releases."
+              ]
+            },
+            {
+              "title": "Alerting",
+              "details": [
+                "Alert on symptoms users feel with multi-window burn rates; every alert links a runbook; review alert noise regularly."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-cloud.slos-error-budgets-alerting-and-on-call"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-7b9a3e66dbb9",
+            "locator": "Google SRE book chapter 'Service Level Objectives' in full."
+          },
+          "supplementaryResourceIds": [
+            "data-book-sre",
+            "advanced-reading-a119cadd9c60"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a15-slos-error-budgets-alerting-and-on-call",
+            "title": "SLOs for your API",
+            "kind": "design",
+            "instructions": [
+              "Define two SLIs and SLOs for your API with reasoning.",
+              "Implement burn-rate alerts in Prometheus Alertmanager.",
+              "Write runbooks and run a game day where you inject latency and follow them."
+            ],
+            "deliverables": [
+              "SLO document, alert rules, runbooks and game-day notes."
+            ],
+            "acceptanceCriteria": [
+              "Injected latency fires the right alert and the runbook resolves it."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l15-slos-error-budgets-alerting-and-on-call-check-01",
+                "kind": "short-answer",
+                "prompt": "What is an error budget for a 99.9% SLO?",
+                "answer": "0.1% of events may fail in the window.",
+                "explanation": "About 43 minutes per 30 days for availability."
+              },
+              {
+                "id": "sk-cloud-l15-slos-error-budgets-alerting-and-on-call-check-02",
+                "kind": "short-answer",
+                "prompt": "Why alert on symptoms not causes?",
+                "answer": "Users care about failures they feel; cause alerts are noisy.",
+                "explanation": "Causes go on dashboards."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Pick an SLI for a batch job.",
+            "What makes an alert actionable?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m09-resilience-dr",
+      "title": "09. Resilience and disaster recovery",
+      "stage": "advanced",
+      "description": "Design systems that survive failures: high availability across zones, backups you have actually restored, multi-region strategies and chaos experiments.",
+      "prerequisites": [
+        "sk-cloud-m03-terraform",
+        "sk-cloud-m08-observability-sre"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l16-rto-rpo-dr-strategies-backups-and-chaos-experime",
+          "title": "RTO, RPO, DR strategies, backups and chaos experiments",
+          "objectives": [
+            "Set RTO and RPO with the business and choose a DR strategy.",
+            "Back up and restore databases and Kubernetes state, and test restores.",
+            "Run safe chaos experiments with stop conditions."
+          ],
+          "topics": [
+            {
+              "title": "Targets",
+              "details": [
+                "RTO: how long you can be down. RPO: how much data you can lose. Lower targets cost more."
+              ]
+            },
+            {
+              "title": "Strategies",
+              "details": [
+                "Backup and restore (cheapest, slowest), pilot light, warm standby, active-active multi-site (fastest, most expensive). Route 53 health checks switch traffic."
+              ]
+            },
+            {
+              "title": "Testing",
+              "details": [
+                "An untested backup is not a backup. Chaos experiments (AWS FIS, killing pods) prove recovery with guardrails and stop conditions."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-cloud.rto-rpo-dr-strategies-backups-and-chaos-experime"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-dr",
+            "locator": "DR whitepaper sections 'Disaster recovery options in the cloud' and 'Testing disaster recovery'."
+          },
+          "supplementaryResourceIds": [
+            "sk-cloud-fis",
+            "sk-cloud-rds"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a16-rto-rpo-dr-strategies-backups-and-chaos-experime",
+            "title": "Prove recovery",
+            "kind": "lab",
+            "instructions": [
+              "Set RTO/RPO for your API and pick a strategy with cost reasoning.",
+              "Back up the database, destroy it and restore it in a second region with Terraform; time it.",
+              "Kill pods and a node in your cluster during load and record user-visible impact."
+            ],
+            "deliverables": [
+              "DR plan, timed restore evidence and chaos results."
+            ],
+            "acceptanceCriteria": [
+              "Measured restore time meets or explains the RTO gap."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l16-rto-rpo-dr-strategies-backups-and-chaos-experime-check-01",
+                "kind": "short-answer",
+                "prompt": "RTO vs RPO?",
+                "answer": "RTO is maximum downtime; RPO is maximum data loss.",
+                "explanation": "Both drive design and cost."
+              },
+              {
+                "id": "sk-cloud-l16-rto-rpo-dr-strategies-backups-and-chaos-experime-check-02",
+                "kind": "short-answer",
+                "prompt": "Why must chaos experiments have stop conditions?",
+                "answer": "To halt automatically if harm exceeds limits.",
+                "explanation": "Safety first."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Choose a DR strategy for a bank ledger vs a blog.",
+            "How often should restores be tested?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m10-ai-infra",
+      "title": "10. AI infrastructure: GPUs and model serving",
+      "stage": "professional",
+      "description": "Run AI workloads on Kubernetes: GPU nodes, drivers and monitoring, plus scalable LLM and model serving.",
+      "prerequisites": [
+        "sk-cloud-m07-autoscaling-finops",
+        "sk-cloud-m08-observability-sre"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l17-gpu-nodes-drivers-scheduling-and-gpu-monitoring",
+          "title": "GPU nodes, drivers, scheduling and GPU monitoring",
+          "objectives": [
+            "Explain how containers access GPUs (drivers, container toolkit, device plugin).",
+            "Request GPUs in pods and isolate GPU nodes with taints.",
+            "Monitor GPU utilisation and memory with DCGM."
+          ],
+          "topics": [
+            {
+              "title": "Stack",
+              "details": [
+                "Node driver -> NVIDIA container toolkit -> Kubernetes device plugin (or GPU operator installs all of it) -> pods request nvidia.com/gpu."
+              ]
+            },
+            {
+              "title": "Scheduling",
+              "details": [
+                "Taint GPU nodes so only GPU jobs land there; use node selectors; consider time-slicing or MIG to share GPUs."
+              ]
+            },
+            {
+              "title": "Monitoring and cost",
+              "details": [
+                "DCGM exporter metrics: utilisation, memory, temperature. Idle GPUs are expensive; scale them down."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-cloud.gpu-nodes-drivers-scheduling-and-gpu-monitoring"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-k8s-gpu",
+            "locator": "Kubernetes 'Schedule GPUs' page in full; then NVIDIA Container Toolkit overview."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-a1ad2c5719dd",
+            "advanced-reading-7421e1d96f06"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a17-gpu-nodes-drivers-scheduling-and-gpu-monitoring",
+            "title": "GPU-ready cluster design",
+            "kind": "design",
+            "instructions": [
+              "Write Terraform for an EKS GPU node group with taints and labels (apply only if you have budget; otherwise plan only).",
+              "Write a pod spec requesting one GPU with tolerations, and a DCGM exporter dashboard plan.",
+              "Estimate hourly cost and a scale-to-zero approach."
+            ],
+            "deliverables": [
+              "Terraform, manifests and cost note."
+            ],
+            "acceptanceCriteria": [
+              "Pod spec schedules only on GPU nodes.",
+              "Cost estimate shows the calculation."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l17-gpu-nodes-drivers-scheduling-and-gpu-monitoring-check-01",
+                "kind": "short-answer",
+                "prompt": "How does a pod request a GPU?",
+                "answer": "With resources.limits nvidia.com/gpu: 1 (via the device plugin).",
+                "explanation": "Whole GPUs unless sharing is configured."
+              },
+              {
+                "id": "sk-cloud-l17-gpu-nodes-drivers-scheduling-and-gpu-monitoring-check-02",
+                "kind": "short-answer",
+                "prompt": "Why taint GPU nodes?",
+                "answer": "To keep ordinary pods off expensive GPU nodes.",
+                "explanation": "GPU pods add tolerations."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Draw the GPU software stack.",
+            "How do you cut idle GPU cost?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-cloud-l18-serving-models-and-llms-vllm-kserve-autoscaling",
+          "title": "Serving models and LLMs: vLLM, KServe, autoscaling and load testing",
+          "objectives": [
+            "Serve an open model with vLLM's OpenAI-compatible server.",
+            "Deploy models with KServe including canary rollouts.",
+            "Load-test serving and measure tokens per second, time to first token and cost per request."
+          ],
+          "topics": [
+            {
+              "title": "vLLM",
+              "details": [
+                "Continuous batching and paged attention give high throughput; it exposes an OpenAI-compatible API."
+              ]
+            },
+            {
+              "title": "KServe",
+              "details": [
+                "InferenceService resources handle autoscaling (including to zero) and traffic splitting for canaries."
+              ]
+            },
+            {
+              "title": "Metrics",
+              "details": [
+                "Time to first token, inter-token latency, throughput, queue depth and GPU memory; scale on queue depth, not CPU."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-cloud.serving-models-and-llms-vllm-kserve-autoscaling"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-b9174393a70d",
+            "locator": "vLLM docs: 'Quickstart' (offline inference and OpenAI-compatible server) and 'Metrics'."
+          },
+          "supplementaryResourceIds": [
+            "sk-cloud-kserve",
+            "advanced-reading-3d87570d1848"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a18-serving-models-and-llms-vllm-kserve-autoscaling",
+            "title": "Serve and measure",
+            "kind": "lab",
+            "instructions": [
+              "Run a small open model with vLLM (CPU or a free/cheap GPU notebook).",
+              "Write KServe manifests with a 90/10 canary between two model versions.",
+              "Load-test with concurrency 1, 8 and 32; chart TTFT and throughput."
+            ],
+            "deliverables": [
+              "Commands, manifests and a benchmark chart."
+            ],
+            "acceptanceCriteria": [
+              "Benchmark lists hardware, model, settings and results."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l18-serving-models-and-llms-vllm-kserve-autoscaling-check-01",
+                "kind": "short-answer",
+                "prompt": "Why scale LLM servers on queue depth rather than CPU?",
+                "answer": "GPU work is the bottleneck; CPU does not reflect load.",
+                "explanation": "Queue depth tracks waiting requests."
+              },
+              {
+                "id": "sk-cloud-l18-serving-models-and-llms-vllm-kserve-autoscaling-check-02",
+                "kind": "short-answer",
+                "prompt": "What is time to first token?",
+                "answer": "Delay until the first generated token arrives.",
+                "explanation": "Key for chat experiences."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How does continuous batching help?",
+            "Plan a canary for a new model."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-cloud-m11-cloud-career",
+      "title": "11. Well-Architected reviews and cloud certifications",
+      "stage": "professional",
+      "description": "Review architectures like a senior engineer and prepare the certifications cloud recruiters look for: AWS Solutions Architect Associate and CKA.",
+      "prerequisites": [
+        "sk-cloud-m09-resilience-dr"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-cloud-l19-well-architected-reviews-and-an-aws-saa-cka-stud",
+          "title": "Well-Architected reviews and an AWS SAA + CKA study plan",
+          "objectives": [
+            "Run a Well-Architected review across the six pillars.",
+            "Plan AWS Solutions Architect Associate and CKA study with hands-on practice.",
+            "Present infrastructure projects clearly in a portfolio."
+          ],
+          "topics": [
+            {
+              "title": "Six pillars",
+              "details": [
+                "Operational excellence, security, reliability, performance efficiency, cost optimisation and sustainability; each has questions and best practices."
+              ]
+            },
+            {
+              "title": "Certifications",
+              "details": [
+                "SAA tests architecture choices across AWS services; CKA is a hands-on terminal exam: practise kubectl speed, troubleshooting and cluster maintenance."
+              ]
+            },
+            {
+              "title": "Portfolio",
+              "details": [
+                "Terraform repos with diagrams, runbooks, SLOs, cost and DR evidence show real skill."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "sk-cloud.well-architected-reviews-and-an-aws-saa-cka-stud"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-cloud-wellarchitected",
+            "locator": "Well-Architected Framework: 'The pillars of the framework' and the design principles for each pillar."
+          },
+          "supplementaryResourceIds": [
+            "sk-cloud-saa",
+            "sk-cloud-cka"
+          ],
+          "assignment": {
+            "id": "sk-cloud-a19-well-architected-reviews-and-an-aws-saa-cka-stud",
+            "title": "Review and plan",
+            "kind": "design",
+            "instructions": [
+              "Do a Well-Architected review of your own project; list high-risk issues and fixes.",
+              "Write a 10-week plan covering SAA then CKA with weekly labs and practice exams.",
+              "Update your infrastructure repository READMEs with diagrams and evidence."
+            ],
+            "deliverables": [
+              "Review document, study plan and README updates."
+            ],
+            "acceptanceCriteria": [
+              "Each pillar has at least one finding and action."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-cloud-l19-well-architected-reviews-and-an-aws-saa-cka-stud-check-01",
+                "kind": "short-answer",
+                "prompt": "Name the six Well-Architected pillars.",
+                "answer": "Operational excellence, security, reliability, performance efficiency, cost optimisation, sustainability.",
+                "explanation": "Use them as a review checklist."
+              },
+              {
+                "id": "sk-cloud-l19-well-architected-reviews-and-an-aws-saa-cka-stud-check-02",
+                "kind": "short-answer",
+                "prompt": "What kind of exam is the CKA?",
+                "answer": "A hands-on, performance-based exam in a live terminal.",
+                "explanation": "Practise speed with kubectl."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which pillar is weakest in your project?",
+            "How will you practise for CKA?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "AWS Well-Architected Framework",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+    },
+    {
+      "title": "Kubernetes documentation",
+      "url": "https://kubernetes.io/docs/"
+    }
+  ],
+  "limitations": [
+    "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
+    "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
+    "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises.",
+    "Cloud labs can cost money: set a billing alarm before you start, use free tiers, and destroy every lab with `terraform destroy` when finished."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Run and administer Linux servers and core AWS services, and describe all infrastructure in Terraform.",
+      "evidence": "A Terraform-built VPC, server and database you can create and destroy on demand."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Package, deploy and update applications on Kubernetes with Helm, CI/CD and GitOps.",
+      "evidence": "A service delivered from Git to a cluster automatically with safe rollbacks."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Scale, observe and keep systems reliable while controlling cost.",
+      "evidence": "Autoscaling, dashboards, SLO alerts, a cost report and a tested disaster-recovery plan."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Run AI workloads on GPU infrastructure and prepare for cloud certifications.",
+      "evidence": "A GPU-aware model-serving deployment and a certification plan."
+    }
+  ]
+}

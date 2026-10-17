@@ -18,6 +18,9 @@ import {
   findResource,
   isExtraTopic,
   isCareerCourse,
+  isSkillTrack,
+  trackHome,
+  trackMeta,
   resourceEmbed,
   stageLabel,
   unmetRequirements,
@@ -181,11 +184,26 @@ export function LessonPage({
     <>
       <div className="breadcrumb">
         <a
-          href={`#/path/${track.trackId}${paper !== "all" ? `?paper=${encodeURIComponent(paper)}` : ""}`}
+          href={
+            isSkillTrack(track.trackId)
+              ? trackHome(track.trackId).href
+              : `#/path/${track.trackId}${paper !== "all" ? `?paper=${encodeURIComponent(paper)}` : ""}`
+          }
         >
           <ArrowLeft size={14} />
-          {track.title}
+          {isSkillTrack(track.trackId)
+            ? trackHome(track.trackId).label
+            : track.title}
         </a>
+        {isSkillTrack(track.trackId) &&
+          trackHome(track.trackId).href !== `#/path/${track.trackId}` && (
+            <>
+              <span>/</span>
+              <a href={`#/path/${track.trackId}`}>
+                {trackMeta[track.trackId].short}
+              </a>
+            </>
+          )}
         <span>/</span>
         <span>{module.title}</span>
       </div>
@@ -201,6 +219,11 @@ export function LessonPage({
             )}
             {isCareerCourse(track.trackId) && (
               <span className="subtle-pill">Required career learning</span>
+            )}
+            {isSkillTrack(track.trackId) && (
+              <span className="subtle-pill">
+                Skill builder · beginner friendly
+              </span>
             )}
             <span>
               <Clock3 size={14} />

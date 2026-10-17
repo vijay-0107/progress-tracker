@@ -1,0 +1,3289 @@
+{
+  "schemaVersion": 1,
+  "trackId": "foundation-essentials",
+  "title": "Common Foundation: Beginner Essentials",
+  "sourceCheckedOn": "2026-10-17",
+  "resources": [
+    {
+      "id": "fe-doc-wsl",
+      "kind": "documentation",
+      "title": "Install Linux on Windows with WSL",
+      "url": "https://learn.microsoft.com/en-us/windows/wsl/install",
+      "provider": "Microsoft Learn",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Use if your laptop runs Windows. Ubuntu under WSL gives you the same Linux shell used on servers."
+    },
+    {
+      "id": "fe-doc-vscode",
+      "kind": "documentation",
+      "title": "Visual Studio Code documentation",
+      "url": "https://code.visualstudio.com/docs",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Editor setup, extensions, integrated terminal and debugger."
+    },
+    {
+      "id": "fe-doc-python-packaging",
+      "kind": "documentation",
+      "title": "Python Packaging User Guide: installing packages",
+      "url": "https://packaging.python.org/en/latest/tutorials/installing-packages/",
+      "provider": "Python Packaging Authority",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Virtual environments, pip and requirements files."
+    },
+    {
+      "id": "fe-book-tlcl",
+      "kind": "book",
+      "title": "The Linux Command Line (William Shotts)",
+      "url": "https://linuxcommand.org/tlcl.php",
+      "provider": "William E. Shotts, Jr.",
+      "access": "free",
+      "license": "Creative Commons BY-NC-ND 3.0 (per author's site)",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free book for absolute beginners; read online or download the PDF from the author's site."
+    },
+    {
+      "id": "fe-video-shell-tools",
+      "kind": "video",
+      "title": "The Missing Semester (2020): Shell Tools and Scripting",
+      "url": "https://missing.csail.mit.edu/2020/shell-tools/",
+      "provider": "MIT CSAIL",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Lecture video plus notes and exercises."
+    },
+    {
+      "id": "fe-doc-github-prs",
+      "kind": "documentation",
+      "title": "GitHub Docs: About pull requests",
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests",
+      "provider": "GitHub",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "How pull requests, reviews and merges work on GitHub."
+    },
+    {
+      "id": "fe-practice-neetcode",
+      "kind": "practice",
+      "title": "NeetCode roadmap",
+      "url": "https://neetcode.io/roadmap",
+      "provider": "NeetCode",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free ordered list of interview problems by pattern, each with a video explanation."
+    },
+    {
+      "id": "fe-doc-tech-interview",
+      "kind": "documentation",
+      "title": "Tech Interview Handbook",
+      "url": "https://www.techinterviewhandbook.org/",
+      "provider": "Yangshun Tay and contributors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free guide to coding interviews, behavioral questions and negotiation."
+    },
+    {
+      "id": "fe-doc-refactoring",
+      "kind": "documentation",
+      "title": "Refactoring.Guru: refactoring and code smells",
+      "url": "https://refactoring.guru/refactoring",
+      "provider": "Refactoring.Guru",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free catalogue of code smells and refactorings with examples."
+    },
+    {
+      "id": "fe-doc-mdn-http",
+      "kind": "documentation",
+      "title": "MDN Web Docs: HTTP",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+      "provider": "Mozilla",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Beginner-friendly guide to HTTP messages, methods, status codes and headers."
+    },
+    {
+      "id": "fe-doc-docker-start",
+      "kind": "documentation",
+      "title": "Docker: Get started",
+      "url": "https://docs.docker.com/get-started/",
+      "provider": "Docker",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Official beginner path: images, containers, Dockerfiles and Compose."
+    },
+    {
+      "id": "fe-doc-compose",
+      "kind": "documentation",
+      "title": "Docker Compose documentation",
+      "url": "https://docs.docker.com/compose/",
+      "provider": "Docker",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Running several containers (app, database, cache) together."
+    },
+    {
+      "id": "fe-doc-aws-overview",
+      "kind": "documentation",
+      "title": "Overview of Amazon Web Services (whitepaper)",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "What each core AWS service is for."
+    },
+    {
+      "id": "fe-doc-aws-budgets",
+      "kind": "documentation",
+      "title": "AWS Budgets: managing your costs",
+      "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Set a budget and alert before you create anything that costs money."
+    },
+    {
+      "id": "fe-doc-az900",
+      "kind": "documentation",
+      "title": "Microsoft Learn: Azure Fundamentals (AZ-900) training",
+      "url": "https://learn.microsoft.com/en-us/training/courses/az-900t00",
+      "provider": "Microsoft Learn",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free modules; you already hold AZ-900, so use this as a refresher."
+    },
+    {
+      "id": "fe-book-mml",
+      "kind": "book",
+      "title": "Mathematics for Machine Learning",
+      "url": "https://mml-book.github.io/",
+      "provider": "Deisenroth, Faisal and Ong (Cambridge University Press)",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free PDF from the authors' site; chapters 2, 5 and 6 are the essentials."
+    },
+    {
+      "id": "fe-video-3b1b-la",
+      "kind": "video",
+      "title": "3Blue1Brown: Essence of Linear Algebra",
+      "url": "https://www.3blue1brown.com/topics/linear-algebra",
+      "provider": "3Blue1Brown (Grant Sanderson)",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Visual intuition for vectors, matrices and transformations."
+    },
+    {
+      "id": "fe-video-3b1b-calc",
+      "kind": "video",
+      "title": "3Blue1Brown: Essence of Calculus",
+      "url": "https://www.3blue1brown.com/topics/calculus",
+      "provider": "3Blue1Brown (Grant Sanderson)",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Visual intuition for derivatives, the chain rule and integrals."
+    },
+    {
+      "id": "fe-doc-sd-primer",
+      "kind": "documentation",
+      "title": "The System Design Primer",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "provider": "Donne Martin and contributors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free, widely used introduction to scaling building blocks and trade-offs."
+    }
+  ],
+  "modules": [
+    {
+      "id": "fe-m01-dev-setup",
+      "title": "01. Your developer setup",
+      "stage": "foundation",
+      "description": "Set up the tools you will use every day: a Linux shell, an editor, Python virtual environments and package managers. Everything later assumes this works.",
+      "prerequisites": [],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l01-set-up-a-linux-shell-an-editor-and-a-project-fol",
+          "title": "Set up a Linux shell, an editor and a project folder",
+          "objectives": [
+            "Install Ubuntu through WSL (on Windows) or open the Terminal (on macOS/Linux) and run basic commands.",
+            "Install VS Code with the Python and Remote/WSL extensions and open a folder from the terminal.",
+            "Explain what the terminal, the shell, the editor and the file system each do."
+          ],
+          "topics": [
+            {
+              "title": "Why Linux matters",
+              "details": [
+                "Most servers, containers and cloud machines run Linux, so interviews and jobs assume you can use a Linux shell.",
+                "On Windows, WSL runs a real Ubuntu next to Windows; files live under \\\\wsl$ and your Linux home is /home/<you>."
+              ]
+            },
+            {
+              "title": "Terminal, shell and editor",
+              "details": [
+                "The terminal is the window; the shell (bash or zsh) reads your commands; the editor (VS Code) edits files.",
+                "Run `code .` inside a folder to open it in VS Code connected to the same Linux environment."
+              ]
+            },
+            {
+              "title": "First commands",
+              "details": [
+                "`pwd` (where am I), `ls -la` (what is here), `cd` (move), `mkdir -p` (make folders), `cat`/`less` (read files).",
+                "Tab completes names; the up arrow repeats commands; `man ls` or `ls --help` shows options."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "fe.set-up-a-linux-shell-an-editor-and-a-project-fol"
+          ],
+          "video": {
+            "resourceId": "foundation-video-shell",
+            "locator": "Watch the whole lecture; pause and type every command shown."
+          },
+          "reading": {
+            "resourceId": "fe-doc-wsl",
+            "locator": "Install Linux on Windows with WSL: 'Install WSL command' and 'Set up your Linux username and password'. Skip if you are on macOS or Linux."
+          },
+          "supplementaryResourceIds": [
+            "fe-doc-vscode"
+          ],
+          "assignment": {
+            "id": "fe-a01-set-up-a-linux-shell-an-editor-and-a-project-fol",
+            "title": "Make your workstation ready",
+            "kind": "lab",
+            "instructions": [
+              "Install WSL Ubuntu (Windows) or open Terminal (macOS/Linux). Run `uname -a` and note the output.",
+              "Install VS Code and the Python extension; on Windows also the WSL extension.",
+              "Create ~/code/playground, open it with `code .`, create hello.py printing your name, and run it with `python3 hello.py`.",
+              "Write a five-line note explaining terminal, shell, editor, file system and where your project folder is."
+            ],
+            "deliverables": [
+              "Screenshot or transcript of `uname -a`, `pwd` and the program output.",
+              "Your five-line note."
+            ],
+            "acceptanceCriteria": [
+              "hello.py runs from the terminal inside the Linux environment.",
+              "The note correctly separates terminal, shell and editor."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l01-set-up-a-linux-shell-an-editor-and-a-project-fol-check-01",
+                "kind": "short-answer",
+                "prompt": "What does `code .` do?",
+                "answer": "Opens the current folder in VS Code.",
+                "explanation": "The dot means 'this directory'."
+              },
+              {
+                "id": "fe-l01-set-up-a-linux-shell-an-editor-and-a-project-fol-check-02",
+                "kind": "short-answer",
+                "prompt": "Why learn Linux if your laptop runs Windows?",
+                "answer": "Servers, containers and cloud machines mostly run Linux.",
+                "explanation": "Interview and job tasks assume a Linux shell."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain WSL to a friend in two sentences.",
+            "Which three commands do you use to find where you are and what is in a folder?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l02-isolate-python-projects-with-virtual-environment",
+          "title": "Isolate Python projects with virtual environments and package managers",
+          "objectives": [
+            "Create and activate a Python virtual environment and install packages into it.",
+            "Pin dependencies in requirements.txt so another machine can reproduce your setup.",
+            "Use apt (system packages), pip (Python) and npm (JavaScript) for the right jobs."
+          ],
+          "topics": [
+            {
+              "title": "Why isolate",
+              "details": [
+                "Different projects need different library versions; a virtual environment (.venv) keeps each project's packages separate.",
+                "Never install project packages with sudo pip into the system Python."
+              ]
+            },
+            {
+              "title": "The workflow",
+              "details": [
+                "`python3 -m venv .venv` then `source .venv/bin/activate`; your prompt shows (.venv).",
+                "`pip install requests`, `pip freeze > requirements.txt`, and on a new machine `pip install -r requirements.txt`."
+              ]
+            },
+            {
+              "title": "Other package managers",
+              "details": [
+                "`sudo apt install git curl build-essential` installs system tools on Ubuntu.",
+                "Node.js projects use npm with package.json and package-lock.json; the idea is the same: declared, pinned dependencies."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "fe.isolate-python-projects-with-virtual-environment"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-python-packaging",
+            "locator": "Installing Packages tutorial: sections 'Creating Virtual Environments', 'Use pip for Installing' and 'Requirements files'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a02-isolate-python-projects-with-virtual-environment",
+            "title": "Reproduce an environment from scratch",
+            "kind": "lab",
+            "instructions": [
+              "In ~/code/playground create .venv, activate it and install `requests` and `pytest`.",
+              "Write fetch.py that downloads https://api.github.com and prints the HTTP status code.",
+              "Freeze to requirements.txt, delete .venv, recreate it from requirements.txt and run fetch.py again.",
+              "Add .venv to a .gitignore file and explain why it should not be committed."
+            ],
+            "deliverables": [
+              "requirements.txt and .gitignore.",
+              "Terminal transcript of the recreate-and-run step."
+            ],
+            "acceptanceCriteria": [
+              "fetch.py works after rebuilding the environment only from requirements.txt.",
+              ".venv is ignored."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l02-isolate-python-projects-with-virtual-environment-check-01",
+                "kind": "short-answer",
+                "prompt": "Why should .venv not be committed to Git?",
+                "answer": "It is machine-specific and large; requirements.txt recreates it.",
+                "explanation": "Commit the recipe, not the installed files."
+              },
+              {
+                "id": "fe-l02-isolate-python-projects-with-virtual-environment-check-02",
+                "kind": "short-answer",
+                "prompt": "Which file pins exact Python package versions?",
+                "answer": "requirements.txt (from pip freeze).",
+                "explanation": "It lets others install the same versions."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What problem does a virtual environment solve?",
+            "When would you use apt instead of pip?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m02-linux-bash",
+      "title": "02. Linux and Bash for everyday engineering",
+      "stage": "foundation",
+      "description": "Work comfortably on a Linux machine: permissions, processes, logs, environment variables, remote access and small automation scripts.",
+      "prerequisites": [
+        "fe-m01-dev-setup",
+        "foundation-module-01-computing"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l03-users-permissions-and-the-file-system-layout",
+          "title": "Users, permissions and the file system layout",
+          "objectives": [
+            "Read and change file permissions with ls -l, chmod and chown.",
+            "Explain users, groups, root and when sudo is appropriate.",
+            "Navigate the standard directories: /home, /etc, /var/log, /tmp, /usr/bin."
+          ],
+          "topics": [
+            {
+              "title": "Permission bits",
+              "details": [
+                "`-rwxr-x---` means owner can read/write/execute, group can read/execute, others nothing.",
+                "`chmod 640 file` and `chmod u+x script.sh` change permissions; `chown user:group file` changes ownership."
+              ]
+            },
+            {
+              "title": "Root and sudo",
+              "details": [
+                "root can do anything; `sudo` runs one command as root and is logged. Use it for system changes only.",
+                "Most permission errors are fixed by using the right user or folder, not by `chmod 777`."
+              ]
+            },
+            {
+              "title": "Where things live",
+              "details": [
+                "Config in /etc, logs in /var/log, programs in /usr/bin, temporary files in /tmp, your files in /home/<you>.",
+                "`which python3` and `type ls` show which program a command runs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "fe.users-permissions-and-the-file-system-layout"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-book-tlcl",
+            "locator": "The Linux Command Line, Part 1: chapters 'Exploring the System', 'Permissions' and 'Processes'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a03-users-permissions-and-the-file-system-layout",
+            "title": "Permission lab",
+            "kind": "lab",
+            "instructions": [
+              "Create a folder secrets-demo with a file note.txt. Make it readable only by you (chmod 600) and confirm with ls -l.",
+              "Write run.sh that prints the date; try running it before and after `chmod u+x run.sh`.",
+              "Find three config files in /etc and one log in /var/log; record what each is for.",
+              "Explain why `chmod 777` is a bad fix in three sentences."
+            ],
+            "deliverables": [
+              "ls -l output before and after each change.",
+              "Short notes on the files you found."
+            ],
+            "acceptanceCriteria": [
+              "note.txt shows -rw------- and run.sh runs only after adding execute permission.",
+              "The explanation names a concrete risk of 777."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l03-users-permissions-and-the-file-system-layout-check-01",
+                "kind": "short-answer",
+                "prompt": "What does chmod 600 give?",
+                "answer": "Read and write for the owner only.",
+                "explanation": "6 = read(4)+write(2); 0 = nothing for group and others."
+              },
+              {
+                "id": "fe-l03-users-permissions-and-the-file-system-layout-check-02",
+                "kind": "short-answer",
+                "prompt": "Where are system logs usually stored?",
+                "answer": "/var/log",
+                "explanation": "journalctl also reads systemd logs."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Decode the permission string -rwxr-x--x.",
+            "When is sudo the right tool?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l04-processes-environment-variables-services-and-log",
+          "title": "Processes, environment variables, services and logs",
+          "objectives": [
+            "Inspect running processes with ps, top/htop and stop one safely with kill.",
+            "Set and read environment variables and explain how programs inherit them.",
+            "Read service logs with journalctl and follow a log file with tail -f."
+          ],
+          "topics": [
+            {
+              "title": "Processes",
+              "details": [
+                "Every running program is a process with a PID; `ps aux | grep python` finds it, `kill <PID>` asks it to stop.",
+                "Ctrl+C sends SIGINT to the foreground program; `&` runs in the background; `jobs` and `fg` manage it."
+              ]
+            },
+            {
+              "title": "Environment variables",
+              "details": [
+                "`export APP_ENV=dev` sets a variable for child processes; `echo $PATH` shows where commands are searched.",
+                "Secrets such as API keys are passed as environment variables or files, never hard-coded in code."
+              ]
+            },
+            {
+              "title": "Services and logs",
+              "details": [
+                "systemd runs long-lived services: `systemctl status ssh`; logs via `journalctl -u ssh --since today`.",
+                "`tail -f app.log` follows a log live; `grep -i error app.log | wc -l` counts errors."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "fe.processes-environment-variables-services-and-log"
+          ],
+          "video": {
+            "resourceId": "foundation-video-processes",
+            "locator": "Job control and environment variables sections."
+          },
+          "reading": {
+            "resourceId": "fe-book-tlcl",
+            "locator": "The Linux Command Line: chapters 'Processes' and 'The Environment'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a04-processes-environment-variables-services-and-log",
+            "title": "Observe and control a program",
+            "kind": "lab",
+            "instructions": [
+              "Write loop.py that prints a counter every second and reads a GREETING environment variable.",
+              "Run it with `GREETING=hi python3 loop.py > out.log &`, find its PID with ps, follow the log with tail -f.",
+              "Stop it with kill and confirm it is gone.",
+              "Run `journalctl --since '10 min ago' | tail` (WSL may need systemd enabled) or explain why it is unavailable."
+            ],
+            "deliverables": [
+              "Commands and outputs for each step.",
+              "loop.py."
+            ],
+            "acceptanceCriteria": [
+              "The program reads GREETING from the environment.",
+              "Only the exercise process is stopped, by PID."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l04-processes-environment-variables-services-and-log-check-01",
+                "kind": "short-answer",
+                "prompt": "How do you pass a secret to a program without hard-coding it?",
+                "answer": "Through an environment variable or a protected file.",
+                "explanation": "Code and Git history must not contain secrets."
+              },
+              {
+                "id": "fe-l04-processes-environment-variables-services-and-log-check-02",
+                "kind": "short-answer",
+                "prompt": "What does tail -f do?",
+                "answer": "Shows new lines of a file as they are written.",
+                "explanation": "Useful for watching logs live."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain PATH in one sentence.",
+            "How would you find which process is using the most CPU?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l05-pipes-text-tools-ssh-and-small-bash-scripts",
+          "title": "Pipes, text tools, SSH and small Bash scripts",
+          "objectives": [
+            "Combine grep, sort, uniq, cut, awk and wc with pipes to answer questions about text data.",
+            "Connect to a remote machine with SSH keys and copy files with scp.",
+            "Write a Bash script with variables, arguments, conditions, loops and `set -euo pipefail`."
+          ],
+          "topics": [
+            {
+              "title": "Pipelines",
+              "details": [
+                "`cat access.log | cut -d' ' -f1 | sort | uniq -c | sort -nr | head` lists top client IPs.",
+                "Redirect output with `>`, append with `>>`, send errors with `2>`; `| tee file` saves and shows."
+              ]
+            },
+            {
+              "title": "SSH",
+              "details": [
+                "`ssh-keygen -t ed25519` creates a key pair; the public key goes on the server, the private key never leaves your machine.",
+                "`ssh user@host`, `scp file user@host:/path`; GitHub also uses your SSH key."
+              ]
+            },
+            {
+              "title": "Scripting",
+              "details": [
+                "Start scripts with `#!/usr/bin/env bash` and `set -euo pipefail` so they stop on errors and unset variables.",
+                "`$1` is the first argument; `if [[ -f \"$1\" ]]; then ... fi`; `for f in *.csv; do ... done`; always quote variables."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "fe.pipes-text-tools-ssh-and-small-bash-scripts"
+          ],
+          "video": {
+            "resourceId": "fe-video-shell-tools",
+            "locator": "Watch fully and do the exercises at the end of the notes page."
+          },
+          "reading": {
+            "resourceId": "foundation-book-bash",
+            "locator": "GNU Bash Reference Manual: section 3.2.3 Pipelines, 3.6 Redirections and 6.4 Bash Conditional Expressions."
+          },
+          "supplementaryResourceIds": [
+            "fe-book-tlcl"
+          ],
+          "assignment": {
+            "id": "fe-a05-pipes-text-tools-ssh-and-small-bash-scripts",
+            "title": "Log report script",
+            "kind": "lab",
+            "instructions": [
+              "Generate a fake access log of 1,000 lines with Python (random IPs, paths, status codes).",
+              "Write report.sh that takes the log path as an argument and prints: total requests, top 5 IPs, count of 5xx errors.",
+              "Make the script fail with a clear message if the file does not exist; use set -euo pipefail.",
+              "Create an SSH key and add it to your GitHub account; test with `ssh -T git@github.com`."
+            ],
+            "deliverables": [
+              "report.sh and sample output.",
+              "Proof the GitHub SSH test succeeded (no private key shown)."
+            ],
+            "acceptanceCriteria": [
+              "report.sh output matches a Python-computed check on the same file.",
+              "Missing-file case exits non-zero with a message."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l05-pipes-text-tools-ssh-and-small-bash-scripts-check-01",
+                "kind": "short-answer",
+                "prompt": "What does `set -e` do in a script?",
+                "answer": "Stops the script when a command fails.",
+                "explanation": "Without it, errors are silently ignored."
+              },
+              {
+                "id": "fe-l05-pipes-text-tools-ssh-and-small-bash-scripts-check-02",
+                "kind": "short-answer",
+                "prompt": "Which SSH key do you share?",
+                "answer": "Only the public key (.pub).",
+                "explanation": "The private key stays on your machine."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a one-line pipeline that counts unique words in a file.",
+            "Why quote \"$var\" in Bash?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m03-git-github",
+      "title": "03. Git and GitHub collaboration",
+      "stage": "foundation",
+      "description": "Go beyond commit and push: branches, merges, conflicts, pull requests, code review and automated checks with GitHub Actions. Every role uses this daily.",
+      "prerequisites": [
+        "fe-m01-dev-setup",
+        "foundation-module-05-engineering"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l06-branches-merges-rebases-and-conflicts",
+          "title": "Branches, merges, rebases and conflicts",
+          "objectives": [
+            "Create feature branches, merge them and explain fast-forward versus merge commits.",
+            "Resolve a merge conflict by hand and verify the result.",
+            "Undo safely with git restore, git revert and git reset --soft, and know when not to rewrite history."
+          ],
+          "topics": [
+            {
+              "title": "The model",
+              "details": [
+                "A commit is a snapshot; a branch is a movable name pointing at a commit; HEAD is where you are.",
+                "`git switch -c feature/login`, `git merge feature/login`, `git log --oneline --graph --all`."
+              ]
+            },
+            {
+              "title": "Conflicts",
+              "details": [
+                "A conflict happens when two branches change the same lines; Git marks them with <<<<<<<, ======= and >>>>>>>.",
+                "Edit the file to the correct final content, `git add` it, then continue the merge or rebase. Run the tests after."
+              ]
+            },
+            {
+              "title": "Rebase and undo",
+              "details": [
+                "`git rebase main` replays your commits on top of main for a straight history; never rebase commits others already pulled.",
+                "`git revert <sha>` undoes a pushed commit with a new commit; `git restore file` discards local edits."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "fe.branches-merges-rebases-and-conflicts"
+          ],
+          "video": {
+            "resourceId": "foundation-video-git",
+            "locator": "Branching and merging part of the lecture."
+          },
+          "reading": {
+            "resourceId": "foundation-book-pro-git",
+            "locator": "Pro Git chapter 3 'Git Branching' (3.1-3.6) and section 2.4 'Undoing Things'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a06-branches-merges-rebases-and-conflicts",
+            "title": "Create and resolve a conflict",
+            "kind": "lab",
+            "instructions": [
+              "In a new repo, commit a file recipe.txt with five lines on main.",
+              "Create branch a and branch b; change line 3 differently on each and commit.",
+              "Merge a into main, then merge b and resolve the conflict to a sensible combined line.",
+              "Repeat using rebase instead of merge in a copy of the repo and compare `git log --graph`."
+            ],
+            "deliverables": [
+              "Both graph outputs.",
+              "A short explanation of when you would choose merge or rebase."
+            ],
+            "acceptanceCriteria": [
+              "The final file has no conflict markers and both histories are explained correctly."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l06-branches-merges-rebases-and-conflicts-check-01",
+                "kind": "short-answer",
+                "prompt": "What is a branch in Git?",
+                "answer": "A movable pointer to a commit.",
+                "explanation": "Creating one is cheap; it is just a name."
+              },
+              {
+                "id": "fe-l06-branches-merges-rebases-and-conflicts-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you undo a commit that is already pushed and shared?",
+                "answer": "git revert <commit>.",
+                "explanation": "Revert adds a new commit instead of rewriting shared history."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Draw the commit graph after a fast-forward merge.",
+            "Why is rebasing shared commits dangerous?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l07-pull-requests-code-review-and-a-good-readme",
+          "title": "Pull requests, code review and a good README",
+          "objectives": [
+            "Open a pull request from a branch, request review and respond to comments.",
+            "Write small, focused commits with clear messages.",
+            "Write a README that lets a stranger set up and run your project in five minutes."
+          ],
+          "topics": [
+            {
+              "title": "Pull request flow",
+              "details": [
+                "Push a branch, open a PR describing what and why, link an issue, keep it small (under ~400 changed lines).",
+                "Reviewers comment on lines; you push fixes to the same branch; squash-merge keeps main tidy."
+              ]
+            },
+            {
+              "title": "Commit messages",
+              "details": [
+                "Imperative summary under ~50 characters ('Add retry to payment client'), blank line, then the why.",
+                "One logical change per commit makes review and revert easy."
+              ]
+            },
+            {
+              "title": "README essentials",
+              "details": [
+                "What it is, why it exists, setup commands, how to run tests, example output, architecture sketch, limitations.",
+                "Recruiters open your GitHub; a clear README is often the first evidence they read."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "fe.pull-requests-code-review-and-a-good-readme"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-github-prs",
+            "locator": "About pull requests, then the linked pages 'Creating a pull request' and 'Reviewing proposed changes in a pull request'."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-technical-writing"
+          ],
+          "assignment": {
+            "id": "fe-a07-pull-requests-code-review-and-a-good-readme",
+            "title": "Review loop on your own repo",
+            "kind": "lab",
+            "instructions": [
+              "Create a GitHub repository for your playground project and push main.",
+              "Make a feature branch that adds a function plus a test; open a pull request with a description template (What, Why, How tested).",
+              "Review your own PR line by line, leave two comments, address them in new commits, then squash-merge.",
+              "Write a README with setup, run, test and limitations sections."
+            ],
+            "deliverables": [
+              "Link to the merged pull request.",
+              "The README."
+            ],
+            "acceptanceCriteria": [
+              "The PR has a description, at least two review comments and follow-up commits.",
+              "A fresh clone can follow the README to run the tests."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l07-pull-requests-code-review-and-a-good-readme-check-01",
+                "kind": "short-answer",
+                "prompt": "Why keep pull requests small?",
+                "answer": "They are easier to review well and safer to revert.",
+                "explanation": "Large PRs hide bugs."
+              },
+              {
+                "id": "fe-l07-pull-requests-code-review-and-a-good-readme-check-02",
+                "kind": "short-answer",
+                "prompt": "What should a README let a stranger do?",
+                "answer": "Set up, run and test the project quickly.",
+                "explanation": "It is the front door of a repository."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Rewrite a vague commit message 'fixed stuff' into a good one.",
+            "List the sections of your README template."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l08-automate-checks-with-github-actions",
+          "title": "Automate checks with GitHub Actions",
+          "objectives": [
+            "Explain workflows, jobs, steps, runners and triggers.",
+            "Write a workflow that installs dependencies and runs tests on every push and pull request.",
+            "Read a failing CI log and fix the cause."
+          ],
+          "topics": [
+            {
+              "title": "Concepts",
+              "details": [
+                "A workflow is a YAML file in .github/workflows; it runs on events like push and pull_request.",
+                "Jobs run on runners (fresh virtual machines); steps either run shell commands or use actions like actions/checkout."
+              ]
+            },
+            {
+              "title": "A minimal Python workflow",
+              "details": [
+                "Checkout, setup-python, `pip install -r requirements.txt`, `pytest -q`.",
+                "Add a status badge to the README; protect main so PRs must pass checks before merging."
+              ]
+            },
+            {
+              "title": "Secrets in CI",
+              "details": [
+                "Store keys in repository Secrets and read them as `${{ secrets.NAME }}`; never echo them in logs.",
+                "Forked PRs do not receive secrets by default, which protects you."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "fe.automate-checks-with-github-actions"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-322d31448100",
+            "locator": "GitHub Actions documentation: 'Understanding GitHub Actions' and the quickstart 'Building and testing Python'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a08-automate-checks-with-github-actions",
+            "title": "Add CI to your repo",
+            "kind": "lab",
+            "instructions": [
+              "Add .github/workflows/ci.yml running pytest on push and pull_request with Python 3.12.",
+              "Open a PR with a deliberately failing test; read the log and fix it.",
+              "Add a CI badge to the README and enable branch protection requiring the check."
+            ],
+            "deliverables": [
+              "ci.yml and links to one failing and one passing run."
+            ],
+            "acceptanceCriteria": [
+              "CI blocks merging while the test fails and passes after the fix."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l08-automate-checks-with-github-actions-check-01",
+                "kind": "short-answer",
+                "prompt": "Where do GitHub Actions workflow files live?",
+                "answer": ".github/workflows/ in the repository.",
+                "explanation": "Each YAML file there is a workflow."
+              },
+              {
+                "id": "fe-l08-automate-checks-with-github-actions-check-02",
+                "kind": "short-answer",
+                "prompt": "How should CI read an API key?",
+                "answer": "From an encrypted repository secret.",
+                "explanation": "Never commit or print secrets."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Name the four building blocks of a workflow.",
+            "What does branch protection add to CI?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m04-dsa-interviews",
+      "title": "04. Data structures and algorithms for interviews",
+      "stage": "foundation",
+      "description": "Learn the problem patterns that product companies test, from arrays and hashing to graphs and dynamic programming, with a weekly practice routine.",
+      "prerequisites": [
+        "foundation-module-04-problem-solving"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l09-arrays-hashing-two-pointers-and-sliding-windows",
+          "title": "Arrays, hashing, two pointers and sliding windows",
+          "objectives": [
+            "State the time and space complexity of common array and hash map operations.",
+            "Recognise when a problem is solved by a hash map, two pointers or a sliding window.",
+            "Solve and explain eight classic problems in Python with tests."
+          ],
+          "topics": [
+            {
+              "title": "Complexity first",
+              "details": [
+                "Big-O counts how work grows with input size n: O(1) lookup in a hash map, O(n) scan, O(n log n) sort, O(n^2) nested loops.",
+                "Always state time and space complexity out loud in interviews."
+              ]
+            },
+            {
+              "title": "Patterns",
+              "details": [
+                "Hash map: count or remember seen values (Two Sum, Group Anagrams).",
+                "Two pointers: sorted array or palindrome checks moving inward. Sliding window: longest substring without repeats, max sum of k items."
+              ]
+            },
+            {
+              "title": "How to practise",
+              "details": [
+                "Read, restate, give examples, brute force, optimise, code, test edge cases (empty, one item, duplicates, negatives).",
+                "If stuck for 25 minutes, read the solution, then re-solve it from memory two days later."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "fe.arrays-hashing-two-pointers-and-sliding-windows"
+          ],
+          "video": {
+            "resourceId": "foundation-video-algorithms",
+            "locator": "Whole lecture: searching, sorting and running time."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-algorithms",
+            "locator": "Problem Solving with Algorithms and Data Structures: chapter 'Analysis' (Big-O notation and the performance of Python lists and dictionaries) and the 'Hashing' section of the 'Searching and Sorting' chapter."
+          },
+          "supplementaryResourceIds": [
+            "fe-practice-neetcode"
+          ],
+          "assignment": {
+            "id": "fe-a09-arrays-hashing-two-pointers-and-sliding-windows",
+            "title": "Eight pattern problems",
+            "kind": "problem-set",
+            "instructions": [
+              "From the NeetCode roadmap 'Arrays & Hashing', 'Two Pointers' and 'Sliding Window' sections, solve 8 problems (at least 3 medium).",
+              "For each, write the brute force idea, the optimised idea, complexity and pytest cases.",
+              "Keep a log: date, problem, pattern, time taken, mistakes."
+            ],
+            "deliverables": [
+              "Repository folder dsa/arrays with solutions, tests and the log."
+            ],
+            "acceptanceCriteria": [
+              "Every solution passes its tests including edge cases.",
+              "Each entry states correct time and space complexity."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l09-arrays-hashing-two-pointers-and-sliding-windows-check-01",
+                "kind": "short-answer",
+                "prompt": "Average time to look up a key in a hash map?",
+                "answer": "O(1).",
+                "explanation": "Hash maps trade memory for constant-time lookup on average."
+              },
+              {
+                "id": "fe-l09-arrays-hashing-two-pointers-and-sliding-windows-check-02",
+                "kind": "short-answer",
+                "prompt": "When does a sliding window apply?",
+                "answer": "When the answer is a contiguous subarray or substring with a condition.",
+                "explanation": "You expand and shrink the window instead of rechecking everything."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain Two Sum's O(n) solution.",
+            "What edge cases do you test for array problems?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l10-stacks-queues-linked-lists-and-binary-search",
+          "title": "Stacks, queues, linked lists and binary search",
+          "objectives": [
+            "Implement a stack, queue and singly linked list and know their operation costs.",
+            "Apply binary search to sorted arrays and to 'search the answer' problems.",
+            "Solve eight problems from these patterns with tests."
+          ],
+          "topics": [
+            {
+              "title": "Stacks and queues",
+              "details": [
+                "Stack (LIFO) for matching brackets, undo, monotonic-stack 'next greater element'.",
+                "Queue (FIFO) with collections.deque for breadth-first processing."
+              ]
+            },
+            {
+              "title": "Linked lists",
+              "details": [
+                "Reverse a list, detect a cycle with slow/fast pointers, merge two sorted lists; draw pointers on paper.",
+                "A dummy head node removes special cases at the start of the list."
+              ]
+            },
+            {
+              "title": "Binary search",
+              "details": [
+                "Halve the search space each step: O(log n). Write the loop invariant: answer is always in [lo, hi].",
+                "Works on any monotonic condition, e.g. 'smallest capacity that ships packages in D days'."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "fe.stacks-queues-linked-lists-and-binary-search"
+          ],
+          "video": {
+            "resourceId": "foundation-video-data-structures",
+            "locator": "Whole lecture: linked lists, trees and hash tables."
+          },
+          "reading": {
+            "resourceId": "foundation-book-python-algorithms",
+            "locator": "Chapter 'Basic Data Structures' (stacks, queues, deques, linked lists) and 'The Binary Search' section of the 'Searching and Sorting' chapter."
+          },
+          "supplementaryResourceIds": [
+            "fe-practice-neetcode"
+          ],
+          "assignment": {
+            "id": "fe-a10-stacks-queues-linked-lists-and-binary-search",
+            "title": "Eight more pattern problems",
+            "kind": "problem-set",
+            "instructions": [
+              "Solve 8 problems from NeetCode 'Stack', 'Binary Search' and 'Linked List' (at least 3 medium).",
+              "Implement your own Stack and LinkedList classes with tests before using built-ins.",
+              "Add each to your practice log with pattern and mistakes."
+            ],
+            "deliverables": [
+              "dsa/stack-search folder with solutions, tests and log updates."
+            ],
+            "acceptanceCriteria": [
+              "Binary search solutions state their loop invariant in a comment.",
+              "All tests pass."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l10-stacks-queues-linked-lists-and-binary-search-check-01",
+                "kind": "short-answer",
+                "prompt": "Time complexity of binary search?",
+                "answer": "O(log n).",
+                "explanation": "Each step halves the remaining range."
+              },
+              {
+                "id": "fe-l10-stacks-queues-linked-lists-and-binary-search-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you detect a cycle in a linked list in O(1) space?",
+                "answer": "Slow and fast pointers (Floyd's algorithm).",
+                "explanation": "If they meet, there is a cycle."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When would you choose deque over list in Python?",
+            "State the binary search invariant you use."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l11-trees-graphs-heaps-and-bfs-dfs",
+          "title": "Trees, graphs, heaps and BFS/DFS",
+          "objectives": [
+            "Traverse binary trees recursively and iteratively (pre/in/post-order, level order).",
+            "Model problems as graphs and apply BFS for shortest steps and DFS for connectivity.",
+            "Use a heap (heapq) for top-k and scheduling problems."
+          ],
+          "topics": [
+            {
+              "title": "Trees",
+              "details": [
+                "Binary search tree property: left < node < right; in-order traversal returns sorted values.",
+                "Most tree problems are 'solve for children, combine at the node' recursion: height, diameter, validate BST."
+              ]
+            },
+            {
+              "title": "Graphs",
+              "details": [
+                "Store as adjacency lists (dict of lists). BFS with a queue finds the fewest steps in unweighted graphs; DFS with recursion or a stack explores components.",
+                "Grids are graphs: count islands with DFS; topological sort orders tasks with dependencies."
+              ]
+            },
+            {
+              "title": "Heaps",
+              "details": [
+                "heapq gives O(log n) push/pop of the smallest item; keep a size-k heap for 'top k frequent'.",
+                "Dijkstra's shortest path uses a heap for weighted graphs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "fe.trees-graphs-heaps-and-bfs-dfs"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "foundation-book-python-algorithms",
+            "locator": "Chapter 'Trees and Tree Algorithms' (traversals, binary heaps, binary search trees) and chapter 'Graphs and Graph Algorithms' (breadth-first search, depth-first search, topological sorting, Dijkstra)."
+          },
+          "supplementaryResourceIds": [
+            "fe-practice-neetcode",
+            "gate-b-ods"
+          ],
+          "assignment": {
+            "id": "fe-a11-trees-graphs-heaps-and-bfs-dfs",
+            "title": "Ten tree and graph problems",
+            "kind": "problem-set",
+            "instructions": [
+              "Solve 10 problems from NeetCode 'Trees', 'Heap / Priority Queue' and 'Graphs' (at least 5 medium).",
+              "For two graph problems, draw the graph and write the BFS/DFS order by hand before coding.",
+              "Record time per problem; repeat any problem that took over 40 minutes after three days."
+            ],
+            "deliverables": [
+              "dsa/trees-graphs folder with solutions, tests, drawings and log."
+            ],
+            "acceptanceCriteria": [
+              "Each solution includes complexity and passes tests.",
+              "Repeated problems show faster times in the log."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l11-trees-graphs-heaps-and-bfs-dfs-check-01",
+                "kind": "short-answer",
+                "prompt": "Which traversal gives the fewest steps in an unweighted graph?",
+                "answer": "Breadth-first search (BFS).",
+                "explanation": "BFS explores level by level."
+              },
+              {
+                "id": "fe-l11-trees-graphs-heaps-and-bfs-dfs-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you get the k largest items efficiently?",
+                "answer": "Keep a min-heap of size k.",
+                "explanation": "Push each item and pop when the heap exceeds k: O(n log k)."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain recursion on trees using tree height as the example.",
+            "How would you detect a cycle in a dependency graph?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l12-recursion-backtracking-dynamic-programming-and-a",
+          "title": "Recursion, backtracking, dynamic programming and a weekly interview routine",
+          "objectives": [
+            "Write backtracking solutions for subsets, permutations and combination sums.",
+            "Turn a recursive solution into dynamic programming with memoisation and then a table.",
+            "Follow a sustainable weekly routine and run a timed mock interview."
+          ],
+          "topics": [
+            {
+              "title": "Backtracking",
+              "details": [
+                "Choose, explore, un-choose: build a partial answer, recurse, then undo the choice.",
+                "Prune branches that cannot lead to a valid answer to save time."
+              ]
+            },
+            {
+              "title": "Dynamic programming",
+              "details": [
+                "DP = recursion + remembering answers to overlapping subproblems (climbing stairs, coin change, longest common subsequence).",
+                "Define the state, the transition and the base case in words before coding; then use @functools.cache or a table."
+              ]
+            },
+            {
+              "title": "Interview routine",
+              "details": [
+                "Aim for 5-7 problems a week mixed across patterns, one timed 45-minute mock, and revisiting failed problems.",
+                "Talk while you code: clarify, plan, code, test; interviewers grade communication as much as the answer."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "fe.recursion-backtracking-dynamic-programming-and-a"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "foundation-book-python-algorithms",
+            "locator": "Chapter 'Recursion', including its final section 'Dynamic Programming'."
+          },
+          "supplementaryResourceIds": [
+            "fe-practice-neetcode",
+            "fe-doc-tech-interview"
+          ],
+          "assignment": {
+            "id": "fe-a12-recursion-backtracking-dynamic-programming-and-a",
+            "title": "DP set and a mock interview",
+            "kind": "problem-set",
+            "instructions": [
+              "Solve 8 problems from NeetCode 'Backtracking', '1-D Dynamic Programming' and '2-D Dynamic Programming'.",
+              "For two DP problems write the recursive, memoised and table versions and compare speed.",
+              "Do one 45-minute timed mock (with a friend or speaking aloud to a recording) on an unseen medium problem; write a short self-review."
+            ],
+            "deliverables": [
+              "dsa/dp folder, the timing comparison and the mock self-review."
+            ],
+            "acceptanceCriteria": [
+              "Each DP solution names its state, transition and base case.",
+              "The self-review lists two concrete improvements."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l12-recursion-backtracking-dynamic-programming-and-a-check-01",
+                "kind": "short-answer",
+                "prompt": "What makes a problem suitable for DP?",
+                "answer": "Overlapping subproblems and optimal substructure.",
+                "explanation": "The same subproblem is solved many times."
+              },
+              {
+                "id": "fe-l12-recursion-backtracking-dynamic-programming-and-a-check-02",
+                "kind": "short-answer",
+                "prompt": "What are the three steps of backtracking?",
+                "answer": "Choose, explore (recurse), un-choose.",
+                "explanation": "Undoing the choice lets you try the next option."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain coin change's DP state.",
+            "What is your weekly practice plan?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m05-clean-code",
+      "title": "05. Object-oriented design and clean code",
+      "stage": "foundation",
+      "description": "Write code that others can read, test and change: classes and interfaces, type hints, small functions, naming and refactoring.",
+      "prerequisites": [
+        "foundation-module-02-python"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l13-classes-interfaces-and-composition",
+          "title": "Classes, interfaces and composition",
+          "objectives": [
+            "Model a small domain with classes, dataclasses and abstract base classes in Python.",
+            "Prefer composition over inheritance and explain the trade-off.",
+            "Apply encapsulation and the single-responsibility principle."
+          ],
+          "topics": [
+            {
+              "title": "Objects",
+              "details": [
+                "A class bundles data and behaviour; `@dataclass` removes boilerplate for data holders.",
+                "Encapsulation: hide internal details behind methods so callers cannot break invariants (e.g. balance never negative)."
+              ]
+            },
+            {
+              "title": "Interfaces",
+              "details": [
+                "An interface (abc.ABC or typing.Protocol) says what an object can do, not how. Code depends on the interface so implementations can be swapped (e.g. FakeEmailSender in tests)."
+              ]
+            },
+            {
+              "title": "Design principles",
+              "details": [
+                "Single responsibility: one reason to change per class. Composition: a Car has an Engine rather than inheriting from it.",
+                "These ideas transfer directly to Java, Go and TypeScript used in later modules."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "fe.classes-interfaces-and-composition"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "foundation-book-python-manual",
+            "locator": "Python Tutorial chapter 9 'Classes' and the library reference for dataclasses and abc."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-cosmic"
+          ],
+          "assignment": {
+            "id": "fe-a13-classes-interfaces-and-composition",
+            "title": "Library system model",
+            "kind": "coding",
+            "instructions": [
+              "Model a small library: Book, Member, Loan with rules (max 3 loans, no double loan of a copy).",
+              "Define a Notifier protocol with EmailNotifier and FakeNotifier; Library depends only on the protocol.",
+              "Write pytest tests using FakeNotifier for the borrowing rules."
+            ],
+            "deliverables": [
+              "Code and tests.",
+              "A class diagram sketch."
+            ],
+            "acceptanceCriteria": [
+              "Rules are enforced inside the classes, not by callers.",
+              "Tests run without any real email."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l13-classes-interfaces-and-composition-check-01",
+                "kind": "short-answer",
+                "prompt": "Why depend on an interface instead of a concrete class?",
+                "answer": "So implementations can be swapped, for example a fake in tests.",
+                "explanation": "This keeps code testable and flexible."
+              },
+              {
+                "id": "fe-l13-classes-interfaces-and-composition-check-02",
+                "kind": "short-answer",
+                "prompt": "Composition or inheritance for 'a Car has an Engine'?",
+                "answer": "Composition.",
+                "explanation": "Has-a relationships are composition; is-a may be inheritance."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain encapsulation with your Loan rule.",
+            "When is inheritance appropriate?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l14-readable-code-type-hints-and-refactoring",
+          "title": "Readable code, type hints and refactoring",
+          "objectives": [
+            "Spot common code smells: long functions, duplicated code, unclear names, deep nesting.",
+            "Refactor safely in small steps with tests as a safety net.",
+            "Add type hints and run a type checker and linter (mypy, ruff)."
+          ],
+          "topics": [
+            {
+              "title": "Smells and fixes",
+              "details": [
+                "Long function -> extract function; duplicate logic -> one helper; magic numbers -> named constants; nested ifs -> early returns.",
+                "Names should say what, not how: `unpaid_invoices` beats `list2`."
+              ]
+            },
+            {
+              "title": "Safe refactoring",
+              "details": [
+                "Tests first, then one small change at a time, running tests after each; commit often.",
+                "Refactoring changes structure, never behaviour."
+              ]
+            },
+            {
+              "title": "Tooling",
+              "details": [
+                "Type hints (`def total(items: list[Item]) -> Decimal`) document intent and catch bugs with mypy.",
+                "ruff formats and lints; add both to CI so style never becomes a review argument."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "fe.readable-code-type-hints-and-refactoring"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-refactoring",
+            "locator": "Refactoring.Guru: 'What is Refactoring', 'Code Smells' (Bloaters and Dispensables) and the 'Composing Methods' refactorings."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-swe"
+          ],
+          "assignment": {
+            "id": "fe-a14-readable-code-type-hints-and-refactoring",
+            "title": "Refactor a messy script",
+            "kind": "coding",
+            "instructions": [
+              "Take a 100+ line script you wrote earlier (or write a deliberately messy one) and add tests that pin its behaviour.",
+              "Refactor in at least six small commits: extract functions, rename, remove duplication, add type hints.",
+              "Add ruff and mypy to CI and fix all findings."
+            ],
+            "deliverables": [
+              "Before/after code and the commit list.",
+              "CI run passing with ruff and mypy."
+            ],
+            "acceptanceCriteria": [
+              "Tests pass after every commit.",
+              "mypy reports no errors."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l14-readable-code-type-hints-and-refactoring-check-01",
+                "kind": "short-answer",
+                "prompt": "What must not change during a refactor?",
+                "answer": "The program's behaviour.",
+                "explanation": "Only the structure changes; tests prove it."
+              },
+              {
+                "id": "fe-l14-readable-code-type-hints-and-refactoring-check-02",
+                "kind": "short-answer",
+                "prompt": "Fix for deeply nested if statements?",
+                "answer": "Use early returns (guard clauses).",
+                "explanation": "It flattens the code and clarifies the main path."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "List three smells you found in your code.",
+            "Why add linting to CI?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m06-sql-practice",
+      "title": "06. SQL beyond the basics",
+      "stage": "foundation",
+      "description": "Write the SQL that interviews and real jobs need: joins, grouping, window functions and CTEs, then understand indexes, transactions and query plans.",
+      "prerequisites": [
+        "foundation-module-03-data"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l15-joins-aggregation-ctes-and-window-functions",
+          "title": "Joins, aggregation, CTEs and window functions",
+          "objectives": [
+            "Choose INNER, LEFT and anti-joins correctly and predict row counts.",
+            "Use GROUP BY with HAVING and CTEs to break a question into steps.",
+            "Use window functions (ROW_NUMBER, RANK, LAG, running SUM) for ranking and time comparisons."
+          ],
+          "topics": [
+            {
+              "title": "Joins",
+              "details": [
+                "INNER keeps matches only; LEFT keeps all left rows with NULLs when unmatched; `LEFT JOIN ... WHERE right.id IS NULL` finds missing matches.",
+                "Duplicate keys multiply rows; always check row counts before and after a join."
+              ]
+            },
+            {
+              "title": "Grouping and CTEs",
+              "details": [
+                "WHERE filters rows before grouping, HAVING filters groups after.",
+                "`WITH monthly AS (...) SELECT ... FROM monthly` keeps complex queries readable."
+              ]
+            },
+            {
+              "title": "Window functions",
+              "details": [
+                "`ROW_NUMBER() OVER (PARTITION BY customer ORDER BY ordered_at DESC)` picks each customer's latest order.",
+                "`LAG(amount) OVER (ORDER BY month)` compares with the previous month; `SUM(x) OVER (ORDER BY day)` gives running totals."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "fe.joins-aggregation-ctes-and-window-functions"
+          ],
+          "video": {
+            "resourceId": "foundation-video-sql-relating",
+            "locator": "Whole lecture on joins and relationships."
+          },
+          "reading": {
+            "resourceId": "sde-book-postgresql",
+            "locator": "PostgreSQL manual: Tutorial section 2.6 'Joins Between Tables', 2.7 'Aggregate Functions' and 3.5 'Window Functions'; reference 7.8 'WITH Queries'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a15-joins-aggregation-ctes-and-window-functions",
+            "title": "Twenty analytics questions",
+            "kind": "problem-set",
+            "instructions": [
+              "Load a small sample database (create tables customers, orders, order_items, products with 200+ generated rows) in PostgreSQL or SQLite.",
+              "Answer 20 questions including: top 3 products per category, month-over-month revenue change, customers with no orders, running total per day.",
+              "For five queries, compute the answer independently in Python and compare."
+            ],
+            "deliverables": [
+              "SQL file with the 20 queries and results.",
+              "The Python cross-checks."
+            ],
+            "acceptanceCriteria": [
+              "Cross-checked answers match exactly.",
+              "At least five queries use window functions."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l15-joins-aggregation-ctes-and-window-functions-check-01",
+                "kind": "short-answer",
+                "prompt": "How do you find customers with no orders?",
+                "answer": "LEFT JOIN orders and keep rows where the order id IS NULL.",
+                "explanation": "This is an anti-join."
+              },
+              {
+                "id": "fe-l15-joins-aggregation-ctes-and-window-functions-check-02",
+                "kind": "short-answer",
+                "prompt": "Difference between WHERE and HAVING?",
+                "answer": "WHERE filters rows before grouping; HAVING filters groups after aggregation.",
+                "explanation": "Aggregates are not available in WHERE."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a query for each customer's second order.",
+            "Why can a join increase row counts?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l16-indexes-transactions-isolation-and-query-plans",
+          "title": "Indexes, transactions, isolation and query plans",
+          "objectives": [
+            "Explain how a B-tree index speeds up lookups and what it costs on writes.",
+            "Read EXPLAIN ANALYZE output and tell a sequential scan from an index scan.",
+            "Explain ACID, transactions and the common isolation anomalies."
+          ],
+          "topics": [
+            {
+              "title": "Indexes",
+              "details": [
+                "An index is a sorted structure pointing to rows; it turns O(n) scans into O(log n) lookups for selective filters.",
+                "Indexes slow inserts/updates and use disk; index columns you filter, join or sort on."
+              ]
+            },
+            {
+              "title": "Query plans",
+              "details": [
+                "`EXPLAIN ANALYZE SELECT ...` shows the plan with real timings; look for Seq Scan on large tables and row-estimate mismatches."
+              ]
+            },
+            {
+              "title": "Transactions",
+              "details": [
+                "ACID: atomic (all or nothing), consistent, isolated, durable. `BEGIN; ... COMMIT;` or ROLLBACK.",
+                "Isolation levels trade safety for concurrency: lost updates and write skew are prevented by SELECT ... FOR UPDATE or SERIALIZABLE."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "fe.indexes-transactions-isolation-and-query-plans"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sde-book-postgresql",
+            "locator": "PostgreSQL manual: chapter 11 'Indexes' (11.1-11.3), section 14.1 'Using EXPLAIN' and chapter 13 'Concurrency Control' (13.1-13.2)."
+          },
+          "supplementaryResourceIds": [
+            "data-video-cmu"
+          ],
+          "assignment": {
+            "id": "fe-a16-indexes-transactions-isolation-and-query-plans",
+            "title": "Measure an index and a race",
+            "kind": "lab",
+            "instructions": [
+              "Create a table with 1,000,000 generated rows; time a filtered query with EXPLAIN ANALYZE before and after adding an index.",
+              "Open two psql sessions and reproduce a lost update on an account balance, then prevent it with SELECT ... FOR UPDATE.",
+              "Write a one-page note with both plans and the explanation."
+            ],
+            "deliverables": [
+              "Both EXPLAIN outputs, timings and the session transcripts."
+            ],
+            "acceptanceCriteria": [
+              "The plan changes from Seq Scan to Index Scan with a measured speed-up.",
+              "The lost update is reproduced and then prevented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l16-indexes-transactions-isolation-and-query-plans-check-01",
+                "kind": "short-answer",
+                "prompt": "What is the cost of adding an index?",
+                "answer": "Slower writes and extra storage.",
+                "explanation": "Every insert or update must also update the index."
+              },
+              {
+                "id": "fe-l16-indexes-transactions-isolation-and-query-plans-check-02",
+                "kind": "short-answer",
+                "prompt": "What does SELECT ... FOR UPDATE do?",
+                "answer": "Locks the selected rows until the transaction ends.",
+                "explanation": "Other writers wait, preventing lost updates."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain ACID with a bank transfer.",
+            "How do you decide which column to index?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m07-networks-web",
+      "title": "07. Networks and the web",
+      "stage": "foundation",
+      "description": "Understand what happens between your code and another machine: IP, TCP, DNS, TLS, HTTP, REST APIs and JSON.",
+      "prerequisites": [
+        "foundation-module-07-connected-responsible"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l17-ip-ports-tcp-dns-and-tls",
+          "title": "IP, ports, TCP, DNS and TLS",
+          "objectives": [
+            "Explain IP addresses, ports, TCP versus UDP and the TCP handshake.",
+            "Trace a DNS lookup with dig and explain record types (A, CNAME, MX).",
+            "Explain what TLS provides and inspect a certificate."
+          ],
+          "topics": [
+            {
+              "title": "Addresses and ports",
+              "details": [
+                "An IP address finds a machine; a port finds a program on it (HTTPS 443, PostgreSQL 5432, SSH 22).",
+                "TCP gives reliable ordered delivery with a 3-way handshake; UDP is faster but unreliable (DNS, video)."
+              ]
+            },
+            {
+              "title": "DNS",
+              "details": [
+                "DNS turns names into IPs: `dig example.com A`; CNAME aliases another name; TTL controls caching.",
+                "Many 'the site is down' incidents are DNS or certificate problems."
+              ]
+            },
+            {
+              "title": "TLS",
+              "details": [
+                "TLS encrypts traffic and proves the server's identity with a certificate signed by a trusted authority.",
+                "`openssl s_client -connect github.com:443` or the browser lock icon shows the certificate chain and expiry."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "fe.ip-ports-tcp-dns-and-tls"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-mdn-http",
+            "locator": "MDN: 'An overview of HTTP' and 'Evolution of HTTP', plus the glossary entries for TCP, DNS and TLS linked from those pages."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-692241393bea",
+            "advanced-reading-4414e131c177"
+          ],
+          "assignment": {
+            "id": "fe-a17-ip-ports-tcp-dns-and-tls",
+            "title": "Trace a request",
+            "kind": "lab",
+            "instructions": [
+              "Use dig to resolve three domains; record A/CNAME records and TTLs.",
+              "Use `curl -v https://example.com` and label the DNS, TCP connect, TLS handshake and HTTP request parts of the output.",
+              "Inspect a certificate's issuer and expiry with openssl.",
+              "Write a 10-step explanation of what happens when you type a URL and press Enter."
+            ],
+            "deliverables": [
+              "Annotated outputs and the 10-step explanation."
+            ],
+            "acceptanceCriteria": [
+              "The explanation covers DNS, TCP, TLS, HTTP request/response and rendering in the right order."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l17-ip-ports-tcp-dns-and-tls-check-01",
+                "kind": "short-answer",
+                "prompt": "Default port for HTTPS?",
+                "answer": "443.",
+                "explanation": "HTTP uses 80."
+              },
+              {
+                "id": "fe-l17-ip-ports-tcp-dns-and-tls-check-02",
+                "kind": "short-answer",
+                "prompt": "What two things does TLS provide?",
+                "answer": "Encryption and server authentication (and integrity).",
+                "explanation": "The certificate proves who you are talking to."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What happens when you type a URL? (Practise this classic interview question.)",
+            "TCP or UDP for a payment API, and why?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l18-http-rest-apis-json-and-authentication-headers",
+          "title": "HTTP, REST APIs, JSON and authentication headers",
+          "objectives": [
+            "Use HTTP methods and status codes correctly in API design.",
+            "Call a REST API with curl and Python, handling errors, timeouts and pagination.",
+            "Explain API keys, bearer tokens and cookies at a high level."
+          ],
+          "topics": [
+            {
+              "title": "HTTP semantics",
+              "details": [
+                "GET reads, POST creates, PUT replaces, PATCH updates, DELETE removes. GET must not change data.",
+                "2xx success, 3xx redirect, 4xx client error (400 bad input, 401 not logged in, 403 not allowed, 404 missing, 429 rate limited), 5xx server error."
+              ]
+            },
+            {
+              "title": "REST design",
+              "details": [
+                "Resources are nouns: `/orders/42/items`; filters as query parameters; JSON bodies; consistent error format.",
+                "Idempotent methods (GET, PUT, DELETE) can be retried safely; POST needs an idempotency key to be safe to retry."
+              ]
+            },
+            {
+              "title": "Calling APIs",
+              "details": [
+                "Python requests: set `timeout=`, check `response.raise_for_status()`, follow pagination links, back off on 429.",
+                "Auth: `Authorization: Bearer <token>` header; never put secrets in URLs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "fe.http-rest-apis-json-and-authentication-headers"
+          ],
+          "video": {
+            "resourceId": "foundation-video-http",
+            "locator": "The HTTP portion of the lecture."
+          },
+          "reading": {
+            "resourceId": "fe-doc-mdn-http",
+            "locator": "MDN: 'HTTP request methods', 'HTTP response status codes' and 'HTTP headers: Authorization'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-e593c606c957"
+          ],
+          "assignment": {
+            "id": "fe-a18-http-rest-apis-json-and-authentication-headers",
+            "title": "Robust API client",
+            "kind": "coding",
+            "instructions": [
+              "Write a Python client for the public GitHub REST API that lists a user's repositories across all pages.",
+              "Handle timeouts, non-200 responses and rate limiting (respect the reset header) with clear messages.",
+              "Write tests using a fake HTTP layer (responses or a mocked session) for success, 404 and 429."
+            ],
+            "deliverables": [
+              "Client code and tests."
+            ],
+            "acceptanceCriteria": [
+              "All pages are collected.",
+              "Tests cover success, not found and rate limiting without network calls."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l18-http-rest-apis-json-and-authentication-headers-check-01",
+                "kind": "short-answer",
+                "prompt": "Difference between 401 and 403?",
+                "answer": "401: not authenticated; 403: authenticated but not allowed.",
+                "explanation": "Identity versus permission."
+              },
+              {
+                "id": "fe-l18-http-rest-apis-json-and-authentication-headers-check-02",
+                "kind": "short-answer",
+                "prompt": "Why must GET not change data?",
+                "answer": "Clients, caches and crawlers may repeat GET requests freely.",
+                "explanation": "GET is defined as safe."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Design endpoints for a to-do app.",
+            "How would you retry a failed POST safely?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m08-containers",
+      "title": "08. Docker and containers",
+      "stage": "foundation",
+      "description": "Package any app with its dependencies so it runs the same everywhere. Containers are required for every backend, data, ML and cloud role.",
+      "prerequisites": [
+        "fe-m02-linux-bash"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l19-images-containers-volumes-and-networking",
+          "title": "Images, containers, volumes and networking",
+          "objectives": [
+            "Explain images versus containers and how layers are cached.",
+            "Run, inspect, stop and remove containers; map ports and mount volumes.",
+            "Run PostgreSQL in a container and connect from your machine."
+          ],
+          "topics": [
+            {
+              "title": "Concepts",
+              "details": [
+                "An image is a read-only template (like a class); a container is a running instance (like an object).",
+                "Containers share the host kernel; they are lighter than virtual machines but are not a strong security boundary by default."
+              ]
+            },
+            {
+              "title": "Everyday commands",
+              "details": [
+                "`docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=dev postgres:17`, `docker ps`, `docker logs -f <id>`, `docker exec -it <id> bash`, `docker rm -f <id>`.",
+                "Port mapping host:container; `-v pgdata:/var/lib/postgresql/data` keeps data after the container is removed."
+              ]
+            },
+            {
+              "title": "Networks",
+              "details": [
+                "Containers on the same user-defined network reach each other by container name (e.g. `db:5432`)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "fe.images-containers-volumes-and-networking"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-docker-start",
+            "locator": "Docker Get started: 'What is a container?', 'What is an image?', 'Publishing and exposing ports' and 'Persisting container data'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a19-images-containers-volumes-and-networking",
+            "title": "Database in a container",
+            "kind": "lab",
+            "instructions": [
+              "Install Docker (Docker Desktop with WSL integration, or Docker Engine on Linux).",
+              "Run PostgreSQL with a named volume; create a table and insert rows with psql.",
+              "Remove and recreate the container with the same volume and show the data survived.",
+              "Explain image, container, volume and port mapping in your own words."
+            ],
+            "deliverables": [
+              "Command transcript and explanation."
+            ],
+            "acceptanceCriteria": [
+              "Data persists across container recreation.",
+              "You can connect from the host on the mapped port."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l19-images-containers-volumes-and-networking-check-01",
+                "kind": "short-answer",
+                "prompt": "Image versus container?",
+                "answer": "An image is a template; a container is a running instance of it.",
+                "explanation": "Many containers can run from one image."
+              },
+              {
+                "id": "fe-l19-images-containers-volumes-and-networking-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you keep database data when the container is deleted?",
+                "answer": "Mount a volume.",
+                "explanation": "Volumes live outside the container's writable layer."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why are containers lighter than VMs?",
+            "What does -p 8080:80 mean?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l20-dockerfiles-and-docker-compose-for-multi-service",
+          "title": "Dockerfiles and Docker Compose for multi-service apps",
+          "objectives": [
+            "Write a Dockerfile for a Python web app with small, cache-friendly layers.",
+            "Use multi-stage builds and a non-root user.",
+            "Run an app plus database plus cache together with Docker Compose."
+          ],
+          "topics": [
+            {
+              "title": "Dockerfile",
+              "details": [
+                "FROM, WORKDIR, COPY requirements first, RUN pip install, COPY code, USER app, EXPOSE, CMD.",
+                "Copying requirements before code means dependency layers are reused when only code changes."
+              ]
+            },
+            {
+              "title": "Smaller and safer images",
+              "details": [
+                "Multi-stage builds compile in one stage and copy only results into a slim runtime image.",
+                "Run as a non-root user, add a .dockerignore, and never bake secrets into images."
+              ]
+            },
+            {
+              "title": "Compose",
+              "details": [
+                "compose.yaml declares services (web, db, redis), ports, environment, volumes and depends_on with healthchecks.",
+                "`docker compose up --build`, `docker compose logs -f web`, `docker compose down -v`."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "fe.dockerfiles-and-docker-compose-for-multi-service"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-compose",
+            "locator": "Docker Compose: 'How Compose works', 'Quickstart' and 'Control startup order'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-341ad40b8cb5",
+            "sde-doc-docker"
+          ],
+          "assignment": {
+            "id": "fe-a20-dockerfiles-and-docker-compose-for-multi-service",
+            "title": "Containerise a small API",
+            "kind": "coding",
+            "instructions": [
+              "Write a FastAPI or Flask app with an endpoint that reads and writes PostgreSQL and caches a value in Redis.",
+              "Write a multi-stage Dockerfile running as a non-root user, plus .dockerignore.",
+              "Write compose.yaml for web, db and redis with healthchecks; run end to end.",
+              "Report the image size before and after the multi-stage build."
+            ],
+            "deliverables": [
+              "Dockerfile, compose.yaml, app code and size comparison."
+            ],
+            "acceptanceCriteria": [
+              "`docker compose up` starts all services and the endpoint works.",
+              "The container runs as a non-root user."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l20-dockerfiles-and-docker-compose-for-multi-service-check-01",
+                "kind": "short-answer",
+                "prompt": "Why COPY requirements.txt before the rest of the code?",
+                "answer": "So the dependency install layer is cached when only code changes.",
+                "explanation": "Builds become much faster."
+              },
+              {
+                "id": "fe-l20-dockerfiles-and-docker-compose-for-multi-service-check-02",
+                "kind": "short-answer",
+                "prompt": "Why avoid putting secrets in a Dockerfile?",
+                "answer": "They are stored in image layers that anyone with the image can read.",
+                "explanation": "Pass secrets at runtime instead."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain multi-stage builds.",
+            "What does depends_on with a healthcheck guarantee?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m09-cloud-basics",
+      "title": "09. Cloud fundamentals",
+      "stage": "foundation",
+      "description": "Learn what the cloud is, how accounts, regions and IAM work, the core services on AWS and Azure, and how to avoid surprise bills.",
+      "prerequisites": [
+        "fe-m07-networks-web",
+        "fe-m08-containers"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l21-cloud-concepts-accounts-regions-iam-and-billing",
+          "title": "Cloud concepts, accounts, regions, IAM and billing safety",
+          "objectives": [
+            "Explain IaaS, PaaS, SaaS, regions, availability zones and the shared responsibility model.",
+            "Create a cloud account safely: MFA on root, an admin user/role, a budget alert.",
+            "Read and write a basic IAM policy using least privilege."
+          ],
+          "topics": [
+            {
+              "title": "Concepts",
+              "details": [
+                "IaaS (virtual machines), PaaS (managed databases, app services), SaaS (finished apps). You manage less as you go up.",
+                "A region is a geographic area; availability zones are separate data centres in it, used for high availability."
+              ]
+            },
+            {
+              "title": "Account safety",
+              "details": [
+                "Turn on MFA for the root/owner account and stop using it day to day; use an IAM user or SSO role.",
+                "Create a monthly budget with email alerts before launching anything; delete resources after each practice session."
+              ]
+            },
+            {
+              "title": "IAM",
+              "details": [
+                "A policy says which actions on which resources are allowed. Start with nothing and add only what is needed (least privilege).",
+                "Roles give temporary credentials to services and people; prefer them over long-lived access keys."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "fe.cloud-concepts-accounts-regions-iam-and-billing"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-aws-overview",
+            "locator": "Overview of AWS: 'What is cloud computing?', 'Six advantages of cloud computing', 'Global infrastructure' and 'Security and compliance'."
+          },
+          "supplementaryResourceIds": [
+            "fe-doc-aws-budgets",
+            "security-doc-iam",
+            "fe-doc-az900"
+          ],
+          "assignment": {
+            "id": "fe-a21-cloud-concepts-accounts-regions-iam-and-billing",
+            "title": "Safe cloud account",
+            "kind": "lab",
+            "instructions": [
+              "Create an AWS free-tier account (or use Azure, since you hold AZ-900). Enable MFA on the root/owner.",
+              "Create a non-root admin identity and a budget of a small amount with an email alert.",
+              "Write an IAM policy that allows only reading one S3 bucket; test that it cannot delete objects.",
+              "Write down your teardown checklist."
+            ],
+            "deliverables": [
+              "Screenshots with account IDs hidden, the policy JSON and the checklist."
+            ],
+            "acceptanceCriteria": [
+              "MFA and a budget alert are on.",
+              "The policy allows read and denies delete in a test."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l21-cloud-concepts-accounts-regions-iam-and-billing-check-01",
+                "kind": "short-answer",
+                "prompt": "What is the shared responsibility model?",
+                "answer": "The provider secures the cloud infrastructure; you secure what you put in it (data, identities, configuration).",
+                "explanation": "Most breaches are customer misconfiguration."
+              },
+              {
+                "id": "fe-l21-cloud-concepts-accounts-regions-iam-and-billing-check-02",
+                "kind": "short-answer",
+                "prompt": "First thing to do in a new cloud account?",
+                "answer": "Enable MFA on the root account and set a budget alert.",
+                "explanation": "Prevents takeover and surprise bills."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain region versus availability zone.",
+            "Why prefer roles over access keys?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l22-core-services-compute-storage-databases-networki",
+          "title": "Core services: compute, storage, databases, networking and serverless",
+          "objectives": [
+            "Match common needs to services on AWS and Azure (VMs, object storage, managed databases, serverless functions).",
+            "Launch and connect to a small virtual machine and host a file in object storage.",
+            "Deploy a serverless function behind an HTTP endpoint and delete everything afterwards."
+          ],
+          "topics": [
+            {
+              "title": "Service map",
+              "details": [
+                "Compute: EC2 / Azure Virtual Machines; containers: ECS/EKS / AKS; functions: Lambda / Azure Functions.",
+                "Storage: S3 / Blob Storage; databases: RDS / Azure SQL; NoSQL: DynamoDB / Cosmos DB (you are DP-420 certified)."
+              ]
+            },
+            {
+              "title": "Networking",
+              "details": [
+                "A VPC/VNet is your private network; subnets can be public or private; security groups/NSGs are firewalls on instances.",
+                "Never open SSH (22) to 0.0.0.0/0 for long; restrict to your IP."
+              ]
+            },
+            {
+              "title": "Serverless",
+              "details": [
+                "Functions run on demand and you pay per call; great for small APIs and event handlers, with cold starts and time limits."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "fe.core-services-compute-storage-databases-networki"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-aws-overview",
+            "locator": "Overview of AWS: sections 'Compute services', 'Storage services', 'Database services', 'Networking and content delivery'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-372a6fcf1e13",
+            "advanced-reading-556968a60f31"
+          ],
+          "assignment": {
+            "id": "fe-a22-core-services-compute-storage-databases-networki",
+            "title": "Three-service tour",
+            "kind": "lab",
+            "instructions": [
+              "Launch the smallest free-tier VM, SSH in with a key, install nginx, view the page, then terminate it.",
+              "Create a private S3 bucket (or Blob container), upload a file and generate a time-limited pre-signed URL.",
+              "Deploy a 'hello' function behind an HTTP URL; call it with curl.",
+              "Confirm in the console that all resources are deleted and record the cost so far."
+            ],
+            "deliverables": [
+              "Commands/screenshots, the service map table you made, final cost."
+            ],
+            "acceptanceCriteria": [
+              "Every resource is deleted at the end.",
+              "The bucket is not public; access works only with the pre-signed URL."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l22-core-services-compute-storage-databases-networki-check-01",
+                "kind": "short-answer",
+                "prompt": "AWS equivalent of Azure Blob Storage?",
+                "answer": "Amazon S3.",
+                "explanation": "Both are object storage."
+              },
+              {
+                "id": "fe-l22-core-services-compute-storage-databases-networki-check-02",
+                "kind": "short-answer",
+                "prompt": "Why put a database in a private subnet?",
+                "answer": "So it is not reachable from the internet, only from your app.",
+                "explanation": "Reduces attack surface."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Pick services for a photo-sharing app.",
+            "What are serverless trade-offs?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m10-math",
+      "title": "10. Math foundations for ML, data and quant",
+      "stage": "foundation",
+      "description": "The linear algebra, calculus and probability behind machine learning, statistics and quantitative finance, taught with code.",
+      "prerequisites": [
+        "foundation-module-06-numerical-statistical"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l23-linear-algebra-vectors-matrices-and-what-they-do",
+          "title": "Linear algebra: vectors, matrices and what they do",
+          "objectives": [
+            "Compute dot products, matrix products and norms by hand and with NumPy.",
+            "Interpret a matrix as a transformation and explain rank and inverses.",
+            "Explain eigenvectors and why they matter for PCA and risk models."
+          ],
+          "topics": [
+            {
+              "title": "Vectors",
+              "details": [
+                "A vector is a list of numbers (a point or a direction). The dot product measures alignment; cosine similarity powers embeddings search."
+              ]
+            },
+            {
+              "title": "Matrices",
+              "details": [
+                "A matrix transforms vectors; multiplying matrices composes transformations. Shapes must match: (m x n)(n x p).",
+                "A neural network layer is a matrix multiply plus a bias and a non-linearity."
+              ]
+            },
+            {
+              "title": "Eigen and decomposition",
+              "details": [
+                "Eigenvectors keep their direction under a transformation; PCA uses the covariance matrix's eigenvectors to find main directions of variation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "fe.linear-algebra-vectors-matrices-and-what-they-do"
+          ],
+          "video": {
+            "resourceId": "fe-video-3b1b-la",
+            "locator": "Chapters 1-4, 7 and 14 (eigenvectors)."
+          },
+          "reading": {
+            "resourceId": "fe-book-mml",
+            "locator": "Mathematics for Machine Learning chapter 2 'Linear Algebra' (2.1-2.6) and chapter 4 sections 4.2 and 4.4 on eigenvalues and eigendecomposition."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a23-linear-algebra-vectors-matrices-and-what-they-do",
+            "title": "Linear algebra with NumPy",
+            "kind": "problem-set",
+            "instructions": [
+              "Implement dot product and matrix multiply with loops, compare against NumPy on random inputs.",
+              "Apply 2x2 rotation and scaling matrices to points and plot before/after.",
+              "Run PCA by hand on a 2-D dataset (covariance, eigenvectors) and compare with scikit-learn."
+            ],
+            "deliverables": [
+              "Notebook with code, plots and explanations."
+            ],
+            "acceptanceCriteria": [
+              "Your loop results match NumPy within floating-point tolerance.",
+              "Hand PCA directions match scikit-learn up to sign."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l23-linear-algebra-vectors-matrices-and-what-they-do-check-01",
+                "kind": "short-answer",
+                "prompt": "What does cosine similarity measure?",
+                "answer": "The angle between two vectors (how aligned they are).",
+                "explanation": "Used to compare embeddings."
+              },
+              {
+                "id": "fe-l23-linear-algebra-vectors-matrices-and-what-they-do-check-02",
+                "kind": "short-answer",
+                "prompt": "Shape of (3x2) times (2x4)?",
+                "answer": "3x4.",
+                "explanation": "Inner dimensions must match and disappear."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain a neural network layer in matrix terms.",
+            "Why does PCA use eigenvectors?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l24-calculus-and-gradients-for-optimisation",
+          "title": "Calculus and gradients for optimisation",
+          "objectives": [
+            "Compute derivatives and partial derivatives of simple functions.",
+            "Apply the chain rule and explain backpropagation at a high level.",
+            "Implement gradient descent for linear regression."
+          ],
+          "topics": [
+            {
+              "title": "Derivatives",
+              "details": [
+                "A derivative is the slope: how fast output changes with input. The gradient collects partial derivatives for many inputs."
+              ]
+            },
+            {
+              "title": "Chain rule",
+              "details": [
+                "For f(g(x)), the derivative is f'(g(x)) * g'(x). Backpropagation applies this from the loss back through each layer."
+              ]
+            },
+            {
+              "title": "Gradient descent",
+              "details": [
+                "Repeat: compute the gradient of the loss, step against it by a learning rate. Too large diverges, too small is slow.",
+                "Option Greeks in quant (delta, gamma) are derivatives of price too."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "fe.calculus-and-gradients-for-optimisation"
+          ],
+          "video": {
+            "resourceId": "fe-video-3b1b-calc",
+            "locator": "Chapters 1-4 (derivatives and the chain rule)."
+          },
+          "reading": {
+            "resourceId": "fe-book-mml",
+            "locator": "Mathematics for Machine Learning chapter 5 'Vector Calculus' (5.1-5.3 and 5.6 on backpropagation) and section 7.1 'Optimization Using Gradient Descent'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a24-calculus-and-gradients-for-optimisation",
+            "title": "Gradient descent from scratch",
+            "kind": "problem-set",
+            "instructions": [
+              "Generate noisy data y = 3x + 2; fit w and b by gradient descent on mean squared error.",
+              "Plot the loss per step for three learning rates; explain what you see.",
+              "Check your gradient numerically with finite differences."
+            ],
+            "deliverables": [
+              "Notebook with code, plots and explanation."
+            ],
+            "acceptanceCriteria": [
+              "Fitted w and b are close to 3 and 2.",
+              "Analytic and numeric gradients agree."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l24-calculus-and-gradients-for-optimisation-check-01",
+                "kind": "short-answer",
+                "prompt": "What does the gradient point toward?",
+                "answer": "The direction of steepest increase.",
+                "explanation": "Gradient descent steps the opposite way."
+              },
+              {
+                "id": "fe-l24-calculus-and-gradients-for-optimisation-check-02",
+                "kind": "short-answer",
+                "prompt": "What happens with too high a learning rate?",
+                "answer": "The loss oscillates or diverges.",
+                "explanation": "Steps overshoot the minimum."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain the chain rule with a two-layer example.",
+            "How would you check a gradient implementation?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l25-probability-distributions-and-expectation",
+          "title": "Probability, distributions and expectation",
+          "objectives": [
+            "Compute probabilities with conditional probability and Bayes' rule.",
+            "Describe Bernoulli, binomial, normal and Poisson distributions and simulate them.",
+            "Compute expectation and variance and explain the law of large numbers and central limit theorem."
+          ],
+          "topics": [
+            {
+              "title": "Rules",
+              "details": [
+                "P(A and B) = P(A) P(B|A); Bayes: P(A|B) = P(B|A) P(A) / P(B). Classic: a positive test for a rare disease is often a false positive."
+              ]
+            },
+            {
+              "title": "Distributions",
+              "details": [
+                "Bernoulli/binomial for yes/no counts, Poisson for event counts per interval, normal for sums of many small effects.",
+                "Financial returns have fatter tails than a normal distribution; models that assume normality underestimate crashes."
+              ]
+            },
+            {
+              "title": "Expectation and limits",
+              "details": [
+                "E[X] is the long-run average; variance measures spread. Sample means converge to E[X] (law of large numbers) and are roughly normal (CLT)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "fe.probability-distributions-and-expectation"
+          ],
+          "video": {
+            "resourceId": "foundation-video-probability",
+            "locator": "Whole video; then continue to Part 2 on the same site."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-5b12a53ff387",
+            "locator": "probabilitycourse.com chapters 1 (basic concepts), 3 (discrete random variables) and 4 (continuous and normal distributions)."
+          },
+          "supplementaryResourceIds": [
+            "fe-book-mml",
+            "quant-book-think-stats"
+          ],
+          "assignment": {
+            "id": "fe-a25-probability-distributions-and-expectation",
+            "title": "Simulate to understand",
+            "kind": "problem-set",
+            "instructions": [
+              "Solve the rare-disease Bayes problem analytically and by simulating 1,000,000 people.",
+              "Simulate dice sums for 1, 2, 10 and 30 dice and plot how the distribution approaches normal.",
+              "Estimate the expected number of coin flips to see two heads in a row by simulation and verify it analytically (answer: 6)."
+            ],
+            "deliverables": [
+              "Notebook with simulations, plots and analytic answers."
+            ],
+            "acceptanceCriteria": [
+              "Simulated and analytic answers agree within sampling error.",
+              "Plots show the CLT effect."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l25-probability-distributions-and-expectation-check-01",
+                "kind": "short-answer",
+                "prompt": "What does the central limit theorem say?",
+                "answer": "Averages of many independent samples are approximately normally distributed.",
+                "explanation": "Regardless of the original distribution (with finite variance)."
+              },
+              {
+                "id": "fe-l25-probability-distributions-and-expectation-check-02",
+                "kind": "short-answer",
+                "prompt": "Expected value of a fair six-sided die?",
+                "answer": "3.5.",
+                "explanation": "(1+2+3+4+5+6)/6."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain Bayes' rule with your own example.",
+            "Why are fat tails important in finance?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m11-os-concurrency",
+      "title": "11. Operating systems and concurrency basics",
+      "stage": "foundation",
+      "description": "How programs actually run: processes, threads, memory and scheduling, and the bugs that appear when things run at the same time.",
+      "prerequisites": [
+        "fe-m02-linux-bash"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l26-processes-threads-memory-and-scheduling",
+          "title": "Processes, threads, memory and scheduling",
+          "objectives": [
+            "Explain processes versus threads and what each shares.",
+            "Describe stack versus heap memory and virtual memory at a high level.",
+            "Explain CPU-bound versus I/O-bound work and why it decides your concurrency tool."
+          ],
+          "topics": [
+            {
+              "title": "Processes and threads",
+              "details": [
+                "A process has its own memory; threads inside it share memory, which is fast but needs coordination.",
+                "Context switches cost time; too many threads can be slower than a few."
+              ]
+            },
+            {
+              "title": "Memory",
+              "details": [
+                "The stack holds function calls and local variables; the heap holds objects that outlive a call.",
+                "Each process sees virtual addresses mapped to physical memory by the OS; running out leads to swapping or the OOM killer."
+              ]
+            },
+            {
+              "title": "Workload types",
+              "details": [
+                "CPU-bound (number crunching) benefits from multiple cores/processes; I/O-bound (network, disk) benefits from async or threads.",
+                "In Python the GIL lets only one thread run Python bytecode at a time, so CPU work uses multiprocessing."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "fe.processes-threads-memory-and-scheduling"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "gate-b-os",
+            "locator": "Operating Systems: Three Easy Pieces: chapters 4 'The Process', 13 'Address Spaces' and 26 'Concurrency: An Introduction'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a26-processes-threads-memory-and-scheduling",
+            "title": "Measure CPU versus I/O work",
+            "kind": "coding",
+            "instructions": [
+              "Write a CPU-bound task (e.g. count primes) and an I/O-bound task (e.g. 50 HTTP requests to httpbin or sleep-based fakes).",
+              "Time each with sequential, threads (ThreadPoolExecutor) and processes (ProcessPoolExecutor).",
+              "Explain the results using the GIL and CPU/I/O-bound reasoning."
+            ],
+            "deliverables": [
+              "Code, timing table and explanation."
+            ],
+            "acceptanceCriteria": [
+              "Processes speed up CPU-bound work and threads speed up I/O-bound work in your measurements, or you explain why not."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l26-processes-threads-memory-and-scheduling-check-01",
+                "kind": "short-answer",
+                "prompt": "What do threads in one process share?",
+                "answer": "Memory (heap and globals) and open files.",
+                "explanation": "Each thread has its own stack."
+              },
+              {
+                "id": "fe-l26-processes-threads-memory-and-scheduling-check-02",
+                "kind": "short-answer",
+                "prompt": "Python tool for CPU-bound parallelism?",
+                "answer": "multiprocessing / ProcessPoolExecutor.",
+                "explanation": "Separate processes avoid the GIL."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Process vs thread in one sentence each.",
+            "Stack vs heap?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l27-race-conditions-locks-deadlocks-and-async-progra",
+          "title": "Race conditions, locks, deadlocks and async programming",
+          "objectives": [
+            "Reproduce a race condition and fix it with a lock.",
+            "Explain deadlock and two ways to prevent it.",
+            "Write async code with asyncio and explain the event loop."
+          ],
+          "topics": [
+            {
+              "title": "Races",
+              "details": [
+                "A race condition happens when the result depends on timing, e.g. two threads doing `count += 1` lose updates.",
+                "Protect shared state with a lock, or avoid sharing by passing messages through queues."
+              ]
+            },
+            {
+              "title": "Deadlocks",
+              "details": [
+                "Two threads each hold a lock the other needs and wait forever. Prevent by always acquiring locks in the same order or using timeouts."
+              ]
+            },
+            {
+              "title": "Async",
+              "details": [
+                "asyncio runs many I/O tasks on one thread; `await` gives control back to the event loop while waiting.",
+                "Blocking calls (time.sleep, requests) inside async code freeze everything; use asyncio.sleep and async HTTP clients."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "fe.race-conditions-locks-deadlocks-and-async-progra"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "gate-b-os",
+            "locator": "OSTEP chapters 28 'Locks' and 32 'Common Concurrency Problems' (deadlock section)."
+          },
+          "supplementaryResourceIds": [
+            "foundation-book-python-manual"
+          ],
+          "assignment": {
+            "id": "fe-a27-race-conditions-locks-deadlocks-and-async-progra",
+            "title": "Break it, then fix it",
+            "kind": "coding",
+            "instructions": [
+              "Write a counter incremented 1,000,000 times by 4 threads without a lock; show lost updates (use a small sleep or bytecode-heavy loop if needed).",
+              "Fix it with threading.Lock and show the correct total.",
+              "Create a deadlock with two locks, then fix it by lock ordering.",
+              "Fetch 100 URLs (or fake delays) with asyncio and compare time to sequential."
+            ],
+            "deliverables": [
+              "Code and outputs for all four parts with explanations."
+            ],
+            "acceptanceCriteria": [
+              "Lost updates are shown and then fixed.",
+              "The async version is measurably faster for I/O."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l27-race-conditions-locks-deadlocks-and-async-progra-check-01",
+                "kind": "short-answer",
+                "prompt": "What is a race condition?",
+                "answer": "A bug where the result depends on the timing of concurrent operations.",
+                "explanation": "Shared mutable state without coordination causes it."
+              },
+              {
+                "id": "fe-l27-race-conditions-locks-deadlocks-and-async-progra-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you prevent a lock-ordering deadlock?",
+                "answer": "Always acquire multiple locks in the same global order.",
+                "explanation": "Circular wait becomes impossible."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain the event loop.",
+            "Locks versus message passing?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m12-system-design",
+      "title": "12. System design basics",
+      "stage": "foundation",
+      "description": "The building blocks behind every scalable system and the trade-offs between them. Needed for SDE, backend, data and cloud interviews.",
+      "prerequisites": [
+        "fe-m06-sql-practice",
+        "fe-m07-networks-web"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l28-building-blocks-load-balancers-caches-queues-dat",
+          "title": "Building blocks: load balancers, caches, queues, databases and CDNs",
+          "objectives": [
+            "Explain what each building block does and when to add it.",
+            "Estimate traffic and storage with back-of-the-envelope numbers.",
+            "Draw an architecture for a simple app and justify each part."
+          ],
+          "topics": [
+            {
+              "title": "Blocks",
+              "details": [
+                "Load balancer spreads requests over servers; cache (Redis) stores hot reads; queue (Kafka, SQS) decouples slow work; CDN serves static files near users.",
+                "Stateless app servers scale horizontally; state lives in databases and caches."
+              ]
+            },
+            {
+              "title": "Estimates",
+              "details": [
+                "1 million requests/day is about 12 per second on average; plan for peaks 5-10x higher.",
+                "Know rough latencies: memory ~100 ns, SSD read ~100 us, same-region network round trip ~0.5 ms, cross-continent ~150 ms."
+              ]
+            },
+            {
+              "title": "Approach",
+              "details": [
+                "Clarify requirements, estimate, sketch the high level, deep-dive one component, discuss bottlenecks and failures."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "fe.building-blocks-load-balancers-caches-queues-dat"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-sd-primer",
+            "locator": "System Design Primer: 'How to approach a system design interview question', 'Performance vs scalability', 'Latency vs throughput', and the sections on load balancers, caching and asynchronism."
+          },
+          "supplementaryResourceIds": [
+            "sde-video-scale"
+          ],
+          "assignment": {
+            "id": "fe-a28-building-blocks-load-balancers-caches-queues-dat",
+            "title": "Design a URL shortener",
+            "kind": "design",
+            "instructions": [
+              "Write requirements (functional and non-functional) and estimates for 100M new URLs per month.",
+              "Draw the architecture with API, ID generation, database choice, cache and analytics queue.",
+              "Write how the design handles a 10x traffic spike and a cache failure."
+            ],
+            "deliverables": [
+              "Design document (2-3 pages) with diagram."
+            ],
+            "acceptanceCriteria": [
+              "Estimates are shown with arithmetic.",
+              "Each component is justified with a trade-off."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l28-building-blocks-load-balancers-caches-queues-dat-check-01",
+                "kind": "short-answer",
+                "prompt": "Why make app servers stateless?",
+                "answer": "So any server can handle any request and you can add servers freely.",
+                "explanation": "State goes to shared stores."
+              },
+              {
+                "id": "fe-l28-building-blocks-load-balancers-caches-queues-dat-check-02",
+                "kind": "short-answer",
+                "prompt": "Roughly how many requests per second is 1M per day?",
+                "answer": "About 12 per second on average.",
+                "explanation": "1,000,000 / 86,400."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When do you add a queue?",
+            "Name four latency numbers."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l29-scaling-data-replication-sharding-consistency-an",
+          "title": "Scaling data: replication, sharding, consistency and CAP",
+          "objectives": [
+            "Explain leader-follower replication and replication lag.",
+            "Explain sharding strategies and the hot-key problem.",
+            "Explain CAP and strong versus eventual consistency with examples."
+          ],
+          "topics": [
+            {
+              "title": "Replication",
+              "details": [
+                "Writes go to the leader; followers copy them for reads and failover. Reading from a follower may return stale data."
+              ]
+            },
+            {
+              "title": "Sharding",
+              "details": [
+                "Split data across machines by key range or hash; choose a key that spreads load. A celebrity user can become a hot key."
+              ]
+            },
+            {
+              "title": "Consistency",
+              "details": [
+                "During a network partition a system must choose consistency (refuse some requests) or availability (serve possibly stale data): CAP.",
+                "Bank balances want strong consistency; like counts can be eventually consistent."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "fe.scaling-data-replication-sharding-consistency-an"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-sd-primer",
+            "locator": "System Design Primer: 'CAP theorem', 'Consistency patterns', 'Availability patterns' and 'Database' (replication, federation, sharding, denormalization)."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-f7fce31bcc3f"
+          ],
+          "assignment": {
+            "id": "fe-a29-scaling-data-replication-sharding-consistency-an",
+            "title": "Choose consistency per feature",
+            "kind": "design",
+            "instructions": [
+              "For a social app, list six features (feed, likes, payments, follows, messages, notifications) and choose strong or eventual consistency for each with a reason.",
+              "Design sharding for the messages table and describe how you would avoid hot keys.",
+              "Explain what users see during replication lag and one mitigation (read-your-writes)."
+            ],
+            "deliverables": [
+              "Two-page write-up."
+            ],
+            "acceptanceCriteria": [
+              "Each choice has a concrete reason tied to user impact."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l29-scaling-data-replication-sharding-consistency-an-check-01",
+                "kind": "short-answer",
+                "prompt": "What is replication lag?",
+                "answer": "Delay before a write on the leader appears on followers.",
+                "explanation": "Reads from followers can be stale."
+              },
+              {
+                "id": "fe-l29-scaling-data-replication-sharding-consistency-an-check-02",
+                "kind": "short-answer",
+                "prompt": "Strong or eventual consistency for account balances?",
+                "answer": "Strong.",
+                "explanation": "Money must not be double-spent."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain CAP with an example.",
+            "Hash versus range sharding?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m13-security-basics",
+      "title": "13. Security basics for every engineer",
+      "stage": "foundation",
+      "description": "The common ways software gets attacked and the basic habits that prevent it: input validation, authentication, secrets and encryption.",
+      "prerequisites": [
+        "fe-m07-networks-web"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l30-the-owasp-top-10-authentication-and-authorisatio",
+          "title": "The OWASP Top 10, authentication and authorisation",
+          "objectives": [
+            "Explain injection, broken access control, XSS and other OWASP Top 10 risks with examples.",
+            "Separate authentication (who you are) from authorisation (what you may do).",
+            "Prevent SQL injection with parameterised queries and verify with a test."
+          ],
+          "topics": [
+            {
+              "title": "Top risks",
+              "details": [
+                "Broken access control: user A can read user B's order by changing an ID. Fix by checking ownership on every request.",
+                "Injection: building SQL with string formatting lets input become code. Use parameters (`cursor.execute('... WHERE id = %s', (id,))`).",
+                "XSS: unescaped user input in HTML runs scripts in other users' browsers; templates escape by default."
+              ]
+            },
+            {
+              "title": "Identity",
+              "details": [
+                "Passwords are hashed with slow algorithms (bcrypt, argon2), never stored plain. MFA blocks most account takeovers.",
+                "Authorisation must be enforced on the server; hiding a button is not security."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "fe.the-owasp-top-10-authentication-and-authorisatio"
+          ],
+          "video": {
+            "resourceId": "sde-video-web-security",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-7933aa42aecc",
+            "locator": "OWASP Top 10: read the summary of each category, then A01 Broken Access Control and A03 Injection in full."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-c6d28c211360"
+          ],
+          "assignment": {
+            "id": "fe-a30-the-owasp-top-10-authentication-and-authorisatio",
+            "title": "Find and fix two bugs",
+            "kind": "coding",
+            "instructions": [
+              "Write a tiny Flask/FastAPI app with an orders endpoint vulnerable to SQL injection and to reading other users' orders.",
+              "Exploit both locally with curl and record the payloads.",
+              "Fix both (parameterised query, ownership check) and add tests that the exploits now fail."
+            ],
+            "deliverables": [
+              "Vulnerable and fixed code, exploit transcripts and tests."
+            ],
+            "acceptanceCriteria": [
+              "Both exploits work before and fail after the fix.",
+              "Tests cover both cases."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l30-the-owasp-top-10-authentication-and-authorisatio-check-01",
+                "kind": "short-answer",
+                "prompt": "How do you prevent SQL injection?",
+                "answer": "Use parameterised queries.",
+                "explanation": "Input is sent as data, never as SQL code."
+              },
+              {
+                "id": "fe-l30-the-owasp-top-10-authentication-and-authorisatio-check-02",
+                "kind": "short-answer",
+                "prompt": "Authentication vs authorisation?",
+                "answer": "Authentication proves who you are; authorisation decides what you may do.",
+                "explanation": "Both are needed on every request."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain broken access control with an example.",
+            "Why hash passwords slowly?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l31-secrets-hashing-and-encryption-basics",
+          "title": "Secrets, hashing and encryption basics",
+          "objectives": [
+            "Keep secrets out of code, logs and Git, and rotate one that leaked.",
+            "Distinguish hashing, encryption and encoding.",
+            "Use symmetric encryption from a trusted library correctly."
+          ],
+          "topics": [
+            {
+              "title": "Secrets",
+              "details": [
+                "Use environment variables, .env files excluded by .gitignore, or a secret manager (AWS Secrets Manager, Azure Key Vault).",
+                "If a secret reaches Git, assume it is compromised: rotate it, then clean history."
+              ]
+            },
+            {
+              "title": "Hash vs encrypt vs encode",
+              "details": [
+                "Hashing is one-way (integrity, password storage). Encryption is reversible with a key (confidentiality). Base64 encoding is not security."
+              ]
+            },
+            {
+              "title": "Using crypto safely",
+              "details": [
+                "Never invent your own crypto; use libraries such as Python's cryptography (Fernet / AES-GCM) and TLS for data in transit."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "fe.secrets-hashing-and-encryption-basics"
+          ],
+          "video": {
+            "resourceId": "security-video-crypto",
+            "locator": "Optional deeper dive: first two lecture segments on what cryptography is and stream ciphers."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-c6d28c211360",
+            "locator": "OWASP Cheat Sheet Series: 'Secrets Management Cheat Sheet' and 'Password Storage Cheat Sheet'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-4a6934063635"
+          ],
+          "assignment": {
+            "id": "fe-a31-secrets-hashing-and-encryption-basics",
+            "title": "Secret hygiene drill",
+            "kind": "lab",
+            "instructions": [
+              "Add a pre-commit secret scanner (e.g. gitleaks) to your playground repo and show it blocking a fake key.",
+              "Store an API key in .env loaded by python-dotenv; confirm .env is ignored.",
+              "Encrypt and decrypt a file with cryptography's Fernet; show that tampering is detected.",
+              "Write a five-step 'I leaked a key' response plan."
+            ],
+            "deliverables": [
+              "Scanner output, code and the response plan."
+            ],
+            "acceptanceCriteria": [
+              "The scanner blocks the fake key.",
+              "Tampered ciphertext fails to decrypt."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l31-secrets-hashing-and-encryption-basics-check-01",
+                "kind": "short-answer",
+                "prompt": "Is Base64 encryption?",
+                "answer": "No, it is reversible encoding with no key.",
+                "explanation": "Anyone can decode it."
+              },
+              {
+                "id": "fe-l31-secrets-hashing-and-encryption-basics-check-02",
+                "kind": "short-answer",
+                "prompt": "First step after a secret is pushed to GitHub?",
+                "answer": "Revoke/rotate the secret.",
+                "explanation": "Deleting the commit is not enough; it may already be copied."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Hashing vs encryption?",
+            "Where should production secrets live?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "fe-m14-career-skills",
+      "title": "14. Communication, interviews and AI-assisted work",
+      "stage": "foundation",
+      "description": "Skills that decide offers as much as code does: explaining your work, behavioural interviews, a practice routine and using AI tools responsibly.",
+      "prerequisites": [
+        "foundation-module-08-communication-integration"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "fe-l32-explain-your-work-design-docs-demos-and-project",
+          "title": "Explain your work: design docs, demos and project stories",
+          "objectives": [
+            "Write a one-page design doc with context, goals, options, decision and risks.",
+            "Explain any project in two minutes: problem, approach, your role, result, what you'd change.",
+            "Give a clear five-minute demo."
+          ],
+          "topics": [
+            {
+              "title": "Design docs",
+              "details": [
+                "Context, goals and non-goals, options considered, decision with trade-offs, risks, open questions."
+              ]
+            },
+            {
+              "title": "Project stories",
+              "details": [
+                "Recruiters ask 'tell me about a project'. Use problem -> constraints -> what you built -> measured result -> lessons.",
+                "Use real numbers you measured; never inflate."
+              ]
+            },
+            {
+              "title": "Speaking",
+              "details": [
+                "Start with the point, use one diagram, show it running, end with limits and next steps."
+              ]
+            }
+          ],
+          "estimatedMinutes": 100,
+          "canonicalConceptTags": [
+            "fe.explain-your-work-design-docs-demos-and-project"
+          ],
+          "video": {
+            "resourceId": "foundation-video-how-to-speak",
+            "locator": "Watch the whole talk; note three techniques you will use."
+          },
+          "reading": {
+            "resourceId": "foundation-book-technical-writing",
+            "locator": "Technical Writing Essentials: chapter 1 'Introduction to Technical Writing' and the chapter on proposals and reports."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a32-explain-your-work-design-docs-demos-and-project",
+            "title": "Two project stories",
+            "kind": "design",
+            "instructions": [
+              "Write a one-page design doc for one of your MAQ Software workflows (using invented names and no client data) or a personal project.",
+              "Record yourself telling two project stories in under two minutes each; listen back and tighten."
+            ],
+            "deliverables": [
+              "Design doc and two short written story scripts."
+            ],
+            "acceptanceCriteria": [
+              "Stories contain only numbers you can defend.",
+              "Each story fits in two minutes."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l32-explain-your-work-design-docs-demos-and-project-check-01",
+                "kind": "short-answer",
+                "prompt": "What sections does a design doc need?",
+                "answer": "Context, goals/non-goals, options, decision, risks.",
+                "explanation": "Options and trade-offs show judgement."
+              },
+              {
+                "id": "fe-l32-explain-your-work-design-docs-demos-and-project-check-02",
+                "kind": "short-answer",
+                "prompt": "What makes a project story credible?",
+                "answer": "Specific, measured results and a clear personal role.",
+                "explanation": "Vague claims get probed in interviews."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Tell your best project story aloud.",
+            "What did you learn from recording yourself?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "fe-l33-behavioural-interviews-a-job-search-routine-and",
+          "title": "Behavioural interviews, a job-search routine and responsible AI use",
+          "objectives": [
+            "Answer behavioural questions with the STAR structure.",
+            "Run a weekly job-search routine: applications, referrals, practice and follow-ups.",
+            "Use AI coding assistants to learn faster without outsourcing understanding."
+          ],
+          "topics": [
+            {
+              "title": "STAR",
+              "details": [
+                "Situation, Task, Action (what you did, not the team), Result (measured) and Reflection.",
+                "Prepare 6-8 stories: conflict, failure, leadership, tight deadline, learning something fast, disagreement with a decision."
+              ]
+            },
+            {
+              "title": "Routine",
+              "details": [
+                "Each week: 10-15 targeted applications, 3 referral requests, 5 DSA problems, 1 system-design practice, 1 mock interview.",
+                "Track every application in a spreadsheet with status and next action."
+              ]
+            },
+            {
+              "title": "AI tools",
+              "details": [
+                "Use assistants to explain, generate test ideas and review code; always read, run and understand the result.",
+                "In interviews and projects you must be able to explain every line you submit."
+              ]
+            }
+          ],
+          "estimatedMinutes": 110,
+          "canonicalConceptTags": [
+            "fe.behavioural-interviews-a-job-search-routine-and"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-tech-interview",
+            "locator": "Tech Interview Handbook: 'Behavioral interview' section (including the STAR format) and 'Coding interview preparation' study plan."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "fe-a33-behavioural-interviews-a-job-search-routine-and",
+            "title": "Story bank and tracker",
+            "kind": "design",
+            "instructions": [
+              "Write 6 STAR stories from work or study with real, defensible details.",
+              "Set up an application tracker and a weekly calendar block for the routine.",
+              "Write your personal rules for using AI assistants while learning."
+            ],
+            "deliverables": [
+              "Story bank, tracker screenshot and AI-use rules."
+            ],
+            "acceptanceCriteria": [
+              "Each story has a clear personal action and result.",
+              "The routine is scheduled in your calendar."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "fe-l33-behavioural-interviews-a-job-search-routine-and-check-01",
+                "kind": "short-answer",
+                "prompt": "What does STAR stand for?",
+                "answer": "Situation, Task, Action, Result.",
+                "explanation": "Add a short reflection at the end."
+              },
+              {
+                "id": "fe-l33-behavioural-interviews-a-job-search-routine-and-check-02",
+                "kind": "short-answer",
+                "prompt": "Rule for code an AI assistant wrote for you?",
+                "answer": "Only use it if you have read, run and understood it.",
+                "explanation": "You must be able to explain it."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Tell a conflict story using STAR.",
+            "What is your weekly application target?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "MIT Missing Semester",
+      "url": "https://missing.csail.mit.edu/",
+      "notes": "Tools every engineer uses but courses rarely teach."
+    },
+    {
+      "title": "Tech Interview Handbook",
+      "url": "https://www.techinterviewhandbook.org/"
+    }
+  ],
+  "limitations": [
+    "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
+    "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
+    "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises.",
+    "These essentials extend the Common Foundation. They do not replace its eight original modules and are not required to unlock existing projects."
+  ]
+}

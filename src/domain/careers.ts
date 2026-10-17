@@ -227,18 +227,20 @@ export function competencyEvidence(
 export function projectTotals(
   catalog: Catalog,
   state: ProgressState,
-  group: "original" | "career" | "advanced",
+  group: "original" | "career" | "advanced" | "resume",
 ) {
   const projects = catalog.projects.filter((project) =>
-    group === "advanced"
-      ? project.variant === "advanced-target"
-      : group === "career"
-        ? project.variant === "career-practice"
-        : [
-            "A-rebuild",
-            "B-build",
-            "professional-synthetic-recreation",
-          ].includes(project.variant),
+    group === "resume"
+      ? project.variant === "resume-target"
+      : group === "advanced"
+        ? project.variant === "advanced-target"
+        : group === "career"
+          ? project.variant === "career-practice"
+          : [
+              "A-rebuild",
+              "B-build",
+              "professional-synthetic-recreation",
+            ].includes(project.variant),
   );
   return {
     total: projects.length,

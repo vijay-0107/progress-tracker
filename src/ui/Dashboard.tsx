@@ -13,6 +13,7 @@ import {
   allLessons,
   coreLessons,
   isExtraTopic,
+  isSkillTrack,
   isCoreTrack,
   lessonCompletion,
   moduleComplete,
@@ -42,6 +43,13 @@ export function Dashboard({ catalog, state }: LearningProps) {
   const lessons = coreLessons(catalog);
   const extraTracks = catalog.tracks.filter((track) =>
     ORIGINAL_EXTRA_TOPIC_IDS.some((id) => id === track.trackId),
+  );
+  const skillTracks = catalog.tracks.filter((track) =>
+    isSkillTrack(track.trackId),
+  );
+  const skillProgress = lessonCompletion(
+    allLessons({ ...catalog, tracks: skillTracks }),
+    state,
   );
   const extraProgress = lessonCompletion(
     allLessons({ ...catalog, tracks: extraTracks }),
@@ -77,6 +85,7 @@ export function Dashboard({ catalog, state }: LearningProps) {
   const originalProjects = projectTotals(catalog, state, "original");
   const careerProjects = projectTotals(catalog, state, "career");
   const advancedProjects = projectTotals(catalog, state, "advanced");
+  const resumeProjects = projectTotals(catalog, state, "resume");
   const activeProjects = catalog.projects.filter(
     (project) =>
       state.projects[project.id]?.evidence ||
@@ -300,6 +309,33 @@ export function Dashboard({ catalog, state }: LearningProps) {
         <PathCards tracks={extraTracks} state={state} />
       </section>
       <section
+        className="section-block"
+        aria-labelledby="skill-builders-heading"
+      >
+        <div className="section-title">
+          <div>
+            <p className="eyebrow">
+              BEGINNER TO PROFESSIONAL. INSIDE YOUR SECTIONS.
+            </p>
+            <h2 id="skill-builders-heading">
+              Skill builders for your eight target roles
+            </h2>
+          </div>
+          <span className="subtle-pill">
+            {skillProgress.completed} / {skillProgress.total} skill lessons
+            complete
+          </span>
+        </div>
+        <p className="muted">
+          Start with Beginner Essentials in the Common Foundation, then the
+          builder for each role. Every builder also appears inside its section
+          (SDE, Backend, AI, Data, Quant, Cloud Security and the new Cloud &amp;
+          DevOps Infrastructure section), and every lesson assumes no prior
+          knowledge.
+        </p>
+        <PathCards tracks={skillTracks} state={state} />
+      </section>
+      <section
         className="panel lesson-section section-block"
         aria-labelledby="career-hub-heading"
       >
@@ -344,6 +380,12 @@ export function Dashboard({ catalog, state }: LearningProps) {
             career-practice projects complete · {careerProjects.recorded} of{" "}
             {careerProjects.gates} additional build gates recorded. Independent
             readiness is separate and never completes projects or lessons.
+          </p>
+          <p>
+            {resumeProjects.completed} of {resumeProjects.total}{" "}
+            <a href="#/projects">resume projects</a> complete ·{" "}
+            {resumeProjects.recorded} of {resumeProjects.gates} resume build
+            gates recorded. Build them before sending the matching resume.
           </p>
           <p>
             {advancedProjects.completed} of {advancedProjects.total} advanced

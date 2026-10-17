@@ -1,0 +1,1997 @@
+{
+  "schemaVersion": 1,
+  "trackId": "sde-skills",
+  "title": "Software Engineering: Skill Builder",
+  "sourceCheckedOn": "2026-10-17",
+  "resources": [
+    {
+      "id": "sk-sde-effective-go",
+      "kind": "documentation",
+      "title": "Effective Go",
+      "url": "https://go.dev/doc/effective_go",
+      "provider": "The Go Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Idiomatic Go: naming, errors, interfaces, goroutines and channels."
+    },
+    {
+      "id": "sk-sde-go-by-example",
+      "kind": "documentation",
+      "title": "Go by Example",
+      "url": "https://gobyexample.com/",
+      "provider": "Mark McGranaghan and Eli Bendersky",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Short runnable examples for every Go feature."
+    },
+    {
+      "id": "sk-sde-go-module-tutorial",
+      "kind": "documentation",
+      "title": "Go tutorial: Create a Go module",
+      "url": "https://go.dev/doc/tutorial/create-module",
+      "provider": "The Go Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Modules, packages, errors and adding a test (multi-page tutorial)."
+    },
+    {
+      "id": "sk-sde-mdn-js",
+      "kind": "documentation",
+      "title": "MDN JavaScript Guide",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "provider": "Mozilla",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "The language from first principles, including promises and async."
+    },
+    {
+      "id": "sk-sde-ts-handbook",
+      "kind": "documentation",
+      "title": "The TypeScript Handbook",
+      "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Types, narrowing, generics and modules."
+    },
+    {
+      "id": "sk-sde-react",
+      "kind": "documentation",
+      "title": "React: Learn",
+      "url": "https://react.dev/learn",
+      "provider": "Meta and the React team",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Official step-by-step React tutorial and concepts."
+    },
+    {
+      "id": "sk-sde-fullstackopen",
+      "kind": "documentation",
+      "title": "Full Stack Open",
+      "url": "https://fullstackopen.com/en/",
+      "provider": "University of Helsinki",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free university course on React, Node.js, testing and TypeScript."
+    },
+    {
+      "id": "sk-sde-node",
+      "kind": "documentation",
+      "title": "Node.js: Learn",
+      "url": "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs",
+      "provider": "OpenJS Foundation",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Node basics, the event loop, modules and HTTP servers."
+    },
+    {
+      "id": "sk-sde-grpc",
+      "kind": "documentation",
+      "title": "gRPC: Introduction and core concepts",
+      "url": "https://grpc.io/docs/what-is-grpc/introduction/",
+      "provider": "gRPC Authors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Services, protocol buffers, streaming and deadlines."
+    },
+    {
+      "id": "sk-sde-protobuf",
+      "kind": "documentation",
+      "title": "Protocol Buffers: Language guide (proto3)",
+      "url": "https://protobuf.dev/programming-guides/proto3/",
+      "provider": "Google",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Message definitions, field numbers and compatibility rules."
+    },
+    {
+      "id": "sk-sde-playwright",
+      "kind": "documentation",
+      "title": "Playwright: Getting started",
+      "url": "https://playwright.dev/docs/intro",
+      "provider": "Microsoft",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "End-to-end browser testing."
+    },
+    {
+      "id": "sk-sde-crdt",
+      "kind": "documentation",
+      "title": "crdt.tech: CRDT resources and papers",
+      "url": "https://crdt.tech/",
+      "provider": "Martin Kleppmann and contributors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Introductions and papers on conflict-free replicated data types."
+    },
+    {
+      "id": "sk-sde-github-apps",
+      "kind": "documentation",
+      "title": "GitHub Docs: About creating GitHub Apps",
+      "url": "https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps",
+      "provider": "GitHub",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Apps, permissions, webhooks and installation tokens."
+    },
+    {
+      "id": "sk-sde-claude-docs",
+      "kind": "documentation",
+      "title": "Claude API documentation",
+      "url": "https://docs.claude.com/",
+      "provider": "Anthropic",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Messages API, tool use and structured outputs; other providers have equivalent docs."
+    },
+    {
+      "id": "sk-sde-code-review",
+      "kind": "documentation",
+      "title": "Google Engineering Practices: code review",
+      "url": "https://google.github.io/eng-practices/review/",
+      "provider": "Google",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "What reviewers look for and how authors should respond."
+    },
+    {
+      "id": "sk-sde-sd101",
+      "kind": "documentation",
+      "title": "ByteByteGo System Design 101",
+      "url": "https://github.com/ByteByteGoHq/system-design-101",
+      "provider": "ByteByteGo",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free visual explanations of common system design topics."
+    }
+  ],
+  "modules": [
+    {
+      "id": "sk-sde-m01-go",
+      "title": "01. Go fundamentals",
+      "stage": "foundation",
+      "description": "Go is used for backends, infrastructure and distributed systems (Docker, Kubernetes and etcd are written in it). Learn its syntax, errors, interfaces and tests.",
+      "prerequisites": [
+        "fe-m03-git-github"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l01-go-syntax-types-slices-maps-structs-and-errors",
+          "title": "Go syntax, types, slices, maps, structs and errors",
+          "objectives": [
+            "Install Go, run programs and use `go mod init`, `go run`, `go build`, `go fmt`.",
+            "Use variables, functions, slices, maps, structs and methods.",
+            "Return and check errors the Go way instead of exceptions."
+          ],
+          "topics": [
+            {
+              "title": "Basics",
+              "details": [
+                "Static types with inference (`x := 5`), functions with multiple return values, `for` as the only loop.",
+                "Slices are views over arrays (append may reallocate); maps are hash maps; structs group fields; methods attach to types."
+              ]
+            },
+            {
+              "title": "Errors",
+              "details": [
+                "Functions return `(value, error)`; check `if err != nil { return ..., fmt.Errorf(\"loading config: %w\", err) }`.",
+                "Wrap errors with %w and inspect them with errors.Is / errors.As."
+              ]
+            },
+            {
+              "title": "Tooling",
+              "details": [
+                "`go fmt` formats everything the same way; `go vet` finds suspicious code; modules pin dependencies in go.mod and go.sum."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-sde.go-syntax-types-slices-maps-structs-and-errors"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-181c5d43f675",
+            "locator": "A Tour of Go: complete 'Basics' (packages, variables, functions; flow control; more types: structs, slices and maps)."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-go-by-example",
+            "sk-sde-effective-go"
+          ],
+          "assignment": {
+            "id": "sk-sde-a01-go-syntax-types-slices-maps-structs-and-errors",
+            "title": "Word frequency CLI in Go",
+            "kind": "coding",
+            "instructions": [
+              "Create a module `wordfreq` that reads a text file path from the command line and prints the 10 most frequent words.",
+              "Return errors for a missing file and an empty file; print them clearly and exit with code 1.",
+              "Use a map for counts and sort a slice of structs for the top 10."
+            ],
+            "deliverables": [
+              "Go module with README and sample output."
+            ],
+            "acceptanceCriteria": [
+              "Missing and empty files produce clear errors and exit code 1.",
+              "`go vet` reports nothing."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l01-go-syntax-types-slices-maps-structs-and-errors-check-01",
+                "kind": "short-answer",
+                "prompt": "How does Go report failures?",
+                "answer": "By returning an error value that the caller checks.",
+                "explanation": "There are no exceptions for normal errors."
+              },
+              {
+                "id": "sk-sde-l01-go-syntax-types-slices-maps-structs-and-errors-check-02",
+                "kind": "short-answer",
+                "prompt": "What does `append` do when a slice is full?",
+                "answer": "Allocates a larger array and copies the elements.",
+                "explanation": "So always use the returned slice."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain slices versus arrays.",
+            "How do you wrap and inspect an error?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sde-l02-interfaces-packages-testing-and-goroutines",
+          "title": "Interfaces, packages, testing and goroutines",
+          "objectives": [
+            "Define and satisfy interfaces implicitly.",
+            "Write table-driven tests and benchmarks with `go test`.",
+            "Run work concurrently with goroutines, channels, sync.WaitGroup and context cancellation."
+          ],
+          "topics": [
+            {
+              "title": "Interfaces",
+              "details": [
+                "A type satisfies an interface by having its methods; no `implements` keyword. Small interfaces (io.Reader) are idiomatic."
+              ]
+            },
+            {
+              "title": "Testing",
+              "details": [
+                "Files ending in _test.go; table-driven tests loop over cases with t.Run; `go test -race ./...` finds data races."
+              ]
+            },
+            {
+              "title": "Concurrency",
+              "details": [
+                "`go f()` starts a goroutine; channels pass values safely; `select` waits on several channels.",
+                "context.Context carries deadlines and cancellation through calls; every network call should accept one."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-sde.interfaces-packages-testing-and-goroutines"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-181c5d43f675",
+            "locator": "A Tour of Go: 'Methods and interfaces' and 'Concurrency' sections, completing every exercise."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-go-module-tutorial",
+            "sk-sde-effective-go"
+          ],
+          "assignment": {
+            "id": "sk-sde-a02-interfaces-packages-testing-and-goroutines",
+            "title": "Concurrent URL checker",
+            "kind": "coding",
+            "instructions": [
+              "Write a CLI that checks a list of URLs concurrently with a worker pool of N goroutines and a per-request timeout from context.",
+              "Define a `Fetcher` interface so tests use a fake fetcher instead of the network.",
+              "Write table-driven tests and run them with -race."
+            ],
+            "deliverables": [
+              "Go module, tests and a results table for N = 1, 5, 20."
+            ],
+            "acceptanceCriteria": [
+              "Tests pass with -race and use no real network.",
+              "Timeouts cancel slow requests."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l02-interfaces-packages-testing-and-goroutines-check-01",
+                "kind": "short-answer",
+                "prompt": "How does a Go type implement an interface?",
+                "answer": "Implicitly, by having all its methods.",
+                "explanation": "No declaration is needed."
+              },
+              {
+                "id": "sk-sde-l02-interfaces-packages-testing-and-goroutines-check-02",
+                "kind": "short-answer",
+                "prompt": "What does `go test -race` detect?",
+                "answer": "Data races between goroutines.",
+                "explanation": "Run it in CI for concurrent code."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When would you use a channel versus a mutex?",
+            "Why pass context.Context?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m02-typescript",
+      "title": "02. JavaScript and TypeScript fundamentals",
+      "stage": "foundation",
+      "description": "The language of the web and of Node.js services. Learn modern JavaScript, asynchronous code and TypeScript's type system.",
+      "prerequisites": [
+        "fe-m01-dev-setup"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l03-modern-javascript-values-functions-objects-modul",
+          "title": "Modern JavaScript: values, functions, objects, modules and async",
+          "objectives": [
+            "Use let/const, arrow functions, destructuring, spread and array methods (map, filter, reduce).",
+            "Explain the event loop, promises and async/await.",
+            "Organise code with ES modules and run it with Node.js."
+          ],
+          "topics": [
+            {
+              "title": "Language core",
+              "details": [
+                "`const` by default, `let` when reassigning; `===` not `==`; objects and arrays are references.",
+                "Array methods replace most loops: `orders.filter(o => o.paid).map(o => o.total)`."
+              ]
+            },
+            {
+              "title": "Async",
+              "details": [
+                "JavaScript is single-threaded with an event loop; slow work (network, timers) runs asynchronously.",
+                "A Promise represents a future value; `await fetch(url)` pauses the function without blocking the program; wrap in try/catch."
+              ]
+            },
+            {
+              "title": "Modules",
+              "details": [
+                "`export function x` and `import { x } from './x.js'`; npm packages are declared in package.json."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-sde.modern-javascript-values-functions-objects-modul"
+          ],
+          "video": {
+            "resourceId": "sde-video-javascript",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "sk-sde-mdn-js",
+            "locator": "MDN JavaScript Guide: 'Grammar and types', 'Functions', 'Working with objects', 'Using promises' and 'JavaScript modules'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-sde-a03-modern-javascript-values-functions-objects-modul",
+            "title": "Async data script",
+            "kind": "coding",
+            "instructions": [
+              "With Node.js, fetch JSON from two public APIs in parallel with Promise.all and merge the results.",
+              "Handle one failing request gracefully with Promise.allSettled.",
+              "Split the code into two modules and add a script entry in package.json."
+            ],
+            "deliverables": [
+              "Repository with package.json, modules and output."
+            ],
+            "acceptanceCriteria": [
+              "Requests run in parallel and a failure does not crash the script."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l03-modern-javascript-values-functions-objects-modul-check-01",
+                "kind": "short-answer",
+                "prompt": "What does await do?",
+                "answer": "Pauses the async function until the promise settles, without blocking the event loop.",
+                "explanation": "Other work continues meanwhile."
+              },
+              {
+                "id": "sk-sde-l03-modern-javascript-values-functions-objects-modul-check-02",
+                "kind": "short-answer",
+                "prompt": "Difference between == and ===?",
+                "answer": "=== compares without type conversion.",
+                "explanation": "Use === to avoid surprises."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain the event loop to a beginner.",
+            "When use Promise.all versus allSettled?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sde-l04-typescript-types-narrowing-generics-and-strict-m",
+          "title": "TypeScript: types, narrowing, generics and strict mode",
+          "objectives": [
+            "Annotate functions and objects with types, unions and interfaces.",
+            "Narrow unions safely with type guards and discriminated unions.",
+            "Write generic functions and configure tsconfig with strict mode."
+          ],
+          "topics": [
+            {
+              "title": "Types",
+              "details": [
+                "TypeScript adds compile-time types to JavaScript and is removed at runtime; `tsc --noEmit` checks types.",
+                "`type Order = { id: string; total: number; status: 'open' | 'paid' }` documents and checks shapes."
+              ]
+            },
+            {
+              "title": "Narrowing",
+              "details": [
+                "Use `if (typeof x === 'string')`, `in`, or a `kind` field to narrow a union before using it.",
+                "Avoid `any`; use `unknown` for untrusted input and validate it (for example with zod)."
+              ]
+            },
+            {
+              "title": "Generics",
+              "details": [
+                "`function first<T>(items: T[]): T | undefined` keeps type information through reusable code."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sde.typescript-types-narrowing-generics-and-strict-m"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sde-ts-handbook",
+            "locator": "TypeScript Handbook: 'The Basics', 'Everyday Types', 'Narrowing', 'More on Functions' and 'Generics' (under Type Manipulation)."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-fullstackopen"
+          ],
+          "assignment": {
+            "id": "sk-sde-a04-typescript-types-narrowing-generics-and-strict-m",
+            "title": "Type a messy JavaScript module",
+            "kind": "coding",
+            "instructions": [
+              "Convert your async data script to TypeScript with strict mode.",
+              "Model API responses as types, validate untrusted JSON at the boundary, and use a discriminated union for success/error results.",
+              "Add a generic helper and unit tests (Vitest or Jest)."
+            ],
+            "deliverables": [
+              "TypeScript project with tsconfig, tests and notes on bugs the compiler found."
+            ],
+            "acceptanceCriteria": [
+              "`tsc --noEmit` passes with strict mode and no `any`.",
+              "Invalid JSON is rejected with a clear error."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l04-typescript-types-narrowing-generics-and-strict-m-check-01",
+                "kind": "short-answer",
+                "prompt": "Do TypeScript types exist at runtime?",
+                "answer": "No, they are erased when compiled.",
+                "explanation": "Validate external data at runtime too."
+              },
+              {
+                "id": "sk-sde-l04-typescript-types-narrowing-generics-and-strict-m-check-02",
+                "kind": "short-answer",
+                "prompt": "Why prefer unknown over any?",
+                "answer": "unknown forces you to check the value before using it.",
+                "explanation": "any turns off type checking."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a discriminated union for a payment result.",
+            "What does strict mode enable?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m03-react",
+      "title": "03. Front-end development with React",
+      "stage": "intermediate",
+      "description": "Build interactive user interfaces with React: components, state, effects, data fetching and front-end testing.",
+      "prerequisites": [
+        "sk-sde-m02-typescript"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l05-components-props-state-and-hooks",
+          "title": "Components, props, state and hooks",
+          "objectives": [
+            "Build a UI from small components that receive props.",
+            "Manage state with useState and derive values instead of duplicating state.",
+            "Use useEffect correctly and avoid common re-render bugs."
+          ],
+          "topics": [
+            {
+              "title": "Thinking in React",
+              "details": [
+                "Break the UI into components, find the minimal state, decide which component owns it, pass data down and events up.",
+                "Rendering must be pure: same props and state produce the same output."
+              ]
+            },
+            {
+              "title": "Hooks",
+              "details": [
+                "`const [items, setItems] = useState([])`; update immutably (`setItems([...items, x])`).",
+                "useEffect synchronises with external systems (subscriptions, timers); include every dependency and clean up."
+              ]
+            },
+            {
+              "title": "Lists and forms",
+              "details": [
+                "Give list items a stable `key`; controlled inputs keep form values in state."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-sde.components-props-state-and-hooks"
+          ],
+          "video": {
+            "resourceId": "sde-video-ui",
+            "locator": "Whole lecture (includes React)."
+          },
+          "reading": {
+            "resourceId": "sk-sde-react",
+            "locator": "React Learn: 'Quick Start', 'Thinking in React', 'Describing the UI', 'Adding Interactivity' and 'Managing State'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-sde-a05-components-props-state-and-hooks",
+            "title": "Kanban board",
+            "kind": "coding",
+            "instructions": [
+              "Create a React + TypeScript app (Vite) with columns To do / Doing / Done.",
+              "Add, edit, move and delete cards; persist to localStorage with error handling.",
+              "Keep state minimal and derive counts per column."
+            ],
+            "deliverables": [
+              "Repository with README and screenshots."
+            ],
+            "acceptanceCriteria": [
+              "No duplicated state; counts are derived.",
+              "Reloading keeps the cards."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l05-components-props-state-and-hooks-check-01",
+                "kind": "short-answer",
+                "prompt": "Why must list items have a key?",
+                "answer": "So React can match items between renders.",
+                "explanation": "Use stable IDs, not array indexes, when items move."
+              },
+              {
+                "id": "sk-sde-l05-components-props-state-and-hooks-check-02",
+                "kind": "short-answer",
+                "prompt": "When do you need useEffect?",
+                "answer": "To synchronise with something outside React, such as a subscription or timer.",
+                "explanation": "Not for deriving values from state."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Where should shared state live?",
+            "Explain immutable updates."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sde-l06-data-fetching-routing-and-front-end-testing",
+          "title": "Data fetching, routing and front-end testing",
+          "objectives": [
+            "Fetch from an API with loading and error states.",
+            "Add client-side routing and forms with validation.",
+            "Test components with Testing Library and user flows with Playwright."
+          ],
+          "topics": [
+            {
+              "title": "Data",
+              "details": [
+                "Every request has three UI states: loading, error, success. Cancel or ignore stale responses when inputs change.",
+                "Libraries like TanStack Query add caching and retries; learn the manual way first."
+              ]
+            },
+            {
+              "title": "Routing and forms",
+              "details": [
+                "React Router maps URLs to pages; validate forms on the client and again on the server."
+              ]
+            },
+            {
+              "title": "Testing",
+              "details": [
+                "Component tests render and click like a user (`getByRole('button', { name: /save/i })`).",
+                "End-to-end tests with Playwright run the real app in a browser; keep a few critical flows."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-sde.data-fetching-routing-and-front-end-testing"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sde-fullstackopen",
+            "locator": "Full Stack Open part 2 'Communicating with server' and part 5 'Testing React apps' (including end-to-end testing)."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-playwright"
+          ],
+          "assignment": {
+            "id": "sk-sde-a06-data-fetching-routing-and-front-end-testing",
+            "title": "Movie search app",
+            "kind": "coding",
+            "instructions": [
+              "Build a search page that calls a public movie or books API with debounced input, loading and error states.",
+              "Add a details route and a favourites list.",
+              "Write three component tests and one Playwright test for search -> details -> favourite."
+            ],
+            "deliverables": [
+              "Repository with tests running in CI."
+            ],
+            "acceptanceCriteria": [
+              "Tests pass in CI.",
+              "Slow or failed requests show proper UI states."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l06-data-fetching-routing-and-front-end-testing-check-01",
+                "kind": "short-answer",
+                "prompt": "What three states does every data fetch need in the UI?",
+                "answer": "Loading, error and success.",
+                "explanation": "Users must see what is happening."
+              },
+              {
+                "id": "sk-sde-l06-data-fetching-routing-and-front-end-testing-check-02",
+                "kind": "short-answer",
+                "prompt": "Should you trust client-side validation alone?",
+                "answer": "No, always validate on the server too.",
+                "explanation": "Clients can be bypassed."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How do you avoid showing a stale response?",
+            "Component test versus end-to-end test?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m04-node-realtime",
+      "title": "04. Node.js services and real-time communication",
+      "stage": "intermediate",
+      "description": "Build HTTP and WebSocket servers in Node.js, broadcast updates between server instances, and handle connection failures.",
+      "prerequisites": [
+        "sk-sde-m02-typescript",
+        "fe-m07-networks-web"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l07-http-servers-middleware-and-persistence-in-node",
+          "title": "HTTP servers, middleware and persistence in Node.js",
+          "objectives": [
+            "Build a REST API with Express or Fastify, including validation and error handling.",
+            "Connect to PostgreSQL with a pool and parameterised queries.",
+            "Structure a service into routes, services and data access layers with tests."
+          ],
+          "topics": [
+            {
+              "title": "Server basics",
+              "details": [
+                "A route handler receives a request and returns a response; middleware runs in between (logging, auth, JSON parsing).",
+                "Validate request bodies (zod) and return consistent error JSON with correct status codes."
+              ]
+            },
+            {
+              "title": "Data",
+              "details": [
+                "Use a connection pool (pg) and parameterised queries; never build SQL strings from input."
+              ]
+            },
+            {
+              "title": "Structure and tests",
+              "details": [
+                "Keep handlers thin; put business rules in services that can be tested without HTTP.",
+                "Supertest calls your app in-process for API tests."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-sde.http-servers-middleware-and-persistence-in-node"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sde-fullstackopen",
+            "locator": "Full Stack Open part 3 'Programming a server with NodeJS and Express' and part 4 'Testing Express servers, user administration'."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-node"
+          ],
+          "assignment": {
+            "id": "sk-sde-a07-http-servers-middleware-and-persistence-in-node",
+            "title": "Notes API",
+            "kind": "coding",
+            "instructions": [
+              "Build a TypeScript notes API with CRUD, validation, pagination and PostgreSQL via Docker Compose.",
+              "Write service unit tests and API tests with Supertest against a test database."
+            ],
+            "deliverables": [
+              "Repository with compose file, tests and OpenAPI description."
+            ],
+            "acceptanceCriteria": [
+              "Invalid input returns 400 with a clear error.",
+              "Tests run against a fresh database in CI."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l07-http-servers-middleware-and-persistence-in-node-check-01",
+                "kind": "short-answer",
+                "prompt": "What is middleware?",
+                "answer": "Code that runs between receiving a request and the route handler.",
+                "explanation": "Used for logging, auth, parsing."
+              },
+              {
+                "id": "sk-sde-l07-http-servers-middleware-and-persistence-in-node-check-02",
+                "kind": "short-answer",
+                "prompt": "Why keep business logic out of route handlers?",
+                "answer": "So it can be tested without HTTP and reused.",
+                "explanation": "Handlers just translate HTTP to service calls."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Sketch your service layers.",
+            "How do you test against a real database in CI?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sde-l08-websockets-pub-sub-and-scaling-real-time-servers",
+          "title": "WebSockets, pub/sub and scaling real-time servers",
+          "objectives": [
+            "Explain WebSockets versus HTTP polling and server-sent events.",
+            "Build a WebSocket server with rooms, heartbeats and reconnection.",
+            "Fan out messages across several server instances with Redis pub/sub."
+          ],
+          "topics": [
+            {
+              "title": "Protocol",
+              "details": [
+                "A WebSocket upgrades an HTTP connection into a persistent two-way channel; ideal for chat, collaboration and live dashboards."
+              ]
+            },
+            {
+              "title": "Reliability",
+              "details": [
+                "Connections drop; send heartbeats (ping/pong), reconnect with backoff, and resend missed messages using sequence numbers."
+              ]
+            },
+            {
+              "title": "Scaling",
+              "details": [
+                "Clients connected to different servers need a shared channel: publish to Redis, every server subscribes and forwards to its clients.",
+                "Load balancers must support long-lived connections (sticky sessions or connection-aware routing)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-sde.websockets-pub-sub-and-scaling-real-time-servers"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-6d091ad3b5c7",
+            "locator": "RFC 6455 sections 1.1-1.3 (overview and opening handshake) and section 5.5.2-5.5.3 (ping and pong)."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-node",
+            "advanced-reading-c41ab21bca74"
+          ],
+          "assignment": {
+            "id": "sk-sde-a08-websockets-pub-sub-and-scaling-real-time-servers",
+            "title": "Multi-server chat",
+            "kind": "coding",
+            "instructions": [
+              "Build a WebSocket chat with rooms using the ws library.",
+              "Run two server instances behind different ports and connect them with Redis pub/sub.",
+              "Add heartbeats and client reconnection that fetches missed messages by sequence number.",
+              "Measure message latency with 50 scripted clients."
+            ],
+            "deliverables": [
+              "Repository, load script and latency results."
+            ],
+            "acceptanceCriteria": [
+              "Clients on different servers see each other's messages.",
+              "A reconnecting client receives missed messages."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l08-websockets-pub-sub-and-scaling-real-time-servers-check-01",
+                "kind": "short-answer",
+                "prompt": "Why do multiple WebSocket servers need pub/sub?",
+                "answer": "Clients on different servers must receive the same messages.",
+                "explanation": "Redis pub/sub broadcasts between servers."
+              },
+              {
+                "id": "sk-sde-l08-websockets-pub-sub-and-scaling-real-time-servers-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you detect a dead WebSocket connection?",
+                "answer": "Heartbeat ping/pong with a timeout.",
+                "explanation": "TCP alone may not notice quickly."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "WebSocket vs polling trade-offs?",
+            "How would you avoid losing messages on reconnect?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m05-api-design",
+      "title": "05. API design: REST, OpenAPI and gRPC",
+      "stage": "intermediate",
+      "description": "Design APIs that are easy to use and safe to evolve: resource modelling, errors, pagination, versioning, OpenAPI contracts and gRPC services.",
+      "prerequisites": [
+        "fe-m07-networks-web"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l09-designing-rest-apis-with-openapi",
+          "title": "Designing REST APIs with OpenAPI",
+          "objectives": [
+            "Model resources, URLs, methods and status codes consistently.",
+            "Design pagination, filtering, error format and idempotent retries.",
+            "Write an OpenAPI specification and generate documentation from it."
+          ],
+          "topics": [
+            {
+              "title": "Design rules",
+              "details": [
+                "Nouns in URLs, plural collections (`/orders`), nested only one level (`/orders/{id}/items`).",
+                "Cursor pagination (`?cursor=...&limit=50`) is stable when data changes; offset pagination is simpler but can skip rows."
+              ]
+            },
+            {
+              "title": "Errors and safety",
+              "details": [
+                "One error shape: `{ \"error\": { \"code\": \"insufficient_funds\", \"message\": \"...\" } }`.",
+                "Accept an `Idempotency-Key` header on POST so clients can retry safely."
+              ]
+            },
+            {
+              "title": "Evolution",
+              "details": [
+                "Add optional fields freely; never rename or remove fields without a new version; deprecate with dates.",
+                "OpenAPI documents the contract so clients, tests and docs come from one source."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sde.designing-rest-apis-with-openapi"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-c916c37047af",
+            "locator": "Swagger docs: 'What Is OpenAPI?', 'Basic Structure', 'Paths and Operations', 'Describing Parameters' and 'Describing Responses'."
+          },
+          "supplementaryResourceIds": [
+            "fe-doc-mdn-http"
+          ],
+          "assignment": {
+            "id": "sk-sde-a09-designing-rest-apis-with-openapi",
+            "title": "Design an orders API",
+            "kind": "design",
+            "instructions": [
+              "Write an OpenAPI 3 spec for an orders service: create, get, list with cursor pagination, cancel.",
+              "Define the error format and idempotency behaviour.",
+              "Render docs with Swagger UI or Redoc and review your design against the rules in this lesson."
+            ],
+            "deliverables": [
+              "openapi.yaml and a one-page design rationale."
+            ],
+            "acceptanceCriteria": [
+              "The spec validates with an OpenAPI linter.",
+              "Pagination and idempotency are specified exactly."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l09-designing-rest-apis-with-openapi-check-01",
+                "kind": "short-answer",
+                "prompt": "Why prefer cursor pagination for changing data?",
+                "answer": "It does not skip or repeat rows when items are inserted.",
+                "explanation": "Offsets shift when data changes."
+              },
+              {
+                "id": "sk-sde-l09-designing-rest-apis-with-openapi-check-02",
+                "kind": "short-answer",
+                "prompt": "Is removing a response field a breaking change?",
+                "answer": "Yes.",
+                "explanation": "Clients may depend on it; version or deprecate first."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Design URLs for users, orders and items.",
+            "How do idempotency keys work?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sde-l10-grpc-and-protocol-buffers",
+          "title": "gRPC and Protocol Buffers",
+          "objectives": [
+            "Define services and messages in proto3 and generate Go code.",
+            "Implement unary and server-streaming RPCs with deadlines.",
+            "Evolve messages without breaking clients."
+          ],
+          "topics": [
+            {
+              "title": "Why gRPC",
+              "details": [
+                "Binary protobuf messages over HTTP/2: smaller and faster than JSON, with generated typed clients; common between internal services."
+              ]
+            },
+            {
+              "title": "Defining services",
+              "details": [
+                "`service KV { rpc Get(GetRequest) returns (GetReply); }`; field numbers identify fields on the wire and must never be reused."
+              ]
+            },
+            {
+              "title": "Robust calls",
+              "details": [
+                "Always set deadlines; map errors to gRPC status codes (NOT_FOUND, UNAVAILABLE); retry only idempotent calls."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-sde.grpc-and-protocol-buffers"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sde-grpc",
+            "locator": "gRPC docs: 'Introduction to gRPC', 'Core concepts' and the Go 'Quick start' and 'Basics tutorial'."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-protobuf"
+          ],
+          "assignment": {
+            "id": "sk-sde-a10-grpc-and-protocol-buffers",
+            "title": "Key-value service over gRPC",
+            "kind": "coding",
+            "instructions": [
+              "Define a KV service (Get, Put, Delete, Watch as server streaming) in proto3.",
+              "Implement it in Go with an in-memory map and a mutex; write a client CLI.",
+              "Add deadlines and test that a slow server returns DEADLINE_EXCEEDED.",
+              "Add a new optional field and prove an old client still works."
+            ],
+            "deliverables": [
+              "Repository with proto, server, client and tests."
+            ],
+            "acceptanceCriteria": [
+              "Deadline test passes.",
+              "Old client compatibility is demonstrated."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l10-grpc-and-protocol-buffers-check-01",
+                "kind": "short-answer",
+                "prompt": "Why must protobuf field numbers never be reused?",
+                "answer": "They identify fields on the wire; reuse corrupts data for old clients.",
+                "explanation": "Reserve removed numbers."
+              },
+              {
+                "id": "sk-sde-l10-grpc-and-protocol-buffers-check-02",
+                "kind": "short-answer",
+                "prompt": "Why set a deadline on every RPC?",
+                "answer": "So callers do not wait forever and resources are freed.",
+                "explanation": "Deadlines propagate across services."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "REST or gRPC for a public API? For internal services?",
+            "Explain server streaming."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m06-distributed-systems",
+      "title": "06. Distributed systems fundamentals",
+      "stage": "advanced",
+      "description": "What changes when a program runs on many machines: replication, consistency models, consensus with Raft, time and failure handling.",
+      "prerequisites": [
+        "sk-sde-m01-go",
+        "fe-m12-system-design"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l11-replication-consistency-models-and-linearizabili",
+          "title": "Replication, consistency models and linearizability",
+          "objectives": [
+            "Explain synchronous and asynchronous replication and their failure trade-offs.",
+            "Distinguish linearizable, sequential, causal and eventual consistency.",
+            "Check a history of operations for linearizability with a tool."
+          ],
+          "topics": [
+            {
+              "title": "Replication",
+              "details": [
+                "Copies of data on several machines give fault tolerance and read scaling; the hard part is keeping them in agreement.",
+                "Async replication is fast but can lose acknowledged writes on failover; sync is safer but slower."
+              ]
+            },
+            {
+              "title": "Consistency models",
+              "details": [
+                "Linearizable: the system behaves like one copy and every read sees the latest completed write. Eventual: replicas converge if writes stop.",
+                "Stronger models are easier to program against and cost more latency and availability."
+              ]
+            },
+            {
+              "title": "Testing",
+              "details": [
+                "Record each client operation's start, end and result; a checker (Porcupine, Knossos) searches for a valid single-copy order."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-sde.replication-consistency-models-and-linearizabili"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-distributed",
+            "locator": "MIT 6.824 (2020) lectures 1 'Introduction' and 2 'RPC and Threads'."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-f7fce31bcc3f",
+            "locator": "Jepsen 'Consistency Models': read the overview and the pages for linearizable, sequential and eventual consistency."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-sde-a11-replication-consistency-models-and-linearizabili",
+            "title": "Break a naive replicated store",
+            "kind": "coding",
+            "instructions": [
+              "Build a Go key-value store with one primary and two async replicas using HTTP or gRPC.",
+              "Write a test harness that partitions the primary and promotes a replica; record client histories.",
+              "Show a lost acknowledged write and explain which consistency guarantee was violated."
+            ],
+            "deliverables": [
+              "Code, histories and explanation."
+            ],
+            "acceptanceCriteria": [
+              "The violation is reproduced from a fixed seed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l11-replication-consistency-models-and-linearizabili-check-01",
+                "kind": "short-answer",
+                "prompt": "What does linearizability guarantee?",
+                "answer": "Operations appear to happen instantly in an order consistent with real time, as if on one copy.",
+                "explanation": "Every read sees the latest completed write."
+              },
+              {
+                "id": "sk-sde-l11-replication-consistency-models-and-linearizabili-check-02",
+                "kind": "short-answer",
+                "prompt": "Risk of asynchronous replication?",
+                "answer": "Acknowledged writes can be lost on failover.",
+                "explanation": "The replica may not have received them yet."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Compare linearizable and eventual consistency with an example.",
+            "How do you test consistency?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sde-l12-consensus-with-raft",
+          "title": "Consensus with Raft",
+          "objectives": [
+            "Explain leader election, log replication and the commit rule in Raft.",
+            "Explain why a majority quorum prevents split-brain.",
+            "Implement leader election in Go with a simulated network."
+          ],
+          "topics": [
+            {
+              "title": "Roles and terms",
+              "details": [
+                "Each node is a follower, candidate or leader; terms are logical clocks. A candidate wins with votes from a majority.",
+                "Randomised election timeouts make split votes unlikely."
+              ]
+            },
+            {
+              "title": "Log replication",
+              "details": [
+                "The leader appends entries and sends AppendEntries; an entry is committed once stored on a majority, then applied to the state machine.",
+                "The log-matching check makes followers' logs identical to the leader's."
+              ]
+            },
+            {
+              "title": "Safety",
+              "details": [
+                "Any two majorities overlap, so a new leader always has every committed entry (election restriction).",
+                "Persist currentTerm, votedFor and the log before replying to RPCs."
+              ]
+            }
+          ],
+          "estimatedMinutes": 200,
+          "canonicalConceptTags": [
+            "sk-sde.consensus-with-raft"
+          ],
+          "video": {
+            "resourceId": "quant-video-mit-distributed",
+            "locator": "MIT 6.824 (2020) lectures 6 and 7 'Fault Tolerance: Raft'."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-3f93a00ea748",
+            "locator": "Raft paper (extended version): sections 5.1 'Raft basics', 5.2 'Leader election', 5.3 'Log replication', 5.4 'Safety' and Figure 2 (keep it next to your code)."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-89d403e4517e"
+          ],
+          "assignment": {
+            "id": "sk-sde-a12-consensus-with-raft",
+            "title": "Raft leader election",
+            "kind": "coding",
+            "instructions": [
+              "Implement Raft leader election and heartbeats in Go over a simulated network you control.",
+              "Test: one leader is elected; killing the leader elects a new one; a node in a minority partition cannot become leader.",
+              "Use the raft.github.io visualisation to check your understanding of each scenario."
+            ],
+            "deliverables": [
+              "Code and passing tests (run 500 times with random seeds)."
+            ],
+            "acceptanceCriteria": [
+              "No test run ever shows two leaders in the same term."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l12-consensus-with-raft-check-01",
+                "kind": "short-answer",
+                "prompt": "When is a Raft log entry committed?",
+                "answer": "When the leader has stored it on a majority of servers (in its current term).",
+                "explanation": "Then it can be applied."
+              },
+              {
+                "id": "sk-sde-l12-consensus-with-raft-check-02",
+                "kind": "short-answer",
+                "prompt": "Why randomise election timeouts?",
+                "answer": "To avoid repeated split votes.",
+                "explanation": "One node usually times out first and wins."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Draw a 5-node cluster during a partition.",
+            "What must be persisted before replying?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sde-l13-time-failure-and-idempotency-in-distributed-syst",
+          "title": "Time, failure and idempotency in distributed systems",
+          "objectives": [
+            "Explain why clocks disagree and use logical clocks for ordering.",
+            "Handle timeouts, retries and duplicates with idempotent operations.",
+            "Apply fault-injection testing to find bugs before users do."
+          ],
+          "topics": [
+            {
+              "title": "Time",
+              "details": [
+                "Physical clocks drift and jump; do not order events across machines by wall-clock timestamps alone.",
+                "Lamport clocks and version vectors capture happened-before; Raft terms are a logical clock too."
+              ]
+            },
+            {
+              "title": "Failures",
+              "details": [
+                "A timeout means 'unknown', not 'failed': the request may have succeeded. Retrying can duplicate work unless operations are idempotent.",
+                "Use request IDs so servers apply each request once."
+              ]
+            },
+            {
+              "title": "Testing",
+              "details": [
+                "Inject delays, drops, duplicates and crashes in tests; run with many seeds; keep the failing seed as a regression test."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sde.time-failure-and-idempotency-in-distributed-syst"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-89d403e4517e",
+            "locator": "raft.github.io: run the interactive visualisation with message drops and node crashes, then read the 'Client interaction' section (section 8) of the Raft paper."
+          },
+          "supplementaryResourceIds": [
+            "fe-doc-sd-primer"
+          ],
+          "assignment": {
+            "id": "sk-sde-a13-time-failure-and-idempotency-in-distributed-syst",
+            "title": "Exactly-once effect with retries",
+            "kind": "coding",
+            "instructions": [
+              "Add client request IDs to your KV store so retried Put requests are applied once.",
+              "Inject random message duplication and loss; prove the final state is correct across 1,000 seeded runs."
+            ],
+            "deliverables": [
+              "Code, test harness and results."
+            ],
+            "acceptanceCriteria": [
+              "No duplicated effects across all runs."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l13-time-failure-and-idempotency-in-distributed-syst-check-01",
+                "kind": "short-answer",
+                "prompt": "What does a timeout tell the client?",
+                "answer": "Nothing certain: the request may or may not have been applied.",
+                "explanation": "So retries must be safe."
+              },
+              {
+                "id": "sk-sde-l13-time-failure-and-idempotency-in-distributed-syst-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you make retries safe?",
+                "answer": "Make operations idempotent, for example with request IDs.",
+                "explanation": "The server ignores duplicates."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why not order events by wall clock?",
+            "Explain request IDs for exactly-once effects."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m07-storage-engines",
+      "title": "07. Storage engines: B-trees and LSM-trees",
+      "stage": "advanced",
+      "description": "How databases store data on disk, and why write-heavy systems use log-structured merge trees.",
+      "prerequisites": [
+        "fe-m06-sql-practice"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l14-write-ahead-logs-b-trees-lsm-trees-and-bloom-fil",
+          "title": "Write-ahead logs, B-trees, LSM-trees and Bloom filters",
+          "objectives": [
+            "Explain the write-ahead log and crash recovery.",
+            "Compare B-trees and LSM-trees for reads, writes and space.",
+            "Implement a small LSM store with memtable, SSTables, compaction and Bloom filters."
+          ],
+          "topics": [
+            {
+              "title": "Durability",
+              "details": [
+                "Write the change to an append-only log and fsync before acknowledging; after a crash, replay the log."
+              ]
+            },
+            {
+              "title": "B-trees vs LSM",
+              "details": [
+                "B-trees update pages in place: fast reads, random writes. LSM-trees buffer writes in memory (memtable), flush sorted files (SSTables) and merge them later (compaction): fast writes, more read work.",
+                "Write amplification, read amplification and space amplification are the trade-off triangle."
+              ]
+            },
+            {
+              "title": "Bloom filters",
+              "details": [
+                "A Bloom filter says 'definitely not here' or 'maybe here', letting reads skip SSTables; false positives possible, false negatives impossible."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "sk-sde.write-ahead-logs-b-trees-lsm-trees-and-bloom-fil"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-8aa43a89ac6e",
+            "locator": "RocksDB Overview wiki page: sections on the high-level architecture, MemTable, Write-Ahead Log, SST files, compaction and Bloom filters."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-c6c48b4da08e"
+          ],
+          "assignment": {
+            "id": "sk-sde-a14-write-ahead-logs-b-trees-lsm-trees-and-bloom-fil",
+            "title": "Mini LSM store",
+            "kind": "coding",
+            "instructions": [
+              "Implement in Go: WAL append and replay, memtable (sorted map), flush to immutable SSTable files, read path newest-first, tombstones for deletes.",
+              "Add size-tiered compaction and a Bloom filter per SSTable.",
+              "Crash-test: kill the process at random points and verify no acknowledged write is lost."
+            ],
+            "deliverables": [
+              "Code, tests and a short design note."
+            ],
+            "acceptanceCriteria": [
+              "Deleted keys stay deleted after compaction.",
+              "Bloom filters never give false negatives in tests."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l14-write-ahead-logs-b-trees-lsm-trees-and-bloom-fil-check-01",
+                "kind": "short-answer",
+                "prompt": "Why do LSM-trees write fast?",
+                "answer": "Writes are buffered in memory and flushed sequentially.",
+                "explanation": "Sequential I/O is much faster than random updates."
+              },
+              {
+                "id": "sk-sde-l14-write-ahead-logs-b-trees-lsm-trees-and-bloom-fil-check-02",
+                "kind": "short-answer",
+                "prompt": "Can a Bloom filter return a false negative?",
+                "answer": "No.",
+                "explanation": "It can only return false positives."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Compare B-tree and LSM amplification.",
+            "How does WAL replay work?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m08-crdts",
+      "title": "08. Collaborative editing and CRDTs",
+      "stage": "advanced",
+      "description": "How apps like Google Docs and Figma let many people edit at once and merge changes without conflicts.",
+      "prerequisites": [
+        "sk-sde-m04-node-realtime",
+        "sk-sde-m06-distributed-systems"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l15-crdts-and-operational-transformation",
+          "title": "CRDTs and operational transformation",
+          "objectives": [
+            "Explain why naive last-writer-wins loses edits in collaborative text.",
+            "Explain how sequence CRDTs (RGA/YATA) give each character a unique ID and merge concurrently.",
+            "Implement a simple text CRDT and prove convergence with property tests."
+          ],
+          "topics": [
+            {
+              "title": "The problem",
+              "details": [
+                "Two users type at the same position while offline; when they reconnect, both edits must survive and every replica must end with identical text."
+              ]
+            },
+            {
+              "title": "Approaches",
+              "details": [
+                "Operational transformation (OT) transforms operations against each other on a central server.",
+                "CRDTs give each element a unique, ordered ID so merges are commutative and need no central server."
+              ]
+            },
+            {
+              "title": "Practical concerns",
+              "details": [
+                "Tombstones keep deleted characters' IDs; periodic snapshots and garbage collection keep memory bounded.",
+                "Presence (cursors) is ephemeral and sent separately from document state."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-sde.crdts-and-operational-transformation"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sde-crdt",
+            "locator": "crdt.tech: read the 'Introduction' resources and the paper 'A comprehensive study of Convergent and Commutative Replicated Data Types' (sections on registers, counters and sequences)."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-sde-a15-crdts-and-operational-transformation",
+            "title": "Text CRDT with property tests",
+            "kind": "coding",
+            "instructions": [
+              "Implement an RGA-style text CRDT in TypeScript (insert, delete, merge, encode).",
+              "Write fast-check property tests: random concurrent operations delivered in random orders always converge.",
+              "Connect it to your WebSocket server so two browser tabs edit together, including offline edits."
+            ],
+            "deliverables": [
+              "Library, tests and a demo GIF."
+            ],
+            "acceptanceCriteria": [
+              "Thousands of random histories converge.",
+              "Offline edits merge without loss."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l15-crdts-and-operational-transformation-check-01",
+                "kind": "short-answer",
+                "prompt": "Why does last-writer-wins fail for text editing?",
+                "answer": "It discards one user's concurrent edits.",
+                "explanation": "Collaborative editing must keep both."
+              },
+              {
+                "id": "sk-sde-l15-crdts-and-operational-transformation-check-02",
+                "kind": "short-answer",
+                "prompt": "What makes CRDT merges conflict-free?",
+                "answer": "Operations commute because every element has a unique ordered ID.",
+                "explanation": "Order of delivery does not change the result."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain tombstones.",
+            "OT versus CRDT trade-offs?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m09-system-design-interviews",
+      "title": "09. System design interviews",
+      "stage": "professional",
+      "description": "Prepare for SDE system design rounds: a repeatable framework, capacity estimation and classic designs explained with trade-offs.",
+      "prerequisites": [
+        "fe-m12-system-design",
+        "sk-sde-m06-distributed-systems"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l16-a-repeatable-system-design-interview-framework",
+          "title": "A repeatable system design interview framework",
+          "objectives": [
+            "Run a 45-minute design interview: requirements, estimates, API, data model, high level, deep dive, wrap-up.",
+            "Estimate QPS, storage and bandwidth quickly.",
+            "Communicate trade-offs and respond to interviewer hints."
+          ],
+          "topics": [
+            {
+              "title": "Framework",
+              "details": [
+                "5 min requirements (functional, non-functional, scale), 5 min estimates, 5 min API and data model, 15 min high-level design, 10 min deep dive, 5 min bottlenecks and failures."
+              ]
+            },
+            {
+              "title": "Estimation",
+              "details": [
+                "Daily active users x actions per user / 86,400 = average QPS; multiply by 2-10 for peak. Storage = items per day x size x retention."
+              ]
+            },
+            {
+              "title": "Communication",
+              "details": [
+                "Think aloud, state assumptions, offer options and choose one with a reason; ask what the interviewer wants to go deeper on."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sde.a-repeatable-system-design-interview-framework"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "fe-doc-sd-primer",
+            "locator": "System Design Primer: 'System design interview questions with solutions' (Pastebin and Twitter timeline walkthroughs) and 'Appendix: Powers of two table' and 'Latency numbers every programmer should know'."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-sd101"
+          ],
+          "assignment": {
+            "id": "sk-sde-a16-a-repeatable-system-design-interview-framework",
+            "title": "Two timed designs",
+            "kind": "design",
+            "instructions": [
+              "Do two 45-minute timed designs (a chat app and a news feed) on paper or a whiteboard tool.",
+              "Write each up afterwards with estimates and trade-offs; compare with the primer's solutions and note gaps."
+            ],
+            "deliverables": [
+              "Two design write-ups with diagrams and self-review."
+            ],
+            "acceptanceCriteria": [
+              "Each has numeric estimates and at least three justified trade-offs."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l16-a-repeatable-system-design-interview-framework-check-01",
+                "kind": "short-answer",
+                "prompt": "What comes first in a design interview?",
+                "answer": "Clarifying requirements and scale.",
+                "explanation": "Designing without them solves the wrong problem."
+              },
+              {
+                "id": "sk-sde-l16-a-repeatable-system-design-interview-framework-check-02",
+                "kind": "short-answer",
+                "prompt": "Average QPS for 10M daily users doing 20 actions each?",
+                "answer": "About 2,300 per second.",
+                "explanation": "200M / 86,400."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Recite the framework with timings.",
+            "What deep dives could follow a news feed design?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sde-l17-classic-designs-rate-limiter-chat-news-feed-url",
+          "title": "Classic designs: rate limiter, chat, news feed, URL shortener and key-value store",
+          "objectives": [
+            "Explain the key components and trade-offs of five frequently asked designs.",
+            "Choose storage, caching and messaging for each with reasons.",
+            "Identify the main failure modes and mitigations for each."
+          ],
+          "topics": [
+            {
+              "title": "Rate limiter",
+              "details": [
+                "Token bucket in Redis with atomic Lua; per-user and per-IP keys; return 429 with Retry-After."
+              ]
+            },
+            {
+              "title": "Chat and feed",
+              "details": [
+                "Chat: WebSockets, per-conversation ordered storage, delivery receipts, fan-out via pub/sub.",
+                "Feed: fan-out on write for normal users, fan-out on read for celebrities, cached timelines."
+              ]
+            },
+            {
+              "title": "Key-value store",
+              "details": [
+                "Consistent hashing for partitioning, replication with quorums (R + W > N), hinted handoff and anti-entropy."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-sde.classic-designs-rate-limiter-chat-news-feed-url"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sde-sd101",
+            "locator": "System Design 101: sections on rate limiting, caching, message queues, consistent hashing and the case studies."
+          },
+          "supplementaryResourceIds": [
+            "fe-doc-sd-primer"
+          ],
+          "assignment": {
+            "id": "sk-sde-a17-classic-designs-rate-limiter-chat-news-feed-url",
+            "title": "Design flashcards and a mock",
+            "kind": "design",
+            "instructions": [
+              "Make a one-page summary per design: requirements, diagram, data model, scaling, failure modes.",
+              "Do one mock interview with a friend or record yourself, using a design you have not prepared."
+            ],
+            "deliverables": [
+              "Five summaries and the mock self-review."
+            ],
+            "acceptanceCriteria": [
+              "Each summary names at least two failure modes with mitigations."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l17-classic-designs-rate-limiter-chat-news-feed-url-check-01",
+                "kind": "short-answer",
+                "prompt": "What does R + W > N guarantee in quorum systems?",
+                "answer": "Every read quorum overlaps the latest write quorum.",
+                "explanation": "So reads can see the latest write."
+              },
+              {
+                "id": "sk-sde-l17-classic-designs-rate-limiter-chat-news-feed-url-check-02",
+                "kind": "short-answer",
+                "prompt": "Fan-out on write or read for celebrities?",
+                "answer": "Fan-out on read.",
+                "explanation": "Writing to millions of followers' timelines is too expensive."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain token bucket rate limiting.",
+            "How does consistent hashing reduce data movement?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m10-llm-dev-tools",
+      "title": "10. Developer tools with LLM APIs",
+      "stage": "professional",
+      "description": "Build software that uses language models responsibly: API calls, structured output, webhooks and GitHub Apps.",
+      "prerequisites": [
+        "sk-sde-m05-api-design",
+        "fe-m13-security-basics"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l18-calling-llm-apis-structured-output-and-building",
+          "title": "Calling LLM APIs, structured output and building a GitHub App",
+          "objectives": [
+            "Call an LLM API with system prompts, structured JSON output and token limits.",
+            "Build a GitHub App that receives verified webhooks and comments on pull requests.",
+            "Control cost and failure with caching, timeouts and schema validation."
+          ],
+          "topics": [
+            {
+              "title": "LLM API basics",
+              "details": [
+                "Send messages with a system prompt; ask for JSON matching a schema and validate it before use.",
+                "Tokens cost money: cache by input hash, limit context, set max tokens and timeouts."
+              ]
+            },
+            {
+              "title": "GitHub Apps",
+              "details": [
+                "An App has a private key and fine-grained permissions; it receives webhooks (verify the signature) and acts with short-lived installation tokens.",
+                "Process webhooks asynchronously and idempotently by delivery ID."
+              ]
+            },
+            {
+              "title": "Responsibility",
+              "details": [
+                "Never send code you do not own to an external API; keep keys in secrets; show model output as suggestions, not facts."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "sk-sde.calling-llm-apis-structured-output-and-building"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sde-github-apps",
+            "locator": "GitHub Docs: 'About creating GitHub Apps', then 'Building a GitHub App that responds to webhook events' and 'Validating webhook deliveries'."
+          },
+          "supplementaryResourceIds": [
+            "sk-sde-claude-docs",
+            "ai-doc-evals"
+          ],
+          "assignment": {
+            "id": "sk-sde-a18-calling-llm-apis-structured-output-and-building",
+            "title": "Review-comment prototype",
+            "kind": "coding",
+            "instructions": [
+              "Create a private GitHub App on a test repository with pull_request events.",
+              "On each PR, send the diff to an LLM asking for JSON comments (file, line, message); validate and post them.",
+              "Cache by diff hash, handle invalid JSON and timeouts, and log token usage."
+            ],
+            "deliverables": [
+              "Repository, setup README and screenshots of comments."
+            ],
+            "acceptanceCriteria": [
+              "Invalid model output never reaches GitHub.",
+              "Re-delivered webhooks do not duplicate comments."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l18-calling-llm-apis-structured-output-and-building-check-01",
+                "kind": "short-answer",
+                "prompt": "Why validate LLM JSON output?",
+                "answer": "Models can return malformed or wrong-shaped data.",
+                "explanation": "Treat it as untrusted input."
+              },
+              {
+                "id": "sk-sde-l18-calling-llm-apis-structured-output-and-building-check-02",
+                "kind": "short-answer",
+                "prompt": "How does a GitHub App prove a webhook is genuine?",
+                "answer": "By verifying the HMAC signature header with the webhook secret.",
+                "explanation": "Reject unsigned requests."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "List three ways to reduce LLM cost.",
+            "Why process webhooks asynchronously?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sde-m11-engineering-practice",
+      "title": "11. Working like a senior engineer",
+      "stage": "professional",
+      "description": "The habits that get engineers promoted: effective code review, testing strategy, design reviews, on-call and ownership.",
+      "prerequisites": [
+        "fe-m14-career-skills"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sde-l19-code-review-testing-strategy-on-call-and-ownersh",
+          "title": "Code review, testing strategy, on-call and ownership",
+          "objectives": [
+            "Give and receive code review that improves design, not just style.",
+            "Choose a test mix (unit, integration, end-to-end) for a service.",
+            "Prepare for on-call: alerts, runbooks, incident roles and blameless postmortems."
+          ],
+          "topics": [
+            {
+              "title": "Code review",
+              "details": [
+                "Look at design, correctness, tests, readability, then style. Be specific and kind; explain why.",
+                "Authors: small PRs, clear descriptions, respond to every comment."
+              ]
+            },
+            {
+              "title": "Testing strategy",
+              "details": [
+                "Many fast unit tests, fewer integration tests against real dependencies, a handful of end-to-end tests for critical journeys."
+              ]
+            },
+            {
+              "title": "Operations",
+              "details": [
+                "Alert on user-visible symptoms; every alert links a runbook. After incidents, write blameless postmortems with action items."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "sk-sde.code-review-testing-strategy-on-call-and-ownersh"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sde-code-review",
+            "locator": "Google Engineering Practices: 'The Standard of Code Review', 'What to look for in a code review' and 'The CL author's guide'."
+          },
+          "supplementaryResourceIds": [
+            "sde-book-swe",
+            "sde-book-sre"
+          ],
+          "assignment": {
+            "id": "sk-sde-a19-code-review-testing-strategy-on-call-and-ownersh",
+            "title": "Review and runbook",
+            "kind": "design",
+            "instructions": [
+              "Review two open-source pull requests (read-only) and write the comments you would leave, ordered by importance.",
+              "Write a test strategy and an on-call runbook for one of your projects."
+            ],
+            "deliverables": [
+              "Review notes, test strategy and runbook."
+            ],
+            "acceptanceCriteria": [
+              "Review comments focus on design and correctness before style."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sde-l19-code-review-testing-strategy-on-call-and-ownersh-check-01",
+                "kind": "short-answer",
+                "prompt": "What should a reviewer check first?",
+                "answer": "Design and correctness.",
+                "explanation": "Style is the least important and best automated."
+              },
+              {
+                "id": "sk-sde-l19-code-review-testing-strategy-on-call-and-ownersh-check-02",
+                "kind": "short-answer",
+                "prompt": "What is a blameless postmortem?",
+                "answer": "An incident review that focuses on systems and fixes, not on blaming people.",
+                "explanation": "It encourages honest reporting."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Describe your test pyramid.",
+            "What makes a good alert?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "Go documentation",
+      "url": "https://go.dev/doc/"
+    },
+    {
+      "title": "React documentation",
+      "url": "https://react.dev/"
+    }
+  ],
+  "limitations": [
+    "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
+    "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
+    "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Write small, tested programs in Go and TypeScript.",
+      "evidence": "Repositories with passing tests and a README for each exercise."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Build a React front end and a Node.js or Go service that talk over well-designed REST, gRPC or WebSocket APIs.",
+      "evidence": "A working full-stack app with automated unit and end-to-end tests."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Explain and implement replication, consensus, storage engines and conflict-free merging.",
+      "evidence": "Your own Raft and LSM implementations passing failure tests, plus a CRDT with convergence tests."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Design systems in interviews, build developer tools with LLM APIs and work like a senior engineer.",
+      "evidence": "Mock system-design write-ups, a working GitHub App and reviewed pull requests."
+    }
+  ]
+}

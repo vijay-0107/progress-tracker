@@ -24,6 +24,7 @@ import {
 } from "./shared";
 import { CareerPathCards, TechnologyLinks } from "./CareerPathCards";
 import { ReferenceStatus } from "./ReferenceStatus";
+import { SkillBuilders } from "./SkillBuilder";
 
 export function CareerPaths(props: LearningProps) {
   return (
@@ -166,6 +167,11 @@ export function CareerPathPage(
           workload and limitations.
         </p>
       </div>
+      <SkillBuilders
+        catalog={catalog}
+        state={state}
+        sectionId={path.courseId}
+      />
       <section
         className="panel lesson-section section-block"
         aria-label="Required project languages"

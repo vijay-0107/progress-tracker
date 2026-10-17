@@ -16,6 +16,7 @@ import {
 import {
   CORE_TRACK_IDS,
   CAREER_COURSE_IDS,
+  SKILL_TRACK_IDS,
   EXTRA_TOPIC_IDS,
   type TrackId,
 } from "../domain/types";
@@ -132,6 +133,13 @@ export function Library({ catalog }: LearningProps) {
             </optgroup>
             <optgroup label="Career learning & shared systems">
               {CAREER_COURSE_IDS.map((id) => (
+                <option value={id} key={id}>
+                  {trackMeta[id].label}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Skill builders (beginner to professional)">
+              {SKILL_TRACK_IDS.map((id) => (
                 <option value={id} key={id}>
                   {trackMeta[id].label}
                 </option>

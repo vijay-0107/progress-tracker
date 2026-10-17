@@ -27,15 +27,28 @@ export const CAREER_COURSE_IDS = [
   "quant-infrastructure-advanced",
   "technical-pm-advanced",
 ] as const;
+/** Beginner-to-professional skill builders shown inside existing sections. */
+export const SKILL_TRACK_IDS = [
+  "foundation-essentials",
+  "sde-skills",
+  "backend-skills",
+  "ai-skills",
+  "data-skills",
+  "quant-skills",
+  "security-skills",
+  "cloud-devops",
+] as const;
 export const TRACK_IDS = [
   ...CORE_TRACK_IDS,
   ...EXTRA_TOPIC_IDS,
   ...CAREER_COURSE_IDS,
+  ...SKILL_TRACK_IDS,
 ] as const;
 export type CoreTrackId = (typeof CORE_TRACK_IDS)[number];
 export type ExtraTopicId = (typeof EXTRA_TOPIC_IDS)[number];
 export type TrackId = (typeof TRACK_IDS)[number];
 export type CareerCourseId = (typeof CAREER_COURSE_IDS)[number];
+export type SkillTrackId = (typeof SKILL_TRACK_IDS)[number];
 export const LEARNING_STAGES = [
   "foundation",
   "intermediate",
@@ -145,7 +158,8 @@ export interface Project {
     | "B-build"
     | "professional-synthetic-recreation"
     | "career-practice"
-    | "advanced-target";
+    | "advanced-target"
+    | "resume-target";
   summary: string;
   scope: string;
   prerequisites: string[];

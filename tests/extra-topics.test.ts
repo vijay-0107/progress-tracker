@@ -149,7 +149,8 @@ describe("optional Extra Topics content contract", () => {
       catalog.projects.filter(
         (project) =>
           project.variant !== "career-practice" &&
-          project.variant !== "advanced-target",
+          project.variant !== "advanced-target" &&
+          project.variant !== "resume-target",
       ),
     ).toHaveLength(21);
     expect(extras.map((track) => track.trackId)).toEqual([

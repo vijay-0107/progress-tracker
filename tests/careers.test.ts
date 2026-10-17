@@ -4,6 +4,7 @@ import {
   allLessons,
   coreLessons,
   isCareerCourse,
+  isSkillTrack,
   findLesson,
   getCatalog,
   lessonCompletion,
@@ -174,7 +175,7 @@ describe("six career maps and append-only inventory", () => {
   });
   it("adds exactly 16 optional lessons and five projects without redefining old totals", () => {
     const earlierTracks = catalog.tracks.filter(
-      (track) => !isCareerCourse(track.trackId),
+      (track) => !isCareerCourse(track.trackId) && !isSkillTrack(track.trackId),
     );
     expect(earlierTracks).toHaveLength(13);
     expect(allLessons({ ...catalog, tracks: earlierTracks })).toHaveLength(371);
@@ -185,7 +186,9 @@ describe("six career maps and append-only inventory", () => {
     ).toHaveLength(20);
     expect(
       catalog.projects.filter(
-        (project) => project.variant !== "advanced-target",
+        (project) =>
+          project.variant !== "advanced-target" &&
+          project.variant !== "resume-target",
       ),
     ).toHaveLength(26);
     const state = createProgress("guest", T0);

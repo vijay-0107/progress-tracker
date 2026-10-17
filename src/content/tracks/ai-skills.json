@@ -1,0 +1,2058 @@
+{
+  "schemaVersion": 1,
+  "trackId": "ai-skills",
+  "title": "Applied AI: ML and Generative AI Skill Builder",
+  "sourceCheckedOn": "2026-10-17",
+  "resources": [
+    {
+      "id": "sk-ai-numpy",
+      "kind": "documentation",
+      "title": "NumPy: the absolute basics for beginners",
+      "url": "https://numpy.org/doc/stable/user/absolute_beginners.html",
+      "provider": "NumPy developers",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Arrays, shapes, indexing, broadcasting and vectorised maths."
+    },
+    {
+      "id": "sk-ai-pandas",
+      "kind": "documentation",
+      "title": "pandas: getting started tutorials",
+      "url": "https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html",
+      "provider": "pandas developers",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Ten short tutorials from reading data to time series."
+    },
+    {
+      "id": "sk-ai-mlcc",
+      "kind": "documentation",
+      "title": "Google Machine Learning Crash Course",
+      "url": "https://developers.google.com/machine-learning/crash-course",
+      "provider": "Google",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free beginner course with interactive exercises on core ML concepts."
+    },
+    {
+      "id": "sk-ai-sklearn",
+      "kind": "documentation",
+      "title": "scikit-learn: Getting started and user guide",
+      "url": "https://scikit-learn.org/stable/getting_started.html",
+      "provider": "scikit-learn developers",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Estimators, pipelines, model selection and evaluation."
+    },
+    {
+      "id": "sk-ai-xgboost",
+      "kind": "documentation",
+      "title": "XGBoost documentation",
+      "url": "https://xgboost.readthedocs.io/en/stable/",
+      "provider": "XGBoost developers",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Gradient-boosted trees: the go-to model for tabular data."
+    },
+    {
+      "id": "sk-ai-zero-to-hero",
+      "kind": "video",
+      "title": "Andrej Karpathy: Neural Networks: Zero to Hero",
+      "url": "https://karpathy.ai/zero-to-hero.html",
+      "provider": "Andrej Karpathy",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Build backpropagation, language models and a GPT from scratch in code."
+    },
+    {
+      "id": "sk-ai-recsys",
+      "kind": "documentation",
+      "title": "Google: Recommendation systems course",
+      "url": "https://developers.google.com/machine-learning/recommendation",
+      "provider": "Google",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Candidate generation, scoring, re-ranking and embeddings."
+    },
+    {
+      "id": "sk-ai-faiss",
+      "kind": "documentation",
+      "title": "FAISS wiki",
+      "url": "https://github.com/facebookresearch/faiss/wiki",
+      "provider": "Meta AI Research",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Index types and trade-offs for vector similarity search."
+    },
+    {
+      "id": "sk-ai-langgraph",
+      "kind": "documentation",
+      "title": "LangGraph documentation",
+      "url": "https://langchain-ai.github.io/langgraph/",
+      "provider": "LangChain",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Stateful agent graphs, tools and human-in-the-loop."
+    },
+    {
+      "id": "sk-ai-mcp",
+      "kind": "documentation",
+      "title": "Model Context Protocol: introduction and specification",
+      "url": "https://modelcontextprotocol.io/",
+      "provider": "Model Context Protocol project",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Standard way to expose tools and data to AI applications."
+    },
+    {
+      "id": "sk-ai-ragas",
+      "kind": "documentation",
+      "title": "Ragas documentation",
+      "url": "https://docs.ragas.io/",
+      "provider": "Ragas project",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Metrics for evaluating retrieval-augmented generation."
+    },
+    {
+      "id": "sk-ai-feast",
+      "kind": "documentation",
+      "title": "Feast documentation",
+      "url": "https://docs.feast.dev/",
+      "provider": "Feast project",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Feature store concepts: entities, feature views, point-in-time joins."
+    },
+    {
+      "id": "sk-ai-evidently",
+      "kind": "documentation",
+      "title": "Evidently documentation",
+      "url": "https://docs.evidentlyai.com/",
+      "provider": "Evidently AI",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Data drift, prediction drift and model quality reports."
+    },
+    {
+      "id": "sk-ai-pgvector",
+      "kind": "documentation",
+      "title": "pgvector",
+      "url": "https://github.com/pgvector/pgvector",
+      "provider": "pgvector contributors",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Vector similarity search inside PostgreSQL."
+    }
+  ],
+  "modules": [
+    {
+      "id": "sk-ai-m01-python-data",
+      "title": "01. The Python data stack",
+      "stage": "foundation",
+      "description": "NumPy and pandas are the daily tools of every ML engineer. Learn arrays, vectorisation, data cleaning and exploratory analysis.",
+      "prerequisites": [
+        "foundation-module-02-python",
+        "fe-m10-math"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l01-numpy-arrays-broadcasting-and-vectorisation",
+          "title": "NumPy arrays, broadcasting and vectorisation",
+          "objectives": [
+            "Create and reshape arrays and explain shape, dtype and axis.",
+            "Use broadcasting and vectorised operations instead of Python loops.",
+            "Implement simple maths (normalisation, distances, softmax) in NumPy."
+          ],
+          "topics": [
+            {
+              "title": "Arrays",
+              "details": [
+                "An ndarray is a typed grid of numbers; `a.shape`, `a.dtype`, `a.reshape(3, -1)`, slicing `a[:, 0]`.",
+                "`axis=0` works down columns, `axis=1` across rows."
+              ]
+            },
+            {
+              "title": "Broadcasting",
+              "details": [
+                "Arrays with compatible shapes combine element-wise: subtracting a (1, n) mean row from an (m, n) matrix normalises each column.",
+                "Vectorised code is often 100x faster than Python loops because the loop runs in C."
+              ]
+            },
+            {
+              "title": "Numerics",
+              "details": [
+                "Floating point is approximate: compare with np.allclose; subtract the max before exp() in softmax to avoid overflow."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-ai.numpy-arrays-broadcasting-and-vectorisation"
+          ],
+          "video": {
+            "resourceId": "ai-video-statquest",
+            "locator": "Optional: any StatQuest videos on topics you find unclear later; bookmark the index."
+          },
+          "reading": {
+            "resourceId": "sk-ai-numpy",
+            "locator": "NumPy: the absolute basics for beginners, whole page, typing every example."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-ai-a01-numpy-arrays-broadcasting-and-vectorisation",
+            "title": "Vectorise it",
+            "kind": "coding",
+            "instructions": [
+              "Write loop and vectorised versions of: column standardisation, pairwise Euclidean distances, softmax over rows.",
+              "Time both with %timeit and check results with np.allclose.",
+              "Write a short note on broadcasting rules with one diagram."
+            ],
+            "deliverables": [
+              "Notebook with code, timings and note."
+            ],
+            "acceptanceCriteria": [
+              "Vectorised results match loops.",
+              "Softmax is numerically stable for large inputs."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l01-numpy-arrays-broadcasting-and-vectorisation-check-01",
+                "kind": "short-answer",
+                "prompt": "Why is vectorised NumPy faster than a Python loop?",
+                "answer": "The loop runs in optimised C over contiguous memory.",
+                "explanation": "Python's per-item overhead disappears."
+              },
+              {
+                "id": "sk-ai-l01-numpy-arrays-broadcasting-and-vectorisation-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you make softmax numerically stable?",
+                "answer": "Subtract the maximum value before exponentiating.",
+                "explanation": "It prevents overflow without changing the result."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain axis=0 vs axis=1.",
+            "Give a broadcasting example."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l02-pandas-for-cleaning-joining-and-exploring-data",
+          "title": "pandas for cleaning, joining and exploring data",
+          "objectives": [
+            "Load, inspect, filter, group and join DataFrames.",
+            "Handle missing values, duplicates, types and dates correctly.",
+            "Do exploratory data analysis with plots and write down findings."
+          ],
+          "topics": [
+            {
+              "title": "Core operations",
+              "details": [
+                "`read_csv`, `df.info()`, `df.describe()`, boolean filtering, `groupby().agg()`, `merge(how='left')`."
+              ]
+            },
+            {
+              "title": "Cleaning",
+              "details": [
+                "Decide per column whether missing means unknown, zero or error; never fill blindly. Parse dates with pd.to_datetime and check time zones.",
+                "Check row counts before and after merges to catch duplicates."
+              ]
+            },
+            {
+              "title": "EDA",
+              "details": [
+                "Look at distributions, outliers, correlations and target balance before modelling; write findings as sentences, not just charts."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-ai.pandas-for-cleaning-joining-and-exploring-data"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-ai-pandas",
+            "locator": "pandas getting started: all ten intro tutorials, especially 'How to handle time series data' and 'How to combine data from multiple tables'."
+          },
+          "supplementaryResourceIds": [
+            "data-book-dataviz"
+          ],
+          "assignment": {
+            "id": "sk-ai-a02-pandas-for-cleaning-joining-and-exploring-data",
+            "title": "EDA report",
+            "kind": "coding",
+            "instructions": [
+              "Pick a public tabular dataset (for example a Kaggle or UCI dataset with a clear licence).",
+              "Clean it with documented decisions, explore it with at least six plots, and write ten findings.",
+              "Save a cleaned Parquet file and a reusable cleaning function with tests."
+            ],
+            "deliverables": [
+              "Notebook, cleaning module with tests and the findings list."
+            ],
+            "acceptanceCriteria": [
+              "Every cleaning decision is written down.",
+              "Row counts are checked after each join."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l02-pandas-for-cleaning-joining-and-exploring-data-check-01",
+                "kind": "short-answer",
+                "prompt": "What should you check after a merge?",
+                "answer": "The row count, to catch duplicated keys.",
+                "explanation": "Unexpected growth means a many-to-many join."
+              },
+              {
+                "id": "sk-ai-l02-pandas-for-cleaning-joining-and-exploring-data-check-02",
+                "kind": "short-answer",
+                "prompt": "Is filling every missing value with 0 safe?",
+                "answer": "No, missing can mean unknown, and 0 changes the meaning.",
+                "explanation": "Decide per column."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a groupby that finds average order value per month.",
+            "List your EDA checklist."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-ai-m02-ml-fundamentals",
+      "title": "02. Machine learning fundamentals",
+      "stage": "foundation",
+      "description": "Train models that generalise: problem framing, splits, baselines, metrics, overfitting, pipelines and gradient-boosted trees.",
+      "prerequisites": [
+        "sk-ai-m01-python-data"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l03-supervised-learning-splits-metrics-and-overfitti",
+          "title": "Supervised learning, splits, metrics and overfitting",
+          "objectives": [
+            "Frame a business question as regression or classification with a measurable target.",
+            "Create train/validation/test splits (including time-based) and avoid leakage.",
+            "Choose metrics (MAE, RMSE, precision, recall, ROC-AUC, PR-AUC) that match the cost of errors."
+          ],
+          "topics": [
+            {
+              "title": "Framing",
+              "details": [
+                "Start with a baseline (predict the mean, or the most common class); a model must beat it to be useful."
+              ]
+            },
+            {
+              "title": "Splitting and leakage",
+              "details": [
+                "The test set is touched once at the end. For time-dependent data split by time, never randomly.",
+                "Leakage: a feature that would not be known at prediction time (e.g. 'refund_issued' for fraud) makes results look great and fail in production."
+              ]
+            },
+            {
+              "title": "Metrics and fitting",
+              "details": [
+                "Accuracy misleads on imbalanced data (99% non-fraud); use precision/recall or PR-AUC.",
+                "Overfitting: great training score, poor validation score. Fix with more data, regularisation, simpler models or early stopping."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-ai.supervised-learning-splits-metrics-and-overfitti"
+          ],
+          "video": {
+            "resourceId": "ai-video-statquest",
+            "locator": "StatQuest videos: 'Machine Learning Fundamentals: Bias and Variance', 'Cross Validation', 'ROC and AUC'."
+          },
+          "reading": {
+            "resourceId": "ai-book-islp",
+            "locator": "An Introduction to Statistical Learning (Python): chapter 2 'Statistical Learning' (2.1-2.2) and chapter 5 'Resampling Methods' (5.1 cross-validation)."
+          },
+          "supplementaryResourceIds": [
+            "sk-ai-mlcc",
+            "ai-doc-cross-validation"
+          ],
+          "assignment": {
+            "id": "sk-ai-a03-supervised-learning-splits-metrics-and-overfitti",
+            "title": "Honest evaluation",
+            "kind": "problem-set",
+            "instructions": [
+              "On an imbalanced public dataset, build a baseline and a logistic regression.",
+              "Compare accuracy, precision, recall and PR-AUC; choose a threshold from a stated cost of false positives versus false negatives.",
+              "Deliberately add a leaky feature, show the inflated score, then remove it and explain."
+            ],
+            "deliverables": [
+              "Notebook and a one-page evaluation note."
+            ],
+            "acceptanceCriteria": [
+              "The test set is used once.",
+              "The threshold choice is justified by stated costs."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l03-supervised-learning-splits-metrics-and-overfitti-check-01",
+                "kind": "short-answer",
+                "prompt": "Why can accuracy be misleading?",
+                "answer": "On imbalanced data a model predicting the majority class scores high but is useless.",
+                "explanation": "Use precision/recall instead."
+              },
+              {
+                "id": "sk-ai-l03-supervised-learning-splits-metrics-and-overfitti-check-02",
+                "kind": "short-answer",
+                "prompt": "What is data leakage?",
+                "answer": "Using information at training time that would not be available when predicting.",
+                "explanation": "It inflates offline scores."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain bias versus variance.",
+            "When must you split by time?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l04-scikit-learn-pipelines-cross-validation-and-grad",
+          "title": "scikit-learn pipelines, cross-validation and gradient-boosted trees",
+          "objectives": [
+            "Build preprocessing + model pipelines that avoid leakage.",
+            "Tune hyperparameters with cross-validation.",
+            "Train and interpret XGBoost/LightGBM models for tabular data."
+          ],
+          "topics": [
+            {
+              "title": "Pipelines",
+              "details": [
+                "ColumnTransformer handles numeric scaling and categorical encoding; Pipeline fits preprocessing only on training folds."
+              ]
+            },
+            {
+              "title": "Tuning",
+              "details": [
+                "GridSearchCV or RandomizedSearchCV over a small, sensible grid; report mean and spread across folds."
+              ]
+            },
+            {
+              "title": "Boosted trees",
+              "details": [
+                "Gradient boosting adds trees that fix previous errors; strong default for tabular data. Key knobs: learning_rate, max_depth, n_estimators with early stopping.",
+                "Explain predictions with feature importance and SHAP values, but remember importance is not causation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-ai.scikit-learn-pipelines-cross-validation-and-grad"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-ai-sklearn",
+            "locator": "scikit-learn: 'Getting Started', then the user guide pages 'Pipelines and composite estimators' (under Dataset transformations) and 'Tuning the hyper-parameters of an estimator' (under Model selection and evaluation)."
+          },
+          "supplementaryResourceIds": [
+            "sk-ai-xgboost",
+            "ai-doc-calibration"
+          ],
+          "assignment": {
+            "id": "sk-ai-a04-scikit-learn-pipelines-cross-validation-and-grad",
+            "title": "Tabular model end to end",
+            "kind": "coding",
+            "instructions": [
+              "Build a pipeline with preprocessing and XGBoost on a public dataset; tune with cross-validation.",
+              "Compare against logistic regression and a baseline; report results with fold spread.",
+              "Save the pipeline with joblib and reload it to predict on new rows."
+            ],
+            "deliverables": [
+              "Notebook, saved model and results table."
+            ],
+            "acceptanceCriteria": [
+              "Preprocessing is fitted inside the pipeline only.",
+              "XGBoost uses early stopping on a validation set."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l04-scikit-learn-pipelines-cross-validation-and-grad-check-01",
+                "kind": "short-answer",
+                "prompt": "Why put preprocessing inside the pipeline?",
+                "answer": "So it is fitted only on training data in each fold, preventing leakage.",
+                "explanation": "Scaling on all data leaks test statistics."
+              },
+              {
+                "id": "sk-ai-l04-scikit-learn-pipelines-cross-validation-and-grad-check-02",
+                "kind": "short-answer",
+                "prompt": "Typical strong default for tabular data?",
+                "answer": "Gradient-boosted trees (XGBoost, LightGBM).",
+                "explanation": "They handle mixed features and non-linearity well."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Sketch your pipeline.",
+            "What does early stopping do?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-ai-m03-pytorch",
+      "title": "03. Deep learning with PyTorch",
+      "stage": "intermediate",
+      "description": "Learn tensors, automatic differentiation and training loops, then train and debug real networks.",
+      "prerequisites": [
+        "sk-ai-m02-ml-fundamentals",
+        "fe-m10-math"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l05-tensors-autograd-and-the-training-loop",
+          "title": "Tensors, autograd and the training loop",
+          "objectives": [
+            "Create tensors on CPU/GPU and use autograd to compute gradients.",
+            "Write a training loop: forward, loss, backward, optimizer step, evaluation.",
+            "Use Dataset and DataLoader for batching."
+          ],
+          "topics": [
+            {
+              "title": "Tensors and autograd",
+              "details": [
+                "Tensors are NumPy-like arrays that can live on a GPU and record operations so `loss.backward()` computes gradients."
+              ]
+            },
+            {
+              "title": "Training loop",
+              "details": [
+                "`model.train()`; for each batch: `optimizer.zero_grad()`, `loss = loss_fn(model(x), y)`, `loss.backward()`, `optimizer.step()`; then `model.eval()` with `torch.no_grad()` for validation."
+              ]
+            },
+            {
+              "title": "Data",
+              "details": [
+                "A Dataset returns one example; a DataLoader batches and shuffles. Keep preprocessing identical for training and inference."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-ai.tensors-autograd-and-the-training-loop"
+          ],
+          "video": {
+            "resourceId": "sk-ai-zero-to-hero",
+            "locator": "Lecture 1 'The spelled-out intro to neural networks and backpropagation: building micrograd'."
+          },
+          "reading": {
+            "resourceId": "ai-doc-pytorch",
+            "locator": "PyTorch 'Learn the Basics': all sections from Tensors through Save and Load the Model."
+          },
+          "supplementaryResourceIds": [
+            "ai-book-d2l"
+          ],
+          "assignment": {
+            "id": "sk-ai-a05-tensors-autograd-and-the-training-loop",
+            "title": "Train a classifier",
+            "kind": "coding",
+            "instructions": [
+              "Train an MLP and then a small CNN on Fashion-MNIST in PyTorch (Colab GPU is fine).",
+              "Plot training and validation loss; add early stopping and save the best checkpoint.",
+              "Fix the random seed and confirm a rerun gives similar results."
+            ],
+            "deliverables": [
+              "Training script, plots and checkpoint loading code."
+            ],
+            "acceptanceCriteria": [
+              "Validation accuracy beats the MLP with the CNN.",
+              "The script resumes from a saved checkpoint."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l05-tensors-autograd-and-the-training-loop-check-01",
+                "kind": "short-answer",
+                "prompt": "Why call optimizer.zero_grad() each step?",
+                "answer": "PyTorch accumulates gradients by default.",
+                "explanation": "Without it, gradients from previous batches add up."
+              },
+              {
+                "id": "sk-ai-l05-tensors-autograd-and-the-training-loop-check-02",
+                "kind": "short-answer",
+                "prompt": "What does model.eval() change?",
+                "answer": "Layers like dropout and batch norm switch to inference behaviour.",
+                "explanation": "Use it with torch.no_grad() for validation."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write the training loop from memory.",
+            "What does a DataLoader do?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l06-debugging-training-embeddings-and-regularisation",
+          "title": "Debugging training, embeddings and regularisation",
+          "objectives": [
+            "Diagnose common training failures (loss not decreasing, NaNs, overfitting).",
+            "Use embeddings for categorical inputs and learn what they represent.",
+            "Apply dropout, weight decay, learning-rate schedules and data augmentation."
+          ],
+          "topics": [
+            {
+              "title": "Debugging",
+              "details": [
+                "First overfit a single batch; if you cannot, there is a bug. Check shapes, label ranges, learning rate and data normalisation.",
+                "NaNs often come from too high a learning rate or log(0); use gradient clipping and stable loss functions."
+              ]
+            },
+            {
+              "title": "Embeddings",
+              "details": [
+                "An embedding layer maps an ID (user, item, word) to a learned vector; similar items end up close together."
+              ]
+            },
+            {
+              "title": "Regularisation",
+              "details": [
+                "Dropout, weight decay and augmentation fight overfitting; a learning-rate schedule (cosine, step) often improves final accuracy."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-ai.debugging-training-embeddings-and-regularisation"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-testing",
+            "locator": "Whole lecture on troubleshooting deep learning."
+          },
+          "reading": {
+            "resourceId": "ai-book-d2l",
+            "locator": "Dive into Deep Learning: chapter 3.7 'Weight Decay', chapter 5.6 'Dropout' and chapter 12.11 'Learning Rate Scheduling'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-ai-a06-debugging-training-embeddings-and-regularisation",
+            "title": "Debugging diary",
+            "kind": "problem-set",
+            "instructions": [
+              "Introduce three bugs into your classifier (wrong label shift, missing zero_grad, huge learning rate) and record the symptoms.",
+              "Train an embedding model for a categorical feature and visualise nearest neighbours of a few items.",
+              "Compare runs with and without dropout and weight decay."
+            ],
+            "deliverables": [
+              "Diary of bugs and symptoms, embedding visualisation, comparison table."
+            ],
+            "acceptanceCriteria": [
+              "Each bug's symptom is described and fixed.",
+              "The comparison shows the effect of regularisation."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l06-debugging-training-embeddings-and-regularisation-check-01",
+                "kind": "short-answer",
+                "prompt": "First debugging step when a network will not learn?",
+                "answer": "Try to overfit a single small batch.",
+                "explanation": "Failure points to a bug, not a data problem."
+              },
+              {
+                "id": "sk-ai-l06-debugging-training-embeddings-and-regularisation-check-02",
+                "kind": "short-answer",
+                "prompt": "What is an embedding?",
+                "answer": "A learned dense vector representing a discrete item.",
+                "explanation": "Similar items get similar vectors."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "List three causes of NaN loss.",
+            "When would you add dropout?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-ai-m04-nlp-transformers",
+      "title": "04. NLP and transformers",
+      "stage": "intermediate",
+      "description": "How modern language models work and how to adapt them: tokenisation, attention, pretrained models, fine-tuning and LoRA.",
+      "prerequisites": [
+        "sk-ai-m03-pytorch"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l07-tokenisation-embeddings-and-attention",
+          "title": "Tokenisation, embeddings and attention",
+          "objectives": [
+            "Explain tokenisation (subword/BPE) and why token counts drive cost.",
+            "Explain self-attention, positional information and the transformer block.",
+            "Use a pretrained transformer for embeddings and classification with Hugging Face."
+          ],
+          "topics": [
+            {
+              "title": "Tokens",
+              "details": [
+                "Text becomes subword tokens; rare words split into pieces. Models have a context window measured in tokens."
+              ]
+            },
+            {
+              "title": "Attention",
+              "details": [
+                "Each token builds queries, keys and values; attention weights decide how much each token looks at others. Stacked blocks of attention + feed-forward layers form a transformer.",
+                "Encoders (BERT) suit classification and embeddings; decoders (GPT-style) generate text."
+              ]
+            },
+            {
+              "title": "Using pretrained models",
+              "details": [
+                "`pipeline('sentiment-analysis')` for quick use; AutoTokenizer + AutoModel for control; sentence embeddings for search."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-ai.tokenisation-embeddings-and-attention"
+          ],
+          "video": {
+            "resourceId": "sk-ai-zero-to-hero",
+            "locator": "Lecture 'Let's build GPT: from scratch, in code, spelled out' (watch at least the attention section)."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-a9ddeb171aa6",
+            "locator": "Hugging Face LLM Course: chapter 1 'Transformer models' and chapter 2 'Using Transformers'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-1f3e7e28ba31"
+          ],
+          "assignment": {
+            "id": "sk-ai-a07-tokenisation-embeddings-and-attention",
+            "title": "Explore a transformer",
+            "kind": "problem-set",
+            "instructions": [
+              "Tokenise ten sentences and count tokens; find words that split into many pieces.",
+              "Compute sentence embeddings for 200 support-style sentences and find nearest neighbours for five queries.",
+              "Visualise attention weights for one sentence from a small encoder model."
+            ],
+            "deliverables": [
+              "Notebook with outputs and a short explanation of attention."
+            ],
+            "acceptanceCriteria": [
+              "Nearest neighbours are sensible and explained.",
+              "Token counts are reported."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l07-tokenisation-embeddings-and-attention-check-01",
+                "kind": "short-answer",
+                "prompt": "Encoder or decoder model for sentence classification?",
+                "answer": "Encoder (BERT-style).",
+                "explanation": "Decoders are designed for generation."
+              },
+              {
+                "id": "sk-ai-l07-tokenisation-embeddings-and-attention-check-02",
+                "kind": "short-answer",
+                "prompt": "Why do tokens matter for LLM cost?",
+                "answer": "APIs charge per input and output token.",
+                "explanation": "Shorter prompts cost less."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain attention to a non-ML friend.",
+            "What is a context window?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l08-fine-tuning-with-trainer-and-parameter-efficient",
+          "title": "Fine-tuning with Trainer and parameter-efficient LoRA",
+          "objectives": [
+            "Fine-tune an encoder for text classification with the Trainer API.",
+            "Apply LoRA with PEFT to adapt a larger model cheaply.",
+            "Compare fine-tuning to prompting and pick the cheaper adequate option."
+          ],
+          "topics": [
+            {
+              "title": "Full fine-tuning",
+              "details": [
+                "Load a pretrained model with a new classification head, tokenise the dataset, train a few epochs with evaluation each epoch."
+              ]
+            },
+            {
+              "title": "LoRA",
+              "details": [
+                "LoRA freezes the base model and trains small low-rank matrices in chosen layers: far fewer trainable parameters and less memory.",
+                "Key settings: rank r, alpha, target modules; merge adapters for deployment."
+              ]
+            },
+            {
+              "title": "When to fine-tune",
+              "details": [
+                "Try prompting and retrieval first; fine-tune when you need consistent format, domain style, or lower cost per request."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-ai.fine-tuning-with-trainer-and-parameter-efficient"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-a9ddeb171aa6",
+            "locator": "Hugging Face LLM Course: chapter 3 'Fine-tuning a pretrained model' and the chapter on fine-tuning large language models with LoRA."
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-lora"
+          ],
+          "assignment": {
+            "id": "sk-ai-a08-fine-tuning-with-trainer-and-parameter-efficient",
+            "title": "Two ways to classify tickets",
+            "kind": "coding",
+            "instructions": [
+              "Pick a public intent or support-ticket dataset with a clear licence.",
+              "Fine-tune DistilBERT with Trainer; then LoRA-tune a small (around 1B) model on free Colab/Kaggle GPU.",
+              "Compare macro-F1, training time, memory and CPU inference latency in a table."
+            ],
+            "deliverables": [
+              "Training scripts, results table and recommendation."
+            ],
+            "acceptanceCriteria": [
+              "Both beat a TF-IDF baseline.",
+              "The recommendation weighs quality against cost."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l08-fine-tuning-with-trainer-and-parameter-efficient-check-01",
+                "kind": "short-answer",
+                "prompt": "What does LoRA train?",
+                "answer": "Small low-rank adapter matrices while the base model stays frozen.",
+                "explanation": "This cuts memory and storage."
+              },
+              {
+                "id": "sk-ai-l08-fine-tuning-with-trainer-and-parameter-efficient-check-02",
+                "kind": "short-answer",
+                "prompt": "What should you try before fine-tuning an LLM?",
+                "answer": "Prompting and retrieval.",
+                "explanation": "They are cheaper and faster to iterate."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain LoRA rank.",
+            "When is fine-tuning worth it?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-ai-m05-recsys",
+      "title": "05. Recommender systems and ranking",
+      "stage": "intermediate",
+      "description": "How products like YouTube and Amazon pick what to show you: candidate generation, embeddings, learning-to-rank and ranking metrics.",
+      "prerequisites": [
+        "sk-ai-m03-pytorch"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l09-collaborative-filtering-two-tower-models-and-vec",
+          "title": "Collaborative filtering, two-tower models and vector search",
+          "objectives": [
+            "Explain content-based versus collaborative filtering and the cold-start problem.",
+            "Train a matrix factorisation or two-tower model on interaction data.",
+            "Retrieve candidates with approximate nearest-neighbour search (FAISS)."
+          ],
+          "topics": [
+            {
+              "title": "Approaches",
+              "details": [
+                "Collaborative filtering learns from who interacted with what; content-based uses item features; hybrids handle cold start."
+              ]
+            },
+            {
+              "title": "Two towers",
+              "details": [
+                "A user tower and an item tower each produce an embedding; the dot product scores relevance. Train with in-batch negatives."
+              ]
+            },
+            {
+              "title": "Retrieval at scale",
+              "details": [
+                "Exact search over millions of items is slow; ANN indexes (IVF, HNSW) trade a little recall for big speed-ups."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-ai.collaborative-filtering-two-tower-models-and-vec"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-ai-recsys",
+            "locator": "Google Recommendation Systems course: 'Overview', 'Candidate Generation' (including matrix factorization and deep neural network models) and 'Retrieval'."
+          },
+          "supplementaryResourceIds": [
+            "sk-ai-faiss"
+          ],
+          "assignment": {
+            "id": "sk-ai-a09-collaborative-filtering-two-tower-models-and-vec",
+            "title": "Candidate generation on MovieLens",
+            "kind": "coding",
+            "instructions": [
+              "Download MovieLens (small or 25M) and make a time-based split.",
+              "Train matrix factorisation and a simple two-tower model; build a FAISS index on item embeddings.",
+              "Measure Recall@50 against a popularity baseline and ANN versus exact search speed."
+            ],
+            "deliverables": [
+              "Notebook/scripts and results table."
+            ],
+            "acceptanceCriteria": [
+              "The split is time-based.",
+              "Recall@50 beats popularity."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l09-collaborative-filtering-two-tower-models-and-vec-check-01",
+                "kind": "short-answer",
+                "prompt": "What is the cold-start problem?",
+                "answer": "New users or items have no interaction history.",
+                "explanation": "Content features or popularity help."
+              },
+              {
+                "id": "sk-ai-l09-collaborative-filtering-two-tower-models-and-vec-check-02",
+                "kind": "short-answer",
+                "prompt": "Why use approximate nearest-neighbour search?",
+                "answer": "Exact search over millions of vectors is too slow.",
+                "explanation": "ANN trades a little recall for speed."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain in-batch negatives.",
+            "Collaborative vs content-based?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l10-learning-to-rank-and-ranking-metrics",
+          "title": "Learning-to-rank and ranking metrics",
+          "objectives": [
+            "Compute Precision@K, Recall@K, MAP and NDCG by hand.",
+            "Train a LightGBM/XGBoost ranker on candidate features.",
+            "Explain offline versus online evaluation and A/B testing."
+          ],
+          "topics": [
+            {
+              "title": "Metrics",
+              "details": [
+                "NDCG rewards putting relevant items near the top with a log discount; normalise by the ideal order."
+              ]
+            },
+            {
+              "title": "Ranking models",
+              "details": [
+                "Second-stage rankers score a few hundred candidates with rich features (user history, item stats, context) using lambdarank objectives."
+              ]
+            },
+            {
+              "title": "Evaluation",
+              "details": [
+                "Offline metrics guide development; only an online A/B test shows real user impact. Watch for feedback loops and popularity bias."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-ai.learning-to-rank-and-ranking-metrics"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-ai-recsys",
+            "locator": "Google Recommendation Systems course: 'Scoring' and 'Re-ranking' sections, including freshness, diversity and fairness."
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-retrieval"
+          ],
+          "assignment": {
+            "id": "sk-ai-a10-learning-to-rank-and-ranking-metrics",
+            "title": "Add a ranker",
+            "kind": "coding",
+            "instructions": [
+              "Compute NDCG@10 by hand for a tiny example and verify with code.",
+              "Train a LightGBM lambdarank model on your MovieLens candidates and compare NDCG@10 to retrieval only.",
+              "Write how you would A/B test it."
+            ],
+            "deliverables": [
+              "Notebook, metrics table and A/B plan."
+            ],
+            "acceptanceCriteria": [
+              "Your NDCG implementation matches a library implementation.",
+              "The ranker's lift over retrieval is reported."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l10-learning-to-rank-and-ranking-metrics-check-01",
+                "kind": "short-answer",
+                "prompt": "What does NDCG reward?",
+                "answer": "Relevant items placed near the top of the list.",
+                "explanation": "Lower positions are discounted."
+              },
+              {
+                "id": "sk-ai-l10-learning-to-rank-and-ranking-metrics-check-02",
+                "kind": "short-answer",
+                "prompt": "What proves a recommender helps users?",
+                "answer": "An online A/B test on real behaviour.",
+                "explanation": "Offline metrics are only a proxy."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Compute NDCG for a list of three.",
+            "Retrieval vs ranking stages?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-ai-m06-llm-apps",
+      "title": "06. LLM application engineering and RAG",
+      "stage": "advanced",
+      "description": "Build applications on top of language models: prompting, structured output, function calling and retrieval-augmented generation.",
+      "prerequisites": [
+        "sk-ai-m04-nlp-transformers",
+        "fe-m07-networks-web"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l11-prompting-structured-output-and-function-calling",
+          "title": "Prompting, structured output and function calling",
+          "objectives": [
+            "Write clear system prompts with examples and constraints.",
+            "Get validated JSON output and handle failures.",
+            "Let a model call your functions (tool use) safely."
+          ],
+          "topics": [
+            {
+              "title": "Prompting",
+              "details": [
+                "Be specific about role, task, format and constraints; give examples; ask the model to say 'I don't know' when unsure."
+              ]
+            },
+            {
+              "title": "Structured output",
+              "details": [
+                "Request JSON matching a schema and validate with pydantic; retry once with the validation error if it fails."
+              ]
+            },
+            {
+              "title": "Tool use",
+              "details": [
+                "Describe tools with names, descriptions and parameter schemas; the model proposes a call, your code runs it and returns the result.",
+                "Never let model output run code or SQL without validation and permission checks."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-ai.prompting-structured-output-and-function-calling"
+          ],
+          "video": {
+            "resourceId": "ai-video-prompting",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "sk-sde-claude-docs",
+            "locator": "Claude API docs: 'Prompt engineering overview', 'Tool use' and 'Structured outputs' pages (other providers' equivalents are fine)."
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-chat-templates"
+          ],
+          "assignment": {
+            "id": "sk-ai-a11-prompting-structured-output-and-function-calling",
+            "title": "Invoice extractor with tools",
+            "kind": "coding",
+            "instructions": [
+              "Build a script that extracts fields from 20 synthetic invoice texts into a validated pydantic model.",
+              "Add a currency-conversion tool the model can call; validate inputs.",
+              "Measure field accuracy against hand labels and log token cost."
+            ],
+            "deliverables": [
+              "Code, labelled set and accuracy/cost report."
+            ],
+            "acceptanceCriteria": [
+              "Invalid output is caught and retried.",
+              "Accuracy is measured, not eyeballed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l11-prompting-structured-output-and-function-calling-check-01",
+                "kind": "short-answer",
+                "prompt": "Should you trust model JSON without validation?",
+                "answer": "No, validate it against a schema.",
+                "explanation": "Models can produce invalid or wrong fields."
+              },
+              {
+                "id": "sk-ai-l11-prompting-structured-output-and-function-calling-check-02",
+                "kind": "short-answer",
+                "prompt": "Who runs a tool call in function calling?",
+                "answer": "Your application code.",
+                "explanation": "The model only proposes the call."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a system prompt for a support bot.",
+            "How do you handle schema failures?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l12-retrieval-augmented-generation-chunk-embed-retri",
+          "title": "Retrieval-augmented generation: chunk, embed, retrieve, re-rank, cite",
+          "objectives": [
+            "Build a RAG pipeline with chunking, embeddings and a vector store.",
+            "Combine keyword (BM25) and vector search and re-rank results.",
+            "Generate answers with citations and refuse when evidence is missing."
+          ],
+          "topics": [
+            {
+              "title": "Pipeline",
+              "details": [
+                "Ingest -> clean -> chunk (by section, ~300-800 tokens with overlap) -> embed -> store with metadata (source, page)."
+              ]
+            },
+            {
+              "title": "Retrieval",
+              "details": [
+                "Vector search finds meaning; BM25 finds exact terms (product codes, names). Hybrid search with reciprocal rank fusion gets both.",
+                "A cross-encoder re-ranker reorders the top 50 for precision."
+              ]
+            },
+            {
+              "title": "Generation",
+              "details": [
+                "Put retrieved chunks in the prompt with IDs; require citations; answer 'not found' when context lacks the answer.",
+                "Permissions: only retrieve documents the user may see."
+              ]
+            }
+          ],
+          "estimatedMinutes": 190,
+          "canonicalConceptTags": [
+            "sk-ai.retrieval-augmented-generation-chunk-embed-retri"
+          ],
+          "video": {
+            "resourceId": "ai-video-augmented-lm",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "ai-doc-retrieval",
+            "locator": "Sentence Transformers 'Retrieve & Re-Rank' page, whole."
+          },
+          "supplementaryResourceIds": [
+            "sk-ai-pgvector",
+            "data-video-rag"
+          ],
+          "assignment": {
+            "id": "sk-ai-a12-retrieval-augmented-generation-chunk-embed-retri",
+            "title": "Cited Q&A over documents",
+            "kind": "coding",
+            "instructions": [
+              "Index 50+ public PDFs (e.g. annual reports) in PostgreSQL with pgvector and full-text search.",
+              "Implement hybrid retrieval with re-ranking and an answer endpoint with citations.",
+              "Write 50 test questions with expected sources, including unanswerable ones."
+            ],
+            "deliverables": [
+              "Code, question set and retrieval hit-rate results."
+            ],
+            "acceptanceCriteria": [
+              "Every answer cites a source page.",
+              "Unanswerable questions get 'not found'."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l12-retrieval-augmented-generation-chunk-embed-retri-check-01",
+                "kind": "short-answer",
+                "prompt": "Why combine BM25 with vector search?",
+                "answer": "BM25 catches exact terms that embeddings may miss.",
+                "explanation": "Hybrid improves recall."
+              },
+              {
+                "id": "sk-ai-l12-retrieval-augmented-generation-chunk-embed-retri-check-02",
+                "kind": "short-answer",
+                "prompt": "What should a RAG app do when context lacks the answer?",
+                "answer": "Say it cannot find the answer.",
+                "explanation": "Prevents confident hallucinations."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "How do you choose chunk size?",
+            "Explain re-ranking."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-ai-m07-agents-mcp",
+      "title": "07. Agents, tool use and MCP",
+      "stage": "advanced",
+      "description": "Build bounded agents that plan, call tools and recover from errors, and expose tools to AI clients through the Model Context Protocol.",
+      "prerequisites": [
+        "sk-ai-m06-llm-apps"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l13-agent-loops-with-langgraph",
+          "title": "Agent loops with LangGraph",
+          "objectives": [
+            "Explain the agent loop: think, act (tool), observe, repeat, stop.",
+            "Build a LangGraph agent with explicit state, tools and a step limit.",
+            "Add human approval for risky actions."
+          ],
+          "topics": [
+            {
+              "title": "Loop",
+              "details": [
+                "Agents are LLMs in a loop with tools; most failures come from unclear tools, missing stop conditions and unchecked outputs."
+              ]
+            },
+            {
+              "title": "LangGraph",
+              "details": [
+                "Model the agent as a graph of nodes (plan, call tool, check) with typed state; edges decide the next step.",
+                "Set a maximum number of steps and timeouts; log every step for debugging."
+              ]
+            },
+            {
+              "title": "Safety",
+              "details": [
+                "Read-only tools by default; require human approval for writes, payments or emails."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-ai.agent-loops-with-langgraph"
+          ],
+          "video": {
+            "resourceId": "ai-video-berkeley-agents",
+            "locator": "Lecture 1 and the lecture on agent frameworks."
+          },
+          "reading": {
+            "resourceId": "sk-ai-langgraph",
+            "locator": "LangGraph docs: introduction/quickstart, then concepts pages on state, nodes, edges, tools and human-in-the-loop."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-ai-a13-agent-loops-with-langgraph",
+            "title": "Text-to-SQL agent",
+            "kind": "coding",
+            "instructions": [
+              "Build a LangGraph agent with tools list_tables, describe_table and run_sql over a SQLite/DuckDB sample database.",
+              "Validate SQL with sqlglot (SELECT only) and use a read-only connection; on errors, let the agent fix its query (max 3 tries).",
+              "Evaluate on 50 questions with known answers."
+            ],
+            "deliverables": [
+              "Code, evaluation set and accuracy report."
+            ],
+            "acceptanceCriteria": [
+              "Write statements are blocked at both validation and database level.",
+              "Execution accuracy is measured."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l13-agent-loops-with-langgraph-check-01",
+                "kind": "short-answer",
+                "prompt": "Why give an agent a step limit?",
+                "answer": "To prevent infinite loops and runaway cost.",
+                "explanation": "Agents can get stuck retrying."
+              },
+              {
+                "id": "sk-ai-l13-agent-loops-with-langgraph-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you protect a database from an agent?",
+                "answer": "Read-only credentials plus query validation.",
+                "explanation": "Prompts alone are not a security control."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Draw your agent graph.",
+            "Which actions need human approval?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l14-model-context-protocol-servers-and-tool-security",
+          "title": "Model Context Protocol servers and tool security",
+          "objectives": [
+            "Explain MCP hosts, clients, servers, tools, resources and prompts.",
+            "Build an MCP server exposing your tools and connect it to an MCP client.",
+            "Defend against prompt injection and excessive permissions."
+          ],
+          "topics": [
+            {
+              "title": "MCP",
+              "details": [
+                "MCP standardises how AI apps discover and call tools and read resources; one server can serve many clients (desktop apps, IDEs)."
+              ]
+            },
+            {
+              "title": "Building",
+              "details": [
+                "Use the official Python or TypeScript SDK; define tools with clear descriptions and JSON schemas; return structured results."
+              ]
+            },
+            {
+              "title": "Security",
+              "details": [
+                "Text inside tool results (web pages, table data) can contain instructions; treat it as data. Scope tokens narrowly and log tool calls."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-ai.model-context-protocol-servers-and-tool-security"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-ai-mcp",
+            "locator": "modelcontextprotocol.io: 'Introduction', 'Architecture overview', 'Server concepts' and the server quickstart for Python."
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-mcp-security",
+            "ai-doc-owasp-agents"
+          ],
+          "assignment": {
+            "id": "sk-ai-a14-model-context-protocol-servers-and-tool-security",
+            "title": "Expose your SQL agent over MCP",
+            "kind": "coding",
+            "instructions": [
+              "Wrap your SQL tools as an MCP server and connect it to an MCP-capable client (for example Claude Desktop or an IDE).",
+              "Plant a prompt injection in a table comment and show your server's defences.",
+              "Document the permissions the server needs and why."
+            ],
+            "deliverables": [
+              "Server code, demo recording and security notes."
+            ],
+            "acceptanceCriteria": [
+              "The injection does not cause a write or data leak.",
+              "Permissions are minimal and documented."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l14-model-context-protocol-servers-and-tool-security-check-01",
+                "kind": "short-answer",
+                "prompt": "What does an MCP server provide?",
+                "answer": "Tools, resources and prompts that AI clients can use.",
+                "explanation": "Through a standard protocol."
+              },
+              {
+                "id": "sk-ai-l14-model-context-protocol-servers-and-tool-security-check-02",
+                "kind": "short-answer",
+                "prompt": "How should tool output be treated?",
+                "answer": "As untrusted data, never as instructions.",
+                "explanation": "It may contain prompt injections."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Host vs client vs server in MCP?",
+            "Name two injection defences."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-ai-m08-mlops",
+      "title": "08. MLOps: tracking, pipelines, feature stores and monitoring",
+      "stage": "advanced",
+      "description": "Turn notebooks into repeatable systems: experiment tracking, model registry, orchestrated retraining, feature stores and drift monitoring.",
+      "prerequisites": [
+        "sk-ai-m02-ml-fundamentals",
+        "fe-m08-containers"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l15-experiment-tracking-and-the-model-registry-with",
+          "title": "Experiment tracking and the model registry with MLflow",
+          "objectives": [
+            "Log parameters, metrics and artifacts for every run.",
+            "Register models with versions and promote them through stages.",
+            "Serve a registered model behind an API in Docker."
+          ],
+          "topics": [
+            {
+              "title": "Tracking",
+              "details": [
+                "Every run records code version, data version, parameters, metrics and the model file so results are reproducible."
+              ]
+            },
+            {
+              "title": "Registry",
+              "details": [
+                "Registered models have versions and aliases (e.g. 'champion'); the serving app loads the alias, so promotion needs no code change."
+              ]
+            },
+            {
+              "title": "Serving",
+              "details": [
+                "Wrap the model in FastAPI, load once at startup, validate inputs, log predictions with model version."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-ai.experiment-tracking-and-the-model-registry-with"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-deployment",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "ai-doc-mlflow",
+            "locator": "MLflow Tracking page, then the Model Registry page linked from it."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-c889b62860c3"
+          ],
+          "assignment": {
+            "id": "sk-ai-a15-experiment-tracking-and-the-model-registry-with",
+            "title": "Track, register, serve",
+            "kind": "coding",
+            "instructions": [
+              "Run MLflow locally with Docker Compose; log five XGBoost runs with different settings.",
+              "Register the best, set a 'champion' alias, and serve it with FastAPI in Docker.",
+              "Promote a new version and show the API switches without code changes."
+            ],
+            "deliverables": [
+              "Compose file, training and serving code, screenshots."
+            ],
+            "acceptanceCriteria": [
+              "Each run is reproducible from logged info.",
+              "Promotion changes the served version."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l15-experiment-tracking-and-the-model-registry-with-check-01",
+                "kind": "short-answer",
+                "prompt": "What should every experiment run record?",
+                "answer": "Code version, data version, parameters, metrics and artifacts.",
+                "explanation": "Otherwise results cannot be reproduced."
+              },
+              {
+                "id": "sk-ai-l15-experiment-tracking-and-the-model-registry-with-check-02",
+                "kind": "short-answer",
+                "prompt": "Why serve a model by alias?",
+                "answer": "Promotion becomes a registry change instead of a deploy.",
+                "explanation": "Rollback is also easy."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain model registry stages/aliases.",
+            "What do you log per prediction?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l16-feature-stores-retraining-pipelines-and-drift-mo",
+          "title": "Feature stores, retraining pipelines and drift monitoring",
+          "objectives": [
+            "Explain offline/online features and point-in-time correctness.",
+            "Schedule a retraining pipeline with Airflow.",
+            "Detect data and prediction drift and decide when to retrain."
+          ],
+          "topics": [
+            {
+              "title": "Feature stores",
+              "details": [
+                "The same feature definitions serve training (historical, point-in-time joins) and inference (latest values) to avoid training-serving skew."
+              ]
+            },
+            {
+              "title": "Pipelines",
+              "details": [
+                "A DAG: extract -> validate -> build features -> train -> evaluate -> register if better -> deploy. Each step is idempotent."
+              ]
+            },
+            {
+              "title": "Monitoring",
+              "details": [
+                "Data drift: input distributions change; concept drift: the relationship changes. Labels arrive late, so watch proxies.",
+                "Retrain on a schedule or on alerts, and always compare to the current model before promoting (shadow or champion/challenger)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-ai.feature-stores-retraining-pipelines-and-drift-mo"
+          ],
+          "video": {
+            "resourceId": "ai-video-fsdl-monitoring",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "sk-ai-feast",
+            "locator": "Feast docs: 'Introduction', 'Quickstart' and the concepts pages on entities, feature views and point-in-time joins."
+          },
+          "supplementaryResourceIds": [
+            "sk-ai-evidently",
+            "advanced-reading-8b9d533a0503"
+          ],
+          "assignment": {
+            "id": "sk-ai-a16-feature-stores-retraining-pipelines-and-drift-mo",
+            "title": "Retrain on drift",
+            "kind": "coding",
+            "instructions": [
+              "Define features in Feast for a public transactions dataset and build a point-in-time training set.",
+              "Write an Airflow DAG for train -> evaluate -> register.",
+              "Generate an Evidently drift report on a shifted batch and trigger the DAG when drift exceeds a threshold."
+            ],
+            "deliverables": [
+              "Repository with DAG, feature definitions and reports."
+            ],
+            "acceptanceCriteria": [
+              "A point-in-time test proves no future data is used.",
+              "Drift triggers retraining in a demo."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l16-feature-stores-retraining-pipelines-and-drift-mo-check-01",
+                "kind": "short-answer",
+                "prompt": "What is training-serving skew?",
+                "answer": "Features computed differently in training and production.",
+                "explanation": "Feature stores share definitions to prevent it."
+              },
+              {
+                "id": "sk-ai-l16-feature-stores-retraining-pipelines-and-drift-mo-check-02",
+                "kind": "short-answer",
+                "prompt": "Why compare a retrained model before promoting it?",
+                "answer": "Retraining can make things worse.",
+                "explanation": "Use a champion/challenger check."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Data drift vs concept drift?",
+            "Sketch your retraining DAG."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-ai-m09-ai-eval-safety",
+      "title": "09. AI evaluation and safety",
+      "stage": "professional",
+      "description": "Measure AI systems properly and keep them safe: evaluation sets, LLM-as-judge, regression gates, prompt injection and data protection.",
+      "prerequisites": [
+        "sk-ai-m06-llm-apps",
+        "sk-ai-m07-agents-mcp"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l17-evaluation-sets-rag-metrics-llm-as-judge-and-ci",
+          "title": "Evaluation sets, RAG metrics, LLM-as-judge and CI gates",
+          "objectives": [
+            "Build a representative evaluation set with gold answers.",
+            "Measure faithfulness, relevance and citation accuracy for RAG.",
+            "Gate changes in CI on evaluation scores."
+          ],
+          "topics": [
+            {
+              "title": "Eval sets",
+              "details": [
+                "Start with 50-300 real-looking questions covering easy, hard, adversarial and unanswerable cases; version them."
+              ]
+            },
+            {
+              "title": "Metrics",
+              "details": [
+                "Retrieval: hit rate and recall@k. Generation: faithfulness (supported by context), answer relevance, citation accuracy.",
+                "LLM-as-judge scales grading but must be checked against human labels on a sample."
+              ]
+            },
+            {
+              "title": "Regression gates",
+              "details": [
+                "Run a subset on every pull request and the full set nightly; block merges that drop scores beyond a threshold."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-ai.evaluation-sets-rag-metrics-llm-as-judge-and-ci"
+          ],
+          "video": {
+            "resourceId": "ai-video-llmops",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "ai-doc-evals",
+            "locator": "Evaluation best practices page, whole."
+          },
+          "supplementaryResourceIds": [
+            "sk-ai-ragas"
+          ],
+          "assignment": {
+            "id": "sk-ai-a17-evaluation-sets-rag-metrics-llm-as-judge-and-ci",
+            "title": "Evaluate your RAG app",
+            "kind": "coding",
+            "instructions": [
+              "Expand your RAG question set to 150 with gold sources.",
+              "Compute retrieval and generation metrics with Ragas plus a custom citation check.",
+              "Hand-grade 30 answers and compare to the LLM judge; add a CI job on a sample."
+            ],
+            "deliverables": [
+              "Eval set, metrics report and CI workflow."
+            ],
+            "acceptanceCriteria": [
+              "Judge agreement with your hand labels is reported.",
+              "CI fails when you break retrieval on purpose."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l17-evaluation-sets-rag-metrics-llm-as-judge-and-ci-check-01",
+                "kind": "short-answer",
+                "prompt": "What does faithfulness measure?",
+                "answer": "Whether the answer is supported by the retrieved context.",
+                "explanation": "Unsupported claims are hallucinations."
+              },
+              {
+                "id": "sk-ai-l17-evaluation-sets-rag-metrics-llm-as-judge-and-ci-check-02",
+                "kind": "short-answer",
+                "prompt": "Why check an LLM judge against humans?",
+                "answer": "Judges have biases and errors.",
+                "explanation": "Agreement must be measured."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What belongs in an eval set?",
+            "How do you gate changes on evals?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l18-llm-security-prompt-injection-data-leakage-and-g",
+          "title": "LLM security: prompt injection, data leakage and guardrails",
+          "objectives": [
+            "Explain the OWASP Top 10 risks for LLM applications.",
+            "Test your app against direct and indirect prompt injection.",
+            "Apply defence in depth: permissions, validation, output filtering and monitoring."
+          ],
+          "topics": [
+            {
+              "title": "Threats",
+              "details": [
+                "Prompt injection (direct and via retrieved content), sensitive data disclosure, excessive agency, insecure output handling."
+              ]
+            },
+            {
+              "title": "Defences",
+              "details": [
+                "Least-privilege tools, allowlists, validation of every model output before acting, separating instructions from data, rate limits.",
+                "No single prompt fixes injection; rely on permissions and checks outside the model."
+              ]
+            },
+            {
+              "title": "Testing",
+              "details": [
+                "Keep an adversarial test suite (red-team prompts) in CI alongside quality evals."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-ai.llm-security-prompt-injection-data-leakage-and-g"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-c678f61aafad",
+            "locator": "OWASP Top 10 for LLM Applications: read every risk summary and the full entries for Prompt Injection and Excessive Agency."
+          },
+          "supplementaryResourceIds": [
+            "ai-doc-owasp-agents"
+          ],
+          "assignment": {
+            "id": "sk-ai-a18-llm-security-prompt-injection-data-leakage-and-g",
+            "title": "Red-team your own app",
+            "kind": "coding",
+            "instructions": [
+              "Write 30 adversarial prompts (direct and hidden in documents) against your RAG app and SQL agent.",
+              "Fix what succeeds with controls outside the prompt and rerun.",
+              "Add the suite to CI."
+            ],
+            "deliverables": [
+              "Attack suite, before/after results and fixes."
+            ],
+            "acceptanceCriteria": [
+              "Successful attacks are fixed by controls, not only prompt wording."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l18-llm-security-prompt-injection-data-leakage-and-g-check-01",
+                "kind": "short-answer",
+                "prompt": "What is indirect prompt injection?",
+                "answer": "Malicious instructions hidden in content the model reads, such as a web page or document.",
+                "explanation": "The user did not type them."
+              },
+              {
+                "id": "sk-ai-l18-llm-security-prompt-injection-data-leakage-and-g-check-02",
+                "kind": "short-answer",
+                "prompt": "Strongest defence against excessive agency?",
+                "answer": "Limit tool permissions and require approval for risky actions.",
+                "explanation": "Prompts alone cannot be trusted."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Name four OWASP LLM risks.",
+            "Why is defence in depth needed?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-ai-m10-serving-optimisation",
+      "title": "10. Model serving and optimisation",
+      "stage": "professional",
+      "description": "Make models fast and cheap in production: batching, quantisation, ONNX, vLLM, caching and cost/latency measurement.",
+      "prerequisites": [
+        "sk-ai-m08-mlops"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-ai-l19-serving-llms-and-models-batching-vllm-caching-an",
+          "title": "Serving LLMs and models: batching, vLLM, caching and cost",
+          "objectives": [
+            "Explain latency, throughput and how batching trades one for the other.",
+            "Serve an open model with vLLM's OpenAI-compatible server.",
+            "Route requests between providers and cache repeat queries to cut cost."
+          ],
+          "topics": [
+            {
+              "title": "Metrics",
+              "details": [
+                "Time to first token, tokens per second, p95 latency, cost per 1M tokens. Measure under realistic concurrency."
+              ]
+            },
+            {
+              "title": "vLLM",
+              "details": [
+                "Continuous batching and paged attention let one GPU serve many concurrent requests efficiently."
+              ]
+            },
+            {
+              "title": "Gateways",
+              "details": [
+                "A gateway routes by cost/latency/task, retries and falls back, enforces budgets and caches (exact or semantic)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-ai.serving-llms-and-models-batching-vllm-caching-an"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-b9174393a70d",
+            "locator": "vLLM docs: 'Quickstart' (OpenAI-compatible server) and the design page on paged attention."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-c889b62860c3",
+            "ai-book-mlsys1"
+          ],
+          "assignment": {
+            "id": "sk-ai-a19-serving-llms-and-models-batching-vllm-caching-an",
+            "title": "Measure a model server",
+            "kind": "coding",
+            "instructions": [
+              "Serve a small open model with vLLM on a free or rented GPU (or a CPU-friendly small model if no GPU).",
+              "Load test at 1, 8 and 32 concurrent users; record latency percentiles and throughput.",
+              "Put a caching gateway in front and measure cost savings on a workload with repeats."
+            ],
+            "deliverables": [
+              "Benchmark scripts, results table and gateway code."
+            ],
+            "acceptanceCriteria": [
+              "Every measurement lists hardware and settings.",
+              "Cache savings are measured, not estimated."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l19-serving-llms-and-models-batching-vllm-caching-an-check-01",
+                "kind": "short-answer",
+                "prompt": "What does batching trade?",
+                "answer": "Higher throughput for possibly higher per-request latency.",
+                "explanation": "More requests share each GPU pass."
+              },
+              {
+                "id": "sk-ai-l19-serving-llms-and-models-batching-vllm-caching-an-check-02",
+                "kind": "short-answer",
+                "prompt": "Name two LLM serving metrics.",
+                "answer": "Time to first token and tokens per second (also p95 latency, cost).",
+                "explanation": "Users feel TTFT; finance feels cost."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain continuous batching.",
+            "When does semantic caching help?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-ai-l20-quantisation-onnx-export-and-cpu-inference",
+          "title": "Quantisation, ONNX export and CPU inference",
+          "objectives": [
+            "Explain FP32, FP16 and INT8 and the accuracy/speed trade-off.",
+            "Export a PyTorch model to ONNX and run it with ONNX Runtime.",
+            "Apply dynamic quantisation and verify accuracy is preserved."
+          ],
+          "topics": [
+            {
+              "title": "Precision",
+              "details": [
+                "Lower precision uses less memory and runs faster; quantisation maps weights (and sometimes activations) to INT8."
+              ]
+            },
+            {
+              "title": "ONNX",
+              "details": [
+                "ONNX is a portable model format; ONNX Runtime runs it fast on CPU/GPU with graph optimisations."
+              ]
+            },
+            {
+              "title": "Verify",
+              "details": [
+                "Always compare accuracy and outputs before and after optimisation on a fixed evaluation set."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-ai.quantisation-onnx-export-and-cpu-inference"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-036f41d19ca8",
+            "locator": "ONNX Runtime docs: 'Get started with Python' and 'Quantize ONNX models' under performance/model optimizations."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-353a44a770d2"
+          ],
+          "assignment": {
+            "id": "sk-ai-a20-quantisation-onnx-export-and-cpu-inference",
+            "title": "Make a model 3x faster on CPU",
+            "kind": "coding",
+            "instructions": [
+              "Export your fine-tuned DistilBERT to ONNX; run with ONNX Runtime.",
+              "Apply dynamic INT8 quantisation; compare latency (batch 1 and 16) and macro-F1.",
+              "Write a model card noting the trade-off."
+            ],
+            "deliverables": [
+              "Export script, benchmark table and model card."
+            ],
+            "acceptanceCriteria": [
+              "Prediction agreement and accuracy change are reported.",
+              "Benchmarks list the CPU used."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-ai-l20-quantisation-onnx-export-and-cpu-inference-check-01",
+                "kind": "short-answer",
+                "prompt": "What does INT8 quantisation trade?",
+                "answer": "A small accuracy loss for less memory and faster inference.",
+                "explanation": "Always measure the loss."
+              },
+              {
+                "id": "sk-ai-l20-quantisation-onnx-export-and-cpu-inference-check-02",
+                "kind": "short-answer",
+                "prompt": "What is ONNX?",
+                "answer": "An open, portable format for trained models.",
+                "explanation": "Runs in ONNX Runtime and other engines."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "FP16 vs INT8?",
+            "How do you validate an optimised model?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "Dive into Deep Learning",
+      "url": "https://d2l.ai/"
+    },
+    {
+      "title": "Hugging Face LLM course",
+      "url": "https://huggingface.co/learn/llm-course/"
+    }
+  ],
+  "limitations": [
+    "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
+    "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
+    "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises.",
+    "GPU-heavy exercises fit free Colab or Kaggle notebooks; anything bigger is optional. Check model and dataset licences before use."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Prepare data with NumPy and pandas and train honest classical models with scikit-learn and XGBoost.",
+      "evidence": "Notebooks with proper train/validation/test splits, baselines and metrics."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Train neural networks in PyTorch, fine-tune transformers and build a ranking/recommendation model.",
+      "evidence": "Reproducible training scripts with tracked metrics against baselines."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Build evaluated LLM applications: RAG, tool-calling agents, MCP servers and MLOps pipelines with drift monitoring.",
+      "evidence": "Working apps with evaluation sets and an automated train-register-deploy pipeline."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Evaluate and secure AI systems and serve models fast and cheaply.",
+      "evidence": "Evaluation reports, security tests and latency/cost benchmarks."
+    }
+  ]
+}

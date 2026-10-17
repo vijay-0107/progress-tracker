@@ -5,12 +5,14 @@ import type {
   ProgressState,
   Resource,
   Stage,
+  SkillTrackId,
   Track,
   TrackId,
 } from "../domain/types";
 import {
   CORE_TRACK_IDS,
   CAREER_COURSE_IDS,
+  SKILL_TRACK_IDS,
   EXTRA_TOPIC_IDS,
   LEARNING_STAGES,
   TRACK_IDS,
@@ -18,6 +20,7 @@ import {
 import { trackSchema } from "./schema";
 import { projects } from "./projects";
 import { careerProjects } from "./career-projects";
+import { resumeProjects } from "./resume-projects";
 import { careerProfiles } from "./careers";
 import { careerPackets } from "./career-exercises";
 import { advancedProjects, advancedPackets } from "./advanced-projects";
@@ -189,6 +192,70 @@ export const trackMeta: Record<
     color: "#ae7430",
     code: "C5",
   },
+  "foundation-essentials": {
+    label: "Common Foundation: Beginner Essentials",
+    short: "Essentials",
+    description:
+      "Linux, Git, DSA for interviews, clean code, SQL, networks, Docker, cloud, math, OS, system design, security and interview skills.",
+    color: "#236b50",
+    code: "01+",
+  },
+  "sde-skills": {
+    label: "Software Engineering: Skill Builder",
+    short: "SDE skills",
+    description:
+      "Go, TypeScript, React, Node, API design, distributed systems, storage engines, CRDTs, system design interviews and AI developer tools.",
+    color: "#7858a6",
+    code: "03+",
+  },
+  "backend-skills": {
+    label: "Backend Engineering: Skill Builder",
+    short: "Backend skills",
+    description:
+      "Java, Spring Boot, Go services, PostgreSQL, Redis, messaging, reliable transactions, background jobs, observability, load testing and resilience.",
+    color: "#7858a6",
+    code: "C1+",
+  },
+  "ai-skills": {
+    label: "Applied AI & ML: Skill Builder",
+    short: "AI skills",
+    description:
+      "Python for data, ML fundamentals, PyTorch, transformers, recommenders, LLM apps and RAG, agents and MCP, MLOps, evaluation and serving.",
+    color: "#ab5365",
+    code: "05+",
+  },
+  "data-skills": {
+    label: "Data Engineering: Skill Builder",
+    short: "Data skills",
+    description:
+      "Data modelling, ingestion, Spark, Airflow, dbt, Kafka streaming, Iceberg/Delta, CDC, data quality, warehouses and governance.",
+    color: "#2563a6",
+    code: "02+",
+  },
+  "quant-skills": {
+    label: "Quant Development: Skill Builder",
+    short: "Quant skills",
+    description:
+      "Markets, probability and statistics, modern C++, time series, honest backtesting, derivatives, low-latency systems, risk and quant interviews.",
+    color: "#ae7430",
+    code: "04+",
+  },
+  "security-skills": {
+    label: "Cloud Security: Skill Builder",
+    short: "Security skills",
+    description:
+      "Security fundamentals, identity, AWS and Azure security, AppSec, supply chain, Kubernetes security, detection engineering, incident response and posture.",
+    color: "#865442",
+    code: "C3+",
+  },
+  "cloud-devops": {
+    label: "Cloud & DevOps Infrastructure",
+    short: "Cloud & DevOps",
+    description:
+      "AWS core services, Linux administration, Terraform, Kubernetes, Helm, CI/CD, GitOps, autoscaling, FinOps, observability, disaster recovery and GPU serving.",
+    color: "#397780",
+    code: "CD",
+  },
   "technical-pm-advanced": {
     label: "Technical Product Management: required learning",
     short: "Technical PM",
@@ -209,9 +276,91 @@ export function isCoreTrack(id: TrackId): boolean {
 export function isCareerCourse(id: TrackId): boolean {
   return CAREER_COURSE_IDS.some((course) => course === id);
 }
+export function isSkillTrack(id: TrackId): boolean {
+  return SKILL_TRACK_IDS.some((skill) => skill === id);
+}
+
+/**
+ * Where each skill builder lives. Skill builders are appended catalogs (the
+ * released tracks are frozen) rendered inside the existing sections listed in
+ * `shownIn`; `home` is the page a learner returns to from one of its lessons.
+ */
+export const skillBuilderPlacement: Record<
+  SkillTrackId,
+  { home: string; homeLabel: string; shownIn: TrackId[] }
+> = {
+  "foundation-essentials": {
+    home: "#/path/foundation",
+    homeLabel: "Common Foundation",
+    shownIn: ["foundation"],
+  },
+  "sde-skills": {
+    home: "#/path/sde",
+    homeLabel: "Software Engineering",
+    shownIn: ["sde", "backend-platform-advanced"],
+  },
+  "backend-skills": {
+    home: "#/career/backend",
+    homeLabel: "Backend & Platform Software Engineering",
+    shownIn: ["backend-platform-advanced", "sde"],
+  },
+  "ai-skills": {
+    home: "#/path/ai",
+    homeLabel: "Applied AI",
+    shownIn: ["ai", "ai-systems-advanced"],
+  },
+  "data-skills": {
+    home: "#/path/data",
+    homeLabel: "Data Engineering",
+    shownIn: ["data", "data-platform-advanced"],
+  },
+  "quant-skills": {
+    home: "#/path/quant",
+    homeLabel: "Quantitative Development",
+    shownIn: ["quant", "quant-infrastructure-advanced"],
+  },
+  "security-skills": {
+    home: "#/career/security",
+    homeLabel: "Product & Cloud Security Engineering",
+    shownIn: ["cloud-security-advanced", "computer-security-systems"],
+  },
+  "cloud-devops": {
+    home: "#/path/cloud-devops",
+    homeLabel: "Cloud & DevOps Infrastructure",
+    shownIn: [
+      "cloud-devops",
+      "backend-platform-advanced",
+      "ai-systems-advanced",
+      "cloud-security-advanced",
+    ],
+  },
+};
+
+/** Skill builders shown inside a section, in learning order. */
+export function skillBuildersFor(catalog: Catalog, trackId: TrackId): Track[] {
+  return SKILL_TRACK_IDS.filter(
+    (id) =>
+      id !== trackId && skillBuilderPlacement[id].shownIn.includes(trackId),
+  )
+    .map((id) => catalog.tracks.find((track) => track.trackId === id))
+    .filter((track): track is Track => Boolean(track));
+}
+
+/** The page that owns a track's lessons (skill builders return to their section). */
+export function trackHome(trackId: TrackId): { href: string; label: string } {
+  if (isSkillTrack(trackId)) {
+    const placement = skillBuilderPlacement[trackId as SkillTrackId];
+    return { href: placement.home, label: placement.homeLabel };
+  }
+  return { href: `#/path/${trackId}`, label: trackMeta[trackId].label };
+}
 
 export function stageLabel(stage: Stage, trackId: TrackId): string {
-  if (isExtraTopic(trackId) || isCareerCourse(trackId)) {
+  if (
+    isExtraTopic(trackId) ||
+    isCareerCourse(trackId) ||
+    isSkillTrack(trackId)
+  ) {
     if (stage === "foundation") return "Beginner";
     if (stage === "professional") return "Professional Practice";
   }
@@ -289,6 +438,7 @@ export function buildCatalog(rawTracks: unknown[]): Catalog {
     ...projects,
     ...careerProjects,
     ...advancedProjects,
+    ...resumeProjects,
   ].map((project) => {
     const mappings = tracks
       .flatMap((track) => track.projectMappings)
@@ -373,7 +523,10 @@ export function validateCatalog(catalog: Catalog): void {
   });
   for (const track of catalog.tracks) {
     if (
-      (isExtraTopic(track.trackId) || isCareerCourse(track.trackId)) &&
+      (isExtraTopic(track.trackId) ||
+        isCareerCourse(track.trackId) ||
+        (isSkillTrack(track.trackId) &&
+          track.trackId !== "foundation-essentials")) &&
       (track.stageOutcomes?.map((item) => item.stage).join(",") !==
         LEARNING_STAGES.join(",") ||
         LEARNING_STAGES.some(
@@ -408,7 +561,9 @@ export function validateCatalog(catalog: Catalog): void {
         if (
           readingKind !== "book" &&
           !(
-            (isExtraTopic(track.trackId) || isCareerCourse(track.trackId)) &&
+            (isExtraTopic(track.trackId) ||
+              isCareerCourse(track.trackId) ||
+              isSkillTrack(track.trackId)) &&
             readingKind === "documentation"
           )
         )

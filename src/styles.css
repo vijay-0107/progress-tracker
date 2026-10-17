@@ -3437,3 +3437,67 @@ summary {
     animation: none !important;
   }
 }
+
+/* Skill builders */
+.skill-builder {
+  border-top: 4px solid var(--track-color, var(--green));
+  padding: 22px 24px;
+}
+@media (max-width: 720px) {
+  .skill-builder {
+    padding: 16px;
+  }
+}
+.skill-builder-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.skill-builder-head h2 {
+  margin: 4px 0 6px;
+}
+.skill-builder-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 14px 0 8px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.skill-builder-stats strong {
+  color: var(--ink);
+  font-size: 1rem;
+}
+.skill-stage-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+.skill-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.skill-stage p {
+  margin: 4px 0 0;
+}
+.skill-builder .module-card h3 {
+  margin: 4px 0;
+}
+.skill-builder .roadmap-lesson h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+.section-heading {
+  margin: 28px 0 12px;
+}
+@media (max-width: 720px) {
+  .skill-builder-head {
+    flex-direction: column;
+  }
+}

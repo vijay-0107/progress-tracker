@@ -1,0 +1,2049 @@
+{
+  "schemaVersion": 1,
+  "trackId": "security-skills",
+  "title": "Cloud Security: Skill Builder",
+  "sourceCheckedOn": "2026-10-17",
+  "resources": [
+    {
+      "id": "sk-sec-aws-pillar",
+      "kind": "documentation",
+      "title": "AWS Well-Architected Framework: Security Pillar",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Design principles and best practices for securing AWS workloads."
+    },
+    {
+      "id": "sk-sec-guardduty",
+      "kind": "documentation",
+      "title": "Amazon GuardDuty user guide",
+      "url": "https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Managed threat detection from CloudTrail, VPC flow and DNS logs."
+    },
+    {
+      "id": "sk-sec-securityhub",
+      "kind": "documentation",
+      "title": "AWS Security Hub user guide",
+      "url": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Central findings, standards (including CIS) and automation."
+    },
+    {
+      "id": "sk-sec-kms",
+      "kind": "documentation",
+      "title": "AWS Key Management Service concepts",
+      "url": "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html",
+      "provider": "Amazon Web Services",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Keys, envelope encryption and key policies."
+    },
+    {
+      "id": "sk-sec-entra",
+      "kind": "documentation",
+      "title": "Microsoft Entra ID fundamentals",
+      "url": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
+      "provider": "Microsoft Learn",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Identities, conditional access, MFA and privileged identity management."
+    },
+    {
+      "id": "sk-sec-defender",
+      "kind": "documentation",
+      "title": "Microsoft Defender for Cloud introduction",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction",
+      "provider": "Microsoft Learn",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Posture management (secure score) and workload protection."
+    },
+    {
+      "id": "sk-sec-keyvault",
+      "kind": "documentation",
+      "title": "Azure Key Vault overview",
+      "url": "https://learn.microsoft.com/en-us/azure/key-vault/general/overview",
+      "provider": "Microsoft Learn",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Secrets, keys and certificates with access control and auditing."
+    },
+    {
+      "id": "sk-sec-sentinel",
+      "kind": "documentation",
+      "title": "Microsoft Sentinel overview",
+      "url": "https://learn.microsoft.com/en-us/azure/sentinel/overview",
+      "provider": "Microsoft Learn",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Cloud-native SIEM: data connectors, analytics rules and incidents."
+    },
+    {
+      "id": "sk-sec-az500",
+      "kind": "documentation",
+      "title": "Microsoft Certified: Azure Security Engineer Associate (AZ-500)",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/",
+      "provider": "Microsoft Learn",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Exam skills outline and free learning paths."
+    },
+    {
+      "id": "sk-sec-cis",
+      "kind": "documentation",
+      "title": "CIS Benchmarks",
+      "url": "https://www.cisecurity.org/cis-benchmarks",
+      "provider": "Center for Internet Security",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Consensus hardening guides for cloud providers, Kubernetes and operating systems (free PDF download with registration)."
+    },
+    {
+      "id": "sk-sec-sigma",
+      "kind": "documentation",
+      "title": "Sigma rules documentation",
+      "url": "https://sigmahq.io/docs/",
+      "provider": "SigmaHQ",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Generic detection rule format and converters to SIEM queries."
+    },
+    {
+      "id": "sk-sec-attack",
+      "kind": "documentation",
+      "title": "MITRE ATT&CK",
+      "url": "https://attack.mitre.org/",
+      "provider": "The MITRE Corporation",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Knowledge base of adversary tactics and techniques."
+    },
+    {
+      "id": "sk-sec-atomic",
+      "kind": "documentation",
+      "title": "Atomic Red Team",
+      "url": "https://github.com/redcanaryco/atomic-red-team",
+      "provider": "Red Canary",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Small, safe tests mapped to ATT&CK techniques for validating detections in a lab."
+    },
+    {
+      "id": "sk-sec-syft",
+      "kind": "documentation",
+      "title": "Syft SBOM generator",
+      "url": "https://github.com/anchore/syft",
+      "provider": "Anchore",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Generate software bills of materials from images and filesystems."
+    },
+    {
+      "id": "sk-sec-messer",
+      "kind": "video",
+      "title": "Professor Messer: CompTIA Security+ SY0-701 course",
+      "url": "https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/",
+      "provider": "Professor Messer",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free full video course for Security+."
+    }
+  ],
+  "modules": [
+    {
+      "id": "sk-sec-m01-fundamentals",
+      "title": "01. Security fundamentals",
+      "stage": "foundation",
+      "description": "The concepts every security engineer uses: confidentiality, integrity, availability, threats, risk, threat modelling and practical cryptography.",
+      "prerequisites": [
+        "fe-m13-security-basics"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l01-cia-threats-risk-and-threat-modelling",
+          "title": "CIA, threats, risk and threat modelling",
+          "objectives": [
+            "Explain confidentiality, integrity and availability with examples.",
+            "Assess risk as likelihood x impact and prioritise controls.",
+            "Threat-model a small system with data flow diagrams and STRIDE."
+          ],
+          "topics": [
+            {
+              "title": "Basics",
+              "details": [
+                "CIA: keep data secret, correct and available. Controls are preventive, detective or corrective; defence in depth layers them."
+              ]
+            },
+            {
+              "title": "Risk",
+              "details": [
+                "Risk = likelihood x impact; accept, mitigate, transfer or avoid. Focus on the most likely, most damaging scenarios first."
+              ]
+            },
+            {
+              "title": "Threat modelling",
+              "details": [
+                "Draw data flows and trust boundaries, then ask STRIDE questions (spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-sec.cia-threats-risk-and-threat-modelling"
+          ],
+          "video": {
+            "resourceId": "sde-video-threat",
+            "locator": "MIT 6.858 lecture 1 on threat models."
+          },
+          "reading": {
+            "resourceId": "security-doc-threats",
+            "locator": "OWASP Threat Modeling Cheat Sheet in full."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-csf"
+          ],
+          "assignment": {
+            "id": "sk-sec-a01-cia-threats-risk-and-threat-modelling",
+            "title": "Threat-model your API",
+            "kind": "design",
+            "instructions": [
+              "Draw a data flow diagram for one of your projects with trust boundaries.",
+              "List at least 12 threats using STRIDE, rate each, and propose controls.",
+              "Pick the top three and implement or describe the fixes."
+            ],
+            "deliverables": [
+              "Diagram, threat table and fixes."
+            ],
+            "acceptanceCriteria": [
+              "Each threat names the asset, the attacker and the control."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l01-cia-threats-risk-and-threat-modelling-check-01",
+                "kind": "short-answer",
+                "prompt": "What does STRIDE stand for?",
+                "answer": "Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege.",
+                "explanation": "A checklist for threat modelling."
+              },
+              {
+                "id": "sk-sec-l01-cia-threats-risk-and-threat-modelling-check-02",
+                "kind": "short-answer",
+                "prompt": "How is risk usually estimated?",
+                "answer": "Likelihood multiplied by impact.",
+                "explanation": "Prioritise by risk, not by fear."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain defence in depth.",
+            "Where are trust boundaries in a web app?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sec-l02-cryptography-in-practice-hashing-encryption-sign",
+          "title": "Cryptography in practice: hashing, encryption, signatures, TLS and PKI",
+          "objectives": [
+            "Choose hashing, symmetric encryption, asymmetric encryption or signatures for a need.",
+            "Explain TLS, certificates and certificate authorities.",
+            "Use envelope encryption with a managed key service."
+          ],
+          "topics": [
+            {
+              "title": "Primitives",
+              "details": [
+                "Hash (SHA-256) for integrity; AES-GCM for confidentiality with integrity; RSA/ECDSA signatures prove who signed; key exchange creates shared secrets."
+              ]
+            },
+            {
+              "title": "TLS and PKI",
+              "details": [
+                "Servers present certificates signed by CAs your system trusts; certificates expire and must be rotated automatically."
+              ]
+            },
+            {
+              "title": "Key management",
+              "details": [
+                "Envelope encryption: data keys encrypt data; a master key in KMS/Key Vault encrypts data keys; access to the master key is logged."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sec.cryptography-in-practice-hashing-encryption-sign"
+          ],
+          "video": {
+            "resourceId": "security-video-crypto",
+            "locator": "First week's lectures (introduction, stream ciphers) for intuition."
+          },
+          "reading": {
+            "resourceId": "security-doc-crypto",
+            "locator": "OWASP Cryptographic Storage Cheat Sheet in full; then the Transport Layer Security Cheat Sheet sections on certificates."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-tls",
+            "sk-sec-kms"
+          ],
+          "assignment": {
+            "id": "sk-sec-a02-cryptography-in-practice-hashing-encryption-sign",
+            "title": "Envelope encryption demo",
+            "kind": "coding",
+            "instructions": [
+              "Encrypt a file with a random AES-GCM data key in Python, then encrypt the data key with a local RSA key (simulating KMS).",
+              "Sign the ciphertext and verify; show tampering fails verification.",
+              "Inspect a real website's certificate chain and explain each certificate."
+            ],
+            "deliverables": [
+              "Code, outputs and certificate notes."
+            ],
+            "acceptanceCriteria": [
+              "Tampering is detected.",
+              "The chain explanation is correct."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l02-cryptography-in-practice-hashing-encryption-sign-check-01",
+                "kind": "short-answer",
+                "prompt": "What does a digital signature prove?",
+                "answer": "That the holder of the private key signed the data and it was not changed.",
+                "explanation": "Integrity plus authenticity."
+              },
+              {
+                "id": "sk-sec-l02-cryptography-in-practice-hashing-encryption-sign-check-02",
+                "kind": "short-answer",
+                "prompt": "Why use envelope encryption?",
+                "answer": "Large data uses fast data keys while a protected master key controls and audits access.",
+                "explanation": "Rotation is easier too."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Hash vs MAC vs signature?",
+            "What happens when a certificate expires?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m02-identity",
+      "title": "02. Identity and access management",
+      "stage": "foundation",
+      "description": "Most cloud breaches come from identity problems. Learn authentication, MFA, OAuth/OIDC, SSO and least-privilege cloud IAM.",
+      "prerequisites": [
+        "sk-sec-m01-fundamentals",
+        "fe-m09-cloud-basics"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l03-authentication-mfa-sessions-oauth-2-0-oidc-and-s",
+          "title": "Authentication, MFA, sessions, OAuth 2.0, OIDC and SSO",
+          "objectives": [
+            "Compare passwords, MFA factors and phishing-resistant methods (passkeys).",
+            "Explain OAuth 2.0, OIDC and SAML-based SSO.",
+            "Manage sessions and tokens securely."
+          ],
+          "topics": [
+            {
+              "title": "Authentication",
+              "details": [
+                "MFA blocks most account takeovers; phishing-resistant factors (FIDO2/passkeys) beat SMS codes."
+              ]
+            },
+            {
+              "title": "Federation",
+              "details": [
+                "SSO lets one identity provider (Entra ID, Okta) log users into many apps via SAML or OIDC; OAuth issues access tokens for APIs."
+              ]
+            },
+            {
+              "title": "Sessions",
+              "details": [
+                "Short-lived tokens, secure HttpOnly cookies, rotation and server-side revocation."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sec.authentication-mfa-sessions-oauth-2-0-oidc-and-s"
+          ],
+          "video": {
+            "resourceId": "security-video-accounts",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "security-doc-identity",
+            "locator": "NIST SP 800-63B-4: sections on authenticator types and assurance levels (read the summary tables and phishing resistance)."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-cfd2790a544c",
+            "security-doc-sessions"
+          ],
+          "assignment": {
+            "id": "sk-sec-a03-authentication-mfa-sessions-oauth-2-0-oidc-and-s",
+            "title": "SSO lab",
+            "kind": "lab",
+            "instructions": [
+              "Run Keycloak in Docker; create a realm, users and an OIDC client.",
+              "Log into a small app via OIDC with MFA enabled; inspect the ID and access tokens.",
+              "Write which claims you trust and why."
+            ],
+            "deliverables": [
+              "Setup notes, token screenshots (no secrets) and analysis."
+            ],
+            "acceptanceCriteria": [
+              "MFA is required at login.",
+              "Token validation steps are listed correctly."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l03-authentication-mfa-sessions-oauth-2-0-oidc-and-s-check-01",
+                "kind": "short-answer",
+                "prompt": "Most phishing-resistant common factor?",
+                "answer": "FIDO2 security keys or passkeys.",
+                "explanation": "They bind to the real site's origin."
+              },
+              {
+                "id": "sk-sec-l03-authentication-mfa-sessions-oauth-2-0-oidc-and-s-check-02",
+                "kind": "short-answer",
+                "prompt": "OAuth vs OIDC?",
+                "answer": "OAuth delegates access to APIs; OIDC adds authentication and an ID token.",
+                "explanation": "OIDC is built on OAuth 2.0."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain SSO to a manager.",
+            "Why are SMS codes weak?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sec-l04-cloud-iam-policies-roles-least-privilege-and-acc",
+          "title": "Cloud IAM: policies, roles, least privilege and access reviews",
+          "objectives": [
+            "Read and write AWS IAM and Azure RBAC policies.",
+            "Explain AWS policy evaluation (explicit deny, allows, boundaries, SCPs).",
+            "Find over-privileged identities and reduce them."
+          ],
+          "topics": [
+            {
+              "title": "Policies",
+              "details": [
+                "AWS: JSON statements with Effect, Action, Resource, Condition. Azure: role definitions assigned at a scope (subscription, resource group, resource)."
+              ]
+            },
+            {
+              "title": "Evaluation",
+              "details": [
+                "In AWS an explicit deny always wins; otherwise you need an allow from identity or resource policies, within permission boundaries and SCPs."
+              ]
+            },
+            {
+              "title": "Least privilege",
+              "details": [
+                "Start from zero, use access analyzer / activity logs to generate minimal policies, prefer roles over users, review access regularly."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sec.cloud-iam-policies-roles-least-privilege-and-acc"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-iam",
+            "locator": "AWS IAM 'Policy evaluation logic' page in full, including the flow chart."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-83e9f1d51c6e"
+          ],
+          "assignment": {
+            "id": "sk-sec-a04-cloud-iam-policies-roles-least-privilege-and-acc",
+            "title": "Least-privilege refactor",
+            "kind": "lab",
+            "instructions": [
+              "In your sandbox, create a role with AdministratorAccess used by a small app.",
+              "Use CloudTrail/IAM Access Analyzer to generate a minimal policy; replace and test the app still works.",
+              "Write an access-review checklist."
+            ],
+            "deliverables": [
+              "Before/after policies, test evidence and checklist."
+            ],
+            "acceptanceCriteria": [
+              "The app works with the minimal policy and fails for an action outside it."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l04-cloud-iam-policies-roles-least-privilege-and-acc-check-01",
+                "kind": "short-answer",
+                "prompt": "What wins in AWS policy evaluation?",
+                "answer": "An explicit deny.",
+                "explanation": "It overrides any allow."
+              },
+              {
+                "id": "sk-sec-l04-cloud-iam-policies-roles-least-privilege-and-acc-check-02",
+                "kind": "short-answer",
+                "prompt": "Why prefer roles over IAM users with access keys?",
+                "answer": "Roles give temporary credentials; keys are long-lived and leak.",
+                "explanation": "Rotation is automatic."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a policy allowing read-only access to one bucket.",
+            "What is a permission boundary?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m03-aws-security",
+      "title": "03. AWS security services",
+      "stage": "intermediate",
+      "description": "Secure an AWS account end to end: logging, threat detection, findings management, encryption and network controls.",
+      "prerequisites": [
+        "sk-sec-m02-identity"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l05-logging-and-detection-cloudtrail-guardduty-and-s",
+          "title": "Logging and detection: CloudTrail, GuardDuty and Security Hub",
+          "objectives": [
+            "Enable organisation-wide CloudTrail and protect the logs.",
+            "Enable GuardDuty and understand its findings.",
+            "Aggregate findings and run the CIS standard in Security Hub."
+          ],
+          "topics": [
+            {
+              "title": "CloudTrail",
+              "details": [
+                "Records API calls (who did what, when, from where); send to a separate, locked-down bucket with integrity validation."
+              ]
+            },
+            {
+              "title": "GuardDuty",
+              "details": [
+                "Analyses CloudTrail, VPC flow and DNS logs to flag threats like credential misuse or crypto-mining."
+              ]
+            },
+            {
+              "title": "Security Hub",
+              "details": [
+                "Collects findings from AWS services and tools; runs standards such as CIS AWS Foundations; automates responses with EventBridge."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sec.logging-and-detection-cloudtrail-guardduty-and-s"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sec-securityhub",
+            "locator": "AWS Security Hub: 'What is Security Hub', 'Security standards' (CIS AWS Foundations Benchmark) and 'Automations'."
+          },
+          "supplementaryResourceIds": [
+            "sk-sec-guardduty",
+            "advanced-reading-eb74c04d7d3a",
+            "sk-sec-aws-pillar"
+          ],
+          "assignment": {
+            "id": "sk-sec-a05-logging-and-detection-cloudtrail-guardduty-and-s",
+            "title": "Secure a sandbox account",
+            "kind": "lab",
+            "instructions": [
+              "Enable CloudTrail (all regions), GuardDuty and Security Hub with the CIS standard in a sandbox account (watch free-trial periods and costs).",
+              "Generate GuardDuty sample findings and route a high-severity finding to email via EventBridge.",
+              "Fix five Security Hub CIS failures and record the score change; disable services after if cost matters."
+            ],
+            "deliverables": [
+              "Screenshots, EventBridge rule and remediation notes."
+            ],
+            "acceptanceCriteria": [
+              "Five CIS controls move from failed to passed."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l05-logging-and-detection-cloudtrail-guardduty-and-s-check-01",
+                "kind": "short-answer",
+                "prompt": "What does CloudTrail record?",
+                "answer": "API calls made in the account: who, what, when and from where.",
+                "explanation": "Foundation of investigations."
+              },
+              {
+                "id": "sk-sec-l05-logging-and-detection-cloudtrail-guardduty-and-s-check-02",
+                "kind": "short-answer",
+                "prompt": "What does GuardDuty analyse?",
+                "answer": "CloudTrail, VPC flow logs and DNS logs (and more) for threats.",
+                "explanation": "It is managed detection."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Why store logs in a separate account?",
+            "How do you automate a finding response?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sec-l06-data-and-network-protection-kms-s3-security-grou",
+          "title": "Data and network protection: KMS, S3, security groups and private access",
+          "objectives": [
+            "Encrypt data with KMS keys and control key use.",
+            "Lock down S3 with Block Public Access and bucket policies.",
+            "Design network controls: security groups, NACLs, private subnets and VPC endpoints."
+          ],
+          "topics": [
+            {
+              "title": "Encryption",
+              "details": [
+                "Default encryption with KMS keys; key policies decide who can use keys; rotation is automatic for customer managed keys if enabled."
+              ]
+            },
+            {
+              "title": "S3",
+              "details": [
+                "Account-level Block Public Access, bucket policies that require TLS and deny unencrypted uploads, access logging."
+              ]
+            },
+            {
+              "title": "Network",
+              "details": [
+                "Security groups are stateful allow-lists on instances; keep databases in private subnets; reach AWS services through VPC endpoints instead of the internet."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-sec.data-and-network-protection-kms-s3-security-grou"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-3402cc49aabf",
+            "locator": "Amazon S3 'Blocking public access to your Amazon S3 storage' in full; then the KMS concepts page."
+          },
+          "supplementaryResourceIds": [
+            "sk-sec-kms",
+            "advanced-reading-372a6fcf1e13"
+          ],
+          "assignment": {
+            "id": "sk-sec-a06-data-and-network-protection-kms-s3-security-grou",
+            "title": "Lock down storage and network",
+            "kind": "lab",
+            "instructions": [
+              "Create an S3 bucket with KMS encryption, a TLS-only policy and public access blocked; prove anonymous access fails.",
+              "Build a VPC with a private subnet and an S3 gateway endpoint; access S3 from a private instance without internet.",
+              "Delete everything afterwards."
+            ],
+            "deliverables": [
+              "Terraform or CLI scripts and test evidence."
+            ],
+            "acceptanceCriteria": [
+              "Anonymous and non-TLS access are denied.",
+              "Private instance reaches S3 only via the endpoint."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l06-data-and-network-protection-kms-s3-security-grou-check-01",
+                "kind": "short-answer",
+                "prompt": "Are security groups stateful?",
+                "answer": "Yes; return traffic is automatically allowed.",
+                "explanation": "NACLs are stateless."
+              },
+              {
+                "id": "sk-sec-l06-data-and-network-protection-kms-s3-security-grou-check-02",
+                "kind": "short-answer",
+                "prompt": "Why use a VPC endpoint for S3?",
+                "answer": "Traffic stays on the AWS network without internet access.",
+                "explanation": "Also enables endpoint policies."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a TLS-only bucket policy condition.",
+            "Security group vs NACL?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m04-azure-security",
+      "title": "04. Azure security",
+      "stage": "intermediate",
+      "description": "You already hold several Azure certifications. Learn Azure's security controls in depth: Entra ID, RBAC, Defender for Cloud, Key Vault and Sentinel. This also prepares AZ-500.",
+      "prerequisites": [
+        "sk-sec-m02-identity"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l07-entra-id-azure-rbac-conditional-access-and-privi",
+          "title": "Entra ID, Azure RBAC, conditional access and privileged identity management",
+          "objectives": [
+            "Manage users, groups, service principals and managed identities.",
+            "Assign Azure RBAC at the right scope.",
+            "Explain conditional access and just-in-time admin with PIM."
+          ],
+          "topics": [
+            {
+              "title": "Identities",
+              "details": [
+                "Users and groups for people; service principals and managed identities for apps (managed identities avoid secrets entirely)."
+              ]
+            },
+            {
+              "title": "RBAC",
+              "details": [
+                "Assign built-in roles at the smallest scope; custom roles only when needed; review owner/contributor assignments."
+              ]
+            },
+            {
+              "title": "Policies",
+              "details": [
+                "Conditional access requires MFA or compliant devices based on risk; PIM grants admin roles just in time with approval and expiry."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sec.entra-id-azure-rbac-conditional-access-and-privi"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sec-entra",
+            "locator": "Microsoft Entra ID fundamentals: 'What is Microsoft Entra ID?', then the linked conditional access and Privileged Identity Management overviews."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-83e9f1d51c6e",
+            "sk-sec-az500"
+          ],
+          "assignment": {
+            "id": "sk-sec-a07-entra-id-azure-rbac-conditional-access-and-privi",
+            "title": "Azure identity hardening",
+            "kind": "lab",
+            "instructions": [
+              "In a free Azure subscription, create a resource group with a managed identity accessing a storage account via RBAC (no keys).",
+              "Write the conditional access policy you would require for admins (on paper if your tenant lacks P1/P2 licences).",
+              "List all role assignments and remove any unnecessary ones."
+            ],
+            "deliverables": [
+              "CLI/portal evidence and policy design."
+            ],
+            "acceptanceCriteria": [
+              "Storage access works through managed identity without account keys."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l07-entra-id-azure-rbac-conditional-access-and-privi-check-01",
+                "kind": "short-answer",
+                "prompt": "Why prefer managed identities?",
+                "answer": "Azure handles credentials, so there are no secrets to store or leak.",
+                "explanation": "Tokens are issued automatically."
+              },
+              {
+                "id": "sk-sec-l07-entra-id-azure-rbac-conditional-access-and-privi-check-02",
+                "kind": "short-answer",
+                "prompt": "What does PIM provide?",
+                "answer": "Just-in-time, time-limited, approved elevation to privileged roles.",
+                "explanation": "Reduces standing admin access."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain RBAC scopes.",
+            "Service principal vs managed identity?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sec-l08-defender-for-cloud-key-vault-and-microsoft-senti",
+          "title": "Defender for Cloud, Key Vault and Microsoft Sentinel",
+          "objectives": [
+            "Use Defender for Cloud secure score and recommendations.",
+            "Store and access secrets with Key Vault using RBAC.",
+            "Connect data to Sentinel and write a simple analytics rule."
+          ],
+          "topics": [
+            {
+              "title": "Posture",
+              "details": [
+                "Defender for Cloud assesses resources against benchmarks and gives a secure score; fix the highest-impact recommendations first."
+              ]
+            },
+            {
+              "title": "Secrets",
+              "details": [
+                "Key Vault stores secrets, keys and certificates; use RBAC and managed identities; enable soft delete and purge protection; access is logged."
+              ]
+            },
+            {
+              "title": "SIEM",
+              "details": [
+                "Sentinel ingests logs through connectors, runs KQL analytics rules, groups alerts into incidents and automates with playbooks."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sec.defender-for-cloud-key-vault-and-microsoft-senti"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sec-defender",
+            "locator": "Defender for Cloud introduction; then Key Vault overview and Sentinel overview."
+          },
+          "supplementaryResourceIds": [
+            "sk-sec-keyvault",
+            "sk-sec-sentinel"
+          ],
+          "assignment": {
+            "id": "sk-sec-a08-defender-for-cloud-key-vault-and-microsoft-senti",
+            "title": "Azure detection loop",
+            "kind": "lab",
+            "instructions": [
+              "Enable the free tier of Defender for Cloud and fix three recommendations.",
+              "Move an app secret into Key Vault accessed by managed identity.",
+              "In a Sentinel trial workspace, connect Entra sign-in logs and write a KQL rule for repeated failed sign-ins; remove resources after."
+            ],
+            "deliverables": [
+              "Evidence for all three and the KQL rule."
+            ],
+            "acceptanceCriteria": [
+              "The KQL rule fires on simulated failed sign-ins."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l08-defender-for-cloud-key-vault-and-microsoft-senti-check-01",
+                "kind": "short-answer",
+                "prompt": "What is Defender for Cloud's secure score?",
+                "answer": "A measure of how many security recommendations are implemented.",
+                "explanation": "Higher is better."
+              },
+              {
+                "id": "sk-sec-l08-defender-for-cloud-key-vault-and-microsoft-senti-check-02",
+                "kind": "short-answer",
+                "prompt": "Which query language does Sentinel use?",
+                "answer": "KQL (Kusto Query Language).",
+                "explanation": "The same as Log Analytics."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Key Vault protections you always enable?",
+            "Alert vs incident in Sentinel?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m05-appsec",
+      "title": "05. Application security",
+      "stage": "intermediate",
+      "description": "Find and fix vulnerabilities in web applications and automate security testing in CI.",
+      "prerequisites": [
+        "sk-sec-m01-fundamentals"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l09-hands-on-owasp-top-10-with-juice-shop-and-portsw",
+          "title": "Hands-on OWASP Top 10 with Juice Shop and PortSwigger labs",
+          "objectives": [
+            "Exploit and fix injection, broken access control, XSS and SSRF in local labs.",
+            "Use an intercepting proxy to inspect and modify requests.",
+            "Write vulnerability reports with impact and remediation."
+          ],
+          "topics": [
+            {
+              "title": "Labs",
+              "details": [
+                "OWASP Juice Shop runs locally in Docker; PortSwigger Web Security Academy has free guided labs. Only attack these intentionally vulnerable targets."
+              ]
+            },
+            {
+              "title": "Tools",
+              "details": [
+                "Burp Suite Community or OWASP ZAP intercept traffic so you can see and change requests."
+              ]
+            },
+            {
+              "title": "Reporting",
+              "details": [
+                "Title, severity, affected endpoint, steps to reproduce, impact, fix and how to verify the fix."
+              ]
+            }
+          ],
+          "estimatedMinutes": 180,
+          "canonicalConceptTags": [
+            "sk-sec.hands-on-owasp-top-10-with-juice-shop-and-portsw"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "ethical-hacking-doc-start",
+            "locator": "PortSwigger Web Security Academy 'Getting started', then the learning material for SQL injection and access control."
+          },
+          "supplementaryResourceIds": [
+            "ethical-hacking-doc-juice",
+            "ethical-hacking-doc-injection",
+            "ethical-hacking-doc-access",
+            "ethical-hacking-doc-xss",
+            "ethical-hacking-doc-ssrf"
+          ],
+          "assignment": {
+            "id": "sk-sec-a09-hands-on-owasp-top-10-with-juice-shop-and-portsw",
+            "title": "Ten vulnerabilities",
+            "kind": "lab",
+            "instructions": [
+              "Run Juice Shop locally and solve ten challenges across at least five OWASP categories.",
+              "Complete five PortSwigger apprentice labs.",
+              "Write two full vulnerability reports including the code-level fix."
+            ],
+            "deliverables": [
+              "Challenge list, lab completions and two reports."
+            ],
+            "acceptanceCriteria": [
+              "Reports include reproduction steps and a verified fix."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l09-hands-on-owasp-top-10-with-juice-shop-and-portsw-check-01",
+                "kind": "short-answer",
+                "prompt": "What is SSRF?",
+                "answer": "Tricking a server into making requests to places the attacker chooses, such as internal services.",
+                "explanation": "Block with allow-lists and network controls."
+              },
+              {
+                "id": "sk-sec-l09-hands-on-owasp-top-10-with-juice-shop-and-portsw-check-02",
+                "kind": "short-answer",
+                "prompt": "Where may you practise exploiting vulnerabilities?",
+                "answer": "Only on systems you own or are explicitly authorised to test, such as local labs.",
+                "explanation": "Anything else is illegal."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain stored vs reflected XSS.",
+            "What makes a good vulnerability report?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sec-l10-sast-dast-sca-and-secrets-scanning-in-ci",
+          "title": "SAST, DAST, SCA and secrets scanning in CI",
+          "objectives": [
+            "Explain SAST, DAST, SCA and secret scanning and what each misses.",
+            "Add Semgrep, Trivy and ZAP to a CI pipeline.",
+            "Triage findings: true positive, false positive, accepted risk."
+          ],
+          "topics": [
+            {
+              "title": "Tool types",
+              "details": [
+                "SAST reads source code; DAST attacks a running app; SCA checks dependencies for known CVEs; secret scanners find keys in code and history."
+              ]
+            },
+            {
+              "title": "Pipelines",
+              "details": [
+                "Fast checks on every PR (Semgrep, secrets, SCA), heavier DAST nightly; fail builds only on high-confidence, high-severity findings at first."
+              ]
+            },
+            {
+              "title": "Triage",
+              "details": [
+                "Every finding gets an owner and a decision; suppressions require a reason and expiry date."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-sec.sast-dast-sca-and-secrets-scanning-in-ci"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-1c503b3f1afc",
+            "locator": "Semgrep docs: 'Getting started' and 'Run Semgrep in CI'; then Trivy docs 'Overview' and the ZAP baseline scan page."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-4464a11b30f7",
+            "advanced-reading-f4b00f027463"
+          ],
+          "assignment": {
+            "id": "sk-sec-a10-sast-dast-sca-and-secrets-scanning-in-ci",
+            "title": "Security CI",
+            "kind": "lab",
+            "instructions": [
+              "Add Semgrep, gitleaks and Trivy (filesystem) jobs to one of your repositories.",
+              "Add a nightly ZAP baseline scan against the app running in CI.",
+              "Triage every finding with a recorded decision."
+            ],
+            "deliverables": [
+              "Workflow files and a triage table."
+            ],
+            "acceptanceCriteria": [
+              "Each finding has a decision and owner.",
+              "A planted vulnerable dependency fails the build."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l10-sast-dast-sca-and-secrets-scanning-in-ci-check-01",
+                "kind": "short-answer",
+                "prompt": "SAST vs DAST?",
+                "answer": "SAST analyses source code; DAST tests the running application.",
+                "explanation": "They find different bugs."
+              },
+              {
+                "id": "sk-sec-l10-sast-dast-sca-and-secrets-scanning-in-ci-check-02",
+                "kind": "short-answer",
+                "prompt": "What does SCA check?",
+                "answer": "Third-party dependencies for known vulnerabilities (CVEs) and licences.",
+                "explanation": "Most code is dependencies."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which scans run on every PR and why?",
+            "How do you handle false positives?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m06-supply-chain",
+      "title": "06. Software supply-chain security",
+      "stage": "advanced",
+      "description": "Protect how software is built and shipped: SBOMs, vulnerability management, artifact signing, provenance and admission control.",
+      "prerequisites": [
+        "sk-sec-m05-appsec",
+        "fe-m08-containers"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l11-sboms-vulnerability-management-and-dependency-hy",
+          "title": "SBOMs, vulnerability management and dependency hygiene",
+          "objectives": [
+            "Generate SBOMs for images and applications.",
+            "Prioritise vulnerabilities by severity, exploitability and reachability.",
+            "Keep dependencies updated safely with automated pull requests."
+          ],
+          "topics": [
+            {
+              "title": "SBOMs",
+              "details": [
+                "An SBOM lists every component and version in an artifact (SPDX or CycloneDX); store it with the artifact so you can answer 'are we affected?' quickly."
+              ]
+            },
+            {
+              "title": "Prioritising",
+              "details": [
+                "Not every CVE matters: consider CVSS, known exploitation (CISA KEV), whether the vulnerable code is reachable and whether a fix exists."
+              ]
+            },
+            {
+              "title": "Hygiene",
+              "details": [
+                "Pin versions with lockfiles, use Dependabot/Renovate, minimal base images, and remove unused dependencies."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-sec.sboms-vulnerability-management-and-dependency-hy"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sec-syft",
+            "locator": "Syft README: installation, generating SBOMs from images and directories, and output formats."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-4464a11b30f7"
+          ],
+          "assignment": {
+            "id": "sk-sec-a11-sboms-vulnerability-management-and-dependency-hy",
+            "title": "SBOM and triage",
+            "kind": "lab",
+            "instructions": [
+              "Generate SBOMs for two of your images with Syft; scan them with Trivy or Grype.",
+              "Triage the top ten findings using severity, KEV status and reachability.",
+              "Rebuild on a smaller base image and compare counts."
+            ],
+            "deliverables": [
+              "SBOMs, scan results and triage table."
+            ],
+            "acceptanceCriteria": [
+              "Triage decisions cite evidence, not just CVSS."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l11-sboms-vulnerability-management-and-dependency-hy-check-01",
+                "kind": "short-answer",
+                "prompt": "What is an SBOM?",
+                "answer": "A list of components and versions inside a software artifact.",
+                "explanation": "Answers 'are we affected?' quickly."
+              },
+              {
+                "id": "sk-sec-l11-sboms-vulnerability-management-and-dependency-hy-check-02",
+                "kind": "short-answer",
+                "prompt": "Is every high CVSS finding urgent?",
+                "answer": "No, exploitability and reachability matter too.",
+                "explanation": "Prioritise real risk."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "SPDX vs CycloneDX?",
+            "How do minimal base images help?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sec-l12-signing-provenance-slsa-and-admission-control",
+          "title": "Signing, provenance (SLSA) and admission control",
+          "objectives": [
+            "Sign container images keylessly with Cosign and verify them.",
+            "Explain SLSA levels and build provenance.",
+            "Enforce signed images in Kubernetes with an admission controller."
+          ],
+          "topics": [
+            {
+              "title": "Signing",
+              "details": [
+                "Cosign signs images using short-lived certificates tied to your CI identity (Sigstore); verification checks who built the image."
+              ]
+            },
+            {
+              "title": "Provenance",
+              "details": [
+                "SLSA provenance records how, where and from what source an artifact was built; higher levels make tampering harder."
+              ]
+            },
+            {
+              "title": "Enforcement",
+              "details": [
+                "Admission controllers (OPA Gatekeeper, Kyverno, Sigstore policy-controller) reject unsigned or vulnerable images at deploy time."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-sec.signing-provenance-slsa-and-admission-control"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-2d55532c044d",
+            "locator": "Sigstore docs: 'Overview', Cosign 'Signing containers' and 'Verifying signatures'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-597ad4586c0b",
+            "security-doc-slsa",
+            "advanced-reading-817c732179b6"
+          ],
+          "assignment": {
+            "id": "sk-sec-a12-signing-provenance-slsa-and-admission-control",
+            "title": "Only signed images run",
+            "kind": "lab",
+            "instructions": [
+              "Sign images in GitHub Actions with Cosign keyless signing and attach the SBOM as an attestation.",
+              "In a kind cluster, install an admission controller that requires your signature.",
+              "Show an unsigned image is rejected and a signed one runs."
+            ],
+            "deliverables": [
+              "Workflow, policy and demo evidence."
+            ],
+            "acceptanceCriteria": [
+              "Unsigned images are blocked at admission."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l12-signing-provenance-slsa-and-admission-control-check-01",
+                "kind": "short-answer",
+                "prompt": "What does keyless signing with Sigstore use?",
+                "answer": "Short-lived certificates bound to an identity such as your CI workflow.",
+                "explanation": "No long-lived signing key to protect."
+              },
+              {
+                "id": "sk-sec-l12-signing-provenance-slsa-and-admission-control-check-02",
+                "kind": "short-answer",
+                "prompt": "Where are unsigned images blocked?",
+                "answer": "At Kubernetes admission by a policy controller.",
+                "explanation": "Before they ever run."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain SLSA provenance.",
+            "Why sign in CI rather than on a laptop?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m07-k8s-security",
+      "title": "07. Container and Kubernetes security",
+      "stage": "advanced",
+      "description": "Harden containers and clusters: image hardening, runtime restrictions, RBAC, network policies and pod security standards.",
+      "prerequisites": [
+        "sk-sec-m06-supply-chain"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l13-hardening-containers-non-root-read-only-capabili",
+          "title": "Hardening containers: non-root, read-only, capabilities and runtime detection",
+          "objectives": [
+            "Build minimal images that run as non-root with read-only filesystems.",
+            "Drop Linux capabilities and apply seccomp profiles.",
+            "Detect suspicious runtime behaviour."
+          ],
+          "topics": [
+            {
+              "title": "Images",
+              "details": [
+                "Distroless or slim bases, no shells or package managers in production images, pinned digests."
+              ]
+            },
+            {
+              "title": "Runtime limits",
+              "details": [
+                "runAsNonRoot, readOnlyRootFilesystem, allowPrivilegeEscalation: false, drop ALL capabilities, RuntimeDefault seccomp."
+              ]
+            },
+            {
+              "title": "Detection",
+              "details": [
+                "Runtime tools (e.g. Falco) alert on shells spawning in containers or unexpected network connections."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-sec.hardening-containers-non-root-read-only-capabili"
+          ],
+          "video": {
+            "resourceId": "security-video-systems",
+            "locator": "Whole lecture."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-1a2d717974c7",
+            "locator": "Kubernetes 'Pod Security Standards': the Baseline and Restricted profiles in full."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-sec-a13-hardening-containers-non-root-read-only-capabili",
+            "title": "Restricted workload",
+            "kind": "lab",
+            "instructions": [
+              "Deploy one of your services to kind with the Restricted pod security profile enforced.",
+              "Fix every violation (user, capabilities, filesystem, seccomp).",
+              "Show a privileged pod is rejected."
+            ],
+            "deliverables": [
+              "Manifests and evidence."
+            ],
+            "acceptanceCriteria": [
+              "Your service runs under the Restricted profile."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l13-hardening-containers-non-root-read-only-capabili-check-01",
+                "kind": "short-answer",
+                "prompt": "Why run containers as non-root?",
+                "answer": "A compromise then has fewer privileges on the node.",
+                "explanation": "Limits blast radius."
+              },
+              {
+                "id": "sk-sec-l13-hardening-containers-non-root-read-only-capabili-check-02",
+                "kind": "short-answer",
+                "prompt": "What does readOnlyRootFilesystem prevent?",
+                "answer": "Writing to the container's filesystem, blocking many persistence tricks.",
+                "explanation": "Use volumes for needed writes."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "List the Restricted profile requirements.",
+            "Why remove shells from images?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sec-l14-kubernetes-rbac-network-policies-and-secrets",
+          "title": "Kubernetes RBAC, network policies and secrets",
+          "objectives": [
+            "Write least-privilege Roles and RoleBindings and audit service accounts.",
+            "Isolate namespaces with default-deny network policies.",
+            "Handle Kubernetes secrets safely (encryption at rest, external secret stores)."
+          ],
+          "topics": [
+            {
+              "title": "RBAC",
+              "details": [
+                "Roles grant verbs on resources in a namespace; avoid cluster-admin for workloads; disable automounting service account tokens when not needed."
+              ]
+            },
+            {
+              "title": "Network policies",
+              "details": [
+                "Pods accept all traffic by default; a default-deny policy plus explicit allows limits lateral movement (needs a CNI that enforces policies)."
+              ]
+            },
+            {
+              "title": "Secrets",
+              "details": [
+                "Secrets are base64, not encrypted, unless etcd encryption is enabled; external stores (Vault, cloud secret managers) via CSI or operators are safer."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-sec.kubernetes-rbac-network-policies-and-secrets"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-6be4067ddcf7",
+            "locator": "Kubernetes 'Using RBAC Authorization' in full; then the 'Network Policies' concept page."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-953450b4076f",
+            "advanced-reading-2e4cf2b58418"
+          ],
+          "assignment": {
+            "id": "sk-sec-a14-kubernetes-rbac-network-policies-and-secrets",
+            "title": "Segment a cluster",
+            "kind": "lab",
+            "instructions": [
+              "Create two namespaces (frontend, backend) with default-deny policies and one allowed flow.",
+              "Give a CI service account rights to deploy in one namespace only; prove other actions fail with `kubectl auth can-i`.",
+              "Run kube-bench or a similar CIS check and fix two findings."
+            ],
+            "deliverables": [
+              "Manifests, test commands and findings."
+            ],
+            "acceptanceCriteria": [
+              "Blocked traffic and denied actions are demonstrated."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l14-kubernetes-rbac-network-policies-and-secrets-check-01",
+                "kind": "short-answer",
+                "prompt": "Are Kubernetes Secrets encrypted by default?",
+                "answer": "No, they are only base64-encoded unless encryption at rest is configured.",
+                "explanation": "Treat them carefully."
+              },
+              {
+                "id": "sk-sec-l14-kubernetes-rbac-network-policies-and-secrets-check-02",
+                "kind": "short-answer",
+                "prompt": "What is the default network behaviour between pods?",
+                "answer": "All traffic is allowed.",
+                "explanation": "Network policies restrict it."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a default-deny policy.",
+            "How do you audit service account permissions?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m08-detection",
+      "title": "08. Detection engineering and SIEM",
+      "stage": "advanced",
+      "description": "Turn logs into reliable detections: SIEM pipelines, Sigma rules, MITRE ATT&CK mapping and testing with Atomic Red Team.",
+      "prerequisites": [
+        "sk-sec-m03-aws-security"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l15-security-logging-and-siem-pipelines",
+          "title": "Security logging and SIEM pipelines",
+          "objectives": [
+            "Choose which logs to collect for endpoints, cloud and applications.",
+            "Set up a lab SIEM (Wazuh or Elastic) collecting Sysmon and auditd data.",
+            "Normalise and search events."
+          ],
+          "topics": [
+            {
+              "title": "Sources",
+              "details": [
+                "Cloud audit logs, identity provider sign-ins, endpoint telemetry (Sysmon on Windows, auditd on Linux), DNS, proxy and application logs."
+              ]
+            },
+            {
+              "title": "Pipeline",
+              "details": [
+                "Collect -> parse/normalise -> enrich -> store -> detect -> alert; consistent field names make rules portable."
+              ]
+            },
+            {
+              "title": "Hygiene",
+              "details": [
+                "Protect logs from tampering, keep retention long enough for investigations, avoid logging secrets."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-sec.security-logging-and-siem-pipelines"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-f71a80190d73",
+            "locator": "Wazuh docs: 'Getting started' (components and architecture) and the quickstart installation."
+          },
+          "supplementaryResourceIds": [
+            "security-doc-logging"
+          ],
+          "assignment": {
+            "id": "sk-sec-a15-security-logging-and-siem-pipelines",
+            "title": "Lab SIEM",
+            "kind": "lab",
+            "instructions": [
+              "Install Wazuh (or Elastic) in Docker/VMs with one Windows (Sysmon) and one Linux (auditd) agent.",
+              "Generate normal activity and search for logons, process creation and file changes.",
+              "Document your log sources and retention."
+            ],
+            "deliverables": [
+              "Lab setup notes and example searches."
+            ],
+            "acceptanceCriteria": [
+              "Events from both endpoints are searchable."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l15-security-logging-and-siem-pipelines-check-01",
+                "kind": "short-answer",
+                "prompt": "What does Sysmon add on Windows?",
+                "answer": "Detailed process, network and file telemetry.",
+                "explanation": "Much richer than default logs."
+              },
+              {
+                "id": "sk-sec-l15-security-logging-and-siem-pipelines-check-02",
+                "kind": "short-answer",
+                "prompt": "Why protect logs from tampering?",
+                "answer": "Attackers try to delete evidence.",
+                "explanation": "Ship them off the host quickly."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "List your top five log sources.",
+            "Why normalise field names?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sec-l16-sigma-rules-mitre-att-ck-and-validating-detectio",
+          "title": "Sigma rules, MITRE ATT&CK and validating detections with Atomic Red Team",
+          "objectives": [
+            "Write Sigma rules and convert them to SIEM queries.",
+            "Map detections to ATT&CK techniques and find coverage gaps.",
+            "Validate every rule with an Atomic Red Team test in the lab."
+          ],
+          "topics": [
+            {
+              "title": "Sigma",
+              "details": [
+                "YAML rules with logsource, detection selections and conditions; sigma-cli converts them to Splunk, Elastic, Sentinel or Wazuh queries."
+              ]
+            },
+            {
+              "title": "ATT&CK",
+              "details": [
+                "Tactics (why) and techniques (how) such as T1059 Command and Scripting Interpreter; track coverage in ATT&CK Navigator."
+              ]
+            },
+            {
+              "title": "Validation",
+              "details": [
+                "Run the matching Atomic test, confirm the alert fires, tune false positives against normal activity, keep rules in Git with CI."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-sec.sigma-rules-mitre-att-ck-and-validating-detectio"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sec-sigma",
+            "locator": "Sigma docs: 'Getting started', 'Rules' (logsource, detection, condition) and 'Converting rules' with sigma-cli."
+          },
+          "supplementaryResourceIds": [
+            "sk-sec-attack",
+            "sk-sec-atomic"
+          ],
+          "assignment": {
+            "id": "sk-sec-a16-sigma-rules-mitre-att-ck-and-validating-detectio",
+            "title": "Ten validated detections",
+            "kind": "lab",
+            "instructions": [
+              "Pick ten ATT&CK techniques relevant to your lab; write a Sigma rule for each.",
+              "Run the Atomic Red Team test for each in the isolated lab and record whether it fired.",
+              "Tune noisy rules; publish an ATT&CK Navigator layer of your coverage."
+            ],
+            "deliverables": [
+              "Rules repo with CI, test log and coverage layer."
+            ],
+            "acceptanceCriteria": [
+              "Every rule has a recorded Atomic test result."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l16-sigma-rules-mitre-att-ck-and-validating-detectio-check-01",
+                "kind": "short-answer",
+                "prompt": "What is Sigma?",
+                "answer": "A generic, SIEM-independent format for detection rules.",
+                "explanation": "Converted into each SIEM's query language."
+              },
+              {
+                "id": "sk-sec-l16-sigma-rules-mitre-att-ck-and-validating-detectio-check-02",
+                "kind": "short-answer",
+                "prompt": "How do you know a detection works?",
+                "answer": "Trigger the technique safely (e.g. Atomic test) and confirm the alert.",
+                "explanation": "Untested rules give false confidence."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a Sigma rule outline for encoded PowerShell.",
+            "Tactic vs technique?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m09-incident-response",
+      "title": "09. Incident response",
+      "stage": "professional",
+      "description": "Handle security incidents calmly and correctly: preparation, detection, containment, eradication, recovery and lessons learned.",
+      "prerequisites": [
+        "sk-sec-m08-detection"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l17-the-incident-response-lifecycle-playbooks-and-cl",
+          "title": "The incident response lifecycle, playbooks and cloud forensics basics",
+          "objectives": [
+            "Follow the NIST incident response lifecycle.",
+            "Write playbooks for common cloud incidents (leaked key, compromised VM, public bucket).",
+            "Preserve evidence and communicate during an incident."
+          ],
+          "topics": [
+            {
+              "title": "Lifecycle",
+              "details": [
+                "Prepare, detect and analyse, contain, eradicate, recover, learn. Containment first limits damage; do not destroy evidence."
+              ]
+            },
+            {
+              "title": "Playbooks",
+              "details": [
+                "Leaked access key: disable key, review CloudTrail for its use, rotate, assess impact. Compromised VM: isolate with security group, snapshot disks, investigate."
+              ]
+            },
+            {
+              "title": "Communication",
+              "details": [
+                "Clear roles (incident commander, scribe, communications), a timeline, and a blameless post-incident review."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-sec.the-incident-response-lifecycle-playbooks-and-cl"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "security-doc-ir",
+            "locator": "NIST SP 800-61 Rev. 3: read the overview of the incident response life cycle and its mapping to CSF 2.0 functions."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-a119cadd9c60",
+            "security-doc-recovery"
+          ],
+          "assignment": {
+            "id": "sk-sec-a17-the-incident-response-lifecycle-playbooks-and-cl",
+            "title": "Tabletop exercise",
+            "kind": "design",
+            "instructions": [
+              "Write three playbooks: leaked access key, compromised VM, public storage bucket.",
+              "Run a tabletop for the leaked key in your sandbox: create a key, 'leak' it to a private file, then follow the playbook using CloudTrail.",
+              "Write a post-incident review."
+            ],
+            "deliverables": [
+              "Playbooks, exercise timeline and review."
+            ],
+            "acceptanceCriteria": [
+              "The playbook was executed end to end in the sandbox."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l17-the-incident-response-lifecycle-playbooks-and-cl-check-01",
+                "kind": "short-answer",
+                "prompt": "First goal after confirming an incident?",
+                "answer": "Containment, to limit damage, while preserving evidence.",
+                "explanation": "Then eradicate and recover."
+              },
+              {
+                "id": "sk-sec-l17-the-incident-response-lifecycle-playbooks-and-cl-check-02",
+                "kind": "short-answer",
+                "prompt": "First step for a leaked cloud access key?",
+                "answer": "Disable or deactivate the key.",
+                "explanation": "Then investigate its use and rotate."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Name the IR roles.",
+            "Why snapshot a compromised VM before rebuilding?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m10-posture-compliance",
+      "title": "10. Cloud posture management and compliance",
+      "stage": "professional",
+      "description": "Continuously check cloud configuration against benchmarks, scan infrastructure as code before deployment, and map controls to compliance frameworks.",
+      "prerequisites": [
+        "sk-sec-m03-aws-security",
+        "sk-sec-m04-azure-security"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l18-cis-benchmarks-and-building-a-posture-scanner",
+          "title": "CIS benchmarks and building a posture scanner",
+          "objectives": [
+            "Read CIS cloud benchmarks and map controls to API checks.",
+            "Build a small scanner with boto3/Azure SDK producing findings.",
+            "Auto-remediate low-risk findings safely."
+          ],
+          "topics": [
+            {
+              "title": "Benchmarks",
+              "details": [
+                "CIS controls are concrete checks (e.g. 'Ensure MFA is enabled for the root user'); each has an audit and remediation procedure."
+              ]
+            },
+            {
+              "title": "Scanner design",
+              "details": [
+                "Check registry, read-only credentials, parallel region scans, findings with severity, resource ID and fix; output JSON/SARIF."
+              ]
+            },
+            {
+              "title": "Auto-remediation",
+              "details": [
+                "Only for low-risk, reversible fixes (block public S3 access), with dry-run, exemption tags and logging."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-sec.cis-benchmarks-and-building-a-posture-scanner"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-sec-cis",
+            "locator": "CIS Benchmarks page: download the CIS AWS Foundations Benchmark (free registration) and read the Identity and Access Management and Logging sections."
+          },
+          "supplementaryResourceIds": [
+            "sk-sec-securityhub",
+            "sk-sec-aws-pillar"
+          ],
+          "assignment": {
+            "id": "sk-sec-a18-cis-benchmarks-and-building-a-posture-scanner",
+            "title": "Mini CSPM",
+            "kind": "coding",
+            "instructions": [
+              "Implement 20 CIS checks for AWS (and 5 for Azure) in Python with read-only credentials.",
+              "Test against an intentionally misconfigured sandbox built with Terraform.",
+              "Add one Lambda auto-remediation with dry-run and an exemption tag."
+            ],
+            "deliverables": [
+              "Scanner code, test environment and results."
+            ],
+            "acceptanceCriteria": [
+              "Every planted misconfiguration is found.",
+              "Remediation respects exemptions."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l18-cis-benchmarks-and-building-a-posture-scanner-check-01",
+                "kind": "short-answer",
+                "prompt": "Why should a posture scanner use read-only credentials?",
+                "answer": "Scanning should never be able to change resources.",
+                "explanation": "Least privilege for the tool itself."
+              },
+              {
+                "id": "sk-sec-l18-cis-benchmarks-and-building-a-posture-scanner-check-02",
+                "kind": "short-answer",
+                "prompt": "Which fixes are safe to automate?",
+                "answer": "Low-risk, reversible ones such as blocking public bucket access.",
+                "explanation": "Others need human review."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Pick three CIS controls you consider most important.",
+            "How do exemption tags work?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-sec-l19-policy-as-code-scanning-terraform-and-enforcing",
+          "title": "Policy as code: scanning Terraform and enforcing guardrails",
+          "objectives": [
+            "Scan Terraform with Checkov/tfsec in CI.",
+            "Write custom policies for your organisation's rules.",
+            "Map technical controls to frameworks (CIS, ISO 27001, SOC 2) at a high level."
+          ],
+          "topics": [
+            {
+              "title": "Shift left",
+              "details": [
+                "Catch misconfigurations in pull requests before they reach the cloud; fail on high-severity issues."
+              ]
+            },
+            {
+              "title": "Custom policies",
+              "details": [
+                "Encode your rules ('all buckets must have tags owner and data_class') in Checkov custom checks or OPA/Rego."
+              ]
+            },
+            {
+              "title": "Compliance",
+              "details": [
+                "Frameworks describe what to achieve; your controls and evidence show how. Automate evidence collection where possible."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "sk-sec.policy-as-code-scanning-terraform-and-enforcing"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-37d7e9014437",
+            "locator": "Checkov docs: 'Quick start', 'CLI command reference' and 'Custom policies' (Python and YAML)."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-79a626b42677",
+            "advanced-reading-27c5095f7133"
+          ],
+          "assignment": {
+            "id": "sk-sec-a19-policy-as-code-scanning-terraform-and-enforcing",
+            "title": "Guardrails in CI",
+            "kind": "lab",
+            "instructions": [
+              "Add Checkov to the CI of a Terraform repository; fix all high findings.",
+              "Write two custom policies for your own rules and test them with failing examples.",
+              "Map five of your controls to CIS and ISO 27001 categories in a table."
+            ],
+            "deliverables": [
+              "CI workflow, custom policies and mapping table."
+            ],
+            "acceptanceCriteria": [
+              "Custom policies fail on bad examples and pass on good ones."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l19-policy-as-code-scanning-terraform-and-enforcing-check-01",
+                "kind": "short-answer",
+                "prompt": "What does shift-left mean for cloud security?",
+                "answer": "Finding misconfigurations in code review/CI before deployment.",
+                "explanation": "Cheaper and safer than fixing in production."
+              },
+              {
+                "id": "sk-sec-l19-policy-as-code-scanning-terraform-and-enforcing-check-02",
+                "kind": "short-answer",
+                "prompt": "Framework vs control?",
+                "answer": "A framework states objectives; controls are the concrete measures that meet them.",
+                "explanation": "Evidence proves controls work."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a custom policy idea for tagging.",
+            "How would you automate compliance evidence?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-sec-m11-security-career",
+      "title": "11. Security certifications and portfolio",
+      "stage": "professional",
+      "description": "Plan certifications that open doors (Security+, AZ-500, AWS Security Specialty) and present your lab work as a portfolio.",
+      "prerequisites": [
+        "sk-sec-m10-posture-compliance"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-sec-l20-certification-plan-and-a-security-portfolio",
+          "title": "Certification plan and a security portfolio",
+          "objectives": [
+            "Choose a certification order based on your Azure background.",
+            "Build a study schedule with practice exams.",
+            "Present lab projects as a portfolio recruiters can verify."
+          ],
+          "topics": [
+            {
+              "title": "Certifications",
+              "details": [
+                "Security+ proves broad fundamentals; AZ-500 builds on your Azure certifications; AWS Certified Security - Specialty for AWS roles."
+              ]
+            },
+            {
+              "title": "Study method",
+              "details": [
+                "Exam objectives as a checklist, video course, hands-on labs for each objective, timed practice exams, review every wrong answer."
+              ]
+            },
+            {
+              "title": "Portfolio",
+              "details": [
+                "GitHub repos with READMEs for your scanner, signed pipeline and detection lab; write-ups of what you found and fixed."
+              ]
+            }
+          ],
+          "estimatedMinutes": 120,
+          "canonicalConceptTags": [
+            "sk-sec.certification-plan-and-a-security-portfolio"
+          ],
+          "video": {
+            "resourceId": "sk-sec-messer",
+            "locator": "Use as the Security+ primary course; follow it in order alongside the exam objectives."
+          },
+          "reading": {
+            "resourceId": "sk-sec-az500",
+            "locator": "AZ-500 certification page: the 'Skills measured' outline and the linked free training paths."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-sec-a20-certification-plan-and-a-security-portfolio",
+            "title": "Twelve-week plan",
+            "kind": "design",
+            "instructions": [
+              "Write a 12-week study plan for your first security certification with weekly objectives and labs.",
+              "Map each portfolio project to exam objectives and job description keywords.",
+              "Polish READMEs for your three security projects."
+            ],
+            "deliverables": [
+              "Study plan and updated READMEs."
+            ],
+            "acceptanceCriteria": [
+              "Each week has measurable goals and a lab."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-sec-l20-certification-plan-and-a-security-portfolio-check-01",
+                "kind": "short-answer",
+                "prompt": "Why might AZ-500 suit you well?",
+                "answer": "It builds on your existing Azure knowledge and certifications.",
+                "explanation": "Faster path to a credible security credential."
+              },
+              {
+                "id": "sk-sec-l20-certification-plan-and-a-security-portfolio-check-02",
+                "kind": "short-answer",
+                "prompt": "What makes a security portfolio credible?",
+                "answer": "Reproducible labs with clear write-ups of findings and fixes.",
+                "explanation": "Recruiters can verify them."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Which certification first and why?",
+            "How will you schedule practice exams?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "OWASP Cheat Sheet Series",
+      "url": "https://cheatsheetseries.owasp.org/"
+    },
+    {
+      "title": "MITRE ATT&CK",
+      "url": "https://attack.mitre.org/"
+    }
+  ],
+  "limitations": [
+    "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
+    "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
+    "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises.",
+    "Defensive and authorised only: test, scan and simulate attacks only in accounts, clusters and lab machines you own."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Explain core security concepts, cryptography and identity, and write least-privilege policies.",
+      "evidence": "Threat model, policy tests and notes that a reviewer could check."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Secure AWS and Azure accounts and find common application vulnerabilities.",
+      "evidence": "Hardened sandbox accounts with logging and detections, plus fixed lab vulnerabilities."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Secure the software supply chain and Kubernetes, and engineer detections.",
+      "evidence": "A signed-image pipeline with admission control and validated Sigma rules."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Respond to incidents, automate posture management and prepare for certifications.",
+      "evidence": "Incident playbooks, a posture scanner and a certification study plan."
+    }
+  ]
+}

@@ -16,6 +16,40 @@ The Common Foundation is the shared starting point, **not** a concatenation of
 four advanced career tracks. Lesson IDs are canonical: a foundation completion
 satisfies the same prerequisite everywhere without being counted four times.
 
+## Skill builders (beginner to professional, inside existing sections)
+
+Eight appended skill builders take a complete beginner to professional level in
+the skills behind the eight target roles (SDE, ML Engineer, AI Engineer, Data
+Engineer, Quant Developer, Backend Engineer, Cloud & AI Infrastructure Engineer,
+Cloud Security Engineer). Each lesson explains the idea in plain words, points to
+one official reading with an exact locator, has a hands-on assignment with
+acceptance criteria and ends with short self-check questions.
+
+| Skill builder | Modules / lessons | Shown inside |
+| --- | --- | --- |
+| Beginner Essentials (`foundation-essentials`) | 14 / 33 | Common Foundation |
+| Software Engineering (`sde-skills`) | 11 / 19 | Software Engineering, Backend & Platform |
+| Backend Engineering (`backend-skills`) | 12 / 18 | Backend & Platform, Software Engineering |
+| Applied AI & ML (`ai-skills`) | 10 / 20 | Applied AI, AI Infrastructure & ML Systems |
+| Data Engineering (`data-skills`) | 11 / 18 | Data Engineering, Data Platform & Analytics |
+| Quant Development (`quant-skills`) | 9 / 19 | Quantitative Development, Quant Development & Research |
+| Cloud Security (`security-skills`) | 11 / 20 | Product & Cloud Security, Computer Security Systems |
+| Cloud & DevOps Infrastructure (`cloud-devops`) | 11 / 19 | Its own new section (`#/path/cloud-devops`), plus Backend, AI Infrastructure and Cloud Security |
+
+Released track files stay byte-for-byte frozen, so the builders are separate
+catalogs placed by `skillBuilderPlacement` in `src/content/catalog.ts` and
+rendered by `src/ui/SkillBuilder.tsx`. Lessons from a builder return to their
+section. `tests/skill-tracks.test.ts` checks the inventory (166 lessons), the
+four ordered stages and the placements.
+
+The 23 resume projects (`variant: "resume-target"`, IDs `resume-*`) and the
+existing Transaction-Safe E-Commerce Website each show which resumes they back,
+the repository name, the target resume bullets and the stack. Each project
+recommends the skill-builder module that teaches it first. The numbers in the
+bullets are targets until gate 4 measures the real value. Earlier inventories
+(21 original, 5 career-practice and 24 advanced projects) are unchanged; the
+catalog holds 73 projects.
+
 ## Career Paths: exact skills, substantive learning, distinct advanced targets
 
 Curriculum **2026.09.30.1** puts six direct role cards and individual navigation

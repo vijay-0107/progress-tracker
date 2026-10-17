@@ -506,6 +506,12 @@ function Navigation({
         {advancedPaths.map((path) =>
           nav(`career/${path.id}`, path.title, <span className="nav-dot" />),
         )}
+        {nav(
+          "path/cloud-devops",
+          "Cloud & DevOps Infrastructure",
+          <span className="nav-dot" />,
+          "NEW",
+        )}
         <p className="nav-section-label">ORIGINAL COURSES</p>
         {CORE_TRACK_IDS.filter(
           (id) => !["foundation", "gate", "cat"].includes(id),

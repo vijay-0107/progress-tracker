@@ -1,0 +1,1811 @@
+{
+  "schemaVersion": 1,
+  "trackId": "data-skills",
+  "title": "Data Engineering: Skill Builder",
+  "sourceCheckedOn": "2026-10-17",
+  "resources": [
+    {
+      "id": "sk-data-kimball",
+      "kind": "documentation",
+      "title": "Kimball Group: dimensional modeling techniques",
+      "url": "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/",
+      "provider": "Kimball Group",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "The standard vocabulary: grain, facts, dimensions, slowly changing dimensions."
+    },
+    {
+      "id": "sk-data-pyarrow",
+      "kind": "documentation",
+      "title": "Apache Arrow: Python (PyArrow) documentation",
+      "url": "https://arrow.apache.org/docs/python/",
+      "provider": "Apache Software Foundation",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Columnar memory, Parquet reading/writing and datasets."
+    },
+    {
+      "id": "sk-data-dagster",
+      "kind": "documentation",
+      "title": "Dagster documentation",
+      "url": "https://docs.dagster.io/",
+      "provider": "Dagster Labs",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Software-defined assets, partitions, schedules and sensors."
+    },
+    {
+      "id": "sk-data-dbt-incremental",
+      "kind": "documentation",
+      "title": "dbt: Incremental models",
+      "url": "https://docs.getdbt.com/docs/build/incremental-models",
+      "provider": "dbt Labs",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Building large tables by processing only new data."
+    },
+    {
+      "id": "sk-data-dbt-snapshots",
+      "kind": "documentation",
+      "title": "dbt: Snapshots",
+      "url": "https://docs.getdbt.com/docs/build/snapshots",
+      "provider": "dbt Labs",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Type 2 slowly changing dimensions maintained by dbt."
+    },
+    {
+      "id": "sk-data-kafka-intro",
+      "kind": "documentation",
+      "title": "Apache Kafka: Introduction",
+      "url": "https://kafka.apache.org/intro",
+      "provider": "Apache Software Foundation",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Topics, partitions, producers, consumers and consumer groups in plain language."
+    },
+    {
+      "id": "sk-data-gx",
+      "kind": "documentation",
+      "title": "Great Expectations documentation",
+      "url": "https://docs.greatexpectations.io/docs/",
+      "provider": "Great Expectations",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Expectations, suites, checkpoints and data docs."
+    },
+    {
+      "id": "sk-data-trino",
+      "kind": "documentation",
+      "title": "Trino documentation",
+      "url": "https://trino.io/docs/current/",
+      "provider": "Trino Software Foundation",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Distributed SQL over lakes and databases."
+    },
+    {
+      "id": "sk-data-openlineage",
+      "kind": "documentation",
+      "title": "OpenLineage documentation",
+      "url": "https://openlineage.io/docs/",
+      "provider": "OpenLineage project (LF AI & Data)",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Standard lineage events for jobs and datasets."
+    },
+    {
+      "id": "sk-data-zoomcamp",
+      "kind": "documentation",
+      "title": "DataTalksClub Data Engineering Zoomcamp",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+      "provider": "DataTalksClub",
+      "access": "free",
+      "license": "Publisher terms of use; linked, not copied",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-10-17",
+      "notes": "Free end-to-end course: Docker, Terraform, orchestration, dbt, Spark, Kafka."
+    }
+  ],
+  "modules": [
+    {
+      "id": "sk-data-m01-modeling-sql",
+      "title": "01. Data modeling and analytics SQL",
+      "stage": "foundation",
+      "description": "Design tables analysts love: OLTP versus OLAP, star schemas, grain, slowly changing dimensions and analytics SQL patterns.",
+      "prerequisites": [
+        "fe-m06-sql-practice"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l01-oltp-vs-olap-star-schemas-grain-and-slowly-chang",
+          "title": "OLTP vs OLAP, star schemas, grain and slowly changing dimensions",
+          "objectives": [
+            "Explain why analytics databases are modelled differently from application databases.",
+            "Design a star schema with a clearly stated grain.",
+            "Choose SCD Type 1 or Type 2 for each dimension attribute."
+          ],
+          "topics": [
+            {
+              "title": "Two worlds",
+              "details": [
+                "OLTP (app databases) is normalised for many small writes; OLAP (warehouses) is denormalised for big reads and aggregations."
+              ]
+            },
+            {
+              "title": "Star schema",
+              "details": [
+                "A fact table holds measurable events at a declared grain ('one row per order line'); dimension tables describe who, what, where, when.",
+                "Surrogate keys decouple the warehouse from source system IDs."
+              ]
+            },
+            {
+              "title": "Slowly changing dimensions",
+              "details": [
+                "Type 1 overwrites (fix a typo); Type 2 adds a new row with valid_from, valid_to and is_current to keep history (customer moved city)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-data.oltp-vs-olap-star-schemas-grain-and-slowly-chang"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-data-kimball",
+            "locator": "Kimball dimensional modeling techniques: 'Four-step dimensional design process', 'Grain', 'Fact table structure', 'Dimension table structure' and 'Slowly changing dimension techniques' (types 0-2)."
+          },
+          "supplementaryResourceIds": [
+            "data-book-dbdesign"
+          ],
+          "assignment": {
+            "id": "sk-data-a01-oltp-vs-olap-star-schemas-grain-and-slowly-chang",
+            "title": "Model a retail warehouse",
+            "kind": "design",
+            "instructions": [
+              "Pick a business process (online orders) and write the four design steps: process, grain, dimensions, facts.",
+              "Draw the star schema with fct_order_lines and dim_customer, dim_product, dim_date.",
+              "Mark each dimension attribute as SCD1 or SCD2 and explain why.",
+              "Create the tables in DuckDB/PostgreSQL with sample data."
+            ],
+            "deliverables": [
+              "Design document, diagram and DDL."
+            ],
+            "acceptanceCriteria": [
+              "The grain is stated in one sentence and every fact fits it.",
+              "SCD choices are justified."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l01-oltp-vs-olap-star-schemas-grain-and-slowly-chang-check-01",
+                "kind": "short-answer",
+                "prompt": "What is the grain of a fact table?",
+                "answer": "The level of detail one row represents.",
+                "explanation": "Declare it before choosing facts."
+              },
+              {
+                "id": "sk-data-l01-oltp-vs-olap-star-schemas-grain-and-slowly-chang-check-02",
+                "kind": "short-answer",
+                "prompt": "Which SCD type keeps history?",
+                "answer": "Type 2.",
+                "explanation": "It adds a new row per change with validity dates."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain a star schema in two sentences.",
+            "Why use surrogate keys?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-data-l02-analytics-sql-patterns-deduplication-sessions-fu",
+          "title": "Analytics SQL patterns: deduplication, sessions, funnels and cohorts",
+          "objectives": [
+            "Deduplicate with ROW_NUMBER and keep the latest record per key.",
+            "Build sessions from events with LAG and gaps, and funnel conversion rates.",
+            "Write cohort retention queries."
+          ],
+          "topics": [
+            {
+              "title": "Dedup",
+              "details": [
+                "`QUALIFY ROW_NUMBER() OVER (PARTITION BY id ORDER BY updated_at DESC) = 1` (or a subquery where QUALIFY is unsupported)."
+              ]
+            },
+            {
+              "title": "Sessions and funnels",
+              "details": [
+                "A new session starts when the gap since the previous event exceeds 30 minutes: compare with LAG and take a running SUM of the flag.",
+                "Funnels count users reaching each step in order; divide by the first step for conversion."
+              ]
+            },
+            {
+              "title": "Cohorts",
+              "details": [
+                "Group users by signup month; for each later month count active users; present as a triangle table."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-data.analytics-sql-patterns-deduplication-sessions-fu"
+          ],
+          "video": {
+            "resourceId": "data-video-analytics",
+            "locator": "Analytics engineering module videos (modelling concepts)."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-fdd90c1935a5",
+            "locator": "DuckDB docs: 'SQL introduction', 'Window functions' and the QUALIFY clause page."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-data-a02-analytics-sql-patterns-deduplication-sessions-fu",
+            "title": "Clickstream analytics",
+            "kind": "problem-set",
+            "instructions": [
+              "Generate 100,000 synthetic click events for 2,000 users with timestamps and event types.",
+              "Write SQL for: sessions, average session length, a 4-step funnel, monthly cohort retention.",
+              "Verify one result per query with a pandas implementation."
+            ],
+            "deliverables": [
+              "SQL files, results and pandas checks."
+            ],
+            "acceptanceCriteria": [
+              "SQL and pandas answers match.",
+              "Session logic handles the 30-minute gap correctly."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l02-analytics-sql-patterns-deduplication-sessions-fu-check-01",
+                "kind": "short-answer",
+                "prompt": "How do you keep the latest row per key?",
+                "answer": "ROW_NUMBER over the key ordered by time descending, keep row 1.",
+                "explanation": "A standard deduplication pattern."
+              },
+              {
+                "id": "sk-data-l02-analytics-sql-patterns-deduplication-sessions-fu-check-02",
+                "kind": "short-answer",
+                "prompt": "What defines a new session in this lesson?",
+                "answer": "A gap over 30 minutes since the user's previous event.",
+                "explanation": "Computed with LAG."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write the session-flag expression.",
+            "How do you read a cohort table?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m02-python-ingestion",
+      "title": "02. Python for data pipelines",
+      "stage": "foundation",
+      "description": "Ingest data from files and APIs reliably: idempotent loads, schemas, Parquet and incremental extraction.",
+      "prerequisites": [
+        "foundation-module-02-python",
+        "fe-m07-networks-web"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l03-idempotent-ingestion-parquet-and-incremental-loa",
+          "title": "Idempotent ingestion, Parquet and incremental loads",
+          "objectives": [
+            "Write ingestion that can be rerun without duplicates (idempotent).",
+            "Store data as partitioned Parquet with explicit schemas.",
+            "Load incrementally using watermarks and handle late-arriving data."
+          ],
+          "topics": [
+            {
+              "title": "Idempotency",
+              "details": [
+                "Rerunning a job for the same date must give the same result: overwrite the partition or MERGE on keys, never blindly append."
+              ]
+            },
+            {
+              "title": "Parquet",
+              "details": [
+                "Columnar, compressed, typed; partition by date so queries read only what they need. Avoid thousands of tiny files."
+              ]
+            },
+            {
+              "title": "Incremental",
+              "details": [
+                "Track the last processed timestamp (watermark) and fetch only newer records with a small overlap window for late data, then deduplicate."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-data.idempotent-ingestion-parquet-and-incremental-loa"
+          ],
+          "video": {
+            "resourceId": "data-video-dlt",
+            "locator": "Workshop video on API ingestion."
+          },
+          "reading": {
+            "resourceId": "sk-data-pyarrow",
+            "locator": "PyArrow docs: 'Reading and Writing the Apache Parquet Format' and 'Tabular Datasets' (partitioned datasets)."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-3f27ba342b19"
+          ],
+          "assignment": {
+            "id": "sk-data-a03-idempotent-ingestion-parquet-and-incremental-loa",
+            "title": "Rerunnable API loader",
+            "kind": "coding",
+            "instructions": [
+              "Ingest a paginated public API (e.g. GitHub events or a weather API) into date-partitioned Parquet.",
+              "Make reruns for the same date idempotent and add an incremental mode with a stored watermark.",
+              "Write tests: rerun gives identical files; overlap window deduplicates late records."
+            ],
+            "deliverables": [
+              "Loader code, tests and a short runbook."
+            ],
+            "acceptanceCriteria": [
+              "Two runs for the same date produce identical row counts and checksums."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l03-idempotent-ingestion-parquet-and-incremental-loa-check-01",
+                "kind": "short-answer",
+                "prompt": "What makes a pipeline idempotent?",
+                "answer": "Rerunning it for the same input gives the same result with no duplicates.",
+                "explanation": "Overwrite partitions or MERGE on keys."
+              },
+              {
+                "id": "sk-data-l03-idempotent-ingestion-parquet-and-incremental-loa-check-02",
+                "kind": "short-answer",
+                "prompt": "Why use Parquet for analytics?",
+                "answer": "It is columnar, compressed and typed, so queries read less data.",
+                "explanation": "Partitioning prunes further."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain watermarks.",
+            "Why avoid many tiny files?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m03-spark",
+      "title": "03. Apache Spark and PySpark",
+      "stage": "intermediate",
+      "description": "You already use PySpark in Fabric. Here you learn how Spark actually executes work so you can debug and tune it anywhere.",
+      "prerequisites": [
+        "sk-data-m02-python-ingestion"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l04-dataframes-lazy-evaluation-partitions-and-the-sp",
+          "title": "DataFrames, lazy evaluation, partitions and the Spark UI",
+          "objectives": [
+            "Explain driver, executors, jobs, stages and tasks.",
+            "Explain transformations versus actions and lazy evaluation.",
+            "Read the Spark UI to find where time goes."
+          ],
+          "topics": [
+            {
+              "title": "Architecture",
+              "details": [
+                "The driver plans work; executors run tasks on partitions in parallel. One action triggers a job made of stages separated by shuffles."
+              ]
+            },
+            {
+              "title": "Lazy evaluation",
+              "details": [
+                "Transformations (select, filter, join) build a plan; actions (count, write) run it. `df.explain()` shows the plan the optimiser chose."
+              ]
+            },
+            {
+              "title": "Partitions",
+              "details": [
+                "Parallelism equals the number of partitions; too few wastes cores, too many adds overhead. repartition shuffles, coalesce does not."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-data.dataframes-lazy-evaluation-partitions-and-the-sp"
+          ],
+          "video": {
+            "resourceId": "data-video-spark",
+            "locator": "Batch processing module videos on Spark internals."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-ed80a874c18d",
+            "locator": "Spark SQL, DataFrames and Datasets Guide: 'Getting Started' sections (SparkSession, creating DataFrames, untyped transformations, running SQL)."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-data-a04-dataframes-lazy-evaluation-partitions-and-the-sp",
+            "title": "Local Spark investigation",
+            "kind": "lab",
+            "instructions": [
+              "Run PySpark locally (pip install pyspark) on a year of NYC taxi Parquet files.",
+              "Compute daily trip counts and average fares; inspect `explain()` and the Spark UI.",
+              "Change partition counts and record the effect on runtime and task counts."
+            ],
+            "deliverables": [
+              "Notebook, Spark UI screenshots and a findings note."
+            ],
+            "acceptanceCriteria": [
+              "You can point to the stage boundary caused by a shuffle.",
+              "Runtime changes are measured and explained."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l04-dataframes-lazy-evaluation-partitions-and-the-sp-check-01",
+                "kind": "short-answer",
+                "prompt": "What triggers Spark to run work?",
+                "answer": "An action such as count, collect or write.",
+                "explanation": "Transformations are lazy."
+              },
+              {
+                "id": "sk-data-l04-dataframes-lazy-evaluation-partitions-and-the-sp-check-02",
+                "kind": "short-answer",
+                "prompt": "What separates stages?",
+                "answer": "Shuffles (wide dependencies).",
+                "explanation": "Data must move between executors."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain a stage and a task.",
+            "repartition vs coalesce?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-data-l05-joins-shuffles-skew-and-performance-tuning",
+          "title": "Joins, shuffles, skew and performance tuning",
+          "objectives": [
+            "Choose broadcast versus sort-merge joins.",
+            "Detect and fix data skew.",
+            "Use caching, partition pruning, adaptive query execution and file sizing."
+          ],
+          "topics": [
+            {
+              "title": "Joins",
+              "details": [
+                "Broadcast a small table to every executor to avoid shuffling the big one; sort-merge for two large tables."
+              ]
+            },
+            {
+              "title": "Skew",
+              "details": [
+                "One huge key makes one task run for ages; fix with AQE skew handling, salting or splitting the hot key."
+              ]
+            },
+            {
+              "title": "Tuning",
+              "details": [
+                "Filter early, read only needed columns, partition output by common filters, target ~128-512 MB files, cache only reused DataFrames."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-data.joins-shuffles-skew-and-performance-tuning"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "data-doc-spark-tuning",
+            "locator": "Spark Performance Tuning: 'Caching Data', 'Join Strategy Hints' and 'Adaptive Query Execution' (including skew join optimisation)."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-data-a05-joins-shuffles-skew-and-performance-tuning",
+            "title": "Make a slow job fast",
+            "kind": "lab",
+            "instructions": [
+              "Create a skewed join (one customer with 30% of orders) and time it.",
+              "Fix it with a broadcast hint or AQE skew handling and compare.",
+              "Write a tuning checklist from what you measured."
+            ],
+            "deliverables": [
+              "Before/after timings, plans and checklist."
+            ],
+            "acceptanceCriteria": [
+              "The improvement is measured on the same data and hardware."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l05-joins-shuffles-skew-and-performance-tuning-check-01",
+                "kind": "short-answer",
+                "prompt": "When should you broadcast a table in a join?",
+                "answer": "When it is small enough to fit in each executor's memory.",
+                "explanation": "Avoids shuffling the large table."
+              },
+              {
+                "id": "sk-data-l05-joins-shuffles-skew-and-performance-tuning-check-02",
+                "kind": "short-answer",
+                "prompt": "What is data skew?",
+                "answer": "Uneven distribution where a few keys hold most of the data.",
+                "explanation": "Causes a few very slow tasks."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "List five tuning steps.",
+            "How do you spot skew in the UI?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m04-orchestration",
+      "title": "04. Orchestration with Airflow and Dagster",
+      "stage": "intermediate",
+      "description": "Schedule, retry, backfill and monitor pipelines. Airflow is the most requested orchestrator; Dagster's asset model is increasingly popular.",
+      "prerequisites": [
+        "sk-data-m02-python-ingestion",
+        "fe-m08-containers"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l06-airflow-dags-scheduling-retries-and-backfills",
+          "title": "Airflow DAGs, scheduling, retries and backfills",
+          "objectives": [
+            "Write DAGs with tasks, dependencies, schedules and retries.",
+            "Use logical dates so reruns and backfills process the right data.",
+            "Avoid common Airflow mistakes (heavy top-level code, non-idempotent tasks)."
+          ],
+          "topics": [
+            {
+              "title": "Concepts",
+              "details": [
+                "A DAG is a graph of tasks; operators define what each does; the scheduler runs them per data interval."
+              ]
+            },
+            {
+              "title": "Dates and backfills",
+              "details": [
+                "Each run has a data interval; tasks should read only that interval so a backfill of past dates is just more runs."
+              ]
+            },
+            {
+              "title": "Good practice",
+              "details": [
+                "Keep DAG files light (no heavy imports or queries at parse time); make tasks idempotent; pass small metadata, not data, between tasks."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-data.airflow-dags-scheduling-retries-and-backfills"
+          ],
+          "video": {
+            "resourceId": "data-video-orchestration",
+            "locator": "Workflow orchestration module videos."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-1b4e9a9b9c56",
+            "locator": "Airflow 'Core Concepts': DAGs, DAG Runs, Tasks, Operators and the scheduler pages; then the tutorial 'Fundamental Concepts'."
+          },
+          "supplementaryResourceIds": [
+            "sk-data-zoomcamp"
+          ],
+          "assignment": {
+            "id": "sk-data-a06-airflow-dags-scheduling-retries-and-backfills",
+            "title": "Daily pipeline with backfill",
+            "kind": "coding",
+            "instructions": [
+              "Run Airflow locally with Docker Compose.",
+              "Write a DAG that ingests one day of your API data, loads it to DuckDB/PostgreSQL and runs a quality check.",
+              "Backfill the last 14 days and prove reruns do not duplicate data."
+            ],
+            "deliverables": [
+              "DAG code, compose file and backfill evidence."
+            ],
+            "acceptanceCriteria": [
+              "Backfilled and rerun days have correct, non-duplicated counts."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l06-airflow-dags-scheduling-retries-and-backfills-check-01",
+                "kind": "short-answer",
+                "prompt": "What should a task read when backfilling?",
+                "answer": "Only its run's data interval.",
+                "explanation": "Then past runs reproduce correctly."
+              },
+              {
+                "id": "sk-data-l06-airflow-dags-scheduling-retries-and-backfills-check-02",
+                "kind": "short-answer",
+                "prompt": "Why keep top-level DAG code light?",
+                "answer": "The scheduler parses DAG files often.",
+                "explanation": "Heavy code slows the whole system."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Explain data intervals.",
+            "What makes a task safe to retry?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-data-l07-dagster-assets-partitions-and-sensors",
+          "title": "Dagster assets, partitions and sensors",
+          "objectives": [
+            "Model pipelines as software-defined assets.",
+            "Use daily partitions and backfills in Dagster.",
+            "Trigger runs from sensors and attach checks to assets."
+          ],
+          "topics": [
+            {
+              "title": "Assets",
+              "details": [
+                "You declare the tables/files that should exist and how to build each from upstream assets; Dagster derives the graph."
+              ]
+            },
+            {
+              "title": "Partitions",
+              "details": [
+                "Daily partitions map to date ranges; materialise one partition or backfill many."
+              ]
+            },
+            {
+              "title": "Checks",
+              "details": [
+                "Asset checks run after materialisation (row counts, freshness) and show status in the UI."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "sk-data.dagster-assets-partitions-and-sensors"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-data-dagster",
+            "locator": "Dagster docs: 'Getting started', then concepts pages for assets, partitions, schedules/sensors and asset checks."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-data-a07-dagster-assets-partitions-and-sensors",
+            "title": "Rebuild the pipeline as assets",
+            "kind": "coding",
+            "instructions": [
+              "Rebuild your Airflow pipeline in Dagster as assets with daily partitions.",
+              "Add two asset checks and a sensor for a new file arriving.",
+              "Write a comparison of Airflow and Dagster from your experience."
+            ],
+            "deliverables": [
+              "Dagster project and comparison note."
+            ],
+            "acceptanceCriteria": [
+              "Partitions backfill correctly and checks run."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l07-dagster-assets-partitions-and-sensors-check-01",
+                "kind": "short-answer",
+                "prompt": "What is a software-defined asset?",
+                "answer": "A declared data artifact plus the code that builds it from upstream assets.",
+                "explanation": "The graph comes from dependencies."
+              },
+              {
+                "id": "sk-data-l07-dagster-assets-partitions-and-sensors-check-02",
+                "kind": "short-answer",
+                "prompt": "What does an asset check do?",
+                "answer": "Validates an asset after it is built.",
+                "explanation": "For example row counts or freshness."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Task-centric vs asset-centric orchestration?",
+            "When would you use a sensor?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m05-dbt",
+      "title": "05. Analytics engineering with dbt",
+      "stage": "intermediate",
+      "description": "Transform data with SQL using software practices: modular models, tests, documentation, incremental builds and snapshots.",
+      "prerequisites": [
+        "sk-data-m01-modeling-sql"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l08-dbt-models-sources-tests-and-documentation",
+          "title": "dbt models, sources, tests and documentation",
+          "objectives": [
+            "Structure a dbt project into sources, staging, intermediate and marts.",
+            "Use ref() and source() so dbt builds the dependency graph.",
+            "Add generic and custom tests and generate documentation."
+          ],
+          "topics": [
+            {
+              "title": "Project layout",
+              "details": [
+                "staging: one model per source table, light cleaning; intermediate: joins and logic; marts: facts and dimensions for users."
+              ]
+            },
+            {
+              "title": "ref and source",
+              "details": [
+                "`{{ ref('stg_orders') }}` links models; dbt builds them in order and draws lineage."
+              ]
+            },
+            {
+              "title": "Tests and docs",
+              "details": [
+                "unique, not_null, accepted_values, relationships; custom SQL tests for business rules; `dbt docs generate` publishes a searchable catalog."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-data.dbt-models-sources-tests-and-documentation"
+          ],
+          "video": {
+            "resourceId": "data-video-analytics",
+            "locator": "dbt sections of the analytics engineering module."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-a6b523c31c58",
+            "locator": "dbt docs: 'About dbt models', then 'Add data tests to your DAG' and the 'sources' and 'documentation' pages linked from it."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-82b18fc40b70"
+          ],
+          "assignment": {
+            "id": "sk-data-a08-dbt-models-sources-tests-and-documentation",
+            "title": "dbt on DuckDB",
+            "kind": "coding",
+            "instructions": [
+              "Set up dbt-duckdb on NYC taxi data (one or two months to start).",
+              "Build staging, intermediate and mart models for a trips star schema.",
+              "Add 20+ tests including a custom one for impossible trips; generate docs."
+            ],
+            "deliverables": [
+              "dbt project and docs screenshot."
+            ],
+            "acceptanceCriteria": [
+              "`dbt build` passes; a planted bad row makes a test fail."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l08-dbt-models-sources-tests-and-documentation-check-01",
+                "kind": "short-answer",
+                "prompt": "What does ref() give you?",
+                "answer": "Dependency ordering and lineage between models.",
+                "explanation": "Never hard-code table names."
+              },
+              {
+                "id": "sk-data-l08-dbt-models-sources-tests-and-documentation-check-02",
+                "kind": "short-answer",
+                "prompt": "Name four generic dbt tests.",
+                "answer": "unique, not_null, accepted_values, relationships.",
+                "explanation": "Custom tests cover business rules."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Staging vs marts?",
+            "How do dbt tests fail a build?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-data-l09-incremental-models-snapshots-and-ci-for-dbt",
+          "title": "Incremental models, snapshots and CI for dbt",
+          "objectives": [
+            "Build incremental models that process only new data.",
+            "Maintain SCD Type 2 history with snapshots.",
+            "Run dbt in CI on changed models only."
+          ],
+          "topics": [
+            {
+              "title": "Incremental",
+              "details": [
+                "`materialized='incremental'` with `is_incremental()` filters to new rows; choose a merge strategy and unique_key; full refresh when logic changes."
+              ]
+            },
+            {
+              "title": "Snapshots",
+              "details": [
+                "Snapshots compare source rows over time and keep history with dbt_valid_from/dbt_valid_to."
+              ]
+            },
+            {
+              "title": "CI",
+              "details": [
+                "`dbt build --select state:modified+` builds only changed models and their children in CI."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-data.incremental-models-snapshots-and-ci-for-dbt"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-data-dbt-incremental",
+            "locator": "dbt docs: 'Incremental models' (configuring, is_incremental, unique_key, strategies) and then 'Snapshots'."
+          },
+          "supplementaryResourceIds": [
+            "sk-data-dbt-snapshots",
+            "data-doc-contracts"
+          ],
+          "assignment": {
+            "id": "sk-data-a09-incremental-models-snapshots-and-ci-for-dbt",
+            "title": "Scale to a billion rows",
+            "kind": "coding",
+            "instructions": [
+              "Convert fct_trips to incremental by month; load many months of NYC taxi data.",
+              "Compare full-refresh and incremental build times.",
+              "Add a snapshot for a zone dimension and a GitHub Actions CI job running changed models."
+            ],
+            "deliverables": [
+              "Timings table, snapshot output and CI workflow."
+            ],
+            "acceptanceCriteria": [
+              "Incremental runs process only new months.",
+              "CI runs on pull requests."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l09-incremental-models-snapshots-and-ci-for-dbt-check-01",
+                "kind": "short-answer",
+                "prompt": "What does is_incremental() let you do?",
+                "answer": "Filter to only new rows on incremental runs.",
+                "explanation": "Full rebuilds skip the filter."
+              },
+              {
+                "id": "sk-data-l09-incremental-models-snapshots-and-ci-for-dbt-check-02",
+                "kind": "short-answer",
+                "prompt": "Which dbt feature keeps SCD2 history?",
+                "answer": "Snapshots.",
+                "explanation": "They add validity columns."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "When do you need a full refresh?",
+            "Explain state:modified+."
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m06-streaming",
+      "title": "06. Streaming with Kafka and Spark Structured Streaming",
+      "stage": "advanced",
+      "description": "Process events continuously: Kafka fundamentals, stream processing with watermarks and state, and exactly-once results.",
+      "prerequisites": [
+        "sk-data-m03-spark",
+        "fe-m11-os-concurrency"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l10-kafka-fundamentals-topics-partitions-producers-a",
+          "title": "Kafka fundamentals: topics, partitions, producers and consumer groups",
+          "objectives": [
+            "Explain topics, partitions, offsets, replication and retention.",
+            "Write a producer with keys and a consumer group in Python.",
+            "Explain ordering guarantees and delivery semantics."
+          ],
+          "topics": [
+            {
+              "title": "Model",
+              "details": [
+                "A topic is an append-only log split into partitions; each message has an offset. Messages with the same key go to the same partition, keeping their order."
+              ]
+            },
+            {
+              "title": "Consumers",
+              "details": [
+                "A consumer group shares partitions among members; each partition is read by one member. Committed offsets record progress."
+              ]
+            },
+            {
+              "title": "Semantics",
+              "details": [
+                "At-most-once (commit before processing), at-least-once (commit after) and exactly-once (transactions or idempotent sinks)."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-data.kafka-fundamentals-topics-partitions-producers-a"
+          ],
+          "video": {
+            "resourceId": "data-video-streaming",
+            "locator": "Streaming module introduction."
+          },
+          "reading": {
+            "resourceId": "sk-data-kafka-intro",
+            "locator": "Kafka 'Introduction' page in full, then the documentation sections on producer acks and consumer groups."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-7f170ac8b9ff"
+          ],
+          "assignment": {
+            "id": "sk-data-a10-kafka-fundamentals-topics-partitions-producers-a",
+            "title": "Click events into Kafka",
+            "kind": "lab",
+            "instructions": [
+              "Run Kafka in Docker (KRaft mode).",
+              "Write a Python producer sending keyed click events and a consumer group of three consumers.",
+              "Kill a consumer mid-stream and show rebalancing; show per-key ordering is preserved."
+            ],
+            "deliverables": [
+              "Code, compose file and observations."
+            ],
+            "acceptanceCriteria": [
+              "Rebalancing is shown and no messages are lost with at-least-once commits."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l10-kafka-fundamentals-topics-partitions-producers-a-check-01",
+                "kind": "short-answer",
+                "prompt": "How does Kafka keep order for one customer's events?",
+                "answer": "By using the customer ID as the message key, so they go to the same partition.",
+                "explanation": "Order is per partition."
+              },
+              {
+                "id": "sk-data-l10-kafka-fundamentals-topics-partitions-producers-a-check-02",
+                "kind": "short-answer",
+                "prompt": "What is a consumer group?",
+                "answer": "Consumers that share a topic's partitions, each partition read by one member.",
+                "explanation": "Adds parallelism."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "At-least-once vs exactly-once?",
+            "What decides the number of parallel consumers?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-data-l11-structured-streaming-triggers-watermarks-state-a",
+          "title": "Structured Streaming: triggers, watermarks, state and checkpoints",
+          "objectives": [
+            "Write a streaming query from Kafka to a table with checkpoints.",
+            "Use event-time windows and watermarks for late data.",
+            "Deduplicate streams and recover after a restart."
+          ],
+          "topics": [
+            {
+              "title": "Streaming as tables",
+              "details": [
+                "Structured Streaming treats a stream as an unbounded table processed in micro-batches; the checkpoint stores offsets and state."
+              ]
+            },
+            {
+              "title": "Event time",
+              "details": [
+                "Window by when the event happened, not when it arrived. A watermark (e.g. 10 minutes) says how late data may be before state is dropped."
+              ]
+            },
+            {
+              "title": "Recovery",
+              "details": [
+                "Restarting with the same checkpoint resumes exactly where it left off; idempotent or transactional sinks prevent duplicates."
+              ]
+            }
+          ],
+          "estimatedMinutes": 160,
+          "canonicalConceptTags": [
+            "sk-data.structured-streaming-triggers-watermarks-state-a"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "data-doc-spark-streaming",
+            "locator": "Structured Streaming guide: 'Quick Example', 'Programming Model', 'Window Operations on Event Time', 'Handling Late Data and Watermarking' and 'Recovering from Failures with Checkpointing'."
+          },
+          "supplementaryResourceIds": [],
+          "assignment": {
+            "id": "sk-data-a11-structured-streaming-triggers-watermarks-state-a",
+            "title": "Windowed counts with late data",
+            "kind": "lab",
+            "instructions": [
+              "Read your Kafka click topic with Spark, compute 5-minute event-time counts with a 10-minute watermark, write to Parquet/Delta.",
+              "Send late and duplicate events and show how they are handled.",
+              "Kill and restart the job; prove results have no duplicates."
+            ],
+            "deliverables": [
+              "Streaming job, test event script and results."
+            ],
+            "acceptanceCriteria": [
+              "Late events within the watermark are counted; later ones are dropped and explained.",
+              "Restart produces no duplicates."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l11-structured-streaming-triggers-watermarks-state-a-check-01",
+                "kind": "short-answer",
+                "prompt": "What does a watermark control?",
+                "answer": "How long to wait for late events before finalising and dropping state.",
+                "explanation": "Trades completeness for bounded memory."
+              },
+              {
+                "id": "sk-data-l11-structured-streaming-triggers-watermarks-state-a-check-02",
+                "kind": "short-answer",
+                "prompt": "What is stored in a streaming checkpoint?",
+                "answer": "Source offsets and operator state.",
+                "explanation": "Enables exact resume after failure."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Event time vs processing time?",
+            "How do you avoid duplicates on restart?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m07-table-formats",
+      "title": "07. Lakehouse table formats: Delta Lake and Iceberg",
+      "stage": "advanced",
+      "description": "Open table formats add transactions, schema evolution and time travel to files in object storage. Fabric uses Delta; Iceberg is widely adopted across clouds.",
+      "prerequisites": [
+        "sk-data-m03-spark"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l12-delta-lake-transactions-merge-schema-evolution-a",
+          "title": "Delta Lake: transactions, MERGE, schema evolution and time travel",
+          "objectives": [
+            "Explain the transaction log and how it gives ACID on files.",
+            "Upsert with MERGE and evolve schemas safely.",
+            "Use time travel, OPTIMIZE/Z-ordering and VACUUM."
+          ],
+          "topics": [
+            {
+              "title": "Log",
+              "details": [
+                "Every commit writes a JSON entry listing added/removed files; readers see a consistent snapshot."
+              ]
+            },
+            {
+              "title": "Operations",
+              "details": [
+                "MERGE INTO target USING updates ON key WHEN MATCHED UPDATE WHEN NOT MATCHED INSERT: the basis of upserts and SCD2.",
+                "Schema evolution adds columns with mergeSchema; dropping or retyping needs care."
+              ]
+            },
+            {
+              "title": "Maintenance",
+              "details": [
+                "Compact small files (OPTIMIZE), cluster for filters (Z-order/liquid clustering), and VACUUM old files after the retention period."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-data.delta-lake-transactions-merge-schema-evolution-a"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-234dce6bb601",
+            "locator": "Delta Lake docs: 'Quickstart', then 'Table deletes, updates, and merges', 'Table batch reads and writes' (time travel) and the schema evolution sections."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-delta"
+          ],
+          "assignment": {
+            "id": "sk-data-a12-delta-lake-transactions-merge-schema-evolution-a",
+            "title": "Delta table lifecycle",
+            "kind": "lab",
+            "instructions": [
+              "Create a Delta table locally with delta-spark; upsert three batches with MERGE.",
+              "Add a column via schema evolution; time-travel to version 1 and compare.",
+              "Write many small files, OPTIMIZE them, and measure query time before and after."
+            ],
+            "deliverables": [
+              "Notebook with outputs and timings."
+            ],
+            "acceptanceCriteria": [
+              "MERGE results match an expected table.",
+              "Compaction effect is measured."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l12-delta-lake-transactions-merge-schema-evolution-a-check-01",
+                "kind": "short-answer",
+                "prompt": "How does Delta give ACID on files?",
+                "answer": "Through a transaction log recording each commit's file changes.",
+                "explanation": "Readers use consistent snapshots."
+              },
+              {
+                "id": "sk-data-l12-delta-lake-transactions-merge-schema-evolution-a-check-02",
+                "kind": "short-answer",
+                "prompt": "What does VACUUM remove?",
+                "answer": "Data files no longer referenced by recent table versions.",
+                "explanation": "It limits time travel range."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Write a MERGE statement for upserts.",
+            "Why compact small files?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-data-l13-apache-iceberg-catalogs-hidden-partitioning-and",
+          "title": "Apache Iceberg: catalogs, hidden partitioning and maintenance",
+          "objectives": [
+            "Explain Iceberg metadata (snapshots, manifests) and catalogs.",
+            "Use hidden partitioning and partition evolution.",
+            "Run maintenance: compaction, snapshot expiry and orphan file removal."
+          ],
+          "topics": [
+            {
+              "title": "Metadata",
+              "details": [
+                "A catalog points to the current metadata file; snapshots list manifests, which list data files with column stats used to skip files."
+              ]
+            },
+            {
+              "title": "Partitioning",
+              "details": [
+                "Hidden partitioning (e.g. days(event_ts)) means queries filter on the column and Iceberg prunes automatically; the partition spec can evolve."
+              ]
+            },
+            {
+              "title": "Maintenance",
+              "details": [
+                "rewrite_data_files compacts; expire_snapshots and remove_orphan_files control storage; schedule them in your orchestrator."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-data.apache-iceberg-catalogs-hidden-partitioning-and"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-6f61947457bc",
+            "locator": "Iceberg docs: 'Introduction', the Spark quickstart, 'Partitioning' (hidden partitioning) and 'Maintenance'."
+          },
+          "supplementaryResourceIds": [
+            "advanced-reading-8e5c2d4c63e9",
+            "data-doc-iceberg"
+          ],
+          "assignment": {
+            "id": "sk-data-a13-apache-iceberg-catalogs-hidden-partitioning-and",
+            "title": "Iceberg on MinIO",
+            "kind": "lab",
+            "instructions": [
+              "Run Spark + Iceberg (REST or JDBC catalog) + MinIO in Docker Compose.",
+              "Create a table partitioned by days(event_ts), write data, then evolve to hours().",
+              "Query with Trino and run compaction and snapshot expiry; record file counts before and after."
+            ],
+            "deliverables": [
+              "Compose stack, scripts and before/after metrics."
+            ],
+            "acceptanceCriteria": [
+              "Partition evolution works without rewriting old data.",
+              "Maintenance reduces file count."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l13-apache-iceberg-catalogs-hidden-partitioning-and-check-01",
+                "kind": "short-answer",
+                "prompt": "What is hidden partitioning?",
+                "answer": "Iceberg derives partitions from column transforms so queries need not reference partition columns.",
+                "explanation": "Prevents user mistakes."
+              },
+              {
+                "id": "sk-data-l13-apache-iceberg-catalogs-hidden-partitioning-and-check-02",
+                "kind": "short-answer",
+                "prompt": "What do manifests store?",
+                "answer": "Lists of data files with column statistics.",
+                "explanation": "Used to skip irrelevant files."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Delta vs Iceberg differences?",
+            "Which maintenance jobs would you schedule?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m08-cdc",
+      "title": "08. Change data capture",
+      "stage": "advanced",
+      "description": "Stream every insert, update and delete from operational databases into the lake, and maintain history with SCD Type 2.",
+      "prerequisites": [
+        "sk-data-m06-streaming",
+        "sk-data-m07-table-formats"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l14-debezium-cdc-into-scd-type-2-tables",
+          "title": "Debezium CDC into SCD Type 2 tables",
+          "objectives": [
+            "Explain log-based CDC versus query-based extraction.",
+            "Configure Debezium for PostgreSQL with Kafka Connect.",
+            "Apply change events in order into an SCD2 table with MERGE."
+          ],
+          "topics": [
+            {
+              "title": "Why log-based",
+              "details": [
+                "Reading the database's write-ahead log captures deletes and every change with low load; polling misses deletes and intermediate states."
+              ]
+            },
+            {
+              "title": "Debezium events",
+              "details": [
+                "Each event has before/after images, op (c, u, d, r) and source position; snapshots ('r') load existing rows first."
+              ]
+            },
+            {
+              "title": "Applying changes",
+              "details": [
+                "Order events per key by source position, then close the current SCD2 row (set valid_to) and insert the new one; deletes close without inserting.",
+                "Replaying the same events must give the same table."
+              ]
+            }
+          ],
+          "estimatedMinutes": 170,
+          "canonicalConceptTags": [
+            "sk-data.debezium-cdc-into-scd-type-2-tables"
+          ],
+          "video": {
+            "resourceId": "data-video-cdc",
+            "locator": "Whole video (concepts transfer beyond Azure SQL)."
+          },
+          "reading": {
+            "resourceId": "advanced-reading-7bc314a495ef",
+            "locator": "Debezium PostgreSQL connector docs: 'Overview', 'How the connector works' (snapshots, streaming changes) and 'Data change events'."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-delta"
+          ],
+          "assignment": {
+            "id": "sk-data-a14-debezium-cdc-into-scd-type-2-tables",
+            "title": "CDC pipeline",
+            "kind": "lab",
+            "instructions": [
+              "Run PostgreSQL (wal_level=logical), Kafka, Kafka Connect with Debezium in Docker Compose.",
+              "Generate inserts, updates, deletes and a schema change on a customers table.",
+              "Write a PySpark job that MERGEs events into a Delta SCD2 table; verify against a hand-computed expected table.",
+              "Replay all events and show the result is identical."
+            ],
+            "deliverables": [
+              "Compose stack, connector config, job and verification."
+            ],
+            "acceptanceCriteria": [
+              "The SCD2 table matches the expected history exactly.",
+              "Replay is idempotent."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l14-debezium-cdc-into-scd-type-2-tables-check-01",
+                "kind": "short-answer",
+                "prompt": "Why is log-based CDC better than polling?",
+                "answer": "It captures deletes and every change with low source load.",
+                "explanation": "Polling misses intermediate states."
+              },
+              {
+                "id": "sk-data-l14-debezium-cdc-into-scd-type-2-tables-check-02",
+                "kind": "short-answer",
+                "prompt": "How does a delete affect an SCD2 table?",
+                "answer": "The current row is closed (valid_to set) without a new row.",
+                "explanation": "History stays intact."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Describe a Debezium event.",
+            "How do you guarantee ordering per key?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m09-data-quality",
+      "title": "09. Data quality and contracts",
+      "stage": "professional",
+      "description": "Catch bad data before users do: expectations, quarantines, contracts between producers and consumers, and reconciliation.",
+      "prerequisites": [
+        "sk-data-m05-dbt"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l15-great-expectations-quarantine-tables-and-data-co",
+          "title": "Great Expectations, quarantine tables and data contracts",
+          "objectives": [
+            "Write expectation suites for completeness, validity, uniqueness and freshness.",
+            "Route failing records to quarantine without stopping good data.",
+            "Define data contracts and reconcile source and target counts."
+          ],
+          "topics": [
+            {
+              "title": "Dimensions of quality",
+              "details": [
+                "Completeness, validity, uniqueness, consistency, timeliness; pick checks per column and per table."
+              ]
+            },
+            {
+              "title": "Handling failures",
+              "details": [
+                "Block the pipeline for critical failures; quarantine bad rows with the failure reason for others; alert owners."
+              ]
+            },
+            {
+              "title": "Contracts",
+              "details": [
+                "A contract fixes schema, types and semantics a producer promises; breaking changes require versioning and notice. dbt model contracts enforce shape at build time."
+              ]
+            }
+          ],
+          "estimatedMinutes": 150,
+          "canonicalConceptTags": [
+            "sk-data.great-expectations-quarantine-tables-and-data-co"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-data-gx",
+            "locator": "Great Expectations docs: overview, then 'Create Expectations', 'Run validations' (checkpoints) and 'Data Docs'."
+          },
+          "supplementaryResourceIds": [
+            "data-doc-contracts"
+          ],
+          "assignment": {
+            "id": "sk-data-a15-great-expectations-quarantine-tables-and-data-co",
+            "title": "Quality gate",
+            "kind": "coding",
+            "instructions": [
+              "Write a 40-expectation suite for your CDC or taxi data.",
+              "Add a quarantine path and a daily reconciliation report (source vs target counts and sums).",
+              "Plant five kinds of bad data and show each is caught."
+            ],
+            "deliverables": [
+              "Suite, pipeline changes and report."
+            ],
+            "acceptanceCriteria": [
+              "All planted issues are caught and routed correctly."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l15-great-expectations-quarantine-tables-and-data-co-check-01",
+                "kind": "short-answer",
+                "prompt": "Why quarantine instead of failing the whole pipeline?",
+                "answer": "Good data keeps flowing while bad rows are isolated for review.",
+                "explanation": "Critical failures may still block."
+              },
+              {
+                "id": "sk-data-l15-great-expectations-quarantine-tables-and-data-co-check-02",
+                "kind": "short-answer",
+                "prompt": "What is a data contract?",
+                "answer": "An agreed schema and meaning a producer guarantees to consumers.",
+                "explanation": "Breaking it requires versioning."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "List five quality dimensions.",
+            "What goes in a reconciliation report?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m10-warehouses",
+      "title": "10. Warehouses, query engines and cost",
+      "stage": "professional",
+      "description": "Choose and tune analytical engines: DuckDB for local work, Snowflake as a cloud warehouse, Trino for federation, and measure cost.",
+      "prerequisites": [
+        "sk-data-m05-dbt",
+        "sk-data-m07-table-formats"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l16-duckdb-snowflake-and-trino-when-to-use-which",
+          "title": "DuckDB, Snowflake and Trino: when to use which",
+          "objectives": [
+            "Explain columnar engines, separation of storage and compute, and federation.",
+            "Run the same model on DuckDB and (optionally) a Snowflake trial.",
+            "Query lake tables and a database together with Trino."
+          ],
+          "topics": [
+            {
+              "title": "Engines",
+              "details": [
+                "DuckDB: in-process, great for local analytics up to large single-machine data. Snowflake: managed warehouse with elastic virtual warehouses. Trino: distributed SQL over many sources."
+              ]
+            },
+            {
+              "title": "Storage and compute",
+              "details": [
+                "Separating them lets you scale compute up for a job and down after; you pay for compute time and storage separately."
+              ]
+            },
+            {
+              "title": "Federation",
+              "details": [
+                "Trino joins Iceberg tables with PostgreSQL in one query; push filters down to sources to keep it fast."
+              ]
+            }
+          ],
+          "estimatedMinutes": 140,
+          "canonicalConceptTags": [
+            "sk-data.duckdb-snowflake-and-trino-when-to-use-which"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-676bb75de02f",
+            "locator": "Snowflake docs: 'Overview of warehouses' and 'Warehouse considerations'; then 'Micro-partitions & Data Clustering'."
+          },
+          "supplementaryResourceIds": [
+            "sk-data-trino",
+            "advanced-reading-fdd90c1935a5",
+            "advanced-reading-a16479662f12"
+          ],
+          "assignment": {
+            "id": "sk-data-a16-duckdb-snowflake-and-trino-when-to-use-which",
+            "title": "Same model, three engines",
+            "kind": "lab",
+            "instructions": [
+              "Run your dbt marts on DuckDB; optionally load a sample into a Snowflake trial and run there (delete afterwards).",
+              "Use Trino to join your Iceberg clicks with a PostgreSQL users table.",
+              "Write a decision guide: which engine for which workload and why."
+            ],
+            "deliverables": [
+              "Results, timings and decision guide."
+            ],
+            "acceptanceCriteria": [
+              "Timings list data size and hardware/warehouse size.",
+              "Trial resources are deleted."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l16-duckdb-snowflake-and-trino-when-to-use-which-check-01",
+                "kind": "short-answer",
+                "prompt": "Benefit of separating storage and compute?",
+                "answer": "Scale and pay for compute independently of stored data.",
+                "explanation": "Run big jobs on big warehouses briefly."
+              },
+              {
+                "id": "sk-data-l16-duckdb-snowflake-and-trino-when-to-use-which-check-02",
+                "kind": "short-answer",
+                "prompt": "What is query federation?",
+                "answer": "Querying several data sources in one SQL statement.",
+                "explanation": "Trino does this with connectors."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "DuckDB vs Snowflake?",
+            "How does clustering help queries?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        },
+        {
+          "id": "sk-data-l17-performance-and-cost-tuning-for-analytical-workl",
+          "title": "Performance and cost tuning for analytical workloads",
+          "objectives": [
+            "Find expensive queries and explain why they are expensive.",
+            "Apply partitioning, clustering, incremental builds and pre-aggregation.",
+            "Estimate and report cost per pipeline run."
+          ],
+          "topics": [
+            {
+              "title": "Measure first",
+              "details": [
+                "Use query history/profiles to find the top cost queries; look at bytes scanned and spilled."
+              ]
+            },
+            {
+              "title": "Fixes",
+              "details": [
+                "Prune with partitions/clustering, avoid SELECT *, materialise expensive joins, incremental builds, right-size compute and auto-suspend."
+              ]
+            },
+            {
+              "title": "FinOps",
+              "details": [
+                "Tag resources by pipeline, report cost per run, set budgets and alerts."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "sk-data.performance-and-cost-tuning-for-analytical-workl"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "advanced-reading-bc774093b44e",
+            "locator": "FinOps Framework overview: principles, phases (inform, optimize, operate) and the capabilities list."
+          },
+          "supplementaryResourceIds": [
+            "data-video-cost"
+          ],
+          "assignment": {
+            "id": "sk-data-a17-performance-and-cost-tuning-for-analytical-workl",
+            "title": "Halve a pipeline's cost",
+            "kind": "lab",
+            "instructions": [
+              "Pick your most expensive dbt model; record bytes scanned and runtime.",
+              "Apply two optimisations and re-measure.",
+              "Write a one-page cost report with before/after numbers."
+            ],
+            "deliverables": [
+              "Cost report with measurements."
+            ],
+            "acceptanceCriteria": [
+              "Numbers come from recorded runs on the same data."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l17-performance-and-cost-tuning-for-analytical-workl-check-01",
+                "kind": "short-answer",
+                "prompt": "Main driver of warehouse query cost?",
+                "answer": "Data scanned and compute time.",
+                "explanation": "Pruning and right-sizing reduce both."
+              },
+              {
+                "id": "sk-data-l17-performance-and-cost-tuning-for-analytical-workl-check-02",
+                "kind": "short-answer",
+                "prompt": "Why avoid SELECT * in analytics?",
+                "answer": "Columnar engines then read every column.",
+                "explanation": "Select only what you need."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "Your three go-to cost fixes?",
+            "How do you report cost per pipeline?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "sk-data-m11-lineage-governance",
+      "title": "11. Lineage, governance and privacy",
+      "stage": "professional",
+      "description": "Know where every number comes from and who may see it: lineage, catalogs, PII handling and access control.",
+      "prerequisites": [
+        "sk-data-m09-data-quality"
+      ],
+      "paperTags": [],
+      "lessons": [
+        {
+          "id": "sk-data-l18-lineage-with-openlineage-data-catalogs-and-pii-p",
+          "title": "Lineage with OpenLineage, data catalogs and PII protection",
+          "objectives": [
+            "Emit and view lineage for jobs and datasets.",
+            "Classify sensitive columns and apply masking and access controls.",
+            "Use lineage for impact analysis before changing a model."
+          ],
+          "topics": [
+            {
+              "title": "Lineage",
+              "details": [
+                "OpenLineage events describe runs, jobs and input/output datasets (and column-level lineage when available); tools like Marquez visualise them."
+              ]
+            },
+            {
+              "title": "Governance",
+              "details": [
+                "A catalog lists datasets, owners, descriptions and quality; access follows least privilege; audit who read what."
+              ]
+            },
+            {
+              "title": "Privacy",
+              "details": [
+                "Identify PII, minimise it, mask or tokenise it in analytics, and honour deletion requests across copies."
+              ]
+            }
+          ],
+          "estimatedMinutes": 130,
+          "canonicalConceptTags": [
+            "sk-data.lineage-with-openlineage-data-catalogs-and-pii-p"
+          ],
+          "video": null,
+          "reading": {
+            "resourceId": "sk-data-openlineage",
+            "locator": "OpenLineage docs: 'About OpenLineage', 'Object model' and the integration page for dbt or Airflow."
+          },
+          "supplementaryResourceIds": [
+            "data-video-governance"
+          ],
+          "assignment": {
+            "id": "sk-data-a18-lineage-with-openlineage-data-catalogs-and-pii-p",
+            "title": "Lineage and impact analysis",
+            "kind": "lab",
+            "instructions": [
+              "Emit OpenLineage events from your dbt or Airflow pipeline into a local Marquez.",
+              "Tag PII columns and create a masked view for analysts.",
+              "Use the lineage graph to list everything affected if a source column is renamed."
+            ],
+            "deliverables": [
+              "Screenshots, masked view and impact analysis."
+            ],
+            "acceptanceCriteria": [
+              "The impact list matches the lineage graph.",
+              "Analysts cannot see unmasked PII."
+            ],
+            "externalUrl": null,
+            "questions": [
+              {
+                "id": "sk-data-l18-lineage-with-openlineage-data-catalogs-and-pii-p-check-01",
+                "kind": "short-answer",
+                "prompt": "What is lineage used for?",
+                "answer": "Tracing data origins and finding downstream impact of changes.",
+                "explanation": "Also for debugging wrong numbers."
+              },
+              {
+                "id": "sk-data-l18-lineage-with-openlineage-data-catalogs-and-pii-p-check-02",
+                "kind": "short-answer",
+                "prompt": "Name one way to protect PII in analytics.",
+                "answer": "Masking or tokenising the columns.",
+                "explanation": "Plus least-privilege access."
+              }
+            ]
+          },
+          "reviewPrompts": [
+            "What does an OpenLineage event contain?",
+            "How do you handle a deletion request?"
+          ],
+          "prerequisites": [],
+          "paperTags": [],
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "projectMappings": [],
+  "sources": [
+    {
+      "title": "Data Engineering Zoomcamp",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp"
+    }
+  ],
+  "limitations": [
+    "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
+    "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
+    "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises.",
+    "You already build Fabric/PySpark pipelines at work. These lessons use open-source tools locally so your portfolio does not depend on employer systems or paid capacity."
+  ],
+  "stageOutcomes": [
+    {
+      "stage": "foundation",
+      "outcome": "Model data dimensionally and write analytics SQL and idempotent Python ingestion.",
+      "evidence": "A star schema with documented grain and an ingestion script that can be rerun safely."
+    },
+    {
+      "stage": "intermediate",
+      "outcome": "Process data with Spark, orchestrate with Airflow/Dagster and transform with tested dbt models.",
+      "evidence": "A scheduled batch pipeline with tests and backfills."
+    },
+    {
+      "stage": "advanced",
+      "outcome": "Build streaming pipelines with Kafka and Spark Structured Streaming on Delta/Iceberg tables, including CDC.",
+      "evidence": "A streaming lakehouse that survives restarts without duplicates, plus SCD2 from CDC."
+    },
+    {
+      "stage": "professional",
+      "outcome": "Guarantee data quality, tune warehouse cost/performance and govern data with lineage.",
+      "evidence": "Quality suites in CI, measured performance improvements and lineage graphs."
+    }
+  ]
+}

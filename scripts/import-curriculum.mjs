@@ -27,7 +27,22 @@ const careerCourses = [
   "quant-infrastructure-advanced",
   "technical-pm-advanced",
 ];
-const allTracks = [...coreTracks, ...extraTopics, ...careerCourses];
+const skillTracks = [
+  "foundation-essentials",
+  "sde-skills",
+  "backend-skills",
+  "ai-skills",
+  "data-skills",
+  "quant-skills",
+  "security-skills",
+  "cloud-devops",
+];
+const allTracks = [
+  ...coreTracks,
+  ...extraTopics,
+  ...careerCourses,
+  ...skillTracks,
+];
 const selectedIndex = process.argv.indexOf("--track");
 const tracks =
   selectedIndex === -1 ? coreTracks : [process.argv[selectedIndex + 1]];
@@ -201,9 +216,11 @@ for (const { track, data, originalSha256, packagedSha256 } of inputs) {
     trackId: track,
     group: careerCourses.includes(track)
       ? "career"
-      : extraTopics.includes(track)
-        ? "extra"
-        : "core",
+      : skillTracks.includes(track)
+        ? "skill"
+        : extraTopics.includes(track)
+          ? "extra"
+          : "core",
     sourceCheckedOn: data.sourceCheckedOn,
     modules: data.modules.length,
     lessons: data.modules.reduce(
@@ -221,7 +238,7 @@ await writeFile(
     {
       version: "2026.09.30.1",
       description:
-        "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery.",
+        "Original core research provenance is retained. Extra Topics are optional, original learning curricula with externally linked sources and original assessments. Private history and transport-only metadata are omitted. Checksums identify source and packaged files, not source availability, redistribution permission, certification or mastery. Skill builders are original beginner-to-professional curricula that link to official documentation and are shown inside their existing sections.",
       complete: allTracks.every((track) => provenance.has(track)),
       tracks: allTracks.flatMap((track) =>
         provenance.has(track) ? [provenance.get(track)] : [],
