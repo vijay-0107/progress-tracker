@@ -308,7 +308,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "OWASP Threat Dragon (free, desktop or web) or draw.io for the diagram.",
+              "Your own project as the system to model."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         },
         {
           "id": "sk-sec-l02-cryptography-in-practice-hashing-encryption-sign",
@@ -394,7 +402,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Python `cryptography` package and `openssl` on your laptop.",
+              "Envelope encryption against the emulator's KMS: AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566"
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         }
       ]
     },
@@ -493,7 +509,14 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Keycloak in Docker (`quay.io/keycloak/keycloak`, `start-dev`) as a free identity provider with OIDC, SAML and MFA (TOTP with any authenticator app)."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab. Keycloak teaches the same protocols as Entra ID and Okta.",
+            "unavailableAction": "Entra ID itself comes in the Azure free account or your employer's tenant; an Azure free account ($200 credit for 30 days with spending protection; you are not charged unless you move to pay-as-you-go) or, better, ask your employer whether you have a Visual Studio subscription with monthly Azure credit and its spending limit left on. Never remove the spending limit; delete the resource group after each session."
+          }
         },
         {
           "id": "sk-sec-l04-cloud-iam-policies-roles-least-privilege-and-acc",
@@ -574,7 +597,17 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "AWS CLI pointed at the emulator: `aws --endpoint-url http://localhost:4566 ...` with dummy keys (`AWS_ACCESS_KEY_ID=test`, `AWS_SECRET_ACCESS_KEY=test`, region us-east-1)",
+              "Write the minimal policy by hand from the actions your app calls (the emulator logs each request), instead of using IAM Access Analyzer.",
+              "Azure RBAC role definitions can be written and reviewed as JSON without a subscription."
+            ],
+            "evidenceBoundary": "The emulator runs the same API calls, CLI commands and Terraform as AWS, so the skills transfer. It does not prove real AWS performance, real IAM enforcement in every service, real networking or real billing. Say 'built and tested against an AWS emulator' unless you also ran the optional real-cloud step. IAM Access Analyzer policy generation needs real CloudTrail data.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session. On real AWS, test the minimal policy with the IAM policy simulator."
+          }
         }
       ]
     },
@@ -669,7 +702,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Study the GuardDuty finding types and the sample finding JSON in the GuardDuty docs; write an EventBridge-style rule and a Python handler that routes a high-severity sample finding.",
+              "CloudTrail-style practice: download a public sample CloudTrail dataset (for example the flaws.cloud / Splunk BOTS datasets) and query it with DuckDB or jq.",
+              "Security Hub's CIS checks: read the CIS AWS Foundations controls and practise with Prowler (free, open source) on your Free plan account later; some Prowler checks will not work against an emulator."
+            ],
+            "evidenceBoundary": "GuardDuty and Security Hub are managed AWS services and are not emulated. You learn their findings and automation without them; you have not operated them.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session. Check that a service is available on the Free plan before enabling it, and turn it off after the lab."
+          }
         },
         {
           "id": "sk-sec-l06-data-and-network-protection-kms-s3-security-grou",
@@ -752,7 +794,17 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "AWS CLI pointed at the emulator: `aws --endpoint-url http://localhost:4566 ...` with dummy keys (`AWS_ACCESS_KEY_ID=test`, `AWS_SECRET_ACCESS_KEY=test`, region us-east-1)",
+              "Terraform pointed at the emulator: in the `aws` provider set `endpoints { ... = \"http://localhost:4566\" }`, `skip_credentials_validation = true`, `skip_requesting_account_id = true`, `s3_use_path_style = true` (or `pip install terraform-local` and run `tflocal` with LocalStack)",
+              "Test the TLS-only and deny-unencrypted bucket policies against the emulator and note any condition it does not enforce."
+            ],
+            "evidenceBoundary": "The emulator runs the same API calls, CLI commands and Terraform as AWS, so the skills transfer. It does not prove real AWS performance, real IAM enforcement in every service, real networking or real billing. Say 'built and tested against an AWS emulator' unless you also ran the optional real-cloud step.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session."
+          }
         }
       ]
     },
@@ -846,7 +898,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Keycloak (free) for groups, roles, client credentials and MFA policies, to practise the same ideas as Entra ID.",
+              "Microsoft Learn's free AZ-500 modules and documentation for the Entra-specific screens (the old free Learn sandboxes have been discontinued).",
+              "Write the conditional access and PIM design on paper; both need Entra ID P1/P2 licences anyway."
+            ],
+            "evidenceBoundary": "Without an Azure tenant you design and explain Entra ID controls rather than click through them. Managed identity testing needs Azure.",
+            "unavailableAction": "Optional real-cloud step: an Azure free account ($200 credit for 30 days with spending protection; you are not charged unless you move to pay-as-you-go) or, better, ask your employer whether you have a Visual Studio subscription with monthly Azure credit and its spending limit left on. Never remove the spending limit; delete the resource group after each session."
+          }
         },
         {
           "id": "sk-sec-l08-defender-for-cloud-key-vault-and-microsoft-senti",
@@ -928,7 +989,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Secrets: HashiCorp Vault in dev mode (`vault server -dev`, free) or the emulator's Secrets Manager, to practise the same secret-store patterns as Key Vault.",
+              "SIEM: Wazuh or the Elastic Stack (free) instead of Sentinel; write your detection in KQL on paper and in the free tool's query language.",
+              "Posture: Prowler or ScoutSuite (free) instead of Defender for Cloud recommendations."
+            ],
+            "evidenceBoundary": "These free tools teach the same jobs (secret storage, SIEM rules, posture findings); the Azure-specific screens need Azure.",
+            "unavailableAction": "Optional real-cloud step: an Azure free account ($200 credit for 30 days with spending protection; you are not charged unless you move to pay-as-you-go) or, better, ask your employer whether you have a Visual Studio subscription with monthly Azure credit and its spending limit left on. Never remove the spending limit; delete the resource group after each session. Defender's paid plans and Sentinel ingestion can cost money; keep only the free tier and delete the workspace after."
+          }
         }
       ]
     },
@@ -1025,7 +1095,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "OWASP Juice Shop in Docker (`docker run -p 3000:3000 bkimminich/juice-shop`).",
+              "PortSwigger Web Security Academy labs (free account).",
+              "Burp Suite Community Edition or OWASP ZAP (both free)."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         },
         {
           "id": "sk-sec-l10-sast-dast-sca-and-secrets-scanning-in-ci",
@@ -1108,7 +1187,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "GitHub Actions on a public repository (standard runners are free for public repos)",
+              "Semgrep, gitleaks, Trivy and the ZAP baseline action are free."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         }
       ]
     },
@@ -1202,7 +1289,14 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Syft, Grype and Trivy (free) on your laptop or in GitHub Actions."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         },
         {
           "id": "sk-sec-l12-signing-provenance-slsa-and-admission-control",
@@ -1285,7 +1379,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "GitHub Actions on a public repository (standard runners are free for public repos) with Cosign keyless signing (free public Sigstore).",
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM with Kyverno or Sigstore policy-controller.",
+              "Images in ghcr.io (free for public images)."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         }
       ]
     },
@@ -1379,7 +1482,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM with Pod Security Admission labels on a namespace.",
+              "Falco (free) for runtime detection, if your laptop kernel supports it."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "If Falco will not load on your machine, skip runtime detection and use a Killercoda playground for that step."
+          }
         },
         {
           "id": "sk-sec-l14-kubernetes-rbac-network-policies-and-secrets",
@@ -1461,7 +1572,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM. Recent kind versions (v0.24 and later) enforce NetworkPolicy with the default CNI; on older versions install Calico.",
+              "kube-bench (free) for CIS checks."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "If your NetworkPolicy has no effect, upgrade kind or install Calico, or use a Killercoda playground."
+          }
         }
       ]
     },
@@ -1554,7 +1673,14 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Wazuh via its Docker single-node deployment, a Linux VM with auditd, and a Windows VM with Sysmon if you have one (a Windows 11 Enterprise evaluation ISO is free for 90 days; otherwise use two Linux agents)."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab. Wazuh needs about 4-8 GB of RAM.",
+            "unavailableAction": "On a low-RAM laptop use the Elastic Stack with a single node or just Sysmon/auditd logs searched with jq."
+          }
         },
         {
           "id": "sk-sec-l16-sigma-rules-mitre-att-ck-and-validating-detectio",
@@ -1636,7 +1762,14 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "sigma-cli, MITRE ATT&CK Navigator (web, free) and Atomic Red Team, all free; run tests only inside your isolated lab VMs."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         }
       ]
     },
@@ -1730,7 +1863,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "AWS CLI pointed at the emulator: `aws --endpoint-url http://localhost:4566 ...` with dummy keys (`AWS_ACCESS_KEY_ID=test`, `AWS_SECRET_ACCESS_KEY=test`, region us-east-1)",
+              "Run the leaked-key tabletop on the emulator: create a key, 'use' it, disable it and review the emulator's request log as your 'CloudTrail'."
+            ],
+            "evidenceBoundary": "The playbook steps and commands are real; CloudTrail investigation on the emulator is a simplified stand-in.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session. Never put a real key anywhere public, even in a lab."
+          }
         }
       ]
     },
@@ -1826,7 +1968,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "Build the intentionally misconfigured environment with Terraform on the emulator and point your boto3 scanner at `endpoint_url='http://localhost:4566'`.",
+              "Compare your check list with Prowler's CIS checks (free, open source); running Prowler itself is best done later on a real Free plan account."
+            ],
+            "evidenceBoundary": "The emulator runs the same API calls, CLI commands and Terraform as AWS, so the skills transfer. It does not prove real AWS performance, real IAM enforcement in every service, real networking or real billing. Say 'built and tested against an AWS emulator' unless you also ran the optional real-cloud step.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session. Use read-only credentials for the scanner on real AWS."
+          }
         },
         {
           "id": "sk-sec-l19-policy-as-code-scanning-terraform-and-enforcing",
@@ -1908,7 +2059,14 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Checkov, tfsec/Trivy config and OPA/Conftest (all free) on your laptop and in GitHub Actions."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         }
       ]
     },
@@ -2002,7 +2160,14 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Professor Messer's free Security+ videos, Microsoft Learn's free AZ-500 modules and AWS Skill Builder's free courses."
+            ],
+            "evidenceBoundary": "Study is free; exams are paid. Book only when practice scores are consistently strong.",
+            "unavailableAction": "Look for official exam discounts and vouchers (for example Microsoft Learn challenges) before paying full price."
+          }
         }
       ]
     }
@@ -2022,7 +2187,8 @@
     "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
     "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
     "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises.",
-    "Defensive and authorised only: test, scan and simulate attacks only in accounts, clusters and lab machines you own."
+    "Defensive and authorised only: test, scan and simulate attacks only in accounts, clusters and lab machines you own.",
+    "Every lab has a ₹0 path (local tools, an AWS emulator, kind, Keycloak, Wazuh or GitHub Actions) shown under 'Practise for ₹0'. Real AWS or Azure steps are optional and use only plans that cannot charge you unless you upgrade."
   ],
   "stageOutcomes": [
     {

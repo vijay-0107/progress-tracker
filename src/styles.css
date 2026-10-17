@@ -3501,3 +3501,39 @@ summary {
     flex-direction: column;
   }
 }
+
+/* ₹0 practice lab */
+.free-lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.free-lab-tool {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  min-width: 0;
+}
+.free-lab-tool h3 {
+  margin: 0;
+}
+.free-lab-tool p {
+  margin: 0;
+}
+.free-lab-code {
+  margin: 4px 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--surface-muted, rgba(127, 127, 127, 0.1));
+  font-size: 0.72rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+}
+.free-lab-notice {
+  margin: 14px 0;
+}

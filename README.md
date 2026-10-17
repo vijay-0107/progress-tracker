@@ -42,6 +42,15 @@ rendered by `src/ui/SkillBuilder.tsx`. Lessons from a builder return to their
 section. `tests/skill-tracks.test.ts` checks the inventory (166 lessons), the
 four ordered stages and the placements.
 
+**₹0 Practice Lab** (`#/free-lab`, sidebar under Career Paths) lists free tools that
+replace paid cloud (Floci/LocalStack/Moto AWS emulators, kind/k3d/Killercoda,
+GitHub Actions, Keycloak, Vault, Wazuh, Prometheus/Grafana, Kaggle/Colab GPUs)
+and the only optional real-cloud plans that cannot charge without an upgrade
+(AWS Free plan, Azure free account). Every Cloud & DevOps and Cloud Security
+lesson, and the cloud lessons in Beginner Essentials, has a "Practise for ₹0"
+box naming the free tool for that lab. Data lives in `src/content/free-practice.ts`
+and the lessons' `practiceEnvironment`.
+
 The 23 resume projects (`variant: "resume-target"`, IDs `resume-*`) and the
 existing Transaction-Safe E-Commerce Website each show which resumes they back,
 the repository name, the target resume bullets and the stack. Each project

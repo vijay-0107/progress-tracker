@@ -261,16 +261,40 @@ export function LessonPage({
           className="notice info"
           aria-label="Practice environment and evidence"
         >
-          <strong>
-            Study now. Claim only the execution you actually perform.
-          </strong>
-          <ul>
-            {lesson.practiceEnvironment.requirements.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p>{lesson.practiceEnvironment.evidenceBoundary}</p>
-          <p>{lesson.practiceEnvironment.unavailableAction}</p>
+          {isSkillTrack(track.trackId) ? (
+            <>
+              <strong>Practise for ₹0: no cloud bill needed</strong>
+              <ul>
+                {lesson.practiceEnvironment.requirements.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p>
+                <strong>What the free setup shows:</strong>{" "}
+                {lesson.practiceEnvironment.evidenceBoundary}
+              </p>
+              <p>
+                <strong>Optional / if something fails:</strong>{" "}
+                {lesson.practiceEnvironment.unavailableAction}
+              </p>
+              <a className="arrow-link" href="#/free-lab">
+                Open the ₹0 Practice Lab setup guide <ArrowRight size={15} />
+              </a>
+            </>
+          ) : (
+            <>
+              <strong>
+                Study now. Claim only the execution you actually perform.
+              </strong>
+              <ul>
+                {lesson.practiceEnvironment.requirements.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p>{lesson.practiceEnvironment.evidenceBoundary}</p>
+              <p>{lesson.practiceEnvironment.unavailableAction}</p>
+            </>
+          )}
         </section>
       )}
       {blocked.length > 0 && (

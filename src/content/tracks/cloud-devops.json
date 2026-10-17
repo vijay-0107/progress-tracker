@@ -391,7 +391,17 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "AWS CLI pointed at the emulator: `aws --endpoint-url http://localhost:4566 ...` with dummy keys (`AWS_ACCESS_KEY_ID=test`, `AWS_SECRET_ACCESS_KEY=test`, region us-east-1)",
+              "Create the VPC, subnets, route tables, internet gateway and security groups on the emulator with the CLI or Terraform; read them back with `aws ec2 describe-*`.",
+              "Run the 'web server' part as a local VM (Multipass or VirtualBox, both free) or an Ubuntu container with nginx, and practise SSH keys and firewall rules (ufw) there."
+            ],
+            "evidenceBoundary": "The emulator runs the same API calls, CLI commands and Terraform as AWS, so the skills transfer. It does not prove real AWS performance, real IAM enforcement in every service, real networking or real billing. Say 'built and tested against an AWS emulator' unless you also ran the optional real-cloud step. Emulated EC2 may not boot a real server you can browse to, which is why the web server runs in a local VM.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session. On real AWS use only the smallest free-plan instance type and terminate it the same day."
+          }
         },
         {
           "id": "sk-cloud-l02-s3-rds-lambda-and-cloudwatch-storage-databases-s",
@@ -475,7 +485,17 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "AWS CLI pointed at the emulator: `aws --endpoint-url http://localhost:4566 ...` with dummy keys (`AWS_ACCESS_KEY_ID=test`, `AWS_SECRET_ACCESS_KEY=test`, region us-east-1)",
+              "Thumbnail pipeline on the emulator: S3 bucket + Lambda trigger + CloudWatch Logs; use DynamoDB on the emulator, or PostgreSQL in Docker (`docker run -e POSTGRES_PASSWORD=dev -p 5432:5432 postgres:16`) instead of RDS.",
+              "Alarm practice: read logs with `aws logs tail` on the emulator; for real alerting practise Prometheus Alertmanager later in this course."
+            ],
+            "evidenceBoundary": "The emulator runs the same API calls, CLI commands and Terraform as AWS, so the skills transfer. It does not prove real AWS performance, real IAM enforcement in every service, real networking or real billing. Say 'built and tested against an AWS emulator' unless you also ran the optional real-cloud step.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session."
+          }
         }
       ]
     },
@@ -570,7 +590,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "A free Linux machine: WSL2 Ubuntu on Windows, a Multipass or VirtualBox VM, or a browser Linux playground on Killercoda (killercoda.com).",
+              "Everything else (systemd, nginx, journalctl, ufw, ss, df) is built into Ubuntu."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab. systemd needs a real VM or WSL2 with systemd enabled; plain Docker containers usually do not run systemd.",
+            "unavailableAction": "If WSL2 lacks systemd, add `[boot] systemd=true` to /etc/wsl.conf and restart WSL, or use Multipass."
+          }
         }
       ]
     },
@@ -663,7 +691,17 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Terraform (free) or OpenTofu (free, open source).",
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "Terraform pointed at the emulator: in the `aws` provider set `endpoints { ... = \"http://localhost:4566\" }`, `skip_credentials_validation = true`, `skip_requesting_account_id = true`, `s3_use_path_style = true` (or `pip install terraform-local` and run `tflocal` with LocalStack)",
+              "Even simpler first step: the `local` and `random` providers and the Docker provider (`kreuzwerker/docker`) create real things on your laptop with no cloud at all."
+            ],
+            "evidenceBoundary": "Terraform commands, state and plans are identical against the emulator. You do not see real AWS creation times or errors caused by account limits.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session. Run `terraform destroy` and check the console before you stop."
+          }
         },
         {
           "id": "sk-cloud-l05-modules-remote-state-workspaces-and-terraform-in",
@@ -745,7 +783,17 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "Terraform pointed at the emulator: in the `aws` provider set `endpoints { ... = \"http://localhost:4566\" }`, `skip_credentials_validation = true`, `skip_requesting_account_id = true`, `s3_use_path_style = true` (or `pip install terraform-local` and run `tflocal` with LocalStack)",
+              "Remote state for free: an S3 backend on the emulator with `use_path_style = true` and the endpoint override, or keep local state and practise with the `pg` backend on a local PostgreSQL container.",
+              "GitHub Actions on a public repository (standard runners are free for public repos): run `terraform fmt`, `validate`, `tflint` and `checkov`, and `plan` against an emulator service container in the workflow."
+            ],
+            "evidenceBoundary": "You practise the full team workflow. OIDC from GitHub to real AWS cannot be tested against an emulator; write the trust policy and explain it.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session. Only then add GitHub OIDC to real AWS, with a role that can touch nothing but your lab resources."
+          }
         }
       ]
     },
@@ -840,7 +888,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM",
+              "kubectl (free).",
+              "Browser alternative if your laptop is slow: Killercoda Kubernetes playgrounds or Play with Kubernetes (free, sessions reset)."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab. Browser playgrounds reset when the session ends, so keep your YAML in Git.",
+            "unavailableAction": "If Docker Desktop is too heavy, use k3d (smaller) or a Killercoda playground."
+          }
         },
         {
           "id": "sk-cloud-l07-configuration-storage-health-checks-and-resource",
@@ -922,7 +979,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM",
+              "kind includes a default StorageClass, so PersistentVolumeClaims work locally."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "If a PVC stays Pending, check `kubectl get storageclass` and recreate the kind cluster."
+          }
         },
         {
           "id": "sk-cloud-l08-debugging-kubernetes-and-moving-to-eks",
@@ -1003,7 +1068,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM for all five break-fix exercises.",
+              "EKS without paying: write the EKS Terraform and run `terraform plan` (or plan against the emulator, which has partial EKS support) instead of creating a real cluster.",
+              "Practise an AWS-style load balancer locally with MetalLB or `cloud-provider-kind`, and Ingress with ingress-nginx on kind."
+            ],
+            "evidenceBoundary": "Break-fix skills are fully real on kind. A real EKS cluster bills by the hour (control plane plus nodes), so on the Free plan it uses up credits quickly; this course treats EKS as plan-only unless you choose to spend credits.",
+            "unavailableAction": "If you later use free credits for EKS, create, test and `terraform destroy` in one sitting and watch the credit balance."
+          }
         }
       ]
     },
@@ -1094,7 +1168,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM",
+              "Helm (free): `helm create`, `helm lint`, `helm template`, `helm upgrade --install`."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         },
         {
           "id": "sk-cloud-l10-ci-cd-with-github-actions-test-scan-build-push-a",
@@ -1176,7 +1258,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "GitHub Actions on a public repository (standard runners are free for public repos)",
+              "Container registry for free: GitHub Container Registry (ghcr.io) for public images.",
+              "Deploy step: create a kind cluster inside the workflow (helm/kind-action) and run `helm upgrade --install` plus a smoke test."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab. Private repositories have a monthly free-minutes allowance; keep the repo public or watch the usage page.",
+            "unavailableAction": "If you run out of minutes on a private repo, make the lab repo public (no secrets in it) or run the same steps locally with `act`."
+          }
         }
       ]
     },
@@ -1268,7 +1359,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM",
+              "Argo CD installed into kind from the official manifests; a public GitHub repository as the config repo."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "If the Argo CD UI is slow on your laptop, use the `argocd` CLI instead of the UI."
+          }
         }
       ]
     },
@@ -1363,7 +1462,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM plus metrics-server (add `--kubelet-insecure-tls` on kind).",
+              "KEDA and a Redis or RabbitMQ container in the cluster.",
+              "k6 (free) for load."
+            ],
+            "evidenceBoundary": "HPA and KEDA are fully real on kind. Karpenter needs real AWS nodes, so practise it by reading the docs and writing a NodePool manifest; a multi-node kind cluster shows how pods spread across nodes.",
+            "unavailableAction": "Karpenter on real EKS costs money; keep it as a written design unless you are spending your own credits deliberately."
+          }
         },
         {
           "id": "sk-cloud-l13-finops-tagging-cost-visibility-right-sizing-and",
@@ -1445,7 +1553,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS Pricing Calculator (free, no account) to estimate what your Terraform would cost.",
+              "Infracost (free CLI) to estimate cost from Terraform plans.",
+              "OpenCost on kind to see cost per namespace with default prices."
+            ],
+            "evidenceBoundary": "You practise estimating and tagging without spending. Real Cost Explorer data needs a real account with real usage.",
+            "unavailableAction": "On the AWS Free plan, Billing and Cost Management pages show your credit usage; screenshot them for the report."
+          }
         }
       ]
     },
@@ -1541,7 +1658,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM with kube-prometheus-stack (Helm).",
+              "Grafana, Prometheus, Loki and Jaeger/Tempo are free and open source and run in the cluster or via Docker Compose."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab. The full stack needs about 4-6 GB of RAM; close other apps.",
+            "unavailableAction": "On a low-RAM laptop run only Prometheus + Grafana with Docker Compose, outside Kubernetes."
+          }
         },
         {
           "id": "sk-cloud-l15-slos-error-budgets-alerting-and-on-call",
@@ -1623,7 +1748,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "The Prometheus + Alertmanager stack from the previous lesson; send alerts to a free webhook receiver or a local container instead of a paid pager.",
+              "Game day: add latency with a fault-injection middleware or `tc netem` in a container."
+            ],
+            "evidenceBoundary": "Everything in this lab already runs for ₹0 on your laptop or in a free browser lab.",
+            "unavailableAction": "None needed."
+          }
         }
       ]
     },
@@ -1718,7 +1851,17 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Kubernetes on your laptop: kind (`kind create cluster`), minikube or k3d; give Docker at least 4 GB RAM (two clusters = two 'regions').",
+              "Backups: `pg_dump`/`pg_restore` between two PostgreSQL containers; Velero with MinIO or the emulator's S3 as the backup target.",
+              "Chaos: kill pods and kind nodes (`docker stop <node>`), or install Chaos Mesh / LitmusChaos (free) on kind.",
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566 for the S3 copy between 'regions'."
+            ],
+            "evidenceBoundary": "You measure real restore times on your laptop. Real multi-region failover with Route 53 and AWS FIS is not tested; write it in the DR plan.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session. FIS experiments are not needed for this lesson."
+          }
         }
       ]
     },
@@ -1814,7 +1957,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "Free GPU notebooks: Kaggle (weekly GPU quota shown in your settings, 12-hour sessions) or Google Colab (no published quota, sessions up to about 12 hours).",
+              "Kubernetes GPU YAML practice on kind: write the pod spec, taints and tolerations; the pod stays Pending without a GPU, which is expected.",
+              "Run `nvidia-smi` in a Kaggle/Colab notebook to see what DCGM would measure."
+            ],
+            "evidenceBoundary": "You cannot run a GPU node pool for free. The Terraform and manifests are a design deliverable; the GPU experience comes from the free notebooks.",
+            "unavailableAction": "Real EKS GPU nodes cost money per hour and are not part of this course's free path."
+          }
         },
         {
           "id": "sk-cloud-l18-serving-models-and-llms-vllm-kserve-autoscaling",
@@ -1896,7 +2048,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "vLLM on a free Kaggle or Colab GPU with a small open model; call its OpenAI-compatible API from the notebook.",
+              "On your laptop without a GPU: llama.cpp or Ollama with a small quantised model for the load-testing part.",
+              "KServe on kind with a small scikit-learn model for the canary exercise (no GPU needed)."
+            ],
+            "evidenceBoundary": "Benchmarks from a free notebook GPU are real but small; always write the GPU type, model and settings next to the numbers.",
+            "unavailableAction": "If the notebook GPU is unavailable, run the load test against llama.cpp/Ollama on CPU and label the results as CPU."
+          }
         }
       ]
     },
@@ -1990,7 +2151,15 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS Skill Builder free digital courses and the free official SAA practice question set; the AWS Well-Architected Tool needs an account, so do the review in a document using the pillar questions.",
+              "CKA practice for free: Killercoda CKA scenarios and your kind cluster. (The CKA exam purchase includes two killer.sh simulator sessions.)"
+            ],
+            "evidenceBoundary": "Study is free; the exams themselves are paid. Book them only when practice scores are consistently strong.",
+            "unavailableAction": "Look for official exam discounts (for example, events and challenges announced by AWS and the Linux Foundation) before paying full price."
+          }
         }
       ]
     }
@@ -2010,7 +2179,7 @@
     "Skill-builder lessons are beginner-first: each one assumes you have not used the tool before and explains the vocabulary before the practice.",
     "Readings are official documentation or free books, linked rather than copied. Check the current version when you open a link; tools change.",
     "Use your own machine, free tiers and synthetic or public data. Never use employer code, client data or credentials in exercises.",
-    "Cloud labs can cost money: set a billing alarm before you start, use free tiers, and destroy every lab with `terraform destroy` when finished."
+    "Every lab has a ₹0 path (laptop tools, an AWS emulator, kind, GitHub Actions or a free notebook) shown under 'Practise for ₹0'. Real AWS or Azure steps are optional; use only the AWS Free plan or Azure free account, which do not charge unless you upgrade, and delete everything after each session."
   ],
   "stageOutcomes": [
     {

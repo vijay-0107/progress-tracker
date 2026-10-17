@@ -18,6 +18,7 @@ import {
   TRACK_IDS,
 } from "../src/domain/types";
 import { advancedPaths } from "../src/content/advanced-careers";
+import { freeLabGroups, realCloudOptions } from "../src/content/free-practice";
 
 const catalog = getCatalog();
 const skillTracks = catalog.tracks.filter((track) =>
@@ -104,5 +105,36 @@ describe("skill builders inside existing sections", () => {
       expect(findResumeNotes(project.id), project.id).toBeDefined();
     }
     expect(Object.keys(resumeRoleProjects)).toHaveLength(8);
+  });
+});
+
+describe("₹0 practice lab", () => {
+  it("gives every cloud and security lab a free path", () => {
+    for (const id of ["cloud-devops", "security-skills"]) {
+      const track = catalog.tracks.find((item) => item.trackId === id)!;
+      for (const lesson of track.modules.flatMap((module) => module.lessons)) {
+        expect(
+          lesson.practiceEnvironment?.requirements.length,
+          lesson.id,
+        ).toBeGreaterThan(0);
+        expect(
+          lesson.practiceEnvironment?.evidenceBoundary,
+          lesson.id,
+        ).toBeTruthy();
+      }
+    }
+  });
+
+  it("lists free tools and only no-charge real-cloud plans with official links", () => {
+    const tools = freeLabGroups.flatMap((group) => group.tools);
+    expect(tools.length).toBeGreaterThanOrEqual(12);
+    for (const tool of tools) {
+      expect(tool.url.startsWith("https://"), tool.name).toBe(true);
+      expect(tool.setup.length, tool.name).toBeGreaterThan(0);
+    }
+    expect(realCloudOptions.map((option) => option.name)).toEqual([
+      "AWS Free plan",
+      "Azure free account",
+    ]);
   });
 });

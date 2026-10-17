@@ -35,7 +35,7 @@ import {
   StatusIcon,
 } from "./shared";
 import { Guidance } from "./Guidance";
-import { SkillBuilders } from "./SkillBuilder";
+import { FreeLabNotice, SkillBuilders } from "./SkillBuilder";
 
 export function Roadmap({
   catalog,
@@ -270,6 +270,9 @@ export function Roadmap({
               : "Select the paper you intend to take. Shared mathematics is reused; paper-specific topics stay clearly labelled."}
           </p>
         </div>
+      )}
+      {(trackId === "cloud-devops" || trackId === "security-skills") && (
+        <FreeLabNotice />
       )}
       <SkillBuilders catalog={catalog} state={state} sectionId={trackId} />
       {skillBuildersFor(catalog, trackId).length > 0 && (

@@ -182,8 +182,8 @@
       "sourceCheckedOn": "2026-10-17",
       "modules": 14,
       "lessons": 33,
-      "originalSha256": "b6180e3a1c8e98e0b74a0dc66d306f396f243c9bcaa1a2e268a0d596c95fa27e",
-      "packagedSha256": "b6180e3a1c8e98e0b74a0dc66d306f396f243c9bcaa1a2e268a0d596c95fa27e"
+      "originalSha256": "88bd021221726c4821044e1b3a0492e47994acdd361b5f6aea35c5f320b3efa6",
+      "packagedSha256": "88bd021221726c4821044e1b3a0492e47994acdd361b5f6aea35c5f320b3efa6"
     },
     {
       "trackId": "sde-skills",
@@ -236,8 +236,8 @@
       "sourceCheckedOn": "2026-10-17",
       "modules": 11,
       "lessons": 20,
-      "originalSha256": "7dadadad5cc72492fa83a0e0b4d1c2bdede0a5997be63d2e9888b0666b1ba866",
-      "packagedSha256": "7dadadad5cc72492fa83a0e0b4d1c2bdede0a5997be63d2e9888b0666b1ba866"
+      "originalSha256": "672ff3b2392817f96c9b0307e1ef59f1676ea118884992230e1e2ec96eb9a681",
+      "packagedSha256": "672ff3b2392817f96c9b0307e1ef59f1676ea118884992230e1e2ec96eb9a681"
     },
     {
       "trackId": "cloud-devops",
@@ -245,8 +245,8 @@
       "sourceCheckedOn": "2026-10-17",
       "modules": 11,
       "lessons": 19,
-      "originalSha256": "a71c3dfef8bed675142db64f650a320644fe71e7027b58843927cc7588f50709",
-      "packagedSha256": "a71c3dfef8bed675142db64f650a320644fe71e7027b58843927cc7588f50709"
+      "originalSha256": "c01d8f81a62fb291e0865967a0396d4ec1d97881e9663a629f038f500186f6f7",
+      "packagedSha256": "c01d8f81a62fb291e0865967a0396d4ec1d97881e9663a629f038f500186f6f7"
     }
   ]
 }

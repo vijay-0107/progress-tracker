@@ -79,6 +79,9 @@ const CareerProfilePage = lazy(() =>
 const Review = lazy(() =>
   import("./ui/Review").then((module) => ({ default: module.Review })),
 );
+const FreeLab = lazy(() =>
+  import("./ui/FreeLab").then((module) => ({ default: module.FreeLab })),
+);
 const Planner = lazy(() =>
   import("./ui/Planner").then((module) => ({ default: module.Planner })),
 );
@@ -178,7 +181,7 @@ export default function App() {
   useEffect(() => {
     drawer.current?.close();
     main.current?.focus({ preventScroll: true });
-    document.title = `Progress | ${route.page === "path" && TRACK_IDS.includes(route.id as TrackId) ? trackMeta[route.id as TrackId].label : route.page === "career" ? (route.earlier ? careerProfiles.find((profile) => profile.id === route.id)?.title : findAdvancedPath(route.id)?.title) || "Career path" : route.page === "careers" ? "Career Paths" : route.page === "preparation" ? "Career Preparation" : route.page === "dashboard" ? "Your learning workspace" : route.page.charAt(0).toUpperCase() + route.page.slice(1)}`;
+    document.title = `Progress | ${route.page === "path" && TRACK_IDS.includes(route.id as TrackId) ? trackMeta[route.id as TrackId].label : route.page === "career" ? (route.earlier ? careerProfiles.find((profile) => profile.id === route.id)?.title : findAdvancedPath(route.id)?.title) || "Career path" : route.page === "careers" ? "Career Paths" : route.page === "free-lab" ? "₹0 Practice Lab" : route.page === "preparation" ? "Career Preparation" : route.page === "dashboard" ? "Your learning workspace" : route.page.charAt(0).toUpperCase() + route.page.slice(1)}`;
   }, [route.hash, route.id, route.page, route.earlier]);
 
   let page: ReactNode;
@@ -233,6 +236,8 @@ export default function App() {
         selectedStage={route.stage}
       />
     );
+  else if (route.page === "free-lab")
+    page = <FreeLab catalog={catalog} state={state} />;
   else if (route.page === "review") page = <Review {...props} />;
   else if (["planner", "plan", "calendar"].includes(route.page))
     page = <Planner {...props} />;
@@ -511,6 +516,12 @@ function Navigation({
           "Cloud & DevOps Infrastructure",
           <span className="nav-dot" />,
           "NEW",
+        )}
+        {nav(
+          "free-lab",
+          "₹0 Practice Lab",
+          <span className="nav-dot" />,
+          "FREE",
         )}
         <p className="nav-section-label">ORIGINAL COURSES</p>
         {CORE_TRACK_IDS.filter(

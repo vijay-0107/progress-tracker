@@ -94,6 +94,8 @@ export function SkillBuilder({
         value={progress.percent}
         label={`${meta.label} completion`}
       />
+      {(track.trackId === "cloud-devops" ||
+        track.trackId === "security-skills") && <FreeLabNotice />}
       <div className="skill-stage-row">
         {stages.map((stage) => {
           const stageProgress = lessonCompletion(
@@ -189,5 +191,22 @@ export function SkillBuilder({
         })}
       </div>
     </section>
+  );
+}
+
+/** Points cloud learners to the free tools before any paid cloud. */
+export function FreeLabNotice() {
+  return (
+    <div className="notice info free-lab-notice">
+      <strong>Every lab here can be done for ₹0.</strong>
+      <p>
+        Use an AWS emulator, kind, GitHub Actions and free notebooks instead of
+        paid cloud. Real AWS or Azure steps are optional, on plans that cannot
+        charge you unless you upgrade.
+      </p>
+      <a className="arrow-link" href="#/free-lab">
+        Open the ₹0 Practice Lab <ArrowRight size={15} />
+      </a>
+    </div>
   );
 }

@@ -2157,8 +2157,8 @@
             "title": "Safe cloud account",
             "kind": "lab",
             "instructions": [
-              "Create an AWS free-tier account (or use Azure, since you hold AZ-900). Enable MFA on the root/owner.",
-              "Create a non-root admin identity and a budget of a small amount with an email alert.",
+              "₹0 path: run the AWS emulator (see 'Practise for ₹0') and do the IAM steps there. Optional: create a real AWS account on the Free plan (never upgrade to the paid plan) or an Azure free account, and enable MFA on the root/owner.",
+              "On a real account only: create a non-root admin identity and a $1 budget with an email alert.",
               "Write an IAM policy that allows only reading one S3 bucket; test that it cannot delete objects.",
               "Write down your teardown checklist."
             ],
@@ -2193,7 +2193,16 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "AWS CLI pointed at the emulator: `aws --endpoint-url http://localhost:4566 ...` with dummy keys (`AWS_ACCESS_KEY_ID=test`, `AWS_SECRET_ACCESS_KEY=test`, region us-east-1)",
+              "IAM policy practice without any account: the AWS IAM policy simulator needs an account, so write the policy, then test allow/deny with Floci/LocalStack (create a user, attach the policy, try `s3 cp` and `s3 rm`)."
+            ],
+            "evidenceBoundary": "You learn the policy language and the safety habits; an emulator does not enforce every IAM rule exactly like AWS, so treat the deny test as practice, not proof.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session. For Azure, an Azure free account ($200 credit for 30 days with spending protection; you are not charged unless you move to pay-as-you-go) or, better, ask your employer whether you have a Visual Studio subscription with monthly Azure credit and its spending limit left on. Never remove the spending limit; delete the resource group after each session."
+          }
         },
         {
           "id": "fe-l22-core-services-compute-storage-databases-networki",
@@ -2243,10 +2252,10 @@
             "title": "Three-service tour",
             "kind": "lab",
             "instructions": [
-              "Launch the smallest free-tier VM, SSH in with a key, install nginx, view the page, then terminate it.",
-              "Create a private S3 bucket (or Blob container), upload a file and generate a time-limited pre-signed URL.",
+              "Run an Ubuntu VM or container locally (₹0), install nginx and view the page; on a real Free plan account, use the smallest instance and terminate it the same day.",
+              "Create a private S3 bucket on the emulator (or Blob container on Azurite, the free Azure Storage emulator), upload a file and generate a time-limited pre-signed URL.",
               "Deploy a 'hello' function behind an HTTP URL; call it with curl.",
-              "Confirm in the console that all resources are deleted and record the cost so far."
+              "If you used a real account, confirm all resources are deleted and record the credit used (it should be close to 0)."
             ],
             "deliverables": [
               "Commands/screenshots, the service map table you made, final cost."
@@ -2279,7 +2288,17 @@
           ],
           "prerequisites": [],
           "paperTags": [],
-          "optional": false
+          "optional": false,
+          "practiceEnvironment": {
+            "requirements": [
+              "AWS emulator on your laptop: Floci (`docker run -p 4566:4566 floci/floci`, no account) or LocalStack (free non-commercial account and auth token), both on http://localhost:4566",
+              "AWS CLI pointed at the emulator: `aws --endpoint-url http://localhost:4566 ...` with dummy keys (`AWS_ACCESS_KEY_ID=test`, `AWS_SECRET_ACCESS_KEY=test`, region us-east-1)",
+              "VM practice for free: run nginx in a local Ubuntu container or a Multipass/VirtualBox VM instead of EC2 (`docker run -d -p 8080:80 nginx`).",
+              "Serverless for free: create and invoke a Lambda function on the emulator, or run a function locally with the AWS SAM CLI (`sam local invoke`)."
+            ],
+            "evidenceBoundary": "The emulator runs the same API calls, CLI commands and Terraform as AWS, so the skills transfer. It does not prove real AWS performance, real IAM enforcement in every service, real networking or real billing. Say 'built and tested against an AWS emulator' unless you also ran the optional real-cloud step.",
+            "unavailableAction": "Optional real-cloud step: an AWS account on the Free plan (up to $200 credits for 6 months; no charges unless you upgrade to the paid plan). Never click 'upgrade', set a $1 budget alert anyway, and delete everything after the session."
+          }
         }
       ]
     },
