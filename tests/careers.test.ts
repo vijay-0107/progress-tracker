@@ -359,7 +359,7 @@ describe("new PM curriculum quality and independent numeric grading", () => {
     for (const stage of LEARNING_STAGES)
       expect(requiredLessons(pm, "all", stage)).toHaveLength(4);
     for (const lesson of requiredLessons(pm)) {
-      expect(lesson.video).toBeNull();
+      expect(lesson.video?.locator).toBeTruthy();
       expect(lesson.objectives.length).toBeGreaterThanOrEqual(2);
       expect(lesson.topics.every((topic) => topic.details.length >= 2)).toBe(
         true,

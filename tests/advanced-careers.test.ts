@@ -181,15 +181,13 @@ describe("exact six-domain advanced learning contract", () => {
         );
       for (const lesson of course.modules.flatMap((module) => module.lessons)) {
         expect(lesson.optional).toBe(false);
-        if (course.trackId === "systems-languages") {
-          expect(lesson.video?.locator, lesson.id).toBeTruthy();
-          const video = findResource(catalog, lesson.video!.resourceId);
-          expect(video.kind).toBe("video");
-          expect(video.access).toBe("free");
-          expect(video.url).toMatch(
-            /^https:\/\/www\.youtube\.com\/watch\?v=[\w-]{11}$/,
-          );
-        } else expect(lesson.video).toBeNull();
+        expect(lesson.video?.locator, lesson.id).toBeTruthy();
+        const video = findResource(catalog, lesson.video!.resourceId);
+        expect(video.kind).toBe("video");
+        expect(video.access).toBe("free");
+        expect(video.url).toMatch(
+          /^https:\/\/www\.youtube\.com\/watch\?v=[\w-]{11}$/,
+        );
         expect(lesson.objectives).toHaveLength(2);
         expect(lesson.topics.length).toBeGreaterThanOrEqual(2);
         const explanation = lesson.topics

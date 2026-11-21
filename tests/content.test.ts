@@ -3,6 +3,8 @@ import {
   allLessons,
   buildCatalog,
   eligibleLessons,
+  findResource,
+  getCatalog,
   moduleComplete,
   resourceEmbed,
 } from "../src/content/catalog";
@@ -18,6 +20,29 @@ const raw = () =>
   );
 
 describe("curated catalog", () => {
+  it("adds a playable YouTube source to every lesson without replacing existing videos", () => {
+    const original = new Map(
+      allLessons(buildCatalog(raw())).map((lesson) => [
+        lesson.id,
+        lesson.video,
+      ]),
+    );
+    const catalog = getCatalog();
+    for (const lesson of allLessons(catalog)) {
+      expect(lesson.video, lesson.id).not.toBeNull();
+      const existing = original.get(lesson.id);
+      if (existing) {
+        expect(lesson.video, lesson.id).toEqual(existing);
+      } else {
+        const resource = findResource(catalog, lesson.video!.resourceId);
+        expect(resource.access, lesson.id).toBe("free");
+        expect(resourceEmbed(resource), lesson.id).toMatch(
+          /^https:\/\/www\.youtube-nocookie\.com\/embed\/[\w-]{11}$/,
+        );
+      }
+    }
+  });
+
   it("ships every researched path with complete original learning units and reference integrity", () => {
     const catalog = buildCatalog(raw());
     expect(catalog.tracks.map((track) => track.trackId)).toEqual([

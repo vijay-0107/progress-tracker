@@ -29,6 +29,7 @@ import { advancedVersion, validateAdvancedCareers } from "./advanced-careers";
 import { CAREER_PROFILE_IDS, READINESS_GATES } from "../domain/types";
 import hostedBooks from "./hosted-books.json";
 import verifiedEmbeds from "./verified-embeds.json";
+import { addLessonVideos } from "./lesson-videos";
 
 interface HostedBook {
   downloadUrl: string;
@@ -375,7 +376,10 @@ const handoffs = import.meta.glob("./tracks/*.json", {
   import: "default",
 });
 
-export function buildCatalog(rawTracks: unknown[]): Catalog {
+export function buildCatalog(
+  rawTracks: unknown[],
+  { supplementVideos = false } = {},
+): Catalog {
   const tracks: Track[] = rawTracks.map((raw) => {
     const parsed = trackSchema.parse(raw);
     const rawMetadata = parsed.officialExamMetadata || parsed.examMetadata;
@@ -408,6 +412,7 @@ export function buildCatalog(rawTracks: unknown[]): Catalog {
     );
     return { ...parsed, edition, guidance };
   });
+  if (supplementVideos) addLessonVideos(tracks);
   const hosted: HostedBook[] = hostedBooks;
   for (const track of tracks) {
     track.resources = track.resources.map((resource) => {
@@ -479,7 +484,8 @@ export function buildCatalog(rawTracks: unknown[]): Catalog {
 
 let cached: Catalog | undefined;
 export function getCatalog(): Catalog {
-  if (!cached) cached = buildCatalog(Object.values(handoffs));
+  if (!cached)
+    cached = buildCatalog(Object.values(handoffs), { supplementVideos: true });
   return cached;
 }
 

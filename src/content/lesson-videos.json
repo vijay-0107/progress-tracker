@@ -1,0 +1,1368 @@
+{
+  "verifiedOn": "2026-11-21",
+  "sources": {
+    "_4hFAiWNM0g": {
+      "title": "React Router v7 Unit Testing Masterclass (Vitest & Suspense)",
+      "provider": "Computer Science For Everyone",
+      "locator": "Focus on routing and testing the behavior of a rendered front-end page."
+    },
+    "_nUUohpRfPE": {
+      "title": "Break-Even Analysis Explained | Fixed Costs, Contribution Margin and How Many Units You Need to Sell",
+      "provider": "Quizlet",
+      "locator": "Focus on contribution margin, fixed costs, and the break-even calculation."
+    },
+    "-6OE4-xNOuk": {
+      "title": "A Practical Learning to Rank Approach for Smoothing DCG in Web Search Relevance",
+      "provider": "Microsoft Research",
+      "locator": "Focus on how rank position changes the contribution of each relevant result to DCG."
+    },
+    "-fpVv_T4xwA": {
+      "title": "AES GCM (Advanced Encryption Standard in Galois Counter Mode) - Computerphile",
+      "provider": "Computerphile",
+      "locator": "Focus on authenticated encryption, nonces, and what GCM verifies."
+    },
+    "0_tJQSRs604": {
+      "title": "MIT CAPD's Career Toolkit: Interviewing",
+      "provider": "MIT Career Advising & Professional Development",
+      "locator": "Focus on using a specific situation, your actions, and a measurable result in an interview answer."
+    },
+    "07rJOzFRs6M": {
+      "title": "Back to Basics: Smart Pointers and RAII - Inbal Levi - CppCon 2021",
+      "provider": "CppCon",
+      "locator": "Focus on ownership, resource lifetime, and C++ smart pointers."
+    },
+    "0dG3vUYt7Uk": {
+      "title": "journalctl Basics: How to Easily Check Your Linux Logs",
+      "provider": "Learn Linux TV",
+      "locator": "Focus on using journalctl to narrow logs to a service, boot, or time window."
+    },
+    "0FdnTr6or2A": {
+      "title": "Elements of Effective Communications for Cybersecurity Teams",
+      "provider": "Software Engineering Institute | Carnegie Mellon University",
+      "locator": "Focus on what an incident report should tell technical responders and decision makers."
+    },
+    "0hx17FfzrKM": {
+      "title": "How to design & test APIs with OpenAPI & Swagger | What's changed in 3.1 & 3.2",
+      "provider": "SmartBear",
+      "locator": "Focus on defining a request and response contract and checking it with OpenAPI tooling."
+    },
+    "0I8Y_nLBazI": {
+      "title": "Introduction to deployment patterns | AZ-400 | Episode 18",
+      "provider": "Microsoft Learn",
+      "locator": "Focus on canary rollout, progressive exposure, and the decision to pause or roll back."
+    },
+    "0iIezO5a-ug": {
+      "title": "GitOps 101: Getting Started with Argo CD & Kargo",
+      "provider": "Akuity",
+      "locator": "Focus on the Git-managed desired state, Argo CD application, and synchronization workflow."
+    },
+    "1DWxo2gF-RQ": {
+      "title": "Introduction to DPDK",
+      "provider": "Root Access",
+      "locator": "Focus on user-space packet processing, queue ownership, and the basic data path."
+    },
+    "1HYFmlsX0K0": {
+      "title": "Tetragon Deep Dive Explained | eBPF Security, Runtime Observability & Tracing Policies in Kubernetes",
+      "provider": "IMESH",
+      "locator": "Focus on using runtime observations and tracing policy for authorized workload monitoring."
+    },
+    "1jPT49gJKFk": {
+      "title": "UX Metrics: Measuring The User Experience",
+      "provider": "uxcon vienna",
+      "locator": "Focus on matching experience outcomes to measurable signals and denominators."
+    },
+    "23rX78xqYUg": {
+      "title": "Temporal Introduction and Demo",
+      "provider": "Temporal",
+      "locator": "Focus on durable workflow state, replay, and retry boundaries."
+    },
+    "2a-o8MRuBvQ": {
+      "title": "Task Writing for Usability Tests | Course Preview",
+      "provider": "NNgroup",
+      "locator": "Focus on writing realistic usability tasks that do not give away the answer."
+    },
+    "2W13ext26kQ": {
+      "title": "Customer Journey Mapping 101",
+      "provider": "NNgroup",
+      "locator": "Focus on steps, touchpoints, and handoffs in a journey map."
+    },
+    "3Q_XbPmICPg": {
+      "title": "Introduction to Data Mesh with Zhamak Dehghani",
+      "provider": "Stanford Deep Data Research Center",
+      "locator": "Focus on data product ownership, service boundaries, and fitness for consumers."
+    },
+    "3Z3wfOcvMuE": {
+      "title": "CIS Benchmarks™",
+      "provider": "CIS",
+      "locator": "Focus on using configuration baselines as measurable safeguards."
+    },
+    "4e669hSjaX8": {
+      "title": "Linux Crash Course - Understanding File & Directory Permissions",
+      "provider": "Learn Linux TV",
+      "locator": "Focus on users, groups, permission bits, and how to read them in a directory listing."
+    },
+    "4geWtITC52I": {
+      "title": "Evolve Existing Schemas (Hands-On Exercise) | Schema Registry 101",
+      "provider": "Confluent, an IBM Company",
+      "locator": "Focus on compatible schema changes and how producers and consumers handle evolution."
+    },
+    "5rNk7m_zlAg": {
+      "title": "Spring Boot & Spring Data JPA – Complete Course",
+      "provider": "freeCodeCamp.org",
+      "locator": "Focus on the REST and persistence portions, including the controller, service, and repository boundaries."
+    },
+    "5YLpjPmsPCA": {
+      "title": "What is the Transactional Outbox Pattern? | Designing Event-Driven Microservices",
+      "provider": "Confluent, an IBM Company",
+      "locator": "Focus on how the transaction and outbox record stay atomic and how consumers handle retries."
+    },
+    "64Zp3tzNbpE": {
+      "title": "Lecture 6: Fault Tolerance: Raft (1)",
+      "provider": "MIT 6.824: Distributed Systems",
+      "locator": "Focus on leader election and replicated log entries in Raft."
+    },
+    "6OuAus_cOoo": {
+      "title": "Building Fault-Tolerant Massive Ray Clusters on Anyscale | Ray Summit 2025",
+      "provider": "Anyscale",
+      "locator": "Focus on checkpointing and recovery after a worker or cluster failure."
+    },
+    "6q5-cVeNjCE": {
+      "title": "User Stories Explained: What They Are, How to Write Them, and Why They Work",
+      "provider": "Mountain Goat Software: Agile & Scrum Mastery",
+      "locator": "Focus on writing a user story around an observable user outcome."
+    },
+    "6UNYaAzpfKY": {
+      "title": "Scheduling in Airflow",
+      "provider": "Astronomer",
+      "locator": "Focus on logical dates, data intervals, and when a scheduled run processes its data."
+    },
+    "7_d74-9xKDA": {
+      "title": "Incident Response – NIST SP 800-61r3 Explained Simply",
+      "provider": "Hansani Vihanga",
+      "locator": "Focus on preparation, containment, recovery, and the follow-up loop."
+    },
+    "7HKot-brXFE": {
+      "title": "AWS Certified Cloud Practitioner Certification Course 2026 (CLF-C02) - Pass the Exam!",
+      "provider": "freeCodeCamp.org",
+      "locator": "Focus on the IAM, EC2, VPC, and service-overview chapters relevant to the lesson."
+    },
+    "7IhRc94_8fg": {
+      "title": "Build a Linux Container from Scratch | No Docker, Just Linux Namespaces",
+      "provider": "Techi Nik",
+      "locator": "Focus on how namespaces give a container its own process view and where other isolation controls fit."
+    },
+    "8GKFzJaEHac": {
+      "title": "⚡️ Enlightning - Signed, Sealed, Delivered, I’m Yours! An Introduction to Sigstore",
+      "provider": "VMware Tanzu",
+      "locator": "Focus on verifying signatures and provenance before trusting a build artifact."
+    },
+    "8k9-L8Cy_V8": {
+      "title": "Managing Infrastructure Compliance Using OPA and Terraform",
+      "provider": "HashiCorp, an IBM Company",
+      "locator": "Focus on checking a Terraform plan with a policy and testing both allowed and rejected configurations."
+    },
+    "8qj9odHceu4": {
+      "title": "Refactoring Python Code: Profile Class",
+      "provider": "teclado",
+      "locator": "Focus on refactoring a working example to make its intent easier to read."
+    },
+    "8quZUZWm4oM": {
+      "title": "Kubernetes Probes Explained | Liveness vs Readiness vs Startup",
+      "provider": "VK Seth - AWS Devops",
+      "locator": "Focus on what each startup, readiness, and liveness probe controls."
+    },
+    "8UswJ_JcI78": {
+      "title": "LoRA Fine-Tuning with Hugging Face PEFT: Adapt an LLM on One GPU in Python",
+      "provider": "Professor Py: AI Foundations",
+      "locator": "Focus on LoRA adapters, trainable parameters, and the fine-tuning workflow."
+    },
+    "92WaNz9mPeY": {
+      "title": "7. Value At Risk (VAR) Models",
+      "provider": "MIT OpenCourseWare",
+      "locator": "Focus on the assumptions behind value at risk and how to interpret a tail-loss estimate."
+    },
+    "996OiexHze0": {
+      "title": "OAuth 2.0 and OpenID Connect (in plain English)",
+      "provider": "OktaDev",
+      "locator": "Focus on which OAuth and OIDC artifacts belong to the client, resource server, and identity provider."
+    },
+    "9JmVptQRyPo": {
+      "title": "Avishai Ish-Shalom @ NodeTLV '24 | Node and the art of Backpressure",
+      "provider": "NodeTLV",
+      "locator": "Focus on how a fast producer should respond when a slow consumer cannot keep up."
+    },
+    "9K8lB61dl3Y": {
+      "title": "Lecture 5: Version Control and Git",
+      "provider": "Missing Semester",
+      "locator": "Focus on branches, commits, and a readable history for review."
+    },
+    "9LYYOdIwQXg": {
+      "title": "5 Reasons Parquet Files Are Better Than CSV for Data Analyses | PyData Global 2021",
+      "provider": "PyData",
+      "locator": "Focus on why Parquet preserves tabular types and supports selective reads compared with CSV."
+    },
+    "9mdvSD63s4Y": {
+      "title": "Analytics Engineering with dbt Workshop - Juan Manuel Perafan",
+      "provider": "DataTalksClub ⬛",
+      "locator": "Focus on building dbt model dependencies, tests, and documentation."
+    },
+    "9nKn-8cKJFw": {
+      "title": "OWASP Top Ten Proactive Controls - Jim Manico - OWASP AppSec California 2015",
+      "provider": "OWASP Foundation",
+      "locator": "Focus on defensive controls that validate input and enforce authorization at the server."
+    },
+    "9U5OEQtDl-s": {
+      "title": "Thinking in Partitions (A Dagster Deep Dive)",
+      "provider": "Dagster",
+      "locator": "Focus on partition keys, backfills, and how assets depend on upstream partitions."
+    },
+    "9UpkaF8PINI": {
+      "title": "The Harvard Principles of Negotiation",
+      "provider": "EPM",
+      "locator": "Focus on separating positions from interests and agreeing on an accountable decision."
+    },
+    "aErDyZvQjWg": {
+      "title": "How to get dynamic with secrets management",
+      "provider": "HashiCorp, an IBM Company",
+      "locator": "Focus on short-lived credentials, lease expiry, and rotation boundaries."
+    },
+    "af5RI6bLkyw": {
+      "title": "Cross-Origin Resource Sharing (CORS)",
+      "provider": "Software Engineering Institute | Carnegie Mellon University",
+      "locator": "Focus on what browser same-origin rules do and how a server grants specific cross-origin access."
+    },
+    "AGGPX11g3j0": {
+      "title": "How vLLM Became the Standard for Fast AI Inference | Simon Mo, Inferact",
+      "provider": "Lightspeed Venture Partners",
+      "locator": "Focus on continuous batching, KV-cache allocation, and the serving scheduler."
+    },
+    "aRn6YoWpzcc": {
+      "title": "Find Onboarding Funnel Drop-Off | Amplitude",
+      "provider": "Amplitude",
+      "locator": "Focus on defining funnel events, a population, and interpreting drop-off."
+    },
+    "ASiBidAFdwM": {
+      "title": "Open-Source Spotlight - SQLMesh - Toby Mao",
+      "provider": "DataTalksClub ⬛",
+      "locator": "Focus on SQL transformation lineage, dependency scopes, and impact of model changes."
+    },
+    "b6DCTjighPQ": {
+      "title": "Who Let the Pods Out? Extending Kubernetes with Custom Controllers and CRDs - Ria Bhatia",
+      "provider": "CNCF [Cloud Native Computing Foundation]",
+      "locator": "Focus on how a controller reconciles custom resources toward desired state."
+    },
+    "bBF2QVdP6UE": {
+      "title": "Episode 1 - Introduction to CycloneDX SBOM Standard",
+      "provider": "OWASP CycloneDX",
+      "locator": "Focus on what an SBOM says about components and how it supports dependency review."
+    },
+    "bBzsQCs-6Vo": {
+      "title": "Product Sense Case Interview (LIVE Coaching) – Real PM Interview Practice with Feedback",
+      "provider": "Product Games with Kristina Guseva",
+      "locator": "Focus on showing assumptions, options, and metrics in a structured product case."
+    },
+    "BnP2vls88fw": {
+      "title": "OWASP Application Security Verification Standard (ASVS) - Shanni Prutchi, Ryan Armstrong",
+      "provider": "OWASP Foundation",
+      "locator": "Focus on turning security requirements into tests and recording the scope of the verification."
+    },
+    "BQrohJ3PT7I": {
+      "title": "How to use GitHub Actions | GitHub for Beginners",
+      "provider": "GitHub",
+      "locator": "Focus on the events, jobs, and steps in a continuous-integration workflow."
+    },
+    "BsWxPI9UM4c": {
+      "title": "Why AI evals are the hottest new skill for product builders | Hamel Husain & Shreya Shankar",
+      "provider": "Lenny's Podcast",
+      "locator": "Focus on designing an evaluation set and using failures to decide what needs human review."
+    },
+    "C75kpQszAjs": {
+      "title": "OSDI12 - Spanner: Google’s Globally-Distributed Database",
+      "provider": "USENIX",
+      "locator": "Focus on replication, consistency, and the purpose of TrueTime."
+    },
+    "CjzroHXcCPw": {
+      "title": "Introducing Zeek",
+      "provider": "Corelight",
+      "locator": "Focus on what network monitoring logs reveal and where visibility is incomplete."
+    },
+    "CnqmC-CQs48": {
+      "title": "Secure containers from code to runtime | Microsoft Defender",
+      "provider": "Microsoft Mechanics",
+      "locator": "Focus on what cloud posture and container-runtime detections report and how they fit into a response workflow."
+    },
+    "CQywdSdi5iA": {
+      "title": "The Model Context Protocol (MCP)",
+      "provider": "Anthropic",
+      "locator": "Focus on tool discovery, tool calls, and the client/server responsibilities."
+    },
+    "CR4-aVvjE6A": {
+      "title": "Berlin Buzzwords 2015: Ted Dunning – Practical t-digest Applications #bbuzz",
+      "provider": "Plain Schwarz",
+      "locator": "Focus on estimating tail quantiles and comparing approximate results to exact samples."
+    },
+    "d5CdaSVqmwI": {
+      "title": "CVSS v4.0 By The Numbers",
+      "provider": "FIRST",
+      "locator": "Focus on communicating severity assumptions, prerequisites, and the boundaries of the reported impact."
+    },
+    "d7d6JN0J3SQ": {
+      "title": "OpenTelemetry Is the Kubernetes of Observability | Chris Aniszczyk, CNCF",
+      "provider": "The Linux Foundation",
+      "locator": "Focus on instrumentation, traces, metrics, and what crosses the telemetry pipeline."
+    },
+    "dIamK2NA-G8": {
+      "title": "End-to-End MLOps with MLflow and Kubeflow - Nick Chase, CloudGeometry",
+      "provider": "The Linux Foundation",
+      "locator": "Focus on model artifact tracking and how the training and serving steps connect."
+    },
+    "Do7JtnPh1Mg": {
+      "title": "PyCon.DE 2018: Concurrency In Python Concepts, Frameworks And Best Practices - Stefan Schwarzer",
+      "provider": "PyCon DE",
+      "locator": "Focus on how synchronization requirements differ between threads and processes."
+    },
+    "DS2m7T6NKZQ": {
+      "title": "CppCon 2015: Michael Wong “C++11/14/17 atomics and memory model...\"",
+      "provider": "CppCon",
+      "locator": "Focus on what an atomic operation guarantees and how happens-before orders observations."
+    },
+    "dsZdOgqms18": {
+      "title": "Inside the Making of a Zero Trust Architecture",
+      "provider": "RSAC Cybersecurity",
+      "locator": "Focus on resource-level authorization and why network location alone is insufficient."
+    },
+    "dwRWL0SOMX4": {
+      "title": "Portable High‑Performance LLM Serving: A Triton Backend for... Burkhard Ringlein & Jan van Lunteren",
+      "provider": "PyTorch Foundation",
+      "locator": "Focus on model repositories, inference backends, and serving requests."
+    },
+    "e4fwY9ZsxPw": {
+      "title": "CS50P - Lecture 8 - Object-Oriented Programming",
+      "provider": "CS50",
+      "locator": "Focus on objects, classes, methods, and the benefits of a clear public interface."
+    },
+    "E6NlTaxcrNI": {
+      "title": "Kubernetes Troubleshooting Guide Every DevOps Engineer Needs",
+      "provider": "Valaxy Technologies",
+      "locator": "Focus on how to inspect pod status, events, logs, and service routing."
+    },
+    "EA4eCY0tkpA": {
+      "title": "From Zero to Proto -- Design and Test a gRPC API",
+      "provider": "Postman",
+      "locator": "Focus on how the interface contract exposes calls and errors to consumers."
+    },
+    "EsoOGanShQ0": {
+      "title": "Antoine Pitrou - Apache Parquet : the standard, efficient file format for tabular data",
+      "provider": "Øredev Conference",
+      "locator": "Focus on the columnar representation, compression, and where predicates can prune work."
+    },
+    "f6kdp27TYZs": {
+      "title": "Google I/O 2012 - Go Concurrency Patterns",
+      "provider": "Google for Developers",
+      "locator": "Focus on goroutines, channels, and how concurrent work is coordinated."
+    },
+    "FARa5NHZh90": {
+      "title": "Secure Your File Uploads Today with OWASP | Learn Web Dev with Austin Gil",
+      "provider": "Akamai DevRel",
+      "locator": "Focus on validating upload size and type on the server and isolating storage for untrusted files."
+    },
+    "fEzEM6ADwXg": {
+      "title": "BigQuery Cost Optimization: Compute",
+      "provider": "Google Cloud Tech",
+      "locator": "Focus on how compute and storage behavior affect analytical query costs."
+    },
+    "gAGEar5HQoU": {
+      "title": "Getting Started with Docker",
+      "provider": "Docker",
+      "locator": "Focus on the image build, container runtime, and repeatable service configuration."
+    },
+    "gB5TCCfF6e4": {
+      "title": "L05.10 The Expected Value Rule",
+      "provider": "MIT OpenCourseWare",
+      "locator": "Focus on calculating expected value from the outcomes and their probabilities."
+    },
+    "GCkdiHk6fUY": {
+      "title": "Memory Analysis with NVIDIA Nsight Compute | CUDA Developer Tools",
+      "provider": "NVIDIA Developer",
+      "locator": "Focus on using profiling metrics to distinguish bandwidth from compute limits."
+    },
+    "GoXwIVyNvX0": {
+      "title": "Intro to Java Programming - Course for Absolute Beginners",
+      "provider": "freeCodeCamp.org",
+      "locator": "Focus on the classes, interfaces, and collections portions of the course."
+    },
+    "gQF23Vw0keg": {
+      "title": "Envoy Internals Deep Dive - Matt Klein, Lyft (Advanced Skill Level)",
+      "provider": "CNCF [Cloud Native Computing Foundation]",
+      "locator": "Focus on how a control plane distributes listener and route configuration."
+    },
+    "gRE3E7VUzRU": {
+      "title": "Data Modeling Tutorial: Star Schema (aka Kimball Approach)",
+      "provider": "Kahan Data Solutions",
+      "locator": "Focus on declaring grain and connecting fact rows to dimension tables."
+    },
+    "gvounvDSDGg": {
+      "title": "Basics of load testing with k6 and Grafana in 20 minutes",
+      "provider": "k6",
+      "locator": "Focus on workload scenarios, response-time metrics, and load-test thresholds."
+    },
+    "h8-Mnjq6EsU": {
+      "title": "Write a Sigma rule in 120 seconds",
+      "provider": "SOC Prime",
+      "locator": "Focus on mapping a detection rule to stable fields and testing it with labelled events."
+    },
+    "hFNnNVawHhk": {
+      "title": "Redis Full Course 2026 | Caching, Rate Limiting, Pub/Sub",
+      "provider": "Sangam Mukherjee",
+      "locator": "Focus on cache-aside lookups, key expiration, and invalidation."
+    },
+    "Hm_wEUCdhtk": {
+      "title": "Linux command-line: Setting CPU affinity to a process on Linux",
+      "provider": "Chandrashekar Babu",
+      "locator": "Focus on how Linux represents which CPUs a process can use; focus on inspecting the effective mask."
+    },
+    "hNcl85ukNeg": {
+      "title": "Does this seem right? Investor.gov has answers to your investing questions.",
+      "provider": "U.S. Securities and Exchange Commission",
+      "locator": "Focus on how to check a claim and verify a source before sharing money or information."
+    },
+    "HODjaSPQdPQ": {
+      "title": "Getting into Terraform, Part 5: Modules",
+      "provider": "HashiCorp, an IBM Company",
+      "locator": "Focus on splitting infrastructure into modules and reasoning about inputs and outputs."
+    },
+    "HOe_U9J37yA": {
+      "title": "Key Concepts | Understanding Time",
+      "provider": "QuantConnect",
+      "locator": "Focus on why timestamp meaning and when data becomes available matter in a backtest."
+    },
+    "HUZppOYDoXs": {
+      "title": "Introduction to Testcontainers",
+      "provider": "SpringDeveloper",
+      "locator": "Focus on using temporary real dependencies to test application boundaries."
+    },
+    "hX7EX9ukbmw": {
+      "title": "Golang Graceful Shutdown Tutorial | HTTP Server & Context Timeout",
+      "provider": "Shourov Roy",
+      "locator": "Focus on tracking active requests while an HTTP server shuts down."
+    },
+    "IBfWDYSffUU": {
+      "title": "10. Depth-First Search",
+      "provider": "MIT OpenCourseWare",
+      "locator": "Focus on depth-first traversal, adjacency representation, and how visited state prevents repeats."
+    },
+    "IDc3SzRbkxM": {
+      "title": "PyTorch ONNX Export Support - Lara Haidar, Microsoft",
+      "provider": "PyTorch Foundation",
+      "locator": "Focus on export inputs, graph conversion, and checking outputs in ONNX Runtime."
+    },
+    "IHtVWGhG0Xg": {
+      "title": "#04 - Database Storage: Log-Structured Merge Trees & Tuples (CMU Intro to Database Systems)",
+      "provider": "CMU Database Group",
+      "locator": "Focus on the write path, sorted runs, and compaction in a log-structured store."
+    },
+    "IJxgI6P0beU": {
+      "title": "Portfolio Rebalancing Explained - What, When, Why, and How",
+      "provider": "Optimized Portfolio",
+      "locator": "Focus on how diversification and rebalancing affect a portfolio's risk exposure."
+    },
+    "IPvYjXCsTg8": {
+      "title": "Computer Networking Full Course - OSI Model Deep Dive with Real Life Examples",
+      "provider": "Kunal Kushwaha",
+      "locator": "Focus on how transport and application layers relate when a request crosses a network."
+    },
+    "ipWNpSVEZ7o": {
+      "title": "Unlock Your Use Cases: A Deep Dive on Structured Streaming’s New TransformWithState API",
+      "provider": "Databricks",
+      "locator": "Focus on stateful stream processing, event time, and how progress is checkpointed."
+    },
+    "iQNZ7Ifej94": {
+      "title": "Vulnerability Disclosure Policy (VDP) Platform 101",
+      "provider": "CISA",
+      "locator": "Focus on authorized scope, safe harbor, intake, and coordinated follow-up."
+    },
+    "iYWKfUOtGaw": {
+      "title": "How do I merge DataFrames in pandas?",
+      "provider": "Data School",
+      "locator": "Focus on joining DataFrames by key, join types, and verifying the resulting rows."
+    },
+    "j-yYTGBCDrs": {
+      "title": "AWS re:Inforce 2025 - Build security monitoring and response at scale (GRC421)",
+      "provider": "AWS Events",
+      "locator": "Focus on collecting audit events and turning detections into bounded response workflows."
+    },
+    "j3QTPGFhqIg": {
+      "title": "Lean GUI Tutorial",
+      "provider": "QuantConnect",
+      "locator": "Focus on the backtesting workflow and the difference between simulated and actual execution."
+    },
+    "jNF3SP95NQo": {
+      "title": "Making Unit Economics Actionable, with Anastassia Storozhev",
+      "provider": "FinOps Foundation",
+      "locator": "Focus on defining a useful unit of work and attributing cloud cost to it."
+    },
+    "jrIJT01E8Xw": {
+      "title": "Large Language Model inference with ONNX Runtime (Kunal Vaishnavi)",
+      "provider": "ONNX Runtime",
+      "locator": "Focus on ONNX Runtime inference and the effects of model optimization."
+    },
+    "jT7X6-gjTU8": {
+      "title": "Getting into Terraform, Part 1: Introduction",
+      "provider": "HashiCorp, an IBM Company",
+      "locator": "Focus on what a Terraform plan previews and what an apply changes."
+    },
+    "jY02MB-sz8I": {
+      "title": "4. How Kafka Works | Apache Kafka Fundamentals",
+      "provider": "Confluent, an IBM Company",
+      "locator": "Focus on partitions, offsets, and the boundaries of delivery guarantees."
+    },
+    "kbp48dQBfpM": {
+      "title": "Safe harbor: Researching responsibly with MSRC",
+      "provider": "Microsoft Security Response Center (MSRC)",
+      "locator": "Focus on establishing authorized scope, safe harbor, and a way to report findings."
+    },
+    "kE4BkATIl9c": {
+      "title": "OpenAI DevDay 2024 | Structured outputs for reliable applications",
+      "provider": "OpenAI",
+      "locator": "Focus on using a schema to validate model output at the application boundary."
+    },
+    "kiIvKD6xIQY": {
+      "title": "HikariCP Connection Pooling in Java | JDBC Performance Boost (Practical Guide) | Part 5.",
+      "provider": "Analyst Adda",
+      "locator": "Focus on what happens when an application borrows and returns a JDBC connection."
+    },
+    "l_jjjgwNRI0": {
+      "title": "The safe way to run zero-downtime database migrations",
+      "provider": "programmerCave",
+      "locator": "Focus on staging compatible schema changes so old and new versions can run together."
+    },
+    "L3nlGfSyHV0": {
+      "title": "False Discovery Rates, FDR, clearly explained",
+      "provider": "StatQuest with Josh Starmer",
+      "locator": "Focus on the false discovery rate and how to interpret results after many hypotheses are tested."
+    },
+    "lfjeLFDVdPA": {
+      "title": "Algorithm Framework Tutorial - Building Robust Models in QuantConnect",
+      "provider": "QuantConnect",
+      "locator": "Focus on separating signal generation, portfolio decisions, risk controls, and simulated execution."
+    },
+    "Lg49whvL3S8": {
+      "title": "Pipelines with SciKit-Learn [2020-09-21]",
+      "provider": "Victor Geislinger",
+      "locator": "Focus on putting preprocessing and a model in one pipeline for validation."
+    },
+    "M_teob23ZzY": {
+      "title": "Lecture 4: Primary-Backup Replication",
+      "provider": "MIT 6.824: Distributed Systems",
+      "locator": "Focus on primary/backup roles and what happens after a failure."
+    },
+    "Mioqyv_IW3E": {
+      "title": "Basic cash flow statement | Finance & Capital Markets | Khan Academy",
+      "provider": "Khan Academy",
+      "locator": "Focus on the differences among operating, investing, and financing cash flows."
+    },
+    "MmEa4r5STfM": {
+      "title": "Access Control Design: Fixing Broken Access Control",
+      "provider": "RAD Security",
+      "locator": "Focus on enforcing object and function authorization at the server and reviewing tests for missing checks."
+    },
+    "MpDJ6TCWKjk": {
+      "title": "What is the AWS Well-Architected Framework? (and why you need to learn about it)",
+      "provider": "Tech With Lucy",
+      "locator": "Focus on using the framework's pillars to structure a workload review."
+    },
+    "mRU6HO1t0vg": {
+      "title": "How to Pass Your Compliance Audit With AWS | Amazon Web Services",
+      "provider": "Amazon Web Services",
+      "locator": "Focus on mapping audit controls to dated, attributable evidence."
+    },
+    "mtPM3iZFE04": {
+      "title": "For Your Eyes Only: Roles, Privileges, and Security in PostgreSQL | Citus Con 2023",
+      "provider": "Microsoft Developer",
+      "locator": "Focus on separating database roles, privileges, and row-level policy."
+    },
+    "MtsRSkV4HUg": {
+      "title": "Session 8: Closure on Cost of Capital + First steps on cash flows",
+      "provider": "Aswath Damodaran",
+      "locator": "Focus on choosing a cost of capital consistent with the cash flows being discounted."
+    },
+    "n-3HUkJZ-fY": {
+      "title": "Setting Up Python Environment",
+      "provider": "Dimitri Bianco",
+      "locator": "Focus on creating an isolated Python environment and installing project dependencies."
+    },
+    "n4y9dwinPBQ": {
+      "title": "Incident Management (class SRE implements DevOps)",
+      "provider": "Google Cloud Tech",
+      "locator": "Focus on declaring incidents, assigning roles, and communicating during recovery."
+    },
+    "N5b0CayG5rg": {
+      "title": "PostgreSQL queues done right with PgQ | POSETTE: An Event for Postgres 2026",
+      "provider": "Microsoft Developer",
+      "locator": "Focus on row locking, worker claims, and the retry behavior of a PostgreSQL job queue."
+    },
+    "NnMthpR6Sn4": {
+      "title": "Traders Edge: Liquidity Part 2 - Bid/Offer Spreads, Order Book",
+      "provider": "CME Group",
+      "locator": "Focus on the quoted spread, order-book depth, and measured liquidity."
+    },
+    "nu6bLhuvlWM": {
+      "title": "GPUs on Kubernetes: What Actually Happens When You Request Nvidia... Gulcan Topcu & Daniele Polencic",
+      "provider": "CNCF [Cloud Native Computing Foundation]",
+      "locator": "Focus on how a pod's GPU resource request reaches the NVIDIA device plugin and container runtime."
+    },
+    "NWNmTsZteJA": {
+      "title": "Introduction to data testing with Great Expectations",
+      "provider": "JorikTech",
+      "locator": "Focus on writing data checks and interpreting validation failures."
+    },
+    "o13AuovPTR4": {
+      "title": "Teresa Torres - Changing the way we work by introducing continuous discovery habits",
+      "provider": "Global Agile Summit",
+      "locator": "Focus on connecting discovery conversations to a measurable outcome and candidate opportunities."
+    },
+    "o7OnkMdmjLg": {
+      "title": "Lecture 13: Portfolio Management",
+      "provider": "MIT OpenCourseWare",
+      "locator": "Focus on how covariance and weights change portfolio risk and why diversification matters."
+    },
+    "Oe421EPjeBE": {
+      "title": "Node.js and Express.js - Full Course",
+      "provider": "freeCodeCamp.org",
+      "locator": "Focus on the HTTP request, middleware chain, and route handler in the Node/Express examples."
+    },
+    "PAfcUzkugHM": {
+      "title": "Retries, Backoff, and Jitter: Handling AWS Throttling & Failures",
+      "provider": "Cloud Explainers",
+      "locator": "Focus on retry budgets, capped backoff, and jitter under failure."
+    },
+    "paoEOWbyBxE": {
+      "title": "Introducing AWS Lambda MicroVMs | Serverless Office Hours",
+      "provider": "AWS Events",
+      "locator": "Focus on microVM isolation and the service boundary around each workload."
+    },
+    "pcUc5eIREU8": {
+      "title": "LLM inference Optimization: From Token to Scale",
+      "provider": "YanAITalk",
+      "locator": "Focus on time to first token, generation latency, and how request load changes the measurements."
+    },
+    "pgjk81lr_H8": {
+      "title": "EP. 1: Introduction to Microsoft Sentinel",
+      "provider": "Microsoft UK",
+      "locator": "Focus on ingesting security events, building detections, and grouping incidents."
+    },
+    "PGQVmE13ZwM": {
+      "title": "Sector Weighted Portfolio Tutorial: Reducing Risk Exposure in QuantConnect",
+      "provider": "QuantConnect",
+      "locator": "Focus on sizing portfolio positions and limiting concentrated exposure in a paper simulation."
+    },
+    "pKPiPplJNak": {
+      "title": "AWS re:Invent 2021 - A least privilege journey: AWS IAM policies and Access Analyzer",
+      "provider": "AWS Events",
+      "locator": "Focus on permissions boundaries, policies, and reasoning from least privilege."
+    },
+    "PO0Jf5R4MK4": {
+      "title": "Design Distributed Locks System Design Architecture | By Microsoft SDE",
+      "provider": "Mayank Joshi",
+      "locator": "Focus on what can go wrong when a lease expires while an earlier owner is still running."
+    },
+    "pPPiaGU12Og": {
+      "title": "The NIST Cybersecurity Framework (CSF) 2.0",
+      "provider": "National Institute of Standards and Technology",
+      "locator": "Focus on the CSF functions and how to create a current profile with assigned improvement priorities."
+    },
+    "Ps3X7WcwG_w": {
+      "title": "Container Security 101: Linux Namespaces",
+      "provider": "Hack the Clown",
+      "locator": "Focus on how process namespaces isolate what a container can see."
+    },
+    "pSPAtAI2q30": {
+      "title": "Workload Identity Part 1: Introduction to SPIFFE and SPIRE",
+      "provider": "The Learning Channel",
+      "locator": "Focus on workload identity documents, trust domains, and rotation without static secrets."
+    },
+    "pUxyukqoXR4": {
+      "title": "HTTP/3 Is Next Generation HTTP. Is It QUIC Enough? • Daniel Stenberg • GOTO 2020",
+      "provider": "GOTO Conferences",
+      "locator": "Focus on what changes between HTTP versions when transport moves from TCP to QUIC."
+    },
+    "pZV9FvdKmLc": {
+      "title": "DuckDB: How to Build 100x Faster Analytics Databases (with Co-Creator Hannes Mühleisen)",
+      "provider": "Developer Voices",
+      "locator": "Focus on how DuckDB executes analytical queries and which workload fits an embedded engine."
+    },
+    "Q2qjnLO3I_M": {
+      "title": "Ses 12: Options III & Risk and Return I",
+      "provider": "MIT OpenCourseWare",
+      "locator": "Focus on how expected return and risk relate and how to compare positions over a stated horizon."
+    },
+    "qa5-mKVSQHQ": {
+      "title": "CS50 SQL - Lecture 5 - Optimizing",
+      "provider": "CS50",
+      "locator": "Focus on index selection and comparing query plans before and after a change."
+    },
+    "qBFENFjKE-M": {
+      "title": "Accelerating LLM Inference with vLLM",
+      "provider": "Databricks",
+      "locator": "Focus on the proposal and verification stages of speculative decoding."
+    },
+    "QEdQw9pZV14": {
+      "title": "Amortization schedules and time to pay off | Financial mathematics (TX TEKS) | Khan Academy",
+      "provider": "Khan Academy",
+      "locator": "Focus on amortization schedules and how repayment affects interest and principal."
+    },
+    "qfK9rCDCicE": {
+      "title": "5. Insurance, the Archetypal Risk Management Institution, its Opportunities and Vulnerabilities",
+      "provider": "YaleCourses",
+      "locator": "Focus on risk pooling, incentives, and the limits of insurance."
+    },
+    "qFYap9_-RTQ": {
+      "title": "Post-Quantum Cryptography at NIST",
+      "provider": "IIE Soc",
+      "locator": "Focus on post-quantum migration and how to plan for replaceable cryptographic algorithms."
+    },
+    "qtboCGd_hTA": {
+      "title": "Online Controlled Experiments: Lessons from Running A/B/n Tests for 12 Years, Ron Kohavi 20151130",
+      "provider": "San Francisco Bay ACM",
+      "locator": "Focus on randomization, guardrail metrics, and false conclusions in controlled experiments."
+    },
+    "r4-cftqTcdI": {
+      "title": "15. Dynamic Programming, Part 1: SRTBOT, Fib, DAGs, Bowling",
+      "provider": "MIT OpenCourseWare",
+      "locator": "Focus on defining subproblems, a recurrence, and an evaluation order."
+    },
+    "rD3nBaS3OG4": {
+      "title": "RPO and RTO Explained",
+      "provider": "Amazon Web Services",
+      "locator": "Focus on the difference between data-loss and recovery-time objectives."
+    },
+    "RDbzp0jpipc": {
+      "title": "Problem set 5 - an introduction to time series",
+      "provider": "Ben Lambert",
+      "locator": "Focus on stationarity, serial correlation, and the assumptions behind time-series forecasts."
+    },
+    "RGslyyVpLQE": {
+      "title": "Apache Arrow Flight: Accelerating Columnar Dataset Transport (Wes McKinney, Ursa Labs)",
+      "provider": "CMU Database Group",
+      "locator": "Focus on Arrow Flight RPC and transferring batches of columnar data."
+    },
+    "ruFWFUkpbQk": {
+      "title": "The Volatility Smile - Options Trading Lessons",
+      "provider": "Patrick Boyle",
+      "locator": "Focus on how implied volatility varies across strike or maturity."
+    },
+    "S-aGKOat5lY": {
+      "title": "Security Chats: Defending AI Systems with Santiago Zanella-Béguelin",
+      "provider": "Microsoft Security Response Center (MSRC)",
+      "locator": "Focus on trust boundaries, tool permissions, and safeguards for untrusted model inputs."
+    },
+    "sjq3toGtr0U": {
+      "title": "3 Backtesting Pitfalls That Ruin Your Trading Strategy",
+      "provider": "Roman Paolucci",
+      "locator": "Focus on look-ahead bias, overfitting, and which assumptions need an out-of-sample check."
+    },
+    "SOVGEsV5O9A": {
+      "title": "Scrum in Jira Software (team-managed projects)",
+      "provider": "Atlassian",
+      "locator": "Focus on how a team represents a backlog, ownership, and handoffs in Jira."
+    },
+    "SpwzRDUQ1GI": {
+      "title": "Learn TypeScript - Full Course for Beginners",
+      "provider": "freeCodeCamp.org",
+      "locator": "Focus on narrowing and generics in the typed examples."
+    },
+    "SqcXvc3ZmRU": {
+      "title": "System Design Primer ⭐️: How to start with distributed systems?",
+      "provider": "Gaurav Sen",
+      "locator": "Focus on identifying requirements, estimating load, and evaluating trade-offs between components."
+    },
+    "SUO0rQerpMk": {
+      "title": "Tutorial: Debugging with Strace - A Peek Behind the Scenes of Linux Processes - Avikam Rozenfeld",
+      "provider": "The Linux Foundation",
+      "locator": "Focus on reading system-call traces to connect a process to file or socket activity."
+    },
+    "sX2nF1fW7kI": {
+      "title": "When Nanoseconds Matter: Ultrafast Trading Systems in C++ - David Gross - CppCon 2024",
+      "provider": "CppCon",
+      "locator": "Focus on latency measurement, data layout, and the hot path of an event-driven C++ system."
+    },
+    "SyayPSrsAhI": {
+      "title": "How ClickHouse optimizes Top-N queries",
+      "provider": "ClickHouse",
+      "locator": "Focus on how ClickHouse reduces the data read for ordered queries."
+    },
+    "szU5b972F7E": {
+      "title": "Back to Basics: Move Semantics - Ben Saks - CppCon 2025",
+      "provider": "CppCon",
+      "locator": "Focus on the move operation, reference categories, and what the source object can still do."
+    },
+    "Tiyystl8x40": {
+      "title": "Understanding Market, Limit, and Stop Orders",
+      "provider": "Charles Schwab",
+      "locator": "Focus on market, limit, and stop orders and how the order choice changes fill certainty."
+    },
+    "TlvrQ8gXtqE": {
+      "title": "W6_L6: Context switching",
+      "provider": "IIT Madras - B.S. Degree Programme",
+      "locator": "Focus on how the operating system saves a running task's state and schedules another."
+    },
+    "tmM1CyzJjIo": {
+      "title": "Understand Payment Intent lifecycle management – Building rock-solid Stripe integrations #4",
+      "provider": "Stripe Developers",
+      "locator": "Focus on payment states, asynchronous transitions, and retry-safe integrations."
+    },
+    "TnrXR6rYtQk": {
+      "title": "Brendan Gregg - Linux Profiling at Netflix - SCALE 13x",
+      "provider": "Southern California Linux Expo",
+      "locator": "Focus on profiling CPU hotspots and interpreting samples before changing a workload."
+    },
+    "tUFha9-DuSk": {
+      "title": "#20 - MVCC: Multi-Version Concurrency Control (CMU Intro to Database Systems)",
+      "provider": "CMU Database Group",
+      "locator": "Focus on version visibility and how concurrent database transactions read data."
+    },
+    "Txny5HLCImY": {
+      "title": "Making Sense of AWS Pricing | Amazon Web Services",
+      "provider": "Amazon Web Services",
+      "locator": "Focus on cost drivers and how to compare the assumptions of two AWS estimates."
+    },
+    "U5bJVAo5HnA": {
+      "title": "NCCL Explained - NVIDIA Collective Communications Library for Multi-GPU AI Training",
+      "provider": "ErrorFixer",
+      "locator": "Focus on collective operations and why communication topology matters."
+    },
+    "U5XabQQJka4": {
+      "title": "Unlocking Local LLMs with Quantization - Marc Sun, Hugging Face",
+      "provider": "The Linux Foundation",
+      "locator": "Focus on which weights are compressed and where scales, packing, and formats affect inference."
+    },
+    "U7tMwDUpBxM": {
+      "title": "Session 9: Tax rates, Cap Ex and Working Capital",
+      "provider": "Aswath Damodaran",
+      "locator": "Focus on the connection between working capital and a firm's cash flows."
+    },
+    "UITUA486dRo": {
+      "title": "Episode 06 | Kubernetes Security for DevSecOps | RBAC, Network Policies, Pod Security",
+      "provider": "Yash Academy",
+      "locator": "Focus on the roles of RBAC, pod security policy, and network policy in workload isolation."
+    },
+    "uIuBBp3Ib64": {
+      "title": "OpenLineage - A Common Observability Framework for Data Pipelines",
+      "provider": "Datadog Community",
+      "locator": "Focus on how jobs, runs, and datasets form a lineage graph."
+    },
+    "uMD8Sx81dz8": {
+      "title": "How We Built an Internal Developer Platform and Evolved It Into... Gang Luo & Kristina Kondrashevich",
+      "provider": "CNCF [Cloud Native Computing Foundation]",
+      "locator": "Focus on which platform capabilities are exposed to developers and how adoption is measured."
+    },
+    "v2LcTzpUOYU": {
+      "title": "How To Write C++ Extensions in 2026 - Jane Xu, Meta & Mikayla Gawarecki, Meta",
+      "provider": "PyTorch Foundation",
+      "locator": "Focus on crossing the ownership and API boundary when Python calls a C++ extension."
+    },
+    "VCNxcBjVOIk": {
+      "title": "Unleashing Event Driven Capabilities With KEDA - Jorge Turrado & Zbynek Roubalik",
+      "provider": "CNCF [Cloud Native Computing Foundation]",
+      "locator": "Focus on how KEDA translates event-source metrics into a workload scaling decision."
+    },
+    "VOrtECHJcK4": {
+      "title": "How to prioritize features using the RICE framework",
+      "provider": "Nilan Marktanner",
+      "locator": "Focus on scoring reach, impact, confidence, and effort before making a priority decision."
+    },
+    "vRmUI0VdsQw": {
+      "title": "AWS re:Invent 2024 - Amazon S3 security and access control best practices (STG304)",
+      "provider": "AWS Events",
+      "locator": "Focus on S3 access controls and how encryption and least-privilege policies fit together."
+    },
+    "vsn7BzJLBzo": {
+      "title": "JavaParser: where should we head? How to generate, transform, analyze, refactor Java code",
+      "provider": "FOSDEM",
+      "locator": "Focus on parsing Java code into an AST and using that structure for source analysis."
+    },
+    "vvTKjm94Ars": {
+      "title": "Cointegration - an introduction",
+      "provider": "Ben Lambert",
+      "locator": "Focus on the difference between short-run co-movement and a long-run cointegrating relation."
+    },
+    "vzh89Sl5lEI": {
+      "title": "Ultra-Low-Latency FPGA Trading with Nasdaq-Developed ITCH & OUCH",
+      "provider": "DGIPcore",
+      "locator": "Focus on message formats in an exchange feed and why deterministic parsing matters."
+    },
+    "W8j-IsFeCqY": {
+      "title": "Master Delta Lake key Capabilities: MERGE, ACID, Schema Evolution, CDF, Zero-Copy cloning (Demo)",
+      "provider": "That Databricks Guy!",
+      "locator": "Focus on MERGE operations, schema evolution, and transaction history."
+    },
+    "wGIGTjZBVhk": {
+      "title": "Keynote: Overview of gRPC - Sreenithi Sridharan, Google",
+      "provider": "CNCF [Cloud Native Computing Foundation]",
+      "locator": "Focus on the protobuf interface, generated client/server code, and streaming lifecycle."
+    },
+    "wnttJp9KsC8": {
+      "title": "Build product roadmaps in Confluence | Atlassian",
+      "provider": "Atlassian",
+      "locator": "Focus on communicating sequence, dependencies, and ownership in a roadmap."
+    },
+    "WQDbX0agk-I": {
+      "title": "Handling Message Errors and Dead Letter Queues in Apache Kafka ft. Jason Bell",
+      "provider": "Confluent, an IBM Company",
+      "locator": "Focus on retryable failures, dead-letter routing, and the record context retained for recovery."
+    },
+    "wrRm3iaAvCU": {
+      "title": "Shuffle Explained in Databricks: Why Spark Jobs Become Slow",
+      "provider": "Alberto Gaytan",
+      "locator": "Focus on which operations trigger a shuffle and how skew changes partition cost."
+    },
+    "wsrqczquMjA": {
+      "title": "Getting started with GDPR compliance: Data Protection by Design",
+      "provider": "OneTrust",
+      "locator": "Focus on turning purpose, minimization, and protection by design into product requirements."
+    },
+    "wyGLz8CPdRQ": {
+      "title": "Exactly-Once Semantics Revisited: Distributed Transactions across Flink and Kafka",
+      "provider": "Confluent, an IBM Company",
+      "locator": "Focus on how Flink checkpoints coordinate with Kafka transactions to recover durable output."
+    },
+    "X48VuDVv0do": {
+      "title": "Kubernetes Tutorial for Beginners [FULL COURSE in 4 Hours]",
+      "provider": "TechWorld with Nana",
+      "locator": "Focus on the pods, deployments, and services examples."
+    },
+    "x7drE24geUw": {
+      "title": "CRDTs: The Hard Parts",
+      "provider": "Martin Kleppmann",
+      "locator": "Focus on why replicas diverge and how merge rules give a repeatable resulting state."
+    },
+    "Xb2zm4-F1HI": {
+      "title": "A Deep Dive into Spark SQL's Catalyst Optimizer (Cheng Lian + Maryann Xue, DataBricks)",
+      "provider": "CMU Database Group",
+      "locator": "Focus on logical plans, optimization rules, and physical execution."
+    },
+    "xDKnMXtZKq8": {
+      "title": "14. Caching and Cache-Efficient Algorithms",
+      "provider": "MIT OpenCourseWare",
+      "locator": "Focus on cache locality and how memory access patterns affect the measured workload."
+    },
+    "XgFzHXOk8IQ": {
+      "title": "The Complete Guide to WebSockets",
+      "provider": "Hussein Nasser",
+      "locator": "Focus on connection lifetime and event delivery with WebSockets."
+    },
+    "Xh8Xduwxl60": {
+      "title": "No one needs to care about table formats with Databricks' Ryan Blue, creator of Apache Iceberg",
+      "provider": "Databricks",
+      "locator": "Focus on table metadata, snapshots, and the role of an open table format."
+    },
+    "xlCsXD2yh9E": {
+      "title": "How to detect duplicate Stripe API calls from your AWS app",
+      "provider": "Stripe Developers",
+      "locator": "Focus on how request identity is used to recognize a retry and prevent duplicate payment effects."
+    },
+    "XoGvCBRnwLs": {
+      "title": "Building a distributed training framework from first principles",
+      "provider": "Umar Jamil",
+      "locator": "Focus on tensor and pipeline parallelism and the resulting communication costs."
+    },
+    "xTjG2tuQWNM": {
+      "title": "What Happens When the Federal Reserve Changes Rates?",
+      "provider": "Federal Reserve Bank of St. Louis",
+      "locator": "Focus on the channels through which policy rates affect borrowing, demand, and inflation."
+    },
+    "y2ILKr8kCJU": {
+      "title": "Risk and Error Budgets (class SRE implements DevOps)",
+      "provider": "Google Cloud Tech",
+      "locator": "Focus on using an error budget to choose alerting and release decisions."
+    },
+    "Y4SvqTtOIDk": {
+      "title": "2020 LLVM Developers’ Meeting: M. Amini & R. Riddle “MLIR Tutorial”",
+      "provider": "LLVM",
+      "locator": "Focus on moving a program through dialects and lowering operations."
+    },
+    "ymVGg6woUtc": {
+      "title": "PGConf NYC 2022 Understanding PostgreSQL Query Plans (aka EXPLAIN) by Stephen Frost",
+      "provider": "United States PostgreSQL Association",
+      "locator": "Focus on using EXPLAIN to connect planner estimates to actual query execution."
+    },
+    "YS4e4q9oBaU": {
+      "title": "Learn Go Programming - Golang Tutorial for Beginners",
+      "provider": "freeCodeCamp.org",
+      "locator": "Focus on Go declarations, types, collections, and handling errors in the examples."
+    },
+    "Yt0PhyEdZXU": {
+      "title": "The Four Question Framework For Threat Modeling",
+      "provider": "Adam Shostack",
+      "locator": "Focus on identifying assets, trust boundaries, threats, and proportionate mitigations."
+    },
+    "YXkOdWBwqaA": {
+      "title": "Rate Limiter System Design: Token Bucket, Leaky Bucket, Scaling",
+      "provider": "ByteByteGo",
+      "locator": "Focus on the token-bucket example, including replenishment, bursts, and rejected requests."
+    },
+    "ZfapPBwteBE": {
+      "title": "Conditional Access and Automated Permissioning in Microsoft Entra",
+      "provider": "Microsoft Mechanics",
+      "locator": "Focus on identity policy and conditional access decisions."
+    },
+    "zkWa2ZDjwb4": {
+      "title": "Checkpoints and Recovery | Apache Flink 101",
+      "provider": "Confluent, an IBM Company",
+      "locator": "Focus on the checkpoint and state-recovery boundaries of a streaming job."
+    },
+    "ZMUKa2kWtTk": {
+      "title": "Back to Basics: Standard Library Containers in Cpp - Rainer Grimm - CppCon 2022",
+      "provider": "CppCon",
+      "locator": "Focus on container guarantees and when a sequence, map, or set is appropriate."
+    },
+    "zqsOEzKZX2Y": {
+      "title": "ZeRO & Fastest BERT: Increasing the scale and speed of deep learning training in DeepSpeed",
+      "provider": "Microsoft Research",
+      "locator": "Focus on what ZeRO partitions at each stage and how that changes per-worker memory."
+    },
+    "Zrxn247FqtM": {
+      "title": "Understanding the Apigee API developer portal",
+      "provider": "Google Cloud Tech",
+      "locator": "Focus on what a developer needs to discover an API and reach a first successful call."
+    },
+    "ZYeE4sYoRkw": {
+      "title": "Introducing Keras Recommenders: state-of-the-art recommendation techniques at your fingertips",
+      "provider": "Google for Developers",
+      "locator": "Focus on retrieval and ranking stages in a recommendation system."
+    },
+    "Zzwq9FmZdsU": {
+      "title": "An Introduction to Helm - Matt Farina, Samsung SDS & Josh Dolitsky, Blood Orange",
+      "provider": "CNCF [Cloud Native Computing Foundation]",
+      "locator": "Focus on chart templates, values, and an installed release."
+    }
+  },
+  "lessons": {
+    "sk-ai-l02-pandas-for-cleaning-joining-and-exploring-data": "iYWKfUOtGaw",
+    "sk-ai-l04-scikit-learn-pipelines-cross-validation-and-grad": "Lg49whvL3S8",
+    "sk-ai-l08-fine-tuning-with-trainer-and-parameter-efficient": "8UswJ_JcI78",
+    "sk-ai-l09-collaborative-filtering-two-tower-models-and-vec": "ZYeE4sYoRkw",
+    "sk-ai-l10-learning-to-rank-and-ranking-metrics": "-6OE4-xNOuk",
+    "sk-ai-l14-model-context-protocol-servers-and-tool-security": "CQywdSdi5iA",
+    "sk-ai-l18-llm-security-prompt-injection-data-leakage-and-g": "S-aGKOat5lY",
+    "sk-ai-l19-serving-llms-and-models-batching-vllm-caching-an": "AGGPX11g3j0",
+    "sk-ai-l20-quantisation-onnx-export-and-cpu-inference": "jrIJT01E8Xw",
+    "advanced-d2-foundation-02-onnx": "IDc3SzRbkxM",
+    "advanced-d2-foundation-03-serving-runtimes": "dwRWL0SOMX4",
+    "advanced-d2-foundation-04-gpu-container": "nu6bLhuvlWM",
+    "advanced-d2-foundation-05-hardware-budgets": "GCkdiHk6fUY",
+    "advanced-d2-intermediate-01-native-loader": "v2LcTzpUOYU",
+    "advanced-d2-intermediate-02-quantization": "U5XabQQJka4",
+    "advanced-d2-intermediate-02-speculative": "qBFENFjKE-M",
+    "advanced-d2-intermediate-03-engines-sse": "AGGPX11g3j0",
+    "advanced-d2-intermediate-04-workflow-engines": "dIamK2NA-G8",
+    "advanced-d2-intermediate-05-gpu-token-metrics": "pcUc5eIREU8",
+    "advanced-d2-advanced-02-attention-kv": "AGGPX11g3j0",
+    "advanced-d2-advanced-02-continuous-batching": "AGGPX11g3j0",
+    "advanced-d2-advanced-03-parallelism": "XoGvCBRnwLs",
+    "advanced-d2-advanced-03-zero": "zqsOEzKZX2Y",
+    "advanced-d2-advanced-04-collectives-fabrics": "U5bJVAo5HnA",
+    "advanced-d2-advanced-05-sandbox-runtimes": "paoEOWbyBxE",
+    "advanced-d2-professional-01-compiler-targets": "Y4SvqTtOIDk",
+    "advanced-d2-professional-02-cluster-failure": "6OuAus_cOoo",
+    "advanced-d2-professional-03-heterogeneous-router": "pcUc5eIREU8",
+    "advanced-d2-professional-04-governance": "S-aGKOat5lY",
+    "algorithmic-l02-bars-calendars": "HOe_U9J37yA",
+    "algorithmic-l03-vintages": "HOe_U9J37yA",
+    "algorithmic-l04-ledger": "Q2qjnLO3I_M",
+    "algorithmic-l05-delayed-baseline": "j3QTPGFhqIg",
+    "algorithmic-l07-event-clock": "Tiyystl8x40",
+    "algorithmic-l08-cost-capacity": "NnMthpR6Sn4",
+    "algorithmic-l09-fill-failures": "Tiyystl8x40",
+    "algorithmic-l12-report": "92WaNz9mPeY",
+    "algorithmic-l13-sizing-limits": "PGQVmE13ZwM",
+    "algorithmic-l14-allocation": "o7OnkMdmjLg",
+    "algorithmic-l18-audit-pack": "sjq3toGtr0U",
+    "algorithmic-l19-paper-adapter": "tmM1CyzJjIo",
+    "algorithmic-l20-monitors-halts": "n4y9dwinPBQ",
+    "algorithmic-l21-recovery": "23rX78xqYUg",
+    "algorithmic-l22-artifacts": "lfjeLFDVdPA",
+    "algorithmic-l23-capstone": "lfjeLFDVdPA",
+    "algorithmic-l24-independent-review": "sjq3toGtr0U",
+    "advanced-d1-foundation-02-diagnostics": "SUO0rQerpMk",
+    "advanced-d1-foundation-03-transport-http": "pUxyukqoXR4",
+    "advanced-d1-foundation-04-pools-redis": "hFNnNVawHhk",
+    "advanced-d1-foundation-05-build-history": "gAGEar5HQoU",
+    "advanced-d1-intermediate-02-rpc": "wGIGTjZBVhk",
+    "advanced-d1-intermediate-02-brokers": "jY02MB-sz8I",
+    "advanced-d1-intermediate-03-kubernetes-helm": "Zzwq9FmZdsU",
+    "advanced-d1-intermediate-03-iac": "HODjaSPQdPQ",
+    "advanced-d1-intermediate-04-pool-locking": "kiIvKD6xIQY",
+    "advanced-d1-intermediate-05-telemetry": "d7d6JN0J3SQ",
+    "advanced-d1-advanced-01-raft-paxos": "64Zp3tzNbpE",
+    "advanced-d1-advanced-01-lsm-recovery": "IHtVWGhG0Xg",
+    "advanced-d1-advanced-02-io-load": "9JmVptQRyPo",
+    "advanced-d1-advanced-03-proxy-control": "gQF23Vw0keg",
+    "advanced-d1-advanced-03-overload-controls": "YXkOdWBwqaA",
+    "advanced-d1-advanced-04-transactions-sagas": "5YLpjPmsPCA",
+    "advanced-d1-advanced-04-leases-fencing": "PO0Jf5R4MK4",
+    "advanced-d1-advanced-04-workflow-replay": "23rX78xqYUg",
+    "advanced-d1-advanced-05-operator": "b6DCTjighPQ",
+    "advanced-d1-professional-01-shadow-cutover": "l_jjjgwNRI0",
+    "advanced-d1-professional-02-geo-failover": "C75kpQszAjs",
+    "advanced-d1-professional-03-service-memory": "xDKnMXtZKq8",
+    "advanced-d1-professional-04-idp-governance": "uMD8Sx81dz8",
+    "sk-be-l01-java-syntax-classes-records-interfaces-and-colle": "GoXwIVyNvX0",
+    "sk-be-l02-exceptions-maven-gradle-builds-and-junit-testing": "HUZppOYDoXs",
+    "sk-be-l03-rest-controllers-dependency-injection-and-config": "5rNk7m_zlAg",
+    "sk-be-l04-persistence-with-jpa-transactions-and-testcontai": "5rNk7m_zlAg",
+    "sk-be-l05-net-http-middleware-json-databases-and-graceful": "hX7EX9ukbmw",
+    "sk-be-l07-indexes-for-real-queries-explain-and-zero-downti": "ymVGg6woUtc",
+    "sk-be-l08-cache-aside-ttls-invalidation-stampedes-and-rate": "hFNnNVawHhk",
+    "sk-be-l09-producers-consumers-retries-dead-letter-topics-a": "WQDbX0agk-I",
+    "sk-be-l10-idempotency-keys-and-double-entry-ledgers": "xlCsXD2yh9E",
+    "sk-be-l11-the-transactional-outbox-and-sagas": "5YLpjPmsPCA",
+    "sk-be-l12-job-queues-with-skip-locked-retries-dead-letters": "N5b0CayG5rg",
+    "sk-be-l13-metrics-with-prometheus-structured-logs-and-trac": "d7d6JN0J3SQ",
+    "sk-be-l14-dashboards-slos-and-alerting-that-people-trust": "y2ILKr8kCJU",
+    "sk-be-l15-load-testing-with-k6-percentiles-and-finding-bot": "gvounvDSDGg",
+    "sk-be-l16-oauth-2-0-jwt-and-authorisation-done-right": "996OiexHze0",
+    "sk-be-l17-timeouts-retries-circuit-breakers-and-graceful-d": "PAfcUzkugHM",
+    "sk-be-l18-designing-a-payments-platform-end-to-end": "tmM1CyzJjIo",
+    "sk-cloud-l01-iam-ec2-and-vpc-identities-servers-and-networks": "7HKot-brXFE",
+    "sk-cloud-l02-s3-rds-lambda-and-cloudwatch-storage-databases-s": "7HKot-brXFE",
+    "sk-cloud-l03-users-services-logs-disks-and-troubleshooting-on": "0dG3vUYt7Uk",
+    "sk-cloud-l04-terraform-basics-providers-resources-variables-p": "jT7X6-gjTU8",
+    "sk-cloud-l05-modules-remote-state-workspaces-and-terraform-in": "HODjaSPQdPQ",
+    "sk-cloud-l06-clusters-pods-deployments-and-services": "X48VuDVv0do",
+    "sk-cloud-l07-configuration-storage-health-checks-and-resource": "8quZUZWm4oM",
+    "sk-cloud-l08-debugging-kubernetes-and-moving-to-eks": "E6NlTaxcrNI",
+    "sk-cloud-l09-helm-charts-templates-values-and-releases": "Zzwq9FmZdsU",
+    "sk-cloud-l11-argo-cd-applications-sync-drift-and-promotion-be": "0iIezO5a-ug",
+    "sk-cloud-l12-hpa-keda-and-karpenter-scaling-pods-and-nodes": "VCNxcBjVOIk",
+    "sk-cloud-l13-finops-tagging-cost-visibility-right-sizing-and": "jNF3SP95NQo",
+    "sk-cloud-l14-metrics-logs-and-traces-with-prometheus-grafana": "d7d6JN0J3SQ",
+    "sk-cloud-l15-slos-error-budgets-alerting-and-on-call": "y2ILKr8kCJU",
+    "sk-cloud-l16-rto-rpo-dr-strategies-backups-and-chaos-experime": "rD3nBaS3OG4",
+    "sk-cloud-l17-gpu-nodes-drivers-scheduling-and-gpu-monitoring": "nu6bLhuvlWM",
+    "sk-cloud-l18-serving-models-and-llms-vllm-kserve-autoscaling": "AGGPX11g3j0",
+    "sk-cloud-l19-well-architected-reviews-and-an-aws-saa-cka-stud": "MpDJ6TCWKjk",
+    "advanced-d3-foundation-02-primitives": "-fpVv_T4xwA",
+    "advanced-d3-foundation-02-owasp-controls": "9nKn-8cKJFw",
+    "advanced-d3-foundation-03-federation": "996OiexHze0",
+    "advanced-d3-foundation-04-cloud-boundaries": "pKPiPplJNak",
+    "advanced-d3-foundation-05-scan-ci": "bBF2QVdP6UE",
+    "advanced-d3-intermediate-01-iac-policy": "8k9-L8Cy_V8",
+    "advanced-d3-intermediate-02-cluster-policy": "UITUA486dRo",
+    "advanced-d3-intermediate-03-vault": "aErDyZvQjWg",
+    "advanced-d3-intermediate-04-dynamic-fuzz": "BnP2vls88fw",
+    "advanced-d3-intermediate-05-audit-siem": "j-yYTGBCDrs",
+    "advanced-d3-advanced-01-runtime-events": "1HYFmlsX0K0",
+    "advanced-d3-advanced-02-workload-identity": "pSPAtAI2q30",
+    "advanced-d3-advanced-03-iam-graphs": "pKPiPplJNak",
+    "advanced-d3-advanced-04-reachability": "vsn7BzJLBzo",
+    "advanced-d3-advanced-05-linux-sandbox": "7IhRc94_8fg",
+    "advanced-d3-professional-01-hsm-pqc": "qFYap9_-RTQ",
+    "advanced-d3-professional-02-response-automation": "7_d74-9xKDA",
+    "advanced-d3-professional-03-hybrid-ztna": "dsZdOgqms18",
+    "advanced-d3-professional-04-regulated-sdlc": "mRU6HO1t0vg",
+    "security-l01-lab-charter": "Yt0PhyEdZXU",
+    "security-l02-threat-model": "Yt0PhyEdZXU",
+    "security-l06-sessions": "996OiexHze0",
+    "security-l09-process-isolation": "7IhRc94_8fg",
+    "security-l14-ids": "CjzroHXcCPw",
+    "security-l16-database": "mtPM3iZFE04",
+    "security-l18-tenant-boundaries": "9nKn-8cKJFw",
+    "security-l19-asvs-evidence": "BnP2vls88fw",
+    "security-l20-cloud-iam": "pKPiPplJNak",
+    "security-l23-security-logs": "pgjk81lr_H8",
+    "security-l24-detections": "h8-Mnjq6EsU",
+    "security-l25-triage": "7_d74-9xKDA",
+    "security-l26-restoration": "rD3nBaS3OG4",
+    "security-l27-tabletop": "0FdnTr6or2A",
+    "security-l28-risk-register": "pPPiaGU12Og",
+    "security-l29-zero-trust": "dsZdOgqms18",
+    "security-l30-assurance-review": "Yt0PhyEdZXU",
+    "security-l31-capstone": "dsZdOgqms18",
+    "security-l32-recovery-defense": "0FdnTr6or2A",
+    "advanced-d4-foundation-02-warehouse-models": "gRE3E7VUzRU",
+    "advanced-d4-foundation-03-postgres-internals": "tUFha9-DuSk",
+    "advanced-d4-foundation-04-scheduled-etl": "6UNYaAzpfKY",
+    "advanced-d4-foundation-05-formats": "EsoOGanShQ0",
+    "advanced-d4-intermediate-01-duckdb-spark": "pZV9FvdKmLc",
+    "advanced-d4-intermediate-02-table-formats": "Xh8Xduwxl60",
+    "advanced-d4-intermediate-03-kafka-flink": "zkWa2ZDjwb4",
+    "advanced-d4-intermediate-04-local-analytics": "SyayPSrsAhI",
+    "advanced-d4-intermediate-04-managed-analytics": "fEzEM6ADwXg",
+    "advanced-d4-intermediate-05-dbt": "9mdvSD63s4Y",
+    "advanced-d4-advanced-01-catalog-maintenance": "Xh8Xduwxl60",
+    "advanced-d4-advanced-02-ingestion": "wyGLz8CPdRQ",
+    "advanced-d4-advanced-03-sql-ast-lineage": "ASiBidAFdwM",
+    "advanced-d4-advanced-04-stream-contracts": "4geWtITC52I",
+    "advanced-d4-advanced-04-online-profiles": "CR4-aVvjE6A",
+    "advanced-d4-advanced-05-federation": "RGslyyVpLQE",
+    "advanced-d4-professional-01-geo-governance": "3Q_XbPmICPg",
+    "advanced-d4-professional-02-optimizer": "Xb2zm4-F1HI",
+    "advanced-d4-professional-03-cluster-finops": "fEzEM6ADwXg",
+    "advanced-d4-professional-04-mesh-governance": "3Q_XbPmICPg",
+    "sk-data-l01-oltp-vs-olap-star-schemas-grain-and-slowly-chang": "gRE3E7VUzRU",
+    "sk-data-l05-joins-shuffles-skew-and-performance-tuning": "wrRm3iaAvCU",
+    "sk-data-l07-dagster-assets-partitions-and-sensors": "9U5OEQtDl-s",
+    "sk-data-l09-incremental-models-snapshots-and-ci-for-dbt": "9mdvSD63s4Y",
+    "sk-data-l11-structured-streaming-triggers-watermarks-state-a": "ipWNpSVEZ7o",
+    "sk-data-l12-delta-lake-transactions-merge-schema-evolution-a": "W8j-IsFeCqY",
+    "sk-data-l13-apache-iceberg-catalogs-hidden-partitioning-and": "Xh8Xduwxl60",
+    "sk-data-l15-great-expectations-quarantine-tables-and-data-co": "NWNmTsZteJA",
+    "sk-data-l16-duckdb-snowflake-and-trino-when-to-use-which": "pZV9FvdKmLc",
+    "sk-data-l17-performance-and-cost-tuning-for-analytical-workl": "fEzEM6ADwXg",
+    "sk-data-l18-lineage-with-openlineage-data-catalogs-and-pii-p": "uIuBBp3Ib64",
+    "ethical-hacking-l01-engagement": "kbp48dQBfpM",
+    "ethical-hacking-l02-isolated-target": "kbp48dQBfpM",
+    "ethical-hacking-l03-evidence": "kbp48dQBfpM",
+    "ethical-hacking-l06-baseline-map": "Yt0PhyEdZXU",
+    "ethical-hacking-l08-file-boundaries": "FARa5NHZh90",
+    "ethical-hacking-l09-object-access": "MmEa4r5STfM",
+    "ethical-hacking-l12-cross-origin": "af5RI6bLkyw",
+    "ethical-hacking-l13-api-contracts": "MmEa4r5STfM",
+    "ethical-hacking-l14-server-requests": "MmEa4r5STfM",
+    "ethical-hacking-l16-container-review": "Ps3X7WcwG_w",
+    "ethical-hacking-l17-tool-validation": "BnP2vls88fw",
+    "ethical-hacking-l18-prioritization": "d5CdaSVqmwI",
+    "ethical-hacking-l19-assessment-plan": "kbp48dQBfpM",
+    "ethical-hacking-l20-remediation": "BnP2vls88fw",
+    "ethical-hacking-l22-reporting": "0FdnTr6or2A",
+    "ethical-hacking-l23-capstone": "BnP2vls88fw",
+    "ethical-hacking-l24-disclosure-handover": "iQNZ7Ifej94",
+    "finance-l02-debt": "QEdQw9pZV14",
+    "finance-l03-insurance": "qfK9rCDCicE",
+    "finance-l04-consumer-safety": "hNcl85ukNeg",
+    "finance-l07-household-plan": "qfK9rCDCicE",
+    "finance-l09-working-capital": "U7tMwDUpBxM",
+    "finance-l13-funds-costs": "IJxgI6P0beU",
+    "finance-l14-policy": "IJxgI6P0beU",
+    "finance-l16-capital-structure": "MtsRSkV4HUg",
+    "finance-l19-macro": "xTjG2tuQWNM",
+    "finance-l22-memo": "Mioqyv_IW3E",
+    "finance-l23-capstone": "Mioqyv_IW3E",
+    "fe-l02-isolate-python-projects-with-virtual-environment": "n-3HUkJZ-fY",
+    "fe-l03-users-permissions-and-the-file-system-layout": "4e669hSjaX8",
+    "fe-l07-pull-requests-code-review-and-a-good-readme": "9K8lB61dl3Y",
+    "fe-l08-automate-checks-with-github-actions": "BQrohJ3PT7I",
+    "fe-l11-trees-graphs-heaps-and-bfs-dfs": "IBfWDYSffUU",
+    "fe-l12-recursion-backtracking-dynamic-programming-and-a": "r4-cftqTcdI",
+    "fe-l13-classes-interfaces-and-composition": "e4fwY9ZsxPw",
+    "fe-l14-readable-code-type-hints-and-refactoring": "8qj9odHceu4",
+    "fe-l16-indexes-transactions-isolation-and-query-plans": "qa5-mKVSQHQ",
+    "fe-l17-ip-ports-tcp-dns-and-tls": "IPvYjXCsTg8",
+    "fe-l19-images-containers-volumes-and-networking": "gAGEar5HQoU",
+    "fe-l20-dockerfiles-and-docker-compose-for-multi-service": "gAGEar5HQoU",
+    "fe-l21-cloud-concepts-accounts-regions-iam-and-billing": "7HKot-brXFE",
+    "fe-l22-core-services-compute-storage-databases-networki": "7HKot-brXFE",
+    "fe-l26-processes-threads-memory-and-scheduling": "TlvrQ8gXtqE",
+    "fe-l27-race-conditions-locks-deadlocks-and-async-progra": "Do7JtnPh1Mg",
+    "fe-l28-building-blocks-load-balancers-caches-queues-dat": "SqcXvc3ZmRU",
+    "fe-l29-scaling-data-replication-sharding-consistency-an": "M_teob23ZzY",
+    "fe-l33-behavioural-interviews-a-job-search-routine-and": "0_tJQSRs604",
+    "advanced-d5-foundation-04-affinity-sockets": "Hm_wEUCdhtk",
+    "advanced-d5-foundation-05-feed-files": "9LYYOdIwQXg",
+    "advanced-d5-intermediate-02-protocol-parsers": "vzh89Sl5lEI",
+    "advanced-d5-intermediate-02-websocket-feed": "XgFzHXOk8IQ",
+    "advanced-d5-intermediate-03-hybrid-backtest": "j3QTPGFhqIg",
+    "advanced-d5-intermediate-04-risk-statistics": "92WaNz9mPeY",
+    "advanced-d5-intermediate-05-profilers": "TnrXR6rYtQk",
+    "advanced-d5-advanced-01-native-lob": "sX2nF1fW7kI",
+    "advanced-d5-advanced-02-layout-experiments": "xDKnMXtZKq8",
+    "advanced-d5-advanced-03-execution-fidelity": "NnMthpR6Sn4",
+    "advanced-d5-advanced-04-research-grid": "6OuAus_cOoo",
+    "advanced-d5-advanced-05-kernel-controls": "Hm_wEUCdhtk",
+    "advanced-d5-professional-01-bypass-drivers": "1DWxo2gF-RQ",
+    "advanced-d5-professional-02-hardware-feed": "vzh89Sl5lEI",
+    "advanced-d5-professional-03-gateway": "sX2nF1fW7kI",
+    "advanced-d5-professional-04-research-platform": "sjq3toGtr0U",
+    "sk-quant-l02-prices-returns-compounding-and-corporate-actions": "Q2qjnLO3I_M",
+    "sk-quant-l04-estimation-hypothesis-tests-regression-and-multi": "L3nlGfSyHV0",
+    "sk-quant-l05-values-references-raii-and-smart-pointers": "07rJOzFRs6M",
+    "sk-quant-l06-standard-library-containers-algorithms-and-compl": "ZMUKa2kWtTk",
+    "sk-quant-l07-move-semantics-templates-cmake-and-unit-testing": "szU5b972F7E",
+    "sk-quant-l08-stationarity-autocorrelation-and-arma-basics": "RDbzp0jpipc",
+    "sk-quant-l09-cointegration-and-pairs-trading": "vvTKjm94Ars",
+    "sk-quant-l10-event-driven-backtesters-transaction-costs-and-s": "j3QTPGFhqIg",
+    "sk-quant-l11-bias-overfitting-and-walk-forward-validation": "sjq3toGtr0U",
+    "sk-quant-l14-implied-volatility-the-volatility-smile-and-svi": "ruFWFUkpbQk",
+    "sk-quant-l16-atomics-memory-ordering-and-lock-free-spsc-queue": "DS2m7T6NKZQ",
+    "sk-quant-l17-risk-metrics-sharpe-drawdown-var-and-expected-sh": "92WaNz9mPeY",
+    "sk-quant-l18-portfolio-construction-and-mean-variance-optimis": "o7OnkMdmjLg",
+    "sk-quant-l19-probability-puzzles-expected-value-mental-maths": "gB5TCCfF6e4",
+    "sk-sde-l01-go-syntax-types-slices-maps-structs-and-errors": "YS4e4q9oBaU",
+    "sk-sde-l02-interfaces-packages-testing-and-goroutines": "f6kdp27TYZs",
+    "sk-sde-l04-typescript-types-narrowing-generics-and-strict-m": "SpwzRDUQ1GI",
+    "sk-sde-l06-data-fetching-routing-and-front-end-testing": "_4hFAiWNM0g",
+    "sk-sde-l07-http-servers-middleware-and-persistence-in-node": "Oe421EPjeBE",
+    "sk-sde-l08-websockets-pub-sub-and-scaling-real-time-servers": "XgFzHXOk8IQ",
+    "sk-sde-l09-designing-rest-apis-with-openapi": "0hx17FfzrKM",
+    "sk-sde-l10-grpc-and-protocol-buffers": "wGIGTjZBVhk",
+    "sk-sde-l13-time-failure-and-idempotency-in-distributed-syst": "23rX78xqYUg",
+    "sk-sde-l14-write-ahead-logs-b-trees-lsm-trees-and-bloom-fil": "IHtVWGhG0Xg",
+    "sk-sde-l15-crdts-and-operational-transformation": "x7drE24geUw",
+    "sk-sde-l16-a-repeatable-system-design-interview-framework": "SqcXvc3ZmRU",
+    "sk-sde-l17-classic-designs-rate-limiter-chat-news-feed-url": "SqcXvc3ZmRU",
+    "sk-sde-l18-calling-llm-apis-structured-output-and-building": "kE4BkATIl9c",
+    "sk-sde-l19-code-review-testing-strategy-on-call-and-ownersh": "n4y9dwinPBQ",
+    "sk-sec-l04-cloud-iam-policies-roles-least-privilege-and-acc": "pKPiPplJNak",
+    "sk-sec-l05-logging-and-detection-cloudtrail-guardduty-and-s": "j-yYTGBCDrs",
+    "sk-sec-l06-data-and-network-protection-kms-s3-security-grou": "vRmUI0VdsQw",
+    "sk-sec-l07-entra-id-azure-rbac-conditional-access-and-privi": "ZfapPBwteBE",
+    "sk-sec-l08-defender-for-cloud-key-vault-and-microsoft-senti": "CnqmC-CQs48",
+    "sk-sec-l09-hands-on-owasp-top-10-with-juice-shop-and-portsw": "9nKn-8cKJFw",
+    "sk-sec-l10-sast-dast-sca-and-secrets-scanning-in-ci": "bBF2QVdP6UE",
+    "sk-sec-l11-sboms-vulnerability-management-and-dependency-hy": "bBF2QVdP6UE",
+    "sk-sec-l12-signing-provenance-slsa-and-admission-control": "8GKFzJaEHac",
+    "sk-sec-l14-kubernetes-rbac-network-policies-and-secrets": "UITUA486dRo",
+    "sk-sec-l15-security-logging-and-siem-pipelines": "pgjk81lr_H8",
+    "sk-sec-l16-sigma-rules-mitre-att-ck-and-validating-detectio": "h8-Mnjq6EsU",
+    "sk-sec-l17-the-incident-response-lifecycle-playbooks-and-cl": "7_d74-9xKDA",
+    "sk-sec-l18-cis-benchmarks-and-building-a-posture-scanner": "3Z3wfOcvMuE",
+    "sk-sec-l19-policy-as-code-scanning-terraform-and-enforcing": "8k9-L8Cy_V8",
+    "advanced-d6-foundation-01-scrum-refinement": "6q5-cVeNjCE",
+    "advanced-d6-foundation-04-analytics-tools": "aRn6YoWpzcc",
+    "advanced-d6-foundation-05-coordination-tools": "SOVGEsV5O9A",
+    "advanced-d6-intermediate-02-architecture-decisions": "SqcXvc3ZmRU",
+    "advanced-d6-intermediate-03-ab-framework": "qtboCGd_hTA",
+    "advanced-d6-intermediate-04-cloud-cost-model": "Txny5HLCImY",
+    "advanced-d6-intermediate-05-prioritization": "VOrtECHJcK4",
+    "advanced-d6-advanced-01-tradeoff-memos": "EA4eCY0tkpA",
+    "advanced-d6-advanced-02-devex": "Zrxn247FqtM",
+    "advanced-d6-advanced-03-migration-rings": "0I8Y_nLBazI",
+    "advanced-d6-advanced-04-ai-product-evaluation": "BsWxPI9UM4c",
+    "advanced-d6-advanced-05-compliance-prd": "wsrqczquMjA",
+    "advanced-d6-professional-01-portfolio-vision": "Mioqyv_IW3E",
+    "advanced-d6-professional-02-executive-decisions": "9UpkaF8PINI",
+    "advanced-d6-professional-03-usage-pricing": "jNF3SP95NQo",
+    "advanced-d6-professional-04-change-governance": "uMD8Sx81dz8",
+    "tpm-l01-problem-evidence": "o13AuovPTR4",
+    "tpm-l02-segments-jobs": "o13AuovPTR4",
+    "tpm-l03-product-system-map": "2W13ext26kQ",
+    "tpm-l04-outcome-metrics": "1jPT49gJKFk",
+    "tpm-l05-prd-acceptance": "wnttJp9KsC8",
+    "tpm-l06-prioritization-roadmap": "VOrtECHJcK4",
+    "tpm-l07-instrumentation-funnels": "aRn6YoWpzcc",
+    "tpm-l08-usability-experiments": "2a-o8MRuBvQ",
+    "tpm-l09-platform-api-products": "EA4eCY0tkpA",
+    "tpm-l10-experiment-validity": "qtboCGd_hTA",
+    "tpm-l11-unit-economics": "_nUUohpRfPE",
+    "tpm-l12-risk-sequencing": "wnttJp9KsC8",
+    "tpm-l13-launch-rollback": "0I8Y_nLBazI",
+    "tpm-l14-stakeholder-decisions": "9UpkaF8PINI",
+    "tpm-l15-postlaunch-roadmap": "wnttJp9KsC8",
+    "tpm-l16-case-study-defense": "bBzsQCs-6Vo",
+    "trading-l02-quotes-orders": "Tiyystl8x40",
+    "trading-l03-lifecycle": "HOe_U9J37yA",
+    "trading-l05-sizing": "92WaNz9mPeY",
+    "trading-l06-liquidity": "NnMthpR6Sn4",
+    "trading-l07-fill-policy": "Tiyystl8x40",
+    "trading-l08-attribution": "NnMthpR6Sn4",
+    "trading-l10-holdout": "sjq3toGtr0U",
+    "trading-l14-concentration": "o7OnkMdmjLg",
+    "trading-l15-regime-stress": "92WaNz9mPeY",
+    "trading-l16-journal-review": "lfjeLFDVdPA",
+    "trading-l17-halt-drill": "92WaNz9mPeY",
+    "trading-l18-conduct": "hNcl85ukNeg",
+    "trading-l19-replay": "lfjeLFDVdPA",
+    "trading-l20-capstone": "sjq3toGtr0U"
+  }
+}
