@@ -335,6 +335,44 @@ test("each exact path exposes 5/5/5/4 requirements and four numbered advanced ta
   );
 });
 
+test("shared systems stages reveal lessons and open their pages", async ({
+  page,
+}) => {
+  await page.goto("./#/careers");
+  await page
+    .getByRole("main")
+    .getByRole("link", { name: "Shared Systems & Languages", exact: true })
+    .click();
+
+  const modules = page.locator("#roadmap-modules");
+  const lessons = modules.locator(".roadmap-lesson h3");
+  await expect(lessons.first()).toBeVisible();
+
+  for (const [stage, count] of [
+    ["Beginner", 9],
+    ["Intermediate", 6],
+    ["Advanced", 6],
+    ["Professional Practice", 3],
+  ] as const) {
+    await page
+      .getByRole("button", { name: `Show ${stage} lessons`, exact: true })
+      .click();
+    await expect(modules).toBeFocused();
+    await expect(lessons.filter({ visible: true })).toHaveCount(count);
+
+    const firstLesson = lessons.first();
+    const title = await firstLesson.innerText();
+    await firstLesson.click();
+    await expect(
+      page.getByRole("heading", { level: 1, name: title }),
+    ).toBeVisible();
+    await page
+      .getByRole("main")
+      .getByRole("link", { name: "Shared Systems & Languages", exact: true })
+      .click();
+  }
+});
+
 test("language searches open substantive lessons and keep the two Tritons distinct", async ({
   page,
 }) => {

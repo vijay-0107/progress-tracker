@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -47,6 +47,8 @@ export function Roadmap({
   const [stage, setStage] = useState<Stage | "all">("all");
   const [paper, setPaper] = useState(selectedPaper);
   const [incomplete, setIncomplete] = useState(false);
+  const moduleList = useRef<HTMLDivElement>(null);
+  const sharedSystems = trackId === "systems-languages";
   const track = catalog.tracks.find((item) => item.trackId === trackId)!;
   const foundation = catalog.tracks.find(
     (item) => item.trackId === "foundation",
@@ -181,7 +183,7 @@ export function Roadmap({
                   : "Your core path, goals and totals are unchanged. Professional Practice is a learning level, not a professional certification, qualification or promise of trading profitability."}
               </p>
               <p>{track.limitations[0]}</p>
-              {trackId === "systems-languages" && (
+              {sharedSystems && (
                 <p>
                   Follow the explicit mappings in your selected Career Path.
                   Shared lessons keep one record; not every shared unit is
@@ -223,6 +225,7 @@ export function Roadmap({
                         setStage(outcome.stage);
                         setQuery("");
                         setIncomplete(false);
+                        if (sharedSystems) moduleList.current?.focus();
                       }}
                     >
                       Show {label} lessons
@@ -341,7 +344,12 @@ export function Roadmap({
           Incomplete only
         </label>
       </div>
-      <div className="roadmap-list" id="roadmap-modules">
+      <div
+        className="roadmap-list"
+        id="roadmap-modules"
+        ref={moduleList}
+        tabIndex={sharedSystems ? -1 : undefined}
+      >
         {matches.map((module) => {
           const blocked = unmetRequirements(catalog, module, state, paper);
           const units = eligibleLessons(module, paper);
@@ -353,8 +361,12 @@ export function Roadmap({
           return (
             <details
               className="module-card"
-              key={module.id}
-              open={query ? true : undefined}
+              key={sharedSystems ? `${module.id}:${stage}` : module.id}
+              open={
+                query || (sharedSystems && (stage !== "all" || number === 1))
+                  ? true
+                  : undefined
+              }
             >
               <summary>
                 <span
