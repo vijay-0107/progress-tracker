@@ -201,6 +201,30 @@ describe("empty state and manual completion", () => {
     ).toThrow();
   });
 
+  it("requires watching the shared systems video and allows optional assignment work later", () => {
+    const sharedLesson = { ...lesson, id: "systems-foundation-rust" };
+    expect(() => completeLesson(fresh(), sharedLesson, START)).toThrow(
+      /watch the required/i,
+    );
+    const completed = completeLesson(fresh(), sharedLesson, START, {
+      watchedVideo: true,
+    });
+    expect(completed.lessons[sharedLesson.id]).toMatchObject({
+      manualCompletedAt: START,
+      evidence: "",
+      rubricChecked: [],
+    });
+    expect(validateProgressState(completed)).toEqual(completed);
+    expect(
+      reviewLesson(
+        completed,
+        sharedLesson.id,
+        "good",
+        "2026-03-02T10:00:00.000Z",
+      ).lessons[sharedLesson.id].review?.lastReviewedAt,
+    ).toBe("2026-03-02T10:00:00.000Z");
+  });
+
   it("requires meaningful evidence and every literal rubric criterion", () => {
     expect(() => completeLesson(fresh(), lesson, START)).toThrow(/evidence/i);
     for (const evidence of [

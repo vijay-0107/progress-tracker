@@ -42,7 +42,10 @@
             "technology:c++",
             "technology:c"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-foundation-cpp-memory-video",
+            "locator": "Follow the RAII and smart-pointer examples. Identify who owns each resource and when destruction releases it."
+          },
           "reading": {
             "resourceId": "advanced-reading-8117f6cdcbd0",
             "locator": "C++ Core Guidelines: R.1 RAII, R.3 non-owning raw pointers, C.20/C.21 special member functions and explicit resource ownership."
@@ -145,7 +148,10 @@
             "technology:c++",
             "technology:c++23"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-foundation-cpp-values-video",
+            "locator": "Focus on when a move is selected, what changes in the source object, and when copying is still appropriate."
+          },
           "reading": {
             "resourceId": "advanced-reading-fe47b3eddf3e",
             "locator": "WG21 N4950, the freely published C++23 working draft: [cpp.predefined], [version.syn], [class.copy.ctor], [class.copy.elision], [views.span] and [expected]. Compare C++17/20/23 feature-test macros and the linked expected proposal; this is a pinned draft, not the paid ISO publication or a claim of complete toolchain support."
@@ -246,7 +252,10 @@
             "systems-foundation-go",
             "technology:go"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-foundation-go-video",
+            "locator": "Watch the examples on goroutines, channels, and select. Trace who owns each goroutine and how it can finish."
+          },
           "reading": {
             "resourceId": "advanced-reading-181c5d43f675",
             "locator": "A Tour of Go: structs, methods/interfaces, errors and Concurrency lessons on goroutines and channels. Work through the actual examples before building the bounded tool."
@@ -336,7 +345,10 @@
             "systems-foundation-rust",
             "technology:rust"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-foundation-rust-video",
+            "locator": "Follow the ownership, moves, references, and borrowing examples. Predict which uses the compiler will accept."
+          },
           "reading": {
             "resourceId": "advanced-reading-f4441b18e618",
             "locator": "The Rust Programming Language: chapters 4 Ownership and Borrowing, 6 Enums, 9 Error Handling and 10.3 Validating References with Lifetimes."
@@ -425,7 +437,10 @@
             "technology:c",
             "technology:bash"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-foundation-c-posix-video",
+            "locator": "Follow the process and descriptor diagrams. Track which process closes each end of the pipe."
+          },
           "reading": {
             "resourceId": "advanced-reading-99da8b78e467",
             "locator": "Linux manual pages: fork(2), execve(2), waitpid(2), pipe(2), close(2), signal-safety(7) and pipe(7), particularly inherited descriptors and end-of-file."
@@ -519,7 +534,10 @@
             "systems-foundation-java",
             "technology:java"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-foundation-java-video",
+            "locator": "Follow the try-with-resources example and trace what happens when the body throws. Apply the same close order to JDBC resources in the reading."
+          },
           "reading": {
             "resourceId": "advanced-reading-c29e1b313657",
             "locator": "dev.java learning: classes and objects, exceptions and managing resources; then the linked JDBC tutorial's connections, prepared statements and transactions."
@@ -620,7 +638,10 @@
             "systems-foundation-python-depth",
             "technology:python"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-foundation-python-depth-video",
+            "locator": "Follow the lazy looping and generator examples. Trace when values are computed and how a consumer can stop early."
+          },
           "reading": {
             "resourceId": "advanced-reading-46da2dec76cb",
             "locator": "Python Tutorial, Classes: class/instance variables, methods, iterators and generators. Pair with the typing module's runtime non-enforcement note."
@@ -709,7 +730,10 @@
             "systems-foundation-arrays-frames",
             "technology:sql"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-foundation-arrays-frames-video",
+            "locator": "Focus on the Polars expression and lazy-query examples. Compare their output and null handling with the pandas and NumPy fixtures in the reading."
+          },
           "reading": {
             "resourceId": "advanced-reading-64e32ea9f946",
             "locator": "NumPy User Guide: array creation, indexing, broadcasting and copies/views. Compare Pandas time-series/null handling and Polars expressions/lazy execution in the linked guides."
@@ -797,7 +821,10 @@
           "canonicalConceptTags": [
             "systems-foundation-tensors"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-foundation-tensors-video",
+            "locator": "Follow tensor creation, shapes, dtypes, and devices. Predict the metadata after each operation before running the examples."
+          },
           "reading": {
             "resourceId": "advanced-reading-f31e13487da1",
             "locator": "torch.Tensor reference: shape, stride, dtype, device, transpose, contiguous, reshape and NumPy interoperability; distinguish views from explicit transfers."
@@ -901,7 +928,10 @@
             "systems-intermediate-rust-sync",
             "technology:rust"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-intermediate-rust-sync-video",
+            "locator": "Follow the shared-state examples with Mutex and Arc. Trace which values may be shared across threads and when a lock is released."
+          },
           "reading": {
             "resourceId": "advanced-reading-984618ef8f70",
             "locator": "Shared-State Concurrency: Mutex<T>, Arc<T>, multiple ownership and the similarities between RefCell/Rc and Mutex/Arc; pair with Send/Sync and thread shutdown."
@@ -989,7 +1019,10 @@
             "systems-intermediate-go-sync-net",
             "technology:go"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-intermediate-go-sync-net-video",
+            "locator": "Follow the timeout, cancellation, and fan-in examples. Trace which goroutines stop after the caller stops waiting."
+          },
           "reading": {
             "resourceId": "advanced-reading-5d82dc9a454d",
             "locator": "Effective Go, Concurrency: goroutines, channels and parallelization. Use current sync/net/context package references for lifecycle, framing and cancellation details."
@@ -1082,7 +1115,10 @@
             "systems-intermediate-cpp-atomics",
             "technology:c++"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-intermediate-cpp-atomics-video",
+            "locator": "Focus on memory ordering and the happens-before relationship. Draw the publication edge in the reading's producer-consumer example."
+          },
           "reading": {
             "resourceId": "advanced-reading-c87a158eed67",
             "locator": "std::memory_order: relaxed ordering, release-acquire ordering, synchronizes-with and happens-before; read the publication examples and data-race restrictions."
@@ -1179,7 +1215,10 @@
             "systems-intermediate-python-workers",
             "technology:python"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-intermediate-python-workers-video",
+            "locator": "Focus on the trade-offs between threads and processes and how independent workers communicate."
+          },
           "reading": {
             "resourceId": "advanced-reading-98aeb027e426",
             "locator": "multiprocessing: contexts/start methods, Process, Queue, shared memory and programming guidelines, especially safe importing of the main module under spawn."
@@ -1278,7 +1317,10 @@
             "systems-intermediate-java-ast-jdbc",
             "technology:java"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-intermediate-java-ast-jdbc-video",
+            "locator": "Watch the AST and analysis examples. Use the existing JDBC reading for connection-pool diagnosis."
+          },
           "reading": {
             "resourceId": "advanced-reading-0155ac619422",
             "locator": "JDK compiler com.sun.source.tree: CompilationUnitTree, MethodInvocationTree and TreeVisitor. Use the linked HikariCP configuration/readme for acquisition, lifecycle and leak diagnostics."
@@ -1367,7 +1409,10 @@
             "systems-intermediate-sql-depth",
             "technology:sql"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-intermediate-sql-depth-video",
+            "locator": "Follow the plan walkthroughs. Compare estimated rows with actual rows and identify where each join or scan runs."
+          },
           "reading": {
             "resourceId": "advanced-reading-6772c859f6f8",
             "locator": "PostgreSQL manual: Window Functions, WITH Queries, Using EXPLAIN and Indexes. Focus on ROWS/RANGE frames, join cardinality and EXPLAIN ANALYZE execution."
@@ -1468,7 +1513,10 @@
             "systems-advanced-async-io",
             "technology:rust"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-advanced-async-io-video",
+            "locator": "Focus on submission and completion queues. Trace when a request is submitted and when its completion may be consumed."
+          },
           "reading": {
             "resourceId": "advanced-reading-c225d5946a26",
             "locator": "epoll(7): level-triggered and edge-triggered behavior, nonblocking I/O and examples. Compare io_uring submission/completion and Tokio I/O/cancellation in the linked references."
@@ -1565,7 +1613,10 @@
             "systems-advanced-cpp-spsc-arenas",
             "technology:c++"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-advanced-cpp-spsc-arenas-video",
+            "locator": "Focus on fixed capacity, ownership of producer and consumer indexes, and memory ordering when an item is published."
+          },
           "reading": {
             "resourceId": "advanced-reading-c87a158eed67",
             "locator": "std::memory_order release/acquire and happens-before examples; pair with Core Guidelines CP concurrency and R resource-management rules for queue ownership and bounded pools."
@@ -1667,7 +1718,10 @@
             "systems-advanced-c-ebpf",
             "technology:c"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-advanced-c-ebpf-video",
+            "locator": "Focus on the verifier's role and the observability examples. Identify how a program attaches to an event and reports measurements."
+          },
           "reading": {
             "resourceId": "advanced-reading-9b5bf1437230",
             "locator": "libbpf documentation: overview, program/map lifecycle and CO-RE. Continue to the kernel verifier and XDP tutorial's packet bounds/map examples before runtime work."
@@ -1777,7 +1831,10 @@
             "technology:c++",
             "technology:python"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-advanced-native-ml-bindings-video",
+            "locator": "Focus on the C++ extension boundary. Use the reading to trace who owns tensor storage after control returns to Python."
+          },
           "reading": {
             "resourceId": "advanced-reading-937eba573bc9",
             "locator": "pybind11: advanced functions, return-value policies, object lifetime, NumPy/buffer protocol and GIL behavior. Compare the Rust ownership and PyTorch tensor references."
@@ -1882,7 +1939,10 @@
             "technology:c",
             "technology:cuda"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-advanced-cuda-video",
+            "locator": "Follow the introductory kernel and thread-indexing examples. Predict which thread owns each output element."
+          },
           "reading": {
             "resourceId": "advanced-reading-0bc5541eaf1e",
             "locator": "CUDA C++ Programming Guide 12.8: Programming Model, Thread Hierarchy, Memory Hierarchy, Synchronization and Device Memory Accesses; label this pinned edition rather than claiming it is the latest."
@@ -1971,7 +2031,10 @@
             "technology:triton dsl",
             "technology:triton inference server"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-advanced-triton-video",
+            "locator": "Focus on Triton GPU program instances and tiled tensor operations. Apply that model to the reading's masked load and store examples."
+          },
           "reading": {
             "resourceId": "advanced-reading-85c75dbdf338",
             "locator": "Triton programming-language tutorials: Vector Addition and Matrix Multiplication, including program IDs, masked loads/stores, tiling and correctness checks."
@@ -2066,7 +2129,10 @@
           "canonicalConceptTags": [
             "systems-professional-native-performance"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-professional-native-performance-video",
+            "locator": "Focus on CPU sampling and how profiling points to a bottleneck. Use the reading for the separate Valgrind and Cachegrind workflows."
+          },
           "reading": {
             "resourceId": "advanced-reading-e6ef26241e98",
             "locator": "perf wiki: perf stat, perf record/report and symbol/profiling guidance. Pair with Valgrind Memcheck and Cachegrind manuals, keeping instrumentation and native timing separate."
@@ -2173,7 +2239,10 @@
             "technology:python",
             "technology:java"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-professional-runtime-contracts-video",
+            "locator": "Focus on what makes independently built binaries compatible. Use the reading to turn those concerns into cross-language runtime checks."
+          },
           "reading": {
             "resourceId": "advanced-reading-8117f6cdcbd0",
             "locator": "C++ Core Guidelines: Interfaces, resource ownership and concurrency rules; compare the linked Python/Rust/Go/Java resource and error contracts at each actual ABI boundary."
@@ -2298,7 +2367,10 @@
           "canonicalConceptTags": [
             "systems-professional-systems-design"
           ],
-          "video": null,
+          "video": {
+            "resourceId": "systems-professional-systems-design-video",
+            "locator": "Follow how an error budget is derived and used to make release decisions. Use the reading for the clock and capacity calculations."
+          },
           "reading": {
             "resourceId": "data-book-sre",
             "locator": "Google SRE book: Service Level Objectives, Handling Overload and Addressing Cascading Failures. Use the workload and measurement boundaries to frame the capacity decision."
@@ -3370,6 +3442,342 @@
       "verifiedOn": "2026-09-30",
       "availability": "checked",
       "notes": "SLI/SLO/error budgets, capacity, overload, release/incident response, distributed failure and CAP/PACELC trade-offs. The retrieved 2010 author-published CAP/PACELC discussion is historical theory context, not a current vendor capability claim. Link-only; no content is bundled and runtime access is not implied."
+    },
+    {
+      "id": "systems-foundation-cpp-memory-video",
+      "kind": "video",
+      "title": "Back to Basics: Smart Pointers and RAII",
+      "url": "https://www.youtube.com/watch?v=07rJOzFRs6M",
+      "provider": "CppCon · Inbal Levi",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-foundation-cpp-values-video",
+      "kind": "video",
+      "title": "Back to Basics: Move Semantics",
+      "url": "https://www.youtube.com/watch?v=szU5b972F7E",
+      "provider": "CppCon · Ben Saks",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-foundation-go-video",
+      "kind": "video",
+      "title": "Go Concurrency Patterns",
+      "url": "https://www.youtube.com/watch?v=f6kdp27TYZs",
+      "provider": "Google Developers · Rob Pike",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-foundation-rust-video",
+      "kind": "video",
+      "title": "Understanding Ownership in Rust",
+      "url": "https://www.youtube.com/watch?v=VFIOSWy93H0",
+      "provider": "Let's Get Rusty · Bogdan Popa",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-foundation-c-posix-video",
+      "kind": "video",
+      "title": "CS 110 Lecture 6: execvp, pipe, dup2, and signals",
+      "url": "https://www.youtube.com/watch?v=Yf380zTr_ro",
+      "provider": "Stanford CS110 · Chris Gregg",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-foundation-java-video",
+      "kind": "video",
+      "title": "#84 Try with resources in Java",
+      "url": "https://www.youtube.com/watch?v=hVQR0ZHFk-o",
+      "provider": "Telusko · Navin Reddy",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-foundation-python-depth-video",
+      "kind": "video",
+      "title": "Lazy Looping in Python: Making and Using Generators and Iterators",
+      "url": "https://www.youtube.com/watch?v=ixiRkUwPI2A",
+      "provider": "PyCon US · Trey Hunner",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-foundation-arrays-frames-video",
+      "kind": "video",
+      "title": "Polars, the Fastest Dataframe Library You Never Heard of",
+      "url": "https://www.youtube.com/watch?v=iwGIuGk5nCE",
+      "provider": "PyData Global · Ritchie Vink",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-foundation-tensors-video",
+      "kind": "video",
+      "title": "Introduction to PyTorch Tensors",
+      "url": "https://www.youtube.com/watch?v=r7QDUPb2dCM",
+      "provider": "PyTorch",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-intermediate-rust-sync-video",
+      "kind": "video",
+      "title": "Concurrency in Rust: Sharing State",
+      "url": "https://www.youtube.com/watch?v=mupwF9jbVZ4",
+      "provider": "Let's Get Rusty · Bogdan Popa",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-intermediate-go-sync-net-video",
+      "kind": "video",
+      "title": "Advanced Go Concurrency Patterns",
+      "url": "https://www.youtube.com/watch?v=QDDwwePbDtw",
+      "provider": "Google I/O · Sameer Ajmani",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-intermediate-cpp-atomics-video",
+      "kind": "video",
+      "title": "C++11/14/17 Atomics and Memory Model",
+      "url": "https://www.youtube.com/watch?v=DS2m7T6NKZQ",
+      "provider": "CppCon · Michael Wong",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-intermediate-python-workers-video",
+      "kind": "video",
+      "title": "Concurrency in Python: Concepts, Frameworks and Best Practices",
+      "url": "https://www.youtube.com/watch?v=Do7JtnPh1Mg",
+      "provider": "PyCon.DE · Stefan Schwarzer",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-intermediate-java-ast-jdbc-video",
+      "kind": "video",
+      "title": "JavaParser: How to Generate, Transform, Analyze and Refactor Java Code",
+      "url": "https://www.youtube.com/watch?v=vsn7BzJLBzo",
+      "provider": "FOSDEM",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-intermediate-sql-depth-video",
+      "kind": "video",
+      "title": "Understanding PostgreSQL Query Plans (aka EXPLAIN)",
+      "url": "https://www.youtube.com/watch?v=ymVGg6woUtc",
+      "provider": "PGConf NYC · Stephen Frost",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-advanced-async-io-video",
+      "kind": "video",
+      "title": "The Design and Evolution of io_uring",
+      "url": "https://www.youtube.com/watch?v=y4cb39pBp0I",
+      "provider": "TigerBeetle · Jens Axboe",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-advanced-cpp-spsc-arenas-video",
+      "kind": "video",
+      "title": "Designing an SPSC Lock Free Queue",
+      "url": "https://www.youtube.com/watch?v=mus6djSJLLc",
+      "provider": "Meeting C++ · Quasar Chunawala",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-advanced-c-ebpf-video",
+      "kind": "video",
+      "title": "Tutorial: Getting Started with eBPF",
+      "url": "https://www.youtube.com/watch?v=TJgxjVTZtfw",
+      "provider": "Linux Foundation Events · Liz Rice",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-advanced-native-ml-bindings-video",
+      "kind": "video",
+      "title": "How To Write C++ Extensions in 2026",
+      "url": "https://www.youtube.com/watch?v=v2LcTzpUOYU",
+      "provider": "PyTorch Foundation · Jane Xu and Mikayla Gawarecki",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-advanced-cuda-video",
+      "kind": "video",
+      "title": "Intro to CUDA",
+      "url": "https://www.youtube.com/watch?v=IzU4AVcMFys",
+      "provider": "NVIDIA",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-advanced-triton-video",
+      "kind": "video",
+      "title": "The Triton Language",
+      "url": "https://www.youtube.com/watch?v=G951lCm_qnk",
+      "provider": "PyTorch Foundation · Philippe Tillet",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-professional-native-performance-video",
+      "kind": "video",
+      "title": "Linux Profiling at Netflix",
+      "url": "https://www.youtube.com/watch?v=TnrXR6rYtQk",
+      "provider": "SCALE · Brendan Gregg",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-professional-runtime-contracts-video",
+      "kind": "video",
+      "title": "How Can Package Managers Handle ABI (In)compatibility in C++?",
+      "url": "https://www.youtube.com/watch?v=gWe2K_oCp6A",
+      "provider": "CppCon · Todd Gamblin",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
+    },
+    {
+      "id": "systems-professional-systems-design-video",
+      "kind": "video",
+      "title": "Risk and Error Budgets",
+      "url": "https://www.youtube.com/watch?v=y2ILKr8kCJU",
+      "provider": "Google Cloud Tech · Seth Vargo and Liz Fong-Jones",
+      "access": "free",
+      "license": "Publisher-hosted YouTube video",
+      "licenseUrl": null,
+      "redistribution": "link-only",
+      "downloadUrl": null,
+      "verifiedOn": "2026-11-21",
+      "notes": ""
     }
   ],
   "projectMappings": [],

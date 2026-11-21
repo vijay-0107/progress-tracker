@@ -123,8 +123,8 @@ export function Review({ catalog, state, mutate, notify }: LearningProps) {
                 </a>
               }
             >
-              No reviews are due. Completing an assignment starts a review
-              schedule; your own recall ratings adjust the next interval.
+              No reviews are due. Completing a lesson starts a review schedule;
+              your own recall ratings adjust the next interval.
             </EmptyState>
           )}
         </>
@@ -294,8 +294,7 @@ export function Review({ catalog, state, mutate, notify }: LearningProps) {
             })
           ) : (
             <EmptyState title="Your review rhythm starts here">
-              Complete a lesson assignment to create your first scheduled
-              recall.
+              Complete a lesson to create your first scheduled recall.
             </EmptyState>
           )}
         </>

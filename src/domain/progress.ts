@@ -10,6 +10,7 @@ import type {
   SyncEntity,
 } from "./types";
 import { choiceIndex, choiceSelections } from "./answers";
+import { requiresLessonVideo } from "./types";
 import {
   MAX_COLLECTION_ENTRIES,
   MAX_JSON_LENGTH,
@@ -304,33 +305,41 @@ export function completeLesson(
   state: ProgressState,
   lesson: Lesson,
   now?: string,
+  { watchedVideo = false }: { watchedVideo?: boolean } = {},
 ): ProgressState {
   idSchema.parse(lesson.id);
   const at = timestamp(now);
   const current = has(state.lessons, lesson.id)
     ? state.lessons[lesson.id]
     : emptyLesson(lesson.id, at);
-  if (!isMeaningfulEvidence(current.evidence)) {
+  if (current.manualCompletedAt !== null) return state;
+  const videoRequired = requiresLessonVideo(lesson.id);
+  if (videoRequired && (!lesson.video || !watchedVideo)) {
+    throw new ProgressValidationError(
+      "Watch the required lesson video and confirm it before recording completion.",
+    );
+  }
+  if (!videoRequired && !isMeaningfulEvidence(current.evidence)) {
     throw new ProgressValidationError(
       "Add meaningful assignment evidence (at least 20 descriptive characters) before completing.",
     );
   }
   const criteria = lesson.assignment.acceptanceCriteria;
   if (
-    !Array.isArray(criteria) ||
-    criteria.length > 200 ||
-    criteria.some(
-      (criterion) =>
-        typeof criterion !== "string" ||
-        !criterion.trim() ||
-        !current.rubricChecked.includes(criterion),
-    )
+    !videoRequired &&
+    (!Array.isArray(criteria) ||
+      criteria.length > 200 ||
+      criteria.some(
+        (criterion) =>
+          typeof criterion !== "string" ||
+          !criterion.trim() ||
+          !current.rubricChecked.includes(criterion),
+      ))
   ) {
     throw new ProgressValidationError(
       "Check every assignment acceptance criterion before completing.",
     );
   }
-  if (current.manualCompletedAt !== null) return state;
   if (Date.parse(at) < Date.parse(current.updatedAt)) {
     throw new ProgressValidationError(
       "Completion cannot precede the saved lesson.",
@@ -374,7 +383,9 @@ export function completeLesson(
       kind: "assignment",
       entityId: lesson.id,
       minutes: 0,
-      detail: current.evidence,
+      detail: videoRequired
+        ? "Self-reported completion after watching the required lesson video."
+        : current.evidence,
     },
     at,
   );
@@ -393,7 +404,7 @@ export function reviewLesson(
   if (
     !current?.manualCompletedAt ||
     !current.review ||
-    !isMeaningfulEvidence(current.evidence)
+    (!requiresLessonVideo(id) && !isMeaningfulEvidence(current.evidence))
   ) {
     throw new ProgressValidationError(
       "Complete the lesson with evidence before recording a recall review.",
@@ -408,7 +419,11 @@ export function reviewLesson(
     kind: "review",
     entityId: id,
     minutes: 0,
-    detail: `Recall review for ${id}; self-assessed ${rating}. Assignment evidence: ${current.evidence.slice(0, 18_000)}`,
+    detail: `Recall review for ${id}; self-assessed ${rating}.${
+      current.evidence
+        ? ` Assignment evidence: ${current.evidence.slice(0, 1_500)}`
+        : ""
+    }`,
   };
   const withActivity = recordActivity(state, event, at);
   if (withActivity === state) return state;

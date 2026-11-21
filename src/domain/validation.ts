@@ -1,5 +1,9 @@
 import { z } from "zod";
-import { CORE_TRACK_IDS, type ProgressState } from "./types";
+import {
+  CORE_TRACK_IDS,
+  requiresLessonVideo,
+  type ProgressState,
+} from "./types";
 
 export const MAX_JSON_LENGTH = 5_000_000;
 export const MAX_COLLECTION_ENTRIES = 10_000;
@@ -186,6 +190,7 @@ export const lessonProgressSchema = z
   .superRefine((value, context) => {
     if (
       value.manualCompletedAt !== null &&
+      !requiresLessonVideo(value.id) &&
       !isMeaningfulEvidence(value.evidence)
     ) {
       context.addIssue({

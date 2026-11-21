@@ -40,6 +40,7 @@ describe.each(tracks)("$file persistence contract", ({ data }) => {
         ),
         lesson,
         time,
+        { watchedVideo: track.trackId === "systems-languages" },
       );
       for (const record of recordsFromState(state))
         expect(

@@ -16,6 +16,7 @@ import {
   EXTRA_TOPIC_IDS,
   LEARNING_STAGES,
   TRACK_IDS,
+  requiresLessonVideo,
 } from "../domain/types";
 import { trackSchema } from "./schema";
 import { projects } from "./projects";
@@ -551,10 +552,15 @@ export function validateCatalog(catalog: Catalog): void {
               `${lesson.id} references unknown prerequisite lesson ${id}`,
             );
         });
+        const videoRequired = requiresLessonVideo(lesson.id);
+        if (videoRequired !== (track.trackId === "systems-languages"))
+          throw new Error(
+            `Unexpected video completion policy for ${lesson.id}`,
+          );
         if (
           lesson.video
             ? resources.get(lesson.video.resourceId)?.kind !== "video"
-            : isCoreTrack(track.trackId)
+            : isCoreTrack(track.trackId) || videoRequired
         )
           throw new Error(`${lesson.id} needs a known lecture/video`);
         const readingKind = resources.get(lesson.reading.resourceId)?.kind;

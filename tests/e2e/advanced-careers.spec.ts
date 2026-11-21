@@ -373,6 +373,45 @@ test("shared systems stages reveal lessons and open their pages", async ({
   }
 });
 
+test("shared systems video completion works without assignment evidence or notes", async ({
+  page,
+}) => {
+  await page.route("https://www.youtube-nocookie.com/embed/**", (route) =>
+    route.fulfill({ body: "Video player fixture" }),
+  );
+  const lessonId = "systems-foundation-cpp-memory";
+  await page.goto(`./#/lesson/${lessonId}`);
+  await expect(
+    page
+      .locator('a[href="https://www.youtube.com/watch?v=07rJOzFRs6M"]')
+      .first(),
+  ).toBeVisible();
+  await page.getByRole("tab", { name: "Assignment", exact: true }).click();
+  await expect(page.getByLabel("Assignment evidence")).toHaveValue("");
+  await expect(
+    page.getByRole("button", { name: "Record manual completion" }),
+  ).toHaveCount(0);
+  await page.getByRole("tab", { name: "Learn & explore", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Load external lecture video" })
+    .click();
+  await expect(page.locator('iframe[src$="/embed/07rJOzFRs6M"]')).toBeVisible();
+  await page.getByRole("button", { name: /I watched the video/ }).click();
+  await expect(
+    page.getByText(/Lesson completion recorded/).first(),
+  ).toBeVisible();
+  await page.reload();
+  await expect(
+    page.getByRole("button", { name: "Reopen this lesson" }),
+  ).toBeVisible();
+  expect((await state(page)).lessons[lessonId]).toMatchObject({
+    evidence: "",
+    note: "",
+    rubricChecked: [],
+    manualCompletedAt: expect.any(String),
+  });
+});
+
 test("language searches open substantive lessons and keep the two Tritons distinct", async ({
   page,
 }) => {

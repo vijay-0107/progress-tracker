@@ -36,7 +36,7 @@ import {
   type LessonPatch,
 } from "../domain/progress";
 import { sameValue } from "../domain/validation";
-import type { ProgressState } from "../domain/types";
+import { requiresLessonVideo, type ProgressState } from "../domain/types";
 import { downloadJson } from "../state/useWorkspace";
 import { saveWrittenSelfCheck } from "../state/assessment";
 import { pageFromBookmark } from "../domain/reader";
@@ -163,6 +163,7 @@ export function LessonPage({
       </EmptyState>
     );
   const { lesson, module, track } = found;
+  const videoRequired = requiresLessonVideo(lesson.id);
   const video = lesson.video
     ? findResource(catalog, lesson.video.resourceId)
     : null;
@@ -180,6 +181,16 @@ export function LessonPage({
     mutate((current) =>
       applyDraft(current, { evidence, rubricChecked: checks }),
     );
+  const reopenLesson = () => {
+    if (
+      mutate((current) =>
+        updateLesson(current, id, { manualCompletedAt: null }),
+      )
+    )
+      notify(
+        "Marked incomplete. Your prior activity remains an honest historical record.",
+      );
+  };
   return (
     <>
       <div className="breadcrumb">
@@ -338,9 +349,10 @@ export function LessonPage({
         <div className="notice success">
           <Check size={18} />
           <span>
-            Self-reported assignment completion recorded{" "}
-            {readableDate(saved.manualCompletedAt)}. This is your evidence
-            record, not externally verified mastery.
+            {videoRequired
+              ? "Lesson completion recorded"
+              : "Self-reported assignment completion recorded"}{" "}
+            {readableDate(saved.manualCompletedAt)}.
           </span>
         </div>
       )}
@@ -418,7 +430,11 @@ export function LessonPage({
                 <section className="panel lesson-section">
                   <div className="section-title">
                     <div>
-                      <p className="eyebrow">01 / WATCH & THINK</p>
+                      <p className="eyebrow">
+                        {videoRequired
+                          ? "01 / REQUIRED VIDEO"
+                          : "01 / WATCH & THINK"}
+                      </p>
                       <h2>{video.title}</h2>
                     </div>
                     <Play size={22} />
@@ -478,6 +494,38 @@ export function LessonPage({
                     </External>
                   </div>
                   <p className="quiet-note">{video.notes}</p>
+                  {videoRequired && (
+                    <>
+                      <p>
+                        Watch the assigned video, then record your completion.
+                        Reading, assignments, and notes are optional practice.
+                      </p>
+                      {saved.manualCompletedAt ? (
+                        <button className="text-button" onClick={reopenLesson}>
+                          Reopen this lesson
+                        </button>
+                      ) : (
+                        <button
+                          className="button primary"
+                          onClick={() => {
+                            if (
+                              mutate((current) =>
+                                completeLesson(current, lesson, undefined, {
+                                  watchedVideo: true,
+                                }),
+                              )
+                            )
+                              notify(
+                                "Lesson completion recorded. Your next review has been scheduled.",
+                              );
+                          }}
+                        >
+                          <Check size={17} /> I watched the video · record
+                          completion
+                        </button>
+                      )}
+                    </>
+                  )}
                 </section>
               ) : (
                 <p className="notice info">
@@ -696,6 +744,12 @@ export function LessonPage({
             >
               <p className="eyebrow">MAKE SOMETHING YOU CAN EXPLAIN</p>
               <h2>{lesson.assignment.title}</h2>
+              {videoRequired && (
+                <p>
+                  Optional practice. Record lesson completion in Learn &amp;
+                  explore after watching the video.
+                </p>
+              )}
               <span className="stage-badge">{lesson.assignment.kind}</span>
               <ol className="instruction-list">
                 {lesson.assignment.instructions.map((instruction) => (
@@ -762,46 +816,36 @@ export function LessonPage({
                   <Save size={16} />
                   Save assignment draft
                 </button>
-                <button
-                  className="button primary"
-                  onClick={() => {
-                    if (
-                      mutate((current) =>
-                        completeLesson(
-                          applyDraft(current, {
-                            evidence,
-                            rubricChecked: checks,
-                          }),
-                          lesson,
-                        ),
+                {!videoRequired && (
+                  <button
+                    className="button primary"
+                    onClick={() => {
+                      if (
+                        mutate((current) =>
+                          completeLesson(
+                            applyDraft(current, {
+                              evidence,
+                              rubricChecked: checks,
+                            }),
+                            lesson,
+                          ),
+                        )
                       )
-                    )
-                      notify(
-                        "Assignment completion recorded. Your next review has been scheduled.",
-                      );
-                  }}
-                  disabled={Boolean(saved.manualCompletedAt)}
-                >
-                  <Check size={17} />
-                  {saved.manualCompletedAt
-                    ? "Completion recorded"
-                    : "Record manual completion"}
-                </button>
+                        notify(
+                          "Assignment completion recorded. Your next review has been scheduled.",
+                        );
+                    }}
+                    disabled={Boolean(saved.manualCompletedAt)}
+                  >
+                    <Check size={17} />
+                    {saved.manualCompletedAt
+                      ? "Completion recorded"
+                      : "Record manual completion"}
+                  </button>
+                )}
               </div>
-              {saved.manualCompletedAt && (
-                <button
-                  className="text-button"
-                  onClick={() => {
-                    if (
-                      mutate((current) =>
-                        updateLesson(current, id, { manualCompletedAt: null }),
-                      )
-                    )
-                      notify(
-                        "Marked incomplete. Your prior activity remains an honest historical record.",
-                      );
-                  }}
-                >
+              {!videoRequired && saved.manualCompletedAt && (
+                <button className="text-button" onClick={reopenLesson}>
                   Reopen this lesson
                 </button>
               )}
@@ -1063,7 +1107,13 @@ export function LessonPage({
           <section className="lesson-checklist">
             <h3>Your lesson, step by step</h3>
             {[
-              ...(video ? ["Watch the relevant lecture"] : []),
+              ...(video
+                ? [
+                    videoRequired
+                      ? "Watch the required video"
+                      : "Watch the relevant lecture",
+                  ]
+                : []),
               "Read and connect the ideas",
               "Build and check your evidence",
               "Retrieve, reflect and review",

@@ -27,6 +27,11 @@ export const CAREER_COURSE_IDS = [
   "quant-infrastructure-advanced",
   "technical-pm-advanced",
 ] as const;
+
+// Shared Systems & Languages uses the same canonical lesson IDs across courses.
+export function requiresLessonVideo(lessonId: string): boolean {
+  return lessonId.startsWith("systems-");
+}
 /** Beginner-to-professional skill builders shown inside existing sections. */
 export const SKILL_TRACK_IDS = [
   "foundation-essentials",

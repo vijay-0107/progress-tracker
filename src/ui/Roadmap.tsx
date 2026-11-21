@@ -422,8 +422,10 @@ export function Roadmap({
                     <span>{blocked.map((item) => item.title).join(" · ")}</span>
                     <small>
                       You can preview any lesson. Prerequisites guide the
-                      recommended order; completion is recorded only with your
-                      evidence.
+                      recommended order.{" "}
+                      {sharedSystems
+                        ? "Record completion after watching the lesson video."
+                        : "Record completion with your assignment evidence."}
                     </small>
                   </div>
                 )}

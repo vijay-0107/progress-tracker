@@ -181,7 +181,15 @@ describe("exact six-domain advanced learning contract", () => {
         );
       for (const lesson of course.modules.flatMap((module) => module.lessons)) {
         expect(lesson.optional).toBe(false);
-        expect(lesson.video).toBeNull();
+        if (course.trackId === "systems-languages") {
+          expect(lesson.video?.locator, lesson.id).toBeTruthy();
+          const video = findResource(catalog, lesson.video!.resourceId);
+          expect(video.kind).toBe("video");
+          expect(video.access).toBe("free");
+          expect(video.url).toMatch(
+            /^https:\/\/www\.youtube\.com\/watch\?v=[\w-]{11}$/,
+          );
+        } else expect(lesson.video).toBeNull();
         expect(lesson.objectives).toHaveLength(2);
         expect(lesson.topics.length).toBeGreaterThanOrEqual(2);
         const explanation = lesson.topics
@@ -628,7 +636,7 @@ describe("new advanced scopes never inherit earlier readiness", () => {
     expect(projectTotals(catalog, next, "advanced").recorded).toBe(0);
   });
 
-  it("uses normal lesson notes, manual self-checks, rubric completion and reviews without seeding projects", () => {
+  it("preserves optional lesson notes and assignment work after video completion", () => {
     const lesson = findLesson(catalog, "systems-foundation-rust")!.lesson;
     const before = createProgress("uid:alice", T0);
     const question = lesson.assignment.questions[0];
@@ -657,8 +665,14 @@ describe("new advanced scopes never inherit earlier readiness", () => {
       ),
       lesson,
       T2,
+      { watchedVideo: true },
     );
     expect(next.lessons[lesson.id].review).not.toBeNull();
+    expect(next.lessons[lesson.id]).toMatchObject({
+      evidence: evidence(lesson.id, "actual fixture"),
+      rubricChecked: lesson.assignment.acceptanceCriteria,
+      note: "Private ownership explanation",
+    });
     expect(next.projects).toEqual({});
     expect(lessonCompletion(coreLessons(catalog), next).completed).toBe(0);
     expect(parseImport(exportProgress(next), next.ownerId)).toEqual(next);
